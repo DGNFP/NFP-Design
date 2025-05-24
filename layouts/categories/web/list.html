@@ -1,0 +1,75 @@
+{{ define "main" }}
+<!-- 게시판 섹션 -->
+<section class="board-section">
+    <div class="container">
+        <h2 class="board-section-title">웹 디자인 게시판</h2>
+        <p class="board-intro">홈페이지, 상세페이지, 배너디자인 등 웹 기반 디자인</p>
+        
+        <div class="all-view-all-wrapper">
+            <!-- <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button active">웹 디자인</a> -->
+            <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
+            <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
+            <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
+            <a href="{{ "/posts/" | relURL }}" class="all-view-all-button">전체 작업 보기</a>
+        </div>
+        
+        <!-- 카테고리 필터 -->
+        <div class="board-filter">
+            <div class="filter-group">
+                <ul class="category-filter">
+                    <li><a class="active" data-filter="all">웹 디자인 전체</a></li>
+                    <li><a data-filter="homepage">홈페이지</a></li>
+                    <li><a data-filter="banner">디지털배너</a></li>
+                    <li><a data-filter="detail_page">상세페이지</a></li>
+                    <li><a data-filter="ux_ui">UX/UI</a></li>
+                </ul>
+            </div>
+            
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" placeholder="검색어를 입력하세요" class="form-control" id="searchInput">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        
+        <!-- 게시판 그리드 -->
+        <div class="board-grid">
+            {{ $paginator := .Paginate .Pages 9 }}
+            {{ range $paginator.Pages }}
+            <div class="board-item" data-main="web" data-category="{{ .Params.subCategory }}">
+                <a href="{{ .Permalink }}">
+                    <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                    <div class="board-item-content">
+                        <h3 class="board-item-title">{{ .Title }}</h3>
+                        <p class="board-item-desc">{{ .Params.description | truncate 80 }}</p>
+                        <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
+                        <span class="board-item-link">자세히 보기</span>
+                    </div>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+        
+        <!-- 페이지네이션 -->
+        {{ if gt $paginator.TotalPages 1 }}
+        <div class="pagination">
+            {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}" class="page-prev"><i class="fas fa-chevron-left"></i></a>
+            {{ end }}
+            
+            {{ range $paginator.Pagers }}
+            {{ if eq . $paginator }}
+            <a href="{{ .URL }}" class="active">{{ .PageNumber }}</a>
+            {{ else }}
+            <a href="{{ .URL }}">{{ .PageNumber }}</a>
+            {{ end }}
+            {{ end }}
+            
+            {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}" class="page-next"><i class="fas fa-chevron-right"></i></a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

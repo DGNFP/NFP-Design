@@ -1,0 +1,204 @@
+{{ define "main" }}
+<!-- 히어로 섹션 -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">안녕하세요.<br><span>NFP 디자인 </span>입니다.</h1>
+            <p class="hero-subtitle"><br>고객의 <span>Needs</span>를 읽는 섬세한 시선<br>트렌드를 이끄는 <span>Fresh</span>한 감각<br>디테일을 살린 <span>Pop</span>한 디자인<br><span>NFP</span> 디자인, 디테일에서 시작해 트렌드를 완성하다.</p>
+            <div class="hero-btns">
+                <a href="{{ "posts" | relURL }}" class="btn">작업 보기</a>
+                <a href="#contact" class="btn btn-outline">연락하기</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 프로젝트 섹션 -->
+<section id="design">
+    <div class="container">
+        <h2 class="section-title">프로젝트</h2>
+        <div class="design-grid">
+            <div class="design-item">
+                <a href="{{ "/categories/web/" | relURL }}">
+                    <img src="{{ "img/design1.jpg" | relURL }}" alt="웹 디자인" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="design-title">웹 디자인</h3>
+                        <p class="design-sub">홈페이지, 랜딩페이지, 광고 배너 등 웹 기반 디자인</p>
+                        <a href="{{ "/categories/web/" | relURL }}" class="view-work">상세보기</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="design-item">
+                <a href="{{ "/categories/content/" | relURL }}">
+                    <img src="{{ "img/design1.jpg" | relURL }}" alt="컨텐츠 디자인" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="design-title">컨텐츠 디자인</h3>
+                        <p class="design-sub">카드뉴스, 상세페이지, 포스터 등 다양한 컨텐츠 디자인</p>
+                        <a href="{{ "/categories/content/" | relURL }}" class="view-work">상세보기</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="design-item">
+                <a href="{{ "/categories/creative/" | relURL }}">
+                    <img src="{{ "img/design1.jpg" | relURL }}" alt="크리에이티브 디자인" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="design-title">크리에이티브 디자인</h3>
+                        <p class="design-sub">게임광고, 로고, 인터넷 방송 등 다양한 디지털 컨텐츠</p>
+                        <a href="{{ "/categories/creative/" | relURL }}" class="view-work">상세보기</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="design-item">
+                <a href="{{ "/categories/video/" | relURL }}">
+                    <img src="{{ "img/design1.jpg" | relURL }}" alt="영상 디자인" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="design-title">영상 디자인</h3>
+                        <p class="design-sub">영상 제작, 영상 편집, 모션 그래픽 등 영상 관련 작업</p>
+                        <a href="{{ "/categories/video/" | relURL }}" class="view-work">상세보기</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="design-item">
+                <a href="{{ "/categories/ad/" | relURL }}">
+                    <img src="{{ "img/design1.jpg" | relURL }}" alt="광고,인쇄 디자인" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="design-title">광고/인쇄 디자인</h3>
+                        <p class="design-sub">현수막, 명함, 브로슈어 등 오프라인 매체 디자인</p>
+                        <a href="{{ "/categories/ad/" | relURL }}" class="view-work">상세보기</a>
+                    </div>
+                </a>
+            </div>
+
+            <div class="design-item">
+                <a href="{{ "/categories/programming/" | relURL }}">
+                    <img src="{{ "img/design1.jpg" | relURL }}" alt="프로그래밍" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="design-title">프로그래밍</h3>
+                        <p class="design-sub">퍼블리싱, 프론트엔드, 게임개발 등 프로그래밍 관련 작업</p>
+                        <a href="{{ "/categories/programming/" | relURL }}" class="view-work">상세보기</a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 소개 섹션 -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">소개</h2>
+        <div class="about-content">
+            <div class="about-info">
+                <h3>열정적인 디자이너의 이야기</h3>
+                <p>10년 이상의 디자인 경력을 바탕으로 다양한 브랜드와 협업하며 창의적인 비전을 실현해왔습니다. 디자인은 단순한 직업이 아닌 저의 열정이자 삶의 방식입니다.</p>
+                <p>미니멀리즘과 기능성을 중시하면서도 독창적인 요소를 통해 차별화된 디자인을 추구합니다. 클라이언트의 요구사항을 깊이 이해하고 공감하여 문제를 해결하는 디자인을 제공합니다.</p>
+                <div class="skills">
+                    <span class="skill-main">#웹 디자인</span>
+                    <span class="skill">홈페이지</span>
+                    <span class="skill">디지털 배너</span>
+                    <span class="skill-main">#컨텐츠 디자인</span>
+                    <span class="skill">카드뉴스</span>
+                    <span class="skill">상세페이지</span>
+                    <span class="skill">썸네일</span>
+                    <span class="skill">SNS이미지</span>
+                    <span class="skill">피드광고</span>
+                    <span class="skill">포스터</span>
+                    <span class="skill-main">#영상 디자인</span>
+                    <span class="skill">영상 제작</span>
+                    <span class="skill">영상 편집</span>
+                    <span class="skill">모션 그래픽</span>
+                    <span class="skill-main">#광고/인쇄 디자인</span>
+                    <span class="skill">명함</span>
+                    <span class="skill">현수막</span>
+                    <span class="skill">브로슈어</span>
+                    <span class="skill">카달로그</span>
+                </div>
+                <a href="#contact" class="btn">함께 일해요</a>
+            </div>
+            <img src="{{ "img/design1.jpg" | relURL }}" alt="프로필 이미지" class="about-img">
+        </div>
+    </div>
+</section>
+
+<!-- 소식 섹션 -->
+<section id="news" class="news">
+    <div class="container">
+        <div class="news-header">
+            <h2 class="section-title">소식</h2>
+            <a href="/news/" class="btn btn-more">더보기</a>
+        </div>
+        <div class="news-content">
+            <div class="banner-container">
+                <div class="banner-slider">
+                    {{ $newsPosts := where site.RegularPages "Section" "news" }}
+                    {{ range $index, $post := first 5 $newsPosts }}
+                    <div class="banner{{ if eq $index 0 }} active{{ end }}">
+                        <img src="{{ $post.Params.thumbnail | default "img/banner1.jpg" }}" class="pc_img" alt="소식 배너 {{ add $index 1 }}">
+                        <img src="{{ $post.Params.thumbnail | default "img/design2.jpg" }}" class="mo_img" alt="m소식 배너 {{ add $index 1 }}">
+                    </div>
+                    {{ else }}
+                    <div class="banner active">
+                        <img src="img/banner1.jpg" class="pc_img" alt="기본 배너">
+                        <img src="img/design2.jpg" class="mo_img" alt="기본 모바일 배너">
+                    </div>
+                    {{ end }}
+                </div>
+                <button class="banner-btn prev-btn">&lt;</button>
+                <button class="banner-btn next-btn">&gt;</button>
+                <div class="banner-dots">
+                    {{ range $index, $post := first 5 $newsPosts }}
+                    <span class="dot{{ if eq $index 0 }} active{{ end }}" data-index="{{ $index }}"></span>
+                    {{ else }}
+                    <span class="dot active" data-index="0"></span>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="news-list">
+                {{ range first 5 $newsPosts }}
+                <div class="news-item">
+                    <a href="{{ .Permalink }}" class="news-link">
+                        <span class="news-title">{{ .Title }}</span>
+                        <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
+                    </a>
+                </div>
+                {{ else }}
+                <div class="news-item">
+                    <div class="news-link">
+                        <span class="news-title">소식이 없습니다</span>
+                        <span class="news-date">2025.05.24</span>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 연락처 섹션 -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">연락하기</h2>
+        <div class="contact-form">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="이름" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="이메일" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="제목">
+                </div> 
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="메시지" required></textarea>
+                </div>
+                <button type="submit" class="btn">메시지 보내기</button>
+            </form>
+        </div>
+    </div>
+</section>
+{{ end }}

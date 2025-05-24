@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - NFP Design</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <link rel="stylesheet" href="/css/board.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+
+<section class="board-section">
+    <div class="container">
+        <h2 class="board-section-title">소식</h2>
+        <p class="board-intro">NFP 디자인의 최신 소식과 이벤트, 디자인 트렌드 정보를 확인하세요</p>
+        
+        
+        <div class="board-search-wrapper">
+            <div class="board-search">
+                <input type="text" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        
+        <div class="news-list">
+            
+            <div class="news-item">
+                <a href="http://localhost:1313/news/simple/" class="news-link">
+                    <span class="news-title">NFP 디자인 신규 오픈</span>
+                    <span class="news-date">2025.05.24</span>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>

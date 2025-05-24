@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+    {{ if not .IsHome }}
+    <link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
+    {{ end }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    {{ block "main" . }}{{ end }}
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+    
+    <!-- 컴포넌트 스크립트 -->
+    <script src="{{ "components/header.js" | relURL }}"></script>
+    <script src="{{ "components/footer.js" | relURL }}"></script>
+    <script src="{{ "components/floating.js" | relURL }}"></script>
+    
+    <!-- 컴포넌트 초기화 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    {{ if .IsHome }}
+    <script src="{{ "js/scpript.js" | relURL }}"></script>
+    {{ else }}
+    <script src="{{ "js/filter.js" | relURL }}"></script>
+    {{ end }}
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>

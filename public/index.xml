@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NFP Design</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on NFP Design</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NFP 디자인 신규 오픈</title>
+      <link>http://localhost:1313/news/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/news/simple/</guid>
+      <description>&lt;p&gt;NFP 디자인 웹사이트가 오픈되었습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>광고 디자인 프로젝트</title>
+      <link>http://localhost:1313/posts/ad/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ad/simple/</guid>
+      <description>&lt;p&gt;광고 디자인 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>웹사이트 디자인 프로젝트</title>
+      <link>http://localhost:1313/posts/content/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/content/simple/</guid>
+      <description>&lt;p&gt;웹사이트 디자인 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>웹사이트 디자인 프로젝트</title>
+      <link>http://localhost:1313/posts/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/simple/</guid>
+      <description>&lt;p&gt;웹사이트 디자인 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>웹사이트 디자인 프로젝트</title>
+      <link>http://localhost:1313/posts/video/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/video/simple/</guid>
+      <description>&lt;p&gt;웹사이트 디자인 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>웹사이트 디자인 프로젝트</title>
+      <link>http://localhost:1313/posts/web/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/web/simple/</guid>
+      <description>&lt;p&gt;웹사이트 디자인 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

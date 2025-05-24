@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>News on NFP Design</title>
+    <link>http://localhost:1313/news/</link>
+    <description>Recent content in News on NFP Design</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/news/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NFP 디자인 신규 오픈</title>
+      <link>http://localhost:1313/news/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/news/simple/</guid>
+      <description>&lt;p&gt;NFP 디자인 웹사이트가 오픈되었습니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
