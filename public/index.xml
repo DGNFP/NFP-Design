@@ -6,8 +6,15 @@
     <description>Recent content on NFP Design</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>테스트 게시글</title>
+      <link>http://localhost:1313/posts/2025-05-24-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%8C%EC%8B%9C%EA%B8%80/</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025-05-24-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%8C%EC%8B%9C%EA%B8%80/</guid>
+      <description>&lt;p&gt;피파온라인 게시글이지만 웹이라고 가정한 테스트 게시글&lt;/p&gt;</description>
+    </item>
     <item>
       <title>NFP 디자인 신규 오픈</title>
       <link>http://localhost:1313/news/simple/</link>

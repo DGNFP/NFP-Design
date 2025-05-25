@@ -183,18 +183,25 @@
     <div class="container">
         <h2 class="section-title">연락하기</h2>
         <div class="contact-form">
-            <form action="#" method="POST">
+            <!-- Netlify Forms 설정 -->
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <!-- 스팸 방지용 숨김 필드 -->
+                <input type="hidden" name="form-name" value="contact">
+                <div style="display: none;">
+                    <input name="bot-field">
+                </div>
+                
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="이름" required>
+                    <input type="text" name="name" class="form-control" placeholder="이름" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="이메일" required>
+                    <input type="email" name="email" class="form-control" placeholder="이메일" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="제목">
+                    <input type="text" name="subject" class="form-control" placeholder="제목">
                 </div> 
                 <div class="form-group">
-                    <textarea class="form-control" placeholder="메시지" required></textarea>
+                    <textarea name="message" class="form-control" placeholder="메시지" required></textarea>
                 </div>
                 <button type="submit" class="btn">메시지 보내기</button>
             </form>
