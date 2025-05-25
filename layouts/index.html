@@ -202,4 +202,66 @@
         </div>
     </div>
 </section>
+
+<!-- 성공 팝업 -->
+<div id="success-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+    <div style="background: white; padding: 40px; border-radius: 10px; text-align: center; max-width: 400px; margin: 20px;">
+        <h3 style="color: #333; margin-bottom: 20px;">메시지 전송 완료! ✅</h3>
+        <p style="color: #666; margin-bottom: 30px;">메시지가 성공적으로 전송되었습니다.<br>빠른 시일 내에 답변드리겠습니다.</p>
+        <button onclick="closePopup()" style="background: #007bff; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer;">확인</button>
+    </div>
+</div>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); // 기본 폼 제출 방지
+    
+    const form = e.target;
+    const submitBtn = document.getElementById('submit-btn');
+    const formData = new FormData(form);
+    
+    // 버튼 비활성화
+    submitBtn.textContent = '전송 중...';
+    submitBtn.disabled = true;
+    
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            // 성공 팝업 표시
+            document.getElementById('success-popup').style.display = 'flex';
+            
+            // 폼 초기화
+            form.reset();
+        } else {
+            alert('메시지 전송에 실패했습니다. 다시 시도해주세요.');
+        }
+    } catch (error) {
+        alert('네트워크 오류가 발생했습니다. 다시 시도해주세요.');
+    }
+    
+    // 버튼 복원
+    submitBtn.textContent = '메시지 보내기';
+    submitBtn.disabled = false;
+});
+
+function closePopup() {
+    document.getElementById('success-popup').style.display = 'none';
+}
+
+// 팝업 배경 클릭시 닫기
+document.getElementById('success-popup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePopup();
+    }
+});
+</script>
+
+
 {{ end }}
