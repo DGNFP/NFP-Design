@@ -10,8 +10,6 @@
             <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
             <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
             <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
-            <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
-            <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
         </div>
 
         <!-- 카테고리 필터 -->
@@ -40,31 +38,18 @@
                 {{ range $paginator.Pages }}
                 <div class="board-all-item" data-main="{{ .Params.mainCategory }}" data-category="{{ .Params.subCategory }}">
                     <a href="{{ .Permalink }}">
-                        <!-- 썸네일 이미지 (동영상 또는 일반 이미지) -->
+                        <!-- 썸네일 이미지 (이미지 우선, 동영상 썸네일 제외) -->
                         <div class="board-thumbnail">
-                            {{ if .Params.videoUrl }}
-                                <!-- 동영상 URL이 있는 경우 YouTube 썸네일 -->
-                                {{ $videoId := "" }}
-                                {{ if (findRE "youtube\\.com|youtu\\.be" .Params.videoUrl) }}
-                                    {{ $videoId = replaceRE ".*(?:youtube\\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\\.be/)([^\"&?/ ]{11}).*" "$1" .Params.videoUrl }}
-                                    <img src="https://img.youtube.com/vi/{{ $videoId }}/mqdefault.jpg" alt="{{ .Title }}">
-                                    <div class="play-button">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                {{ else if (findRE "vimeo\\.com" .Params.videoUrl) }}
-                                    <!-- Vimeo는 첫 번째 이미지 또는 기본 이미지 사용 -->
-                                    {{ if .Params.images }}
-                                        <img src="{{ index .Params.images 0 }}" alt="{{ .Title }}">
-                                    {{ else }}
-                                        <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
-                                    {{ end }}
-                                    <div class="play-button">
-                                        <i class="fas fa-play"></i>
-                                    </div>
+                            {{ if .Params.images }}
+                                <!-- 업로드된 이미지들 중 첫 번째 사용 -->
+                                {{ $images := .Params.images }}
+                                {{ if eq (printf "%T" $images) "string" }}
+                                    <!-- 단일 이미지인 경우 -->
+                                    <img src="{{ $images }}" alt="{{ .Title }}">
+                                {{ else }}
+                                    <!-- 배열인 경우 첫 번째 이미지 -->
+                                    <img src="{{ index $images 0 }}" alt="{{ .Title }}">
                                 {{ end }}
-                            {{ else if .Params.images }}
-                                <!-- 일반 이미지들 중 첫 번째 -->
-                                <img src="{{ index .Params.images 0 }}" alt="{{ .Title }}">
                             {{ else if .Params.thumbnail }}
                                 <!-- 기존 썸네일 (하위 호환성) -->
                                 <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
