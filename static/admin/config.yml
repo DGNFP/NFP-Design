@@ -6,6 +6,11 @@ media_folder: "static/img/uploads"
 public_folder: "/img/uploads"
 
 locale: 'ko'
+encoding: 'utf-8'
+
+# 마크다운 에디터 설정
+editor:
+preview: true
 
 collections:
   - name: "web-posts"
@@ -13,6 +18,8 @@ collections:
     folder: "content/posts/web"
     create: true
     slug: "{{slug}}"
+# 한글 슬러그 지원
+    slug_encoding: unicode
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
@@ -28,6 +35,7 @@ collections:
     folder: "content/posts/ad"
     create: true
     slug: "{{slug}}"
+    slug_encoding: unicode
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
@@ -43,6 +51,7 @@ collections:
     folder: "content/posts/content"
     create: true
     slug: "{{slug}}"
+    slug_encoding: unicode
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
@@ -58,6 +67,7 @@ collections:
     folder: "content/posts/creative"
     create: true
     slug: "{{slug}}"
+    slug_encoding: unicode
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
@@ -73,6 +83,7 @@ collections:
     folder: "content/posts/programming"
     create: true
     slug: "{{slug}}"
+    slug_encoding: unicode
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
@@ -88,6 +99,7 @@ collections:
     folder: "content/posts/video"
     create: true
     slug: "{{slug}}"
+    slug_encoding: unicode
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
@@ -103,6 +115,7 @@ collections:
     folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug_encoding: unicode
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
