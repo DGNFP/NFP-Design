@@ -184,12 +184,9 @@
         <h2 class="section-title">연락하기</h2>
         <div class="contact-form">
             <!-- Netlify Forms 설정 -->
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form name="contact" method="POST" netlify>
                 <!-- 스팸 방지용 숨김 필드 -->
                 <input type="hidden" name="form-name" value="contact">
-                <div style="display: none;">
-                    <input name="bot-field">
-                </div>
                 
                 <div class="form-group">
                     <input type="text" name="name" class="form-control" placeholder="이름" required>
