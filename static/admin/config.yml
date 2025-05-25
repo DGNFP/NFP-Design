@@ -15,13 +15,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "썸네일 이미지", name: "thumbnail", widget: "image"}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["웹사이트", "웹앱", "랜딩페이지", "이커머스", "포트폴리오"], required: false}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지", "디지털 배너", "상세페이지", "UX/UI"], required: false}
       - {label: "카테고리", name: "categories", widget: "select", options: ["web"], default: "web"}
       - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
-      - {label: "초안", name: "draft", widget: "boolean", default: false}
 
   - name: "ad-posts"
     label: "광고 작업물"
@@ -30,13 +29,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "썸네일 이미지", name: "thumbnail", widget: "image"}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["배너광고", "소셜미디어", "인쇄광고", "영상광고", "브랜딩"], required: false}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["현수막/엑스배너", "명함", "브로슈어/카탈로그" , "옥외광고"], required: false}
       - {label: "카테고리", name: "categories", widget: "select", options: ["ad"], default: "ad"}
       - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
-      - {label: "초안", name: "draft", widget: "boolean", default: false}
 
   - name: "content-posts"
     label: "콘텐츠 작업물"
@@ -45,13 +43,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "썸네일 이미지", name: "thumbnail", widget: "image"}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["블로그", "아티클", "카피라이팅", "콘텐츠기획", "SEO"], required: false}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["카드뉴스", "포스터", "SNS광고"], required: false}
       - {label: "카테고리", name: "categories", widget: "select", options: ["content"], default: "content"}
       - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
-      - {label: "초안", name: "draft", widget: "boolean", default: false}
 
   - name: "creative-posts"
     label: "크리에이티브 작업물"
@@ -60,13 +57,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "썸네일 이미지", name: "thumbnail", widget: "image"}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고디자인", "브랜딩", "패키지디자인", "일러스트", "포스터"], required: false}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "브랜딩", "패키지 디자인", "게임 광고 디자인", "방송 디자인"], required: false}
       - {label: "카테고리", name: "categories", widget: "select", options: ["creative"], default: "creative"}
       - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
-      - {label: "초안", name: "draft", widget: "boolean", default: false}
 
   - name: "programming-posts"
     label: "프로그래밍 작업물"
@@ -75,28 +71,27 @@ collections:
     slug: "{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "썸네일 이미지", name: "thumbnail", widget: "image"}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "백엔드", "풀스택", "모바일앱", "데이터베이스"], required: false}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "백엔드", "퍼블리싱", "모바일앱", "게임개발"], required: false}
       - {label: "카테고리", name: "categories", widget: "select", options: ["programming"], default: "programming"}
       - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
-      - {label: "초안", name: "draft", widget: "boolean", default: false}
 
   - name: "video-posts"
-    label: "비디오 작업물"
+    label: "영상 작업물"
     folder: "content/posts/video"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "썸네일 이미지", name: "thumbnail", widget: "image"}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홍보영상", "교육영상", "모션그래픽", "애니메이션", "라이브스트림"], required: false}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
+      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["영상 제작", "영상 편집", "모션그래픽", "유튜브 썸네일"], required: false}
       - {label: "카테고리", name: "categories", widget: "select", options: ["video"], default: "video"}
       - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
-      - {label: "초안", name: "draft", widget: "boolean", default: false}
 
   - name: "news"
     label: "소식 게시글"
@@ -105,8 +100,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "썸네일 이미지", name: "thumbnail", widget: "image", required: false}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
       - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
-      - {label: "초안", name: "draft", widget: "boolean", default: false}
