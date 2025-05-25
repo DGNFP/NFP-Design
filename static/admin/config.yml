@@ -15,7 +15,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD", default: "{{now}}"}
+      - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
       - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지", "디지털 배너", "상세페이지", "UX/UI"], required: false}
       - {label: "카테고리", name: "categories", widget: "select", options: ["web"], default: "web"}
