@@ -183,8 +183,7 @@
     <div class="container">
         <h2 class="section-title">연락하기</h2>
         <div class="contact-form">
-            <!-- Formspree 사용 (즉시 작동) -->
-            <form action="https://formspree.io/f/xpwdgdnq" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/xpwdgdnq" method="POST">
                 <div class="form-group">
                     <input type="text" name="name" class="form-control" placeholder="이름" required>
                 </div>
@@ -197,7 +196,7 @@
                 <div class="form-group">
                     <textarea name="message" class="form-control" placeholder="메시지" required></textarea>
                 </div>
-                <button type="submit" class="btn">메시지 보내기</button>
+                <button type="submit" class="btn" id="submit-btn">메시지 보내기</button>
             </form>
         </div>
     </div>
