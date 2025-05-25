@@ -183,11 +183,8 @@
     <div class="container">
         <h2 class="section-title">연락하기</h2>
         <div class="contact-form">
-            <!-- Netlify Forms 설정 -->
-            <form name="contact" method="POST" netlify>
-                <!-- 스팸 방지용 숨김 필드 -->
-                <input type="hidden" name="form-name" value="contact">
-                
+            <!-- Formspree 사용 (즉시 작동) -->
+            <form action="https://formspree.io/f/xpwdgdnq" method="POST">
                 <div class="form-group">
                     <input type="text" name="name" class="form-control" placeholder="이름" required>
                 </div>
