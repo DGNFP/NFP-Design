@@ -847,9 +847,9 @@
 }
 
 .post-image img {
-    width: 100%;
     height: auto;
-    display: block;
+    margin-bottom: 20px;
+    max-width: none; /* PC에서 원본 크기 */
 }
 
 .post-body {
@@ -892,7 +892,10 @@
         align-items: flex-start;
     }
 
-    
+     .post-image img {
+        max-width: 100%;
+        width: 100%;
+    }
     
     .filter-group {
         width: 100%;

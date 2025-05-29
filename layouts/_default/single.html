@@ -58,7 +58,7 @@
                             <!-- 배열인 경우 -->
                             {{ range $images }}
                                 <div class="post-image">
-                                    <img src="{{ . | relURL }}" alt="{{ $.Title }}" style="max-width: 100%; margin-bottom: 20px;">
+                                    <img src="{{ . | relURL }}" alt="{{ $.Title }}" style="height: auto; margin-bottom: 20px; max-width: 100%;">
                                 </div>
                             {{ end }}
                         {{ end }}
