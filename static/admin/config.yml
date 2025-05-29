@@ -16,7 +16,7 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "이미지", name: "images", widget: "image", allow_multiple: true, required: false}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지", "디지털배너", "상세페이지", "UX/UI"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["web"]}
       - {label: "설명", name: "description", widget: "text"}
