@@ -34,12 +34,23 @@
         
         <!-- 와이드 레이아웃 게시판 그리드 (4x3) -->
         <div class="board-grid-wide">
-            {{ $paginator := .Paginate (where site.RegularPages "Params.mainCategory" "video") 12 }}
+            {{ $paginator := .Paginate .Pages 12 }}
             {{ range $paginator.Pages }}
             <div class="board-item-wide" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
                     <div class="board-item-img">
-                        <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                        {{ if .Params.images }}
+                          {{ $images := .Params.images }}
+                          {{ if eq (printf "%T" $images) "string" }}
+                            <img src="{{ $images }}" alt="{{ .Title }}">
+                          {{ else }}
+                            <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                          {{ end }}
+                        {{ else if .Params.thumbnail }}
+                          <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                        {{ else }}
+                          <img src="img/design1.jpg" alt="{{ .Title }}">
+                        {{ end }}
                     </div>
                     <div class="board-item-content">
                         <h3 class="board-item-title">{{ .Title }}</h3>
