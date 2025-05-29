@@ -32,6 +32,44 @@
         </div>
         
         <!-- 정사각형 레이아웃 게시판 그리드 (5x3) -->
+<div class="board-grid-square">
+    {{ $contentPages := where site.RegularPages ".Params.categories" "intersect" (slice "content") }}
+    
+    <!-- 🔍 디버깅 정보 -->
+    <div style="background: #ffffcc; padding: 15px; margin: 10px; border: 1px solid #ccc;">
+        <h3>🔍 디버깅 정보:</h3>
+        <p><strong>전체 글 수:</strong> {{ len site.RegularPages }}</p>
+        <p><strong>content 카테고리 글 수:</strong> {{ len $contentPages }}</p>
+        
+        <h4>📄 content 카테고리 글 목록:</h4>
+        {{ range $contentPages }}
+            <div style="border-left: 3px solid #007bff; padding-left: 10px; margin: 5px 0;">
+                <p><strong>{{ .Title }}</strong></p>
+                <p>📁 Categories: {{ delimit .Params.categories ", " }}</p>
+                <p>📅 Date: {{ .Date.Format "2006-01-02" }}</p>
+                <p>📄 File: {{ .File.Path }}</p>
+            </div>
+        {{ end }}
+        
+        {{ if eq (len $contentPages) 0 }}
+            <p style="color: red;"><strong>❌ content 카테고리 글이 없습니다!</strong></p>
+            
+            <h4>📄 모든 글의 카테고리 정보:</h4>
+            {{ range first 5 site.RegularPages }}
+                <div style="border-left: 3px solid #dc3545; padding-left: 10px; margin: 5px 0;">
+                    <p><strong>{{ .Title }}</strong></p>
+                    <p>📁 Categories: {{ delimit .Params.categories ", " }}</p>
+                    <p>📄 File: {{ .File.Path }}</p>
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+    
+    {{ $paginator := .Paginate $contentPages 15 }}
+    {{ range $paginator.Pages }}
+    <!-- 기존 코드 계속... -->
+
+        <!-- 정사각형 레이아웃 게시판 그리드 (5x3) -->
         <div class="board-grid-square">
             {{ $paginator := .Paginate (where site.RegularPages ".Params.categories" "intersect" (slice "content")) 15 }}
             {{ range $paginator.Pages }}
