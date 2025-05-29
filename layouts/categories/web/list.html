@@ -32,13 +32,29 @@
             </div>
         </div>
         
-        <!-- 게시판 그리드 -->
+      <!-- 게시판 그리드 -->
         <div class="board-grid">
             {{ $paginator := .Paginate .Pages 9 }}
             {{ range $paginator.Pages }}
             <div class="board-item" data-main="web" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
+                    {{ if .Params.images }}
+                    {{ $images := .Params.images }}
+                    {{ if eq (printf "%T" $images) "string" }}
+                        <!-- 단일 이미지인 경우 -->
+                        <img src="{{ $images }}" alt="{{ .Title }}">
+                    {{ else }}
+                        <!-- 배열인 경우 첫 번째 이미지 -->
+                        <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                    {{ end }}
+                    {{ else if .Params.thumbnail }}
+                    <!-- 기존 썸네일 (하위 호환성) -->
                     <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                    {{ else }}
+                    <!-- 기본 이미지 -->
+                    <img src="img/design1.jpg" alt="{{ .Title }}">
+                    {{ end }}
+                    
                     <div class="board-item-content">
                         <h3 class="board-item-title">{{ .Title }}</h3>
                         <p class="board-item-desc">{{ .Params.description | truncate 80 }}</p>
@@ -48,7 +64,7 @@
                 </a>
             </div>
             {{ end }}
-        </div>
+</div>
         
         <!-- 페이지네이션 -->
         {{ if gt $paginator.TotalPages 1 }}
