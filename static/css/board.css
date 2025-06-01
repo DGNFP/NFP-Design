@@ -329,6 +329,8 @@
     text-decoration: none;
     position: relative;
     transition: color var(--transition);
+    /* 추가: 텍스트 너비에 맞춤 */
+    width: fit-content;
 }
 
 .board-all-item-link:hover {
