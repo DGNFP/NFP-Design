@@ -1,4 +1,7 @@
 {{ define "main" }}
+<!-- 메인페이지 전용 CSS -->
+<link rel="stylesheet" href="{{ "css/popup.css" | relURL }}">
+
 <!-- 히어로 섹션 -->
 <section class="hero" id="home">
     <div class="container">
@@ -189,7 +192,7 @@
                     <input type="email" name="email" class="form-control" placeholder="이메일" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="subject" class="form-control" placeholder="제목">
+                    <input type="text" name="contact" class="form-control" placeholder="연락처 (전화번호 또는 카카오톡 ID)">
                 </div> 
                 <div class="form-group">
                     <textarea name="message" class="form-control" placeholder="메시지" required></textarea>
@@ -200,14 +203,123 @@
     </div>
 </section>
 
-<!-- 성공 팝업 -->
-<div id="success-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
-    <div style="background: white; padding: 40px; border-radius: 10px; text-align: center; max-width: 400px; margin: 20px;">
-        <h3 style="color: #333; margin-bottom: 20px;">메시지 전송 완료! ✅</h3>
-        <p style="color: #666; margin-bottom: 30px;">메시지가 성공적으로 전송되었습니다.<br>빠른 시일 내에 답변드리겠습니다.</p>
-        <button onclick="closePopup()" style="background: #007bff; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer;">확인</button>
+<!-- 팝업 배너 슬라이더 (PC 전용) -->
+<div id="popup-banner" class="popup-banner">
+    <div class="popup-banner-container">
+        <!-- 배너 이미지 영역 -->
+        <div class="popup-banner-slider">
+            <div class="popup-banner-slide active">
+                <img src="img/popup-banner-1.jpg" alt="팝업 배너 1">
+            </div>
+            <div class="popup-banner-slide">
+                <img src="img/popup-banner-2.jpg" alt="팝업 배너 2">
+            </div>
+            <div class="popup-banner-slide">
+                <img src="img/popup-banner-3.jpg" alt="팝업 배너 3">
+            </div>
+            <div class="popup-banner-slide">
+                <img src="img/popup-banner-4.jpg" alt="팝업 배너 4">
+            </div>
+            <div class="popup-banner-slide">
+                <img src="img/popup-banner-5.jpg" alt="팝업 배너 5">
+            </div>
+        </div>
+        
+        <!-- 네비게이션 도트 -->
+        <div class="popup-banner-dots">
+            <span class="popup-dot active" data-slide="0"></span>
+            <span class="popup-dot" data-slide="1"></span>
+            <span class="popup-dot" data-slide="2"></span>
+            <span class="popup-dot" data-slide="3"></span>
+            <span class="popup-dot" data-slide="4"></span>
+        </div>
+        
+        <!-- 하단 버튼 영역 -->
+        <div class="popup-banner-controls">
+            <button class="popup-hide-today">오늘 하루 보지않음</button>
+            <button class="popup-close">닫기</button>
+        </div>
     </div>
 </div>
+
+<!-- 성공 팝업 (테마 컬러 적용) -->
+<div id="success-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center;">
+    <div style="
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); 
+        border: 2px solid #01FF75; 
+        padding: 50px 40px; 
+        border-radius: 15px; 
+        text-align: center; 
+        max-width: 450px; 
+        margin: 20px;
+        box-shadow: 0 20px 40px rgba(1, 255, 117, 0.3);
+        backdrop-filter: blur(10px);
+    ">
+        <div style="
+            font-size: 48px; 
+            margin-bottom: 20px;
+            color: #01FF75;
+            animation: checkmark 0.6s ease-in-out;
+        ">✅</div>
+        <h3 style="
+            color: #01FF75; 
+            margin-bottom: 15px; 
+            font-size: 24px;
+            font-weight: 700;
+        ">메시지 전송 완료!</h3>
+        <p style="
+            color: #ffffff; 
+            margin-bottom: 35px; 
+            line-height: 1.6;
+            font-size: 16px;
+            opacity: 0.9;
+        ">메시지가 성공적으로 전송되었습니다.<br>빠른 시일 내에 답변드리겠습니다.</p>
+        <button onclick="closePopup()" style="
+            background: linear-gradient(135deg, #01FF75 0%, #00cc5a 100%); 
+            color: #000000; 
+            border: none; 
+            padding: 15px 35px; 
+            border-radius: 8px; 
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(1, 255, 117, 0.4);
+        " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 25px rgba(1, 255, 117, 0.6)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 20px rgba(1, 255, 117, 0.4)';">확인</button>
+    </div>
+</div>
+
+<style>
+@keyframes checkmark {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 팝업 나타나는 애니메이션 */
+#success-popup {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
+}
+</style>
 
 <script>
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
@@ -258,7 +370,120 @@ document.getElementById('success-popup').addEventListener('click', function(e) {
         closePopup();
     }
 });
-</script>
 
+// 팝업 배너 JavaScript (인라인으로 포함)
+document.addEventListener('DOMContentLoaded', function() {
+    // 오늘 하루 보지않음 체크
+    const hideToday = localStorage.getItem('popup-hide-today');
+    const today = new Date().toDateString();
+    
+    if (hideToday === today) {
+        return; // 오늘 하루 보지않음이 설정되어 있으면 팝업 표시 안함
+    }
+    
+    const popup = document.getElementById('popup-banner');
+    if (!popup) return; // 팝업 요소가 없으면 종료
+    
+    const slides = document.querySelectorAll('.popup-banner-slide');
+    const dots = document.querySelectorAll('.popup-dot');
+    const hideButton = document.querySelector('.popup-hide-today');
+    const closeButton = document.querySelector('.popup-close');
+    
+    let currentSlide = 0;
+    let slideInterval;
+    
+    // 팝업 표시
+    popup.classList.add('show');
+    
+    // 슬라이드 변경 함수
+    function goToSlide(slideIndex) {
+        // 현재 슬라이드 비활성화
+        slides[currentSlide].classList.remove('active');
+        slides[currentSlide].classList.add('prev');
+        dots[currentSlide].classList.remove('active');
+        
+        // 새 슬라이드 활성화
+        currentSlide = slideIndex;
+        slides[currentSlide].classList.remove('prev');
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+        
+        // 이전 슬라이드 정리 (애니메이션 후)
+        setTimeout(() => {
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    slide.classList.remove('prev');
+                }
+            });
+        }, 500);
+    }
+    
+    // 다음 슬라이드로 이동
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        goToSlide(next);
+    }
+    
+    // 자동 슬라이드 시작 (5초마다)
+    function startSlideInterval() {
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+    
+    // 자동 슬라이드 정지
+    function stopSlideInterval() {
+        clearInterval(slideInterval);
+    }
+    
+    // 도트 클릭 이벤트
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            console.log('도트 클릭:', index); // 디버깅용
+            
+            // 자동 슬라이드 즉시 정지
+            stopSlideInterval();
+            
+            // 슬라이드 변경
+            goToSlide(index);
+            
+            // 약간의 지연 후 자동 슬라이드 다시 시작 (타이밍 겹침 방지)
+            setTimeout(() => {
+                startSlideInterval();
+            }, 100);
+        });
+    });
+    
+    // 마우스 호버시 자동 슬라이드 정지
+    popup.addEventListener('mouseenter', stopSlideInterval);
+    popup.addEventListener('mouseleave', startSlideInterval);
+    
+    // 오늘 하루 보지않음 버튼
+    if (hideButton) {
+        hideButton.addEventListener('click', () => {
+            localStorage.setItem('popup-hide-today', today);
+            popup.classList.add('hide');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 300);
+        });
+    }
+    
+    // 닫기 버튼
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            popup.classList.add('hide');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 300);
+        });
+    }
+    
+    // 자동 슬라이드 시작
+    startSlideInterval();
+    
+    console.log('팝업 배너 초기화 완료'); // 디버깅용
+    console.log('슬라이드 개수:', slides.length); // 디버깅용
+    console.log('도트 개수:', dots.length); // 디버깅용
+});
+</script>
 
 {{ end }}

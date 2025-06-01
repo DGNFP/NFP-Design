@@ -17,7 +17,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
         document.head.appendChild(link);
     }
 
-    // 푸터 요소 생성 (소셜 미디어 아이콘 적용)
+    // 푸터 요소 생성 (카카오톡 버튼 추가)
     const footerHtml = `
     <footer>
         <div class="container">
@@ -27,6 +27,9 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
                 </a>
                 <a href="#" target="_blank" class="social-link social-link-instagram">
                     <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link social-link-kakao">
+                    <i class="fab fa-rocketchat"></i>
                 </a>
                 <a href="#" target="_blank" class="social-link social-link-games">
                     <i class="fas fa-gamepad"></i>
@@ -40,7 +43,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
     </footer>
     `;
     
-    // 푸터 스타일 삽입 (개별 호버 효과 포함)
+    // 푸터 스타일 삽입 (카카오톡 호버 효과 포함)
     const footerStyles = `
     <style>
         /* 푸터 스타일 */
@@ -103,6 +106,34 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
         
         .social-link-instagram:hover {
             color: #ffffff;
+        }
+        
+        /* 카카오톡 호버 효과 (부드러운 전환) */
+        .social-link-kakao {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link-kakao::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #FEE500;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .social-link-kakao:hover::before {
+            opacity: 1;
+        }
+        
+        .social-link-kakao:hover {
+            color: #3C1E1E;
         }
         
         /* NFP-GAMES 호버 효과 (부드러운 전환) */

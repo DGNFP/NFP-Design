@@ -1,6 +1,6 @@
 ---
-title: "반응형 카페 웹사이트 퍼블리싱"
-date: 2025-06-01T15:15:00+09:00
+title: "모던 카페 웹사이트 퍼블리싱"
+date: 2025-06-01T15:30:00+09:00
 categories: ["programming"]
 subCategory: "퍼블리싱"
 demoCode: |
@@ -9,68 +9,227 @@ demoCode: |
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Cafe Delightful - 따뜻한 커피 한 잔</title>
+      <title>Cafe Mocha - 특별한 커피 경험</title>
       <style>
-          * { margin: 0; padding: 0; box-sizing: border-box; }
-          body { font-family: 'Georgia', serif; line-height: 1.6; color: #333; }
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
           
-          .header { background: linear-gradient(135deg, #8B4513, #D2691E); color: white; padding: 2rem 0; text-align: center; }
-          .header h1 { font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-          .header p { font-size: 1.2rem; opacity: 0.9; }
+          body {
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              line-height: 1.6;
+              color: #2c3e50;
+              background: #f8f9fa;
+          }
           
-          .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+          .header {
+              background: linear-gradient(135deg, #6f4e37, #8b4513, #a0522d);
+              color: white;
+              padding: 3rem 0;
+              text-align: center;
+              position: relative;
+              overflow: hidden;
+          }
           
-          .menu-section { padding: 4rem 0; background: #F5F5DC; }
-          .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-          .menu-item { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-          .menu-item:hover { transform: translateY(-5px); }
-          .menu-item h3 { color: #8B4513; margin-bottom: 0.5rem; }
-          .price { font-weight: bold; color: #D2691E; font-size: 1.2rem; }
+          .header::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="2.5" fill="rgba(255,255,255,0.05)"/></svg>');
+              animation: float 20s ease-in-out infinite;
+          }
           
-          .about { padding: 4rem 0; text-align: center; }
-          .about h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #8B4513; }
-          .about p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+          @keyframes float {
+              0%, 100% { transform: translateY(0px); }
+              50% { transform: translateY(-10px); }
+          }
           
-          .footer { background: #8B4513; color: white; text-align: center; padding: 2rem 0; }
+          .header h1 {
+              font-size: 3.5rem;
+              margin-bottom: 1rem;
+              text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+              position: relative;
+              z-index: 1;
+          }
+          
+          .header p {
+              font-size: 1.3rem;
+              opacity: 0.9;
+              position: relative;
+              z-index: 1;
+          }
+          
+          .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 2rem;
+          }
+          
+          .menu-section {
+              padding: 5rem 0;
+              background: white;
+          }
+          
+          .section-title {
+              text-align: center;
+              font-size: 2.8rem;
+              color: #6f4e37;
+              margin-bottom: 3rem;
+              position: relative;
+          }
+          
+          .section-title::after {
+              content: '';
+              width: 80px;
+              height: 4px;
+              background: linear-gradient(90deg, #6f4e37, #a0522d);
+              position: absolute;
+              bottom: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+              border-radius: 2px;
+          }
+          
+          .menu-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 2rem;
+              margin-top: 3rem;
+          }
+          
+          .menu-item {
+              background: white;
+              border-radius: 15px;
+              padding: 2rem;
+              box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+              transition: all 0.3s ease;
+              border: 1px solid #f0f0f0;
+              position: relative;
+              overflow: hidden;
+          }
+          
+          .menu-item::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 4px;
+              background: linear-gradient(90deg, #6f4e37, #a0522d);
+              transform: scaleX(0);
+              transition: transform 0.3s ease;
+          }
+          
+          .menu-item:hover {
+              transform: translateY(-8px);
+              box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+          }
+          
+          .menu-item:hover::before {
+              transform: scaleX(1);
+          }
+          
+          .menu-item h3 {
+              color: #6f4e37;
+              margin-bottom: 1rem;
+              font-size: 1.4rem;
+              font-weight: 600;
+          }
+          
+          .menu-item p {
+              color: #666;
+              margin-bottom: 1.5rem;
+              line-height: 1.6;
+          }
+          
+          .price {
+              font-weight: bold;
+              color: #a0522d;
+              font-size: 1.3rem;
+              text-align: right;
+          }
+          
+          .about {
+              padding: 5rem 0;
+              background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+              text-align: center;
+          }
+          
+          .about p {
+              font-size: 1.2rem;
+              max-width: 700px;
+              margin: 0 auto;
+              color: #555;
+              line-height: 1.8;
+          }
+          
+          .footer {
+              background: #2c3e50;
+              color: white;
+              text-align: center;
+              padding: 3rem 0;
+          }
+          
+          .footer p {
+              margin-bottom: 0.5rem;
+              opacity: 0.9;
+          }
           
           @media (max-width: 768px) {
-              .header h1 { font-size: 2rem; }
-              .menu-grid { grid-template-columns: 1fr; }
-              .container { padding: 0 1rem; }
+              .header h1 {
+                  font-size: 2.5rem;
+              }
+              
+              .menu-grid {
+                  grid-template-columns: 1fr;
+              }
+              
+              .container {
+                  padding: 0 1rem;
+              }
+              
+              .section-title {
+                  font-size: 2.2rem;
+              }
           }
       </style>
   </head>
   <body>
       <header class="header">
           <div class="container">
-              <h1>☕ Cafe Delightful</h1>
-              <p>따뜻한 커피와 함께하는 특별한 시간</p>
+              <h1>☕ Cafe Mocha</h1>
+              <p>특별한 커피와 함께하는 소중한 순간</p>
           </div>
       </header>
       
       <section class="menu-section">
           <div class="container">
-              <h2 style="text-align: center; font-size: 2.5rem; color: #8B4513; margin-bottom: 1rem;">인기 메뉴</h2>
+              <h2 class="section-title">시그니처 메뉴</h2>
               <div class="menu-grid">
                   <div class="menu-item">
-                      <h3>🌟 시그니처 아메리카노</h3>
-                      <p>깔끔하고 진한 맛의 프리미엄 원두로 추출한 아메리카노</p>
-                      <div class="price">₩4,500</div>
+                      <h3>🌟 프리미엄 모카라떼</h3>
+                      <p>벨기에 초콜릿과 에스프레소의 완벽한 조화로 만든 시그니처 음료입니다.</p>
+                      <div class="price">₩6,500</div>
                   </div>
                   <div class="menu-item">
-                      <h3>🥛 바닐라 라떼</h3>
-                      <p>부드러운 우유와 달콤한 바닐라 시럽의 완벽한 조화</p>
-                      <div class="price">₩5,200</div>
-                  </div>
-                  <div class="menu-item">
-                      <h3>🍰 티라미수</h3>
-                      <p>이탈리아 정통 레시피로 만든 진짜 티라미수</p>
-                      <div class="price">₩6,800</div>
-                  </div>
-                  <div class="menu-item">
-                      <h3>🧊 아이스 카라멜 마키아토</h3>
-                      <p>달콤한 카라멜과 진한 에스프레소의 시원한 만남</p>
+                      <h3>🥛 크림 카페라떼</h3>
+                      <p>부드러운 우유 거품과 진한 에스프레소가 어우러진 클래식한 맛입니다.</p>
                       <div class="price">₩5,800</div>
+                  </div>
+                  <div class="menu-item">
+                      <h3>🍰 수제 치즈케이크</h3>
+                      <p>매일 직접 만드는 신선한 치즈케이크로 커피와 완벽한 페어링을 자랑합니다.</p>
+                      <div class="price">₩7,200</div>
+                  </div>
+                  <div class="menu-item">
+                      <h3>🧊 콜드브루 원액</h3>
+                      <p>18시간 저온 추출한 프리미엄 콜드브루로 깔끔하고 풍부한 맛입니다.</p>
+                      <div class="price">₩4,800</div>
                   </div>
               </div>
           </div>
@@ -78,20 +237,21 @@ demoCode: |
       
       <section class="about">
           <div class="container">
-              <h2>About Us</h2>
+              <h2 class="section-title">About Cafe Mocha</h2>
               <p>
-                  2010년부터 시작된 Cafe Delightful은 최고급 원두와 정성스러운 손길로 
-                  고객 여러분께 특별한 커피 경험을 선사합니다. 
-                  편안한 분위기 속에서 맛있는 커피와 디저트를 즐기며 
-                  소중한 사람들과 따뜻한 시간을 보내세요.
+                  2015년부터 시작된 Cafe Mocha는 최상급 원두와 정성스러운 손길로 
+                  고객님께 특별한 커피 경험을 선사하고 있습니다. 
+                  편안하고 아늑한 공간에서 맛있는 커피와 디저트를 즐기며 
+                  소중한 사람들과 함께하는 행복한 시간을 만들어보세요.
               </p>
           </div>
       </section>
       
       <footer class="footer">
           <div class="container">
-              <p>&copy; 2025 Cafe Delightful. 모든 권리 보유.</p>
-              <p>📍 서울시 강남구 테헤란로 123 | ☎️ 02-1234-5678</p>
+              <p>&copy; 2025 Cafe Mocha. All rights reserved.</p>
+              <p>📍 서울시 강남구 논현로 456 | ☎️ 02-9876-5432</p>
+              <p>⏰ 평일 07:00-22:00 | 주말 08:00-23:00</p>
           </div>
       </footer>
   </body>
@@ -100,48 +260,41 @@ demoCode: |
 
 ## 프로젝트 개요
 
-카페 브랜드를 위한 반응형 웹사이트를 퍼블리싱했습니다. 모바일부터 데스크톱까지 모든 디바이스에서 최적화된 사용자 경험을 제공하는 것을 목표로 제작했습니다.
+모던한 디자인의 카페 브랜드 웹사이트를 반응형으로 퍼블리싱했습니다. 사용자 경험을 최우선으로 고려하여 직관적이고 세련된 인터페이스를 구현했습니다.
+
+## 주요 기능
+
+### 🎨 디자인 특징
+- **모던 그라데이션**: 따뜻한 브라운 톤의 그라데이션 배경
+- **마이크로 애니메이션**: 호버 효과와 부드러운 전환 애니메이션
+- **카드 기반 레이아웃**: 정보를 체계적으로 구성한 카드 디자인
+- **시각적 계층구조**: 명확한 타이포그래피와 여백 시스템
+
+### 📱 반응형 설계
+- **Mobile First**: 모바일 우선 설계 접근법
+- **Flexible Grid**: CSS Grid를 활용한 유연한 레이아웃
+- **Adaptive Typography**: 디바이스별 최적화된 폰트 크기
+- **Touch-Friendly**: 터치 인터페이스 최적화
+
+### ⚡ 성능 최적화
+- **Pure CSS**: 외부 라이브러리 없이 순수 CSS만 사용
+- **Optimized Animation**: GPU 가속을 활용한 부드러운 애니메이션
+- **Semantic HTML**: 웹 접근성과 SEO를 고려한 마크업
+- **Lightweight**: 빠른 로딩 속도를 위한 최적화
 
 ## 기술 스택
 
-- **HTML5**: 시맨틱 마크업
-- **CSS3**: Flexbox, Grid, Media Query
-- **반응형 디자인**: Mobile-First 접근
-- **웹 접근성**: WCAG 2.1 가이드라인 준수
+- **HTML5**: 시맨틱 웹 표준 준수
+- **CSS3**: 최신 CSS 기능 활용 (Grid, Flexbox, Custom Properties)
+- **Responsive Design**: 모든 디바이스 호환
+- **Web Accessibility**: WCAG 2.1 가이드라인 준수
 
-## 구현 특징
+## 브라우저 호환성
 
-### 1. 반응형 레이아웃
-- CSS Grid를 활용한 메뉴 아이템 배치
-- Media Query로 디바이스별 최적화
-- 유연한 컨테이너 시스템
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- 모바일 브라우저 완벽 지원
 
-### 2. 사용자 경험 개선
-- 부드러운 호버 애니메이션
-- 직관적인 네비게이션
-- 빠른 로딩 속도
-
-### 3. 시각적 디자인
-- 카페 브랜드에 맞는 따뜻한 색상 팔레트
-- 타이포그래피 계층 구조
-- 그라데이션과 그림자 효과
-
-### 4. 웹 표준 준수
-- 시맨틱 HTML 구조
-- SEO 최적화
-- 웹 접근성 고려
-
-## 브레이크포인트
-
-- **모바일**: ~768px (1열 레이아웃)
-- **태블릿**: 768px~1024px (2열 레이아웃)
-- **데스크톱**: 1024px+ (3-4열 레이아웃)
-
-## 성과
-
-- 모든 주요 브라우저에서 완벽 호환
-- Google PageSpeed 95점 달성
-- 모바일 친화적 웹사이트 인증
-- 웹 접근성 AA 등급 준수
-
-이 프로젝트를 통해 현대적인 웹 퍼블리싱 기술과 사용자 중심 디자인의 중요성을 깊이 이해할 수 있었습니다.
+이 프로젝트를 통해 사용자 중심의 웹 디자인과 최신 웹 기술의 효과적인 활용법을 실습할 수 있었습니다.
