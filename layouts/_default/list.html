@@ -61,7 +61,23 @@
                         
                         <div class="board-all-item-content">
                             <h3 class="board-all-item-title">{{ .Title }}</h3>
-                            <p class="board-all-item-desc">{{ .Params.description | default .Summary | truncate 100 }}</p>
+                            
+                            <!-- 카테고리 표시 (서브제목 대신) -->
+                            {{ if .Params.categories }}
+                                <p class="board-all-item-desc">
+                                    {{ $mainCategory := index .Params.categories 0 }}
+                                    {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
+                                    {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
+                                    {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
+                                    {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
+                                    {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
+                                    {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
+                                    {{ if .Params.subCategory }}
+                                        > {{ .Params.subCategory }}
+                                    {{ end }}
+                                </p>
+                            {{ end }}
+                            
                             <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
                             <a href="{{ .Permalink }}" class="board-all-item-link">자세히 보기</a>
                         </div>
