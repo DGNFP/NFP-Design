@@ -41,49 +41,49 @@
             {{ range $allPosts }}
             <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
-                    <!-- 웹 데모 코드가 있는 경우 기본 아이콘 표시 -->
-                    {{ if .Params.demoCode }}
-                        <!-- 수동 업로드한 썸네일이 있으면 우선 사용 -->
-                        {{ if .Params.thumbnail }}
-                            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
-                        {{ else }}
-                            <!-- 기본 웹 데모 아이콘 -->
-                            <div class="demo-placeholder">
-                                <div class="demo-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div class="demo-label">
-                                    <span class="demo-type">WEB DEMO</span>
-                                    <span class="demo-tech">{{ .Params.subCategory }}</span>
-                                </div>
-                                <!-- 데모 호버 오버레이 -->
-                                <div class="demo-overlay">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                            </div>
-                        {{ end }}
-                    {{ else if .Params.images }}
-                        <!-- 일반 이미지 -->
+                    <!-- 썸네일 우선순위: 직접업로드 > 웹데모 > 서브카테고리별 기본 -->
+                    {{ if .Params.images }}
+                        <!-- 1순위: 직접 업로드 이미지 -->
                         {{ $images := .Params.images }}
                         {{ if eq (printf "%T" $images) "string" }}
-                            <!-- 단일 이미지인 경우 -->
                             <img src="{{ $images }}" alt="{{ .Title }}">
                         {{ else }}
-                            <!-- 배열인 경우 첫 번째 이미지 -->
                             <img src="{{ index $images 0 }}" alt="{{ .Title }}">
                         {{ end }}
                     {{ else if .Params.thumbnail }}
-                        <!-- 기존 썸네일 (하위 호환성) -->
+                        <!-- 2순위: 기존 썸네일 -->
                         <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
                     {{ else }}
-                        <!-- 기본 이미지 -->
-                        <img src="img/design1.jpg" alt="{{ .Title }}">
+                        <!-- 3순위: 서브카테고리별 기본 썸네일 -->
+                        <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
+                            <div class="demo-icon">
+                                {{ if eq .Params.subCategory "프론트엔드" }}
+                                    <i class="fab fa-react"></i>
+                                {{ else if eq .Params.subCategory "백엔드" }}
+                                    <i class="fas fa-server"></i>
+                                {{ else if eq .Params.subCategory "퍼블리싱" }}
+                                    <i class="fab fa-html5"></i>
+                                {{ else if eq .Params.subCategory "모바일 앱" }}
+                                    <i class="fas fa-mobile-alt"></i>
+                                {{ else if eq .Params.subCategory "게임 개발" }}
+                                    <i class="fas fa-gamepad"></i>
+                                {{ else }}
+                                    <i class="fas fa-code"></i>
+                                {{ end }}
+                            </div>
+                            <div class="demo-label">
+                                <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
+                                {{ if .Params.demoCode }}
+                                    <span class="demo-tech">WEB DEMO</span>
+                                {{ end }}
+                            </div>
+                        </div>
                     {{ end }}
                     
                     <div class="board-item-content">
                         <h3 class="board-item-title">{{ .Title }}</h3>
                         
-                        <!-- 카테고리 표시 -->
+                        <!-- 카테고리 표시 (1차 + 2차 카테고리) -->
                         {{ if .Params.categories }}
                             <p class="board-item-desc">
                                 {{ $mainCategory := index .Params.categories 0 }}
@@ -111,89 +111,158 @@
     </div> <!-- container 닫기 -->
 </section> <!-- board-section 닫기 -->
 
-<!-- 웹 데모 썸네일 스타일 -->
+<!-- 웹 데모 썸네일 스타일 - 서브카테고리별 차별화 -->
 <style>
-.demo-placeholder {
+.demo-placeholder-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 200px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 100%;
+    aspect-ratio: 4/3; /* board-item img와 동일한 비율 */
     color: white;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.demo-icon {
-    font-size: 48px;
-    margin-bottom: 15px;
+/* 서브카테고리별 배경 색상 */
+.demo-placeholder-grid[data-subcategory="프론트엔드"] {
+    background: linear-gradient(135deg, #61dafb 0%, #21759b 100%);
+}
+
+.demo-placeholder-grid[data-subcategory="백엔드"] {
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+}
+
+.demo-placeholder-grid[data-subcategory="퍼블리싱"] {
+    background: linear-gradient(135deg, #ff6d00 0%, #e65100 100%);
+}
+
+.demo-placeholder-grid[data-subcategory="모바일 앱"] {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+}
+
+.demo-placeholder-grid[data-subcategory="게임 개발"] {
+    background: linear-gradient(135deg, #00F0FF 0%, #FFF200 100%);
+}
+
+/* 기본 프로그래밍 색상 */
+.demo-placeholder-grid:not([data-subcategory]),
+.demo-placeholder-grid[data-subcategory=""] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.demo-placeholder-grid .demo-icon {
+    font-size: 42px; /* 36px → 42px */
+    margin-bottom: 12px; /* 10px → 12px */
     opacity: 0.9;
+    transition: all 0.3s ease;
 }
 
-.demo-label {
+.demo-placeholder-grid .demo-label {
     text-align: center;
+    transition: all 0.3s ease;
 }
 
-.demo-type {
+.demo-placeholder-grid .demo-type {
     display: block;
-    font-size: 16px;
+    font-size: 16px; /* 14px → 16px */
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* 4px → 5px */
+    transition: all 0.3s ease;
 }
 
-.demo-tech {
+.demo-placeholder-grid .demo-tech {
     display: block;
-    font-size: 12px;
+    font-size: 11px; /* 10px → 11px */
     opacity: 0.8;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: all 0.3s ease;
 }
 
-.demo-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 64px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    color: rgba(255,255,255,0.9);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+/* 서브카테고리별 호버 효과 */
+.board-item:hover .demo-placeholder-grid[data-subcategory="프론트엔드"] {
+    background: linear-gradient(135deg, #81e5ff 0%, #3a8bb5 100%);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(97, 218, 251, 0.4);
 }
 
-.board-item:hover .demo-overlay {
+.board-item:hover .demo-placeholder-grid[data-subcategory="백엔드"] {
+    background: linear-gradient(135deg, #66bb6a 0%, #4a7c59 100%);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.board-item:hover .demo-placeholder-grid[data-subcategory="퍼블리싱"] {
+    background: linear-gradient(135deg, #ff8a50 0%, #ff7043 100%);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 109, 0, 0.4);
+}
+
+.board-item:hover .demo-placeholder-grid[data-subcategory="모바일 앱"] {
+    background: linear-gradient(135deg, #ef5350 0%, #f44336 100%);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+}
+
+.board-item:hover .demo-placeholder-grid[data-subcategory="게임 개발"] {
+    background: linear-gradient(135deg, #33f3ff 0%, #ffff33 100%);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4);
+}
+
+.board-item:hover .demo-placeholder-grid:not([data-subcategory]),
+.board-item:hover .demo-placeholder-grid[data-subcategory=""] {
+    background: linear-gradient(135deg, #7c7ce6 0%, #8a5aa8 100%);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 124, 230, 0.3);
+}
+
+/* 공통 호버 효과 */
+.board-item:hover .demo-placeholder-grid .demo-icon {
+    transform: scale(1.1);
     opacity: 1;
 }
 
-.board-item:hover .demo-placeholder {
-    background: linear-gradient(135deg, #7c7ce6 0%, #8a5aa8 100%);
-    transform: scale(1.02);
-    transition: all 0.3s ease;
+.board-item:hover .demo-placeholder-grid .demo-type {
+    transform: translateY(-2px);
+}
+
+.board-item:hover .demo-placeholder-grid .demo-tech {
+    opacity: 1;
+    letter-spacing: 2px;
 }
 
 /* 반응형 */
 @media (max-width: 768px) {
-    .demo-placeholder {
-        height: 180px;
+    .demo-placeholder-grid .demo-icon {
+        font-size: 36px; /* 30px → 36px */
+        margin-bottom: 10px; /* 8px → 10px */
     }
     
-    .demo-icon {
-        font-size: 36px;
-        margin-bottom: 10px;
+    .demo-placeholder-grid .demo-type {
+        font-size: 14px; /* 12px → 14px */
     }
     
-    .demo-type {
-        font-size: 14px;
+    .demo-placeholder-grid .demo-tech {
+        font-size: 10px; /* 9px → 10px */
+    }
+}
+
+@media (max-width: 576px) {
+    .demo-placeholder-grid .demo-icon {
+        font-size: 30px; /* 24px → 30px */
+        margin-bottom: 8px; /* 6px → 8px */
     }
     
-    .demo-tech {
-        font-size: 11px;
+    .demo-placeholder-grid .demo-type {
+        font-size: 12px; /* 11px → 12px */
     }
     
-    .demo-overlay {
-        font-size: 48px;
+    .demo-placeholder-grid .demo-tech {
+        font-size: 9px; /* 8px → 9px */
     }
 }
 </style>
