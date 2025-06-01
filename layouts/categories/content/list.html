@@ -7,8 +7,9 @@
 
         <div class="all-view-all-wrapper">
             <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
-            <!-- <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button active">컨텐츠 디자인</a> -->
+            <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
             <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
+            <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
             <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
             <a href="{{ "/posts/" | relURL }}" class="all-view-all-button">전체 작업 보기</a>
         </div>
@@ -18,24 +19,25 @@
             <div class="filter-group">
                 <ul class="category-filter">
                     <li><a class="active" data-filter="all">컨텐츠 디자인 전체</a></li>
-                    <li><a data-filter="카드뉴스">카드뉴스</a></li>
-                    <li><a data-filter="포스터">포스터</a></li>
-                    <li><a data-filter="SNS광고">SNS광고</a></li>
+                    <li><a data-filter="카드뉴스 디자인">카드뉴스 디자인</a></li>
+                    <li><a data-filter="포스터 디자인">포스터 디자인</a></li>
+                    <li><a data-filter="SNS 광고">SNS 광고</a></li>
                 </ul>
             </div>
                     
             <!-- 검색창 -->
             <div class="board-search">
-                <input type="text" placeholder="검색어를 입력하세요" class="form-control" id="searchInput">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
         </div>
              
         <!-- 정사각형 레이아웃 게시판 그리드 (5x3) -->
         <div class="board-grid-square">
-            {{ $paginator := .Paginate .Pages 15 }}
-            {{ range $paginator.Pages }}
-            <div class="board-item-square" data-category="{{ .Params.subCategory }}">
+            <!-- 모든 게시물 로드 (페이지네이션 제거) -->
+            {{ $allPosts := .Pages }}
+            {{ range $allPosts }}
+            <div class="board-item-square" data-main="content" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
                     <div class="board-item-img">
                         {{ if .Params.images }}
@@ -53,7 +55,20 @@
                     </div>
                     <div class="board-item-content">
                         <h3 class="board-item-title">{{ .Title }}</h3>
-                        <p class="board-item-desc">{{ .Params.description | truncate 60 }}</p>
+                        
+                        <!-- 카테고리 표시 추가 -->
+                        {{ if .Params.categories }}
+                            <p class="board-item-desc">
+                                {{ $mainCategory := index .Params.categories 0 }}
+                                {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
+                                {{ if .Params.subCategory }}
+                                    > {{ .Params.subCategory }}
+                                {{ end }}
+                            </p>
+                        {{ else }}
+                            <p class="board-item-desc">{{ .Params.description | truncate 60 }}</p>
+                        {{ end }}
+                        
                         <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
                     </div>
                 </a>
@@ -61,26 +76,10 @@
             {{ end }}
         </div>
 
-        <!-- 페이지네이션 -->
-        {{ if gt $paginator.TotalPages 1 }}
-        <div class="pagination">
-            {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}" class="page-prev"><i class="fas fa-chevron-left"></i></a>
-            {{ end }}
-            
-            {{ range $paginator.Pagers }}
-            {{ if eq . $paginator }}
-            <a href="{{ .URL }}" class="active">{{ .PageNumber }}</a>
-            {{ else }}
-            <a href="{{ .URL }}">{{ .PageNumber }}</a>
-            {{ end }}
-            {{ end }}
-            
-            {{ if $paginator.HasNext }}
-            <a href="{{ $paginator.Next.URL }}" class="page-next"><i class="fas fa-chevron-right"></i></a>
-            {{ end }}
+        <!-- 새로운 JavaScript 페이지네이션 -->
+        <div class="pagination js-pagination">
+            <!-- JavaScript로 동적 생성됨 -->
         </div>
-        {{ end }}
-    </div>
-</section>
+    </div> <!-- container 닫기 -->
+</section> <!-- board-section 닫기 -->
 {{ end }}

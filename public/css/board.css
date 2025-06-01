@@ -894,6 +894,166 @@
     margin-bottom: 20px;
 }
 
+/* 크리에이티브 디자인 게시판 - 4x3 분리형 레이아웃 */
+.board-grid-creative {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.board-item-creative {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.board-item-creative:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(1, 255, 117, 0.1);
+}
+
+.board-item-creative a {
+    display: block;
+    height: 100%;
+}
+
+/* 정사각형 이미지 영역 */
+.board-item-creative .board-item-image {
+    position: relative;
+    padding-top: 100%; /* 1:1 비율 (정사각형) */
+    overflow: hidden;
+}
+
+.board-item-creative .board-item-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.board-item-creative:hover .board-item-image img {
+    transform: scale(1.05);
+}
+
+/* 분리된 텍스트 영역 */
+.board-item-creative .board-item-info {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.board-item-creative .board-item-title {
+    font-size: 15px;
+    min-height: 36px;
+    max-height: 36px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    box-orient: vertical;
+    margin-bottom: 6px;
+    color: var(--accent-color);
+    font-weight: var(--font-bold);
+    line-height: 1.2;
+}
+
+.board-item-creative .board-item-desc {
+    font-size: 12px;
+    min-height: 32px;
+    max-height: 32px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    box-orient: vertical;
+    margin-bottom: 6px;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.3;
+}
+
+.board-item-creative .board-item-date {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+/* board.css 또는 styles.css에 추가하세요 */
+/* 활성화 상태 - 폰트 굵기 강화 */
+.category-filter li a.active {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    font-weight: var(--font-bold) !important; /* 가장 굵게 + 강제 적용 */
+}
+
+/* 전체 게시판용 카테고리 필터도 동일하게 적용 */
+.all-category-filter li a.active {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    font-weight: var(--font-bold) !important;
+}
+
+/* 페이지네이션 컨테이너 */
+.js-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    min-height: 40px; /* 고정 높이로 레이아웃 안정화 */
+}
+
+/* 페이지네이션 버튼 공통 스타일 */
+.js-pagination a,
+.js-pagination .pagination-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer; /* 중요: 마우스 커서 */
+}
+
+/* 호버 효과 */
+.js-pagination a:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* 활성 페이지 */
+.js-pagination a.active {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* 이전/다음 버튼 */
+.js-pagination .page-prev,
+.js-pagination .page-next {
+    min-width: 40px;
+}
+
+/* 점선 표시 */
+.js-pagination .pagination-dots {
+    background-color: transparent;
+    cursor: default;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.js-pagination .pagination-dots:hover {
+    background-color: transparent;
+}
 
 
 /* ==============================
@@ -924,6 +1084,11 @@
     .board-filter {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+      .board-grid-creative {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 
      .post-image img {
@@ -1052,6 +1217,23 @@
     
     .board-section-title {
         font-size: 28px;
+    }
+
+     .board-grid-creative {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .board-item-creative .board-item-title {
+        font-size: 14px;
+        min-height: 32px;
+        max-height: 32px;
+    }
+    
+    .board-item-creative .board-item-desc {
+        font-size: 11px;
+        min-height: 28px;
+        max-height: 28px;
     }
     
     .board-intro {
@@ -1228,6 +1410,10 @@
     .all-view-all-wrapper {
         flex-direction: column;
         width: 100%;
+    }
+
+    .board-grid-creative {
+        grid-template-columns: 1fr;
     }
     
     .all-view-all-button {

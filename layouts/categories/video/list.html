@@ -8,7 +8,8 @@
         <div class="all-view-all-wrapper">
             <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
             <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-            <!-- <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button active">영상 디자인</a> -->
+            <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
+            <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
             <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
             <a href="{{ "/posts/" | relURL }}" class="all-view-all-button">전체 작업 보기</a>
         </div>
@@ -27,16 +28,17 @@
                     
             <!-- 검색창 -->
             <div class="board-search">
-                <input type="text" placeholder="검색어를 입력하세요" class="form-control" id="searchInput">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
         </div>
         
         <!-- 와이드 레이아웃 게시판 그리드 (4x3) -->
         <div class="board-grid-wide">
-            {{ $paginator := .Paginate .Pages 12 }}
-            {{ range $paginator.Pages }}
-            <div class="board-item-wide" data-category="{{ .Params.subCategory }}">
+            <!-- 모든 게시물 로드 (페이지네이션 제거) -->
+            {{ $allPosts := .Pages }}
+            {{ range $allPosts }}
+            <div class="board-item-wide" data-main="video" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
                     <div class="board-item-img">
                         {{ if .Params.images }}
@@ -73,26 +75,10 @@
             {{ end }}
         </div>
 
-        <!-- 페이지네이션 -->
-        {{ if gt $paginator.TotalPages 1 }}
-        <div class="pagination">
-            {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}" class="page-prev"><i class="fas fa-chevron-left"></i></a>
-            {{ end }}
-            
-            {{ range $paginator.Pagers }}
-            {{ if eq . $paginator }}
-            <a href="{{ .URL }}" class="active">{{ .PageNumber }}</a>
-            {{ else }}
-            <a href="{{ .URL }}">{{ .PageNumber }}</a>
-            {{ end }}
-            {{ end }}
-            
-            {{ if $paginator.HasNext }}
-            <a href="{{ $paginator.Next.URL }}" class="page-next"><i class="fas fa-chevron-right"></i></a>
-            {{ end }}
+        <!-- 새로운 JavaScript 페이지네이션 -->
+        <div class="pagination js-pagination">
+            <!-- JavaScript로 동적 생성됨 -->
         </div>
-        {{ end }}
-    </div>
-</section>
+    </div> <!-- container 닫기 -->
+</section> <!-- board-section 닫기 -->
 {{ end }}

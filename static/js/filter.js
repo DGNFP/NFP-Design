@@ -5,8 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchBtn = document.getElementById('searchBtn');
     const filters = document.querySelectorAll('.category-filter a');
     
-    // 현재 페이지가 전체 게시판인지 확인
+    // 페이지네이션 변수
+    let currentPage = 1;
+    const itemsPerPage = 9; // 개별 게시판은 9개씩
+    let filteredItems = [];
+    let currentFilter = 'all';
+    let currentSearchTerm = '';
+    
+    // 현재 페이지가 전체 게시판인지 개별 게시판인지 확인
     const isMainBoard = window.location.pathname.includes('/posts/');
+    
+    console.log('현재 게시판 타입:', isMainBoard ? '전체 게시판' : '개별 게시판');
     
     // 필터 기능
     filters.forEach(filter => {
@@ -16,105 +25,224 @@ document.addEventListener('DOMContentLoaded', function() {
             filters.forEach(f => f.classList.remove('active'));
             this.classList.add('active');
             
-            const selectedFilter = this.getAttribute('data-filter');
-            filterItems(selectedFilter);
+            currentFilter = this.getAttribute('data-filter');
+            currentPage = 1; // 필터 변경 시 첫 페이지로
             
             if (searchInput) {
                 searchInput.value = '';
+                currentSearchTerm = '';
             }
+            
+            updateDisplay();
         });
     });
     
-    // 검색 기능 - 버튼 클릭과 엔터키만
+    // 검색 기능
     if (searchInput && searchBtn) {
         searchBtn.addEventListener('click', function() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            searchItems(searchTerm);
+            currentSearchTerm = searchInput.value.toLowerCase().trim();
+            currentPage = 1; // 검색 시 첫 페이지로
+            updateDisplay();
         });
         
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                const searchTerm = this.value.toLowerCase().trim();
-                searchItems(searchTerm);
+                currentSearchTerm = this.value.toLowerCase().trim();
+                currentPage = 1;
+                updateDisplay();
             }
         });
     }
     
-    // 필터링 함수 - 전체 게시판과 개별 게시판 구분
-    function filterItems(filter) {
-        console.log('=== 필터링 시작 ===');
-        console.log('필터:', filter);
-        console.log('전체 게시판:', isMainBoard);
+    // 메인 업데이트 함수
+    function updateDisplay() {
+        // 1. 필터링된 아이템들 가져오기
+        filteredItems = getFilteredItems();
         
-        // 전체 게시판: .board-all-item, 개별 게시판: .board-item, .board-item-square, .board-item-wide 등
-        const items = isMainBoard ? 
-            document.querySelectorAll('.board-all-item') : 
-            document.querySelectorAll('.board-item, .board-item-square, .board-item-wide');
+        // 2. 현재 페이지에 맞는 아이템들만 표시
+        showCurrentPage();
         
-        console.log('전체 아이템 수:', items.length);
+        // 3. 페이지네이션 업데이트
+        updatePagination();
         
-        let showCount = 0;
-        let hideCount = 0;
+        console.log(`필터: ${currentFilter}, 검색: "${currentSearchTerm}", 페이지: ${currentPage}, 결과: ${filteredItems.length}개`);
+    }
+    
+    // 필터링된 아이템들 가져오기
+    function getFilteredItems() {
+        // 전체 게시판과 개별 게시판에 따라 선택자 변경
+        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad';
+        const allItems = Array.from(document.querySelectorAll(selector));
         
-        items.forEach((item, index) => {
-            let shouldShow = false;
-            
-            if (isMainBoard) {
-                // 전체 게시판: 1차 카테고리만 확인
-                const mainCategory = item.getAttribute('data-main') || '';
-                const categoryFromDesc = getCategoryFromDescription(item);
-                
-                console.log(`아이템 ${index}:`, {
-                    main: mainCategory,
-                    descCategory: categoryFromDesc,
-                    title: item.querySelector('.board-all-item-title')?.textContent
-                });
-                
-                if (filter === 'all') {
-                    shouldShow = true;
-                } else {
-                    // data-main이 비어있으면 설명에서 카테고리 추출
+        return allItems.filter(item => {
+            // 1. 필터 조건 확인
+            let matchesFilter = false;
+            if (currentFilter === 'all') {
+                matchesFilter = true;
+            } else {
+                if (isMainBoard) {
+                    // 전체 게시판: 1차 카테고리 확인
+                    const mainCategory = item.getAttribute('data-main') || '';
+                    const categoryFromDesc = getCategoryFromDescription(item);
                     const actualCategory = mainCategory || categoryFromDesc;
-                    shouldShow = actualCategory === filter;
-                }
-            } else {
-                // 개별 게시판: 2차 카테고리 확인
-                const subCategory = item.getAttribute('data-category') || '';
-                
-                console.log(`아이템 ${index}:`, {
-                    sub: subCategory,
-                    title: item.querySelector('.board-item-title')?.textContent
-                });
-                
-                if (filter === 'all') {
-                    shouldShow = true;
+                    matchesFilter = actualCategory === currentFilter;
                 } else {
-                    shouldShow = subCategory === filter;
+                    // 개별 게시판: 2차 카테고리 확인
+                    const subCategory = item.getAttribute('data-category') || '';
+                    matchesFilter = subCategory === currentFilter;
                 }
             }
             
-            if (shouldShow) {
-                item.style.display = '';
-                showCount++;
-                console.log(`아이템 ${index}: 표시`);
-            } else {
-                item.style.display = 'none';
-                hideCount++;
-                console.log(`아이템 ${index}: 숨김`);
+            // 2. 검색 조건 확인
+            let matchesSearch = true;
+            if (currentSearchTerm) {
+                const titleSelector = isMainBoard ? '.board-all-item-title' : '.board-item-title';
+                const descSelector = isMainBoard ? '.board-all-item-desc' : '.board-item-desc';
+                
+                const titleElement = item.querySelector(titleSelector);
+                const descElement = item.querySelector(descSelector);
+                const title = titleElement ? titleElement.textContent.toLowerCase() : '';
+                const desc = descElement ? descElement.textContent.toLowerCase() : '';
+                matchesSearch = title.includes(currentSearchTerm) || desc.includes(currentSearchTerm);
             }
+            
+            return matchesFilter && matchesSearch;
         });
-        
-        console.log(`결과: 표시 ${showCount}개, 숨김 ${hideCount}개`);
     }
     
-    // 설명에서 카테고리 추출하는 함수 (임시 방편)
+    // 현재 페이지 아이템들만 표시
+    function showCurrentPage() {
+        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad';
+        const allItems = document.querySelectorAll(selector);
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        
+        // 모든 아이템 숨기기
+        allItems.forEach(item => {
+            item.style.display = 'none';
+        });
+        
+        // 현재 페이지 아이템들만 표시
+        filteredItems.slice(start, end).forEach(item => {
+            item.style.display = '';
+        });
+    }
+    
+    // 페이지네이션 업데이트
+    function updatePagination() {
+        const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+        const paginationContainer = document.querySelector('.js-pagination');
+        
+        if (!paginationContainer) return;
+        
+        // 페이지가 1개 이하면 숨기기
+        if (totalPages <= 1) {
+            paginationContainer.style.display = 'none';
+            return;
+        }
+        
+        paginationContainer.style.display = 'flex';
+        paginationContainer.innerHTML = '';
+        
+        // 이전 버튼 (항상 표시, 비활성화 처리)
+        const prevBtn = document.createElement('a');
+        prevBtn.className = 'page-prev';
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        if (currentPage > 1) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage--;
+                updateDisplay();
+            });
+        } else {
+            prevBtn.style.opacity = '0.3';
+            prevBtn.style.cursor = 'not-allowed';
+        }
+        paginationContainer.appendChild(prevBtn);
+        
+        // 페이지 번호들 (고정 레이아웃)
+        const maxVisiblePages = 5;
+        let startPage, endPage;
+        
+        if (totalPages <= maxVisiblePages) {
+            startPage = 1;
+            endPage = totalPages;
+        } else {
+            if (currentPage <= 3) {
+                startPage = 1;
+                endPage = maxVisiblePages;
+            } else if (currentPage >= totalPages - 2) {
+                startPage = totalPages - maxVisiblePages + 1;
+                endPage = totalPages;
+            } else {
+                startPage = currentPage - 2;
+                endPage = currentPage + 2;
+            }
+        }
+        
+        // 첫 페이지와 ... 표시
+        if (startPage > 1) {
+            addPageButton(1);
+            if (startPage > 2) {
+                const dots = document.createElement('span');
+                dots.textContent = '...';
+                dots.className = 'pagination-dots';
+                paginationContainer.appendChild(dots);
+            }
+        }
+        
+        // 중간 페이지들
+        for (let i = startPage; i <= endPage; i++) {
+            addPageButton(i);
+        }
+        
+        // 마지막 페이지와 ... 표시
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                const dots = document.createElement('span');
+                dots.textContent = '...';
+                dots.className = 'pagination-dots';
+                paginationContainer.appendChild(dots);
+            }
+            addPageButton(totalPages);
+        }
+        
+        // 다음 버튼 (항상 표시, 비활성화 처리)
+        const nextBtn = document.createElement('a');
+        nextBtn.className = 'page-next';
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        if (currentPage < totalPages) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage++;
+                updateDisplay();
+            });
+        } else {
+            nextBtn.style.opacity = '0.3';
+            nextBtn.style.cursor = 'not-allowed';
+        }
+        paginationContainer.appendChild(nextBtn);
+        
+        function addPageButton(pageNum) {
+            const pageBtn = document.createElement('a');
+            pageBtn.textContent = pageNum;
+            pageBtn.className = pageNum === currentPage ? 'active' : '';
+            pageBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage = pageNum;
+                updateDisplay();
+            });
+            paginationContainer.appendChild(pageBtn);
+        }
+    }
+    
+    // 설명에서 카테고리 추출하는 함수 (전체 게시판용)
     function getCategoryFromDescription(item) {
         const descElement = item.querySelector('.board-all-item-desc');
         if (!descElement) return '';
         
         const desc = descElement.textContent;
         
-        // 설명 텍스트에서 카테고리 매핑
         if (desc.includes('웹 디자인')) return 'web';
         if (desc.includes('컨텐츠 디자인')) return 'content';
         if (desc.includes('영상 디자인')) return 'video';
@@ -125,68 +253,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return '';
     }
     
-    // 검색 함수
-    function searchItems(term) {
-        console.log('=== 검색 시작 ===');
-        console.log('검색어:', term);
-        
-        const items = isMainBoard ? 
-            document.querySelectorAll('.board-all-item') : 
-            document.querySelectorAll('.board-item, .board-item-square, .board-item-wide');
-            
-        const activeFilter = document.querySelector('.category-filter a.active');
-        const currentFilter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
-        
-        console.log('현재 필터:', currentFilter);
-        
-        if (term === '') {
-            filterItems(currentFilter);
-            return;
-        }
-        
-        let matchCount = 0;
-        
-        items.forEach((item, index) => {
-            const titleElement = isMainBoard ? 
-                item.querySelector('.board-all-item-title') : 
-                item.querySelector('.board-item-title');
-            const descElement = isMainBoard ? 
-                item.querySelector('.board-all-item-desc') : 
-                item.querySelector('.board-item-desc');
-            
-            if (titleElement) {
-                const title = titleElement.textContent.toLowerCase();
-                const desc = descElement ? descElement.textContent.toLowerCase() : '';
-                
-                let matchesFilter = false;
-                
-                if (isMainBoard) {
-                    // 전체 게시판 필터 확인
-                    const mainCategory = item.getAttribute('data-main') || '';
-                    const categoryFromDesc = getCategoryFromDescription(item);
-                    const actualCategory = mainCategory || categoryFromDesc;
-                    
-                    matchesFilter = (currentFilter === 'all' || actualCategory === currentFilter);
-                } else {
-                    // 개별 게시판 필터 확인
-                    const subCategory = item.getAttribute('data-category') || '';
-                    matchesFilter = (currentFilter === 'all' || subCategory === currentFilter);
-                }
-                
-                const matchesSearch = title.includes(term) || desc.includes(term);
-                
-                if (matchesFilter && matchesSearch) {
-                    item.style.display = '';
-                    matchCount++;
-                } else {
-                    item.style.display = 'none';
-                }
-            }
-        });
-        
-        console.log(`검색 결과: ${matchCount}개 항목 표시`);
-    }
-    
-    // 초기 필터링
-    filterItems('all');
+    // 초기 실행
+    updateDisplay();
 });

@@ -2,30 +2,31 @@
 <!-- 게시판 섹션 -->
 <section class="board-section">
     <div class="container">
-        <h2 class="board-section-title">광고/인쇄 디자인 게시판</h2>
-        <p class="board-intro">현수막, 엑스배너, 명함, 옥외광고 등 다양한 광고/오프라인 매체 디자인</p>
-        
+        <h2 class="board-section-title">프로그래밍 게시판</h2>
+        <p class="board-intro">프론트엔드, 백엔드, 퍼블리싱, 모바일 앱 개발 등 프로그래밍 관련 작업</p>
+
         <div class="all-view-all-wrapper">
             <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
             <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
             <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
             <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
-            <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
+            <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
             <a href="{{ "/posts/" | relURL }}" class="all-view-all-button">전체 작업 보기</a>
         </div>
-
+        
         <!-- 카테고리 필터 -->
         <div class="board-filter">
             <div class="filter-group">
-               <ul class="category-filter">
-                    <li><a class="active" data-filter="all">광고 디자인 전체</a></li>
-                    <li><a data-filter="현수막/엑스배너 디자인">현수막/엑스배너 디자인</a></li>
-                    <li><a data-filter="명함 디자인">명함 디자인</a></li>
-                    <li><a data-filter="브로슈어/카탈로그 디자인">브로슈어/카탈로그 디자인</a></li>
-                    <li><a data-filter="옥외광고 디자인">옥외광고 디자인</a></li>
+                <ul class="category-filter">
+                    <li><a class="active" data-filter="all">프로그래밍 전체</a></li>
+                    <li><a data-filter="프론트엔드">프론트엔드</a></li>
+                    <li><a data-filter="백엔드">백엔드</a></li>
+                    <li><a data-filter="퍼블리싱">퍼블리싱</a></li>
+                    <li><a data-filter="모바일 앱">모바일 앱</a></li>
+                    <li><a data-filter="게임 개발">게임 개발</a></li>
                 </ul>
             </div>
-            
+                    
             <!-- 검색창 -->
             <div class="board-search">
                 <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
@@ -33,44 +34,48 @@
             </div>
         </div>
         
-        <!-- 게시판 그리드 (3x3 정사각형 레이아웃) -->
-        <div class="board-grid-ad">
-            <!-- 모든 게시물 로드 (페이지네이션 제거) -->
+        <!-- 일반 3x3 게시판 그리드 -->
+        <div class="board-grid">
+            <!-- 모든 게시물 로드 -->
             {{ $allPosts := .Pages }}
             {{ range $allPosts }}
-            <div class="board-item-ad" data-main="ad" data-category="{{ .Params.subCategory }}">
+            <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
-                    <div class="board-item-img">
-                        {{ if .Params.images }}
-                          {{ $images := .Params.images }}
-                          {{ if eq (printf "%T" $images) "string" }}
-                            <img src="{{ $images }}" alt="{{ .Title }}">
-                          {{ else }}
-                            <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                          {{ end }}
-                        {{ else if .Params.thumbnail }}
-                          <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
-                        {{ else }}
-                          <img src="img/design1.jpg" alt="{{ .Title }}">
-                        {{ end }}
-                    </div>
+                    {{ if .Params.images }}
+                    {{ $images := .Params.images }}
+                    {{ if eq (printf "%T" $images) "string" }}
+                        <!-- 단일 이미지인 경우 -->
+                        <img src="{{ $images }}" alt="{{ .Title }}">
+                    {{ else }}
+                        <!-- 배열인 경우 첫 번째 이미지 -->
+                        <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                    {{ end }}
+                    {{ else if .Params.thumbnail }}
+                    <!-- 기존 썸네일 (하위 호환성) -->
+                    <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                    {{ else }}
+                    <!-- 기본 이미지 -->
+                    <img src="img/design1.jpg" alt="{{ .Title }}">
+                    {{ end }}
+                    
                     <div class="board-item-content">
                         <h3 class="board-item-title">{{ .Title }}</h3>
                         
-                        <!-- 카테고리 표시 추가 -->
+                        <!-- 카테고리 표시 -->
                         {{ if .Params.categories }}
                             <p class="board-item-desc">
                                 {{ $mainCategory := index .Params.categories 0 }}
-                                {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
+                                {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
                                 {{ if .Params.subCategory }}
                                     > {{ .Params.subCategory }}
                                 {{ end }}
                             </p>
                         {{ else }}
-                            <p class="board-item-desc">{{ .Params.description | truncate 60 }}</p>
+                            <p class="board-item-desc">{{ .Params.description | truncate 80 }}</p>
                         {{ end }}
                         
                         <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
+                        <span class="board-item-link">자세히 보기</span>
                     </div>
                 </a>
             </div>

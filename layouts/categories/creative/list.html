@@ -2,45 +2,47 @@
 <!-- 게시판 섹션 -->
 <section class="board-section">
     <div class="container">
-        <h2 class="board-section-title">광고/인쇄 디자인 게시판</h2>
-        <p class="board-intro">현수막, 엑스배너, 명함, 옥외광고 등 다양한 광고/오프라인 매체 디자인</p>
-        
+        <h2 class="board-section-title">크리에이티브 디자인 게시판</h2>
+        <p class="board-intro">로고 디자인, 브랜딩, 패키지 디자인 등 창의적인 디자인 작업</p>
+
         <div class="all-view-all-wrapper">
             <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
             <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-            <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
             <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
             <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
+            <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
             <a href="{{ "/posts/" | relURL }}" class="all-view-all-button">전체 작업 보기</a>
         </div>
-
+        
         <!-- 카테고리 필터 -->
         <div class="board-filter">
             <div class="filter-group">
-               <ul class="category-filter">
-                    <li><a class="active" data-filter="all">광고 디자인 전체</a></li>
-                    <li><a data-filter="현수막/엑스배너 디자인">현수막/엑스배너 디자인</a></li>
-                    <li><a data-filter="명함 디자인">명함 디자인</a></li>
-                    <li><a data-filter="브로슈어/카탈로그 디자인">브로슈어/카탈로그 디자인</a></li>
-                    <li><a data-filter="옥외광고 디자인">옥외광고 디자인</a></li>
+                <ul class="category-filter">
+                    <li><a class="active" data-filter="all">크리에이티브 디자인 전체</a></li>
+                    <li><a data-filter="로고 디자인">로고 디자인</a></li>
+                    <li><a data-filter="브랜딩">브랜딩</a></li>
+                    <li><a data-filter="패키지 디자인">패키지 디자인</a></li>
+                    <li><a data-filter="게임 광고 디자인">게임 광고 디자인</a></li>
+                    <li><a data-filter="방송 디자인">방송 디자인</a></li>
                 </ul>
             </div>
-            
+                    
             <!-- 검색창 -->
             <div class="board-search">
                 <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
                 <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
         </div>
-        
-        <!-- 게시판 그리드 (3x3 정사각형 레이아웃) -->
-        <div class="board-grid-ad">
-            <!-- 모든 게시물 로드 (페이지네이션 제거) -->
+             
+        <!-- 크리에이티브 전용 4x3 분리형 레이아웃 -->
+        <div class="board-grid-creative">
+            <!-- 모든 게시물 로드 -->
             {{ $allPosts := .Pages }}
             {{ range $allPosts }}
-            <div class="board-item-ad" data-main="ad" data-category="{{ .Params.subCategory }}">
+            <div class="board-item-creative" data-main="creative" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
-                    <div class="board-item-img">
+                    <!-- 정사각형 이미지 영역 -->
+                    <div class="board-item-image">
                         {{ if .Params.images }}
                           {{ $images := .Params.images }}
                           {{ if eq (printf "%T" $images) "string" }}
@@ -54,20 +56,22 @@
                           <img src="img/design1.jpg" alt="{{ .Title }}">
                         {{ end }}
                     </div>
-                    <div class="board-item-content">
+                    
+                    <!-- 분리된 텍스트 영역 -->
+                    <div class="board-item-info">
                         <h3 class="board-item-title">{{ .Title }}</h3>
                         
-                        <!-- 카테고리 표시 추가 -->
+                        <!-- 카테고리 표시 -->
                         {{ if .Params.categories }}
                             <p class="board-item-desc">
                                 {{ $mainCategory := index .Params.categories 0 }}
-                                {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
+                                {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
                                 {{ if .Params.subCategory }}
                                     > {{ .Params.subCategory }}
                                 {{ end }}
                             </p>
                         {{ else }}
-                            <p class="board-item-desc">{{ .Params.description | truncate 60 }}</p>
+                            <p class="board-item-desc">{{ .Params.description | truncate 50 }}</p>
                         {{ end }}
                         
                         <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>

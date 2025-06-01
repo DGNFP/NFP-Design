@@ -12,7 +12,6 @@
             <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
             <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
             <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
-            
         </div>
 
         <!-- 카테고리 필터 -->
@@ -39,8 +38,10 @@
         <!-- 게시판 컨텐츠 -->
         <section class="board-all-container">
             <div class="board-all-grid">
-                {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") 10 }}
-                {{ range $paginator.Pages }}
+                <!-- 새로운: 모든 게시물 로드 -->
+                {{ $allPosts := where site.RegularPages "Section" "posts" }}
+                {{ range $allPosts }}
+                
                 {{ $mainCat := "" }}
                 {{ if .Params.categories }}
                     {{ $mainCat = index .Params.categories 0 }}
@@ -95,29 +96,13 @@
                 {{ end }}
             </div>
             
-            <!-- 페이지네이션 -->
-            {{ if gt $paginator.TotalPages 1 }}
-            <div class="pagination">
-                {{ if $paginator.HasPrev }}
-                <a href="{{ $paginator.Prev.URL }}" class="page-prev"><i class="fas fa-chevron-left"></i></a>
-                {{ end }}
-                
-                {{ range $paginator.Pagers }}
-                {{ if eq . $paginator }}
-                <a href="{{ .URL }}" class="active">{{ .PageNumber }}</a>
-                {{ else }}
-                <a href="{{ .URL }}">{{ .PageNumber }}</a>
-                {{ end }}
-                {{ end }}
-                
-                {{ if $paginator.HasNext }}
-                <a href="{{ $paginator.Next.URL }}" class="page-next"><i class="fas fa-chevron-right"></i></a>
-                {{ end }}
+            <!-- 새로운 JavaScript 페이지네이션 -->
+            <div class="pagination js-pagination">
+                <!-- JavaScript로 동적 생성됨 -->
             </div>
-            {{ end }}
-        </div>
-    </section>
-</section>
+        </section>
+    </div> <!-- container 닫기 -->
+</section> <!-- board-section 닫기 -->
 
 <!-- 동영상 재생 버튼 스타일 -->
 <style>
