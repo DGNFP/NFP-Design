@@ -1,6 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +8,9 @@
     scroll-behavior: smooth;
 }
 
-
 html{
     overflow-x: hidden;
 }
-
 
 :root {
     --background-color: #000000;
@@ -294,6 +291,13 @@ nav {
 
 .hero-subtitle span {
     color: var(--accent-color);
+}
+
+/* 히어로 섹션 버튼 스타일 */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 /* 디자인인 섹션 스타일 수정 */
@@ -815,7 +819,7 @@ nav {
 .floating-buttons {
     position: fixed;
     right: 30px;
-    top: 50%;
+    top: 60%; /* 기존 50%에서 60%로 변경 */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -879,6 +883,58 @@ nav {
 }
 
 @media (max-width: 768px) {
+    /* 1. 히어로 섹션 버튼 모바일 최적화 */
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        padding: 12px 20px;
+    }
+    
+    .hero-btns .btn-outline {
+        margin-left: 0;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* 2. 플로팅 버튼 모바일 위치 조정 */
+    .floating-buttons {
+        top: 65%; /* 모바일에서 더 아래로 */
+        right: 20px; /* 오른쪽 여백 줄임 */
+    }
+    
+    .floating-btn {
+        width: 50px; /* 모바일에서 버튼 크기 축소 */
+        height: 50px;
+        font-size: 12px;
+    }
+
+    /* 3. 프로젝트 섹션 2x3 그리드 */
+    .design-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2열로 변경 */
+        gap: 20px; /* 간격 줄임 */
+    }
+    
+    .design-item {
+        height: 250px; /* 높이 조정 */
+    }
+    
+    .design-title {
+        font-size: 18px; /* 제목 크기 조정 */
+    }
+    
+    .design-sub {
+        font-size: 14px; /* 설명 크기 조정 */
+        line-height: 1.3;
+    }
+
     .menu {
         position: fixed;
         top: 0;
@@ -963,10 +1019,6 @@ nav {
 
     .banner .mo_img{
         display: block;
-    }
-
-    .design-grid {
-        grid-template-columns: 1fr;
     }
 
 /* 포트폴리오 아이템 링크 스타일 */
