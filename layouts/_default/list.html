@@ -8,8 +8,11 @@
         <div class="all-view-all-wrapper">
             <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
             <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
+            <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
             <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
             <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
+            <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
+            
         </div>
 
         <!-- 카테고리 필터 -->
@@ -19,7 +22,9 @@
                     <li><a class="active" data-filter="all">전체</a></li>
                     <li><a data-filter="web">웹 디자인</a></li>
                     <li><a data-filter="content">컨텐츠 디자인</a></li>
+                    <li><a data-filter="creative">크리에이티브 디자인</a></li>
                     <li><a data-filter="video">영상 디자인</a></li>
+                    <li><a data-filter="programming">프로그래밍</a></li>
                     <li><a data-filter="ad">광고/인쇄 디자인</a></li>
                 </ul>
             </div>
@@ -36,7 +41,11 @@
             <div class="board-all-grid">
                 {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") 10 }}
                 {{ range $paginator.Pages }}
-                <div class="board-all-item" data-main="{{ .Params.mainCategory }}" data-category="{{ .Params.subCategory }}">
+                {{ $mainCat := "" }}
+                {{ if .Params.categories }}
+                    {{ $mainCat = index .Params.categories 0 }}
+                {{ end }}
+                <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
                     <a href="{{ .Permalink }}">
                         <!-- 썸네일 이미지 (이미지 우선, 동영상 썸네일 제외) -->
                         <div class="board-thumbnail">
