@@ -14,6 +14,81 @@
                         <span class="post-category">
                             {{ $mainCategory := index .Params.categories 0 }}
                             {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
+
+<!-- 웹 데모 스타일 -->
+<style>
+.web-demo-container {
+    margin: 20px 0 30px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    background: #f5f5f5;
+}
+
+.demo-frame {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.demo-browser-bar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.demo-browser-buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.browser-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.browser-btn.red { background: #ff5f57; }
+.browser-btn.yellow { background: #ffbd2e; }
+.browser-btn.green { background: #28ca42; }
+
+.demo-url-bar {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.demo-iframe {
+    display: block;
+    background: white;
+    min-height: 400px;
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+    .demo-browser-bar {
+        height: 40px;
+        padding: 0 15px;
+    }
+    
+    .demo-url-bar {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    
+    .demo-iframe {
+        height: 400px;
+    }
+}
+</style>
                             {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
                             {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
                             {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
@@ -31,6 +106,29 @@
             <div class="post-content">
                 <!-- 동영상 또는 이미지 표시 -->
                 <div class="post-media">
+                    <!-- 웹 데모 코드가 있는 경우 (프론트엔드/퍼블리싱 카테고리) -->
+                    {{ if .Params.demoCode }}
+                        <div class="web-demo-container">
+                            <div class="demo-frame">
+                                <div class="demo-browser-bar">
+                                    <div class="demo-browser-buttons">
+                                        <span class="browser-btn red"></span>
+                                        <span class="browser-btn yellow"></span>
+                                        <span class="browser-btn green"></span>
+                                    </div>
+                                    <div class="demo-url-bar">{{ .Title }} - Live Demo</div>
+                                </div>
+                                <iframe class="demo-iframe" 
+                                        srcdoc="{{ .Params.demoCode | safeHTML }}" 
+                                        width="100%" 
+                                        height="600px" 
+                                        frameborder="0"
+                                        sandbox="allow-scripts allow-same-origin">
+                                </iframe>
+                            </div>
+                        </div>
+                    {{ end }}
+
                     {{ if .Params.videoUrl }}
                         <!-- YouTube 동영상이 있는 경우 -->
                         {{ $videoId := "" }}
@@ -90,22 +188,56 @@
 
             <!-- 페이지 네비게이션 -->
             <div class="post-navigation">
-                {{ with .PrevInSection }}
-                <a href="{{ .RelPermalink }}" class="nav-previous">
-                    <i class="fas fa-chevron-left"></i> 이전
-                </a>
-                {{ else }}
-                <span></span>
+                {{ $currentCategory := index .Params.categories 0 }}
+                {{ $categoryPosts := where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
+                {{ $categoryPosts := $categoryPosts.ByDate.Reverse }}
+                
+                {{ $currentIndex := 0 }}
+                {{ range $index, $post := $categoryPosts }}
+                    {{ if eq $post.Permalink $.Permalink }}
+                        {{ $currentIndex = $index }}
+                    {{ end }}
                 {{ end }}
                 
-                <a href="javascript:history.back()" class="nav-list">목록으로</a>
-
-                {{ with .NextInSection }}
-                <a href="{{ .RelPermalink }}" class="nav-next">
-                    다음 <i class="fas fa-chevron-right"></i>
-                </a>
+                <!-- 이전 게시글 (같은 카테고리) -->
+                {{ $prevIndex := add $currentIndex 1 }}
+                {{ if lt $prevIndex (len $categoryPosts) }}
+                    {{ $prevPost := index $categoryPosts $prevIndex }}
+                    <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
+                        <i class="fas fa-chevron-left"></i> 이전
+                    </a>
                 {{ else }}
-                <span></span>
+                    <span></span>
+                {{ end }}
+                
+                <!-- 목록으로 (카테고리별 페이지로) -->
+                {{ $listUrl := "" }}
+                {{ if eq $currentCategory "web" }}
+                    {{ $listUrl = "/categories/web/" }}
+                {{ else if eq $currentCategory "ad" }}
+                    {{ $listUrl = "/categories/ad/" }}
+                {{ else if eq $currentCategory "content" }}
+                    {{ $listUrl = "/categories/content/" }}
+                {{ else if eq $currentCategory "creative" }}
+                    {{ $listUrl = "/categories/creative/" }}
+                {{ else if eq $currentCategory "programming" }}
+                    {{ $listUrl = "/categories/programming/" }}
+                {{ else if eq $currentCategory "video" }}
+                    {{ $listUrl = "/categories/video/" }}
+                {{ else }}
+                    {{ $listUrl = "/posts/" }}
+                {{ end }}
+                <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
+
+                <!-- 다음 게시글 (같은 카테고리) -->
+                {{ $nextIndex := sub $currentIndex 1 }}
+                {{ if ge $nextIndex 0 }}
+                    {{ $nextPost := index $categoryPosts $nextIndex }}
+                    <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
+                        다음 <i class="fas fa-chevron-right"></i>
+                    </a>
+                {{ else }}
+                    <span></span>
                 {{ end }}
             </div>
         </div>

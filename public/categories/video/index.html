@@ -71,14 +71,89 @@
             
             
             
+            <div class="board-item-wide" data-main="video" data-category="영상 제작">
+                <a href="http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B82/">
+                    <div class="board-item-img">
+                        
+                            
+                            
+                                
+                                
+                                <img src="https://img.youtube.com/vi/EoaYMHWawHs/maxresdefault.jpg" 
+                                     alt="영상 작업물 테스트2"
+                                     onerror="this.src='https://img.youtube.com/vi/EoaYMHWawHs/hqdefault.jpg'">
+                                
+                                <div class="video-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            
+                        
+                    </div>
+                    <div class="board-item-content">
+                        <h3 class="board-item-title">영상 작업물 테스트2</h3>
+                        
+                        
+                        
+                            <p class="board-item-desc">
+                                
+                                영상 디자인
+                                
+                                    > 영상 제작
+                                
+                            </p>
+                        
+                        
+                        <p class="board-item-date">2025.06.01</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="board-item-wide" data-main="video" data-category="영상 제작">
+                <a href="http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/">
+                    <div class="board-item-img">
+                        
+                            
+                            
+                                
+                                
+                                <img src="https://img.youtube.com/vi/LE9FdJ-umj0/maxresdefault.jpg" 
+                                     alt="영상 디자인 테스트"
+                                     onerror="this.src='https://img.youtube.com/vi/LE9FdJ-umj0/hqdefault.jpg'">
+                                
+                                <div class="video-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            
+                        
+                    </div>
+                    <div class="board-item-content">
+                        <h3 class="board-item-title">영상 디자인 테스트</h3>
+                        
+                        
+                        
+                            <p class="board-item-desc">
+                                
+                                영상 디자인
+                                
+                                    > 영상 제작
+                                
+                            </p>
+                        
+                        
+                        <p class="board-item-date">2025.06.01</p>
+                    </div>
+                </a>
+            </div>
+            
             <div class="board-item-wide" data-main="video" data-category="영상 편집">
                 <a href="http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/">
                     <div class="board-item-img">
                         
-                          
-                          
-                            <img src="/img/uploads/%eb%a1%9c%ea%b3%a0.jpg" alt="영상디자인 테스트 0530">
-                          
+                            
+                            
+                            
+                                <img src="/img/uploads/%eb%a1%9c%ea%b3%a0.jpg" alt="영상디자인 테스트 0530">
+                            
                         
                     </div>
                     <div class="board-item-content">
@@ -104,10 +179,18 @@
                 <a href="http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0529/">
                     <div class="board-item-img">
                         
-                          
-                          
-                            <img src="/img/uploads/%eb%aa%a8%eb%b2%a0%ec%bb%b4-%ec%8d%b8%eb%84%a4%ec%9d%bc.jpg" alt="영상 디자인 테스트 0529">
-                          
+                            
+                            
+                                
+                                
+                                <img src="https://img.youtube.com/vi/JomumP0OESE/maxresdefault.jpg" 
+                                     alt="영상 디자인 테스트 0529"
+                                     onerror="this.src='https://img.youtube.com/vi/JomumP0OESE/hqdefault.jpg'">
+                                
+                                <div class="video-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            
                         
                     </div>
                     <div class="board-item-content">
@@ -133,7 +216,7 @@
                 <a href="http://localhost:1313/posts/video/simple/">
                     <div class="board-item-img">
                         
-                          <img src="img/design1.jpg" alt="웹사이트 디자인 프로젝트">
+                            <img src="img/design1.jpg" alt="웹사이트 디자인 프로젝트">
                         
                     </div>
                     <div class="board-item-content">
@@ -163,6 +246,53 @@
         </div>
     </div> 
 </section> 
+
+
+<style>
+.board-item-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 48px;
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.board-item-wide:hover .video-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+    color: #01ff75;
+}
+
+.video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.video-placeholder i {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.video-placeholder p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+</style>
 
     
     <div id="footer-container"></div>

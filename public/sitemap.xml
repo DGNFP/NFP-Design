@@ -3,13 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-01T00:00:00+09:00</lastmod>
+    <lastmod>2025-06-01T20:21:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-01T00:00:00+09:00</lastmod>
+    <lastmod>2025-06-01T20:21:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-06-01T00:00:00+09:00</lastmod>
+    <lastmod>2025-06-01T20:21:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/video/</loc>
+    <lastmod>2025-06-01T20:21:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
+    <lastmod>2025-06-01T20:21:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
+    <lastmod>2025-06-01T20:13:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>
     <lastmod>2025-06-01T00:00:00+09:00</lastmod>
@@ -18,9 +27,6 @@
     <lastmod>2025-06-01T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/ad/</loc>
-    <lastmod>2025-05-30T00:04:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/video/</loc>
     <lastmod>2025-05-30T00:04:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/web/</loc>
@@ -80,9 +86,6 @@
     <loc>http://localhost:1313/news/simple/</loc>
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/ad/simple/</loc>
-    <lastmod>2025-05-24T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/simple/</loc>
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
   </url><url>
@@ -93,5 +96,7 @@
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/programming/test2/</loc>
   </url>
 </urlset>

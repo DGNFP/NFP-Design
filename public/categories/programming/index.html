@@ -76,7 +76,8 @@
                 <a href="http://localhost:1313/posts/programming/test/">
                     
                     
-                    <img src="img/design1.jpg" alt="프로그래밍 테스트 게시글">
+                        
+                        <img src="img/design1.jpg" alt="프로그래밍 테스트 게시글">
                     
                     
                     <div class="board-item-content">
@@ -99,6 +100,49 @@
                 </a>
             </div>
             
+            <div class="board-item" data-main="programming" data-category="프론트엔드">
+                <a href="http://localhost:1313/posts/programming/test2/">
+                    
+                    
+                        
+                        
+                            
+                            <div class="demo-placeholder">
+                                <div class="demo-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="demo-label">
+                                    <span class="demo-type">WEB DEMO</span>
+                                    <span class="demo-tech">프론트엔드</span>
+                                </div>
+                                
+                                <div class="demo-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            </div>
+                        
+                    
+                    
+                    <div class="board-item-content">
+                        <h3 class="board-item-title">랜딩페이지 클론</h3>
+                        
+                        
+                        
+                            <p class="board-item-desc">
+                                
+                                프로그래밍
+                                
+                                    > 프론트엔드
+                                
+                            </p>
+                        
+                        
+                        <p class="board-item-date">0001.01.01</p>
+                        <span class="board-item-link">자세히 보기</span>
+                    </div>
+                </a>
+            </div>
+            
         </div>
 
         
@@ -107,6 +151,93 @@
         </div>
     </div> 
 </section> 
+
+
+<style>
+.demo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.demo-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.demo-label {
+    text-align: center;
+}
+
+.demo-type {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.demo-tech {
+    display: block;
+    font-size: 12px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.demo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.board-item:hover .demo-overlay {
+    opacity: 1;
+}
+
+.board-item:hover .demo-placeholder {
+    background: linear-gradient(135deg, #7c7ce6 0%, #8a5aa8 100%);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+ 
+@media (max-width: 768px) {
+    .demo-placeholder {
+        height: 180px;
+    }
+    
+    .demo-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    
+    .demo-type {
+        font-size: 14px;
+    }
+    
+    .demo-tech {
+        font-size: 11px;
+    }
+    
+    .demo-overlay {
+        font-size: 48px;
+    }
+}
+</style>
 
     
     <div id="footer-container"></div>

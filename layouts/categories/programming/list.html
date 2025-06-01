@@ -41,21 +41,43 @@
             {{ range $allPosts }}
             <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
-                    {{ if .Params.images }}
-                    {{ $images := .Params.images }}
-                    {{ if eq (printf "%T" $images) "string" }}
-                        <!-- 단일 이미지인 경우 -->
-                        <img src="{{ $images }}" alt="{{ .Title }}">
-                    {{ else }}
-                        <!-- 배열인 경우 첫 번째 이미지 -->
-                        <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                    {{ end }}
+                    <!-- 웹 데모 코드가 있는 경우 기본 아이콘 표시 -->
+                    {{ if .Params.demoCode }}
+                        <!-- 수동 업로드한 썸네일이 있으면 우선 사용 -->
+                        {{ if .Params.thumbnail }}
+                            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+                        {{ else }}
+                            <!-- 기본 웹 데모 아이콘 -->
+                            <div class="demo-placeholder">
+                                <div class="demo-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="demo-label">
+                                    <span class="demo-type">WEB DEMO</span>
+                                    <span class="demo-tech">{{ .Params.subCategory }}</span>
+                                </div>
+                                <!-- 데모 호버 오버레이 -->
+                                <div class="demo-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            </div>
+                        {{ end }}
+                    {{ else if .Params.images }}
+                        <!-- 일반 이미지 -->
+                        {{ $images := .Params.images }}
+                        {{ if eq (printf "%T" $images) "string" }}
+                            <!-- 단일 이미지인 경우 -->
+                            <img src="{{ $images }}" alt="{{ .Title }}">
+                        {{ else }}
+                            <!-- 배열인 경우 첫 번째 이미지 -->
+                            <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                        {{ end }}
                     {{ else if .Params.thumbnail }}
-                    <!-- 기존 썸네일 (하위 호환성) -->
-                    <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                        <!-- 기존 썸네일 (하위 호환성) -->
+                        <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
                     {{ else }}
-                    <!-- 기본 이미지 -->
-                    <img src="img/design1.jpg" alt="{{ .Title }}">
+                        <!-- 기본 이미지 -->
+                        <img src="img/design1.jpg" alt="{{ .Title }}">
                     {{ end }}
                     
                     <div class="board-item-content">
@@ -88,4 +110,91 @@
         </div>
     </div> <!-- container 닫기 -->
 </section> <!-- board-section 닫기 -->
+
+<!-- 웹 데모 썸네일 스타일 -->
+<style>
+.demo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.demo-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.demo-label {
+    text-align: center;
+}
+
+.demo-type {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.demo-tech {
+    display: block;
+    font-size: 12px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.demo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.board-item:hover .demo-overlay {
+    opacity: 1;
+}
+
+.board-item:hover .demo-placeholder {
+    background: linear-gradient(135deg, #7c7ce6 0%, #8a5aa8 100%);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .demo-placeholder {
+        height: 180px;
+    }
+    
+    .demo-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+    
+    .demo-type {
+        font-size: 14px;
+    }
+    
+    .demo-tech {
+        font-size: 11px;
+    }
+    
+    .demo-overlay {
+        font-size: 48px;
+    }
+}
+</style>
 {{ end }}

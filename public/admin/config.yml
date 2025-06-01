@@ -70,6 +70,14 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "백엔드", "퍼블리싱", "모바일 앱", "게임 개발"], required: false}
+      - label: "웹 데모 코드"
+        name: "demoCode"
+        widget: "text"
+        hint: "프론트엔드/퍼블리싱 작업물의 경우 HTML+CSS 코드를 입력하면 라이브 데모가 표시됩니다"
+        required: false
+        pattern: 
+          - "<!DOCTYPE html>.*"
+          - "HTML 코드로 시작해야 합니다 (<!DOCTYPE html>)"
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["programming"]}
       - {label: "내용", name: "body", widget: "markdown"}
 

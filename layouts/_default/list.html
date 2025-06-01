@@ -47,7 +47,7 @@
                     {{ $mainCat = index .Params.categories 0 }}
                 {{ end }}
                 <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
-                    <a href="{{ .Permalink }}">
+                    <a href="{{ .Permalink }}?from=all">
                         <!-- 썸네일 이미지 (이미지 우선, 동영상 썸네일 제외) -->
                         <div class="board-thumbnail">
                             {{ if .Params.images }}
@@ -89,7 +89,7 @@
                             {{ end }}
                             
                             <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                            <a href="{{ .Permalink }}" class="board-all-item-link">자세히 보기</a>
+                            <a href="{{ .Permalink }}?from=all" class="board-all-item-link">자세히 보기</a>
                         </div>
                     </a>
                 </div>
