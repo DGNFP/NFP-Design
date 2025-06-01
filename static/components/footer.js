@@ -77,15 +77,59 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
             color: #ffffff;
         }
         
-        /* 인스타그램 호버 효과 */
-        .social-link-instagram:hover {
+        /* 인스타그램 호버 효과 (부드러운 전환) */
+        .social-link-instagram {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link-instagram::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .social-link-instagram:hover::before {
+            opacity: 1;
+        }
+        
+        .social-link-instagram:hover {
             color: #ffffff;
         }
         
-        /* NFP-GAMES 호버 효과 (그라데이션) */
-        .social-link-games:hover {
+        /* NFP-GAMES 호버 효과 (부드러운 전환) */
+        .social-link-games {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link-games::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(45deg, #00F0FF 0%, #FFF200 100%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .social-link-games:hover::before {
+            opacity: 1;
+        }
+        
+        .social-link-games:hover {
             color: #000000;
         }
         
