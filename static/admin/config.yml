@@ -19,7 +19,6 @@ collections:
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지", "디지털배너", "상세페이지", "UX/UI"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["web"]}
-      - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
 
   - name: "ad-posts"
@@ -33,7 +32,6 @@ collections:
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["현수막/엑스배너", "명함", "브로슈어/카탈로그", "옥외광고"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["ad"]}
-      - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
 
   - name: "content-posts"
@@ -47,7 +45,6 @@ collections:
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["카드뉴스", "포스터", "sns광고"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["content"]}
-      - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
 
   - name: "creative-posts"
@@ -61,7 +58,6 @@ collections:
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "브랜딩", "패키지 디자인", "게임 광고 디자인", "방송 디자인"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["creative"]}
-      - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
 
   - name: "programming-posts"
@@ -75,7 +71,6 @@ collections:
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "백엔드", "퍼블리싱", "모바일 앱", "게임 개발"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["programming"]}
-      - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
 
   - name: "video-posts"
@@ -90,7 +85,6 @@ collections:
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["영상 제작", "영상 편집", "모션그래픽", "유튜브 썸네일"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["video"]}
-      - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
 
   - name: "news"
@@ -102,5 +96,4 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
-      - {label: "설명", name: "description", widget: "text"}
       - {label: "내용", name: "body", widget: "markdown"}
