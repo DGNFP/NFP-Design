@@ -1141,16 +1141,37 @@
         font-size: 13px;
     }
 
-    /* 전체 게시판 모바일 반응형 */
+    /* 모바일에서 카드간 여백 없애기 */
+    .board-all-grid {
+    gap: 0px;
+}
+
+    /* 전체 게시판 모바일 반응형 - 정사각형 비율 */
     .board-thumbnail {
-        width: 160px; /* 모바일에서 더 축소 */
-        height: 90px; /* 16:9 비율 (160 × 0.5625) */
+        width: 120px !important;  /* 정사각형 크기 */
+        height: 120px !important; /* 1:1 비율 */
         margin-right: 12px;
+    }
+    
+    .board-thumbnail img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important; /* 전체 이미지가 보이도록 변경 */
+        object-position: center !important;
+        background-color: rgba(255, 255, 255, 0.05) !important; /* 여백 부분 배경색 */
+    }
+    
+    .board-all-item {
+        min-height: 140px; /* 정사각형 이미지에 맞춰 높이 조정 */
+        align-items: center; /* 가운데 정렬 복원 */
+        padding: 15px;
     }
     
     .board-all-item-content {
         padding: 12px 8px 12px 0;
+        justify-content: center; /* 가운데 정렬 복원 */
     }
+    
     
     .board-all-item-title {
         font-size: 14px;
@@ -1231,14 +1252,20 @@
     }
 
     /* 전체 게시판 매우 작은 모바일 반응형 */
-     .board-thumbnail {
-        width: 120px; /* 작은 모바일에서 최소 크기 */
-        height: 67.5px; /* 16:9 비율 (120 × 0.5625) */
+    .board-thumbnail {
+        width: 100px; /* 작은 정사각형 */
+        height: 100px; /* 1:1 비율 */
         margin-right: 10px;
     }
+
+     .board-thumbnail img {
+        object-fit: contain; /* 이미지 전체가 보이도록 */
+        background-color: rgba(255, 255, 255, 0.05);
+    }
     
-    .board-all-item {
-        padding: 10px;
+      .board-all-item {
+        min-height: 120px; /* 작은 화면용 높이 */
+        padding: 12px;
     }
     
     .board-all-item-content {

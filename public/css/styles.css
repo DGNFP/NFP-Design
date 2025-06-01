@@ -1,6 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +8,9 @@
     scroll-behavior: smooth;
 }
 
-
 html{
     overflow-x: hidden;
 }
-
 
 :root {
     --background-color: #000000;
@@ -294,6 +291,13 @@ nav {
 
 .hero-subtitle span {
     color: var(--accent-color);
+}
+
+/* 히어로 섹션 버튼 스타일 */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 /* 디자인인 섹션 스타일 수정 */
@@ -815,7 +819,7 @@ nav {
 .floating-buttons {
     position: fixed;
     right: 30px;
-    top: 50%;
+    top: 60%; /* 기존 50%에서 60%로 변경 */
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -870,8 +874,8 @@ nav {
     }
 
     .design-item .view-work {
-        height: 60px;
-        width: 120px;
+        height: 40px !important;
+        width: 100px !important;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -879,6 +883,62 @@ nav {
 }
 
 @media (max-width: 768px) {
+    /* 1. 히어로 섹션 버튼 모바일 최적화 - 강제 적용 */
+    .hero .hero-content .hero-btns {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    
+    .hero .hero-content .hero-btns .btn {
+        flex: 1 !important;
+        max-width: 140px !important;
+        text-align: center !important;
+        padding: 12px 16px !important;
+        font-size: 14px !important;
+        width: auto !important;
+    }
+    
+    .hero .hero-content .hero-btns .btn-outline {
+        margin-left: 0 !important;
+        flex: 1 !important;
+        max-width: 140px !important;
+        width: auto !important;
+    }
+
+    /* 2. 플로팅 버튼 모바일 위치 조정 */
+    .floating-buttons {
+        top: 65%; /* 모바일에서 더 아래로 */
+        right: 20px; /* 오른쪽 여백 줄임 */
+    }
+    
+    .floating-btn {
+        width: 50px; /* 모바일에서 버튼 크기 축소 */
+        height: 50px;
+        font-size: 12px;
+    }
+
+    /* 3. 프로젝트 섹션 2x3 그리드 */
+    .design-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2열로 변경 */
+        gap: 20px; /* 간격 줄임 */
+    }
+    
+    .design-item {
+        height: 250px; /* 높이 조정 */
+    }
+    
+    .design-title {
+        font-size: 18px; /* 제목 크기 조정 */
+    }
+    
+    .design-sub {
+        font-size: 14px; /* 설명 크기 조정 */
+        line-height: 1.3;
+    }
+
     .menu {
         position: fixed;
         top: 0;
@@ -920,16 +980,22 @@ nav {
         align-self: flex-end;
     }
     
+    /* 모바일 배너 정사각형 비율 */
     .banner-container {
-        height: 200px;
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 8px;
     }
     
-    .banner .pc_img{
-        display: none;
-    }
-
-    .banner .mo_img{
-        display: block;
+    .banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .banner-dots {
@@ -945,28 +1011,20 @@ nav {
     .news-date {
         font-size: 12px;
     }
-    
-    .banner-container {
-        position: relative;
-        max-width: 450px;
-        max-height: 450px;
-        height: 450px;
-        width: 450px;
-        margin: 0 auto;
-        overflow: hidden;
-        border-radius: 8px;
+
+    /* 모바일 배너 버튼 최적화 */
+    .banner-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
     
-    .banner .pc_img{
-        display: none;
+    .prev-btn {
+        left: 10px;
     }
-
-    .banner .mo_img{
-        display: block;
-    }
-
-    .design-grid {
-        grid-template-columns: 1fr;
+    
+    .next-btn {
+        right: 10px;
     }
 
 /* 포트폴리오 아이템 링크 스타일 */

@@ -138,17 +138,15 @@
                     {{ range $index, $post := first 5 $newsPosts }}
                     <div class="banner{{ if eq $index 0 }} active{{ end }}">
                         <img src="{{ $post.Params.thumbnail | default "img/banner1.jpg" }}" class="pc_img" alt="소식 배너 {{ add $index 1 }}">
-                        <img src="{{ $post.Params.thumbnail | default "img/design2.jpg" }}" class="mo_img" alt="m소식 배너 {{ add $index 1 }}">
                     </div>
                     {{ else }}
                     <div class="banner active">
                         <img src="img/banner1.jpg" class="pc_img" alt="기본 배너">
-                        <img src="img/design2.jpg" class="mo_img" alt="기본 모바일 배너">
                     </div>
                     {{ end }}
                 </div>
-                <button class="banner-btn prev-btn">&lt;</button>
-                <button class="banner-btn next-btn">&gt;</button>
+                <button class="banner-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="banner-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 <div class="banner-dots">
                     {{ range $index, $post := first 5 $newsPosts }}
                     <span class="dot{{ if eq $index 0 }} active{{ end }}" data-index="{{ $index }}"></span>
