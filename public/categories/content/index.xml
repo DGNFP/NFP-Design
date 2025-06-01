@@ -6,14 +6,21 @@
     <description>Recent content in Content on NFP Design</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 May 2025 23:35:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/content/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>웹사이트 디자인 프로젝트</title>
-      <link>http://localhost:1313/posts/content/simple/</link>
-      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/content/simple/</guid>
-      <description>&lt;p&gt;웹사이트 디자인 프로젝트입니다.&lt;/p&gt;</description>
+      <title>컨텐츠 디자인 테스트2</title>
+      <link>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</link>
+      <pubDate>Thu, 29 May 2025 23:35:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</guid>
+      <description>&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컨텐츠 디자인 테스트1</title>
+      <link>http://localhost:1313/posts/content/%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</link>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/content/%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</guid>
+      <description>&lt;p&gt;한글 입력이 아직도 제대로 안되네&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

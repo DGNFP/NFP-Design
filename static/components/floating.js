@@ -20,7 +20,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
 const defaultButtons = [
     {
         id: 'work-btn',
-        href: 'board_all.html',
+        href: '/posts/',
         icon: '🗂️',
         text: '작업 보기'
     },

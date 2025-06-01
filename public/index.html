@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFP Design</title>
+    
+    
+    <meta name="description" content="고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인. NFP 디자인입니다.">
+    
+    
+    <meta property="og:title" content="NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다">
+    <meta property="og:description" content="웹디자인, 컨텐츠디자인, 영상제작 등 다양한 디자인 서비스를 제공하는 NFP 디자인입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/og-image.jpg">
+    <meta property="og:url" content="http://localhost:1313/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NFP 디자인">
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다">
+    <meta name="twitter:description" content="웹디자인, 컨텐츠디자인, 영상제작 등 다양한 디자인 서비스를 제공하는 NFP 디자인입니다.">
+    <meta name="twitter:image" content="http://localhost:1313/img/og-image.jpg">
+    
     <link rel="stylesheet" href="/css/styles.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -152,7 +170,17 @@
                     
                     <div class="banner active">
                         <img src="img/banner1.jpg" class="pc_img" alt="소식 배너 1">
-                        <img src="img/banner1.jpg" class="mo_img" alt="m소식 배너 1">
+                        <img src="img/design2.jpg" class="mo_img" alt="m소식 배너 1">
+                    </div>
+                    
+                    <div class="banner">
+                        <img src="img/banner1.jpg" class="pc_img" alt="소식 배너 2">
+                        <img src="img/design2.jpg" class="mo_img" alt="m소식 배너 2">
+                    </div>
+                    
+                    <div class="banner">
+                        <img src="img/banner1.jpg" class="pc_img" alt="소식 배너 3">
+                        <img src="img/banner1.jpg" class="mo_img" alt="m소식 배너 3">
                     </div>
                     
                 </div>
@@ -162,9 +190,27 @@
                     
                     <span class="dot active" data-index="0"></span>
                     
+                    <span class="dot" data-index="1"></span>
+                    
+                    <span class="dot" data-index="2"></span>
+                    
                 </div>
             </div>
             <div class="news-list">
+                
+                <div class="news-item">
+                    <a href="http://localhost:1313/news/2025-05-29-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B82/" class="news-link">
+                        <span class="news-title">소식 게시글 테스트2</span>
+                        <span class="news-date">2025.05.29</span>
+                    </a>
+                </div>
+                
+                <div class="news-item">
+                    <a href="http://localhost:1313/news/2025-05-26-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-1/" class="news-link">
+                        <span class="news-title">소식 게시글 테스트 1</span>
+                        <span class="news-date">2025.05.27</span>
+                    </a>
+                </div>
                 
                 <div class="news-item">
                     <a href="http://localhost:1313/news/simple/" class="news-link">
@@ -183,24 +229,86 @@
     <div class="container">
         <h2 class="section-title">연락하기</h2>
         <div class="contact-form">
-            <form action="#" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/xpwdgdnq" method="POST">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="이름" required>
+                    <input type="text" name="name" class="form-control" placeholder="이름" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="이메일" required>
+                    <input type="email" name="email" class="form-control" placeholder="이메일" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="제목">
+                    <input type="text" name="subject" class="form-control" placeholder="제목">
                 </div> 
                 <div class="form-group">
-                    <textarea class="form-control" placeholder="메시지" required></textarea>
+                    <textarea name="message" class="form-control" placeholder="메시지" required></textarea>
                 </div>
-                <button type="submit" class="btn">메시지 보내기</button>
+                <button type="submit" class="btn" id="submit-btn">메시지 보내기</button>
             </form>
         </div>
     </div>
 </section>
+
+
+<div id="success-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+    <div style="background: white; padding: 40px; border-radius: 10px; text-align: center; max-width: 400px; margin: 20px;">
+        <h3 style="color: #333; margin-bottom: 20px;">메시지 전송 완료! ✅</h3>
+        <p style="color: #666; margin-bottom: 30px;">메시지가 성공적으로 전송되었습니다.<br>빠른 시일 내에 답변드리겠습니다.</p>
+        <button onclick="closePopup()" style="background: #007bff; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer;">확인</button>
+    </div>
+</div>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); 
+    
+    const form = e.target;
+    const submitBtn = document.getElementById('submit-btn');
+    const formData = new FormData(form);
+    
+    
+    submitBtn.textContent = '전송 중...';
+    submitBtn.disabled = true;
+    
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            
+            document.getElementById('success-popup').style.display = 'flex';
+            
+            
+            form.reset();
+        } else {
+            alert('메시지 전송에 실패했습니다. 다시 시도해주세요.');
+        }
+    } catch (error) {
+        alert('네트워크 오류가 발생했습니다. 다시 시도해주세요.');
+    }
+    
+    
+    submitBtn.textContent = '메시지 보내기';
+    submitBtn.disabled = false;
+});
+
+function closePopup() {
+    document.getElementById('success-popup').style.display = 'none';
+}
+
+
+document.getElementById('success-popup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePopup();
+    }
+});
+</script>
+
+
 
     
     <div id="footer-container"></div>
