@@ -54,6 +54,18 @@
                     </div>
                     <div class="board-item-content">
                         <h3 class="board-item-title">{{ .Title }}</h3>
+                        
+                        <!-- 카테고리 표시 추가 -->
+                        {{ if .Params.categories }}
+                            <p class="board-item-desc">
+                                {{ $mainCategory := index .Params.categories 0 }}
+                                {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
+                                {{ if .Params.subCategory }}
+                                    > {{ .Params.subCategory }}
+                                {{ end }}
+                            </p>
+                        {{ end }}
+                        
                         <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
                     </div>
                 </a>
