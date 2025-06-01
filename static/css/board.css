@@ -641,9 +641,9 @@
 /* 카테고리 표시 스타일 최적화 */
 .board-item-wide .board-item-desc {
     font-size: 12px; /* 작은 폰트 사이즈 */
-    color: var(--accent-color);
-    opacity: 0.8;
-    margin-bottom: 4px; /* 최소 마진 */
+    color: var(--text-color); /* 강조색 대신 기본 텍스트 색상 */
+    opacity: 0.7; /* 약한 색상으로 조정 */
+    margin-bottom: 2px; /* 제목과의 여백 축소 */
     line-height: 1.2;
     overflow: hidden;
     white-space: nowrap;
@@ -651,7 +651,7 @@
 }
 
 .board-item-wide .board-item-date {
-    font-size: 11px; /* 기존 12px에서 11px로 축소 */
+    font-size: 12px; /* 11px에서 12px로 복원 */
     color: rgba(255, 255, 255, 0.6);
     margin: 0; /* 마진 제거 */
 }
@@ -1027,16 +1027,17 @@
         font-size: 14px;
         min-height: 32px;
         max-height: 32px;
-        margin-bottom: 4px;
+        margin-bottom: 3px; /* 카테고리와의 여백 축소 */
     }
     
     .board-item-wide .board-item-desc {
         font-size: 11px;
-        margin-bottom: 3px;
+        margin-bottom: 2px; /* 날짜와의 여백 축소 */
+        opacity: 0.7; /* 약한 색상 */
     }
     
     .board-item-wide .board-item-date {
-        font-size: 10px;
+        font-size: 11px; /* 태블릿에서 크기 유지 */
     }
 }
 
@@ -1184,16 +1185,17 @@
         font-size: 13px;
         min-height: 28px;
         max-height: 28px;
-        margin-bottom: 3px;
+        margin-bottom: 2px; /* 카테고리와의 여백 최소화 */
     }
     
     .board-item-wide .board-item-desc {
         font-size: 10px;
-        margin-bottom: 2px;
+        margin-bottom: 1px; /* 날짜와의 여백 최소화 */
+        opacity: 0.7; /* 약한 색상 */
     }
     
     .board-item-wide .board-item-date {
-        font-size: 9px;
+        font-size: 10px; /* 모바일에서는 작게 유지 */
     }
 }
 
