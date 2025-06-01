@@ -8,8 +8,20 @@
                 <div class="post-meta">
                     <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
                     <span class="post-author">{{ .Params.author | default "관리자" }}</span>
-                    {{ if .Params.mainCategory }}
-                    <span class="post-category">{{ .Params.mainCategory }}</span>
+                    <!-- 카테고리 표시 -->
+                    {{ if .Params.categories }}
+                        <span class="post-category">
+                            {{ $mainCategory := index .Params.categories 0 }}
+                            {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
+                            {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
+                            {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
+                            {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
+                            {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
+                            {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
+                            {{ if .Params.subCategory }}
+                                > {{ .Params.subCategory }}
+                            {{ end }}
+                        </span>
                     {{ end }}
                 </div>
             </div>
