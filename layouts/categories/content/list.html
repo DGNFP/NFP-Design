@@ -30,36 +30,7 @@
                 <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
         </div>
-        
-        <!-- 🔍 디버깅 정보 -->
-        <div style="background: #ffffcc; padding: 20px; margin: 20px 0; border: 3px solid #ff0000; border-radius: 5px;">
-            <h3 style="color: #cc0000; margin-bottom: 15px;">🔍 디버깅 정보</h3>
-            <p><strong>현재 페이지:</strong> {{ .Title }}</p>
-            <p><strong>현재 섹션:</strong> {{ .Section }}</p>
-            <p><strong>현재 타입:</strong> {{ .Type }}</p>
-            <p><strong>총 페이지 수:</strong> {{ len .Pages }}</p>
-            <p><strong>현재 시간:</strong> {{ now.Format "2006-01-02 15:04:05" }}</p>
-            
-            <h4 style="color: #cc0000; margin-top: 20px;">📝 이 카테고리의 모든 글:</h4>
-            {{ if .Pages }}
-                {{ range .Pages }}
-                    <div style="border: 1px solid #ccc; margin: 8px 0; padding: 10px; background: white;">
-                        <p><strong>📄 제목:</strong> {{ .Title }}</p>
-                        <p><strong>📅 날짜:</strong> {{ .Date.Format "2006-01-02 15:04:05" }}</p>
-                        <p><strong>📁 Categories:</strong> {{ .Params.categories }} <em>(타입: {{ printf "%T" .Params.categories }})</em></p>
-                        <p><strong>🏷️ SubCategory:</strong> {{ .Params.subCategory }}</p>
-                        <p><strong>📂 파일경로:</strong> {{ .File.Path }}</p>
-                        <p><strong>🖼️ 이미지:</strong> {{ .Params.images }}</p>
-                        <p><strong>📝 설명:</strong> {{ .Params.description }}</p>
-                    </div>
-                {{ end }}
-            {{ else }}
-                <div style="color: red; font-weight: bold; font-size: 18px; padding: 20px; background: #ffeeee;">
-                    ❌ 이 카테고리에 글이 없습니다!
-                </div>
-            {{ end }}
-        </div>
-        
+             
         <!-- 정사각형 레이아웃 게시판 그리드 (5x3) -->
         <div class="board-grid-square">
             {{ $paginator := .Paginate .Pages 15 }}
