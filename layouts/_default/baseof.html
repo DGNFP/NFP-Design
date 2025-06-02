@@ -26,7 +26,11 @@
     {{ if not .IsHome }}
     <link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
     {{ end }}
+    <!-- 기존 icon.png를 파비콘으로 사용 -->
+    <link rel="icon" type="image/png" href="{{ "img/icon.png" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ "img/icon.png" | relURL }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
 </head>
 <body>
     <div id="header-container"></div>
