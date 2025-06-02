@@ -120,7 +120,14 @@
                     <span class="skill">브로슈어</span>
                     <span class="skill">카달로그</span>
                 </div>
-                <a href="#contact" class="btn">함께 일해요</a>
+                <!-- 버튼 영역 수정 -->
+                <div class="about-buttons">
+                    <a href="#contact" class="btn">함께 일해요</a>
+                    <a class="btn btn-outline" id="portfolio-detail-btn">상세보기</a>
+
+                   
+
+                </div>
             </div>
             <img src="{{ "img/design1.jpg" | relURL }}" alt="프로필 이미지" class="about-img">
         </div>
@@ -242,6 +249,154 @@
     </div>
 </div>
 
+<!-- 포트폴리오 상세 모달 -->
+<div id="portfolio-modal" class="portfolio-modal">
+    <div class="portfolio-modal-overlay"></div>
+    <div class="portfolio-modal-content">
+        <div class="modal-header">
+            <h2>NFP 디자인 포트폴리오</h2>
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <!-- 웹 디자인 -->
+            <div class="portfolio-category">
+                <div class="category-header">
+                    <div class="category-icon">🌐</div>
+                    <h3>웹 디자인</h3>
+                </div>
+                <div class="category-content">
+                    <p class="category-description">사용자 경험을 중시한 현대적이고 반응형 웹 디자인</p>
+                    <div class="category-skills">
+                        <span class="skill-tag primary">홈페이지 디자인</span>
+                        <span class="skill-tag">랜딩페이지</span>
+                        <span class="skill-tag">디지털 배너</span>
+                        <span class="skill-tag">웹 애니메이션</span>
+                        <span class="skill-tag">UI/UX 디자인</span>
+                    </div>
+                    <div class="category-tools">
+                        <strong>사용 툴:</strong> Figma, Adobe XD, Photoshop, Illustrator
+                    </div>
+                </div>
+            </div>
+
+            <!-- 콘텐츠 디자인 -->
+            <div class="portfolio-category">
+                <div class="category-header">
+                    <div class="category-icon">📱</div>
+                    <h3>콘텐츠 디자인</h3>
+                </div>
+                <div class="category-content">
+                    <p class="category-description">SNS와 온라인 마케팅을 위한 다양한 디지털 콘텐츠</p>
+                    <div class="category-skills">
+                        <span class="skill-tag primary">카드뉴스</span>
+                        <span class="skill-tag">상세페이지</span>
+                        <span class="skill-tag">썸네일</span>
+                        <span class="skill-tag">SNS 이미지</span>
+                        <span class="skill-tag">피드 광고</span>
+                        <span class="skill-tag">포스터</span>
+                    </div>
+                    <div class="category-tools">
+                        <strong>사용 툴:</strong> Photoshop, Illustrator, Canva Pro, Figma
+                    </div>
+                </div>
+            </div>
+
+            <!-- 크리에이티브 디자인 -->
+            <div class="portfolio-category">
+                <div class="category-header">
+                    <div class="category-icon">🎨</div>
+                    <h3>크리에이티브 디자인</h3>
+                </div>
+                <div class="category-content">
+                    <p class="category-description">독창적이고 임팩트 있는 창작 디자인</p>
+                    <div class="category-skills">
+                        <span class="skill-tag primary">게임 광고</span>
+                        <span class="skill-tag">로고 디자인</span>
+                        <span class="skill-tag">브랜드 아이덴티티</span>
+                        <span class="skill-tag">인터넷 방송</span>
+                        <span class="skill-tag">캐릭터 디자인</span>
+                    </div>
+                    <div class="category-tools">
+                        <strong>사용 툴:</strong> Illustrator, Photoshop, After Effects, Blender
+                    </div>
+                </div>
+            </div>
+
+            <!-- 영상 디자인 -->
+            <div class="portfolio-category">
+                <div class="category-header">
+                    <div class="category-icon">🎬</div>
+                    <h3>영상 디자인</h3>
+                </div>
+                <div class="category-content">
+                    <p class="category-description">동적이고 매력적인 영상 콘텐츠 제작</p>
+                    <div class="category-skills">
+                        <span class="skill-tag primary">영상 편집</span>
+                        <span class="skill-tag">모션 그래픽</span>
+                        <span class="skill-tag">인트로/아웃트로</span>
+                        <span class="skill-tag">광고 영상</span>
+                        <span class="skill-tag">3D 애니메이션</span>
+                    </div>
+                    <div class="category-tools">
+                        <strong>사용 툴:</strong> After Effects, Premiere Pro, Cinema 4D, DaVinci Resolve
+                    </div>
+                </div>
+            </div>
+
+            <!-- 광고/인쇄 디자인 -->
+            <div class="portfolio-category">
+                <div class="category-header">
+                    <div class="category-icon">🖨️</div>
+                    <h3>광고/인쇄 디자인</h3>
+                </div>
+                <div class="category-content">
+                    <p class="category-description">오프라인 매체를 위한 전문적인 인쇄물 디자인</p>
+                    <div class="category-skills">
+                        <span class="skill-tag primary">명함 디자인</span>
+                        <span class="skill-tag">현수막</span>
+                        <span class="skill-tag">브로슈어</span>
+                        <span class="skill-tag">카탈로그</span>
+                        <span class="skill-tag">포스터</span>
+                        <span class="skill-tag">패키지 디자인</span>
+                    </div>
+                    <div class="category-tools">
+                        <strong>사용 툴:</strong> InDesign, Illustrator, Photoshop
+                    </div>
+                </div>
+            </div>
+
+            <!-- 프로그래밍 -->
+            <div class="portfolio-category">
+                <div class="category-header">
+                    <div class="category-icon">💻</div>
+                    <h3>프로그래밍</h3>
+                </div>
+                <div class="category-content">
+                    <p class="category-description">디자인과 기술을 결합한 웹 개발</p>
+                    <div class="category-skills">
+                        <span class="skill-tag primary">웹 퍼블리싱</span>
+                        <span class="skill-tag">프론트엔드</span>
+                        <span class="skill-tag">반응형 웹</span>
+                        <span class="skill-tag">게임 개발</span>
+                        <span class="skill-tag">웹 애니메이션</span>
+                    </div>
+                    <div class="category-tools">
+                        <strong>사용 기술:</strong> HTML5, CSS3, JavaScript, React, Hugo, Unity
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <div class="modal-contact-info">
+                <p>✨ 10년 이상의 경력으로 다양한 분야의 디자인을 제공합니다</p>
+                <a href="#contact" class="btn modal-contact-btn" id="modal-contact-btn">프로젝트 문의하기</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- 성공 팝업 (테마 컬러 적용) -->
 <div id="success-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center;">
     <div style="
@@ -319,6 +474,302 @@
         backdrop-filter: blur(10px);
     }
 }
+
+/* 버튼 컨테이너 */
+.about-buttons {
+    display: flex;
+    gap: 0px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* 포트폴리오 모달 스타일 */
+.portfolio-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    overflow-y: auto;
+}
+
+.portfolio-modal.show {
+    display: block;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.portfolio-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.portfolio-modal-content {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    border-radius: 20px;
+    border: 2px solid #01FF75;
+    box-shadow: 0 25px 50px rgba(1, 255, 117, 0.2);
+    animation: modalSlideIn 0.4s ease-out;
+}
+
+/* 모달 헤더 */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px 20px;
+    border-bottom: 1px solid rgba(1, 255, 117, 0.2);
+}
+
+.modal-header h2 {
+    color: #01FF75;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #01FF75;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+
+    font-family: Arial, sans-serif; /* 더 균형잡힌 폰트 */
+    line-height: 0; /* 0으로 변경 */
+    font-weight: normal;
+}
+
+.modal-close:hover {
+    background: rgba(1, 255, 117, 0.1);
+    transform: rotate(90deg);
+}
+
+/* 모달 바디 */
+.modal-body {
+    padding: 30px 40px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.portfolio-category {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: rgba(1, 255, 117, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(1, 255, 117, 0.1);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.category-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(1, 255, 117, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-header h3 {
+    color: #01FF75;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.category-description {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.category-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.skill-tag.primary {
+    background: rgba(1, 255, 117, 0.2);
+    color: #01FF75;
+    border-color: rgba(1, 255, 117, 0.4);
+    font-weight: 600;
+}
+
+.skill-tag:hover {
+    background: rgba(1, 255, 117, 0.2);
+    color: #01FF75;
+    border-color: #01FF75;
+    transform: translateY(-2px);
+}
+
+.category-tools {
+    color: #ffffff;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.category-tools strong {
+    color: #01FF75;
+}
+
+/* 모달 푸터 */
+.modal-footer {
+    padding: 20px 40px 30px;
+    border-top: 1px solid rgba(1, 255, 117, 0.2);
+    text-align: center;
+}
+
+.modal-contact-info p {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.modal-contact-btn {
+    /* background: linear-gradient(135deg, #01FF75 0%, #00cc5a 100%); */
+    color: #000000;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.modal-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(1, 255, 117, 0.4);
+}
+
+/* 애니메이션 */
+@keyframes modalFadeIn {
+    from { 
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to { 
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes modalFadeOut {
+    from { 
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+    to { 
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+}
+
+@keyframes modalSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+    }
+}
+
+.portfolio-modal.closing {
+    animation: modalFadeOut 0.3s ease-in;
+}
+
+.portfolio-modal.closing .portfolio-modal-content {
+    animation: modalSlideOut 0.3s ease-in;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .portfolio-modal-content {
+        margin: 20px;
+        max-width: none;
+    }
+    
+    .modal-header {
+        padding: 20px 25px 15px;
+    }
+    
+    .modal-header h2 {
+        font-size: 22px;
+    }
+    
+    .modal-body {
+        padding: 20px 25px;
+        max-height: 70vh;
+    }
+    
+    .portfolio-category {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .category-header h3 {
+        font-size: 18px;
+    }
+    
+    .modal-footer {
+        padding: 15px 25px 20px;
+    }
+    
+}
 </style>
 
 <script>
@@ -369,6 +820,57 @@ document.getElementById('success-popup').addEventListener('click', function(e) {
     if (e.target === this) {
         closePopup();
     }
+});
+
+// 포트폴리오 모달 기능
+document.addEventListener('DOMContentLoaded', function() {
+    const portfolioBtn = document.getElementById('portfolio-detail-btn');
+    const modal = document.getElementById('portfolio-modal');
+    const closeBtn = document.getElementById('modal-close-btn');
+    const contactBtn = document.getElementById('modal-contact-btn');
+    const overlay = document.querySelector('.portfolio-modal-overlay');
+    
+    // 모달 열기
+    portfolioBtn.addEventListener('click', function() {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // 스크롤 방지
+    });
+    
+    // 모달 닫기 함수
+    function closeModal() {
+        // 닫기 애니메이션 클래스 추가
+        modal.classList.add('closing');
+        
+        // 애니메이션 완료 후 모달 숨기기
+        setTimeout(() => {
+            modal.classList.remove('show', 'closing');
+            document.body.style.overflow = 'auto'; // 스크롤 복원
+        }, 300); // 애니메이션 시간과 맞춤
+    }
+    
+    // 닫기 버튼 클릭
+    closeBtn.addEventListener('click', closeModal);
+    
+    // 오버레이 클릭
+    overlay.addEventListener('click', closeModal);
+    
+    // 연락하기 버튼 클릭 (모달 닫고 연락처로 이동)
+    contactBtn.addEventListener('click', function() {
+        closeModal();
+        // 잠시 후 스크롤 (모달 닫기 애니메이션 후)
+        setTimeout(() => {
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }, 300);
+    });
+    
+    // ESC 키로 모달 닫기
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
 });
 </script>
 
