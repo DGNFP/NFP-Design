@@ -62,7 +62,7 @@
     display: flex;
     justify-content: center;
     padding: 10px 0;
-    background: #ffffff;
+    background: #000000;
     gap: 8px;
 }
 
@@ -70,7 +70,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #ccc;
+    background: #ffffff;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -83,33 +83,44 @@
 
 .popup-dot:hover {
     background: #01FF75;
-    opacity: 0.7;
 }
 
 /* 하단 버튼 영역 */
 .popup-banner-controls {
     display: flex;
-    background: #ffffff;
+    background: #000000;
     padding: 10px;
     gap: 8px;
 }
 
-.popup-hide-today,
-.popup-close {
+.popup-hide-today{
     flex: 1;
     padding: 8px 12px;
-    border: 1px solid #ddd;
-    background: #ffffff;
-    color: #333;
-    font-size: 12px;
+    border: 1px solid #01FF75;
+    background: #01FF75;
+    color: #000000;
+    font-size: 13px;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+.popup-close {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #01FF75;
+    background: #000000;
+    color: #01FF75;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .popup-hide-today:hover {
-    background: #f5f5f5;
+    background: #000000;
     border-color: #01FF75;
     color: #01FF75;
 }
@@ -117,12 +128,13 @@
 .popup-close:hover {
     background: #01FF75;
     border-color: #01FF75;
-    color: #ffffff;
+    color: #000000;
 }
+
 
 /* 팝업이 숨겨질 때 애니메이션 */
 .popup-banner.hide {
-    animation: slideOut 0.3s ease-out forwards;
+    animation: slideOut 0.4s ease-out forwards;
 }
 
 @keyframes slideOut {
@@ -132,7 +144,7 @@
     }
     to {
         opacity: 0;
-        transform: translateY(100%);
+        transform: translateY(50px);
     }
 }
 
