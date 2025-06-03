@@ -3,7 +3,7 @@
 <section class="board-section">
     <div class="container">
         <h2 class="board-section-title">프로그래밍 게시판</h2>
-        <p class="board-intro">프론트엔드, 백엔드, 퍼블리싱, 모바일 앱 개발 등 프로그래밍 관련 작업</p>
+        <p class="board-intro">프론트엔드, 웹 퍼블리싱, 모바일 앱 개발 등 프로그래밍 관련 작업</p>
 
         <div class="all-view-all-wrapper">
             <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
@@ -60,7 +60,7 @@
                                     <i class="fab fa-react"></i>
                                 {{ else if eq .Params.subCategory "백엔드" }}
                                     <i class="fas fa-server"></i>
-                                {{ else if eq .Params.subCategory "퍼블리싱" }}
+                                {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
                                     <i class="fab fa-html5"></i>
                                 {{ else if eq .Params.subCategory "모바일 앱" }}
                                     <i class="fas fa-mobile-alt"></i>
@@ -134,7 +134,7 @@
     background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
 }
 
-.demo-placeholder-grid[data-subcategory="퍼블리싱"] {
+.demo-placeholder-grid[data-subcategory="웹 퍼블리싱"] {
     background: linear-gradient(135deg, #ff6d00 0%, #e65100 100%);
 }
 
@@ -194,7 +194,7 @@
     box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
 }
 
-.board-item:hover .demo-placeholder-grid[data-subcategory="퍼블리싱"] {
+.board-item:hover .demo-placeholder-grid[data-subcategory="웹 퍼블리싱"] {
     background: linear-gradient(135deg, #ff8a50 0%, #ff7043 100%);
     transform: scale(1.05) translateY(-2px);
     box-shadow: 0 8px 25px rgba(255, 109, 0, 0.4);
