@@ -696,6 +696,42 @@
     box-shadow: 0 10px 25px rgba(1, 255, 117, 0.4);
 }
 
+/* 모달 우측 스크롤 스타일 */
+.modal-body::-webkit-scrollbar {
+    width: 20px !important;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #01FF75 0%, #00cc5a 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(1, 255, 117, 0.3);
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00cc5a 0%, #01FF75 100%);
+    box-shadow: 0 0 10px rgba(1, 255, 117, 0.5);
+}
+
+/* Firefox 지원 */
+.modal-body {
+    scrollbar-width: thin;
+    scrollbar-color: #01FF75 rgba(255, 255, 255, 0.1);
+    overflow-y: scroll !important; /* 여기가 맞는 위치! */
+    
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    /* 항상 스크롤바 표시 */
+    scrollbar-width: auto !important; /* Firefox */
+    
+}
+
+
+
 /* 애니메이션 */
 @keyframes modalFadeIn {
     from { 
