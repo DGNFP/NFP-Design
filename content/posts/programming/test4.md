@@ -2,7 +2,7 @@
 title: "모던 카페 웹사이트 퍼블리싱"
 date: 2025-06-01T15:30:00+09:00
 categories: ["programming"]
-subCategory: "퍼블리싱"
+subCategory: "웹 퍼블리싱"
 demoCode: |
   <!DOCTYPE html>
   <html lang="ko">
