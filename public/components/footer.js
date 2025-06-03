@@ -25,7 +25,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
                 <a href="https://www.youtube.com/@NFP-DESIGN" target="_blank" class="social-link social-link-youtube">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <a href="#" target="_blank" class="social-link social-link-instagram">
+                <a href="https://www.instagram.com/nfp_dg" target="_blank" class="social-link social-link-instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="#" target="_blank" class="social-link social-link-kakao">
@@ -34,7 +34,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
                 <a href="#" target="_blank" class="social-link social-link-games">
                     <i class="fas fa-gamepad"></i>
                 </a>
-                <a href="/admin/" class="social-link social-link-admin">
+               <a href="/admin/" class="social-link social-link-admin" target="_blank" rel="noopener">
                     <i class="fas fa-cog"></i>
                 </a>
             </div>

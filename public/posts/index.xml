@@ -6,8 +6,15 @@
     <description>Recent content in Posts on NFP Design</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 01 Jun 2025 20:21:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Jun 2025 13:48:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>웹데모 테스트</title>
+      <link>http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
+      <pubDate>Tue, 03 Jun 2025 13:48:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
+      <description>&lt;p&gt;웹 데모 테스트 25.06.03&lt;/p&gt;</description>
+    </item>
     <item>
       <title>영상 작업물 테스트2</title>
       <link>http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B82/</link>

@@ -445,6 +445,22 @@ nav {
     font-weight: var(--font-bold);
 }
 
+/* 소개 섹션 상세보기 모달 아이콘 스타일 */
+.category-icon {
+    font-size: 18px !important;
+    margin-right: 15px !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: rgba(1, 255, 117, 0.1) !important;
+    border-radius: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #01FF75 !important; /* NFP 시그니쳐 컬러 추가 */
+    border: 1px solid rgba(1, 255, 117, 0.3) !important; /* 테두리도 추가 */
+}
+
+
 .banner-container {
     position: relative;
     max-width: 1160px;

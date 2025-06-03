@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>랜딩페이지 클론 - NFP Design</title>
+    <title>웹데모 테스트 - NFP Design</title>
     
     
     <meta name="description" content="고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인. NFP 디자인입니다.">
@@ -12,7 +12,7 @@
     <meta property="og:title" content="NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다">
     <meta property="og:description" content="웹디자인, 컨텐츠디자인, 영상제작 등 다양한 디자인 서비스를 제공하는 NFP 디자인입니다.">
     <meta property="og:image" content="http://localhost:1313/img/NFP.jpg">
-    <meta property="og:url" content="http://localhost:1313/posts/programming/test2/">
+    <meta property="og:url" content="http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NFP 디자인">
     
@@ -41,9 +41,9 @@
         <div class="post-container">
             
             <div class="post-header">
-                <h1 class="post-title">랜딩페이지 클론</h1>
+                <h1 class="post-title">웹데모 테스트</h1>
                 <div class="post-meta">
-                    <span class="post-date">0001.01.01</span>
+                    <span class="post-date">2025.06.03</span>
                     
                     
                         <span class="post-category">
@@ -55,7 +55,7 @@
                             프로그래밍
                             
                             
-                                > 프론트엔드
+                                > 웹 퍼블리싱
                             
                         </span>
                     
@@ -153,27 +153,110 @@
                                         <span class="browser-btn yellow"></span>
                                         <span class="browser-btn green"></span>
                                     </div>
-                                    <div class="demo-url-bar">랜딩페이지 클론 - Live Demo</div>
+                                    <div class="demo-url-bar">웹데모 테스트 - Live Demo</div>
                                 </div>
                                 
                                 <iframe class="demo-iframe" 
-                                        srcdoc='&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+                                        srcdoc='map[code:&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;ko&#34;&gt;
 &lt;head&gt;
-  &lt;style&gt;
-    body { margin: 0; font-family: Arial; }
-    .hero { background: linear-gradient(135deg, #667eea, #764ba2); 
-            color: white; text-align: center; padding: 100px 20px; }
-  &lt;/style&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;웹 데모 테스트&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: &#39;Arial&#39;, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .demo-box {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+    &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;div class=&#34;hero&#34;&gt;
-    &lt;h1&gt;Welcome to My Site&lt;/h1&gt;
-    &lt;p&gt;Beautiful landing page design&lt;/p&gt;
-  &lt;/div&gt;
+    &lt;div class=&#34;container&#34;&gt;
+        &lt;h1&gt;🚀 웹 데모&lt;/h1&gt;
+        &lt;p&gt;간단한 웹 데모 테스트 페이지입니다. 반응형 디자인과 모던한 스타일이 적용되었습니다.&lt;/p&gt;
+        &lt;button class=&#34;btn&#34; onclick=&#34;showDemo()&#34;&gt;데모 실행&lt;/button&gt;
+        
+        &lt;div class=&#34;demo-box&#34; id=&#34;demoResult&#34; style=&#34;display: none;&#34;&gt;
+            &lt;h3&gt;✅ 데모 성공!&lt;/h3&gt;
+            &lt;p&gt;JavaScript와 CSS가 정상적으로 작동합니다.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        function showDemo() {
+            const result = document.getElementById(&#39;demoResult&#39;);
+            result.style.display = &#39;block&#39;;
+            result.style.animation = &#39;fadeIn 0.5s ease-in&#39;;
+        }
+        
+        // CSS 애니메이션 추가
+        const style = document.createElement(&#39;style&#39;);
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    &lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;
-' 
+&lt;/html&gt; lang:html]' 
                                         width="100%" 
                                         height="600px" 
                                         frameborder="0"
@@ -189,7 +272,8 @@
                 </div>
 
                 <div class="post-body">
-                    
+                    <p>웹 데모 테스트 25.06.03</p>
+
                 </div>
             </div>
 
@@ -202,26 +286,29 @@
                 
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
                     
                 
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
                 
                 
                 
                 
-                    <span></span>
+                
+                    
+                    <a href="/posts/programming/test6/" class="nav-previous">
+                        <i class="fas fa-chevron-left"></i> 이전
+                    </a>
                 
                 
                 
@@ -234,10 +321,7 @@
                 
                 
                 
-                    
-                    <a href="/posts/programming/test/" class="nav-next">
-                        다음 <i class="fas fa-chevron-right"></i>
-                    </a>
+                    <span></span>
                 
             </div>
         </div>

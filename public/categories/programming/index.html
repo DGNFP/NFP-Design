@@ -40,7 +40,7 @@
 <section class="board-section">
     <div class="container">
         <h2 class="board-section-title">프로그래밍 게시판</h2>
-        <p class="board-intro">프론트엔드, 백엔드, 퍼블리싱, 모바일 앱 개발 등 프로그래밍 관련 작업</p>
+        <p class="board-intro">프론트엔드, 웹 퍼블리싱, 모바일 앱 개발 등 프로그래밍 관련 작업</p>
 
         <div class="all-view-all-wrapper">
             <a href="/categories/web/" class="all-view-all-button">웹 디자인</a>
@@ -57,8 +57,7 @@
                 <ul class="category-filter">
                     <li><a class="active" data-filter="all">프로그래밍 전체</a></li>
                     <li><a data-filter="프론트엔드">프론트엔드</a></li>
-                    <li><a data-filter="백엔드">백엔드</a></li>
-                    <li><a data-filter="퍼블리싱">퍼블리싱</a></li>
+                    <li><a data-filter="웹 퍼블리싱">웹 퍼블리싱</a></li>
                     <li><a data-filter="모바일 앱">모바일 앱</a></li>
                     <li><a data-filter="게임 개발">게임 개발</a></li>
                 </ul>
@@ -75,6 +74,46 @@
         <div class="board-grid">
             
             
+            
+            <div class="board-item" data-main="programming" data-category="웹 퍼블리싱">
+                <a href="http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/">
+                    
+                    
+                        
+                        <div class="demo-placeholder-grid" data-subcategory="웹 퍼블리싱">
+                            <div class="demo-icon">
+                                
+                                    <i class="fab fa-html5"></i>
+                                
+                            </div>
+                            <div class="demo-label">
+                                <span class="demo-type">웹 퍼블리싱</span>
+                                
+                                    <span class="demo-tech">WEB DEMO</span>
+                                
+                            </div>
+                        </div>
+                    
+                    
+                    <div class="board-item-content">
+                        <h3 class="board-item-title">웹데모 테스트</h3>
+                        
+                        
+                        
+                            <p class="board-item-desc">
+                                
+                                프로그래밍
+                                
+                                    > 웹 퍼블리싱
+                                
+                            </p>
+                        
+                        
+                        <p class="board-item-date">2025.06.03</p>
+                        <span class="board-item-link">자세히 보기</span>
+                    </div>
+                </a>
+            </div>
             
             <div class="board-item" data-main="programming" data-category="게임 개발">
                 <a href="http://localhost:1313/posts/programming/test6/">
@@ -152,19 +191,19 @@
                 </a>
             </div>
             
-            <div class="board-item" data-main="programming" data-category="퍼블리싱">
+            <div class="board-item" data-main="programming" data-category="웹 퍼블리싱">
                 <a href="http://localhost:1313/posts/programming/test4/">
                     
                     
                         
-                        <div class="demo-placeholder-grid" data-subcategory="퍼블리싱">
+                        <div class="demo-placeholder-grid" data-subcategory="웹 퍼블리싱">
                             <div class="demo-icon">
                                 
                                     <i class="fab fa-html5"></i>
                                 
                             </div>
                             <div class="demo-label">
-                                <span class="demo-type">퍼블리싱</span>
+                                <span class="demo-type">웹 퍼블리싱</span>
                                 
                                     <span class="demo-tech">WEB DEMO</span>
                                 
@@ -181,7 +220,7 @@
                                 
                                 프로그래밍
                                 
-                                    > 퍼블리싱
+                                    > 웹 퍼블리싱
                                 
                             </p>
                         
@@ -341,7 +380,7 @@
     background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
 }
 
-.demo-placeholder-grid[data-subcategory="퍼블리싱"] {
+.demo-placeholder-grid[data-subcategory="웹 퍼블리싱"] {
     background: linear-gradient(135deg, #ff6d00 0%, #e65100 100%);
 }
 
@@ -401,7 +440,7 @@
     box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
 }
 
-.board-item:hover .demo-placeholder-grid[data-subcategory="퍼블리싱"] {
+.board-item:hover .demo-placeholder-grid[data-subcategory="웹 퍼블리싱"] {
     background: linear-gradient(135deg, #ff8a50 0%, #ff7043 100%);
     transform: scale(1.05) translateY(-2px);
     box-shadow: 0 8px 25px rgba(255, 109, 0, 0.4);
