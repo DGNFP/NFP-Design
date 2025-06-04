@@ -41,7 +41,13 @@
             <div class="board-all-grid">
                 <!-- 새로운: 모든 게시물 로드 -->
                 {{ $allPosts := where site.RegularPages "Section" "posts" }}
+                {{ $filteredPosts := slice }}
                 {{ range $allPosts }}
+                {{ if not (in .Params.categories "news") }}
+                    {{ $filteredPosts = $filteredPosts | append . }}
+                {{ end }}
+                {{ end }}
+                {{ range $filteredPosts }}
                 
                 {{ $mainCat := "" }}
                 {{ if .Params.categories }}

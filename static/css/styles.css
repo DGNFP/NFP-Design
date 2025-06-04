@@ -464,66 +464,8 @@ nav {
 
 
 
-.banner-container {
-    position: relative;
-    max-width: 1160px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 8px;
-}
 
-.banner-slider {
-    position: relative;
-    width: 100%;
-    height: auto;
-}
 
-.banner {
-    width: 100%;
-    display: none;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.banner .mo_img{
-    display: none;
-}
-
-.banner.active {
-    display: block;
-    animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.banner img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.banner-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 100; /* 버튼이 배너 위에 올 수 있도록 */
-    transition: var(--transition);
-}
-
-.banner-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-}
 
 /* 카테고리 탭 */
 .category-tabs {
@@ -670,68 +612,30 @@ nav {
     opacity: 0.8;
 }
 
-/* 배너섹션 */
-.prev-btn {
-    left: 15px;
-}
-
-.next-btn {
-    right: 15px;
-}
-
-.banner-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    height: auto;
-    z-index: 50;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.dot.active {
-    background-color: var(--accent-color);
-}
-
+/* NFP 배너 슬라이더 - translateX 방식 */
 .banner-container {
     position: relative;
     width: 100%;
-    max-width: 1160px;
-    height: 350px;
+    max-width: 1200px;
+    height: 400px;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 8px;
 }
 
 .banner-slider {
-    position: relative;
-    width: 100%;
+    display: flex;
+    width: 500%; /* 5개 슬라이드 = 500% */
     height: 100%;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .banner {
-    width: 100%;
+    width: 20%; /* 100% ÷ 5개 = 20% */
     height: 100%;
-    display: none;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.banner.active {
-    display: block;
-    animation: fadeIn 0.5s;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* 중요: 슬라이드 크기 고정 */
 }
 
 .banner img {
@@ -741,6 +645,68 @@ nav {
     display: block;
 }
 
+/* NFP 배너 버튼 */
+.banner-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 200;
+    transition: var(--transition);
+}
+
+.banner-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+/* NFP 배너 도트 */
+.banner-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.banner-dots .banner-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.banner-dots .banner-dot.active {
+    background-color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+
+.banner-dots .banner-dot:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.2);
+}
 /* 소식섹션 */
 /* 소식 섹션 스타일 */
 .news {
@@ -788,10 +754,6 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 30px;
-}
-
-.banner-dots.active {
-    background-color: var(--accent-color);
 }
 
 /* 뉴스 리스트 스타일 */
@@ -877,6 +839,9 @@ nav {
     display: inline-block;
     width: 100%;
 }
+
+
+
 
 /* 반응형 디자인 */
 @media (max-width: 991px) {

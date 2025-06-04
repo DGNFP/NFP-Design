@@ -188,33 +188,61 @@
     <div class="container">
         <div class="news-header">
             <h2 class="section-title">소식</h2>
-            <a href="/news/" class="btn btn-more">더보기</a>
+            <a href="/categories/news/" class="btn btn-more">더보기</a>
         </div>
         <div class="news-content">
-            <div class="banner-container">
+           <div class="banner-container">
                 <div class="banner-slider">
                     
-                    
-                    <div class="banner active">
-                        <img src="img/banner1.jpg" class="pc_img" alt="기본 배너">
+                    <div class="banner">  
+                        <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 1">
                     </div>
-                    
+                    <div class="banner">
+                        <img src="img/banner/banner2.png" class="pc_img" alt="소식 배너 2">
+                    </div>
+                    <div class="banner">
+                        <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 3">
+                    </div>
+                    <div class="banner">
+                        <img src="img/banner/banner2.png" class="pc_img" alt="소식 배너 4">
+                    </div>
+                    <div class="banner">
+                        <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 5">
+                    </div>
                 </div>
                 <button class="banner-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
                 <button class="banner-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                
                 <div class="banner-dots">
-                    
-                    <span class="dot active" data-index="0"></span>
-                    
+                    <span class="banner-dot"></span>
+                    <span class="banner-dot"></span>
+                    <span class="banner-dot"></span>
+                    <span class="banner-dot"></span>
+                    <span class="banner-dot"></span>
                 </div>
             </div>
-            <div class="news-list">
+                        <div class="news-list">
+                
                 
                 <div class="news-item">
-                    <div class="news-link">
-                        <span class="news-title">소식이 없습니다</span>
+                    <a href="http://localhost:1313/posts/news/2025-05-29-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B82/" class="news-link">
+                        <span class="news-title">소식 게시글 테스트2</span>
+                        <span class="news-date">2025.05.29</span>
+                    </a>
+                </div>
+                
+                <div class="news-item">
+                    <a href="http://localhost:1313/posts/news/2025-05-26-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-1/" class="news-link">
+                        <span class="news-title">소식 게시글 테스트 1</span>
+                        <span class="news-date">2025.05.27</span>
+                    </a>
+                </div>
+                
+                <div class="news-item">
+                    <a href="http://localhost:1313/posts/news/simple/" class="news-link">
+                        <span class="news-title">NFP 디자인 신규 오픈</span>
                         <span class="news-date">2025.05.24</span>
-                    </div>
+                    </a>
                 </div>
                 
             </div>
@@ -386,7 +414,7 @@
                     <h3>프로그래밍</h3>
                 </div>
                 <div class="category-content">
-                    <p class="category-description">디자인과 기술을 결합한 웹 개발</p>
+                    <p class="category-description">디자인과 기술을 결합한 프로그래밍</p>
                     <div class="category-skills">
                         <span class="skill-tag primary">프론트엔드</span>
                         <span class="skill-tag">웹 퍼블리싱</span>
@@ -951,6 +979,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+ <script src="/components/banner.js"></script>
 <script src="/components/popup.js"></script>
 
 
