@@ -68,10 +68,10 @@
     <loc>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
     <lastmod>2025-05-29T23:35:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/</loc>
+    <loc>http://localhost:1313/categories/news/</loc>
     <lastmod>2025-05-29T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/2025-05-29-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
+    <loc>http://localhost:1313/posts/news/2025-05-29-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
     <lastmod>2025-05-29T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/web/2025-05-29-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</loc>
@@ -83,7 +83,7 @@
     <loc>http://localhost:1313/categories/creative/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/2025-05-26-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-1/</loc>
+    <loc>http://localhost:1313/posts/news/2025-05-26-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-1/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81/</loc>
@@ -98,7 +98,7 @@
     <loc>http://localhost:1313/posts/2025-05-24-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%8C%EC%8B%9C%EA%B8%80/</loc>
     <lastmod>2025-05-25T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/news/simple/</loc>
+    <loc>http://localhost:1313/posts/news/simple/</loc>
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/simple/</loc>

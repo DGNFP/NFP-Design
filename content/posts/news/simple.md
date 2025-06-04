@@ -1,6 +1,8 @@
 ---
 title: "NFP 디자인 신규 오픈"
 date: 2025-05-24
+categories:
+- news
 thumbnail: "img/banner1.jpg"
 description: "새로운 웹사이트 오픈"
 draft: false

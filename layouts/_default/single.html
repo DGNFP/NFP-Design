@@ -21,6 +21,8 @@
                                 > {{ .Params.subCategory }}
                             {{ end }}
                         </span>
+                    {{ else if eq .Section "news" }}
+                        <span class="post-category">소식</span>
                     {{ end }}
                 </div>
             </div>
@@ -187,23 +189,34 @@
                 </div>
             </div>
 
-            <!-- 페이지 네비게이션 -->
+            <!-- 페이지 네비게이션 (통합 버전) -->
             <div class="post-navigation">
-                {{ $currentCategory := index .Params.categories 0 }}
-                {{ $categoryPosts := where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
-                {{ $categoryPosts := $categoryPosts.ByDate.Reverse }}
+                {{ $posts := slice }}
+                {{ $listUrl := "" }}
                 
+                {{ if eq .Section "news" }}
+                    <!-- 소식 게시판용 -->
+                    {{ $posts = where .Site.RegularPages "Section" "news" }}
+                    {{ $listUrl = "/news/" }}
+                {{ else }}
+                    <!-- 포스트 게시판용 -->
+                    {{ $currentCategory := index .Params.categories 0 }}
+                    {{ $posts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
+                    {{ $listUrl = printf "/categories/%s/" $currentCategory }}
+                {{ end }}
+                
+                {{ $posts = $posts.ByDate.Reverse }}
                 {{ $currentIndex := 0 }}
-                {{ range $index, $post := $categoryPosts }}
+                {{ range $index, $post := $posts }}
                     {{ if eq $post.Permalink $.Permalink }}
                         {{ $currentIndex = $index }}
                     {{ end }}
                 {{ end }}
                 
-                <!-- 이전 게시글 (같은 카테고리) -->
+                <!-- 이전 게시글 -->
                 {{ $prevIndex := add $currentIndex 1 }}
-                {{ if lt $prevIndex (len $categoryPosts) }}
-                    {{ $prevPost := index $categoryPosts $prevIndex }}
+                {{ if lt $prevIndex (len $posts) }}
+                    {{ $prevPost := index $posts $prevIndex }}
                     <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
                         <i class="fas fa-chevron-left"></i> 이전
                     </a>
@@ -211,29 +224,13 @@
                     <span></span>
                 {{ end }}
                 
-                <!-- 목록으로 (카테고리별 페이지로) -->
-                {{ $listUrl := "" }}
-                {{ if eq $currentCategory "web" }}
-                    {{ $listUrl = "/categories/web/" }}
-                {{ else if eq $currentCategory "ad" }}
-                    {{ $listUrl = "/categories/ad/" }}
-                {{ else if eq $currentCategory "content" }}
-                    {{ $listUrl = "/categories/content/" }}
-                {{ else if eq $currentCategory "creative" }}
-                    {{ $listUrl = "/categories/creative/" }}
-                {{ else if eq $currentCategory "programming" }}
-                    {{ $listUrl = "/categories/programming/" }}
-                {{ else if eq $currentCategory "video" }}
-                    {{ $listUrl = "/categories/video/" }}
-                {{ else }}
-                    {{ $listUrl = "/posts/" }}
-                {{ end }}
+                <!-- 목록으로 -->
                 <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
 
-                <!-- 다음 게시글 (같은 카테고리) -->
+                <!-- 다음 게시글 -->
                 {{ $nextIndex := sub $currentIndex 1 }}
                 {{ if ge $nextIndex 0 }}
-                    {{ $nextPost := index $categoryPosts $nextIndex }}
+                    {{ $nextPost := index $posts $nextIndex }}
                     <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
                         다음 <i class="fas fa-chevron-right"></i>
                     </a>

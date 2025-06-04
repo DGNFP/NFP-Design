@@ -107,6 +107,13 @@
       <description>&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&lt;/p&gt;</description>
     </item>
     <item>
+      <title>소식 게시글 테스트2</title>
+      <link>http://localhost:1313/posts/news/2025-05-29-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B82/</link>
+      <pubDate>Thu, 29 May 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/news/2025-05-29-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B82/</guid>
+      <description>&lt;p&gt;ㅇㅇ&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>웹디자인 테스트1</title>
       <link>http://localhost:1313/posts/web/2025-05-29-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</link>
       <pubDate>Thu, 29 May 2025 00:00:00 +0900</pubDate>
@@ -119,6 +126,13 @@
       <pubDate>Tue, 27 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/ad/2025-05-26-%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</guid>
       <description>&lt;p&gt;명함 광고 디자인 테스트1명함 광고 디자인 테스트1&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>소식 게시글 테스트 1</title>
+      <link>http://localhost:1313/posts/news/2025-05-26-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-1/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/news/2025-05-26-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-1/</guid>
+      <description>&lt;p&gt;그렇다 ㅇㅇ&lt;/p&gt;</description>
     </item>
     <item>
       <title>크리에이티브 작업물 테스트1</title>
@@ -147,6 +161,13 @@
       <pubDate>Sun, 25 May 2025 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/2025-05-24-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%8C%EC%8B%9C%EA%B8%80/</guid>
       <description>&lt;p&gt;피파온라인 게시글이지만 웹이라고 가정한 테스트 게시글&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NFP 디자인 신규 오픈</title>
+      <link>http://localhost:1313/posts/news/simple/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/news/simple/</guid>
+      <description>&lt;p&gt;NFP 디자인 웹사이트가 오픈되었습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>웹사이트 디자인 프로젝트</title>

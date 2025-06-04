@@ -23,7 +23,7 @@ function createHeader(targetElementId = 'header-container', activeMenu = '') {
                 <li><a href="/news/" class="${activeMenu === 'news' ? 'active' : ''}">소식</a></li>
                 <li><a href="/#contact" class="${activeMenu === 'contact' ? 'active' : ''}">연락하기</a></li>
             </ul>
-            <div class="menu-btn">☰</div>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
         </nav>
     </div>
 </header>
