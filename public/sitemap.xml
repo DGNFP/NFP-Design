@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-03T13:48:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-03T13:48:00+00:00</lastmod>
+    <lastmod>2025-06-04T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/news/2025-06-04-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%8B%A0%EA%B7%9C-%EC%98%A4%ED%94%88/</loc>
+    <lastmod>2025-06-04T20:46:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-06-04T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-06-03T13:48:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>

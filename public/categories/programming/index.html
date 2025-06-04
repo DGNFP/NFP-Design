@@ -497,17 +497,31 @@
 }
 
 @media (max-width: 576px) {
+      .board-grid {
+        grid-template-columns: repeat(2, 1fr) !important;   
+        gap: 15px !important;
+    }
+
+    .board-item-content {
+        padding: 12px !important;   
+    }
+
+    .board-item-title {
+        font-size: 14px !important;
+        min-height: 32px !important;
+        max-height: 32px !important;
+    }
+    
     .demo-placeholder-grid .demo-icon {
-        font-size: 30px;  
-        margin-bottom: 8px;  
+        font-size: 28px !important;
     }
     
     .demo-placeholder-grid .demo-type {
-        font-size: 12px;  
+        font-size: 12px !important;  
     }
     
     .demo-placeholder-grid .demo-tech {
-        font-size: 9px;  
+        font-size: 9px !important;  
     }
 }
 </style>
