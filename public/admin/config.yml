@@ -104,7 +104,7 @@ collections:
 
   - name: "news"
     label: "소식 게시글"
-    folder: "content/posts/news"
+    folder: "content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
