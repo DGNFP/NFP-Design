@@ -6,7 +6,7 @@
         
         <!-- 기존 소식 스타일 사용 -->
         <div class="news-list">
-            {{ $newsPosts := where .Site.RegularPages "Params.categories" "intersect" (slice "news") }}
+            {{ $newsPosts := where .Site.RegularPages "Section" "news" }}
             {{ if $newsPosts }}
                 {{ range $newsPosts.ByDate.Reverse }}
                 <div class="news-item">
