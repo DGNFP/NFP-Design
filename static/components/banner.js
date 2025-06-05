@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 각 도트 요소 확인
     navDots.forEach((dot, index) => {
-        console.log(`NFP 도트 ${index}:`, dot, dot.className);
     });
     
     if (!bannerContainer) {
@@ -123,18 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // NFP 마우스 호버 이벤트
-    if (bannerContainer) {
-        bannerContainer.addEventListener('mouseenter', function() {
-            stopSlideInterval();
-        });
-        
-        bannerContainer.addEventListener('mouseleave', function() {
-            setTimeout(() => {
-                startSlideInterval();
-            }, 1000);
-        });
-    }
+  
     
     // NFP 초기 설정 및 자동 슬라이드 시작
     // 첫 번째 슬라이드 강제 초기화
