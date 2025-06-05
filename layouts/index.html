@@ -185,24 +185,24 @@
                     <span class="banner-dot"></span>
                 </div>
             </div>
-                        <div class="news-list">
-                {{ $newsPosts := where site.RegularPages "Params.categories" "intersect" (slice "news") }}
-                {{ range first 5 $newsPosts }}
-                <div class="news-item">
-                    <a href="{{ .Permalink }}" class="news-link">
-                        <span class="news-title">{{ .Title }}</span>
-                        <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
-                    </a>
-                </div>
-                {{ else }}
-                <div class="news-item">
-                    <div class="news-link">
-                        <span class="news-title">소식이 없습니다</span>
-                        <span class="news-date">2025.05.24</span>
-                    </div>
-                </div>
-                {{ end }}
-            </div>
+               <div class="news-list">
+    {{ $newsPosts := where site.RegularPages "Section" "news" }}
+    {{ range first 5 $newsPosts.ByDate.Reverse }}
+    <div class="news-item">
+        <a href="{{ .Permalink }}" class="news-link">
+            <span class="news-title">{{ .Title }}</span>
+            <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
+        </a>
+    </div>
+    {{ else }}
+    <div class="news-item">
+        <div class="news-link">
+            <span class="news-title">소식이 없습니다</span>
+            <span class="news-date">2025.05.24</span>
+        </div>
+    </div>
+    {{ end }}
+</div>
         </div>
     </div>
 </section>
