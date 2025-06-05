@@ -6,7 +6,7 @@
  * @param {number} year - 저작권 연도 (기본값: 현재 연도)
  * @param {string} companyName - 회사명 (기본값: 'NFP DESIGN 전인혁')
  */
-function createFooter(targetElementId = 'footer-container', year = new Date().getFullYear(), companyName = 'NFP DESIGN 전인혁') {
+function createFooter(targetElementId = 'footer-container', year = new Date().getFullYear(), companyName = 'NFP DESIGN') {
     // 외부 CSS 로드 (절대 경로로 수정)
     const cssHref = '/css/styles.css';
     const existingLink = document.querySelector(`link[href="${cssHref}"]`);
