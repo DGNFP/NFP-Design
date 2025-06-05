@@ -174,8 +174,7 @@
                         <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 5">
                     </div>
                 </div>
-                <button class="banner-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="banner-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                
                 <!-- 고정 도트 5개 -->
                 <div class="banner-dots">
                     <span class="banner-dot"></span>
@@ -185,6 +184,10 @@
                     <span class="banner-dot"></span>
                 </div>
             </div>
+
+            <button class="banner-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="banner-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                
                <div class="news-list">
     {{ $newsPosts := where site.RegularPages "Section" "news" }}
     {{ range first 5 $newsPosts.ByDate.Reverse }}

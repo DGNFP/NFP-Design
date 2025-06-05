@@ -648,13 +648,13 @@ nav {
 /* NFP 배너 버튼 */
 .banner-btn {
     position: absolute;
-    top: 50%;
+    top: calc(100px + 365px); /* 헤더 높이 + 배너 높이/2 추정값 */
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: none;
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
@@ -668,11 +668,13 @@ nav {
 }
 
 .prev-btn {
-    left: 15px;
+    /* left: 15px; */
+    left: calc((100vw - 1200px) / 2 - 60px); /* 1200px 컨테이너 왼쪽 밖 60px */
 }
 
 .next-btn {
-    right: 15px;
+    /* right: 15px; */
+     right: calc((100vw - 1200px) / 2 - 60px); /* 1200px 컨테이너 오른쪽 밖 60px */
 }
 
 /* NFP 배너 도트 */
