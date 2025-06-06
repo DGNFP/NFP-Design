@@ -669,12 +669,12 @@ nav {
 
 .prev-btn {
     /* left: 15px; */
-    left: calc((100vw - 1200px) / 2 - 60px); /* 1200px 컨테이너 왼쪽 밖 60px */
+    left: calc((100vw - 1200px) / 2 - 45px); /* 1200px 컨테이너 왼쪽 밖 60px */
 }
 
 .next-btn {
     /* right: 15px; */
-     right: calc((100vw - 1200px) / 2 - 60px); /* 1200px 컨테이너 오른쪽 밖 60px */
+     right: calc((100vw - 1200px) / 2 - 45px); /* 1200px 컨테이너 오른쪽 밖 60px */
 }
 
 /* NFP 배너 도트 */
@@ -845,7 +845,7 @@ nav {
 
 /* 마크다운 에디터에서 업로드한 이미지만 타겟 */
 .post-body img[src^="/img/uploads/"] {
-    /* 이미지 비율 처리 */
+    /* 이미지 비율 처리 , 원본의 절반 크기로 줄여져서 게시글에 보여짐*/
     max-width: 50% !important; 
     height: auto !important;
     margin-bottom: 20px !important;

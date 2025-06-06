@@ -53,13 +53,14 @@
     }
     </script>
     
-    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+    <!-- CSS 파일들 - 절대 경로로 수정 -->
+    <link rel="stylesheet" href="{{ "/css/styles.css" | relURL }}">
     {{ if not .IsHome }}
-    <link rel="stylesheet" href="{{ "css/board.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "/css/board.css" | relURL }}">
     {{ end }}
     <!-- 기존 icon.png를 파비콘으로 사용 -->
-    <link rel="icon" type="image/png" href="{{ "img/icon.png" | relURL }}">
-    <link rel="apple-touch-icon" href="{{ "img/icon.png" | relURL }}">
+    <link rel="icon" type="image/png" href="{{ "/img/icon.png" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ "/img/icon.png" | relURL }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
 </head>
@@ -71,10 +72,10 @@
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
     
-    <!-- 컴포넌트 스크립트 -->
-    <script src="{{ "components/header.js" | relURL }}"></script>
-    <script src="{{ "components/footer.js" | relURL }}"></script>
-    <script src="{{ "components/floating.js" | relURL }}"></script>
+    <!-- 컴포넌트 스크립트 - 절대 경로로 수정 -->
+    <script src="{{ "/components/header.js" | relURL }}"></script>
+    <script src="{{ "/components/footer.js" | relURL }}"></script>
+    <script src="{{ "/components/floating.js" | relURL }}"></script>
     
     <!-- 컴포넌트 초기화 -->
     <script>
@@ -86,9 +87,9 @@
     </script>
     
     {{ if .IsHome }}
-    <script src="{{ "js/scpript.js" | relURL }}"></script>
+    <script src="{{ "/js/scpript.js" | relURL }}"></script>
     {{ else }}
-    <script src="{{ "js/filter.js" | relURL }}"></script>
+    <script src="{{ "/js/filter.js" | relURL }}"></script>
     {{ end }}
     
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

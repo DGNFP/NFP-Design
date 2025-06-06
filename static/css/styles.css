@@ -669,12 +669,12 @@ nav {
 
 .prev-btn {
     /* left: 15px; */
-    left: calc((100vw - 1200px) / 2 - 60px); /* 1200px 컨테이너 왼쪽 밖 60px */
+    left: calc((100vw - 1200px) / 2 - 45px); /* 1200px 컨테이너 왼쪽 밖 60px */
 }
 
 .next-btn {
     /* right: 15px; */
-     right: calc((100vw - 1200px) / 2 - 60px); /* 1200px 컨테이너 오른쪽 밖 60px */
+     right: calc((100vw - 1200px) / 2 - 45px); /* 1200px 컨테이너 오른쪽 밖 60px */
 }
 
 /* NFP 배너 도트 */
