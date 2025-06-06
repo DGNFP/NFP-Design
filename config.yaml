@@ -1,6 +1,6 @@
-yamlbaseURL: 'https://nfp-design.netlify.app'
+baseURL: 'https://nfpdesign.netlify.app'
 languageCode: 'ko'
-title: 'NFP Design'
+title: 'NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다'
 theme: ''
 
 params:
