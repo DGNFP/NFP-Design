@@ -1,7 +1,6 @@
 baseURL: 'https://nfpdesign.netlify.app'
 languageCode: 'ko'
 title: 'NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다'
-theme: ''
 
 params:
   description: "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인"
