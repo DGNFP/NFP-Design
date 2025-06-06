@@ -24,10 +24,10 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "대표 이미지", name: "thumbnail", widget: "image", hint: "게시판 목록에 표시될 대표 이미지 (선택사항)", required: false}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지 디자인", "디지털배너 디자인", "상세페이지 디자인", "UX/UI 디자인"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["web"]}
-      - {label: "내용", name: "body", widget: "markdown", hint: "본문에서 ![이미지 설명](/img/uploads/이미지파일명) 형식으로 원하는 위치에 이미지를 삽입할 수 있습니다"}
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "ad-posts"
     label: "광고 작업물"
@@ -37,10 +37,10 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "대표 이미지", name: "thumbnail", widget: "image", hint: "게시판 목록에 표시될 대표 이미지 (선택사항)", required: false}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["ad"]}
-      - {label: "내용", name: "body", widget: "markdown", hint: "본문에서 ![이미지 설명](/img/uploads/이미지파일명) 형식으로 원하는 위치에 이미지를 삽입할 수 있습니다"}
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "content-posts"
     label: "콘텐츠 작업물"
@@ -50,10 +50,10 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "대표 이미지", name: "thumbnail", widget: "image", hint: "게시판 목록에 표시될 대표 이미지 (선택사항)", required: false}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["카드뉴스 디자인", "포스터 디자인", "SNS 광고"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["content"]}
-      - {label: "내용", name: "body", widget: "markdown", hint: "본문에서 ![이미지 설명](/img/uploads/이미지파일명) 형식으로 원하는 위치에 이미지를 삽입할 수 있습니다"}
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "creative-posts"
     label: "크리에이티브 작업물"
@@ -63,10 +63,10 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "대표 이미지", name: "thumbnail", widget: "image", hint: "게시판 목록에 표시될 대표 이미지 (선택사항)", required: false}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["creative"]}
-      - {label: "내용", name: "body", widget: "markdown", hint: "본문에서 ![이미지 설명](/img/uploads/이미지파일명) 형식으로 원하는 위치에 이미지를 삽입할 수 있습니다"}
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "programming-posts"
     label: "프로그래밍 작업물"
@@ -76,7 +76,7 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "대표 이미지", name: "thumbnail", widget: "image", hint: "게시판 목록에 표시될 대표 이미지 (선택사항)", required: false}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발"], required: false}
       - label: "웹 데모 코드"
         name: "demoCode"
@@ -86,7 +86,7 @@ collections:
         hint: "프론트엔드/퍼블리싱 작업물의 경우 HTML+CSS 코드를 입력하면 라이브 데모가 표시됩니다"
         required: false
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["programming"]}
-      - {label: "내용", name: "body", widget: "markdown", hint: "본문에서 ![이미지 설명](/img/uploads/이미지파일명) 형식으로 원하는 위치에 이미지를 삽입할 수 있습니다"}
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "video-posts"
     label: "영상 작업물"
@@ -97,10 +97,10 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
-      - {label: "대표 이미지", name: "thumbnail", widget: "image", hint: "게시판 목록에 표시될 대표 이미지 (선택사항)", required: false}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["영상 제작", "영상 편집", "모션그래픽", "유튜브 썸네일"], required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["video"]}
-      - {label: "내용", name: "body", widget: "markdown", hint: "본문에서 ![이미지 설명](/img/uploads/이미지파일명) 형식으로 원하는 위치에 이미지를 삽입할 수 있습니다"}
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "news"
     label: "소식 게시글"
@@ -110,5 +110,5 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "대표 이미지", name: "thumbnail", widget: "image", hint: "게시판 목록에 표시될 대표 이미지 (선택사항)", required: false}
-      - {label: "내용", name: "body", widget: "markdown", hint: "본문에서 ![이미지 설명](/img/uploads/이미지파일명) 형식으로 원하는 위치에 이미지를 삽입할 수 있습니다"}
+      - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}

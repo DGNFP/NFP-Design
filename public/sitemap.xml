@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/news/</loc>
-    <lastmod>2025-06-05T10:13:00+00:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/content/</loc>
+    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3/</loc>
+    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/</loc>
     <lastmod>2025-06-05T10:13:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/news/2025-06-05-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-250605-am10-13/</loc>
@@ -13,12 +25,6 @@
   </url><url>
     <loc>http://localhost:1313/news/2025-06-04-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-3/</loc>
     <lastmod>2025-06-05T00:06:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-03T13:48:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-06-03T13:48:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>
     <lastmod>2025-06-03T13:48:00+00:00</lastmod>
@@ -71,9 +77,6 @@
     <loc>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0529/</loc>
     <lastmod>2025-05-29T23:54:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/content/</loc>
-    <lastmod>2025-05-29T23:35:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
     <lastmod>2025-05-29T23:35:00+00:00</lastmod>
   </url><url>
@@ -85,9 +88,6 @@
   </url><url>
     <loc>http://localhost:1313/posts/web/2025-05-29-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</loc>
     <lastmod>2025-05-29T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/ad/2025-05-26-%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</loc>
-    <lastmod>2025-05-27T00:04:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/creative/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
@@ -105,12 +105,6 @@
     <lastmod>2025-05-25T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/news/simple/</loc>
-    <lastmod>2025-05-24T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/video/simple/</loc>
-    <lastmod>2025-05-24T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/web/simple/</loc>
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>

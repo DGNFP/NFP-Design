@@ -36,12 +36,5 @@
       <guid>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0529/</guid>
       <description>&lt;p&gt;ㅇㅇ&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>웹사이트 디자인 프로젝트</title>
-      <link>http://localhost:1313/posts/video/simple/</link>
-      <pubDate>Sat, 24 May 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/posts/video/simple/</guid>
-      <description>&lt;p&gt;웹사이트 디자인 프로젝트입니다.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
