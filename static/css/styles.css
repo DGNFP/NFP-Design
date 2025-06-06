@@ -982,8 +982,8 @@ nav {
     .banner-container {
         position: relative;
         width: 100%;
-        max-width: 400px;
-        height: 400px;
+        max-width: 350px;
+        height: 350px;
         margin: 0 auto;
         overflow: hidden;
         border-radius: 8px;
@@ -997,7 +997,12 @@ nav {
     }
 
     .banner-dots {
-        bottom: 10px;
+        bottom: 20px;
+    }
+
+    .banner-dots .banner-dot {
+    width: 8px;
+    height: 8px;
     }
     
     .news-link {
@@ -1030,6 +1035,29 @@ nav {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/* 모바일에서 스킬들 좀 작아지게 */
+.skill {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: var(--font-medium);
+}
+
+.skill-main {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: var(--font-bold);
 }
 
 }
