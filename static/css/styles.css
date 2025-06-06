@@ -849,7 +849,7 @@ nav {
     height: auto !important;
     margin-bottom: 20px !important;
     display: block;
-    border-radius: 8px; /* 선택사항: 모서리 둥글게 */
+    border-radius: 4px; /* 선택사항: 모서리 둥글게 */
 }
 
 /* 반응형 디자인 */
