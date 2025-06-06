@@ -845,7 +845,7 @@ nav {
 
 /* 마크다운 에디터에서 업로드한 이미지만 타겟 */
 .post-body img[src^="/img/uploads/"] {
-    /* 이미지 비율 처리 */
+    /* 이미지 비율 처리 , 원본의 절반 크기로 줄여져서 게시글에 보여짐*/
     max-width: 50% !important; 
     height: auto !important;
     margin-bottom: 20px !important;
