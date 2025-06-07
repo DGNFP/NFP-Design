@@ -1019,7 +1019,8 @@ nav {
     .banner-btn {
         width: 35px;
         height: 35px;
-        font-size: 16px;
+        font-size: 14px;
+        top: calc(100px + 340px);
     }
     
     .prev-btn {
