@@ -1,0 +1,369 @@
+/* 핵심 프로젝트 슬라이더 CSS - 센터 보더 강조 수정 */
+
+/* ===== 섹션 기본 스타일 ===== */
+.portfolio-highlights,
+.main-projects-section {
+    margin-top: 40px;
+    padding: 20px 0;
+    position: relative;
+}
+
+.main-projects-section {
+    background: rgba(1, 255, 117, 0.02);
+}
+
+.project-section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* ===== 포트폴리오 하이라이트 ===== */
+/* 그림자를 위한 슬라이더 컨테이너 - 1200px 제한 + 잘리는 효과 */
+.highlight-slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 150px; /* 그림자 공간 + 화살표 공간 */
+    position: relative;
+    overflow-x: hidden; /* overflow: hidden → overflow-x: hidden */
+    overflow-y: visible; /* 상하는 보이게 */
+}
+
+/* 포트폴리오 하이라이트 전용 slick-list 설정 */
+.highlight-slider-container .slick-list {
+    overflow: visible !important; /* 그림자는 보이되 */
+    margin: 0 -30px !important; /* 그림자를 위한 마진 */
+    padding: 50px !important; /* 그림자를 위한 패딩 */
+}
+
+.center {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.highlight-card {
+    padding: 0 15px;
+    outline: none;
+}
+
+.highlight-card a {
+    display: block;
+    background: rgba(1, 255, 117, 0.05);
+    /* 보더 두께를 통일하고 투명한 기본 보더 사용 */
+    border: 3px solid transparent;
+    /* 실제 보더는 box-shadow로 구현 */
+    box-shadow: 
+        0 0 0 1px rgba(1, 255, 117, 0.1), /* 기본 보더 */
+        0 5px 15px rgba(1, 255, 117, 0.1); /* 기본 그림자 */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease; /* 0.3s → 0.15s로 단축 */
+    text-decoration: none;
+    position: relative;
+}
+
+.highlight-card a:hover {
+    background: rgba(1, 255, 117, 0.1);
+    box-shadow: 
+        0 0 0 1px rgba(1, 255, 117, 0.3), /* 호버 보더 */
+        0 10px 20px rgba(1, 255, 117, 0.2); /* 호버 그림자 */
+    transform: translateY(-5px);
+    z-index: 10;
+}
+
+.highlight-square-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.highlight-footer {
+    padding: 20px;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight-project-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+    
+    /* 2줄 말줄임표 설정 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(1.4em * 2);
+}
+
+/* Center Mode 중앙 강조 - 더 정확한 셀렉터 */
+.center .slick-slide.slick-center .highlight-card a,
+.center .slick-current.slick-center .highlight-card a,
+.center .slick-slide.slick-active.slick-center .highlight-card a,
+.highlight-card a.force-center-highlight {
+    background: rgba(1, 255, 117, 0.15) !important;
+    /* 실제 보더 사용 */
+    border: 2px solid #01FF75 !important;
+    /* box-shadow는 그림자만 */
+    box-shadow: 0 10px 20px rgba(1, 255, 117, 0.2) !important;
+    transform: scale(1.05) !important;
+    z-index: 15 !important;
+}
+
+/* 센터 강조 시 hover 효과 */
+.center .slick-slide.slick-center .highlight-card a:hover,
+.center .slick-current.slick-center .highlight-card a:hover,
+.center .slick-slide.slick-active.slick-center .highlight-card a:hover,
+.highlight-card a.force-center-highlight:hover {
+    background: rgba(1, 255, 117, 0.2) !important;
+    border: 2px solid #01FF75 !important;
+    transform: scale(1.08) translateY(-3px) !important;
+    box-shadow: 0 15px 30px rgba(1, 255, 117, 0.3) !important;
+}
+
+/* 텍스트 강조 - 센터만! */
+.center .slick-slide.slick-center .highlight-project-name,
+.center .slick-current.slick-center .highlight-project-name,
+.center .slick-slide.slick-active.slick-center .highlight-project-name,
+.highlight-card a.force-center-highlight .highlight-project-name {
+    color: #01FF75 !important;
+    font-weight: 700 !important;
+}
+
+/* 비센터 아이템들은 기본 색상 강제 */
+.center .slick-slide:not(.slick-center) .highlight-project-name {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* 강제 센터 강조 클래스 - 삭제됨 (위에 통합) */
+
+/* ===== 메인 프로젝트 ===== */
+.autoplay {
+    max-width: none;
+    width: 100%;
+    padding: 0 80px;
+    position: relative;
+}
+
+.main-project-card {
+    padding: 0 15px;
+    outline: none;
+}
+
+.main-project-card a {
+    display: block;
+    background: rgba(1, 255, 117, 0.05);
+    border: 2px solid rgba(1, 255, 117, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.main-project-card a:hover {
+    border-color: #01FF75;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(1, 255, 117, 0.3);
+    z-index: 10;
+}
+
+.main-project-wide-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.main-project-text {
+    padding: 20px;
+}
+
+.project-tag {
+    display: inline-block;
+    background: rgba(1, 255, 117, 0.2);
+    color: #01FF75;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+     line-height: 1; /* 추가 */
+    vertical-align: middle; /* 추가 */
+}
+
+.main-project-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.main-project-description {
+    font-size: 13px;
+    color: #cccccc;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ===== 커스텀 화살표 버튼 ===== */
+.custom-prev,
+.custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(1, 255, 117, 0.6);
+    border-radius: 50%;
+    color: #01FF75;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(1, 255, 117, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+}
+
+/* 포트폴리오 하이라이트 화살표 위치 - 아이템과 가깝게 */
+.portfolio-highlights .center-prev,
+.portfolio-highlights .center-next {
+    top: 50%; /* 이미지 중앙에 맞춤 */
+}
+
+.portfolio-highlights .center-prev {
+    left: 250px;
+}
+
+.portfolio-highlights .center-next {
+    right: 250px;
+}
+
+/* 메인 프로젝트 화살표 위치 */
+.main-projects-section .autoplay-prev {
+    left: 20px;
+}
+
+.main-projects-section .autoplay-next {
+    right: 20px;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+    background: rgba(1, 255, 117, 0.2);
+    border-color: #01FF75;
+    box-shadow: 0 0 25px rgba(1, 255, 117, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* ===== Slick 도트 ===== */
+.slick-dots {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 40px !important;
+    padding: 0 !important;
+    list-style: none !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.slick-dots li {
+    position: relative !important;
+    display: inline-block !important;
+    margin: 0 6px !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+}
+
+.slick-dots li button {
+    display: block !important;
+    width: 14px !important;
+    height: 14px !important;
+    padding: 0 !important;
+    border: 2px solid rgba(1, 255, 117, 0.4) !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    text-indent: -9999px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    outline: none !important;
+}
+
+.slick-dots li.slick-active button {
+    background: #01FF75 !important;
+    border-color: #01FF75 !important;
+    transform: scale(1.4) !important;
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.6) !important;
+}
+
+.slick-dots li button:hover {
+    background: rgba(1, 255, 117, 0.7) !important;
+    border-color: #01FF75 !important;
+    transform: scale(1.2) !important;
+    box-shadow: 0 0 10px rgba(1, 255, 117, 0.5) !important;
+}
+
+/* ===== 기본 설정 ===== */
+/* Slick 기본 화살표 숨기기 */
+.slick-prev,
+.slick-next,
+.slick-arrow {
+    display: none !important;
+}
+
+/* 그림자 잘림 방지 */
+body {
+    overflow-x: hidden;
+}
+
+/* ===== Slick 슬라이더 오버플로우 강제 수정 ===== */
+/* 메인 프로젝트는 전체가 보이도록 */
+.main-projects-section .slick-list {
+    overflow: visible !important;
+    margin: 0 -30px !important; /* 그림자를 위한 마진 */
+    padding: 30px !important; /* 그림자를 위한 패딩 */
+}
+
+.slick-track {
+    overflow: visible !important;
+}
+
+.slick-slide {
+    overflow: visible !important;
+}
+
+/* Slick 컨테이너들 오버플로우 처리 */
+.center.slick-slider {
+    overflow: visible !important; /* 포트폴리오 하이라이트 */
+}
+
+.autoplay.slick-slider {
+    overflow: visible !important; /* 메인 프로젝트 */
+}
