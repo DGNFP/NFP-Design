@@ -367,3 +367,130 @@ body {
 .autoplay.slick-slider {
     overflow: visible !important; /* 메인 프로젝트 */
 }
+
+@media (max-width: 991px) {
+   /* 포트폴리오 하이라이트 반응형 */
+   .highlight-slider-container {
+       max-width: 100%;
+       padding: 0 80px; /* 150px → 80px */
+   }
+   
+   .custom-prev, .custom-next{
+    width: 35px;
+    height: 35px;
+   }
+
+   .portfolio-highlights .center-prev {
+       left: 25px;
+   }
+
+   .portfolio-highlights .center-next {
+       right: 25px;
+   }
+   
+   .highlight-card a {
+       border-radius: 8px; /* 15px → 12px */
+   }
+   
+   .highlight-square-img {
+       height: 220px; /* 250px → 220px */
+   }
+   
+   .highlight-footer {
+       padding: 15px; /* 20px → 15px */
+       min-height: 70px; /* 80px → 70px */
+   }
+   
+   .highlight-project-name {
+       font-size: 12px; /* 16px → 14px */
+       line-height: 1.3;
+   }
+   
+   /* 메인 프로젝트 반응형 */
+   .autoplay {
+       padding: 0 60px; /* 80px → 60px */
+   }
+   
+   .main-projects-section .autoplay-prev {
+       left: 15px; /* 20px → 15px */
+   }
+   
+   .main-projects-section .autoplay-next {
+       right: 15px; /* 20px → 15px */
+   }
+   
+   .main-project-wide-img {
+       height: 120px; /* 250px → 220px */
+   }
+   
+   .main-project-text {
+       padding: 10px; /* 20px → 15px */
+   }
+
+   .main-project-card a{
+    border-radius: 8px;
+   }
+   
+   .project-tag {
+       padding: 5px 10px; /* 6px 12px → 5px 10px */
+       font-size: 9px; /* 12px → 11px */
+       font-weight: 500;
+       margin-bottom: 10px; /* 12px → 10px */
+   }
+   
+   .main-project-title {
+       font-size: 13px; /* 18px → 16px */
+       margin-bottom: 6px; /* 8px → 6px */
+   }
+   
+   .main-project-description {
+       font-size: 11px; /* 13px → 12px */
+       font-weight: 500;
+   }
+   
+   /* 도트 네비게이션 크기 조정 */
+   .slick-dots {
+       margin-top: 20px !important; /* 40px → 30px */
+   }
+   
+   .slick-dots li button {
+       width: 12px !important; /* 14px → 12px */
+       height: 12px !important;
+   }
+}
+
+@media (max-width: 480px) {
+    /* 포트폴리오 하이라이트 - 정사각형 비율 유지 */
+    .highlight-square-img {
+        height: 180px; /* 220px → 180px로 더 축소 */
+    }
+    
+    .highlight-footer {
+        padding: 10px; /* 15px → 10px */
+        min-height: 50px; /* 70px → 50px로 대폭 축소 */
+    }
+    
+    .highlight-project-name {
+        font-size: 11px; /* 12px → 11px */
+        line-height: 1.2; /* 1.3 → 1.2 */
+        /* 1줄로 제한해서 높이 줄이기 */
+        -webkit-line-clamp: 1;
+        max-height: calc(1.2em * 1);
+    }
+    
+    .highlight-card a {
+        border-radius: 6px; /* 8px → 6px */
+    }
+    
+    /* 슬라이더 설정도 조정 */
+    .highlight-slider-container {
+        padding: 0 60px; /* 80px → 60px */
+    }
+    
+    .portfolio-highlights .center-prev,
+    .portfolio-highlights .center-next {
+        width: 30px; /* 35px → 30px */
+        height: 30px;
+        font-size: 16px; /* 아이콘 크기도 축소 */
+    }
+}
