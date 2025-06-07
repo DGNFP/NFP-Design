@@ -3,9 +3,40 @@
 /* ===== 섹션 기본 스타일 ===== */
 .portfolio-highlights,
 .main-projects-section {
-    margin-top: 40px;
+    margin-top: 0px;
     padding: 20px 0;
     position: relative;
+}
+
+.portfolio-highlights {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-highlights::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: var(--secondary-color); /* rgba(1, 255, 117, 0.1) */
+    border-radius: 50%;
+    filter: blur(80px);
+    bottom: -100px;
+    left: -100px;
+    z-index: -1;
+}
+
+.portfolio-highlights::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: var(--secondary-color); /* rgba(1, 255, 117, 0.1) */
+    border-radius: 50%;
+    filter: blur(60px);
+    top: 100px;
+    right: -50px;
+    z-index: -1;
 }
 
 .main-projects-section {
@@ -17,7 +48,8 @@
     font-weight: 700;
     color: white;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 /* ===== 포트폴리오 하이라이트 ===== */
@@ -53,11 +85,10 @@
     display: block;
     background: rgba(1, 255, 117, 0.05);
     /* 보더 두께를 통일하고 투명한 기본 보더 사용 */
-    border: 3px solid transparent;
     /* 실제 보더는 box-shadow로 구현 */
     box-shadow: 
-        0 0 0 1px rgba(1, 255, 117, 0.1), /* 기본 보더 */
-        0 5px 15px rgba(1, 255, 117, 0.1); /* 기본 그림자 */
+        0 0 0 2px rgba(1, 255, 117, 0.1);/* 기본 보더 */
+        
     border-radius: 15px;
     overflow: hidden;
     transition: all 0.3s ease; /* 0.3s → 0.15s로 단축 */
@@ -68,7 +99,7 @@
 .highlight-card a:hover {
     background: rgba(1, 255, 117, 0.1);
     box-shadow: 
-        0 0 0 1px rgba(1, 255, 117, 0.3), /* 호버 보더 */
+        0 0 0 2px rgba(1, 255, 117, 0.3), /* 호버 보더 */
         0 10px 20px rgba(1, 255, 117, 0.2); /* 호버 그림자 */
     transform: translateY(-5px);
     z-index: 10;
