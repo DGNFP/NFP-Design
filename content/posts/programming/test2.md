@@ -1,5 +1,6 @@
 ---
 title: "랜딩페이지 클론"
+subtitle: 소제목 확인용 디버깅깅
 categories: ["programming"]
 subCategory: "프론트엔드"
 demoCode: |

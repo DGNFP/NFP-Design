@@ -10,6 +10,20 @@
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>컨텐츠 디자인 테스트 3</title>
+      <link>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3-copy-2/</link>
+      <pubDate>Fri, 06 Jun 2025 19:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3-copy-2/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/uploads/youtube2.jpg&#34; alt=&#34;ALT 텍스트&#34; title=&#34;타이틀&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;여기에 글을 작성하면 어디에 표시 되는지 테스트 중.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/uploads/youtube4.jpg&#34; alt=&#34;유튜브 썸네일 2&#34; title=&#34;유튜브 썸네일 2 입니다.&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;유튜브 썸네일 2 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컨텐츠 디자인 테스트 3</title>
+      <link>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3-copy/</link>
+      <pubDate>Fri, 06 Jun 2025 19:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3-copy/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/uploads/youtube2.jpg&#34; alt=&#34;ALT 텍스트&#34; title=&#34;타이틀&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;여기에 글을 작성하면 어디에 표시 되는지 테스트 중.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/uploads/youtube4.jpg&#34; alt=&#34;유튜브 썸네일 2&#34; title=&#34;유튜브 썸네일 2 입니다.&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;유튜브 썸네일 2 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컨텐츠 디자인 테스트 3</title>
       <link>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3/</link>
       <pubDate>Fri, 06 Jun 2025 19:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3/</guid>
@@ -37,7 +51,7 @@
       <description>&lt;p&gt;웹 데모 테스트 25.06.03&lt;/p&gt;</description>
     </item>
     <item>
-      <title>영상 작업물 테스트2</title>
+      <title>연이공방 홍보영상</title>
       <link>http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B82/</link>
       <pubDate>Sun, 01 Jun 2025 20:21:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B82/</guid>
@@ -122,6 +136,20 @@
     </item>
     <item>
       <title>컨텐츠 디자인 테스트2</title>
+      <link>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy-2/</link>
+      <pubDate>Thu, 29 May 2025 23:35:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy-2/</guid>
+      <description>&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컨텐츠 디자인 테스트2</title>
+      <link>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy/</link>
+      <pubDate>Thu, 29 May 2025 23:35:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy/</guid>
+      <description>&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컨텐츠 디자인 테스트2</title>
       <link>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</link>
       <pubDate>Thu, 29 May 2025 23:35:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</guid>
@@ -150,10 +178,59 @@
     </item>
     <item>
       <title>크리에이티브 작업물 테스트1</title>
+      <link>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-2/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-2/</guid>
+      <description>&lt;p&gt;크리에이티브 작업물 테스트 1 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>크리에이티브 작업물 테스트1</title>
+      <link>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-3/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-3/</guid>
+      <description>&lt;p&gt;크리에이티브 작업물 테스트 1 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>크리에이티브 작업물 테스트1</title>
+      <link>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-4/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-4/</guid>
+      <description>&lt;p&gt;크리에이티브 작업물 테스트 1 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>크리에이티브 작업물 테스트1</title>
+      <link>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-5/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-5/</guid>
+      <description>&lt;p&gt;크리에이티브 작업물 테스트 1 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>크리에이티브 작업물 테스트1</title>
+      <link>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy/</guid>
+      <description>&lt;p&gt;크리에이티브 작업물 테스트 1 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>크리에이티브 작업물 테스트1</title>
       <link>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81/</link>
       <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81/</guid>
       <description>&lt;p&gt;크리에이티브 작업물 테스트 1 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>광고 인쇄 디자인 테스트</title>
+      <link>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy-2/</link>
+      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy-2/</guid>
+      <description>&lt;p&gt;NFP 디자인 명함 제작 NFP 디자인 명함 제작&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>광고 인쇄 디자인 테스트</title>
+      <link>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy/</link>
+      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy/</guid>
+      <description>&lt;p&gt;NFP 디자인 명함 제작 NFP 디자인 명함 제작&lt;/p&gt;</description>
     </item>
     <item>
       <title>광고 인쇄 디자인 테스트</title>

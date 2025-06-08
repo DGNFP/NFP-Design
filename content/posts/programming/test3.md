@@ -1,5 +1,6 @@
 ---
 title: "Node.js Express API 서버 구축"
+subtitle: 소제목 확인용 디버깅깅
 date: 2025-06-01T14:30:00+09:00
 categories: ["programming"]
 subCategory: "백엔드"

@@ -36,51 +36,48 @@
              
         <!-- 크리에이티브 전용 4x3 분리형 레이아웃 (수정됨) -->
         <div class="board-grid-creative">
-            <!-- 모든 게시물 로드 -->
-            {{ $allPosts := .Pages }}
-            {{ range $allPosts }}
-            <div class="board-item-creative" data-main="creative" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
-                    <!-- 이미지만 별도 영역 (카드 외부) -->
-                    <div class="board-item-image-only">
-                        {{ if .Params.images }}
-                          {{ $images := .Params.images }}
-                          {{ if eq (printf "%T" $images) "string" }}
-                            <img src="{{ $images }}" alt="{{ .Title }}">
-                          {{ else }}
-                            <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                          {{ end }}
-                        {{ else if .Params.thumbnail }}
-                          <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
-                        {{ else }}
-                          <img src="img/design1.jpg" alt="{{ .Title }}">
-                        {{ end }}
-                    </div>
-                    
-                    <!-- 텍스트만 별도 영역 (이미지 아래 분리) -->
-                    <div class="board-item-text-only">
-                        <h3 class="board-item-title">{{ .Title }}</h3>
-                        
-                        <!-- 카테고리 표시 -->
-                        {{ if .Params.categories }}
-                            <p class="board-item-desc">
-                                {{ $mainCategory := index .Params.categories 0 }}
-                                {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
-                                {{ if .Params.subCategory }}
-                                    > {{ .Params.subCategory }}
-                                {{ end }}
-                            </p>
-                        {{ else }}
-                            <p class="board-item-desc">{{ .Params.description | truncate 50 }}</p>
-                        {{ end }}
-                        
-                        <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                    </div>
-                </a>
+    <!-- 모든 게시물 로드 -->
+    {{ $allPosts := .Pages }}
+    {{ range $allPosts }}
+    <div class="board-item-creative" data-main="creative" data-category="{{ .Params.subCategory }}">
+        <a href="{{ .Permalink }}">
+            <!-- 이미지만 별도 영역 (카드 외부) -->
+            <div class="board-item-image-only">
+                {{ if .Params.images }}
+                  {{ $images := .Params.images }}
+                  {{ if eq (printf "%T" $images) "string" }}
+                    <img src="{{ $images }}" alt="{{ .Title }}">
+                  {{ else }}
+                    <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                  {{ end }}
+                {{ else if .Params.thumbnail }}
+                  <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                {{ else }}
+                  <img src="img/design1.jpg" alt="{{ .Title }}">
+                {{ end }}
+                
+                <!-- 오버레이 태그 추가 -->
+                {{ if .Params.subCategory }}
+                <div class="category-overlay">{{ .Params.subCategory }}</div>
+                {{ end }}
             </div>
-            {{ end }}
-        </div>
-
+            
+            <!-- 텍스트만 별도 영역 (이미지 아래 분리) -->
+            <div class="board-item-text-only">
+                <h3 class="board-item-title">{{ .Title }}</h3>
+                
+                <!-- 소제목 추가 -->
+                {{ if .Params.subtitle }}
+                <h4 class="board-item-subtitle">{{ .Params.subtitle }}</h4>
+                {{ end }}
+                
+                <!-- 게시일자 비활성화 -->
+                <!-- <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p> -->
+            </div>
+        </a>
+    </div>
+    {{ end }}
+</div>
         <!-- 새로운 JavaScript 페이지네이션 -->
         <div class="pagination js-pagination">
             <!-- JavaScript로 동적 생성됨 -->

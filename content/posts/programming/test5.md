@@ -1,5 +1,6 @@
 ---
 title: "React Native 날씨 앱 개발"
+subtitle: 소제목 확인용 디버깅깅
 date: 2025-06-01T16:00:00+09:00
 categories: ["programming"]
 subCategory: "모바일 앱"

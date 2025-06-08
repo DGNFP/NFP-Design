@@ -1,5 +1,6 @@
 ---
 title: "Unity 2D 퍼즐 게임 'Crystal Match' 개발"
+subtitle: 소제목 확인용 디버깅깅
 date: 2025-06-01T16:45:00+09:00
 categories: ["programming"]
 subCategory: "게임 개발"

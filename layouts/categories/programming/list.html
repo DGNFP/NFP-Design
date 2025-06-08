@@ -35,74 +35,73 @@
         </div>
         
         <!-- 일반 3x3 게시판 그리드 -->
-        <div class="board-grid">
-            <!-- 모든 게시물 로드 -->
-            {{ $allPosts := .Pages }}
-            {{ range $allPosts }}
-            <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
-                    <!-- 썸네일 우선순위: 직접업로드 > 웹데모 > 서브카테고리별 기본 -->
-                    {{ if .Params.images }}
-                        <!-- 1순위: 직접 업로드 이미지 -->
-                        {{ $images := .Params.images }}
-                        {{ if eq (printf "%T" $images) "string" }}
-                            <img src="{{ $images }}" alt="{{ .Title }}">
-                        {{ else }}
-                            <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                        {{ end }}
-                    {{ else if .Params.thumbnail }}
-                        <!-- 2순위: 기존 썸네일 -->
-                        <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+<div class="board-grid">
+    <!-- 모든 게시물 로드 -->
+    {{ $allPosts := .Pages }}
+    {{ range $allPosts }}
+    <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
+        <a href="{{ .Permalink }}">
+            <!-- 썸네일 우선순위: 직접업로드 > 웹데모 > 서브카테고리별 기본 -->
+            <div class="board-item-img">
+                {{ if .Params.images }}
+                    <!-- 1순위: 직접 업로드 이미지 -->
+                    {{ $images := .Params.images }}
+                    {{ if eq (printf "%T" $images) "string" }}
+                        <img src="{{ $images }}" alt="{{ .Title }}">
                     {{ else }}
-                        <!-- 3순위: 서브카테고리별 기본 썸네일 -->
-                        <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
-                            <div class="demo-icon">
-                                {{ if eq .Params.subCategory "프론트엔드" }}
-                                    <i class="fab fa-react"></i>
-                                {{ else if eq .Params.subCategory "백엔드" }}
-                                    <i class="fas fa-server"></i>
-                                {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
-                                    <i class="fab fa-html5"></i>
-                                {{ else if eq .Params.subCategory "모바일 앱" }}
-                                    <i class="fas fa-mobile-alt"></i>
-                                {{ else if eq .Params.subCategory "게임 개발" }}
-                                    <i class="fas fa-gamepad"></i>
-                                {{ else }}
-                                    <i class="fas fa-code"></i>
-                                {{ end }}
-                            </div>
-                            <div class="demo-label">
-                                <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
-                                {{ if .Params.demoCode }}
-                                    <span class="demo-tech">WEB DEMO</span>
-                                {{ end }}
-                            </div>
-                        </div>
+                        <img src="{{ index $images 0 }}" alt="{{ .Title }}">
                     {{ end }}
-                    
-                    <div class="board-item-content">
-                        <h3 class="board-item-title">{{ .Title }}</h3>
-                        
-                        <!-- 카테고리 표시 (1차 + 2차 카테고리) -->
-                        {{ if .Params.categories }}
-                            <p class="board-item-desc">
-                                {{ $mainCategory := index .Params.categories 0 }}
-                                {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
-                                {{ if .Params.subCategory }}
-                                    > {{ .Params.subCategory }}
-                                {{ end }}
-                            </p>
-                        {{ else }}
-                            <p class="board-item-desc">{{ .Params.description | truncate 80 }}</p>
-                        {{ end }}
-                        
-                        <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                        <span class="board-item-link">자세히 보기</span>
+                {{ else if .Params.thumbnail }}
+                    <!-- 2순위: 기존 썸네일 -->
+                    <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                {{ else }}
+                    <!-- 3순위: 서브카테고리별 기본 썸네일 -->
+                    <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
+                        <div class="demo-icon">
+                            {{ if eq .Params.subCategory "프론트엔드" }}
+                                <i class="fab fa-react"></i>
+                            {{ else if eq .Params.subCategory "백엔드" }}
+                                <i class="fas fa-server"></i>
+                            {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
+                                <i class="fab fa-html5"></i>
+                            {{ else if eq .Params.subCategory "모바일 앱" }}
+                                <i class="fas fa-mobile-alt"></i>
+                            {{ else if eq .Params.subCategory "게임 개발" }}
+                                <i class="fas fa-gamepad"></i>
+                            {{ else }}
+                                <i class="fas fa-code"></i>
+                            {{ end }}
+                        </div>
+                        <div class="demo-label">
+                            <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
+                            {{ if .Params.demoCode }}
+                                <span class="demo-tech">WEB DEMO</span>
+                            {{ end }}
+                        </div>
                     </div>
-                </a>
+                {{ end }}
+                
+                <!-- 오버레이 태그 추가 -->
+                {{ if .Params.subCategory }}
+                <div class="category-overlay">{{ .Params.subCategory }}</div>
+                {{ end }}
             </div>
-            {{ end }}
-        </div>
+            
+            <div class="board-item-content">
+                <h3 class="board-item-title">{{ .Title }}</h3>
+                
+                <!-- 소제목 추가 -->
+                {{ if .Params.subtitle }}
+                <h4 class="board-item-subtitle">{{ .Params.subtitle }}</h4>
+                {{ end }}
+                
+                <!-- <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p> -->
+                <span class="board-item-link">자세히 보기</span>
+            </div>
+        </a>
+    </div>
+    {{ end }}
+</div>
 
         <!-- 새로운 JavaScript 페이지네이션 -->
         <div class="pagination js-pagination">
@@ -258,14 +257,21 @@
     }
 
     .board-item-content {
-        padding: 12px !important;  /* 패딩 조정 */
+        padding: 15px !important;  /* 패딩 조정 */
     }
 
-    .board-item-title {
-        font-size: 14px !important;
-        min-height: 32px !important;
-        max-height: 32px !important;
-    }
+   .board-item-title {
+    font-size: 14px !important;
+    height: 18px;
+    
+    /* 텍스트 생략 처리 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 18px;
+}
+
+
     
     .demo-placeholder-grid .demo-icon {
         font-size: 28px !important;

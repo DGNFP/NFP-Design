@@ -1,5 +1,6 @@
 ---
 title: "모던 카페 웹사이트 퍼블리싱"
+subtitle: 소제목 확인용 디버깅깅
 date: 2025-06-01T15:30:00+09:00
 categories: ["programming"]
 subCategory: "웹 퍼블리싱"
