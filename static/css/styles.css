@@ -359,7 +359,7 @@ nav {
     background: linear-gradient(
         45deg,
         transparent 30%,
-        rgba(1, 255, 117, 0.1) 50%,
+        rgba(1, 255, 117, 0.08) 50%,
         transparent 70%
     );
     animation: hologram-scan 3s infinite linear;
