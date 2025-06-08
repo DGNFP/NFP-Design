@@ -33,55 +33,60 @@
             </div>
         </div>
         
-      <!-- 게시판 그리드 -->
-<div class="board-grid-project-minimal">
-    <!-- 모든 게시물 로드 -->
-    {{ $allPosts := .Pages }}
-    {{ range $allPosts }}
-    <div class="board-item-project-minimal" data-main="project" data-category="{{ .Params.subCategory }}">
-        <a href="{{ .Permalink }}">
-            <div class="board-item-img">
-                {{ if .Params.images }}
-                    <!-- 기존 이미지 처리 -->
-                    {{ $images := .Params.images }}
-                    {{ if eq (printf "%T" $images) "string" }}
-                        <img src="{{ $images }}" alt="{{ .Title }}">
-                    {{ else }}
-                        <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                    {{ end }}
-                {{ else if .Params.thumbnail }}
-                    <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
-                {{ else }}
-                    <img src="img/design1.jpg" alt="{{ .Title }}">
-                {{ end }}
-                
-                <!-- 카테고리 오버레이 추가 (서브카테고리) -->
-                {{ if .Params.subCategory }}
-                <div class="category-overlay">{{ .Params.subCategory }}</div>
-                {{ end }}
+        <!-- 게시판 그리드 -->
+        <div class="board-grid-project-minimal">
+            <!-- 모든 게시물 로드 -->
+            {{ $allPosts := .Pages }}
+            {{ range $allPosts }}
+            <div class="board-item-project-minimal" data-main="project" data-category="{{ .Params.subCategory }}">
+                <a href="{{ .Permalink }}">
+                    <div class="board-item-img">
+                        {{ if .Params.images }}
+                            <!-- 기존 이미지 처리 -->
+                            {{ $images := .Params.images }}
+                            {{ if eq (printf "%T" $images) "string" }}
+                                <img src="{{ $images }}" alt="{{ .Title }}">
+                            {{ else }}
+                                <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                            {{ end }}
+                        {{ else if .Params.thumbnail }}
+                            <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                        {{ else }}
+                            <!-- 본문에서 첫 번째 이미지 추출 -->
+                            {{ $content := .Content }}
+                            {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
+                            {{ if $imageSrc }}
+                                <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
+                            {{ else }}
+                                <img src="img/design1.jpg" alt="{{ .Title }}">
+                            {{ end }}
+                        {{ end }}
+                        
+                        <!-- 카테고리 오버레이 추가 (서브카테고리) -->
+                        {{ if .Params.subCategory }}
+                        <div class="category-overlay">{{ .Params.subCategory }}</div>
+                        {{ end }}
+                    </div>
+                    
+                    <div class="project-minimal-content">
+                        <!-- 태그 표시 (기존 project_scale 위치) -->
+                        {{ if .Params.tags }}
+                            {{ range first 3 .Params.tags }}
+                            <span class="project-scale-badge">{{ . }}</span>
+                            {{ end }}
+                        {{ end }}
+                        
+                        <h3 class="project-minimal-title">{{ .Title }}</h3>
+                        
+                        <!-- 소제목 추가 -->
+                        {{ if .Params.subtitle }}
+                        <h4 class="project-minimal-subtitle">{{ .Params.subtitle }}</h4>
+                        {{ end }}
+                    </div>
+                </a>
             </div>
-            
-            <div class="project-minimal-content">
-                <!-- 태그 표시 (기존 project_scale 위치) -->
-                {{ if .Params.tags }}
-                    {{ range first 3 .Params.tags }}
-                    <span class="project-scale-badge">{{ . }}</span>
-                    {{ end }}
-                {{ end }}
-                
-                <h3 class="project-minimal-title">{{ .Title }}</h3>
-                
-                <!-- 소제목 추가 -->
-                {{ if .Params.subtitle }}
-                <h4 class="project-minimal-subtitle">{{ .Params.subtitle }}</h4>
-                {{ end }}
-                
-                <!-- <p class="project-minimal-desc">{{ .Params.description | truncate 80 }}</p> -->
-            </div>
-        </a>
-    </div>
-    {{ end }}
-</div>
+            {{ end }}
+        </div>
         
         <!-- 새로운 JavaScript 페이지네이션 -->
         <div class="pagination js-pagination">

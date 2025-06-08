@@ -13,7 +13,6 @@
             <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
             <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
             <a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-            
         </div>
 
         <!-- 카테고리 필터 -->
@@ -40,148 +39,158 @@
 
         <!-- 게시판 컨텐츠 -->
         <section class="board-all-container">
-    <div class="board-all-grid">
-        <!-- 새로운: 모든 게시물 로드 -->
-        {{ $allPosts := where site.RegularPages "Section" "posts" }}
-        {{ $filteredPosts := slice }}
-        {{ range $allPosts }}
-        {{ if not (in .Params.categories "news") }}
-            {{ $filteredPosts = $filteredPosts | append . }}
-        {{ end }}
-        {{ end }}
-        {{ range $filteredPosts }}
-        
-        {{ $mainCat := "" }}
-        {{ if .Params.categories }}
-            {{ $mainCat = index .Params.categories 0 }}
-        {{ end }}
-        <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
-            <a href="{{ .Permalink }}?from=all">
-                <!-- 통합 썸네일 처리 -->
-                <div class="board-thumbnail">
-                    {{ if .Params.images }}
-                        <!-- 1순위: 직접 업로드 이미지 -->
-                        {{ $images := .Params.images }}
-                        {{ if eq (printf "%T" $images) "string" }}
-                            <img src="{{ $images }}" alt="{{ .Title }}">
-                        {{ else }}
-                            <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                        {{ end }}
-                    {{ else if .Params.thumbnail }}
-                        <!-- 2순위: 기존 썸네일 -->
-                        <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
-                    {{ else if .Params.videoUrl }}
-                        <!-- 3순위: 동영상 URL이 있는 경우 (영상 게시판) -->
-                        {{ if (findRE "youtube\\.com|youtu\\.be" .Params.videoUrl) }}
-                            <!-- 유튜브 썸네일 (재생 버튼 없음) -->
-                            {{ $videoId := replaceRE ".*(?:youtube\\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\\.be/)([^\"&?/ ]{11}).*" "$1" .Params.videoUrl }}
-                            <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
-                                 alt="{{ .Title }}"
-                                 onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
-                        {{ else if (findRE "vimeo\\.com" .Params.videoUrl) }}
-                            <!-- Vimeo 썸네일 (기본 이미지 사용) -->
-                            <img src="img/vimeo-default.jpg" alt="{{ .Title }}">
-                        {{ else }}
-                            <!-- 기타 동영상 URL (기본 영상 아이콘) -->
-                            <div class="video-placeholder-all">
-                                <i class="fas fa-video"></i>
-                                <span>동영상</span>
-                            </div>
-                        {{ end }}
-                    {{ else if eq $mainCat "programming" }}
-                        <!-- 4순위: 프로그래밍 카테고리 서브카테고리별 썸네일 -->
-                        <div class="demo-placeholder-all" data-subcategory="{{ .Params.subCategory }}">
-                            <div class="demo-icon">
-                                {{ if eq .Params.subCategory "프론트엔드" }}
-                                    <i class="fab fa-react"></i>
-                                {{ else if eq .Params.subCategory "백엔드" }}
-                                    <i class="fas fa-server"></i>
-                                {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
-                                    <i class="fab fa-html5"></i>
-                                {{ else if eq .Params.subCategory "모바일 앱" }}
-                                    <i class="fas fa-mobile-alt"></i>
-                                {{ else if eq .Params.subCategory "게임 개발" }}
-                                    <i class="fas fa-gamepad"></i>
-                                {{ else }}
-                                    <i class="fas fa-code"></i>
-                                {{ end }}
-                            </div>
-                            <div class="demo-label">
-                                <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
-                                {{ if .Params.demoCode }}
-                                    <span class="demo-tech">WEB DEMO</span>
-                                {{ end }}
-                            </div>
-                        </div>
-                    {{ else }}
-                        <!-- 5순위: 카테고리별 기본 플레이스홀더 -->
-                        <div class="category-placeholder-all" data-category="{{ $mainCat }}">
-                            {{ if eq $mainCat "web" }}
-                                <i class="fas fa-desktop"></i>
-                                <span>웹 디자인</span>
-                            {{ else if eq $mainCat "content" }}
-                                <i class="fas fa-image"></i>
-                                <span>콘텐츠 디자인</span>
-                            {{ else if eq $mainCat "creative" }}
-                                <i class="fas fa-palette"></i>
-                                <span>크리에이티브</span>
-                            {{ else if eq $mainCat "video" }}
-                                <i class="fas fa-video"></i>
-                                <span>영상 디자인</span>
-                            {{ else if eq $mainCat "ad" }}
-                                <i class="fas fa-bullhorn"></i>
-                                <span>광고 디자인</span>
-                            {{ else }}
-                                <i class="fas fa-file"></i>
-                                <span>게시글</span>
-                            {{ end }}
-                        </div>
-                    {{ end }}
-                    
-                    <!-- 오버레이 태그 추가 (2차 카테고리만) -->
-                    {{ if .Params.subCategory }}
-                    <div class="category-overlay">{{ .Params.subCategory }}</div>
-                    {{ end }}
-                </div>
+            <div class="board-all-grid">
+                <!-- 새로운: 모든 게시물 로드 -->
+                {{ $allPosts := where site.RegularPages "Section" "posts" }}
+                {{ $filteredPosts := slice }}
+                {{ range $allPosts }}
+                {{ if not (in .Params.categories "news") }}
+                    {{ $filteredPosts = $filteredPosts | append . }}
+                {{ end }}
+                {{ end }}
+                {{ range $filteredPosts }}
                 
-                <div class="board-all-item-content">
-                    <h3 class="board-all-item-title">{{ .Title }}</h3>
-                    
-                    <!-- 소제목 추가 -->
-                    {{ if .Params.subtitle }}
-                    <h4 class="board-all-item-subtitle">{{ .Params.subtitle }}</h4>
-                    {{ end }}
-                    
-                    <!-- 카테고리 표시 (1차 + 2차 카테고리) -->
-                    {{ if .Params.categories }}
-                        <p class="board-all-item-desc">
-                            {{ $mainCategory := index .Params.categories 0 }}
-                            {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
-                            {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
-                            {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
-                            {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
-                            {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
-                            {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
-                            {{ if eq $mainCategory "project" }}프로젝트{{ end }}
-                            {{ if .Params.subCategory }}
-                                > {{ .Params.subCategory }}
+                {{ $mainCat := "" }}
+                {{ if .Params.categories }}
+                    {{ $mainCat = index .Params.categories 0 }}
+                {{ end }}
+                <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
+                    <a href="{{ .Permalink }}?from=all">
+                        <!-- 통합 썸네일 처리 -->
+                        <div class="board-thumbnail">
+                            {{ if .Params.videoUrl }}
+                                <!-- 1순위: 동영상 URL (영상 게시판) -->
+                                {{ if (findRE "youtube\\.com|youtu\\.be" .Params.videoUrl) }}
+                                    <!-- 유튜브 썸네일 (재생 버튼 없음) -->
+                                    {{ $videoId := replaceRE ".*(?:youtube\\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\\.be/)([^\"&?/ ]{11}).*" "$1" .Params.videoUrl }}
+                                    <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+                                         alt="{{ .Title }}"
+                                         onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+                                {{ else if (findRE "vimeo\\.com" .Params.videoUrl) }}
+                                    <!-- Vimeo 썸네일 (기본 이미지 사용) -->
+                                    <img src="img/vimeo-default.jpg" alt="{{ .Title }}">
+                                {{ else }}
+                                    <!-- 기타 동영상 URL (기본 영상 아이콘) -->
+                                    <div class="video-placeholder-all">
+                                        <i class="fas fa-video"></i>
+                                        <span>동영상</span>
+                                    </div>
+                                {{ end }}
+                            {{ else if .Params.images }}
+                                <!-- 2순위: 직접 업로드 이미지 -->
+                                {{ $images := .Params.images }}
+                                {{ if eq (printf "%T" $images) "string" }}
+                                    <img src="{{ $images }}" alt="{{ .Title }}">
+                                {{ else }}
+                                    <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                                {{ end }}
+                            {{ else if .Params.thumbnail }}
+                                <!-- 3순위: 기존 썸네일 -->
+                                <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                            {{ else }}
+                                <!-- 4순위: 본문에서 첫 번째 이미지 추출 -->
+                                {{ $content := .Content }}
+                                {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
+                                {{ if $imageSrc }}
+                                    <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
+                                {{ else if eq $mainCat "programming" }}
+                                    <!-- 5순위: 프로그래밍 카테고리 서브카테고리별 썸네일 -->
+                                    <div class="demo-placeholder-all" data-subcategory="{{ .Params.subCategory }}">
+                                        <div class="demo-icon">
+                                            {{ if eq .Params.subCategory "프론트엔드" }}
+                                                <i class="fab fa-react"></i>
+                                            {{ else if eq .Params.subCategory "백엔드" }}
+                                                <i class="fas fa-server"></i>
+                                            {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
+                                                <i class="fab fa-html5"></i>
+                                            {{ else if eq .Params.subCategory "모바일 앱" }}
+                                                <i class="fas fa-mobile-alt"></i>
+                                            {{ else if eq .Params.subCategory "게임 개발" }}
+                                                <i class="fas fa-gamepad"></i>
+                                            {{ else }}
+                                                <i class="fas fa-code"></i>
+                                            {{ end }}
+                                        </div>
+                                        <div class="demo-label">
+                                            <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
+                                            {{ if .Params.demoCode }}
+                                                <span class="demo-tech">WEB DEMO</span>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                {{ else }}
+                                    <!-- 6순위: 카테고리별 기본 플레이스홀더 -->
+                                    <div class="category-placeholder-all" data-category="{{ $mainCat }}">
+                                        {{ if eq $mainCat "web" }}
+                                            <i class="fas fa-desktop"></i>
+                                            <span>웹 디자인</span>
+                                        {{ else if eq $mainCat "content" }}
+                                            <i class="fas fa-image"></i>
+                                            <span>콘텐츠 디자인</span>
+                                        {{ else if eq $mainCat "creative" }}
+                                            <i class="fas fa-palette"></i>
+                                            <span>크리에이티브</span>
+                                        {{ else if eq $mainCat "video" }}
+                                            <i class="fas fa-video"></i>
+                                            <span>영상 디자인</span>
+                                        {{ else if eq $mainCat "ad" }}
+                                            <i class="fas fa-bullhorn"></i>
+                                            <span>광고 디자인</span>
+                                        {{ else if eq $mainCat "project" }}
+                                            <i class="fas fa-project-diagram"></i>
+                                            <span>프로젝트</span>
+                                        {{ else }}
+                                            <i class="fas fa-file"></i>
+                                            <span>게시글</span>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
                             {{ end }}
-                        </p>
-                    {{ end }}
-                    
-                    <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                    <a href="{{ .Permalink }}?from=all" class="board-all-item-link">자세히 보기</a>
+                            
+                            <!-- 오버레이 태그 추가 (2차 카테고리만) -->
+                            {{ if .Params.subCategory }}
+                            <div class="category-overlay">{{ .Params.subCategory }}</div>
+                            {{ end }}
+                        </div>
+                        
+                        <div class="board-all-item-content">
+                            <h3 class="board-all-item-title">{{ .Title }}</h3>
+                            
+                            <!-- 소제목 추가 -->
+                            {{ if .Params.subtitle }}
+                            <h4 class="board-all-item-subtitle">{{ .Params.subtitle }}</h4>
+                            {{ end }}
+                            
+                            <!-- 카테고리 표시 (1차 + 2차 카테고리) -->
+                            {{ if .Params.categories }}
+                                <p class="board-all-item-desc">
+                                    {{ $mainCategory := index .Params.categories 0 }}
+                                    {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
+                                    {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
+                                    {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
+                                    {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
+                                    {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
+                                    {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
+                                    {{ if eq $mainCategory "project" }}프로젝트{{ end }}
+                                    {{ if .Params.subCategory }}
+                                        > {{ .Params.subCategory }}
+                                    {{ end }}
+                                </p>
+                            {{ end }}
+                            
+                            <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
+                            <a href="{{ .Permalink }}?from=all" class="board-all-item-link">자세히 보기</a>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        {{ end }}
-    </div>
-    
-    <!-- 새로운 JavaScript 페이지네이션 -->
-    <div class="pagination js-pagination">
-        <!-- JavaScript로 동적 생성됨 -->
-    </div>
-</section>
+                {{ end }}
+            </div>
+            
+            <!-- 새로운 JavaScript 페이지네이션 -->
+            <div class="pagination js-pagination">
+                <!-- JavaScript로 동적 생성됨 -->
+            </div>
+        </section>
 
 <!-- 통합 썸네일 스타일 -->
 <style>

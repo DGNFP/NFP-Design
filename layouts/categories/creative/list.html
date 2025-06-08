@@ -35,7 +35,7 @@
         </div>
              
         <!-- 크리에이티브 전용 4x3 분리형 레이아웃 (수정됨) -->
-        <div class="board-grid-creative">
+     <div class="board-grid-creative">
     <!-- 모든 게시물 로드 -->
     {{ $allPosts := .Pages }}
     {{ range $allPosts }}
@@ -53,7 +53,14 @@
                 {{ else if .Params.thumbnail }}
                   <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
                 {{ else }}
-                  <img src="img/design1.jpg" alt="{{ .Title }}">
+                  <!-- 본문에서 첫 번째 이미지 추출 -->
+                  {{ $content := .Content }}
+                  {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
+                  {{ if $imageSrc }}
+                    <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
+                  {{ else }}
+                    <img src="img/design1.jpg" alt="{{ .Title }}">
+                  {{ end }}
                 {{ end }}
                 
                 <!-- 오버레이 태그 추가 -->

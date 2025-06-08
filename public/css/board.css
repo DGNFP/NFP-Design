@@ -742,8 +742,8 @@ margin-bottom: 0px;
 
 .video-overlay {
         /* 고정 크기 추가 */
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
 
     position: absolute;
     top: 50%;
@@ -774,7 +774,7 @@ margin-bottom: 0px;
 .video-overlay i {
     /* i 태그의 배경 스타일 제거 (불필요) */
     color: #01ff75; /* 삼각형 색상 */
-    font-size: 18px;
+    font-size: 15px;
     transform: translateX(1.5px); /* X축으로 1px 이동 */
 }
 
@@ -1535,13 +1535,13 @@ line-height: 1.2; /* 1.25 → 1.2 */
 
 .video-overlay {
         /* 고정 크기 추가 */
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
 .video-overlay i {
-    font-size: 8px;
-    transform: translateX(1px); /* X축으로 1px 이동 */
+    font-size: 7px;
+    transform: translateX(0.5px); /* X축으로 1px 이동 */
 }
 
 .board-all-item-content {

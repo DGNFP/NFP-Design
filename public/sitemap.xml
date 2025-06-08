@@ -3,15 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/content/</loc>
-    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/css3/</loc>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hugo/</loc>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/javascript/</loc>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-06T19:00:00+00:00</lastmod>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/project/</loc>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/project/2025-06-08-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
+    <lastmod>2025-06-07T23:50:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/content/</loc>
     <lastmod>2025-06-06T19:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3-copy-2/</loc>
@@ -137,13 +155,7 @@
     <loc>http://localhost:1313/tags/photoshop/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/project/</loc>
-    <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/react/</loc>
-    <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy-2/</loc>
