@@ -86,6 +86,7 @@
     background: rgba(1, 255, 117, 0.05);
     /* 보더 두께를 통일하고 투명한 기본 보더 사용 */
     /* 실제 보더는 box-shadow로 구현 */
+    border: 2px solid #01ff7300 !important;
     box-shadow: 
         0 0 0 2px rgba(1, 255, 117, 0.1);/* 기본 보더 */
         
