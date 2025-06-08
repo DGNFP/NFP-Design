@@ -442,7 +442,6 @@
 .board-item-date {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 10px;
 }
 
 .board-item-link {
@@ -520,52 +519,98 @@
 }
 
 .board-item-square .board-item-content {
-    padding: 15px;
+    padding: 12px;
 }
 
+/* 컨텐츠 디자인 게시글 제목 */
 .board-item-square .board-item-title {
-    font-size: 15px;
-    min-height: 38px; /* 최대 2줄 제한 */
-    max-height: 38px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+font-size: 14px;
+height: 18px; /* min-height, max-height 대신 고정 height */
+overflow: hidden;
+white-space: nowrap; /* 1줄 강제 */
+text-overflow: ellipsis; /* 말줄임표 */
+margin-bottom: 6px; /* 6px → 4px */
+color: var(--text-colorr);
+font-weight: var(--font-bold);
+line-height: 1.2; /* 1.25 → 1.2 */
 
-    /* 표준 속성 추가 */
-    line-clamp: 2;
-    box-orient: vertical;
-
-    margin-bottom: 6px;
-    color: var(--accent-color);
-    font-weight: var(--font-bold);
-    line-height: 1.25;
+/* 2줄 제한에서 1줄로 변경하며 제거한 속성들 */
+/* display: -webkit-box; */
+/* -webkit-line-clamp: 2; */
+/* -webkit-box-orient: vertical; */
+/* line-clamp: 2; */
+/* box-orient: vertical; */
 }
 
+/* 컨텐츠 디자인 게시글 소제목 */
+.board-item-square .board-item-subtitle
+{
+font-size: 12px;
+height: 18px; /* min-height, max-height 대신 고정 height */
+overflow: hidden;
+white-space: nowrap; /* 1줄 강제 */
+text-overflow: ellipsis; /* 말줄임표 */
+margin-bottom: 4px;
+color: rgba(255, 255, 255, 0.6);
+font-weight: 500;
+line-height: 1.2; /* 1.25 → 1.2 */
+}
+
+/* 컨텐츠 디자인 게시글 카테고리 (현재는 오버레이에서 카테고리를 보여주니 삭제된 상태) */
 .board-item-square .board-item-desc {
-    font-size: 13px;
-    min-height: 36px; /* 최대 2줄 제한 */
-    max-height: 36px;
+    font-size: 10px;
+    height: 16px; /* 최대 2줄 제한 */
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-
-    /* 표준 속성 추가 */
-    line-clamp: 2;
-    box-orient: vertical;
-
-    margin-bottom: 6px;
+    white-space: nowrap; /* 1줄 강제 */
+    line-height: 1.2; /* 1.25 → 1.2 */
+   
+    font-weight: 500;
+    margin-bottom: 0px;
     color: var(--text-color);
-    opacity: 0.8;
-    line-height: 1.4;
+    opacity: 0.5;
 }
 
+
+/* 컨텐츠 디자인 게시글 날짜 */
 .board-item-square .board-item-date {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-color);
+    opacity: 0.3;
 }
 
+/* 카테고리 오버레이(컨텐츠 디자인 게시판) */
+.board-item-square .category-overlay {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px; /* 10px → 11px */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* 추가 - 텍스트 높이 정규화 */
+    
+}
+
+.board-item-square:hover .category-overlay {
+    background: linear-gradient(135deg, var(--accent-color), rgba(1, 255, 117, 0.8));
+    color: var(--background-color);
+    border-color: var(--accent-color);
+    transform: translateX(-50%);
+    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.4);
+}
 
 /* 추가 레이아웃을 위한 CSS - additional-layouts.css */
 

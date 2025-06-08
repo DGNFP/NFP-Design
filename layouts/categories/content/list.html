@@ -34,46 +34,45 @@
         </div>
              
         <!-- 정사각형 레이아웃 게시판 그리드 (5x3) -->
-        <div class="board-grid-square">
-            <!-- 모든 게시물 로드 (페이지네이션 제거) -->
-            {{ $allPosts := .Pages }}
-            {{ range $allPosts }}
-            <div class="board-item-square" data-main="content" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
-                    <div class="board-item-img">
-                        {{ if .Params.images }}
-                          {{ $images := .Params.images }}
-                          {{ if eq (printf "%T" $images) "string" }}
-                            <img src="{{ $images }}" alt="{{ .Title }}">
-                          {{ else }}
-                            <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                          {{ end }}
-                        {{ else if .Params.thumbnail }}
-                          <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
-                        {{ else }}
-                          <img src="img/design1.jpg" alt="{{ .Title }}">
-                        {{ end }}
-                    </div>
-                    <div class="board-item-content">
-                        <h3 class="board-item-title">{{ .Title }}</h3>
-                        
-                        <!-- 카테고리 표시 추가 -->
-                        {{ if .Params.categories }}
-                            <p class="board-item-desc">
-                                {{ $mainCategory := index .Params.categories 0 }}
-                                {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
-                                {{ if .Params.subCategory }}
-                                    > {{ .Params.subCategory }}
-                                {{ end }}
-                            </p>
-                        {{ else }}
-                            <p class="board-item-desc">{{ .Params.description | truncate 60 }}</p>
-                        {{ end }}
-                        
-                        <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                    </div>
-                </a>
-            </div>
+        <!-- 정사각형 레이아웃 게시판 그리드 (5x3) -->
+<div class="board-grid-square">
+    <!-- 모든 게시물 로드 (페이지네이션 제거) -->
+    {{ $allPosts := .Pages }}
+    {{ range $allPosts }}
+   <div class="board-item-square" data-main="content" data-category="{{ .Params.subCategory }}">
+    <a href="{{ .Permalink }}">
+        <div class="board-item-img">
+            {{ if .Params.images }}
+                {{ $images := .Params.images }}
+                {{ if eq (printf "%T" $images) "string" }}
+                <img src="{{ $images }}" alt="{{ .Title }}">
+                {{ else }}
+                <img src="{{ index $images 0 }}" alt="{{ .Title }}">
+                {{ end }}
+            {{ else if .Params.thumbnail }}
+                <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+            {{ else }}
+                <img src="img/design1.jpg" alt="{{ .Title }}">
+            {{ end }}
+            
+            <!-- 오버레이 태그 추가 -->
+            {{ if .Params.subCategory }}
+            <div class="category-overlay">{{ .Params.subCategory }}</div>
+            {{ end }}
+        </div>
+        
+        <div class="board-item-content">
+            <h3 class="board-item-title">{{ .Title }}</h3>
+            
+            <!-- 소제목 추가 -->
+            {{ if .Params.subtitle }}
+            <h4 class="board-item-subtitle">{{ .Params.subtitle }}</h4>
+            {{ end }}
+            
+            <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p>
+        </div>
+    </a>
+    </div>
             {{ end }}
         </div>
 
