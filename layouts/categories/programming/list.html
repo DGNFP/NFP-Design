@@ -41,7 +41,7 @@
     {{ range $allPosts }}
     <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
         <a href="{{ .Permalink }}">
-            <!-- 썸네일 우선순위: 직접업로드 > 웹데모 > 서브카테고리별 기본 -->
+            <!-- 썸네일 우선순위: 직접업로드 > 웹데모 > 에디터 이미지 > 서브카테고리별 기본 -->
             <div class="board-item-img">
                 {{ if .Params.images }}
                     <!-- 1순위: 직접 업로드 이미지 -->
@@ -55,30 +55,37 @@
                     <!-- 2순위: 기존 썸네일 -->
                     <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
                 {{ else }}
-                    <!-- 3순위: 서브카테고리별 기본 썸네일 -->
-                    <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
-                        <div class="demo-icon">
-                            {{ if eq .Params.subCategory "프론트엔드" }}
-                                <i class="fab fa-react"></i>
-                            {{ else if eq .Params.subCategory "백엔드" }}
-                                <i class="fas fa-server"></i>
-                            {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
-                                <i class="fab fa-html5"></i>
-                            {{ else if eq .Params.subCategory "모바일 앱" }}
-                                <i class="fas fa-mobile-alt"></i>
-                            {{ else if eq .Params.subCategory "게임 개발" }}
-                                <i class="fas fa-gamepad"></i>
-                            {{ else }}
-                                <i class="fas fa-code"></i>
-                            {{ end }}
+                    <!-- 3순위: 본문에서 첫 번째 이미지 추출 -->
+                    {{ $content := .Content }}
+                    {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
+                    {{ if $imageSrc }}
+                        <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
+                    {{ else }}
+                        <!-- 4순위: 서브카테고리별 기본 썸네일 -->
+                        <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
+                            <div class="demo-icon">
+                                {{ if eq .Params.subCategory "프론트엔드" }}
+                                    <i class="fab fa-react"></i>
+                                {{ else if eq .Params.subCategory "백엔드" }}
+                                    <i class="fas fa-server"></i>
+                                {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
+                                    <i class="fab fa-html5"></i>
+                                {{ else if eq .Params.subCategory "모바일 앱" }}
+                                    <i class="fas fa-mobile-alt"></i>
+                                {{ else if eq .Params.subCategory "게임 개발" }}
+                                    <i class="fas fa-gamepad"></i>
+                                {{ else }}
+                                    <i class="fas fa-code"></i>
+                                {{ end }}
+                            </div>
+                            <div class="demo-label">
+                                <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
+                                {{ if .Params.demoCode }}
+                                    <span class="demo-tech">WEB DEMO</span>
+                                {{ end }}
+                            </div>
                         </div>
-                        <div class="demo-label">
-                            <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
-                            {{ if .Params.demoCode }}
-                                <span class="demo-tech">WEB DEMO</span>
-                            {{ end }}
-                        </div>
-                    </div>
+                    {{ end }}
                 {{ end }}
                 
                 <!-- 오버레이 태그 추가 -->

@@ -35,7 +35,7 @@
         </div>
         
         <!-- 게시판 그리드 -->
-      <!-- 게시판 그리드 -->
+<!-- 게시판 그리드 -->
 <div class="board-grid">
     <!-- 모든 게시물 로드 (페이지네이션 제거) -->
     {{ $allPosts := .Pages }}
@@ -56,8 +56,15 @@
                 <!-- 기존 썸네일 (하위 호환성) -->
                 <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
                 {{ else }}
-                <!-- 기본 이미지 -->
-                <img src="img/design1.jpg" alt="{{ .Title }}">
+                <!-- 본문에서 첫 번째 이미지 추출 -->
+                {{ $content := .Content }}
+                {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
+                {{ if $imageSrc }}
+                    <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
+                {{ else }}
+                    <!-- 기본 이미지 -->
+                    <img src="img/design1.jpg" alt="{{ .Title }}">
+                {{ end }}
                 {{ end }}
                 
                 <!-- 오버레이 태그 추가 -->
@@ -74,7 +81,6 @@
                 <h4 class="board-item-subtitle">{{ .Params.subtitle }}</h4>
                 {{ end }}
                 
-                <!-- <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p> -->
                 <span class="board-item-link">자세히 보기</span>
             </div>
         </a>

@@ -43,7 +43,7 @@
         <a href="{{ .Permalink }}">
             <div class="board-item-img">
                 {{ if .Params.videoUrl }}
-                    <!-- videoUrl이 있는 경우 영상 썸네일 자동 표시 -->
+                    <!-- 1순위: videoUrl이 있는 경우 영상 썸네일 자동 표시 -->
                     {{ if (findRE "youtube\\.com|youtu\\.be" .Params.videoUrl) }}
                         <!-- 유튜브 썸네일 -->
                         {{ $videoId := replaceRE ".*(?:youtube\\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\\.be/)([^\"&?/ ]{11}).*" "$1" .Params.videoUrl }}
@@ -68,7 +68,7 @@
                         </div>
                     {{ end }}
                 {{ else if .Params.images }}
-                    <!-- 기존 이미지 처리 -->
+                    <!-- 2순위: 기존 이미지 처리 -->
                     {{ $images := .Params.images }}
                     {{ if eq (printf "%T" $images) "string" }}
                         <img src="{{ $images }}" alt="{{ .Title }}">
@@ -76,9 +76,18 @@
                         <img src="{{ index $images 0 }}" alt="{{ .Title }}">
                     {{ end }}
                 {{ else if .Params.thumbnail }}
+                    <!-- 3순위: 기존 썸네일 -->
                     <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
                 {{ else }}
-                    <img src="img/design1.jpg" alt="{{ .Title }}">
+                    <!-- 4순위: 본문에서 첫 번째 이미지 추출 -->
+                    {{ $content := .Content }}
+                    {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
+                    {{ if $imageSrc }}
+                        <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
+                    {{ else }}
+                        <!-- 5순위: 기본 이미지 -->
+                        <img src="img/design1.jpg" alt="{{ .Title }}">
+                    {{ end }}
                 {{ end }}
                 
                 <!-- 오버레이 태그 추가 -->
@@ -101,7 +110,6 @@
     </div>
     {{ end }}
 </div>
-
         <!-- 새로운 JavaScript 페이지네이션 -->
         <div class="pagination js-pagination">
             <!-- JavaScript로 동적 생성됨 -->
