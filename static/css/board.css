@@ -331,20 +331,20 @@
 }
 
 .board-all-item-title {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
 .board-all-item-subtitle {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     margin-bottom: 4px;
     color: rgba(255, 255, 255, 0.6);
 }
 
 .board-all-item-desc {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
     font-weight: 600;
     margin-bottom: 40px;
@@ -365,6 +365,7 @@
     transition: color var(--transition);
     /* 추가: 텍스트 너비에 맞춤 */
     width: fit-content;
+    font-size: 14px;
 }
 
 .board-all-item-link:hover {
@@ -877,7 +878,8 @@ line-height: 1.2; /* 1.25 → 1.2 */
     display: flex;
     justify-content: center;
     gap: 5px;
-    margin-top: 50px;
+    margin-top: 30px !important;
+    margin-bottom: 0px !important;
 }
 
 .pagination a {

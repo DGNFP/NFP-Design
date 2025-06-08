@@ -48,9 +48,10 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
     <style>
         /* 푸터 스타일 */
         footer {
-            padding: 50px 0;
+            padding: 20px 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
         }
         
         .social-links {

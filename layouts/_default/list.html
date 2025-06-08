@@ -27,6 +27,7 @@
                     <li><a data-filter="video">영상 디자인</a></li>
                     <li><a data-filter="programming">프로그래밍</a></li>
                     <li><a data-filter="ad">광고/인쇄 디자인</a></li>
+                    <li><a data-filter="project">프로젝트</a></li>
                 </ul>
             </div>
             
@@ -161,6 +162,7 @@
                             {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
                             {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
                             {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
+                            {{ if eq $mainCategory "project" }}프로젝트{{ end }}
                             {{ if .Params.subCategory }}
                                 > {{ .Params.subCategory }}
                             {{ end }}

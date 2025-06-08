@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 필터링된 아이템들 가져오기
     function getFilteredItems() {
-        // 전체 게시판과 개별 게시판에 따라 선택자 변경
-        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad';
+        // 전체 게시판과 개별 게시판에 따라 선택자 변경 (프로젝트 게시판 추가)
+        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
         const allItems = Array.from(document.querySelectorAll(selector));
         
         return allItems.filter(item => {
@@ -96,8 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // 2. 검색 조건 확인
             let matchesSearch = true;
             if (currentSearchTerm) {
-                const titleSelector = isMainBoard ? '.board-all-item-title' : '.board-item-title';
-                const descSelector = isMainBoard ? '.board-all-item-desc' : '.board-item-desc';
+                // 프로젝트 게시판용 셀렉터 추가
+                const titleSelector = isMainBoard ? '.board-all-item-title' : '.board-item-title, .project-minimal-title';
+                const descSelector = isMainBoard ? '.board-all-item-desc' : '.board-item-desc, .project-minimal-desc';
                 
                 const titleElement = item.querySelector(titleSelector);
                 const descElement = item.querySelector(descSelector);
@@ -112,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 현재 페이지 아이템들만 표시
     function showCurrentPage() {
-        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad';
+        // 프로젝트 게시판 추가
+        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
         const allItems = document.querySelectorAll(selector);
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
@@ -249,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (desc.includes('광고/인쇄 디자인')) return 'ad';
         if (desc.includes('크리에이티브 디자인')) return 'creative';
         if (desc.includes('프로그래밍')) return 'programming';
+        if (desc.includes('프로젝트')) return 'project'; // 프로젝트 추가
         
         return '';
     }
