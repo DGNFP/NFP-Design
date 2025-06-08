@@ -17,6 +17,7 @@
                             {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
                             {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
                             {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
+                            {{ if eq $mainCategory "project" }}프로젝트{{ end }}
                             {{ if .Params.subCategory }}
                                 > {{ .Params.subCategory }}
                             {{ end }}
@@ -187,6 +188,15 @@
                 <div class="post-body">
                     {{ .Content }}
                 </div>
+
+                <!-- 태그 표시 (본문 최하단) -->
+                {{ if .Params.tags }}
+                <div class="tags-container">
+                    {{ range .Params.tags }}
+                    <span class="project-scale-badge">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
             </div>
 
             <!-- 페이지 네비게이션 (통합 버전) -->

@@ -118,7 +118,8 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "이미지", name: "images", widget: "list", field: {label: "이미지", name: "image", widget: "image"}, required: false}
-      - {label: "프로젝트 규모", name: "project_scale", widget: "select", options: ["소규모", "대규모", "장기"], required: false}
+      - {label: "프로젝트 분류", name: "subCategory", widget: "select", options: ["소규모 프로젝트", "대규모 프로젝트", "장기 프로젝트"], required: false}
+      - {label: "태그", name: "tags", widget: "list", hint: "프로젝트와 관련된 기술 스택이나 키워드를 입력하세요", required: false}
       - {label: "프로젝트 설명", name: "description", widget: "text", hint: "프로젝트에 대한 간단한 설명을 입력하세요", required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["project"]}
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}

@@ -687,8 +687,6 @@ margin-bottom: 0px;
     
 }
 
-
-
 .board-item-square:hover .category-overlay {
     background: linear-gradient(135deg, var(--accent-color), rgba(1, 255, 117, 0.8));
     color: var(--background-color);
