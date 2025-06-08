@@ -875,30 +875,59 @@ nav {
 }
 
 .tags-container .project-scale-badge {
-    background: linear-gradient(45deg, var(--accent-color), #00d4aa);
-    border: 1px solid transparent; /* 그린 보더 추가 */
-    color: var(--background-color);
-    padding: 8px 16px;
+    background: rgba(1, 255, 117, 0.2);
+    border: 1px solid rgba(1, 255, 117, 0.3);
+    color: #01FF75;
+    padding: 10px 20px;
     border-radius: 8px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
     display: inline-block;
     letter-spacing: 0.5px;
-    margin-right: 2px;
+    margin-right: 4px;
     margin-bottom: 12px;
     line-height: 1;
     vertical-align: middle;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 호버 전 글로우 효과 */
+.tags-container .project-scale-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(1, 255, 117, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .tags-container .project-scale-badge:hover {
-    background: linear-gradient(45deg, #1a1a1a, #2a2a2a); /* 다크 그라데이션 */
-    color: var(--accent-color); /* NFP 그린 텍스트 */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.4);
-    border: 1px solid var(--accent-color); /* 그린 보더 추가 */
+    background: linear-gradient(135deg, rgba(1, 255, 117, 0.15), rgba(1, 255, 117, 0.25));
+    color: #00FF88;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 8px 25px rgba(1, 255, 117, 0.3),
+        0 0 20px rgba(1, 255, 117, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(1, 255, 117, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+/* 호버 시 반짝이는 효과 */
+.tags-container .project-scale-badge:hover::before {
+    left: 100%;
+}
+
+/* 액티브 상태 */
+.tags-container .project-scale-badge:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.1s ease;
 }
 
 .post-content .tags-container {
@@ -906,11 +935,6 @@ nav {
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 30px; /* 본문과의 간격 */
-}
-
-.post-content .tags-container .project-scale-badge {
-    margin-right: 0;
-    margin-bottom: 0;
 }
 
 
@@ -941,6 +965,34 @@ nav {
 }
 
 @media (max-width: 768px) {
+
+    .section {
+        padding: 40px 0;
+    }
+    .btn {
+    padding: 12px 16px !important; 
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    }
+
+    .btn-more {
+    padding: 8px 14px !important; 
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    }
+
+    .news-title {
+    font-size: 13px;
+    }
+
+
+    .news-link{
+        padding: 6px 8px;
+    }
+
+    .news-content{
+        gap: 5px    ;
+    }
 
     .tags-container .project-scale-badge{
     font-size: 9px;
@@ -1058,9 +1110,7 @@ nav {
         gap: 15px;
     }
     
-    .btn-more {
-        align-self: flex-end;
-    }
+    
     
     /* 모바일 배너 정사각형 비율 */
     .banner-container {
