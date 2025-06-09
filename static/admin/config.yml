@@ -27,6 +27,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지 디자인", "디지털배너 디자인", "상세페이지 디자인", "UX/UI 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "커스텀 태그", name: "custom_tags", widget: "list", hint: "새로운 태그를 직접 입력하세요", required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["web"]}
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
@@ -41,6 +42,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "커스텀 태그", name: "custom_tags", widget: "list", hint: "새로운 태그를 직접 입력하세요", required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["ad"]}
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
@@ -55,6 +57,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["카드뉴스 디자인", "포스터 디자인", "SNS 광고"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "커스텀 태그", name: "custom_tags", widget: "list", hint: "새로운 태그를 직접 입력하세요", required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["content"]}
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
@@ -69,6 +72,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "커스텀 태그", name: "custom_tags", widget: "list", hint: "새로운 태그를 직접 입력하세요", required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["creative"]}
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
@@ -83,6 +87,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "커스텀 태그", name: "custom_tags", widget: "list", hint: "새로운 태그를 직접 입력하세요", required: false}
       - label: "웹 데모 코드"
         name: "demoCode"
         widget: "code"
@@ -105,6 +110,7 @@ collections:
       - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["영상 제작", "영상 편집", "모션그래픽", "유튜브 썸네일"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "커스텀 태그", name: "custom_tags", widget: "list", hint: "새로운 태그를 직접 입력하세요", required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["video"]}
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
@@ -119,6 +125,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "프로젝트 분류", name: "subCategory", widget: "select", options: ["소규모 프로젝트", "대규모 프로젝트", "장기 프로젝트"], required: false} 
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "커스텀 태그", name: "custom_tags", widget: "list", hint: "새로운 태그를 직접 입력하세요", required: false}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["project"]}
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 

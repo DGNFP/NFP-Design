@@ -195,6 +195,11 @@
                     {{ range .Params.tags }}
                     <span class="project-scale-badge">{{ . }}</span>
                     {{ end }}
+                <!-- 커스텀 태그 -->
+                {{ range .Params.custom_tags }}
+                <span class="project-scale-badge">{{ . }}</span>
+                {{ end }}
+
                 </div>
                 {{ end }}
             </div>
