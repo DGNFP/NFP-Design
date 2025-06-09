@@ -6,8 +6,15 @@
     <description>Recent content in Categories on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 08 Jun 2025 01:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jun 2025 09:16:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Web</title>
+      <link>http://localhost:1313/categories/web/</link>
+      <pubDate>Mon, 09 Jun 2025 09:16:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/web/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ad</title>
       <link>http://localhost:1313/categories/ad/</link>
@@ -48,13 +55,6 @@
       <link>http://localhost:1313/categories/video/</link>
       <pubDate>Sun, 01 Jun 2025 20:21:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/video/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web</title>
-      <link>http://localhost:1313/categories/web/</link>
-      <pubDate>Fri, 30 May 2025 00:04:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/web/</guid>
       <description></description>
     </item>
     <item>

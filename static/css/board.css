@@ -1798,9 +1798,8 @@ font-size: 12px;
     .board-thumbnail img {
         width: 100% !important;
         height: 100% !important;
-        object-fit: contain !important; /* 전체 이미지가 보이도록 변경 */
+        object-fit: cover !important; /* 전체 이미지가 보이도록 변경 */
         object-position: center !important;
-        background-color: rgba(255, 255, 255, 0.05) !important; /* 여백 부분 배경색 */
     }
     
     .board-all-item {
