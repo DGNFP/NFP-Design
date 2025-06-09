@@ -69,10 +69,19 @@
                     </div>
                     
                     <div class="project-minimal-content">
-                        <!-- 태그 표시 (기존 project_scale 위치) -->
+                        <!-- 태그 표시 (기존 2개 + 커스텀 1개) -->
+                        
+                        <!-- 기존 태그에서 2개 먼저 -->
                         {{ if .Params.tags }}
-                            {{ range first 3 .Params.tags }}
-                            <span class="project-scale-badge">{{ . }}</span>
+                            {{ range first 2 .Params.tags }}
+                                <span class="project-scale-badge">{{ . }}</span>
+                            {{ end }}
+                        {{ end }}
+                        
+                        <!-- 커스텀 태그에서 1개 추가 -->
+                        {{ if .Params.custom_tags }}
+                            {{ range first 1 .Params.custom_tags }}
+                                <span class="project-scale-badge">{{ . }}</span>
                             {{ end }}
                         {{ end }}
                         
