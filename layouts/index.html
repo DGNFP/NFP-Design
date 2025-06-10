@@ -970,10 +970,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- 하이라이트 섹션 - 웹데모 스타일 이슈 해결 버전 -->
+<!-- 하이라이트 섹션 스크립트 -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('하이라이트 섹션 초기화 시작');
     
     // 프로젝트 카테고리와 웹데모 게시글을 제외한 데이터
     const highlightPosts = [
@@ -1028,7 +1027,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (cleanVideoUrl.includes('vimeo.com')) {
                 return '<img src="img/vimeo-default.jpg" alt="' + cleanTitle + '" class="highlight-square-img">';
             } else {
-                return '<div class="video-placeholder-all" style="height: 250px;"><i class="fas fa-video"></i><span>동영상</span></div>';
+                return '<div class="video-placeholder-all"><i class="fas fa-video"></i><span>동영상</span></div>';
             }
         }
         
@@ -1043,7 +1042,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
             else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
             
-            return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '" style="height: 250px;">' +
+            return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '">' +
                    '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
                    '<div class="demo-label">' +
                    '<span class="demo-type">' + label + '</span>' +
@@ -1090,8 +1089,6 @@ document.addEventListener('DOMContentLoaded', function() {
             getRandomHighlights(cleanedPosts, 5) : 
             dummyHighlights;
         
-        console.log('렌더링할 하이라이트:', highlightsToShow.length, '개');
-        
         container.innerHTML = highlightsToShow.map(highlight => {
             const cleanTitle = cleanUrl(highlight.title || '');
             const finalUrl = cleanUrl(highlight.url || '');
@@ -1119,11 +1116,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
-<!-- 메인 프로젝트 섹션 스크립트 - 최종 완성 버전 -->
+<!-- 메인 프로젝트 섹션 스크립트 -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('메인 프로젝트 초기화 시작');
     
     // 프로젝트 데이터
     const projectPosts = [

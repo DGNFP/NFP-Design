@@ -1123,6 +1123,12 @@ nav {
     height: 100%;
     color: white;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* 1줄 제한 추가 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 /* 서브카테고리별 배경 색상 (프로그래밍 게시판과 동일) */
