@@ -7,6 +7,9 @@ buildExpired: true
 timezone: "Asia/Seoul"
 googleAnalyticsID: "G-HG6N24RD49"
 
+images:
+    - "img/nfp-main.png"
+
 params:
   description: "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인"
   author: "NFP Design"
