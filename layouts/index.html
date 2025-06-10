@@ -1066,11 +1066,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 더미 데이터
     const dummyHighlights = [
-        { title: "브랜딩 프로젝트", url: "#", category: "creative", image: "img/design1.jpg" },
-        { title: "웹사이트 리뉴얼", url: "#", category: "web", image: "img/design1.jpg" },
-        { title: "모바일 앱 디자인", url: "#", category: "content", image: "img/design1.jpg" },
-        { title: "패키지 디자인", url: "#", category: "ad", image: "img/design1.jpg" },
-        { title: "영상 콘텐츠", url: "#", category: "video", image: "img/design1.jpg" }
+        { title: "브랜딩 프로젝트", url: "#", category: "creative", subCategory: "브랜딩", image: "img/design1.jpg" },
+        { title: "웹사이트 리뉴얼", url: "#", category: "web", subCategory: "웹 디자인", image: "img/design1.jpg" },
+        { title: "모바일 앱 디자인", url: "#", category: "content", subCategory: "앱 디자인", image: "img/design1.jpg" },
+        { title: "패키지 디자인", url: "#", category: "ad", subCategory: "패키지", image: "img/design1.jpg" },
+        { title: "영상 콘텐츠", url: "#", category: "video", subCategory: "영상 제작", image: "img/design1.jpg" }
     ];
     
     // 하이라이트 렌더링 함수
@@ -1093,12 +1093,18 @@ document.addEventListener('DOMContentLoaded', function() {
         container.innerHTML = highlightsToShow.map(highlight => {
             const cleanTitle = cleanUrl(highlight.title || '');
             const finalUrl = cleanUrl(highlight.url || '');
+            const cleanSubCategory = cleanUrl(highlight.subCategory || '');
             
             // 우선순위 기반 이미지 처리
             const imageHtml = getImageHtml(highlight);
             
+            // subCategory가 있을 때만 오버레이 표시
+            const categoryOverlay = cleanSubCategory ? 
+                '<div class="category-overlay">' + cleanSubCategory + '</div>' : '';
+            
             return '<div class="highlight-card board-all-item">' +
-                   '<a href="' + finalUrl + '" style="display: block; text-decoration: none; color: inherit;">' +
+                   '<a href="' + finalUrl + '" style="display: block; text-decoration: none; color: inherit; position: relative;">' +
+                   categoryOverlay +
                    imageHtml +
                    '<div class="highlight-footer">' +
                    '<h4 class="highlight-project-name">' + cleanTitle + '</h4>' +

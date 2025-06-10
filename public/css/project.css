@@ -204,12 +204,34 @@
     position: relative;
 }
 
+
+/* 홀로그램 효과 추가 */
+.main-project-card a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(1, 255, 117, 0.05) 50%,
+        transparent 70%
+    );
+    transform: translateX(-100%) skewX(-15deg);
+    animation: hologram-scan 3s infinite linear;
+    pointer-events: none;
+    z-index: 2;
+}
+
 .main-project-card a:hover {
     border-color: #01FF75;
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(1, 255, 117, 0.3);
     z-index: 10;
 }
+
 
 .main-project-wide-img {
     width: 100%;
@@ -225,13 +247,16 @@
 .project-tag {
     display: inline-block;
     background: rgba(1, 255, 117, 0.2);
+    margin-top: 0px;
     color: #01FF75;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 15px;
-    font-size: 12px;
+    margin-right: 13px;
+    font-size: 11px;
     font-weight: 700;
     margin-bottom: 12px;
     letter-spacing: 0.5px;
+    margin-left: -5px;
      line-height: 1; /* 추가 */
     vertical-align: middle; /* 추가 */
 }
@@ -468,6 +493,8 @@ body {
        font-size: 9px; /* 12px → 11px */
        font-weight: 500;
        margin-bottom: 10px; /* 12px → 10px */
+       margin-left: -2px;
+       margin-right: 7px;
    }
    
    .main-project-title {
