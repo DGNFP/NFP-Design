@@ -1255,216 +1255,152 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- 하이라이트 섹션 - 실제 작동 버전 -->
+<!-- 하이라이트 섹션 - 정리된 우선순위 버전 -->
 <script>
-(function() {
-    'use strict';
-    
+document.addEventListener('DOMContentLoaded', function() {
     console.log('하이라이트 섹션 초기화 시작');
     
-    // DOM 준비 확인
-    function domReady(fn) {
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-            setTimeout(fn, 1);
-        } else {
-            document.addEventListener('DOMContentLoaded', fn);
-        }
+    // 프로젝트 카테고리를 제외한 모든 게시글 데이터
+    const highlightPosts = [
+        {{ range (where site.RegularPages "Section" "posts") }}
+        {{ if ne (index .Params.categories 0) "project" }}
+        {
+            title: {{ .Title | jsonify }},
+            url: {{ .RelPermalink | jsonify }},
+            category: {{ if .Params.categories }}{{ index .Params.categories 0 | jsonify }}{{ else }}""{{ end }},
+            subCategory: {{ .Params.subCategory | default "" | jsonify }},
+            videoUrl: {{ .Params.videoUrl | default "" | jsonify }},
+            demoCode: {{ .Params.demoCode | default false }},
+            content: {{ .Content | jsonify }},
+            firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
+        },
+        {{ end }}
+        {{ end }}
+    ];
+    
+    // URL 정리 함수
+    function cleanUrl(url) {
+        return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
     }
     
-    domReady(function() {
-        try {
-            // Hugo 템플릿에서 데이터 가져오기
-            const highlightPosts = [
-                {{ range (where site.RegularPages "Section" "posts") }}
-                {{ if ne (index .Params.categories 0) "project" }}
-                {
-                    title: {{ .Title | jsonify }},
-                    url: {{ .RelPermalink | jsonify }},
-                    category: {{ if .Params.categories }}{{ index .Params.categories 0 | jsonify }}{{ else }}""{{ end }},
-                    subCategory: {{ .Params.subCategory | default "" | jsonify }},
-                    videoUrl: {{ .Params.videoUrl | default "" | jsonify }},
-                    demoCode: {{ .Params.demoCode | default false }},
-                    content: {{ .Content | jsonify }},
-                    firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
-                },
-                {{ end }}
-                {{ end }}
-            ];
-            
-            console.log('로드된 포스트 수:', highlightPosts.length);
-            
-            // 문자열 정리 함수
-            function cleanString(str) {
-                if (typeof str !== 'string') return '';
-                return str.replace(/^["']|["']$/g, '').trim();
-            }
-            
-            // HTML 이스케이프 함수
-            function escapeHtml(text) {
-                const map = {
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#039;'
-                };
-                return text.replace(/[&<>"']/g, function(m) { return map[m]; });
-            }
-            
-            // 유튜브 비디오 ID 추출
-            function extractYouTubeId(url) {
-                if (!url) return null;
-                const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-                const match = url.match(regex);
-                return match ? match[1] : null;
-            }
-            
-            // 이미지 HTML 생성 함수
-            function getImageHtml(highlight) {
-                const category = cleanString(highlight.category);
-                const subCategory = cleanString(highlight.subCategory);
-                const videoUrl = cleanString(highlight.videoUrl);
-                const title = escapeHtml(cleanString(highlight.title));
-                const firstImage = cleanString(highlight.firstImage);
-                
-                // 1순위: 동영상 URL
-                if (videoUrl) {
-                    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
-                        const videoId = extractYouTubeId(videoUrl);
-                        if (videoId) {
-                            return `<img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" 
-                                         alt="${title}" 
-                                         class="highlight-square-img"
-                                         loading="lazy"
-                                         onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">`;
-                        }
-                    } else if (videoUrl.includes('vimeo.com')) {
-                        return `<img src="img/vimeo-default.jpg" alt="${title}" class="highlight-square-img" loading="lazy">`;
-                    } else {
-                        return `<div class="video-placeholder-all">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>동영상</span>
-                                </div>`;
-                    }
+    // 유튜브 비디오 ID 추출
+    function extractYouTubeId(url) {
+        const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+        const match = url.match(regex);
+        return match ? match[1] : null;
+    }
+    
+    // 이미지 추출 함수 (3순위에서 사용)
+    function extractFirstImage(highlight) {
+        if (highlight.firstImage && highlight.firstImage.trim()) {
+            return cleanUrl(highlight.firstImage);
+        }
+        return null;
+    }
+    
+    // 우선순위 기반 이미지/썸네일 처리
+    function getImageHtml(highlight) {
+        const cleanCategory = cleanUrl(highlight.category);
+        const cleanSubCategory = cleanUrl(highlight.subCategory);
+        const cleanVideoUrl = cleanUrl(highlight.videoUrl);
+        const cleanTitle = cleanUrl(highlight.title);
+        
+        // 1순위: 동영상 URL
+        if (cleanVideoUrl && cleanVideoUrl.trim()) {
+            if (cleanVideoUrl.includes('youtube.com') || cleanVideoUrl.includes('youtu.be')) {
+                const videoId = extractYouTubeId(cleanVideoUrl);
+                if (videoId) {
+                    return '<img src="https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\'">';
                 }
-                
-                // 2순위: 프로그래밍 카테고리
-                if (category === 'programming') {
-                    const iconMap = {
-                        '프론트엔드': 'fab fa-react',
-                        '백엔드': 'fas fa-server',
-                        '웹 퍼블리싱': 'fab fa-html5',
-                        '모바일 앱': 'fas fa-mobile-alt',
-                        '게임 개발': 'fas fa-gamepad'
-                    };
-                    
-                    const icon = iconMap[subCategory] || 'fas fa-code';
-                    const label = subCategory || '프로그래밍';
-                    const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
-                    
-                    return `<div class="demo-placeholder-all" data-subcategory="${escapeHtml(subCategory)}">
-                                <div class="demo-icon">
-                                    <i class="${icon}"></i>
-                                </div>
-                                <div class="demo-label">
-                                    <span class="demo-type">${escapeHtml(label)}</span>
-                                    ${demoTech}
-                                </div>
-                            </div>`;
-                }
-                
-                // 3순위: 첫 번째 이미지
-                if (firstImage) {
-                    return `<img src="${escapeHtml(firstImage)}" alt="${title}" class="highlight-square-img" loading="lazy">`;
-                }
-                
-                // 기본 이미지
-                return `<img src="img/design1.jpg" alt="${title}" class="highlight-square-img" loading="lazy">`;
-            }
-            
-            // 랜덤 선택 함수
-            function getRandomHighlights(posts, count) {
-                count = count || 5;
-                if (!Array.isArray(posts) || posts.length === 0) return [];
-                
-                const shuffled = [...posts];
-                for (let i = shuffled.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-                }
-                
-                return shuffled.slice(0, Math.min(count, shuffled.length));
-            }
-            
-            // 더미 데이터
-            const dummyHighlights = [
-                { title: "브랜딩 프로젝트", url: "#", category: "creative" },
-                { title: "웹사이트 리뉴얼", url: "#", category: "web" },
-                { title: "모바일 앱 디자인", url: "#", category: "content" },
-                { title: "패키지 디자인", url: "#", category: "ad" },
-                { title: "영상 콘텐츠", url: "#", category: "video" }
-            ];
-            
-            // 렌더링 함수
-            function renderHighlights() {
-                const container = document.getElementById('highlight-container');
-                if (!container) {
-                    console.warn('highlight-container를 찾을 수 없습니다.');
-                    return;
-                }
-                
-                // 데이터 정리
-                const cleanedPosts = highlightPosts.map(post => ({
-                    title: cleanString(post.title),
-                    url: cleanString(post.url),
-                    category: cleanString(post.category),
-                    subCategory: cleanString(post.subCategory),
-                    videoUrl: cleanString(post.videoUrl),
-                    demoCode: Boolean(post.demoCode),
-                    firstImage: cleanString(post.firstImage)
-                })).filter(post => post.title && post.url);
-                
-                const highlightsToShow = cleanedPosts.length > 0 ? 
-                    getRandomHighlights(cleanedPosts, 5) : 
-                    dummyHighlights;
-                
-                console.log('렌더링할 하이라이트:', highlightsToShow.length + '개');
-                
-                const html = highlightsToShow.map(highlight => {
-                    const title = escapeHtml(highlight.title || '제목 없음');
-                    const url = escapeHtml(highlight.url || '#');
-                    const imageHtml = getImageHtml(highlight);
-                    
-                    return `<div class="highlight-card board-all-item">
-                                <a href="${url}">
-                                    ${imageHtml}
-                                    <div class="highlight-footer">
-                                        <h4 class="highlight-project-name">${title}</h4>
-                                    </div>
-                                </a>
-                            </div>`;
-                }).join('');
-                
-                container.innerHTML = html;
-                console.log('하이라이트 렌더링 완료');
-            }
-            
-            // 실행
-            renderHighlights();
-            
-        } catch (error) {
-            console.error('하이라이트 섹션 오류:', error);
-            
-            // 오류 시 기본 콘텐츠
-            const container = document.getElementById('highlight-container');
-            if (container) {
-                container.innerHTML = `<div style="text-align: center; padding: 20px; color: #666;">
-                    <i class="fas fa-refresh"></i> 콘텐츠를 불러오는 중입니다...
-                </div>`;
+            } else if (cleanVideoUrl.includes('vimeo.com')) {
+                return '<img src="img/vimeo-default.jpg" alt="' + cleanTitle + '" class="highlight-square-img">';
+            } else {
+                return '<div class="video-placeholder-all" style="height: 250px;"><i class="fas fa-video"></i><span>동영상</span></div>';
             }
         }
-    });
-})();
+        
+        // 2순위: 프로그래밍 카테고리
+        if (cleanCategory === 'programming') {
+            let icon = 'fas fa-code';
+            let label = cleanSubCategory || '프로그래밍';
+            
+            if (cleanSubCategory === '프론트엔드') icon = 'fab fa-react';
+            else if (cleanSubCategory === '백엔드') icon = 'fas fa-server';
+            else if (cleanSubCategory === '웹 퍼블리싱') icon = 'fab fa-html5';
+            else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
+            else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
+            
+            const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
+            
+            return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '" style="height: 250px;">' +
+                   '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
+                   '<div class="demo-label">' +
+                   '<span class="demo-type">' + label + '</span>' +
+                   demoTech +
+                   '</div></div>';
+        }
+        
+        // 3순위: 본문에서 첫 번째 이미지 추출
+        const firstImage = extractFirstImage(highlight);
+        if (firstImage) {
+            return '<img src="' + firstImage + '" alt="' + cleanTitle + '" class="highlight-square-img">';
+        }
+        
+        // 기본: 기본 이미지
+        return '<img src="img/design1.jpg" alt="' + cleanTitle + '" class="highlight-square-img">';
+    }
+    
+    // 랜덤 선택 함수
+    function getRandomHighlights(posts, count = 5) {
+        const shuffled = [...posts].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+    
+    // 더미 데이터
+    const dummyHighlights = [
+        { title: "브랜딩 프로젝트", url: "#", category: "creative", image: "img/design1.jpg" },
+        { title: "웹사이트 리뉴얼", url: "#", category: "web", image: "img/design1.jpg" },
+        { title: "모바일 앱 디자인", url: "#", category: "content", image: "img/design1.jpg" },
+        { title: "패키지 디자인", url: "#", category: "ad", image: "img/design1.jpg" },
+        { title: "영상 콘텐츠", url: "#", category: "video", image: "img/design1.jpg" }
+    ];
+    
+    // 하이라이트 렌더링 함수
+    function renderHighlights() {
+        const container = document.getElementById('highlight-container');
+        if (!container) return;
+        
+        const cleanedPosts = highlightPosts.map(post => ({
+            ...post,
+            title: cleanUrl(post.title),
+            url: cleanUrl(post.url)
+        }));
+        
+        const highlightsToShow = cleanedPosts.length > 0 ? 
+            getRandomHighlights(cleanedPosts, 5) : 
+            dummyHighlights;
+        
+        console.log('렌더링할 하이라이트:', highlightsToShow.length, '개');
+        
+        container.innerHTML = highlightsToShow.map(highlight => {
+            const cleanTitle = cleanUrl(highlight.title || '');
+            const finalUrl = cleanUrl(highlight.url || '');
+            
+            // 우선순위 기반 이미지 처리
+            const imageHtml = getImageHtml(highlight);
+            
+            return '<div class="highlight-card board-all-item">' +
+                   '<a href="' + finalUrl + '" style="display: block; text-decoration: none; color: inherit;">' +
+                   imageHtml +
+                   '<div class="highlight-footer">' +
+                   '<h4 class="highlight-project-name">' + cleanTitle + '</h4>' +
+                   '</div></a></div>';
+        }).join('');
+    }
+    
+    // 실행
+    renderHighlights();
+});
 </script>
 
 <!-- 메인페이지 전용 JavaScript -->
