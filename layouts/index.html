@@ -1118,31 +1118,40 @@ document.addEventListener('DOMContentLoaded', function() {
     function cleanUrl(url) {
         return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
     }
+
+
     
-    // 임시로 이미지 경로 강제 지정
+// 개선된 이미지 추출 함수
 function extractFirstImage(rawContent) {
     if (!rawContent) return null;
     
     const patterns = [
+        // ![alt text](/path "title") - 제목 부분 제외하고 경로만 추출
         /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
+        // ![](/path) - alt 텍스트 없음
         /!\[\]\(([^)\s"]+)\)/,
-        /!\[[^\]]*\]\(([^)]+)\)/
+        // ![alt](/path) - 간단한 형태
+        /!\[([^\]]*)\]\(([^)\s"]+)\)/
     ];
     
     for (const pattern of patterns) {
         const match = rawContent.match(pattern);
         if (match) {
-            let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
+            // 정확한 캡처 그룹 선택
+            let imagePath = match[2] || match[1]; // 두 번째 캡처 그룹 우선
             
-            // 디버깅용 로그
-            console.log('원본 이미지 경로:', imagePath);
+            // 따옴표, 공백, 특수문자 정리
+            imagePath = imagePath.trim()
+                .replace(/^["']|["']$/g, '')  // 시작/끝 따옴표 제거
+                .replace(/\s+.*$/, '')        // 공백 이후 모든 텍스트 제거
+                .replace(/["'\\]/g, '');      // 남은 따옴표, 백슬래시 제거
             
-            // 배포 환경에서 강제로 절대 경로 사용
+            console.log('정리된 이미지 경로:', imagePath);
+            
             if (!imagePath.startsWith('http')) {
                 if (!imagePath.startsWith('/')) {
                     imagePath = '/' + imagePath;
                 }
-                // 배포 환경에서 baseURL 추가
                 if (window.location.hostname === 'nfpdesign.netlify.app') {
                     imagePath = 'https://nfpdesign.netlify.app' + imagePath;
                 }
@@ -1154,13 +1163,17 @@ function extractFirstImage(rawContent) {
     }
     return null;
 }
+
+
+
+
     
     // 랜덤 선택
     function getRandomProjects(posts, count = 6) {
         const shuffled = [...posts].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     }
-    
+
     // 더미 데이터
     const dummyProjects = [
         { title: "E-Commerce 플랫폼", subtitle: "온라인 쇼핑몰 프로젝트", url: "#", tags: ["WEB"], image: "img/design1.jpg" },
