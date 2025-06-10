@@ -168,89 +168,8 @@
         <h3 class="project-section-title">메인 프로젝트</h3>
     </div>
     
-    <div class="autoplay">
-        {{ $mainProjects := where site.RegularPages "Section" "posts" }}
-        {{ $mainProjects = where $mainProjects "Params.featured" "eq" true }}
-        {{ range first 6 $mainProjects.ByDate.Reverse }}
-        <div class="main-project-card">
-            <a href="{{ .Permalink }}">
-                {{ if .Params.featured_image }}
-                <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="main-project-wide-img">
-                {{ else }}
-                <img src="{{ "img/design1.jpg" | relURL }}" alt="{{ .Title }}" class="main-project-wide-img">
-                {{ end }}
-                <div class="main-project-text">
-                    {{ if .Params.categories }}
-                    <span class="project-tag">{{ index .Params.categories 0 | upper }}</span>
-                    {{ end }}
-                    <h4 class="main-project-title">{{ .Title }}</h4>
-                    <p class="main-project-description">{{ .Summary | truncate 80 }}</p>
-                </div>
-            </a>
-        </div>
-        {{ else }}
-        <!-- 더미 데이터 -->
-        <div class="main-project-card">
-            <a href="#">
-                <img src="{{ "img/design1.jpg" | relURL }}" alt="E-Commerce 플랫폼" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">WEB</span>
-                    <h4 class="main-project-title">E-Commerce 플랫폼 구축</h4>
-                    <p class="main-project-description">기획부터 런칭까지 전체 과정을 담당한 온라인 쇼핑몰 프로젝트</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="{{ "img/design1.jpg" | relURL }}" alt="스타트업 브랜딩" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">BRAND</span>
-                    <h4 class="main-project-title">스타트업 브랜딩 프로젝트</h4>
-                    <p class="main-project-description">로고부터 마케팅 자료까지 통합 브랜드 아이덴티티 구축</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="{{ "img/design1.jpg" | relURL }}" alt="모바일 서비스" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">APP</span>
-                    <h4 class="main-project-title">모바일 서비스 런칭</h4>
-                    <p class="main-project-description">UX 리서치부터 개발까지 전 과정 참여한 앱 서비스</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="{{ "img/design1.jpg" | relURL }}" alt="기업 홍보 영상" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">VIDEO</span>
-                    <h4 class="main-project-title">기업 홍보 영상</h4>
-                    <p class="main-project-description">브랜드 스토리텔링 영상 기획부터 제작까지</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="{{ "img/design1.jpg" | relURL }}" alt="게임 UI 디자인" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">CREATIVE</span>
-                    <h4 class="main-project-title">게임 UI/UX 디자인</h4>
-                    <p class="main-project-description">모바일 게임 전체 인터페이스 디자인</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="{{ "img/design1.jpg" | relURL }}" alt="프린트 광고" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">PRINT</span>
-                    <h4 class="main-project-title">프린트 광고 캠페인</h4>
-                    <p class="main-project-description">오프라인 매체를 위한 광고 시리즈 디자인</p>
-                </div>
-            </a>
-        </div>
-        {{ end }}
+    <div class="autoplay" id="main-projects-container">
+        <!-- JavaScript로 동적 생성될 영역 -->
     </div>
 </section>
 
@@ -632,6 +551,7 @@
     </div>
 </div>
 
+<!-- /* 팝업 나타나는 애니메이션 */ -->
 <style>
 @keyframes checkmark {
     0% {
@@ -647,7 +567,7 @@
     }
 }
 
-/* 팝업 나타나는 애니메이션 */
+
 #success-popup {
     animation: fadeIn 0.3s ease-out;
 }
@@ -1001,6 +921,7 @@
 }
 </style>
 
+<!-- 연락하기 제출 폼 -->
 <script>
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault(); // 기본 폼 제출 방지
@@ -1100,6 +1021,135 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+});
+</script>
+
+<script>
+// 메인 프로젝트 섹션 전용 스크립트
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('메인 프로젝트 초기화 시작');
+    
+    // 프로젝트 데이터
+    const projectPosts = [
+        {{ range (where site.RegularPages "Section" "posts") }}
+        {{ if eq (index .Params.categories 0) "project" }}
+        {
+            title: {{ .Title | jsonify }},
+            subtitle: {{ if .Params.subtitle }}{{ .Params.subtitle | jsonify }}{{ else }}""{{ end }},
+            url: {{ .RelPermalink | jsonify }},
+            tags: [{{ range .Params.tags }}{{ . | jsonify }},{{ end }}],
+            customTags: [{{ range .Params.custom_tags }}{{ . | jsonify }},{{ end }}],
+            rawContent: {{ .RawContent | jsonify }}
+        },
+        {{ end }}
+        {{ end }}
+    ];
+    
+    // URL 정리 함수
+    function cleanUrl(url) {
+        return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
+    }
+    
+    // 이미지 추출
+    function extractFirstImage(rawContent) {
+        if (!rawContent) return null;
+        const patterns = [
+            /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
+            /!\[\]\(([^)\s"]+)\)/,
+            /!\[[^\]]*\]\(([^)]+)\)/
+        ];
+        
+        for (const pattern of patterns) {
+            const match = rawContent.match(pattern);
+            if (match) {
+                let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
+                if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                    imagePath = '/' + imagePath;
+                }
+                return imagePath;
+            }
+        }
+        return null;
+    }
+    
+    // 랜덤 선택
+    function getRandomProjects(posts, count = 6) {
+        const shuffled = [...posts].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+    
+    // 더미 데이터
+    const dummyProjects = [
+        { title: "E-Commerce 플랫폼", subtitle: "온라인 쇼핑몰 프로젝트", url: "#", tags: ["WEB"], image: "img/design1.jpg" },
+        { title: "브랜딩 프로젝트", subtitle: "브랜드 아이덴티티 구축", url: "#", tags: ["BRAND"], image: "img/design1.jpg" },
+        { title: "모바일 앱", subtitle: "앱 서비스 개발", url: "#", tags: ["APP"], image: "img/design1.jpg" },
+        { title: "홍보 영상", subtitle: "영상 제작", url: "#", tags: ["VIDEO"], image: "img/design1.jpg" },
+        { title: "게임 UI", subtitle: "게임 인터페이스", url: "#", tags: ["GAME"], image: "img/design1.jpg" },
+        { title: "광고 캠페인", subtitle: "광고 디자인", url: "#", tags: ["AD"], image: "img/design1.jpg" }
+    ];
+    
+    // 메인 렌더링
+    function renderProjects() {
+        const container = document.getElementById('main-projects-container');
+        if (!container) return;
+        
+        // 데이터 정리
+        const cleanedPosts = projectPosts.map(post => ({
+            ...post,
+            title: cleanUrl(post.title),
+            url: cleanUrl(post.url),
+            subtitle: cleanUrl(post.subtitle)
+        }));
+        
+        const projectsToShow = cleanedPosts.length > 0 ? 
+            getRandomProjects(cleanedPosts, 6) : dummyProjects;
+        
+        console.log('렌더링할 프로젝트:', projectsToShow);
+        
+        container.innerHTML = projectsToShow.map(project => {
+            const firstImage = project.rawContent ? extractFirstImage(project.rawContent) : null;
+            const imageUrl = firstImage || project.image || 'img/design1.jpg';
+            
+            const basicTags = (project.tags || []).slice(0, 2);
+            const customTags = (project.customTags || []).slice(0, 1);
+            const allTags = [...basicTags, ...customTags].filter(Boolean);
+            
+            const tagElements = allTags.map(tag => {
+                const cleanTag = cleanUrl(tag).toUpperCase();
+                return `<span class="project-tag">${cleanTag}</span>`;
+            }).join('');
+            
+            const cleanTitle = cleanUrl(project.title || '');
+            const cleanSubtitle = cleanUrl(project.subtitle || '');
+            const finalUrl = cleanUrl(project.url || '');
+            
+            return `
+                <div class="main-project-card">
+                    <a href="${finalUrl}" class="project-link" style="display: block; text-decoration: none; color: inherit;">
+                        <img src="${imageUrl}" alt="${cleanTitle}" class="main-project-wide-img">
+                        <div class="main-project-text">
+                            ${tagElements}
+                            <h4 class="main-project-title">${cleanTitle}</h4>
+                            <p class="main-project-description">${cleanSubtitle || '프로젝트 설명이 없습니다.'}</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+        }).join('');
+        
+        console.log('HTML 렌더링 완료');
+        
+        // 슬라이더 초기화
+        setTimeout(() => {
+            if (typeof initAutoplay === 'function') {
+                initAutoplay();
+                console.log('슬라이더 초기화 완료');
+            }
+        }, 100);
+    }
+    
+    // 실행
+    renderProjects();
 });
 </script>
 

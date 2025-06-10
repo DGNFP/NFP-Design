@@ -263,71 +263,7 @@
         <h3 class="project-section-title">메인 프로젝트</h3>
     </div>
     
-    <div class="autoplay">
-        
-        
-        
-        
-        <div class="main-project-card">
-            <a href="#">
-                <img src="/img/design1.jpg" alt="E-Commerce 플랫폼" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">WEB</span>
-                    <h4 class="main-project-title">E-Commerce 플랫폼 구축</h4>
-                    <p class="main-project-description">기획부터 런칭까지 전체 과정을 담당한 온라인 쇼핑몰 프로젝트</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="/img/design1.jpg" alt="스타트업 브랜딩" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">BRAND</span>
-                    <h4 class="main-project-title">스타트업 브랜딩 프로젝트</h4>
-                    <p class="main-project-description">로고부터 마케팅 자료까지 통합 브랜드 아이덴티티 구축</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="/img/design1.jpg" alt="모바일 서비스" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">APP</span>
-                    <h4 class="main-project-title">모바일 서비스 런칭</h4>
-                    <p class="main-project-description">UX 리서치부터 개발까지 전 과정 참여한 앱 서비스</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="/img/design1.jpg" alt="기업 홍보 영상" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">VIDEO</span>
-                    <h4 class="main-project-title">기업 홍보 영상</h4>
-                    <p class="main-project-description">브랜드 스토리텔링 영상 기획부터 제작까지</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="/img/design1.jpg" alt="게임 UI 디자인" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">CREATIVE</span>
-                    <h4 class="main-project-title">게임 UI/UX 디자인</h4>
-                    <p class="main-project-description">모바일 게임 전체 인터페이스 디자인</p>
-                </div>
-            </a>
-        </div>
-        <div class="main-project-card">
-            <a href="#">
-                <img src="/img/design1.jpg" alt="프린트 광고" class="main-project-wide-img">
-                <div class="main-project-text">
-                    <span class="project-tag">PRINT</span>
-                    <h4 class="main-project-title">프린트 광고 캠페인</h4>
-                    <p class="main-project-description">오프라인 매체를 위한 광고 시리즈 디자인</p>
-                </div>
-            </a>
-        </div>
+    <div class="autoplay" id="main-projects-container">
         
     </div>
 </section>
@@ -731,6 +667,7 @@
     </div>
 </div>
 
+
 <style>
 @keyframes checkmark {
     0% {
@@ -746,7 +683,7 @@
     }
 }
 
- 
+
 #success-popup {
     animation: fadeIn 0.3s ease-out;
 }
@@ -1100,6 +1037,7 @@
 }
 </style>
 
+
 <script>
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault(); 
@@ -1199,6 +1137,278 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+});
+</script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('메인 프로젝트 초기화 시작');
+    
+    
+    const projectPosts = [
+        
+        
+        {
+            title: "\"커스텀 태그 테스트\"",
+            subtitle: "\"잘 작동하나?\"",
+            url: "\"/posts/project/2025-06-09-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%9C%EA%B7%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/\"",
+            tags: ["\"홈페이지 디자인\"","\"SNS광고 디자인\"",],
+            customTags: ["\"커스텀태그\"","\"태그 커스텀\"",],
+            rawContent: "\"잘 작동하는 지 테스트\\r\\n\\r\\n![](/img/uploads/youtube2.jpg)\\r\\n\\r\\n이미지는 재탕\\r\\n\""
+        },
+        
+        
+        
+        
+        
+        
+        
+        {
+            title: "\"프로젝트 게시판 테스트\"",
+            subtitle: "\"게시글이 잘 나오길 바라며\"",
+            url: "\"/posts/project/2025-06-08-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/\"",
+            tags: ["\"JavaScript\"","\"Hugo\"","\"CSS3\"",],
+            customTags: ["\"커스텀태그\"","\"태그 커스텀\"",],
+            rawContent: "\"![alt text](/img/uploads/kakaotalk_20230217_012336798.png \\\"title\\\")\\r\\n\\r\\n귀 여운 이 모티콘\\r\\n\""
+        },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-2/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            rawContent: "\"\""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-3/\"",
+            tags: ["\"Photoshop\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            rawContent: "\"\""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-4/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            rawContent: "\"\""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-5/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            rawContent: "\"\""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-6/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            rawContent: "\"\""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-7/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            rawContent: "\"\""
+        },
+        
+        
+        
+        
+    ];
+    
+    
+    function cleanUrl(url) {
+        return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
+    }
+    
+    
+    function extractFirstImage(rawContent) {
+        if (!rawContent) return null;
+        const patterns = [
+            /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
+            /!\[\]\(([^)\s"]+)\)/,
+            /!\[[^\]]*\]\(([^)]+)\)/
+        ];
+        
+        for (const pattern of patterns) {
+            const match = rawContent.match(pattern);
+            if (match) {
+                let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
+                if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                    imagePath = '/' + imagePath;
+                }
+                return imagePath;
+            }
+        }
+        return null;
+    }
+    
+    
+    function getRandomProjects(posts, count = 6) {
+        const shuffled = [...posts].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+    
+    
+    const dummyProjects = [
+        { title: "E-Commerce 플랫폼", subtitle: "온라인 쇼핑몰 프로젝트", url: "#", tags: ["WEB"], image: "img/design1.jpg" },
+        { title: "브랜딩 프로젝트", subtitle: "브랜드 아이덴티티 구축", url: "#", tags: ["BRAND"], image: "img/design1.jpg" },
+        { title: "모바일 앱", subtitle: "앱 서비스 개발", url: "#", tags: ["APP"], image: "img/design1.jpg" },
+        { title: "홍보 영상", subtitle: "영상 제작", url: "#", tags: ["VIDEO"], image: "img/design1.jpg" },
+        { title: "게임 UI", subtitle: "게임 인터페이스", url: "#", tags: ["GAME"], image: "img/design1.jpg" },
+        { title: "광고 캠페인", subtitle: "광고 디자인", url: "#", tags: ["AD"], image: "img/design1.jpg" }
+    ];
+    
+    
+    function renderProjects() {
+        const container = document.getElementById('main-projects-container');
+        if (!container) return;
+        
+        
+        const cleanedPosts = projectPosts.map(post => ({
+            ...post,
+            title: cleanUrl(post.title),
+            url: cleanUrl(post.url),
+            subtitle: cleanUrl(post.subtitle)
+        }));
+        
+        const projectsToShow = cleanedPosts.length > 0 ? 
+            getRandomProjects(cleanedPosts, 6) : dummyProjects;
+        
+        console.log('렌더링할 프로젝트:', projectsToShow);
+        
+        container.innerHTML = projectsToShow.map(project => {
+            const firstImage = project.rawContent ? extractFirstImage(project.rawContent) : null;
+            const imageUrl = firstImage || project.image || 'img/design1.jpg';
+            
+            const basicTags = (project.tags || []).slice(0, 2);
+            const customTags = (project.customTags || []).slice(0, 1);
+            const allTags = [...basicTags, ...customTags].filter(Boolean);
+            
+            const tagElements = allTags.map(tag => {
+                const cleanTag = cleanUrl(tag).toUpperCase();
+                return `<span class="project-tag">${cleanTag}</span>`;
+            }).join('');
+            
+            const cleanTitle = cleanUrl(project.title || '');
+            const cleanSubtitle = cleanUrl(project.subtitle || '');
+            const finalUrl = cleanUrl(project.url || '');
+            
+            return `
+                <div class="main-project-card">
+                    <a href="${finalUrl}" class="project-link" style="display: block; text-decoration: none; color: inherit;">
+                        <img src="${imageUrl}" alt="${cleanTitle}" class="main-project-wide-img">
+                        <div class="main-project-text">
+                            ${tagElements}
+                            <h4 class="main-project-title">${cleanTitle}</h4>
+                            <p class="main-project-description">${cleanSubtitle || '프로젝트 설명이 없습니다.'}</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+        }).join('');
+        
+        console.log('HTML 렌더링 완료');
+        
+        
+        setTimeout(() => {
+            if (typeof initAutoplay === 'function') {
+                initAutoplay();
+                console.log('슬라이더 초기화 완료');
+            }
+        }, 100);
+    }
+    
+    
+    renderProjects();
 });
 </script>
 
