@@ -968,12 +968,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- 하이라이트 섹션 - 개선된 안정성 버전 -->
+<!-- 하이라이트 섹션 - 디버깅 강화 버전 -->
 <script>
 (function() {
     'use strict';
     
-    // DOM 로드 완료 확인 함수
+    // 디버그 모드 (배포 시 false로 변경)
+    const DEBUG = {{ if .Site.Params.debug }}true{{ else }}false{{ end }};
+    
+    function debugLog(message, data) {
+        if (DEBUG) {
+            console.log('[하이라이트 디버그]', message, data || '');
+        }
+    }
+    
+    function debugError(message, error) {
+        console.error('[하이라이트 오류]', message, error);
+    }
+    
+    // DOM 로드 완료 확인
     function domReady(fn) {
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             setTimeout(fn, 1);
@@ -983,57 +996,67 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     domReady(function() {
-        console.log('하이라이트 섹션 초기화 시작');
+        debugLog('DOM 준비 완료, 하이라이트 섹션 초기화 시작');
         
         try {
-            // 프로젝트 카테고리를 제외한 모든 게시글 데이터
-            const highlightPosts = [
-                {{ range (where site.RegularPages "Section" "posts") }}
-                {{ if ne (index .Params.categories 0) "project" }}
-                {
-                    title: {{ .Title | jsonify | safeJS }},
-                    url: {{ .RelPermalink | jsonify | safeJS }},
-                    category: {{ if .Params.categories }}{{ index .Params.categories 0 | jsonify | safeJS }}{{ else }}''+''{{ end }},
-                    subCategory: {{ .Params.subCategory | default "" | jsonify | safeJS }},
-                    videoUrl: {{ .Params.videoUrl | default "" | jsonify | safeJS }},
-                    demoCode: {{ .Params.demoCode | default false }},
-                    content: {{ .Content | plainify | truncate 500 | jsonify | safeJS }},
-                    firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify | safeJS }}{{ else }}''+''{{ end }}
-                }{{ if not (eq . (index (last 1 (where (where site.RegularPages "Section" "posts") "Params.categories" "!=" "project")) 0)) }},{{ end }}
-                {{ end }}
-                {{ end }}
-            ];
+            // Hugo 템플릿에서 데이터 생성 시 안전성 확보
+            let highlightPosts = [];
             
-            // 데이터 검증
+            try {
+                // 프로젝트 카테고리를 제외한 모든 게시글 데이터
+                highlightPosts = [
+                    {{ $posts := where site.RegularPages "Section" "posts" }}
+                    {{ $filteredPosts := where $posts "Params.categories" "!=" "project" }}
+                    {{ range $index, $post := $filteredPosts }}
+                    {
+                        title: {{ $post.Title | jsonify | safeJS }},
+                        url: {{ $post.RelPermalink | jsonify | safeJS }},
+                        category: {{ if $post.Params.categories }}{{ index $post.Params.categories 0 | jsonify | safeJS }}{{ else }}""{{ end }},
+                        subCategory: {{ $post.Params.subCategory | default "" | jsonify | safeJS }},
+                        videoUrl: {{ $post.Params.videoUrl | default "" | jsonify | safeJS }},
+                        demoCode: {{ $post.Params.demoCode | default false }},
+                        content: {{ $post.Content | plainify | truncate 200 | jsonify | safeJS }},
+                        firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $post.Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify | safeJS }}{{ else }}""{{ end }},
+                        date: {{ $post.Date.Format "2006-01-02" | jsonify | safeJS }}
+                    }{{ if not (eq $index (sub (len $filteredPosts) 1)) }},{{ end }}
+                    {{ end }}
+                ];
+            } catch (dataError) {
+                debugError('데이터 생성 중 오류:', dataError);
+                highlightPosts = [];
+            }
+            
+            debugLog('생성된 포스트 데이터:', {
+                count: highlightPosts.length,
+                sample: highlightPosts[0] || null
+            });
+            
+            // 데이터 유효성 검사
             if (!Array.isArray(highlightPosts)) {
-                console.warn('하이라이트 포스트 데이터가 배열이 아닙니다.');
-                return;
+                debugError('highlightPosts가 배열이 아닙니다:', typeof highlightPosts);
+                highlightPosts = [];
             }
             
-            console.log('로드된 게시글 수:', highlightPosts.length);
+            // 각 포스트 데이터 검증 및 정리
+            highlightPosts = highlightPosts.filter(function(post) {
+                return post && typeof post === 'object' && post.title && post.url;
+            });
             
-            // URL 정리 함수
-            function cleanUrl(url) {
-                if (typeof url !== 'string') return '';
-                return url.replace(/^["']|["']$/g, '').trim();
+            debugLog('필터링 후 포스트 수:', highlightPosts.length);
+            
+            // 유틸리티 함수들
+            function cleanString(str) {
+                if (typeof str !== 'string') return '';
+                return str.replace(/^["']|["']$/g, '').trim();
             }
             
-            // 안전한 HTML 속성 값 생성
-            function safeAttr(value) {
-                if (typeof value !== 'string') return '';
-                return value.replace(/[<>"'&]/g, function(match) {
-                    const entityMap = {
-                        '<': '&lt;',
-                        '>': '&gt;',
-                        '"': '&quot;',
-                        "'": '&#39;',
-                        '&': '&amp;'
-                    };
-                    return entityMap[match];
-                });
+            function safeHtml(str) {
+                if (typeof str !== 'string') return '';
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
             }
             
-            // 유튜브 비디오 ID 추출
             function extractYouTubeId(url) {
                 if (typeof url !== 'string') return null;
                 const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
@@ -1041,46 +1064,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 return match ? match[1] : null;
             }
             
-            // 이미지 추출 함수
-            function extractFirstImage(highlight) {
-                if (highlight.firstImage && typeof highlight.firstImage === 'string' && highlight.firstImage.trim()) {
-                    return cleanUrl(highlight.firstImage);
-                }
-                return null;
-            }
-            
-            // 우선순위 기반 이미지/썸네일 처리
             function getImageHtml(highlight) {
-                const cleanCategory = cleanUrl(highlight.category || '');
-                const cleanSubCategory = cleanUrl(highlight.subCategory || '');
-                const cleanVideoUrl = cleanUrl(highlight.videoUrl || '');
-                const cleanTitle = safeAttr(highlight.title || '');
+                const category = cleanString(highlight.category);
+                const subCategory = cleanString(highlight.subCategory);
+                const videoUrl = cleanString(highlight.videoUrl);
+                const title = safeHtml(highlight.title || '');
+                const firstImage = cleanString(highlight.firstImage);
+                
+                debugLog('이미지 HTML 생성:', {
+                    category,
+                    subCategory,
+                    videoUrl: videoUrl ? 'URL 존재' : '없음',
+                    firstImage: firstImage ? 'URL 존재' : '없음'
+                });
                 
                 // 1순위: 동영상 URL
-                if (cleanVideoUrl) {
-                    if (cleanVideoUrl.includes('youtube.com') || cleanVideoUrl.includes('youtu.be')) {
-                        const videoId = extractYouTubeId(cleanVideoUrl);
+                if (videoUrl) {
+                    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                        const videoId = extractYouTubeId(videoUrl);
                         if (videoId) {
                             return '<img src="https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" ' +
-                                   'alt="' + cleanTitle + '" ' +
+                                   'alt="' + title + '" ' +
                                    'class="highlight-square-img" ' +
+                                   'loading="lazy" ' +
                                    'onerror="this.src=\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\'">';
                         }
-                    } else if (cleanVideoUrl.includes('vimeo.com')) {
-                        return '<img src="img/vimeo-default.jpg" alt="' + cleanTitle + '" class="highlight-square-img">';
+                    } else if (videoUrl.includes('vimeo.com')) {
+                        return '<img src="img/vimeo-default.jpg" alt="' + title + '" class="highlight-square-img" loading="lazy">';
                     } else {
-                        return '<div class="video-placeholder-all" style="height: 250px;">' +
-                               '<i class="fas fa-video"></i>' +
-                               '<span>동영상</span>' +
+                        return '<div class="video-placeholder-all" style="height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 8px;">' +
+                               '<i class="fas fa-video" style="font-size: 2rem; color: #999; margin-bottom: 0.5rem;"></i>' +
+                               '<span style="color: #666;">동영상</span>' +
                                '</div>';
                     }
                 }
                 
                 // 2순위: 프로그래밍 카테고리
-                if (cleanCategory === 'programming') {
-                    let icon = 'fas fa-code';
-                    let label = cleanSubCategory || '프로그래밍';
-                    
+                if (category === 'programming') {
                     const iconMap = {
                         '프론트엔드': 'fab fa-react',
                         '백엔드': 'fas fa-server',
@@ -1089,41 +1109,39 @@ document.addEventListener('DOMContentLoaded', function() {
                         '게임 개발': 'fas fa-gamepad'
                     };
                     
-                    if (iconMap[cleanSubCategory]) {
-                        icon = iconMap[cleanSubCategory];
-                    }
-                    
+                    const icon = iconMap[subCategory] || 'fas fa-code';
+                    const label = subCategory || '프로그래밍';
                     const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
                     
-                    return '<div class="demo-placeholder-all" data-subcategory="' + safeAttr(cleanSubCategory) + '" style="height: 250px;">' +
-                           '<div class="demo-icon">' +
-                           '<i class="' + icon + '"></i>' +
+                    return '<div class="demo-placeholder-all" data-subcategory="' + safeHtml(subCategory) + '" style="height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; color: white;">' +
+                           '<div class="demo-icon" style="margin-bottom: 1rem;">' +
+                           '<i class="' + icon + '" style="font-size: 3rem;"></i>' +
                            '</div>' +
-                           '<div class="demo-label">' +
-                           '<span class="demo-type">' + safeAttr(label) + '</span>' +
+                           '<div class="demo-label" style="text-align: center;">' +
+                           '<span class="demo-type" style="font-size: 1.1rem; font-weight: bold;">' + safeHtml(label) + '</span>' +
                            demoTech +
                            '</div>' +
                            '</div>';
                 }
                 
-                // 3순위: 본문에서 첫 번째 이미지 추출
-                const firstImage = extractFirstImage(highlight);
+                // 3순위: 첫 번째 이미지
                 if (firstImage) {
-                    return '<img src="' + safeAttr(firstImage) + '" alt="' + cleanTitle + '" class="highlight-square-img">';
+                    return '<img src="' + safeHtml(firstImage) + '" alt="' + title + '" class="highlight-square-img" loading="lazy">';
                 }
                 
-                // 기본: 기본 이미지
-                return '<img src="img/design1.jpg" alt="' + cleanTitle + '" class="highlight-square-img">';
+                // 기본 이미지
+                return '<img src="img/design1.jpg" alt="' + title + '" class="highlight-square-img" loading="lazy">';
             }
             
-            // 랜덤 선택 함수
             function getRandomHighlights(posts, count) {
                 count = count || 5;
                 if (!Array.isArray(posts) || posts.length === 0) {
+                    debugLog('포스트 배열이 비어있거나 유효하지 않음');
                     return [];
                 }
                 
-                const shuffled = posts.slice(); // 복사본 생성
+                // Fisher-Yates 셔플 알고리즘
+                const shuffled = posts.slice();
                 for (let i = shuffled.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
@@ -1132,71 +1150,104 @@ document.addEventListener('DOMContentLoaded', function() {
                 return shuffled.slice(0, Math.min(count, shuffled.length));
             }
             
-            // 더미 데이터
+            // 더미 데이터 (fallback)
             const dummyHighlights = [
-                { title: "브랜딩 프로젝트", url: "#", category: "creative", image: "img/design1.jpg" },
-                { title: "웹사이트 리뉴얼", url: "#", category: "web", image: "img/design1.jpg" },
-                { title: "모바일 앱 디자인", url: "#", category: "content", image: "img/design1.jpg" },
-                { title: "패키지 디자인", url: "#", category: "ad", image: "img/design1.jpg" },
-                { title: "영상 콘텐츠", url: "#", category: "video", image: "img/design1.jpg" }
+                { title: "브랜딩 프로젝트", url: "#", category: "creative" },
+                { title: "웹사이트 리뉴얼", url: "#", category: "web" },
+                { title: "모바일 앱 디자인", url: "#", category: "content" },
+                { title: "패키지 디자인", url: "#", category: "ad" },
+                { title: "영상 콘텐츠", url: "#", category: "video" }
             ];
             
-            // 하이라이트 렌더링 함수
+            // 메인 렌더링 함수
             function renderHighlights() {
                 const container = document.getElementById('highlight-container');
                 if (!container) {
-                    console.warn('highlight-container 요소를 찾을 수 없습니다.');
+                    debugError('highlight-container 요소를 찾을 수 없습니다.');
                     return;
                 }
                 
-                const cleanedPosts = highlightPosts.map(function(post) {
-                    return {
-                        title: cleanUrl(post.title || ''),
-                        url: cleanUrl(post.url || ''),
-                        category: cleanUrl(post.category || ''),
-                        subCategory: cleanUrl(post.subCategory || ''),
-                        videoUrl: cleanUrl(post.videoUrl || ''),
-                        demoCode: Boolean(post.demoCode),
-                        firstImage: cleanUrl(post.firstImage || ''),
-                        content: post.content || ''
-                    };
-                });
+                debugLog('컨테이너 발견:', container);
                 
-                const highlightsToShow = cleanedPosts.length > 0 ? 
-                    getRandomHighlights(cleanedPosts, 5) : 
+                const highlightsToShow = highlightPosts.length > 0 ? 
+                    getRandomHighlights(highlightPosts, 5) : 
                     dummyHighlights;
                 
-                console.log('렌더링할 하이라이트:', highlightsToShow.length, '개');
+                debugLog('렌더링할 하이라이트:', highlightsToShow.length + '개');
                 
-                const html = highlightsToShow.map(function(highlight) {
-                    const cleanTitle = safeAttr(highlight.title || '제목 없음');
-                    const finalUrl = safeAttr(highlight.url || '#');
-                    const imageHtml = getImageHtml(highlight);
+                if (highlightsToShow.length === 0) {
+                    container.innerHTML = '<div class="no-highlights" style="text-align: center; padding: 2rem; color: #666;">표시할 콘텐츠가 없습니다.</div>';
+                    return;
+                }
+                
+                const htmlParts = [];
+                
+                highlightsToShow.forEach(function(highlight, index) {
+                    try {
+                        const title = safeHtml(highlight.title || '제목 없음');
+                        const url = cleanString(highlight.url) || '#';
+                        const imageHtml = getImageHtml(highlight);
+                        
+                        const cardHtml = '<div class="highlight-card board-all-item" style="margin-bottom: 1rem;">' +
+                                        '<a href="' + safeHtml(url) + '" style="display: block; text-decoration: none; color: inherit; transition: transform 0.3s ease;">' +
+                                        imageHtml +
+                                        '<div class="highlight-footer" style="padding: 1rem;">' +
+                                        '<h4 class="highlight-project-name" style="margin: 0; font-size: 1.1rem; font-weight: bold; color: #333;">' + title + '</h4>' +
+                                        '</div>' +
+                                        '</a>' +
+                                        '</div>';
+                        
+                        htmlParts.push(cardHtml);
+                        debugLog('카드 ' + (index + 1) + ' 생성 완료:', title);
+                        
+                    } catch (cardError) {
+                        debugError('카드 생성 중 오류 (인덱스 ' + index + '):', cardError);
+                    }
+                });
+                
+                container.innerHTML = htmlParts.join('');
+                debugLog('하이라이트 렌더링 완료:', htmlParts.length + '개 카드');
+                
+                // 스타일 적용 확인
+                setTimeout(function() {
+                    const cards = container.querySelectorAll('.highlight-card');
+                    debugLog('렌더링된 카드 수:', cards.length);
                     
-                    return '<div class="highlight-card board-all-item">' +
-                           '<a href="' + finalUrl + '" style="display: block; text-decoration: none; color: inherit;">' +
-                           imageHtml +
-                           '<div class="highlight-footer">' +
-                           '<h4 class="highlight-project-name">' + cleanTitle + '</h4>' +
-                           '</div>' +
-                           '</a>' +
-                           '</div>';
-                }).join('');
-                
-                container.innerHTML = html;
-                console.log('하이라이트 렌더링 완료');
+                    // 호버 효과 추가
+                    cards.forEach(function(card) {
+                        card.addEventListener('mouseenter', function() {
+                            this.style.transform = 'translateY(-5px)';
+                        });
+                        card.addEventListener('mouseleave', function() {
+                            this.style.transform = 'translateY(0)';
+                        });
+                    });
+                }, 100);
             }
             
-            // 실행
+            // 렌더링 실행
             renderHighlights();
             
-        } catch (error) {
-            console.error('하이라이트 섹션 초기화 중 오류:', error);
+            // 전역 디버그 함수 추가 (개발 시 콘솔에서 사용 가능)
+            if (DEBUG) {
+                window.debugHighlights = {
+                    posts: highlightPosts,
+                    rerender: renderHighlights,
+                    container: document.getElementById('highlight-container')
+                };
+            }
+            
+        } catch (mainError) {
+            debugError('메인 초기화 중 심각한 오류:', mainError);
             
             // 오류 발생 시 기본 콘텐츠 표시
             const container = document.getElementById('highlight-container');
             if (container) {
-                container.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">콘텐츠를 불러오는 중입니다...</div>';
+                container.innerHTML = '<div class="error-message" style="text-align: center; padding: 2rem; color: #e74c3c; background: #fdf2f2; border-radius: 8px; margin: 1rem 0;">' +
+                                     '<i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i><br>' +
+                                     '콘텐츠를 불러오는 중 문제가 발생했습니다.<br>' +
+                                     '<small style="color: #666; margin-top: 0.5rem; display: block;">페이지를 새로고침해주세요.</small>' +
+                                     '</div>';
             }
         }
     });

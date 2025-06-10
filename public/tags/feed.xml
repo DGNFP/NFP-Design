@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Tue, 10 Jun 2025 17:58:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UX/UI 디자인</title>
+      <link>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Mon, 09 Jun 2025 09:16:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>로고 디자인</title>
+      <link>http://localhost:1313/tags/%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Mon, 09 Jun 2025 09:16:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SNS광고 디자인</title>
+      <link>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Tue, 10 Jun 2025 01:21:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>홈페이지 디자인</title>
+      <link>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Tue, 10 Jun 2025 01:21:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Photoshop</title>
+      <link>http://localhost:1313/tags/photoshop/</link>
+      <pubDate>Sun, 08 Jun 2025 01:06:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/photoshop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>패키지 디자인</title>
+      <link>http://localhost:1313/tags/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Sun, 08 Jun 2025 01:06:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CSS3</title>
+      <link>http://localhost:1313/tags/css3/</link>
+      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/css3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>http://localhost:1313/tags/hugo/</link>
+      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/tags/javascript/</link>
+      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Illustrator</title>
+      <link>http://localhost:1313/tags/illustrator/</link>
+      <pubDate>Sat, 07 Jun 2025 01:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/illustrator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>인터넷 방송 디자인</title>
+      <link>http://localhost:1313/tags/%EC%9D%B8%ED%84%B0%EB%84%B7-%EB%B0%A9%EC%86%A1-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Sat, 07 Jun 2025 01:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/%EC%9D%B8%ED%84%B0%EB%84%B7-%EB%B0%A9%EC%86%A1-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CSS</title>
+      <link>http://localhost:1313/tags/css/</link>
+      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/css/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MongoDB</title>
+      <link>http://localhost:1313/tags/mongodb/</link>
+      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Node.js</title>
+      <link>http://localhost:1313/tags/node.js/</link>
+      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/node.js/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>React</title>
+      <link>http://localhost:1313/tags/react/</link>
+      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/react/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
