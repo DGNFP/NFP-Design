@@ -1092,12 +1092,12 @@ function refreshHighlights() {
 }
 </script>
 
-<!-- // 메인 프로젝트 섹션 전용 스크립트 -->
+<!-- 메인 프로젝트 섹션 스크립트 - 최종 완성 버전 -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     console.log('메인 프로젝트 초기화 시작');
     
-    // 프로젝트 데이터 - Content도 함께 전달
+    // 프로젝트 데이터
     const projectPosts = [
         {{ range (where site.RegularPages "Section" "posts") }}
         {{ if eq (index .Params.categories 0) "project" }}
@@ -1107,9 +1107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             url: {{ .RelPermalink | jsonify }},
             tags: [{{ range .Params.tags }}{{ . | jsonify }},{{ end }}],
             customTags: [{{ range .Params.custom_tags }}{{ . | jsonify }},{{ end }}],
-            rawContent: {{ .RawContent | jsonify }},
-            content: {{ .Content | jsonify }}, // HTML 변환된 콘텐츠 추가
-            // Hugo 방식으로 미리 이미지 추출
+            content: {{ .Content | jsonify }},
             firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
         },
         {{ end }}
@@ -1121,52 +1119,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
     }
     
-    // 개선된 이미지 추출 함수
+    // 이미지 추출 함수
     function extractFirstImage(project) {
-        // 1순위: Hugo에서 미리 추출한 이미지
+        // Hugo에서 미리 추출한 이미지 사용
         if (project.firstImage && project.firstImage.trim()) {
-            const hugoImage = cleanUrl(project.firstImage);
-            console.log('Hugo 추출 이미지:', hugoImage);
-            return hugoImage;
+            return cleanUrl(project.firstImage);
         }
         
-        // 2순위: HTML 콘텐츠에서 img 태그 추출
+        // HTML 콘텐츠에서 img 태그 추출
         if (project.content) {
             const imgMatch = project.content.match(/<img[^>]+src="([^"]+)"/i);
             if (imgMatch) {
-                console.log('HTML img 태그에서 추출:', imgMatch[1]);
                 return imgMatch[1];
             }
         }
         
-        // 3순위: 마크다운에서 추출 (기존 방식)
-        if (project.rawContent) {
-            const patterns = [
-                /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
-                /!\[\]\(([^)\s"]+)\)/,
-                /!\[([^\]]*)\]\(([^)\s"]+)\)/
-            ];
-            
-            for (const pattern of patterns) {
-                const match = project.rawContent.match(pattern);
-                if (match) {
-                    let imagePath = match[2] || match[1];
-                    imagePath = imagePath.trim()
-                        .replace(/^["']|["']$/g, '')
-                        .replace(/\s+.*$/, '')
-                        .replace(/["'\\]/g, '');
-                    
-                    console.log('마크다운에서 추출:', imagePath);
-                    
-                    if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
-                        imagePath = '/' + imagePath;
-                    }
-                    return imagePath;
-                }
-            }
-        }
-        
-        console.log('이미지 추출 실패');
         return null;
     }
     
@@ -1202,16 +1169,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const projectsToShow = cleanedPosts.length > 0 ? 
             getRandomProjects(cleanedPosts, 6) : dummyProjects;
         
-        console.log('렌더링할 프로젝트:', projectsToShow);
-        
-        container.innerHTML = projectsToShow.map((project, index) => {
-            console.log(`=== 프로젝트 ${index + 1}: ${cleanUrl(project.title)} ===`);
-            
+        container.innerHTML = projectsToShow.map(project => {
             const firstImage = extractFirstImage(project);
             const imageUrl = firstImage || project.image || 'img/design1.jpg';
-            
-            console.log('최종 사용될 이미지:', imageUrl);
-            console.log('=====================================');
             
             const basicTags = (project.tags || []).slice(0, 2);
             const customTags = (project.customTags || []).slice(0, 1);
@@ -1240,13 +1200,10 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }).join('');
         
-        console.log('HTML 렌더링 완료');
-        
         // 슬라이더 초기화
         setTimeout(() => {
             if (typeof initAutoplay === 'function') {
                 initAutoplay();
-                console.log('슬라이더 초기화 완료');
             }
         }, 100);
     }
