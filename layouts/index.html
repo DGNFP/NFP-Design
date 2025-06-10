@@ -1094,11 +1094,10 @@ function refreshHighlights() {
 
 <!-- // 메인 프로젝트 섹션 전용 스크립트 -->
 <script>
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('메인 프로젝트 초기화 시작');
     
-    // 프로젝트 데이터
+    // 프로젝트 데이터 - Content도 함께 전달
     const projectPosts = [
         {{ range (where site.RegularPages "Section" "posts") }}
         {{ if eq (index .Params.categories 0) "project" }}
@@ -1108,7 +1107,10 @@ document.addEventListener('DOMContentLoaded', function() {
             url: {{ .RelPermalink | jsonify }},
             tags: [{{ range .Params.tags }}{{ . | jsonify }},{{ end }}],
             customTags: [{{ range .Params.custom_tags }}{{ . | jsonify }},{{ end }}],
-            rawContent: {{ .RawContent | jsonify }}
+            rawContent: {{ .RawContent | jsonify }},
+            content: {{ .Content | jsonify }}, // HTML 변환된 콘텐츠 추가
+            // Hugo 방식으로 미리 이미지 추출
+            firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
         },
         {{ end }}
         {{ end }}
@@ -1118,62 +1120,62 @@ document.addEventListener('DOMContentLoaded', function() {
     function cleanUrl(url) {
         return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
     }
-
-
     
-// 개선된 이미지 추출 함수
-function extractFirstImage(rawContent) {
-    if (!rawContent) return null;
-    
-    const patterns = [
-        // ![alt text](/path "title") - 제목 부분 제외하고 경로만 추출
-        /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
-        // ![](/path) - alt 텍스트 없음
-        /!\[\]\(([^)\s"]+)\)/,
-        // ![alt](/path) - 간단한 형태
-        /!\[([^\]]*)\]\(([^)\s"]+)\)/
-    ];
-    
-    for (const pattern of patterns) {
-        const match = rawContent.match(pattern);
-        if (match) {
-            // 정확한 캡처 그룹 선택
-            let imagePath = match[2] || match[1]; // 두 번째 캡처 그룹 우선
+    // 개선된 이미지 추출 함수
+    function extractFirstImage(project) {
+        // 1순위: Hugo에서 미리 추출한 이미지
+        if (project.firstImage && project.firstImage.trim()) {
+            const hugoImage = cleanUrl(project.firstImage);
+            console.log('Hugo 추출 이미지:', hugoImage);
+            return hugoImage;
+        }
+        
+        // 2순위: HTML 콘텐츠에서 img 태그 추출
+        if (project.content) {
+            const imgMatch = project.content.match(/<img[^>]+src="([^"]+)"/i);
+            if (imgMatch) {
+                console.log('HTML img 태그에서 추출:', imgMatch[1]);
+                return imgMatch[1];
+            }
+        }
+        
+        // 3순위: 마크다운에서 추출 (기존 방식)
+        if (project.rawContent) {
+            const patterns = [
+                /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
+                /!\[\]\(([^)\s"]+)\)/,
+                /!\[([^\]]*)\]\(([^)\s"]+)\)/
+            ];
             
-            // 따옴표, 공백, 특수문자 정리
-            imagePath = imagePath.trim()
-                .replace(/^["']|["']$/g, '')  // 시작/끝 따옴표 제거
-                .replace(/\s+.*$/, '')        // 공백 이후 모든 텍스트 제거
-                .replace(/["'\\]/g, '');      // 남은 따옴표, 백슬래시 제거
-            
-            console.log('정리된 이미지 경로:', imagePath);
-            
-            if (!imagePath.startsWith('http')) {
-                if (!imagePath.startsWith('/')) {
-                    imagePath = '/' + imagePath;
-                }
-                if (window.location.hostname === 'nfpdesign.netlify.app') {
-                    imagePath = 'https://nfpdesign.netlify.app' + imagePath;
+            for (const pattern of patterns) {
+                const match = project.rawContent.match(pattern);
+                if (match) {
+                    let imagePath = match[2] || match[1];
+                    imagePath = imagePath.trim()
+                        .replace(/^["']|["']$/g, '')
+                        .replace(/\s+.*$/, '')
+                        .replace(/["'\\]/g, '');
+                    
+                    console.log('마크다운에서 추출:', imagePath);
+                    
+                    if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                        imagePath = '/' + imagePath;
+                    }
+                    return imagePath;
                 }
             }
-            
-            console.log('최종 이미지 경로:', imagePath);
-            return imagePath;
         }
+        
+        console.log('이미지 추출 실패');
+        return null;
     }
-    return null;
-}
-
-
-
-
     
     // 랜덤 선택
     function getRandomProjects(posts, count = 6) {
         const shuffled = [...posts].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     }
-
+    
     // 더미 데이터
     const dummyProjects = [
         { title: "E-Commerce 플랫폼", subtitle: "온라인 쇼핑몰 프로젝트", url: "#", tags: ["WEB"], image: "img/design1.jpg" },
@@ -1202,9 +1204,14 @@ function extractFirstImage(rawContent) {
         
         console.log('렌더링할 프로젝트:', projectsToShow);
         
-        container.innerHTML = projectsToShow.map(project => {
-            const firstImage = project.rawContent ? extractFirstImage(project.rawContent) : null;
+        container.innerHTML = projectsToShow.map((project, index) => {
+            console.log(`=== 프로젝트 ${index + 1}: ${cleanUrl(project.title)} ===`);
+            
+            const firstImage = extractFirstImage(project);
             const imageUrl = firstImage || project.image || 'img/design1.jpg';
+            
+            console.log('최종 사용될 이미지:', imageUrl);
+            console.log('=====================================');
             
             const basicTags = (project.tags || []).slice(0, 2);
             const customTags = (project.customTags || []).slice(0, 1);
