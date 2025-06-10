@@ -1255,125 +1255,216 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<!-- 메인 프로젝트 섹션 스크립트 - 최종 완성 버전 -->
+<!-- 하이라이트 섹션 - 실제 작동 버전 -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('메인 프로젝트 초기화 시작');
+(function() {
+    'use strict';
     
-    // 프로젝트 데이터
-    const projectPosts = [
-        {{ range (where site.RegularPages "Section" "posts") }}
-        {{ if eq (index .Params.categories 0) "project" }}
-        {
-            title: {{ .Title | jsonify }},
-            subtitle: {{ if .Params.subtitle }}{{ .Params.subtitle | jsonify }}{{ else }}""{{ end }},
-            url: {{ .RelPermalink | jsonify }},
-            tags: [{{ range .Params.tags }}{{ . | jsonify }},{{ end }}],
-            customTags: [{{ range .Params.custom_tags }}{{ . | jsonify }},{{ end }}],
-            content: {{ .Content | jsonify }},
-            firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
-        },
-        {{ end }}
-        {{ end }}
-    ];
+    console.log('하이라이트 섹션 초기화 시작');
     
-    // URL 정리 함수
-    function cleanUrl(url) {
-        return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
+    // DOM 준비 확인
+    function domReady(fn) {
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(fn, 1);
+        } else {
+            document.addEventListener('DOMContentLoaded', fn);
+        }
     }
     
-    // 이미지 추출 함수
-    function extractFirstImage(project) {
-        // Hugo에서 미리 추출한 이미지 사용
-        if (project.firstImage && project.firstImage.trim()) {
-            return cleanUrl(project.firstImage);
-        }
-        
-        // HTML 콘텐츠에서 img 태그 추출
-        if (project.content) {
-            const imgMatch = project.content.match(/<img[^>]+src="([^"]+)"/i);
-            if (imgMatch) {
-                return imgMatch[1];
+    domReady(function() {
+        try {
+            // Hugo 템플릿에서 데이터 가져오기
+            const highlightPosts = [
+                {{ range (where site.RegularPages "Section" "posts") }}
+                {{ if ne (index .Params.categories 0) "project" }}
+                {
+                    title: {{ .Title | jsonify }},
+                    url: {{ .RelPermalink | jsonify }},
+                    category: {{ if .Params.categories }}{{ index .Params.categories 0 | jsonify }}{{ else }}""{{ end }},
+                    subCategory: {{ .Params.subCategory | default "" | jsonify }},
+                    videoUrl: {{ .Params.videoUrl | default "" | jsonify }},
+                    demoCode: {{ .Params.demoCode | default false }},
+                    content: {{ .Content | jsonify }},
+                    firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
+                },
+                {{ end }}
+                {{ end }}
+            ];
+            
+            console.log('로드된 포스트 수:', highlightPosts.length);
+            
+            // 문자열 정리 함수
+            function cleanString(str) {
+                if (typeof str !== 'string') return '';
+                return str.replace(/^["']|["']$/g, '').trim();
+            }
+            
+            // HTML 이스케이프 함수
+            function escapeHtml(text) {
+                const map = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+            }
+            
+            // 유튜브 비디오 ID 추출
+            function extractYouTubeId(url) {
+                if (!url) return null;
+                const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+                const match = url.match(regex);
+                return match ? match[1] : null;
+            }
+            
+            // 이미지 HTML 생성 함수
+            function getImageHtml(highlight) {
+                const category = cleanString(highlight.category);
+                const subCategory = cleanString(highlight.subCategory);
+                const videoUrl = cleanString(highlight.videoUrl);
+                const title = escapeHtml(cleanString(highlight.title));
+                const firstImage = cleanString(highlight.firstImage);
+                
+                // 1순위: 동영상 URL
+                if (videoUrl) {
+                    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                        const videoId = extractYouTubeId(videoUrl);
+                        if (videoId) {
+                            return `<img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" 
+                                         alt="${title}" 
+                                         class="highlight-square-img"
+                                         loading="lazy"
+                                         onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">`;
+                        }
+                    } else if (videoUrl.includes('vimeo.com')) {
+                        return `<img src="img/vimeo-default.jpg" alt="${title}" class="highlight-square-img" loading="lazy">`;
+                    } else {
+                        return `<div class="video-placeholder-all">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>동영상</span>
+                                </div>`;
+                    }
+                }
+                
+                // 2순위: 프로그래밍 카테고리
+                if (category === 'programming') {
+                    const iconMap = {
+                        '프론트엔드': 'fab fa-react',
+                        '백엔드': 'fas fa-server',
+                        '웹 퍼블리싱': 'fab fa-html5',
+                        '모바일 앱': 'fas fa-mobile-alt',
+                        '게임 개발': 'fas fa-gamepad'
+                    };
+                    
+                    const icon = iconMap[subCategory] || 'fas fa-code';
+                    const label = subCategory || '프로그래밍';
+                    const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
+                    
+                    return `<div class="demo-placeholder-all" data-subcategory="${escapeHtml(subCategory)}">
+                                <div class="demo-icon">
+                                    <i class="${icon}"></i>
+                                </div>
+                                <div class="demo-label">
+                                    <span class="demo-type">${escapeHtml(label)}</span>
+                                    ${demoTech}
+                                </div>
+                            </div>`;
+                }
+                
+                // 3순위: 첫 번째 이미지
+                if (firstImage) {
+                    return `<img src="${escapeHtml(firstImage)}" alt="${title}" class="highlight-square-img" loading="lazy">`;
+                }
+                
+                // 기본 이미지
+                return `<img src="img/design1.jpg" alt="${title}" class="highlight-square-img" loading="lazy">`;
+            }
+            
+            // 랜덤 선택 함수
+            function getRandomHighlights(posts, count) {
+                count = count || 5;
+                if (!Array.isArray(posts) || posts.length === 0) return [];
+                
+                const shuffled = [...posts];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                
+                return shuffled.slice(0, Math.min(count, shuffled.length));
+            }
+            
+            // 더미 데이터
+            const dummyHighlights = [
+                { title: "브랜딩 프로젝트", url: "#", category: "creative" },
+                { title: "웹사이트 리뉴얼", url: "#", category: "web" },
+                { title: "모바일 앱 디자인", url: "#", category: "content" },
+                { title: "패키지 디자인", url: "#", category: "ad" },
+                { title: "영상 콘텐츠", url: "#", category: "video" }
+            ];
+            
+            // 렌더링 함수
+            function renderHighlights() {
+                const container = document.getElementById('highlight-container');
+                if (!container) {
+                    console.warn('highlight-container를 찾을 수 없습니다.');
+                    return;
+                }
+                
+                // 데이터 정리
+                const cleanedPosts = highlightPosts.map(post => ({
+                    title: cleanString(post.title),
+                    url: cleanString(post.url),
+                    category: cleanString(post.category),
+                    subCategory: cleanString(post.subCategory),
+                    videoUrl: cleanString(post.videoUrl),
+                    demoCode: Boolean(post.demoCode),
+                    firstImage: cleanString(post.firstImage)
+                })).filter(post => post.title && post.url);
+                
+                const highlightsToShow = cleanedPosts.length > 0 ? 
+                    getRandomHighlights(cleanedPosts, 5) : 
+                    dummyHighlights;
+                
+                console.log('렌더링할 하이라이트:', highlightsToShow.length + '개');
+                
+                const html = highlightsToShow.map(highlight => {
+                    const title = escapeHtml(highlight.title || '제목 없음');
+                    const url = escapeHtml(highlight.url || '#');
+                    const imageHtml = getImageHtml(highlight);
+                    
+                    return `<div class="highlight-card board-all-item">
+                                <a href="${url}">
+                                    ${imageHtml}
+                                    <div class="highlight-footer">
+                                        <h4 class="highlight-project-name">${title}</h4>
+                                    </div>
+                                </a>
+                            </div>`;
+                }).join('');
+                
+                container.innerHTML = html;
+                console.log('하이라이트 렌더링 완료');
+            }
+            
+            // 실행
+            renderHighlights();
+            
+        } catch (error) {
+            console.error('하이라이트 섹션 오류:', error);
+            
+            // 오류 시 기본 콘텐츠
+            const container = document.getElementById('highlight-container');
+            if (container) {
+                container.innerHTML = `<div style="text-align: center; padding: 20px; color: #666;">
+                    <i class="fas fa-refresh"></i> 콘텐츠를 불러오는 중입니다...
+                </div>`;
             }
         }
-        
-        return null;
-    }
-    
-    // 랜덤 선택
-    function getRandomProjects(posts, count = 6) {
-        const shuffled = [...posts].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
-    }
-    
-    // 더미 데이터
-    const dummyProjects = [
-        { title: "E-Commerce 플랫폼", subtitle: "온라인 쇼핑몰 프로젝트", url: "#", tags: ["WEB"], image: "img/design1.jpg" },
-        { title: "브랜딩 프로젝트", subtitle: "브랜드 아이덴티티 구축", url: "#", tags: ["BRAND"], image: "img/design1.jpg" },
-        { title: "모바일 앱", subtitle: "앱 서비스 개발", url: "#", tags: ["APP"], image: "img/design1.jpg" },
-        { title: "홍보 영상", subtitle: "영상 제작", url: "#", tags: ["VIDEO"], image: "img/design1.jpg" },
-        { title: "게임 UI", subtitle: "게임 인터페이스", url: "#", tags: ["GAME"], image: "img/design1.jpg" },
-        { title: "광고 캠페인", subtitle: "광고 디자인", url: "#", tags: ["AD"], image: "img/design1.jpg" }
-    ];
-    
-    // 메인 렌더링
-    function renderProjects() {
-        const container = document.getElementById('main-projects-container');
-        if (!container) return;
-        
-        // 데이터 정리
-        const cleanedPosts = projectPosts.map(post => ({
-            ...post,
-            title: cleanUrl(post.title),
-            url: cleanUrl(post.url),
-            subtitle: cleanUrl(post.subtitle)
-        }));
-        
-        const projectsToShow = cleanedPosts.length > 0 ? 
-            getRandomProjects(cleanedPosts, 6) : dummyProjects;
-        
-        container.innerHTML = projectsToShow.map(project => {
-            const firstImage = extractFirstImage(project);
-            const imageUrl = firstImage || project.image || 'img/design1.jpg';
-            
-            const basicTags = (project.tags || []).slice(0, 2);
-            const customTags = (project.customTags || []).slice(0, 1);
-            const allTags = [...basicTags, ...customTags].filter(Boolean);
-            
-            const tagElements = allTags.map(tag => {
-                const cleanTag = cleanUrl(tag).toUpperCase();
-                return `<span class="project-tag">${cleanTag}</span>`;
-            }).join('');
-            
-            const cleanTitle = cleanUrl(project.title || '');
-            const cleanSubtitle = cleanUrl(project.subtitle || '');
-            const finalUrl = cleanUrl(project.url || '');
-            
-            return `
-                <div class="main-project-card">
-                    <a href="${finalUrl}" class="project-link" style="display: block; text-decoration: none; color: inherit;">
-                        <img src="${imageUrl}" alt="${cleanTitle}" class="main-project-wide-img">
-                        <div class="main-project-text">
-                            ${tagElements}
-                            <h4 class="main-project-title">${cleanTitle}</h4>
-                            <p class="main-project-description">${cleanSubtitle || '프로젝트 설명이 없습니다.'}</p>
-                        </div>
-                    </a>
-                </div>
-            `;
-        }).join('');
-        
-        // 슬라이더 초기화
-        setTimeout(() => {
-            if (typeof initAutoplay === 'function') {
-                initAutoplay();
-            }
-        }, 100);
-    }
-    
-    // 실행
-    renderProjects();
-});
+    });
+})();
 </script>
 
 <!-- 메인페이지 전용 JavaScript -->
