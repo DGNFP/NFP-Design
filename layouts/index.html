@@ -92,75 +92,19 @@
     </div>
 </section>
 
-<!-- 포트폴리오 하이라이트 섹션 -->
+<!-- 하이라이트 섹션 (랜덤 게시글) -->
 <section class="portfolio-highlights">
     <div class="container">
         <h3 class="project-section-title">하이라이트</h3>
     </div>
     <!-- 슬라이더 컨테이너 - 1200px 제한 + 패딩 -->
     <div class="highlight-slider-container">
-        <div class="center">
-            {{ $allPosts := where site.RegularPages "Section" "posts" }}
-            {{ $recentPosts := first 10 $allPosts.ByDate.Reverse }}
-            {{ range first 5 $recentPosts }}
-            <div class="highlight-card">
-                <a href="{{ .Permalink }}">
-                    {{ if .Params.featured_image }}
-                    <img src="{{ .Params.featured_image | relURL }}" alt="{{ .Title }}" class="highlight-square-img">
-                    {{ else }}
-                    <img src="{{ "img/design1.jpg" | relURL }}" alt="{{ .Title }}" class="highlight-square-img">
-                    {{ end }}
-                    <div class="highlight-footer">
-                        <h4 class="highlight-project-name">{{ .Title }}</h4>
-                    </div>
-                </a>
-            </div>
-            {{ else }}
-            <!-- 더미 데이터 -->
-            <div class="highlight-card">
-                <a href="#">
-                    <img src="{{ "img/design1.jpg" | relURL }}" alt="브랜딩 프로젝트" class="highlight-square-img">
-                    <div class="highlight-footer">
-                        <h4 class="highlight-project-name">브랜딩 프로젝트</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="highlight-card">
-                <a href="#">
-                    <img src="{{ "img/design1.jpg" | relURL }}" alt="웹사이트 리뉴얼" class="highlight-square-img">
-                    <div class="highlight-footer">
-                        <h4 class="highlight-project-name">웹사이트 리뉴얼</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="highlight-card">
-                <a href="#">
-                    <img src="{{ "img/design1.jpg" | relURL }}" alt="모바일 앱 디자인" class="highlight-square-img">
-                <div class="highlight-footer">
-                    <h4 class="highlight-project-name">모바일 앱 디자인</h4>
-                </div>
-                </a>
-            </div>
-            <div class="highlight-card">
-                <a href="#">
-                    <img src="{{ "img/design1.jpg" | relURL }}" alt="패키지 디자인" class="highlight-square-img">
-                    <div class="highlight-footer">
-                        <h4 class="highlight-project-name">패키지 디자인</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="highlight-card">
-                <a href="#">
-                    <img src="{{ "img/design1.jpg" | relURL }}" alt="영상 콘텐츠" class="highlight-square-img">
-                    <div class="highlight-footer">
-                        <h4 class="highlight-project-name">영상 콘텐츠</h4>
-                    </div>
-                </a>
-            </div>
-            {{ end }}
+        <div class="center" id="highlight-container">
+            <!-- JavaScript로 동적 생성될 영역 -->
         </div>
     </div>
 </section>
+
 
 <!-- 메인 프로젝트 섹션 (Autoplay) - 전체 너비 -->
 <section class="main-projects-section">
@@ -1024,8 +968,133 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
 <script>
-// 메인 프로젝트 섹션 전용 스크립트
+// 하이라이트 섹션 전용 스크립트
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('하이라이트 섹션 초기화 시작');
+    
+    // 프로젝트 카테고리를 제외한 모든 게시글 데이터
+    const highlightPosts = [
+        {{ range (where site.RegularPages "Section" "posts") }}
+        {{ if ne (index .Params.categories 0) "project" }}
+        {
+            title: {{ .Title | jsonify }},
+            url: {{ .RelPermalink | jsonify }},
+            category: {{ if .Params.categories }}{{ index .Params.categories 0 | jsonify }}{{ else }}""{{ end }},
+            rawContent: {{ .RawContent | jsonify }}
+        },
+        {{ end }}
+        {{ end }}
+    ];
+    
+    // URL 정리 함수
+    function cleanUrl(url) {
+        return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
+    }
+    
+    // 이미지 추출 함수
+    function extractFirstImage(rawContent) {
+        if (!rawContent) return null;
+        const patterns = [
+            /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
+            /!\[\]\(([^)\s"]+)\)/,
+            /!\[[^\]]*\]\(([^)]+)\)/
+        ];
+        
+        for (const pattern of patterns) {
+            const match = rawContent.match(pattern);
+            if (match) {
+                let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
+                if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+                    imagePath = '/' + imagePath;
+                }
+                return imagePath;
+            }
+        }
+        return null;
+    }
+    
+    // 랜덤 선택 함수
+    function getRandomHighlights(posts, count = 5) {
+        const shuffled = [...posts].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+    
+    // 더미 데이터
+    const dummyHighlights = [
+        { title: "브랜딩 프로젝트", url: "#", image: "img/design1.jpg" },
+        { title: "웹사이트 리뉴얼", url: "#", image: "img/design1.jpg" },
+        { title: "모바일 앱 디자인", url: "#", image: "img/design1.jpg" },
+        { title: "패키지 디자인", url: "#", image: "img/design1.jpg" },
+        { title: "영상 콘텐츠", url: "#", image: "img/design1.jpg" }
+    ];
+    
+    // 하이라이트 렌더링 함수
+    function renderHighlights() {
+        const container = document.getElementById('highlight-container');
+        if (!container) return;
+        
+        // 데이터 정리
+        const cleanedPosts = highlightPosts.map(post => ({
+            ...post,
+            title: cleanUrl(post.title),
+            url: cleanUrl(post.url),
+            category: cleanUrl(post.category)
+        }));
+        
+        const highlightsToShow = cleanedPosts.length > 0 ? 
+            getRandomHighlights(cleanedPosts, 5) : 
+            dummyHighlights;
+        
+        console.log('렌더링할 하이라이트:', highlightsToShow);
+        
+        container.innerHTML = highlightsToShow.map(highlight => {
+            const firstImage = highlight.rawContent ? extractFirstImage(highlight.rawContent) : null;
+            const imageUrl = firstImage || highlight.image || 'img/design1.jpg';
+            
+            const cleanTitle = cleanUrl(highlight.title || '');
+            const finalUrl = cleanUrl(highlight.url || '');
+            
+            return `
+                <div class="highlight-card">
+                    <a href="${finalUrl}" class="highlight-link" style="display: block; text-decoration: none; color: inherit;">
+                        <img src="${imageUrl}" alt="${cleanTitle}" class="highlight-square-img">
+                        <div class="highlight-footer">
+                            <h4 class="highlight-project-name">${cleanTitle}</h4>
+                        </div>
+                    </a>
+                </div>
+            `;
+        }).join('');
+        
+        console.log('하이라이트 HTML 렌더링 완료');
+        
+        // 하이라이트 슬라이더 초기화 (있다면)
+        setTimeout(() => {
+            if (typeof initHighlightSlider === 'function') {
+                initHighlightSlider();
+                console.log('하이라이트 슬라이더 초기화 완료');
+            } else {
+                console.log('하이라이트 슬라이더 함수 없음');
+            }
+        }, 100);
+    }
+    
+    // 실행
+    renderHighlights();
+});
+
+// 하이라이트 새로고침 함수 (필요시 사용)
+function refreshHighlights() {
+    const event = new Event('DOMContentLoaded');
+    document.dispatchEvent(event);
+}
+</script>
+
+<!-- // 메인 프로젝트 섹션 전용 스크립트 -->
+<script>
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('메인 프로젝트 초기화 시작');
     
