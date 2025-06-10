@@ -2,22 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/categories/ad/</loc>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-10T01:21:00+00:00</lastmod>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-10T01:21:00+00:00</lastmod>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-06-10T01:21:00+00:00</lastmod>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/ad/2025-06-10-%EA%B4%91%EA%B3%A0%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2025-06-10T17:58:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/</loc>
+    <lastmod>2025-06-10T17:57:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/news/2025-06-10-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-0610/</loc>
+    <lastmod>2025-06-10T17:57:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/project/</loc>
     <lastmod>2025-06-10T01:21:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-06-10T01:21:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-06-10T01:21:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/project/2025-06-09-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%9C%EA%B7%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
@@ -26,20 +44,11 @@
     <loc>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-10T01:21:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-06-09T09:16:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/web/</loc>
-    <lastmod>2025-06-09T09:16:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-09T09:16:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/web/2025-06-09-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%EB%AA%A8%EB%B0%94%EC%9D%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-09T09:16:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/ad/</loc>
-    <lastmod>2025-06-08T01:06:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/photoshop/</loc>
     <lastmod>2025-06-08T01:06:00+00:00</lastmod>
@@ -85,9 +94,6 @@
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3/</loc>
     <lastmod>2025-06-06T19:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/news/</loc>
-    <lastmod>2025-06-05T10:13:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/news/2025-06-05-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-250605-am10-13/</loc>
     <lastmod>2025-06-05T10:13:00+00:00</lastmod>
