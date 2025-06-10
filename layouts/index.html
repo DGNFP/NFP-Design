@@ -968,7 +968,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
+<!-- 하이라이트 섹션 전용 스크립트 -->
 <script>
 // 하이라이트 섹션 전용 스크립트
 document.addEventListener('DOMContentLoaded', function() {
@@ -1119,27 +1119,41 @@ document.addEventListener('DOMContentLoaded', function() {
         return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
     }
     
-    // 이미지 추출
-    function extractFirstImage(rawContent) {
-        if (!rawContent) return null;
-        const patterns = [
-            /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
-            /!\[\]\(([^)\s"]+)\)/,
-            /!\[[^\]]*\]\(([^)]+)\)/
-        ];
-        
-        for (const pattern of patterns) {
-            const match = rawContent.match(pattern);
-            if (match) {
-                let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
-                if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+    // 임시로 이미지 경로 강제 지정
+function extractFirstImage(rawContent) {
+    if (!rawContent) return null;
+    
+    const patterns = [
+        /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
+        /!\[\]\(([^)\s"]+)\)/,
+        /!\[[^\]]*\]\(([^)]+)\)/
+    ];
+    
+    for (const pattern of patterns) {
+        const match = rawContent.match(pattern);
+        if (match) {
+            let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
+            
+            // 디버깅용 로그
+            console.log('원본 이미지 경로:', imagePath);
+            
+            // 배포 환경에서 강제로 절대 경로 사용
+            if (!imagePath.startsWith('http')) {
+                if (!imagePath.startsWith('/')) {
                     imagePath = '/' + imagePath;
                 }
-                return imagePath;
+                // 배포 환경에서 baseURL 추가
+                if (window.location.hostname === 'nfpdesign.netlify.app') {
+                    imagePath = 'https://nfpdesign.netlify.app' + imagePath;
+                }
             }
+            
+            console.log('최종 이미지 경로:', imagePath);
+            return imagePath;
         }
-        return null;
     }
+    return null;
+}
     
     // 랜덤 선택
     function getRandomProjects(posts, count = 6) {

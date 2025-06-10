@@ -1683,26 +1683,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
-    function extractFirstImage(rawContent) {
-        if (!rawContent) return null;
-        const patterns = [
-            /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
-            /!\[\]\(([^)\s"]+)\)/,
-            /!\[[^\]]*\]\(([^)]+)\)/
-        ];
-        
-        for (const pattern of patterns) {
-            const match = rawContent.match(pattern);
-            if (match) {
-                let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
-                if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+function extractFirstImage(rawContent) {
+    if (!rawContent) return null;
+    
+    const patterns = [
+        /!\[([^\]]*)\]\(([^)\s"]+)(?:\s+"[^"]*")?\)/,
+        /!\[\]\(([^)\s"]+)\)/,
+        /!\[[^\]]*\]\(([^)]+)\)/
+    ];
+    
+    for (const pattern of patterns) {
+        const match = rawContent.match(pattern);
+        if (match) {
+            let imagePath = match[match.length - 1].trim().replace(/^["']|["']$/g, '');
+            
+            
+            console.log('원본 이미지 경로:', imagePath);
+            
+            
+            if (!imagePath.startsWith('http')) {
+                if (!imagePath.startsWith('/')) {
                     imagePath = '/' + imagePath;
                 }
-                return imagePath;
+                
+                if (window.location.hostname === 'nfpdesign.netlify.app') {
+                    imagePath = 'https://nfpdesign.netlify.app' + imagePath;
+                }
             }
+            
+            console.log('최종 이미지 경로:', imagePath);
+            return imagePath;
         }
-        return null;
     }
+    return null;
+}
     
     
     function getRandomProjects(posts, count = 6) {
