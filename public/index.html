@@ -1584,13 +1584,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (cleanVideoUrl.includes('youtube.com') || cleanVideoUrl.includes('youtu.be')) {
                 const videoId = extractYouTubeId(cleanVideoUrl);
                 if (videoId) {
-                    return `<img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" 
-                                 alt="${cleanTitle}" 
+                    return `<img src="https://img.youtube.com/vi/` + videoId + `/maxresdefault.jpg" 
+                                 alt="` + cleanTitle + `" 
                                  class="highlight-square-img"
-                                 onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">`;
+                                 onerror="this.src='https://img.youtube.com/vi/` + videoId + `/hqdefault.jpg'">`;
                 }
             } else if (cleanVideoUrl.includes('vimeo.com')) {
-                return `<img src="img/vimeo-default.jpg" alt="${cleanTitle}" class="highlight-square-img">`;
+                return `<img src="img/vimeo-default.jpg" alt="` + cleanTitle + `" class="highlight-square-img">`;
             } else {
                 return `<div class="video-placeholder-all" style="height: 250px;">
                             <i class="fas fa-video"></i>
@@ -1612,13 +1612,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
             
-            return `<div class="demo-placeholder-all" data-subcategory="${cleanSubCategory}" style="height: 250px;">
+            return `<div class="demo-placeholder-all" data-subcategory="` + cleanSubCategory + `" style="height: 250px;">
                         <div class="demo-icon">
-                            <i class="${icon}"></i>
+                            <i class="` + icon + `"></i>
                         </div>
                         <div class="demo-label">
-                            <span class="demo-type">${label}</span>
-                            ${demoTech}
+                            <span class="demo-type">` + label + `</span>
+                            ` + demoTech + `
                         </div>
                     </div>`;
         }
@@ -1626,11 +1626,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const firstImage = extractFirstImage(highlight);
         if (firstImage) {
-            return `<img src="${firstImage}" alt="${cleanTitle}" class="highlight-square-img">`;
+            return `<img src="` + firstImage + `" alt="` + cleanTitle + `" class="highlight-square-img">`;
         }
         
         
-        return `<img src="img/design1.jpg" alt="${cleanTitle}" class="highlight-square-img">`;
+        return `<img src="img/design1.jpg" alt="` + cleanTitle + `" class="highlight-square-img">`;
     }
     
     
@@ -1674,10 +1674,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             return `
                 <div class="highlight-card board-all-item">
-                    <a href="${finalUrl}" style="display: block; text-decoration: none; color: inherit;">
-                        ${imageHtml}
+                    <a href="` + finalUrl + `" style="display: block; text-decoration: none; color: inherit;">
+                        ` + imageHtml + `
                         <div class="highlight-footer">
-                            <h4 class="highlight-project-name">${cleanTitle}</h4>
+                            <h4 class="highlight-project-name">` + cleanTitle + `</h4>
                         </div>
                     </a>
                 </div>
@@ -1689,7 +1689,6 @@ document.addEventListener('DOMContentLoaded', function() {
     renderHighlights();
 });
 </script>
-
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
