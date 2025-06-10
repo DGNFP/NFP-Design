@@ -968,7 +968,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- 하이라이트 섹션 스크립트 - 우선순위 썸네일 + 오버레이 추가 -->
+<!-- 하이라이트 섹션 - 긴급 복구 버전 (기본 기능만) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     console.log('하이라이트 섹션 초기화 시작');
@@ -981,9 +981,6 @@ document.addEventListener('DOMContentLoaded', function() {
             title: {{ .Title | jsonify }},
             url: {{ .RelPermalink | jsonify }},
             category: {{ if .Params.categories }}{{ index .Params.categories 0 | jsonify }}{{ else }}""{{ end }},
-            subCategory: {{ .Params.subCategory | default "" | jsonify }},
-            videoUrl: {{ .Params.videoUrl | default "" | jsonify }},
-            demoCode: {{ .Params.demoCode | default false }},
             content: {{ .Content | jsonify }},
             firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
         },
@@ -996,111 +993,11 @@ document.addEventListener('DOMContentLoaded', function() {
         return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
     }
     
-    // 유튜브 비디오 ID 추출
-    function extractYouTubeId(url) {
-        const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-        const match = url.match(regex);
-        return match ? match[1] : null;
-    }
-    
-    // 썸네일 처리 함수 (우선순위 기반)
-    function getThumbnailHtml(highlight) {
-        const cleanCategory = cleanUrl(highlight.category);
-        const cleanSubCategory = cleanUrl(highlight.subCategory);
-        const cleanVideoUrl = cleanUrl(highlight.videoUrl);
-        const cleanTitle = cleanUrl(highlight.title);
-        
-        // 1순위: 동영상 URL
-        if (cleanVideoUrl && cleanVideoUrl.trim()) {
-            if (cleanVideoUrl.includes('youtube.com') || cleanVideoUrl.includes('youtu.be')) {
-                const videoId = extractYouTubeId(cleanVideoUrl);
-                if (videoId) {
-                    return `<img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" 
-                                 alt="${cleanTitle}" 
-                                 onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">`;
-                }
-            } else if (cleanVideoUrl.includes('vimeo.com')) {
-                return `<img src="img/vimeo-default.jpg" alt="${cleanTitle}">`;
-            } else {
-                return `<div class="video-placeholder-all">
-                            <i class="fas fa-video"></i>
-                            <span>동영상</span>
-                        </div>`;
-            }
-        }
-        
-        // 2순위: 프로그래밍 카테고리 특별 처리
-        if (cleanCategory === 'programming') {
-            let icon = 'fas fa-code';
-            let label = cleanSubCategory || '프로그래밍';
-            
-            if (cleanSubCategory === '프론트엔드') icon = 'fab fa-react';
-            else if (cleanSubCategory === '백엔드') icon = 'fas fa-server';
-            else if (cleanSubCategory === '웹 퍼블리싱') icon = 'fab fa-html5';
-            else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
-            else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
-            
-            const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
-            
-            return `<div class="demo-placeholder-all" data-subcategory="${cleanSubCategory}">
-                        <div class="demo-icon">
-                            <i class="${icon}"></i>
-                        </div>
-                        <div class="demo-label">
-                            <span class="demo-type">${label}</span>
-                            ${demoTech}
-                        </div>
-                    </div>`;
-        }
-        
-        // 3순위: 본문에서 첫 번째 이미지 추출
-        const firstImage = extractFirstImage(highlight);
-        if (firstImage) {
-            return `<img src="${firstImage}" alt="${cleanTitle}">`;
-        }
-        
-        // 4순위: 카테고리별 기본 플레이스홀더
-        let icon = 'fas fa-file';
-        let label = '게시글';
-        
-        if (cleanCategory === 'web') {
-            icon = 'fas fa-desktop';
-            label = '웹 디자인';
-        } else if (cleanCategory === 'content') {
-            icon = 'fas fa-image';
-            label = '콘텐츠 디자인';
-        } else if (cleanCategory === 'creative') {
-            icon = 'fas fa-palette';
-            label = '크리에이티브';
-        } else if (cleanCategory === 'video') {
-            icon = 'fas fa-video';
-            label = '영상 디자인';
-        } else if (cleanCategory === 'ad') {
-            icon = 'fas fa-bullhorn';
-            label = '광고 디자인';
-        }
-        
-        return `<div class="category-placeholder-all" data-category="${cleanCategory}">
-                    <i class="${icon}"></i>
-                    <span>${label}</span>
-                </div>`;
-    }
-    
-    // 이미지 추출 함수
+    // 간단한 이미지 추출 함수
     function extractFirstImage(highlight) {
-        // Hugo에서 미리 추출한 이미지 사용
         if (highlight.firstImage && highlight.firstImage.trim()) {
             return cleanUrl(highlight.firstImage);
         }
-        
-        // HTML 콘텐츠에서 img 태그 추출
-        if (highlight.content) {
-            const imgMatch = highlight.content.match(/<img[^>]+src="([^"]+)"/i);
-            if (imgMatch) {
-                return imgMatch[1];
-            }
-        }
-        
         return null;
     }
     
@@ -1112,11 +1009,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 더미 데이터
     const dummyHighlights = [
-        { title: "브랜딩 프로젝트", url: "#", category: "creative", image: "img/design1.jpg" },
-        { title: "웹사이트 리뉴얼", url: "#", category: "web", image: "img/design1.jpg" },
-        { title: "모바일 앱 디자인", url: "#", category: "content", image: "img/design1.jpg" },
-        { title: "패키지 디자인", url: "#", category: "ad", image: "img/design1.jpg" },
-        { title: "영상 콘텐츠", url: "#", category: "video", image: "img/design1.jpg" }
+        { title: "브랜딩 프로젝트", url: "#", image: "img/design1.jpg" },
+        { title: "웹사이트 리뉴얼", url: "#", image: "img/design1.jpg" },
+        { title: "모바일 앱 디자인", url: "#", image: "img/design1.jpg" },
+        { title: "패키지 디자인", url: "#", image: "img/design1.jpg" },
+        { title: "영상 콘텐츠", url: "#", image: "img/design1.jpg" }
     ];
     
     // 하이라이트 렌더링 함수
@@ -1124,38 +1021,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const container = document.getElementById('highlight-container');
         if (!container) return;
         
-        // 데이터 정리
         const cleanedPosts = highlightPosts.map(post => ({
             ...post,
             title: cleanUrl(post.title),
-            url: cleanUrl(post.url),
-            category: cleanUrl(post.category),
-            subCategory: cleanUrl(post.subCategory)
+            url: cleanUrl(post.url)
         }));
         
         const highlightsToShow = cleanedPosts.length > 0 ? 
             getRandomHighlights(cleanedPosts, 5) : 
             dummyHighlights;
         
+        console.log('렌더링할 하이라이트:', highlightsToShow.length, '개');
+        
         container.innerHTML = highlightsToShow.map(highlight => {
+            const firstImage = extractFirstImage(highlight);
+            const imageUrl = firstImage || highlight.image || 'img/design1.jpg';
             const cleanTitle = cleanUrl(highlight.title || '');
             const finalUrl = cleanUrl(highlight.url || '');
-            const cleanSubCategory = cleanUrl(highlight.subCategory || '');
-            
-            // 썸네일 HTML 생성
-            const thumbnailHtml = getThumbnailHtml(highlight);
-            
-            // 카테고리 오버레이 (2차 카테고리만)
-            const categoryOverlay = cleanSubCategory ? 
-                `<div class="category-overlay">${cleanSubCategory}</div>` : '';
             
             return `
                 <div class="highlight-card">
-                    <a href="${finalUrl}" class="highlight-link" style="display: block; text-decoration: none; color: inherit;">
-                        <div class="board-thumbnail">
-                            ${thumbnailHtml}
-                            ${categoryOverlay}
-                        </div>
+                    <a href="${finalUrl}" style="display: block; text-decoration: none; color: inherit;">
+                        <img src="${imageUrl}" alt="${cleanTitle}" class="highlight-square-img">
                         <div class="highlight-footer">
                             <h4 class="highlight-project-name">${cleanTitle}</h4>
                         </div>
@@ -1163,13 +1050,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         }).join('');
-        
-        // 하이라이트 슬라이더 초기화 (있다면)
-        setTimeout(() => {
-            if (typeof initHighlightSlider === 'function') {
-                initHighlightSlider();
-            }
-        }, 100);
     }
     
     // 실행
