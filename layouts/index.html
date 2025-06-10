@@ -973,7 +973,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('하이라이트 섹션 초기화 시작');
     
-    // 프로젝트 카테고리를 제외한 모든 게시글 데이터 (.content 제거로 스타일 이슈 해결)
+    // 프로젝트 카테고리를 제외한 모든 게시글 데이터 (조건부 이미지 추출)
     const highlightPosts = [
         {{ range (where site.RegularPages "Section" "posts") }}
         {{ if ne (index .Params.categories 0) "project" }}
@@ -984,7 +984,13 @@ document.addEventListener('DOMContentLoaded', function() {
             subCategory: {{ .Params.subCategory | default "" | jsonify }},
             videoUrl: {{ .Params.videoUrl | default "" | jsonify }},
             demoCode: {{ .Params.demoCode | default false }},
+            {{ $mainCat := "" }}
+            {{ if .Params.categories }}{{ $mainCat = index .Params.categories 0 }}{{ end }}
+            {{ if and (ne $mainCat "programming") (not .Params.videoUrl) }}
             firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
+            {{ else }}
+            firstImage: ""
+            {{ end }}
         },
         {{ end }}
         {{ end }}
@@ -1031,7 +1037,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // 2순위: 프로그래밍 카테고리
+        // 2순위: 프로그래밍 카테고리 (웹데모 포함, WEB DEMO 라벨 표시)
         if (cleanCategory === 'programming') {
             let icon = 'fas fa-code';
             let label = cleanSubCategory || '프로그래밍';
