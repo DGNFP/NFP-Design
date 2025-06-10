@@ -1099,7 +1099,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"ad\"",
             subCategory: "\"광고매체 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: "\"/img/uploads/1749463761603.jpg\""
         },
         
@@ -1113,7 +1112,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"web\"",
             subCategory: "\"UX/UI 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: "\"/img/uploads/screenshot_20250608-120052_fc-online-m.jpg\""
         },
         
@@ -1125,7 +1123,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"ad\"",
             subCategory: "\"패키지 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: "\"/img/uploads/%EC%A0%95%EB%B3%91%ED%98%B8%EB%8B%98-%EC%B1%84%EB%84%90%EC%95%84%ED%8A%B8.png\""
         },
         
@@ -1139,7 +1136,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"creative\"",
             subCategory: "\"인터넷 방송 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: "\"/img/uploads/%EC%A0%95%EB%B3%91%ED%98%B8%EB%8B%98-%EB%A1%9C%EA%B3%A0.png\""
         },
         
@@ -1151,7 +1147,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"content\"",
             subCategory: "\"SNS 광고\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: "\"/img/uploads/youtube2.jpg\""
         },
         
@@ -1163,7 +1158,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"content\"",
             subCategory: "\"SNS 광고\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: "\"/img/uploads/youtube2.jpg\""
         },
         
@@ -1175,21 +1169,10 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"content\"",
             subCategory: "\"SNS 광고\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: "\"/img/uploads/youtube2.jpg\""
         },
         
         
-        
-        {
-            title: "\"웹데모 테스트\"",
-            url: "\"/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/\"",
-            category: "\"programming\"",
-            subCategory: "\"웹 퍼블리싱\"",
-            videoUrl: "\"\"",
-            demoCode: {"code":"\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"ko\"\u003e\n\u003chead\u003e\n    \u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003e\n    \u003ctitle\u003e웹 데모 테스트\u003c/title\u003e\n    \u003cstyle\u003e\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: 'Arial', sans-serif;\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            min-height: 100vh;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n        }\n        \n        .container {\n            background: white;\n            padding: 2rem;\n            border-radius: 15px;\n            box-shadow: 0 20px 40px rgba(0,0,0,0.1);\n            text-align: center;\n            max-width: 400px;\n            width: 90%;\n        }\n        \n        h1 {\n            color: #333;\n            margin-bottom: 1rem;\n            font-size: 2rem;\n        }\n        \n        p {\n            color: #666;\n            margin-bottom: 2rem;\n            line-height: 1.6;\n        }\n        \n        .btn {\n            background: linear-gradient(45deg, #667eea, #764ba2);\n            color: white;\n            padding: 12px 30px;\n            border: none;\n            border-radius: 25px;\n            cursor: pointer;\n            font-size: 1rem;\n            transition: transform 0.3s ease;\n        }\n        \n        .btn:hover {\n            transform: translateY(-2px);\n            box-shadow: 0 10px 20px rgba(0,0,0,0.2);\n        }\n        \n        .demo-box {\n            margin-top: 2rem;\n            padding: 1rem;\n            background: #f8f9fa;\n            border-radius: 10px;\n            border-left: 4px solid #667eea;\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv class=\"container\"\u003e\n        \u003ch1\u003e🚀 웹 데모\u003c/h1\u003e\n        \u003cp\u003e간단한 웹 데모 테스트 페이지입니다. 반응형 디자인과 모던한 스타일이 적용되었습니다.\u003c/p\u003e\n        \u003cbutton class=\"btn\" onclick=\"showDemo()\"\u003e데모 실행\u003c/button\u003e\n        \n        \u003cdiv class=\"demo-box\" id=\"demoResult\" style=\"display: none;\"\u003e\n            \u003ch3\u003e✅ 데모 성공!\u003c/h3\u003e\n            \u003cp\u003eJavaScript와 CSS가 정상적으로 작동합니다.\u003c/p\u003e\n        \u003c/div\u003e\n    \u003c/div\u003e\n    \n    \u003cscript\u003e\n        function showDemo() {\n            const result = document.getElementById('demoResult');\n            result.style.display = 'block';\n            result.style.animation = 'fadeIn 0.5s ease-in';\n        }\n        \n        // CSS 애니메이션 추가\n        const style = document.createElement('style');\n        style.textContent = `\n            @keyframes fadeIn {\n                from { opacity: 0; transform: translateY(10px); }\n                to { opacity: 1; transform: translateY(0); }\n            }\n        `;\n        document.head.appendChild(style);\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e","lang":"html"},
-            firstImage: ""
-        },
         
         
         
@@ -1199,7 +1182,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"video\"",
             subCategory: "\"영상 제작\"",
             videoUrl: "\"https://www.youtube.com/watch?v=EoaYMHWawHs\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1211,7 +1193,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"video\"",
             subCategory: "\"영상 제작\"",
             videoUrl: "\"https://www.youtube.com/watch?v=LE9FdJ-umj0\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1223,7 +1204,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"programming\"",
             subCategory: "\"게임 개발\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1235,21 +1215,10 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"programming\"",
             subCategory: "\"모바일 앱\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
         
-        
-        {
-            title: "\"모던 카페 웹사이트 퍼블리싱\"",
-            url: "\"/posts/programming/test4/\"",
-            category: "\"programming\"",
-            subCategory: "\"웹 퍼블리싱\"",
-            videoUrl: "\"\"",
-            demoCode: "\u003c!DOCTYPE html\u003e\n\u003chtml lang=\"ko\"\u003e\n\u003chead\u003e\n    \u003cmeta charset=\"UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"\u003e\n    \u003ctitle\u003eCafe Mocha - 특별한 커피 경험\u003c/title\u003e\n    \u003cstyle\u003e\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n            line-height: 1.6;\n            color: #2c3e50;\n            background: #f8f9fa;\n        }\n        \n        .header {\n            background: linear-gradient(135deg, #6f4e37, #8b4513, #a0522d);\n            color: white;\n            padding: 3rem 0;\n            text-align: center;\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .header::before {\n            content: '';\n            position: absolute;\n            top: 0;\n            left: 0;\n            right: 0;\n            bottom: 0;\n            background: url('data:image/svg+xml,\u003csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"\u003e\u003ccircle cx=\"20\" cy=\"20\" r=\"2\" fill=\"rgba(255,255,255,0.1)\"/\u003e\u003ccircle cx=\"80\" cy=\"40\" r=\"1.5\" fill=\"rgba(255,255,255,0.08)\"/\u003e\u003ccircle cx=\"40\" cy=\"70\" r=\"1\" fill=\"rgba(255,255,255,0.1)\"/\u003e\u003ccircle cx=\"70\" cy=\"80\" r=\"2.5\" fill=\"rgba(255,255,255,0.05)\"/\u003e\u003c/svg\u003e');\n            animation: float 20s ease-in-out infinite;\n        }\n        \n        @keyframes float {\n            0%, 100% { transform: translateY(0px); }\n            50% { transform: translateY(-10px); }\n        }\n        \n        .header h1 {\n            font-size: 3.5rem;\n            margin-bottom: 1rem;\n            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);\n            position: relative;\n            z-index: 1;\n        }\n        \n        .header p {\n            font-size: 1.3rem;\n            opacity: 0.9;\n            position: relative;\n            z-index: 1;\n        }\n        \n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 0 2rem;\n        }\n        \n        .menu-section {\n            padding: 5rem 0;\n            background: white;\n        }\n        \n        .section-title {\n            text-align: center;\n            font-size: 2.8rem;\n            color: #6f4e37;\n            margin-bottom: 3rem;\n            position: relative;\n        }\n        \n        .section-title::after {\n            content: '';\n            width: 80px;\n            height: 4px;\n            background: linear-gradient(90deg, #6f4e37, #a0522d);\n            position: absolute;\n            bottom: -10px;\n            left: 50%;\n            transform: translateX(-50%);\n            border-radius: 2px;\n        }\n        \n        .menu-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n            gap: 2rem;\n            margin-top: 3rem;\n        }\n        \n        .menu-item {\n            background: white;\n            border-radius: 15px;\n            padding: 2rem;\n            box-shadow: 0 8px 30px rgba(0,0,0,0.08);\n            transition: all 0.3s ease;\n            border: 1px solid #f0f0f0;\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .menu-item::before {\n            content: '';\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 4px;\n            background: linear-gradient(90deg, #6f4e37, #a0522d);\n            transform: scaleX(0);\n            transition: transform 0.3s ease;\n        }\n        \n        .menu-item:hover {\n            transform: translateY(-8px);\n            box-shadow: 0 15px 40px rgba(0,0,0,0.15);\n        }\n        \n        .menu-item:hover::before {\n            transform: scaleX(1);\n        }\n        \n        .menu-item h3 {\n            color: #6f4e37;\n            margin-bottom: 1rem;\n            font-size: 1.4rem;\n            font-weight: 600;\n        }\n        \n        .menu-item p {\n            color: #666;\n            margin-bottom: 1.5rem;\n            line-height: 1.6;\n        }\n        \n        .price {\n            font-weight: bold;\n            color: #a0522d;\n            font-size: 1.3rem;\n            text-align: right;\n        }\n        \n        .about {\n            padding: 5rem 0;\n            background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n            text-align: center;\n        }\n        \n        .about p {\n            font-size: 1.2rem;\n            max-width: 700px;\n            margin: 0 auto;\n            color: #555;\n            line-height: 1.8;\n        }\n        \n        .footer {\n            background: #2c3e50;\n            color: white;\n            text-align: center;\n            padding: 3rem 0;\n        }\n        \n        .footer p {\n            margin-bottom: 0.5rem;\n            opacity: 0.9;\n        }\n        \n        @media (max-width: 768px) {\n            .header h1 {\n                font-size: 2.5rem;\n            }\n            \n            .menu-grid {\n                grid-template-columns: 1fr;\n            }\n            \n            .container {\n                padding: 0 1rem;\n            }\n            \n            .section-title {\n                font-size: 2.2rem;\n            }\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cheader class=\"header\"\u003e\n        \u003cdiv class=\"container\"\u003e\n            \u003ch1\u003e☕ Cafe Mocha\u003c/h1\u003e\n            \u003cp\u003e특별한 커피와 함께하는 소중한 순간\u003c/p\u003e\n        \u003c/div\u003e\n    \u003c/header\u003e\n    \n    \u003csection class=\"menu-section\"\u003e\n        \u003cdiv class=\"container\"\u003e\n            \u003ch2 class=\"section-title\"\u003e시그니처 메뉴\u003c/h2\u003e\n            \u003cdiv class=\"menu-grid\"\u003e\n                \u003cdiv class=\"menu-item\"\u003e\n                    \u003ch3\u003e🌟 프리미엄 모카라떼\u003c/h3\u003e\n                    \u003cp\u003e벨기에 초콜릿과 에스프레소의 완벽한 조화로 만든 시그니처 음료입니다.\u003c/p\u003e\n                    \u003cdiv class=\"price\"\u003e₩6,500\u003c/div\u003e\n                \u003c/div\u003e\n                \u003cdiv class=\"menu-item\"\u003e\n                    \u003ch3\u003e🥛 크림 카페라떼\u003c/h3\u003e\n                    \u003cp\u003e부드러운 우유 거품과 진한 에스프레소가 어우러진 클래식한 맛입니다.\u003c/p\u003e\n                    \u003cdiv class=\"price\"\u003e₩5,800\u003c/div\u003e\n                \u003c/div\u003e\n                \u003cdiv class=\"menu-item\"\u003e\n                    \u003ch3\u003e🍰 수제 치즈케이크\u003c/h3\u003e\n                    \u003cp\u003e매일 직접 만드는 신선한 치즈케이크로 커피와 완벽한 페어링을 자랑합니다.\u003c/p\u003e\n                    \u003cdiv class=\"price\"\u003e₩7,200\u003c/div\u003e\n                \u003c/div\u003e\n                \u003cdiv class=\"menu-item\"\u003e\n                    \u003ch3\u003e🧊 콜드브루 원액\u003c/h3\u003e\n                    \u003cp\u003e18시간 저온 추출한 프리미엄 콜드브루로 깔끔하고 풍부한 맛입니다.\u003c/p\u003e\n                    \u003cdiv class=\"price\"\u003e₩4,800\u003c/div\u003e\n                \u003c/div\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n    \u003c/section\u003e\n    \n    \u003csection class=\"about\"\u003e\n        \u003cdiv class=\"container\"\u003e\n            \u003ch2 class=\"section-title\"\u003eAbout Cafe Mocha\u003c/h2\u003e\n            \u003cp\u003e\n                2015년부터 시작된 Cafe Mocha는 최상급 원두와 정성스러운 손길로 \n                고객님께 특별한 커피 경험을 선사하고 있습니다. \n                편안하고 아늑한 공간에서 맛있는 커피와 디저트를 즐기며 \n                소중한 사람들과 함께하는 행복한 시간을 만들어보세요.\n            \u003c/p\u003e\n        \u003c/div\u003e\n    \u003c/section\u003e\n    \n    \u003cfooter class=\"footer\"\u003e\n        \u003cdiv class=\"container\"\u003e\n            \u003cp\u003e\u0026copy; 2025 Cafe Mocha. All rights reserved.\u003c/p\u003e\n            \u003cp\u003e📍 서울시 강남구 논현로 456 | ☎️ 02-9876-5432\u003c/p\u003e\n            \u003cp\u003e⏰ 평일 07:00-22:00 | 주말 08:00-23:00\u003c/p\u003e\n        \u003c/div\u003e\n    \u003c/footer\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n",
-            firstImage: ""
-        },
         
         
         
@@ -1259,7 +1228,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"programming\"",
             subCategory: "\"백엔드\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1271,7 +1239,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"programming\"",
             subCategory: "\"프론트엔드\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1283,7 +1250,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"ad\"",
             subCategory: "\"광고매체 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1295,7 +1261,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"video\"",
             subCategory: "\"영상 편집\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1307,7 +1272,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"web\"",
             subCategory: "\"상세페이지 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1319,7 +1283,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"ad\"",
             subCategory: "\"현수막/엑스배너 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1331,7 +1294,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"video\"",
             subCategory: "\"영상 편집\"",
             videoUrl: "\"https://www.youtube.com/watch?v=JomumP0OESE\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1343,7 +1305,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"content\"",
             subCategory: "\"포스터 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1355,7 +1316,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"content\"",
             subCategory: "\"포스터 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1367,7 +1327,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"content\"",
             subCategory: "\"포스터 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1379,7 +1338,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"web\"",
             subCategory: "\"홈페이지 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1391,7 +1349,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"creative\"",
             subCategory: "\"브랜딩\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1403,7 +1360,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"creative\"",
             subCategory: "\"로고 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1415,7 +1371,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"creative\"",
             subCategory: "\"게임 광고 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1427,7 +1382,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"creative\"",
             subCategory: "\"인터넷 방송 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1439,7 +1393,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"creative\"",
             subCategory: "\"로고 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1451,7 +1404,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"creative\"",
             subCategory: "\"로고 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1463,7 +1415,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"ad\"",
             subCategory: "\"명함 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1475,7 +1426,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"ad\"",
             subCategory: "\"명함 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1487,7 +1437,6 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "\"ad\"",
             subCategory: "\"명함 디자인\"",
             videoUrl: "\"\"",
-            demoCode:  false ,
             firstImage: ""
         },
         
@@ -1504,16 +1453,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         
         
-        
-        {
-            title: "\"랜딩페이지 클론\"",
-            url: "\"/posts/programming/test2/\"",
-            category: "\"programming\"",
-            subCategory: "\"프론트엔드\"",
-            videoUrl: "\"\"",
-            demoCode: "\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\u003chead\u003e\n  \u003cstyle\u003e\n    body { margin: 0; font-family: Arial; }\n    .hero { background: linear-gradient(135deg, #667eea, #764ba2); \n            color: white; text-align: center; padding: 100px 20px; }\n  \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n  \u003cdiv class=\"hero\"\u003e\n    \u003ch1\u003eWelcome to My Site\u003c/h1\u003e\n    \u003cp\u003eBeautiful landing page design\u003c/p\u003e\n  \u003c/div\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n",
-            firstImage: ""
-        },
         
         
     ];
@@ -1570,13 +1509,10 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
             else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
             
-            const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
-            
             return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '" style="height: 250px;">' +
                    '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
                    '<div class="demo-label">' +
                    '<span class="demo-type">' + label + '</span>' +
-                   demoTech +
                    '</div></div>';
         }
         

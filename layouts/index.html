@@ -973,24 +973,17 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('하이라이트 섹션 초기화 시작');
     
-    // 프로젝트 카테고리를 제외한 모든 게시글 데이터 (조건부 이미지 추출)
+    // 프로젝트 카테고리와 웹데모 게시글을 제외한 데이터
     const highlightPosts = [
         {{ range (where site.RegularPages "Section" "posts") }}
-        {{ if ne (index .Params.categories 0) "project" }}
+        {{ if and (ne (index .Params.categories 0) "project") (not .Params.demoCode) }}
         {
             title: {{ .Title | jsonify }},
             url: {{ .RelPermalink | jsonify }},
             category: {{ if .Params.categories }}{{ index .Params.categories 0 | jsonify }}{{ else }}""{{ end }},
             subCategory: {{ .Params.subCategory | default "" | jsonify }},
             videoUrl: {{ .Params.videoUrl | default "" | jsonify }},
-            demoCode: {{ .Params.demoCode | default false }},
-            {{ $mainCat := "" }}
-            {{ if .Params.categories }}{{ $mainCat = index .Params.categories 0 }}{{ end }}
-            {{ if and (ne $mainCat "programming") (not .Params.videoUrl) }}
             firstImage: {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` .Content 1 }}{{ if $imageSrc }}{{ index $imageSrc 0 | jsonify }}{{ else }}""{{ end }}
-            {{ else }}
-            firstImage: ""
-            {{ end }}
         },
         {{ end }}
         {{ end }}
@@ -1037,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // 2순위: 프로그래밍 카테고리 (웹데모 포함, WEB DEMO 라벨 표시)
+        // 2순위: 프로그래밍 카테고리 (웹데모 제외된 일반 프로그래밍 게시글만)
         if (cleanCategory === 'programming') {
             let icon = 'fas fa-code';
             let label = cleanSubCategory || '프로그래밍';
@@ -1048,13 +1041,10 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
             else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
             
-            const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
-            
             return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '" style="height: 250px;">' +
                    '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
                    '<div class="demo-label">' +
                    '<span class="demo-type">' + label + '</span>' +
-                   demoTech +
                    '</div></div>';
         }
         
