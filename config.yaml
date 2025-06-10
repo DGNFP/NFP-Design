@@ -6,38 +6,10 @@ buildFuture: true
 buildExpired: true
 timezone: "Asia/Seoul"
 
-# 출력 설정 추가
-outputs:
-  home: ["HTML", "RSS", "JSON"]
-  page: ["HTML"]
-  section: ["HTML", "RSS"]
-
-# 미디어 타입 설정
-mediaTypes:
-  "text/netlify":
-    suffixes: [""]
-
-# 출력 형식 설정
-outputFormats:
-  RSS:
-    mediaType: "application/rss+xml"
-    baseName: "feed"
-  NETLIFY:
-    mediaType: "text/netlify"
-    baseName: "_redirects"
-    isPlainText: true
-    notAlternative: true
-
 params:
   description: "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인"
   author: "NFP Design"
   timezone: "Asia/Seoul"
-  # 사이트 성능 개선을 위한 설정 추가
-  version: "1.0"
-  # 이미지 최적화 설정
-  imageProcessing:
-    quality: 85
-    anchor: "center"
 
 menu:
   main:
@@ -64,63 +36,7 @@ taxonomies:
   category: "categories"
   tag: "tags"
 
-# 마크업 설정 개선
 markup:
   goldmark:
     renderer:
       unsafe: true
-      hardWraps: false
-    parser:
-      attribute:
-        block: true
-        title: true
-    extensions:
-      definitionList: true
-      footnote: true
-      linkify: true
-      strikethrough: true
-      table: true
-      taskList: true
-      typographer: true
-  highlight:
-    codeFences: true
-    guessSyntax: true
-    hl_Lines: ""
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
-    tabWidth: 4
-    noClasses: false
-    style: "github"
-
-# 관련 콘텐츠 설정
-related:
-  includeNewer: true
-  indices:
-    - name: "categories"
-      weight: 100
-    - name: "tags"
-      weight: 80
-    - name: "date"
-      weight: 10
-  threshold: 80
-  toLower: false
-
-# 사이트맵 설정
-sitemap:
-  changefreq: "weekly"
-  priority: 0.5
-  filename: "sitemap.xml"
-
-# 보안 설정
-security:
-  enableInlineShortcodes: false
-  funcs:
-    getenv:
-      - ^HUGO_
-      - ^CI$
-  http:
-    methods:
-      - (?i)GET|POST
-    urls:
-      - .*

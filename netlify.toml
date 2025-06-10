@@ -1,47 +1,32 @@
 [build]
 publish = "public"
-command = "hugo --gc --minify --cleanDestinationDir"
+command = "hugo --gc --minify"
 
 [context.production.environment]
 HUGO_VERSION = "0.147.5"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
-# Node.js 버전도 지정 (JavaScript 처리 개선)
-NODE_VERSION = "18"
 
 [context.split1]
-command = "hugo --gc --minify --enableGitInfo --cleanDestinationDir"
+command = "hugo --gc --minify --enableGitInfo"
 
 [context.split1.environment]
 HUGO_VERSION = "0.147.5"
 HUGO_ENV = "production"
-NODE_VERSION = "18"
 
 [context.deploy-preview]
-command = "hugo --gc --minify --buildFuture --cleanDestinationDir -b $DEPLOY_PRIME_URL"
+command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.147.5"
-NODE_VERSION = "18"
 
 [context.branch-deploy]
-command = "hugo --gc --minify --cleanDestinationDir -b $DEPLOY_PRIME_URL"
+command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.147.5"
-NODE_VERSION = "18"
 
-# JavaScript 및 CSS 전처리 (필요시)
-[build.processing]
-  skip_processing = false
-[build.processing.css]
-  bundle = true
-  minify = true
-[build.processing.js]
-  bundle = true
-  minify = true
-
-# 보안 헤더 개선
+# 보안 헤더
 [[headers]]
   for = "/*"
   [headers.values]
@@ -49,49 +34,30 @@ NODE_VERSION = "18"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    # CSP 헤더 추가 (JavaScript 실행 보안)
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
     
-# SEO를 위한 robots 헤더
+# SEO를 위한 robots 헤더 (검색엔진 최적화)
 [[headers]]
   for = "/*"
   [headers.values]
     X-Robots-Tag = "index, follow"
 
-# 정적 파일 캐싱 개선
+# 정적 파일 캐싱 (성능 개선)
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/img/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=31536000"
 
-# 폰트 파일 캐싱
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# HTML 파일 캐싱 (짧게 설정)
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-
-# robots.txt와 sitemap.xml
+# robots.txt와 sitemap.xml은 자주 확인되도록
 [[headers]]
   for = "/robots.txt"
   [headers.values]
@@ -101,15 +67,3 @@ NODE_VERSION = "18"
   for = "/sitemap.xml"
   [headers.values]
     Cache-Control = "public, max-age=3600"
-
-# 리다이렉트 설정 (필요시)
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
-
-# 404 페이지
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404

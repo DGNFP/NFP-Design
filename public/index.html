@@ -1086,281 +1086,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <script>
-(function() {
-    'use strict';
-    
-    
-    const DEBUG = false;
-    
-    function debugLog(message, data) {
-        if (DEBUG) {
-            console.log('[하이라이트 디버그]', message, data || '');
-        }
-    }
-    
-    function debugError(message, error) {
-        console.error('[하이라이트 오류]', message, error);
-    }
-    
-    
-    function domReady(fn) {
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-            setTimeout(fn, 1);
-        } else {
-            document.addEventListener('DOMContentLoaded', fn);
-        }
-    }
-    
-    domReady(function() {
-        debugLog('DOM 준비 완료, 하이라이트 섹션 초기화 시작');
-        
-        try {
-            
-            let highlightPosts = [];
-            
-            try {
-                
-                highlightPosts = [
-                    
-                    
-                    
-                ];
-            } catch (dataError) {
-                debugError('데이터 생성 중 오류:', dataError);
-                highlightPosts = [];
-            }
-            
-            debugLog('생성된 포스트 데이터:', {
-                count: highlightPosts.length,
-                sample: highlightPosts[0] || null
-            });
-            
-            
-            if (!Array.isArray(highlightPosts)) {
-                debugError('highlightPosts가 배열이 아닙니다:', typeof highlightPosts);
-                highlightPosts = [];
-            }
-            
-            
-            highlightPosts = highlightPosts.filter(function(post) {
-                return post && typeof post === 'object' && post.title && post.url;
-            });
-            
-            debugLog('필터링 후 포스트 수:', highlightPosts.length);
-            
-            
-            function cleanString(str) {
-                if (typeof str !== 'string') return '';
-                return str.replace(/^["']|["']$/g, '').trim();
-            }
-            
-            function safeHtml(str) {
-                if (typeof str !== 'string') return '';
-                const div = document.createElement('div');
-                div.textContent = str;
-                return div.innerHTML;
-            }
-            
-            function extractYouTubeId(url) {
-                if (typeof url !== 'string') return null;
-                const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-                const match = url.match(regex);
-                return match ? match[1] : null;
-            }
-            
-            function getImageHtml(highlight) {
-                const category = cleanString(highlight.category);
-                const subCategory = cleanString(highlight.subCategory);
-                const videoUrl = cleanString(highlight.videoUrl);
-                const title = safeHtml(highlight.title || '');
-                const firstImage = cleanString(highlight.firstImage);
-                
-                debugLog('이미지 HTML 생성:', {
-                    category,
-                    subCategory,
-                    videoUrl: videoUrl ? 'URL 존재' : '없음',
-                    firstImage: firstImage ? 'URL 존재' : '없음'
-                });
-                
-                
-                if (videoUrl) {
-                    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
-                        const videoId = extractYouTubeId(videoUrl);
-                        if (videoId) {
-                            return '<img src="https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" ' +
-                                   'alt="' + title + '" ' +
-                                   'class="highlight-square-img" ' +
-                                   'loading="lazy" ' +
-                                   'onerror="this.src=\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\'">';
-                        }
-                    } else if (videoUrl.includes('vimeo.com')) {
-                        return '<img src="img/vimeo-default.jpg" alt="' + title + '" class="highlight-square-img" loading="lazy">';
-                    } else {
-                        return '<div class="video-placeholder-all" style="height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 8px;">' +
-                               '<i class="fas fa-video" style="font-size: 2rem; color: #999; margin-bottom: 0.5rem;"></i>' +
-                               '<span style="color: #666;">동영상</span>' +
-                               '</div>';
-                    }
-                }
-                
-                
-                if (category === 'programming') {
-                    const iconMap = {
-                        '프론트엔드': 'fab fa-react',
-                        '백엔드': 'fas fa-server',
-                        '웹 퍼블리싱': 'fab fa-html5',
-                        '모바일 앱': 'fas fa-mobile-alt',
-                        '게임 개발': 'fas fa-gamepad'
-                    };
-                    
-                    const icon = iconMap[subCategory] || 'fas fa-code';
-                    const label = subCategory || '프로그래밍';
-                    const demoTech = highlight.demoCode ? '<span class="demo-tech">WEB DEMO</span>' : '';
-                    
-                    return '<div class="demo-placeholder-all" data-subcategory="' + safeHtml(subCategory) + '" style="height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; color: white;">' +
-                           '<div class="demo-icon" style="margin-bottom: 1rem;">' +
-                           '<i class="' + icon + '" style="font-size: 3rem;"></i>' +
-                           '</div>' +
-                           '<div class="demo-label" style="text-align: center;">' +
-                           '<span class="demo-type" style="font-size: 1.1rem; font-weight: bold;">' + safeHtml(label) + '</span>' +
-                           demoTech +
-                           '</div>' +
-                           '</div>';
-                }
-                
-                
-                if (firstImage) {
-                    return '<img src="' + safeHtml(firstImage) + '" alt="' + title + '" class="highlight-square-img" loading="lazy">';
-                }
-                
-                
-                return '<img src="img/design1.jpg" alt="' + title + '" class="highlight-square-img" loading="lazy">';
-            }
-            
-            function getRandomHighlights(posts, count) {
-                count = count || 5;
-                if (!Array.isArray(posts) || posts.length === 0) {
-                    debugLog('포스트 배열이 비어있거나 유효하지 않음');
-                    return [];
-                }
-                
-                
-                const shuffled = posts.slice();
-                for (let i = shuffled.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-                }
-                
-                return shuffled.slice(0, Math.min(count, shuffled.length));
-            }
-            
-            
-            const dummyHighlights = [
-                { title: "브랜딩 프로젝트", url: "#", category: "creative" },
-                { title: "웹사이트 리뉴얼", url: "#", category: "web" },
-                { title: "모바일 앱 디자인", url: "#", category: "content" },
-                { title: "패키지 디자인", url: "#", category: "ad" },
-                { title: "영상 콘텐츠", url: "#", category: "video" }
-            ];
-            
-            
-            function renderHighlights() {
-                const container = document.getElementById('highlight-container');
-                if (!container) {
-                    debugError('highlight-container 요소를 찾을 수 없습니다.');
-                    return;
-                }
-                
-                debugLog('컨테이너 발견:', container);
-                
-                const highlightsToShow = highlightPosts.length > 0 ? 
-                    getRandomHighlights(highlightPosts, 5) : 
-                    dummyHighlights;
-                
-                debugLog('렌더링할 하이라이트:', highlightsToShow.length + '개');
-                
-                if (highlightsToShow.length === 0) {
-                    container.innerHTML = '<div class="no-highlights" style="text-align: center; padding: 2rem; color: #666;">표시할 콘텐츠가 없습니다.</div>';
-                    return;
-                }
-                
-                const htmlParts = [];
-                
-                highlightsToShow.forEach(function(highlight, index) {
-                    try {
-                        const title = safeHtml(highlight.title || '제목 없음');
-                        const url = cleanString(highlight.url) || '#';
-                        const imageHtml = getImageHtml(highlight);
-                        
-                        const cardHtml = '<div class="highlight-card board-all-item" style="margin-bottom: 1rem;">' +
-                                        '<a href="' + safeHtml(url) + '" style="display: block; text-decoration: none; color: inherit; transition: transform 0.3s ease;">' +
-                                        imageHtml +
-                                        '<div class="highlight-footer" style="padding: 1rem;">' +
-                                        '<h4 class="highlight-project-name" style="margin: 0; font-size: 1.1rem; font-weight: bold; color: #333;">' + title + '</h4>' +
-                                        '</div>' +
-                                        '</a>' +
-                                        '</div>';
-                        
-                        htmlParts.push(cardHtml);
-                        debugLog('카드 ' + (index + 1) + ' 생성 완료:', title);
-                        
-                    } catch (cardError) {
-                        debugError('카드 생성 중 오류 (인덱스 ' + index + '):', cardError);
-                    }
-                });
-                
-                container.innerHTML = htmlParts.join('');
-                debugLog('하이라이트 렌더링 완료:', htmlParts.length + '개 카드');
-                
-                
-                setTimeout(function() {
-                    const cards = container.querySelectorAll('.highlight-card');
-                    debugLog('렌더링된 카드 수:', cards.length);
-                    
-                    
-                    cards.forEach(function(card) {
-                        card.addEventListener('mouseenter', function() {
-                            this.style.transform = 'translateY(-5px)';
-                        });
-                        card.addEventListener('mouseleave', function() {
-                            this.style.transform = 'translateY(0)';
-                        });
-                    });
-                }, 100);
-            }
-            
-            
-            renderHighlights();
-            
-            
-            if (DEBUG) {
-                window.debugHighlights = {
-                    posts: highlightPosts,
-                    rerender: renderHighlights,
-                    container: document.getElementById('highlight-container')
-                };
-            }
-            
-        } catch (mainError) {
-            debugError('메인 초기화 중 심각한 오류:', mainError);
-            
-            
-            const container = document.getElementById('highlight-container');
-            if (container) {
-                container.innerHTML = '<div class="error-message" style="text-align: center; padding: 2rem; color: #e74c3c; background: #fdf2f2; border-radius: 8px; margin: 1rem 0;">' +
-                                     '<i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i><br>' +
-                                     '콘텐츠를 불러오는 중 문제가 발생했습니다.<br>' +
-                                     '<small style="color: #666; margin-top: 0.5rem; display: block;">페이지를 새로고침해주세요.</small>' +
-                                     '</div>';
-            }
-        }
-    });
-})();
-</script>
-
-
-
-<script>
 document.addEventListener('DOMContentLoaded', function() {
     console.log('하이라이트 섹션 초기화 시작');
     
@@ -1509,7 +1234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subCategory: "\"게임 개발\"",
             videoUrl: "\"\"",
             demoCode:  false ,
-            content: "\"\\u003ch2 id=\\\"프로젝트-개요\\\"\\u003e프로젝트 개요\\u003c/h2\\u003e\\n\\u003cp\\u003eUnity 2D를 활용하여 매치-3 스타일의 모바일 퍼즐 게임 \\u0026lsquo;Crystal Match\\u0026rsquo;를 개발했습니다. 화려한 시각 효과와 중독성 있는 게임플레이로 모든 연령층이 즐길 수 있는 캐주얼 게임입니다.\\u003c/p\\u003e\\n\\u003ch2 id=\\\"개발-환경\\\"\\u003e개발 환경\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eEngine\\u003c/strong\\u003e: Unity 2022.3 LTS\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eLanguage\\u003c/strong\\u003e: C# .NET\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003ePlatform\\u003c/strong\\u003e: iOS, Android\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eGraphics\\u003c/strong\\u003e: 2D Sprite, Particle System\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAudio\\u003c/strong\\u003e: Unity Audio Mixer\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAnalytics\\u003c/strong\\u003e: Unity Analytics\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"게임-특징\\\"\\u003e게임 특징\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-핵심-게임플레이\\\"\\u003e🎮 핵심 게임플레이\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e매치-3 메커니즘\\u003c/strong\\u003e: 3개 이상 같은 크리스탈 매치\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e연쇄 반응\\u003c/strong\\u003e: 콤보 시스템으로 높은 점수 획득\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e특수 크리스탈\\u003c/strong\\u003e: 폭탄, 레인보우 등 파워업 아이템\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e제한시간\\u003c/strong\\u003e: 긴장감 넘치는 시간 제한 모드\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-비주얼-이펙트\\\"\\u003e🌟 비주얼 이펙트\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e파티클 시스템\\u003c/strong\\u003e: 크리스탈 파괴 시 화려한 효과\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e트윈 애니메이션\\u003c/strong\\u003e: DOTween을 활용한 부드러운 움직임\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e셰이더 효과\\u003c/strong\\u003e: 크리스탈 반짝임과 글로우 효과\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eUI 애니메이션\\u003c/strong\\u003e: 직관적이고 매력적인 인터페이스\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-오디오-시스템\\\"\\u003e🎵 오디오 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e배경음악\\u003c/strong\\u003e: 몽환적이고 중독성 있는 BGM\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e효과음\\u003c/strong\\u003e: 매치, 폭발, 콤보별 차별화된 사운드\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e오디오 믹싱\\u003c/strong\\u003e: 상황별 다이나믹한 볼륨 조절\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e음성 피드백\\u003c/strong\\u003e: \\u0026ldquo;Excellent!\\u0026rdquo;, \\u0026ldquo;Perfect!\\u0026rdquo; 등 격려 메시지\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"기술적-구현\\\"\\u003e기술적 구현\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-게임-로직-시스템\\\"\\u003e1. 게임 로직 시스템\\u003c/h3\\u003e\\n\\u003cdiv class=\\\"highlight\\\"\\u003e\\u003cpre tabindex=\\\"0\\\" class=\\\"chroma\\\"\\u003e\\u003ccode class=\\\"language-csharp\\\" data-lang=\\\"csharp\\\"\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e\\u003cspan class=\\\"c1\\\"\\u003e// 매치 감지 알고리즘\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e\\u003cspan class=\\\"kd\\\"\\u003epublic\\u003c/span\\u003e \\u003cspan class=\\\"k\\\"\\u003eclass\\u003c/span\\u003e \\u003cspan class=\\\"nc\\\"\\u003eMatchDetector\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e\\u003cspan class=\\\"p\\\"\\u003e{\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"kd\\\"\\u003epublic\\u003c/span\\u003e \\u003cspan class=\\\"n\\\"\\u003eList\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e\\u0026lt;\\u003c/span\\u003e\\u003cspan class=\\\"n\\\"\\u003eCrystal\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e\\u0026gt;\\u003c/span\\u003e \\u003cspan class=\\\"n\\\"\\u003eFindMatches\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e(\\u003c/span\\u003e\\u003cspan class=\\\"n\\\"\\u003eCrystal\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e[,]\\u003c/span\\u003e \\u003cspan class=\\\"n\\\"\\u003eboard\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e)\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"p\\\"\\u003e{\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e        \\u003cspan class=\\\"c1\\\"\\u003e// 가로/세로 매치 검색 로직\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e        \\u003cspan class=\\\"c1\\\"\\u003e// 최적화된 알고리즘으로 성능 보장\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"p\\\"\\u003e}\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e\\u003cspan class=\\\"p\\\"\\u003e}\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/code\\u003e\\u003c/pre\\u003e\\u003c/div\\u003e\\u003ch3 id=\\\"2-오브젝트-풀링\\\"\\u003e2. 오브젝트 풀링\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e크리스탈 오브젝트 재사용으로 메모리 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e파티클 이펙트 풀링으로 성능 향상\\u003c/li\\u003e\\n\\u003cli\\u003e가비지 컬렉션 최소화\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-상태-관리\\\"\\u003e3. 상태 관리\\u003c/h3\\u003e\\n\\u003cdiv class=\\\"highlight\\\"\\u003e\\u003cpre tabindex=\\\"0\\\" class=\\\"chroma\\\"\\u003e\\u003ccode class=\\\"language-csharp\\\" data-lang=\\\"csharp\\\"\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e\\u003cspan class=\\\"kd\\\"\\u003epublic\\u003c/span\\u003e \\u003cspan class=\\\"kd\\\"\\u003eenum\\u003c/span\\u003e \\u003cspan class=\\\"n\\\"\\u003eGameState\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e\\u003cspan class=\\\"p\\\"\\u003e{\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"n\\\"\\u003eMenu\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e,\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"n\\\"\\u003ePlaying\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e,\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"n\\\"\\u003ePaused\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e,\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"n\\\"\\u003eGameOver\\u003c/span\\u003e\\u003cspan class=\\\"p\\\"\\u003e,\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e    \\u003cspan class=\\\"n\\\"\\u003eLevelComplete\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e\\u003cspan class=\\\"p\\\"\\u003e}\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/code\\u003e\\u003c/pre\\u003e\\u003c/div\\u003e\\u003ch3 id=\\\"4-레벨-시스템\\\"\\u003e4. 레벨 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eJSON 기반 레벨 데이터 구조\\u003c/li\\u003e\\n\\u003cli\\u003e동적 난이도 조절 시스템\\u003c/li\\u003e\\n\\u003cli\\u003e프로그레시브 언락 방식\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"게임-시스템\\\"\\u003e게임 시스템\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-진행-시스템\\\"\\u003e📊 진행 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e레벨\\u003c/strong\\u003e: 100개 이상의 도전적인 스테이지\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e별점\\u003c/strong\\u003e: 3성 평가 시스템으로 재플레이 유도\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e업적\\u003c/strong\\u003e: 다양한 달성 목표와 보상\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e리더보드\\u003c/strong\\u003e: 글로벌 순위 시스템\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-수집-요소\\\"\\u003e💎 수집 요소\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e크리스탈 도감\\u003c/strong\\u003e: 다양한 종류의 크리스탈 수집\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e파워업\\u003c/strong\\u003e: 게임 진행을 돕는 특수 아이템\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e코인 시스템\\u003c/strong\\u003e: 게임 내 재화로 아이템 구매\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e일일 보너스\\u003c/strong\\u003e: 매일 접속 보상\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-도전-모드\\\"\\u003e🎯 도전 모드\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e시간 제한 모드\\u003c/strong\\u003e: 제한 시간 내 최고 점수 도전\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e움직임 제한\\u003c/strong\\u003e: 정해진 횟수로 목표 달성\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e특수 미션\\u003c/strong\\u003e: 특정 조건 클리어 챌린지\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e이벤트 모드\\u003c/strong\\u003e: 기간 한정 특별 스테이지\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"최적화-및-성능\\\"\\u003e최적화 및 성능\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-성능-최적화\\\"\\u003e🚀 성능 최적화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e드로우 콜 최소화\\u003c/strong\\u003e: 스프라이트 아틀라스 활용\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e배치\\u003c/strong\\u003e: 정적 오브젝트 배치로 렌더링 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eLOD 시스템\\u003c/strong\\u003e: 거리별 디테일 조절\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e메모리 관리\\u003c/strong\\u003e: 리소스 언로딩과 가비지 컬렉션 최적화\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-모바일-최적화\\\"\\u003e📱 모바일 최적화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e해상도 대응\\u003c/strong\\u003e: 다양한 화면 비율 지원\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e터치 최적화\\u003c/strong\\u003e: 정확하고 반응성 좋은 터치 인식\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e배터리 효율\\u003c/strong\\u003e: 불필요한 연산 최소화\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e네트워크\\u003c/strong\\u003e: 오프라인 플레이 지원\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"출시-및-성과\\\"\\u003e출시 및 성과\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-마케팅-성과\\\"\\u003e📈 마케팅 성과\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e다운로드\\u003c/strong\\u003e: 출시 첫 달 10만+ 다운로드\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e평점\\u003c/strong\\u003e: Google Play 4.5★, App Store 4.6★\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e수익\\u003c/strong\\u003e: 광고 및 인앱결제 통합 수익 모델\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eretention\\u003c/strong\\u003e: DAU 30%, WAU 15% 달성\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-수상-내역\\\"\\u003e🏆 수상 내역\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eUnity Korea 인디 게임 페스티벌 우수상\\u003c/li\\u003e\\n\\u003cli\\u003e모바일 게임 어워드 베스트 캐주얼 게임 후보\\u003c/li\\u003e\\n\\u003cli\\u003e구글 플레이 에디터 추천 게임 선정\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"학습-성과\\\"\\u003e학습 성과\\u003c/h2\\u003e\\n\\u003cp\\u003e이 프로젝트를 통해 다음과 같은 능력을 기를 수 있었습니다:\\u003c/p\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eUnity 엔진 숙련도\\u003c/strong\\u003e: 2D 게임 개발 전문성 확보\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eC# 프로그래밍\\u003c/strong\\u003e: 객체지향 설계와 최적화 기법\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e게임 디자인\\u003c/strong\\u003e: 재미있는 게임플레이 메커니즘 설계\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e프로젝트 관리\\u003c/strong\\u003e: 기획부터 출시까지 전체 개발 사이클 경험\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e사용자 분석\\u003c/strong\\u003e: 플레이어 행동 분석과 게임 개선\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003eUnity를 활용한 첫 번째 상업적 게임 프로젝트로서, 게임 개발의 전 과정을 경험하고 모바일 게임 시장에 대한 깊은 이해를 얻을 수 있었던 소중한 경험이었습니다.\\u003c/p\\u003e\\n\"",
+            content: "\"\\u003ch2 id=\\\"프로젝트-개요\\\"\\u003e프로젝트 개요\\u003c/h2\\u003e\\n\\u003cp\\u003eUnity 2D를 활용하여 매치-3 스타일의 모바일 퍼즐 게임 \\u0026lsquo;Crystal Match\\u0026rsquo;를 개발했습니다. 화려한 시각 효과와 중독성 있는 게임플레이로 모든 연령층이 즐길 수 있는 캐주얼 게임입니다.\\u003c/p\\u003e\\n\\u003ch2 id=\\\"개발-환경\\\"\\u003e개발 환경\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eEngine\\u003c/strong\\u003e: Unity 2022.3 LTS\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eLanguage\\u003c/strong\\u003e: C# .NET\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003ePlatform\\u003c/strong\\u003e: iOS, Android\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eGraphics\\u003c/strong\\u003e: 2D Sprite, Particle System\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAudio\\u003c/strong\\u003e: Unity Audio Mixer\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAnalytics\\u003c/strong\\u003e: Unity Analytics\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"게임-특징\\\"\\u003e게임 특징\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-핵심-게임플레이\\\"\\u003e🎮 핵심 게임플레이\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e매치-3 메커니즘\\u003c/strong\\u003e: 3개 이상 같은 크리스탈 매치\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e연쇄 반응\\u003c/strong\\u003e: 콤보 시스템으로 높은 점수 획득\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e특수 크리스탈\\u003c/strong\\u003e: 폭탄, 레인보우 등 파워업 아이템\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e제한시간\\u003c/strong\\u003e: 긴장감 넘치는 시간 제한 모드\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-비주얼-이펙트\\\"\\u003e🌟 비주얼 이펙트\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e파티클 시스템\\u003c/strong\\u003e: 크리스탈 파괴 시 화려한 효과\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e트윈 애니메이션\\u003c/strong\\u003e: DOTween을 활용한 부드러운 움직임\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e셰이더 효과\\u003c/strong\\u003e: 크리스탈 반짝임과 글로우 효과\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eUI 애니메이션\\u003c/strong\\u003e: 직관적이고 매력적인 인터페이스\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-오디오-시스템\\\"\\u003e🎵 오디오 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e배경음악\\u003c/strong\\u003e: 몽환적이고 중독성 있는 BGM\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e효과음\\u003c/strong\\u003e: 매치, 폭발, 콤보별 차별화된 사운드\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e오디오 믹싱\\u003c/strong\\u003e: 상황별 다이나믹한 볼륨 조절\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e음성 피드백\\u003c/strong\\u003e: \\u0026ldquo;Excellent!\\u0026rdquo;, \\u0026ldquo;Perfect!\\u0026rdquo; 등 격려 메시지\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"기술적-구현\\\"\\u003e기술적 구현\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-게임-로직-시스템\\\"\\u003e1. 게임 로직 시스템\\u003c/h3\\u003e\\n\\u003cdiv class=\\\"highlight\\\"\\u003e\\u003cpre tabindex=\\\"0\\\" style=\\\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\\\"\\u003e\\u003ccode class=\\\"language-csharp\\\" data-lang=\\\"csharp\\\"\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#75715e\\\"\\u003e// 매치 감지 알고리즘\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#66d9ef\\\"\\u003epublic\\u003c/span\\u003e \\u003cspan style=\\\"color:#66d9ef\\\"\\u003eclass\\u003c/span\\u003e \\u003cspan style=\\\"color:#a6e22e\\\"\\u003eMatchDetector\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e{\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    \\u003cspan style=\\\"color:#66d9ef\\\"\\u003epublic\\u003c/span\\u003e List\\u0026lt;Crystal\\u0026gt; FindMatches(Crystal[,] board)\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    {\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e        \\u003cspan style=\\\"color:#75715e\\\"\\u003e// 가로/세로 매치 검색 로직\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e        \\u003cspan style=\\\"color:#75715e\\\"\\u003e// 최적화된 알고리즘으로 성능 보장\\u003c/span\\u003e\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    }\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e}\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/code\\u003e\\u003c/pre\\u003e\\u003c/div\\u003e\\u003ch3 id=\\\"2-오브젝트-풀링\\\"\\u003e2. 오브젝트 풀링\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e크리스탈 오브젝트 재사용으로 메모리 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e파티클 이펙트 풀링으로 성능 향상\\u003c/li\\u003e\\n\\u003cli\\u003e가비지 컬렉션 최소화\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-상태-관리\\\"\\u003e3. 상태 관리\\u003c/h3\\u003e\\n\\u003cdiv class=\\\"highlight\\\"\\u003e\\u003cpre tabindex=\\\"0\\\" style=\\\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\\\"\\u003e\\u003ccode class=\\\"language-csharp\\\" data-lang=\\\"csharp\\\"\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e\\u003cspan style=\\\"color:#66d9ef\\\"\\u003epublic\\u003c/span\\u003e \\u003cspan style=\\\"color:#66d9ef\\\"\\u003eenum\\u003c/span\\u003e GameState\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e{\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    Menu,\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    Playing,\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    Paused,\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    GameOver,\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e    LevelComplete\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan style=\\\"display:flex;\\\"\\u003e\\u003cspan\\u003e}\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/code\\u003e\\u003c/pre\\u003e\\u003c/div\\u003e\\u003ch3 id=\\\"4-레벨-시스템\\\"\\u003e4. 레벨 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eJSON 기반 레벨 데이터 구조\\u003c/li\\u003e\\n\\u003cli\\u003e동적 난이도 조절 시스템\\u003c/li\\u003e\\n\\u003cli\\u003e프로그레시브 언락 방식\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"게임-시스템\\\"\\u003e게임 시스템\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-진행-시스템\\\"\\u003e📊 진행 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e레벨\\u003c/strong\\u003e: 100개 이상의 도전적인 스테이지\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e별점\\u003c/strong\\u003e: 3성 평가 시스템으로 재플레이 유도\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e업적\\u003c/strong\\u003e: 다양한 달성 목표와 보상\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e리더보드\\u003c/strong\\u003e: 글로벌 순위 시스템\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-수집-요소\\\"\\u003e💎 수집 요소\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e크리스탈 도감\\u003c/strong\\u003e: 다양한 종류의 크리스탈 수집\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e파워업\\u003c/strong\\u003e: 게임 진행을 돕는 특수 아이템\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e코인 시스템\\u003c/strong\\u003e: 게임 내 재화로 아이템 구매\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e일일 보너스\\u003c/strong\\u003e: 매일 접속 보상\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-도전-모드\\\"\\u003e🎯 도전 모드\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e시간 제한 모드\\u003c/strong\\u003e: 제한 시간 내 최고 점수 도전\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e움직임 제한\\u003c/strong\\u003e: 정해진 횟수로 목표 달성\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e특수 미션\\u003c/strong\\u003e: 특정 조건 클리어 챌린지\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e이벤트 모드\\u003c/strong\\u003e: 기간 한정 특별 스테이지\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"최적화-및-성능\\\"\\u003e최적화 및 성능\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-성능-최적화\\\"\\u003e🚀 성능 최적화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e드로우 콜 최소화\\u003c/strong\\u003e: 스프라이트 아틀라스 활용\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e배치\\u003c/strong\\u003e: 정적 오브젝트 배치로 렌더링 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eLOD 시스템\\u003c/strong\\u003e: 거리별 디테일 조절\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e메모리 관리\\u003c/strong\\u003e: 리소스 언로딩과 가비지 컬렉션 최적화\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-모바일-최적화\\\"\\u003e📱 모바일 최적화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e해상도 대응\\u003c/strong\\u003e: 다양한 화면 비율 지원\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e터치 최적화\\u003c/strong\\u003e: 정확하고 반응성 좋은 터치 인식\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e배터리 효율\\u003c/strong\\u003e: 불필요한 연산 최소화\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e네트워크\\u003c/strong\\u003e: 오프라인 플레이 지원\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"출시-및-성과\\\"\\u003e출시 및 성과\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"-마케팅-성과\\\"\\u003e📈 마케팅 성과\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e다운로드\\u003c/strong\\u003e: 출시 첫 달 10만+ 다운로드\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e평점\\u003c/strong\\u003e: Google Play 4.5★, App Store 4.6★\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e수익\\u003c/strong\\u003e: 광고 및 인앱결제 통합 수익 모델\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eretention\\u003c/strong\\u003e: DAU 30%, WAU 15% 달성\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"-수상-내역\\\"\\u003e🏆 수상 내역\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eUnity Korea 인디 게임 페스티벌 우수상\\u003c/li\\u003e\\n\\u003cli\\u003e모바일 게임 어워드 베스트 캐주얼 게임 후보\\u003c/li\\u003e\\n\\u003cli\\u003e구글 플레이 에디터 추천 게임 선정\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"학습-성과\\\"\\u003e학습 성과\\u003c/h2\\u003e\\n\\u003cp\\u003e이 프로젝트를 통해 다음과 같은 능력을 기를 수 있었습니다:\\u003c/p\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eUnity 엔진 숙련도\\u003c/strong\\u003e: 2D 게임 개발 전문성 확보\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eC# 프로그래밍\\u003c/strong\\u003e: 객체지향 설계와 최적화 기법\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e게임 디자인\\u003c/strong\\u003e: 재미있는 게임플레이 메커니즘 설계\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e프로젝트 관리\\u003c/strong\\u003e: 기획부터 출시까지 전체 개발 사이클 경험\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e사용자 분석\\u003c/strong\\u003e: 플레이어 행동 분석과 게임 개선\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003eUnity를 활용한 첫 번째 상업적 게임 프로젝트로서, 게임 개발의 전 과정을 경험하고 모바일 게임 시장에 대한 깊은 이해를 얻을 수 있었던 소중한 경험이었습니다.\\u003c/p\\u003e\\n\"",
             firstImage: ""
         },
         
@@ -1522,7 +1247,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subCategory: "\"모바일 앱\"",
             videoUrl: "\"\"",
             demoCode:  false ,
-            content: "\"\\u003ch2 id=\\\"프로젝트-개요\\\"\\u003e프로젝트 개요\\u003c/h2\\u003e\\n\\u003cp\\u003eReact Native를 활용하여 실시간 날씨 정보를 제공하는 크로스플랫폼 모바일 애플리케이션을 개발했습니다. iOS와 Android 모두에서 네이티브 수준의 성능과 사용자 경험을 제공합니다.\\u003c/p\\u003e\\n\\u003ch2 id=\\\"기술-스택\\\"\\u003e기술 스택\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eFramework\\u003c/strong\\u003e: React Native 0.72\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eLanguage\\u003c/strong\\u003e: TypeScript\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eState Management\\u003c/strong\\u003e: Redux Toolkit\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eNavigation\\u003c/strong\\u003e: React Navigation 6\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAPI\\u003c/strong\\u003e: OpenWeatherMap API\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eStorage\\u003c/strong\\u003e: AsyncStorage\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eTesting\\u003c/strong\\u003e: Jest, React Native Testing Library\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"주요-기능\\\"\\u003e주요 기능\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-실시간-날씨-정보\\\"\\u003e1. 실시간 날씨 정보\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e현재 위치 기반 날씨 데이터\\u003c/li\\u003e\\n\\u003cli\\u003e5일간 일기예보 제공\\u003c/li\\u003e\\n\\u003cli\\u003e시간별 상세 날씨 정보\\u003c/li\\u003e\\n\\u003cli\\u003e날씨 아이콘 및 애니메이션\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"2-위치-서비스\\\"\\u003e2. 위치 서비스\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eGPS 기반 자동 위치 감지\\u003c/li\\u003e\\n\\u003cli\\u003e수동 지역 검색 및 추가\\u003c/li\\u003e\\n\\u003cli\\u003e즐겨찾기 위치 관리\\u003c/li\\u003e\\n\\u003cli\\u003e위치별 날씨 비교\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-사용자-경험\\\"\\u003e3. 사용자 경험\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e다크/라이트 테마 지원\\u003c/li\\u003e\\n\\u003cli\\u003e직관적인 스와이프 제스처\\u003c/li\\u003e\\n\\u003cli\\u003e오프라인 데이터 캐싱\\u003c/li\\u003e\\n\\u003cli\\u003e푸시 알림 (날씨 변화 시)\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"4-데이터-시각화\\\"\\u003e4. 데이터 시각화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e기온 변화 그래프\\u003c/li\\u003e\\n\\u003cli\\u003e강수량 차트\\u003c/li\\u003e\\n\\u003cli\\u003e풍향/풍속 표시\\u003c/li\\u003e\\n\\u003cli\\u003eUV 지수 및 습도 정보\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"앱-구조\\\"\\u003e앱 구조\\u003c/h2\\u003e\\n\\u003cdiv class=\\\"highlight\\\"\\u003e\\u003cpre tabindex=\\\"0\\\" class=\\\"chroma\\\"\\u003e\\u003ccode class=\\\"language-fallback\\\" data-lang=\\\"fallback\\\"\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003eWeatherApp/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e├── src/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── components/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   ├── WeatherCard/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   ├── ForecastList/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   └── LocationPicker/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── screens/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   ├── HomeScreen/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   ├── SearchScreen/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   └── SettingsScreen/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── services/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   ├── weatherAPI.ts\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   └── locationService.ts\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── store/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   ├── weatherSlice.ts\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   │   └── userSlice.ts\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   └── utils/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e├── android/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e├── ios/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e└── package.json\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/code\\u003e\\u003c/pre\\u003e\\u003c/div\\u003e\\u003ch2 id=\\\"개발-과정\\\"\\u003e개발 과정\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-설계-단계\\\"\\u003e1. 설계 단계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e와이어프레임 및 UI/UX 설계\\u003c/li\\u003e\\n\\u003cli\\u003eAPI 연동 방식 결정\\u003c/li\\u003e\\n\\u003cli\\u003e상태 관리 구조 설계\\u003c/li\\u003e\\n\\u003cli\\u003e컴포넌트 아키텍처 계획\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"2-개발-단계\\\"\\u003e2. 개발 단계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e기본 네비게이션 구조 구축\\u003c/li\\u003e\\n\\u003cli\\u003eAPI 연동 및 데이터 모델링\\u003c/li\\u003e\\n\\u003cli\\u003eUI 컴포넌트 개발\\u003c/li\\u003e\\n\\u003cli\\u003e상태 관리 로직 구현\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-최적화-단계\\\"\\u003e3. 최적화 단계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e성능 최적화 (memo, useMemo)\\u003c/li\\u003e\\n\\u003cli\\u003e이미지 캐싱 및 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e번들 크기 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e앱 시작 시간 단축\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"주요-도전과제-및-해결\\\"\\u003e주요 도전과제 및 해결\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-크로스플랫폼-호환성\\\"\\u003e1. 크로스플랫폼 호환성\\u003c/h3\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e문제\\u003c/strong\\u003e: iOS와 Android 간 다른 동작\\n\\u003cstrong\\u003e해결\\u003c/strong\\u003e: Platform.select()와 조건부 렌더링 활용\\u003c/p\\u003e\\n\\u003ch3 id=\\\"2-성능-최적화\\\"\\u003e2. 성능 최적화\\u003c/h3\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e문제\\u003c/strong\\u003e: 많은 데이터로 인한 성능 저하\\n\\u003cstrong\\u003e해결\\u003c/strong\\u003e: FlatList, 메모이제이션, 지연 로딩 적용\\u003c/p\\u003e\\n\\u003ch3 id=\\\"3-오프라인-지원\\\"\\u003e3. 오프라인 지원\\u003c/h3\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e문제\\u003c/strong\\u003e: 네트워크 연결 없을 때 앱 사용성\\n\\u003cstrong\\u003e해결\\u003c/strong\\u003e: AsyncStorage를 활용한 데이터 캐싱\\u003c/p\\u003e\\n\\u003ch2 id=\\\"결과-및-성과\\\"\\u003e결과 및 성과\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e앱 스토어 평점\\u003c/strong\\u003e: 4.7/5.0 (iOS), 4.6/5.0 (Android)\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e다운로드\\u003c/strong\\u003e: 월 5,000+ 다운로드\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e성능\\u003c/strong\\u003e: 앱 시작 시간 2초 이내\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e용량\\u003c/strong\\u003e: 15MB 이하의 최적화된 앱 크기\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"향후-개선-계획\\\"\\u003e향후 개선 계획\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eApple Watch / Wear OS 지원\\u003c/li\\u003e\\n\\u003cli\\u003e위젯 기능 추가\\u003c/li\\u003e\\n\\u003cli\\u003e머신러닝 기반 날씨 예측\\u003c/li\\u003e\\n\\u003cli\\u003e소셜 기능 (날씨 공유)\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003eReact Native의 강력함과 효율성을 체험하며, 크로스플랫폼 모바일 개발의 노하우를 축적할 수 있었던 의미 있는 프로젝트였습니다.\\u003c/p\\u003e\\n\"",
+            content: "\"\\u003ch2 id=\\\"프로젝트-개요\\\"\\u003e프로젝트 개요\\u003c/h2\\u003e\\n\\u003cp\\u003eReact Native를 활용하여 실시간 날씨 정보를 제공하는 크로스플랫폼 모바일 애플리케이션을 개발했습니다. iOS와 Android 모두에서 네이티브 수준의 성능과 사용자 경험을 제공합니다.\\u003c/p\\u003e\\n\\u003ch2 id=\\\"기술-스택\\\"\\u003e기술 스택\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eFramework\\u003c/strong\\u003e: React Native 0.72\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eLanguage\\u003c/strong\\u003e: TypeScript\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eState Management\\u003c/strong\\u003e: Redux Toolkit\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eNavigation\\u003c/strong\\u003e: React Navigation 6\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAPI\\u003c/strong\\u003e: OpenWeatherMap API\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eStorage\\u003c/strong\\u003e: AsyncStorage\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eTesting\\u003c/strong\\u003e: Jest, React Native Testing Library\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"주요-기능\\\"\\u003e주요 기능\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-실시간-날씨-정보\\\"\\u003e1. 실시간 날씨 정보\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e현재 위치 기반 날씨 데이터\\u003c/li\\u003e\\n\\u003cli\\u003e5일간 일기예보 제공\\u003c/li\\u003e\\n\\u003cli\\u003e시간별 상세 날씨 정보\\u003c/li\\u003e\\n\\u003cli\\u003e날씨 아이콘 및 애니메이션\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"2-위치-서비스\\\"\\u003e2. 위치 서비스\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eGPS 기반 자동 위치 감지\\u003c/li\\u003e\\n\\u003cli\\u003e수동 지역 검색 및 추가\\u003c/li\\u003e\\n\\u003cli\\u003e즐겨찾기 위치 관리\\u003c/li\\u003e\\n\\u003cli\\u003e위치별 날씨 비교\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-사용자-경험\\\"\\u003e3. 사용자 경험\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e다크/라이트 테마 지원\\u003c/li\\u003e\\n\\u003cli\\u003e직관적인 스와이프 제스처\\u003c/li\\u003e\\n\\u003cli\\u003e오프라인 데이터 캐싱\\u003c/li\\u003e\\n\\u003cli\\u003e푸시 알림 (날씨 변화 시)\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"4-데이터-시각화\\\"\\u003e4. 데이터 시각화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e기온 변화 그래프\\u003c/li\\u003e\\n\\u003cli\\u003e강수량 차트\\u003c/li\\u003e\\n\\u003cli\\u003e풍향/풍속 표시\\u003c/li\\u003e\\n\\u003cli\\u003eUV 지수 및 습도 정보\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"앱-구조\\\"\\u003e앱 구조\\u003c/h2\\u003e\\n\\u003cpre tabindex=\\\"0\\\"\\u003e\\u003ccode\\u003eWeatherApp/\\r\\n├── src/\\r\\n│   ├── components/\\r\\n│   │   ├── WeatherCard/\\r\\n│   │   ├── ForecastList/\\r\\n│   │   └── LocationPicker/\\r\\n│   ├── screens/\\r\\n│   │   ├── HomeScreen/\\r\\n│   │   ├── SearchScreen/\\r\\n│   │   └── SettingsScreen/\\r\\n│   ├── services/\\r\\n│   │   ├── weatherAPI.ts\\r\\n│   │   └── locationService.ts\\r\\n│   ├── store/\\r\\n│   │   ├── weatherSlice.ts\\r\\n│   │   └── userSlice.ts\\r\\n│   └── utils/\\r\\n├── android/\\r\\n├── ios/\\r\\n└── package.json\\n\\u003c/code\\u003e\\u003c/pre\\u003e\\u003ch2 id=\\\"개발-과정\\\"\\u003e개발 과정\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-설계-단계\\\"\\u003e1. 설계 단계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e와이어프레임 및 UI/UX 설계\\u003c/li\\u003e\\n\\u003cli\\u003eAPI 연동 방식 결정\\u003c/li\\u003e\\n\\u003cli\\u003e상태 관리 구조 설계\\u003c/li\\u003e\\n\\u003cli\\u003e컴포넌트 아키텍처 계획\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"2-개발-단계\\\"\\u003e2. 개발 단계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e기본 네비게이션 구조 구축\\u003c/li\\u003e\\n\\u003cli\\u003eAPI 연동 및 데이터 모델링\\u003c/li\\u003e\\n\\u003cli\\u003eUI 컴포넌트 개발\\u003c/li\\u003e\\n\\u003cli\\u003e상태 관리 로직 구현\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-최적화-단계\\\"\\u003e3. 최적화 단계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e성능 최적화 (memo, useMemo)\\u003c/li\\u003e\\n\\u003cli\\u003e이미지 캐싱 및 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e번들 크기 최적화\\u003c/li\\u003e\\n\\u003cli\\u003e앱 시작 시간 단축\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"주요-도전과제-및-해결\\\"\\u003e주요 도전과제 및 해결\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-크로스플랫폼-호환성\\\"\\u003e1. 크로스플랫폼 호환성\\u003c/h3\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e문제\\u003c/strong\\u003e: iOS와 Android 간 다른 동작\\n\\u003cstrong\\u003e해결\\u003c/strong\\u003e: Platform.select()와 조건부 렌더링 활용\\u003c/p\\u003e\\n\\u003ch3 id=\\\"2-성능-최적화\\\"\\u003e2. 성능 최적화\\u003c/h3\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e문제\\u003c/strong\\u003e: 많은 데이터로 인한 성능 저하\\n\\u003cstrong\\u003e해결\\u003c/strong\\u003e: FlatList, 메모이제이션, 지연 로딩 적용\\u003c/p\\u003e\\n\\u003ch3 id=\\\"3-오프라인-지원\\\"\\u003e3. 오프라인 지원\\u003c/h3\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e문제\\u003c/strong\\u003e: 네트워크 연결 없을 때 앱 사용성\\n\\u003cstrong\\u003e해결\\u003c/strong\\u003e: AsyncStorage를 활용한 데이터 캐싱\\u003c/p\\u003e\\n\\u003ch2 id=\\\"결과-및-성과\\\"\\u003e결과 및 성과\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e앱 스토어 평점\\u003c/strong\\u003e: 4.7/5.0 (iOS), 4.6/5.0 (Android)\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e다운로드\\u003c/strong\\u003e: 월 5,000+ 다운로드\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e성능\\u003c/strong\\u003e: 앱 시작 시간 2초 이내\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003e용량\\u003c/strong\\u003e: 15MB 이하의 최적화된 앱 크기\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"향후-개선-계획\\\"\\u003e향후 개선 계획\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eApple Watch / Wear OS 지원\\u003c/li\\u003e\\n\\u003cli\\u003e위젯 기능 추가\\u003c/li\\u003e\\n\\u003cli\\u003e머신러닝 기반 날씨 예측\\u003c/li\\u003e\\n\\u003cli\\u003e소셜 기능 (날씨 공유)\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003eReact Native의 강력함과 효율성을 체험하며, 크로스플랫폼 모바일 개발의 노하우를 축적할 수 있었던 의미 있는 프로젝트였습니다.\\u003c/p\\u003e\\n\"",
             firstImage: ""
         },
         
@@ -1548,7 +1273,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subCategory: "\"백엔드\"",
             videoUrl: "\"\"",
             demoCode:  false ,
-            content: "\"\\u003ch2 id=\\\"프로젝트-개요\\\"\\u003e프로젝트 개요\\u003c/h2\\u003e\\n\\u003cp\\u003eNode.js와 Express를 활용한 REST API 서버를 구축했습니다. 사용자 인증, 데이터베이스 연동, JWT 토큰 기반 인증 시스템을 포함한 완전한 백엔드 솔루션입니다.\\u003c/p\\u003e\\n\\u003ch2 id=\\\"주요-기술-스택\\\"\\u003e주요 기술 스택\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eRuntime\\u003c/strong\\u003e: Node.js\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eFramework\\u003c/strong\\u003e: Express.js\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eDatabase\\u003c/strong\\u003e: MongoDB (Mongoose)\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAuthentication\\u003c/strong\\u003e: JWT (jsonwebtoken)\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eValidation\\u003c/strong\\u003e: Joi\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eSecurity\\u003c/strong\\u003e: bcrypt, helmet, cors\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"구현-기능\\\"\\u003e구현 기능\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-사용자-인증-시스템\\\"\\u003e1. 사용자 인증 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e회원가입/로그인 API\\u003c/li\\u003e\\n\\u003cli\\u003eJWT 토큰 기반 인증\\u003c/li\\u003e\\n\\u003cli\\u003e비밀번호 암호화 (bcrypt)\\u003c/li\\u003e\\n\\u003cli\\u003e토큰 갱신 기능\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"2-restful-api-설계\\\"\\u003e2. RESTful API 설계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eCRUD 작업을 위한 표준 HTTP 메서드\\u003c/li\\u003e\\n\\u003cli\\u003e적절한 상태 코드 반환\\u003c/li\\u003e\\n\\u003cli\\u003e일관된 JSON 응답 구조\\u003c/li\\u003e\\n\\u003cli\\u003eAPI 버저닝 적용\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-데이터베이스-모델링\\\"\\u003e3. 데이터베이스 모델링\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eMongoDB를 활용한 NoSQL 설계\\u003c/li\\u003e\\n\\u003cli\\u003eMongoose ODM으로 스키마 정의\\u003c/li\\u003e\\n\\u003cli\\u003e관계형 데이터 처리 (populate)\\u003c/li\\u003e\\n\\u003cli\\u003e인덱싱 최적화\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"4-보안-강화\\\"\\u003e4. 보안 강화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eCORS 정책 설정\\u003c/li\\u003e\\n\\u003cli\\u003eHelmet으로 보안 헤더 적용\\u003c/li\\u003e\\n\\u003cli\\u003eRate limiting 구현\\u003c/li\\u003e\\n\\u003cli\\u003e입력 데이터 검증 및 sanitization\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"파일-구조\\\"\\u003e파일 구조\\u003c/h2\\u003e\\n\\u003cdiv class=\\\"highlight\\\"\\u003e\\u003cpre tabindex=\\\"0\\\" class=\\\"chroma\\\"\\u003e\\u003ccode class=\\\"language-fallback\\\" data-lang=\\\"fallback\\\"\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003ebackend-api/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e├── src/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── controllers/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── models/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── routes/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   ├── middleware/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e│   └── utils/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e├── config/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e├── tests/\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003cspan class=\\\"line\\\"\\u003e\\u003cspan class=\\\"cl\\\"\\u003e└── package.json\\n\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/code\\u003e\\u003c/pre\\u003e\\u003c/div\\u003e\\u003ch2 id=\\\"성과-및-개선점\\\"\\u003e성과 및 개선점\\u003c/h2\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e성과:\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e안정적인 API 서버 구축 완료\\u003c/li\\u003e\\n\\u003cli\\u003e보안 모범 사례 적용\\u003c/li\\u003e\\n\\u003cli\\u003e확장 가능한 아키텍처 설계\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e개선점:\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eRedis를 활용한 세션 관리\\u003c/li\\u003e\\n\\u003cli\\u003e로그 시스템 고도화\\u003c/li\\u003e\\n\\u003cli\\u003e마이크로서비스 아키텍처 적용 검토\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003e이 프로젝트를 통해 백엔드 개발의 핵심 요소들을 체계적으로 학습하고 적용할 수 있었습니다.\\u003c/p\\u003e\\n\"",
+            content: "\"\\u003ch2 id=\\\"프로젝트-개요\\\"\\u003e프로젝트 개요\\u003c/h2\\u003e\\n\\u003cp\\u003eNode.js와 Express를 활용한 REST API 서버를 구축했습니다. 사용자 인증, 데이터베이스 연동, JWT 토큰 기반 인증 시스템을 포함한 완전한 백엔드 솔루션입니다.\\u003c/p\\u003e\\n\\u003ch2 id=\\\"주요-기술-스택\\\"\\u003e주요 기술 스택\\u003c/h2\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eRuntime\\u003c/strong\\u003e: Node.js\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eFramework\\u003c/strong\\u003e: Express.js\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eDatabase\\u003c/strong\\u003e: MongoDB (Mongoose)\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eAuthentication\\u003c/strong\\u003e: JWT (jsonwebtoken)\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eValidation\\u003c/strong\\u003e: Joi\\u003c/li\\u003e\\n\\u003cli\\u003e\\u003cstrong\\u003eSecurity\\u003c/strong\\u003e: bcrypt, helmet, cors\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"구현-기능\\\"\\u003e구현 기능\\u003c/h2\\u003e\\n\\u003ch3 id=\\\"1-사용자-인증-시스템\\\"\\u003e1. 사용자 인증 시스템\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e회원가입/로그인 API\\u003c/li\\u003e\\n\\u003cli\\u003eJWT 토큰 기반 인증\\u003c/li\\u003e\\n\\u003cli\\u003e비밀번호 암호화 (bcrypt)\\u003c/li\\u003e\\n\\u003cli\\u003e토큰 갱신 기능\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"2-restful-api-설계\\\"\\u003e2. RESTful API 설계\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eCRUD 작업을 위한 표준 HTTP 메서드\\u003c/li\\u003e\\n\\u003cli\\u003e적절한 상태 코드 반환\\u003c/li\\u003e\\n\\u003cli\\u003e일관된 JSON 응답 구조\\u003c/li\\u003e\\n\\u003cli\\u003eAPI 버저닝 적용\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"3-데이터베이스-모델링\\\"\\u003e3. 데이터베이스 모델링\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eMongoDB를 활용한 NoSQL 설계\\u003c/li\\u003e\\n\\u003cli\\u003eMongoose ODM으로 스키마 정의\\u003c/li\\u003e\\n\\u003cli\\u003e관계형 데이터 처리 (populate)\\u003c/li\\u003e\\n\\u003cli\\u003e인덱싱 최적화\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch3 id=\\\"4-보안-강화\\\"\\u003e4. 보안 강화\\u003c/h3\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eCORS 정책 설정\\u003c/li\\u003e\\n\\u003cli\\u003eHelmet으로 보안 헤더 적용\\u003c/li\\u003e\\n\\u003cli\\u003eRate limiting 구현\\u003c/li\\u003e\\n\\u003cli\\u003e입력 데이터 검증 및 sanitization\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003ch2 id=\\\"파일-구조\\\"\\u003e파일 구조\\u003c/h2\\u003e\\n\\u003cpre tabindex=\\\"0\\\"\\u003e\\u003ccode\\u003ebackend-api/\\r\\n├── src/\\r\\n│   ├── controllers/\\r\\n│   ├── models/\\r\\n│   ├── routes/\\r\\n│   ├── middleware/\\r\\n│   └── utils/\\r\\n├── config/\\r\\n├── tests/\\r\\n└── package.json\\n\\u003c/code\\u003e\\u003c/pre\\u003e\\u003ch2 id=\\\"성과-및-개선점\\\"\\u003e성과 및 개선점\\u003c/h2\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e성과:\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003e안정적인 API 서버 구축 완료\\u003c/li\\u003e\\n\\u003cli\\u003e보안 모범 사례 적용\\u003c/li\\u003e\\n\\u003cli\\u003e확장 가능한 아키텍처 설계\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003e개선점:\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eRedis를 활용한 세션 관리\\u003c/li\\u003e\\n\\u003cli\\u003e로그 시스템 고도화\\u003c/li\\u003e\\n\\u003cli\\u003e마이크로서비스 아키텍처 적용 검토\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003e이 프로젝트를 통해 백엔드 개발의 핵심 요소들을 체계적으로 학습하고 적용할 수 있었습니다.\\u003c/p\\u003e\\n\"",
             firstImage: ""
         },
         
@@ -1949,6 +1674,280 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     renderHighlights();
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('메인 프로젝트 초기화 시작');
+    
+    
+    const projectPosts = [
+        
+        
+        
+        
+        {
+            title: "\"커스텀 태그 테스트\"",
+            subtitle: "\"잘 작동하나?\"",
+            url: "\"/posts/project/2025-06-09-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%9C%EA%B7%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/\"",
+            tags: ["\"홈페이지 디자인\"","\"SNS광고 디자인\"",],
+            customTags: ["\"커스텀태그\"","\"태그 커스텀\"",],
+            content: "\"\\u003cp\\u003e잘 작동하는 지 테스트\\u003c/p\\u003e\\n\\u003cp\\u003e\\u003cimg src=\\\"/img/uploads/youtube2.jpg\\\" alt=\\\"\\\"\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003e이미지는 재탕\\u003c/p\\u003e\\n\"",
+            firstImage: "\"/img/uploads/youtube2.jpg\""
+        },
+        
+        
+        
+        
+        
+        
+        
+        {
+            title: "\"프로젝트 게시판 테스트\"",
+            subtitle: "\"게시글이 잘 나오길 바라며\"",
+            url: "\"/posts/project/2025-06-08-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/\"",
+            tags: ["\"JavaScript\"","\"Hugo\"","\"CSS3\"",],
+            customTags: ["\"커스텀태그\"","\"태그 커스텀\"",],
+            content: "\"\\u003cp\\u003e\\u003cimg src=\\\"/img/uploads/kakaotalk_20230217_012336798.png\\\" alt=\\\"alt text\\\" title=\\\"title\\\"\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003e귀 여운 이 모티콘\\u003c/p\\u003e\\n\"",
+            firstImage: "\"/img/uploads/kakaotalk_20230217_012336798.png\""
+        },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-2/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            content: "\"\"",
+            firstImage: ""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-3/\"",
+            tags: ["\"Photoshop\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            content: "\"\"",
+            firstImage: ""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-4/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            content: "\"\"",
+            firstImage: ""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-5/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            content: "\"\"",
+            firstImage: ""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-6/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            content: "\"\"",
+            firstImage: ""
+        },
+        
+        
+        
+        {
+            title: "\"광고 인쇄 디자인 테스트\"",
+            subtitle: "\"소제목 확인용 디버깅\"",
+            url: "\"/posts/project/test-copy-7/\"",
+            tags: ["\"React\"","\"Node.js\"","\"MongoDB\"","\"CSS\"",],
+            customTags: [],
+            content: "\"\"",
+            firstImage: ""
+        },
+        
+        
+        
+        
+    ];
+    
+    
+    function cleanUrl(url) {
+        return typeof url === 'string' ? url.replace(/^["']|["']$/g, '') : url;
+    }
+    
+    
+    function extractFirstImage(project) {
+        
+        if (project.firstImage && project.firstImage.trim()) {
+            return cleanUrl(project.firstImage);
+        }
+        
+        
+        if (project.content) {
+            const imgMatch = project.content.match(/<img[^>]+src="([^"]+)"/i);
+            if (imgMatch) {
+                return imgMatch[1];
+            }
+        }
+        
+        return null;
+    }
+    
+    
+    function getRandomProjects(posts, count = 6) {
+        const shuffled = [...posts].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+    
+    
+    const dummyProjects = [
+        { title: "E-Commerce 플랫폼", subtitle: "온라인 쇼핑몰 프로젝트", url: "#", tags: ["WEB"], image: "img/design1.jpg" },
+        { title: "브랜딩 프로젝트", subtitle: "브랜드 아이덴티티 구축", url: "#", tags: ["BRAND"], image: "img/design1.jpg" },
+        { title: "모바일 앱", subtitle: "앱 서비스 개발", url: "#", tags: ["APP"], image: "img/design1.jpg" },
+        { title: "홍보 영상", subtitle: "영상 제작", url: "#", tags: ["VIDEO"], image: "img/design1.jpg" },
+        { title: "게임 UI", subtitle: "게임 인터페이스", url: "#", tags: ["GAME"], image: "img/design1.jpg" },
+        { title: "광고 캠페인", subtitle: "광고 디자인", url: "#", tags: ["AD"], image: "img/design1.jpg" }
+    ];
+    
+    
+    function renderProjects() {
+        const container = document.getElementById('main-projects-container');
+        if (!container) return;
+        
+        
+        const cleanedPosts = projectPosts.map(post => ({
+            ...post,
+            title: cleanUrl(post.title),
+            url: cleanUrl(post.url),
+            subtitle: cleanUrl(post.subtitle)
+        }));
+        
+        const projectsToShow = cleanedPosts.length > 0 ? 
+            getRandomProjects(cleanedPosts, 6) : dummyProjects;
+        
+        container.innerHTML = projectsToShow.map(project => {
+            const firstImage = extractFirstImage(project);
+            const imageUrl = firstImage || project.image || 'img/design1.jpg';
+            
+            const basicTags = (project.tags || []).slice(0, 2);
+            const customTags = (project.customTags || []).slice(0, 1);
+            const allTags = [...basicTags, ...customTags].filter(Boolean);
+            
+            const tagElements = allTags.map(tag => {
+                const cleanTag = cleanUrl(tag).toUpperCase();
+                return `<span class="project-tag">${cleanTag}</span>`;
+            }).join('');
+            
+            const cleanTitle = cleanUrl(project.title || '');
+            const cleanSubtitle = cleanUrl(project.subtitle || '');
+            const finalUrl = cleanUrl(project.url || '');
+            
+            return `
+                <div class="main-project-card">
+                    <a href="${finalUrl}" class="project-link" style="display: block; text-decoration: none; color: inherit;">
+                        <img src="${imageUrl}" alt="${cleanTitle}" class="main-project-wide-img">
+                        <div class="main-project-text">
+                            ${tagElements}
+                            <h4 class="main-project-title">${cleanTitle}</h4>
+                            <p class="main-project-description">${cleanSubtitle || '프로젝트 설명이 없습니다.'}</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+        }).join('');
+        
+        
+        setTimeout(() => {
+            if (typeof initAutoplay === 'function') {
+                initAutoplay();
+            }
+        }, 100);
+    }
+    
+    
+    renderProjects();
 });
 </script>
 

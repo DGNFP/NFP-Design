@@ -243,15 +243,15 @@
 </ul>
 <h2 id="기술적-구현">기술적 구현</h2>
 <h3 id="1-게임-로직-시스템">1. 게임 로직 시스템</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 매치 감지 알고리즘</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">MatchDetector</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Crystal</span><span class="p">&gt;</span> <span class="n">FindMatches</span><span class="p">(</span><span class="n">Crystal</span><span class="p">[,]</span> <span class="n">board</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 가로/세로 매치 검색 로직</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 최적화된 알고리즘으로 성능 보장</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// 매치 감지 알고리즘</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MatchDetector</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List&lt;Crystal&gt; FindMatches(Crystal[,] board)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 가로/세로 매치 검색 로직</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 최적화된 알고리즘으로 성능 보장</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="2-오브젝트-풀링">2. 오브젝트 풀링</h3>
 <ul>
 <li>크리스탈 오브젝트 재사용으로 메모리 최적화</li>
@@ -259,14 +259,14 @@
 <li>가비지 컬렉션 최소화</li>
 </ul>
 <h3 id="3-상태-관리">3. 상태 관리</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">GameState</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Menu</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Playing</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">Paused</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">GameOver</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">LevelComplete</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> GameState
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Menu,
+</span></span><span style="display:flex;"><span>    Playing,
+</span></span><span style="display:flex;"><span>    Paused,
+</span></span><span style="display:flex;"><span>    GameOver,
+</span></span><span style="display:flex;"><span>    LevelComplete
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="4-레벨-시스템">4. 레벨 시스템</h3>
 <ul>
 <li>JSON 기반 레벨 데이터 구조</li>

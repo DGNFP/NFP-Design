@@ -4,381 +4,229 @@
   <url>
     <loc>http://localhost:1313/categories/ad/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-06-10-%EA%B4%91%EA%B3%A0%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-10T17:58:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/news/</loc>
     <lastmod>2025-06-10T17:57:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/news/2025-06-10-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-0610/</loc>
     <lastmod>2025-06-10T17:57:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/project/</loc>
     <lastmod>2025-06-10T01:21:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-10T01:21:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/2025-06-09-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%9C%EA%B7%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-10T01:21:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-10T01:21:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/web/</loc>
     <lastmod>2025-06-09T09:16:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/web/2025-06-09-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%EB%AA%A8%EB%B0%94%EC%9D%BC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-09T09:16:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/photoshop/</loc>
     <lastmod>2025-06-08T01:06:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-06-08-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EA%B2%8C%EC%8B%9C%EA%B8%80-0609/</loc>
     <lastmod>2025-06-08T01:06:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-08T01:06:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/css3/</loc>
     <lastmod>2025-06-07T23:50:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2025-06-07T23:50:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/javascript/</loc>
     <lastmod>2025-06-07T23:50:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/2025-06-08-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-07T23:50:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/creative/</loc>
     <lastmod>2025-06-07T01:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/illustrator/</loc>
     <lastmod>2025-06-07T01:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/%EC%9D%B8%ED%84%B0%EB%84%B7-%EB%B0%A9%EC%86%A1-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-07T01:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-06-08-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-07T01:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/content/</loc>
     <lastmod>2025-06-06T19:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3-copy-2/</loc>
     <lastmod>2025-06-06T19:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3-copy/</loc>
     <lastmod>2025-06-06T19:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-06-06-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-3/</loc>
     <lastmod>2025-06-06T19:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/news/2025-06-05-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-250605-am10-13/</loc>
     <lastmod>2025-06-05T10:13:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/news/2025-06-04-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-3/</loc>
     <lastmod>2025-06-05T00:06:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>
     <lastmod>2025-06-03T13:48:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-03T13:48:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/video/</loc>
     <lastmod>2025-06-01T20:21:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
     <lastmod>2025-06-01T20:21:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/video/2025-06-01-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-06-01T20:13:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/programming/test6/</loc>
     <lastmod>2025-06-01T16:45:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/programming/test5/</loc>
     <lastmod>2025-06-01T16:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/programming/test4/</loc>
     <lastmod>2025-06-01T15:30:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/programming/test3/</loc>
     <lastmod>2025-06-01T14:30:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/programming/test/</loc>
     <lastmod>2025-06-01T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-05-29-%EA%B4%91%EA%B3%A0%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</loc>
     <lastmod>2025-05-30T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</loc>
     <lastmod>2025-05-30T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/web/2025-05-29-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</loc>
     <lastmod>2025-05-30T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-05-29-%EA%B4%91%EA%B3%A0%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0529/</loc>
     <lastmod>2025-05-29T23:54:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0529/</loc>
     <lastmod>2025-05-29T23:54:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy-2/</loc>
     <lastmod>2025-05-29T23:35:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy/</loc>
     <lastmod>2025-05-29T23:35:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
     <lastmod>2025-05-29T23:35:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/news/</loc>
     <lastmod>2025-05-29T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/news/2025-05-29-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B82/</loc>
     <lastmod>2025-05-29T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/web/2025-05-29-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B81/</loc>
     <lastmod>2025-05-29T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/news/2025-05-26-%EC%86%8C%EC%8B%9D-%EA%B2%8C%EC%8B%9C%EA%B8%80-%ED%85%8C%EC%8A%A4%ED%8A%B8-1/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-2/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-3/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-4/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-5/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81/</loc>
     <lastmod>2025-05-27T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/css/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/mongodb/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/node.js/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/react/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy-2/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/ad/2025-05-25-%EA%B4%91%EA%B3%A0-%EC%9D%B8%EC%87%84-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/test-copy-2/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/test-copy-3/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/test-copy-4/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/test-copy-5/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/test-copy-6/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/project/test-copy-7/</loc>
     <lastmod>2025-05-25T00:04:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/news/simple/</loc>
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/programming/test2/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>
