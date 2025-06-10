@@ -2,6 +2,112 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+
+  <!-- Google tag (gtag.js) - 향상된 추적 기능 포함 -->
+{{ if hugo.IsProduction }}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG6N24RD49"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-HG6N24RD49', {
+    page_title: '{{ .Title }}',
+    page_location: '{{ .Permalink }}',
+    send_page_view: true
+  });
+
+  // NFP 디자인 사이트 특화 이벤트 추적
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. 포트폴리오 카드 클릭 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.closest('.design-item') || 
+          event.target.closest('.board-item') || 
+          event.target.closest('.highlight-card')) {
+        gtag('event', 'portfolio_view', {
+          event_category: 'engagement',
+          event_label: 'portfolio_click'
+        });
+      }
+    });
+
+    // 2. 연락하기 버튼 클릭 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.closest('.floating-btn') || 
+          event.target.textContent.includes('연락') || 
+          event.target.textContent.includes('문의')) {
+        gtag('event', 'contact_intent', {
+          event_category: 'lead',
+          event_label: 'contact_button'
+        });
+      }
+    });
+
+    // 3. 카테고리 필터 사용 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.closest('.category-tab') || 
+          event.target.closest('.category-filter')) {
+        let category = event.target.textContent.trim() || 'unknown';
+        gtag('event', 'category_filter', {
+          event_category: 'navigation',
+          event_label: category
+        });
+      }
+    });
+
+    // 4. 외부 링크 클릭 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A' && 
+          event.target.hostname !== window.location.hostname) {
+        gtag('event', 'outbound_click', {
+          event_category: 'external_link',
+          event_label: event.target.href
+        });
+      }
+    });
+
+    // 5. 스크롤 깊이 추적
+    let scrollDepths = [25, 50, 75, 100];
+    let maxScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      let scrollPercent = Math.round(
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+      );
+      
+      if (scrollPercent > maxScroll) {
+        maxScroll = scrollPercent;
+        
+        scrollDepths.forEach(function(depth) {
+          if (scrollPercent >= depth && !window['scroll' + depth + 'Fired']) {
+            gtag('event', 'scroll_depth', {
+              event_category: 'engagement',
+              event_label: depth + '%'
+            });
+            window['scroll' + depth + 'Fired'] = true;
+          }
+        });
+      }
+    });
+
+    // 6. 파일 다운로드 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        let href = event.target.getAttribute('href');
+        if (href && (href.includes('.pdf') || href.includes('.zip') || 
+                    href.includes('.psd') || href.includes('.ai'))) {
+          gtag('event', 'file_download', {
+            event_category: 'engagement',
+            event_label: href
+          });
+        }
+      }
+    });
+  });
+</script>
+{{ end }}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     
@@ -11,13 +117,27 @@
     <!-- 키워드 메타 태그 (추가) -->
     <meta name="keywords" content="NFP디자인, 프리랜서디자이너, 디자인외주, 디자인용역, 웹디자이너, 그래픽디자이너, 영상편집자, 개발자, 웹개발자, 웹디자인, 홈페이지제작, 쇼핑몰제작, 랜딩페이지, 반응형웹, 웹사이트디자인, 컨텐츠디자인, 영상디자인, 프로그래밍, 광고디자인, 인쇄디자인, 디지털배너, 상세페이지디자인, UXUI디자인, 앱디자인, 카드뉴스, 포스터디자인, SNS광고, 인스타그램디자인, 페이스북광고, 블로그디자인, 로고디자인, 브랜딩, BI디자인, CI디자인, 게임광고, 인터넷방송디자인, 스트리밍디자인, 트위치디자인, 유튜브디자인, 영상제작, 영상편집, 모션그래픽, 애니메이션, 유튜브썸네일, 인트로영상, 아웃트로영상, 프론트엔드, 웹퍼블리싱, 모바일앱, 앱개발, 게임개발, 유니티, 현수막, 엑스배너, 명함디자인, 브로슈어, 카탈로그, 패키지디자인, 포장지디자인, 스타트업디자인, 중소기업디자인, 1인기업디자인, 창업디자인, 온라인쇼핑몰, 카페디자인, 음식점디자인, 병원디자인, 부동산디자인, 교육업디자인, 뷰티디자인, 패션디자인, IT디자인, 금융디자인, 건설업디자인, 제조업디자인, 서비스업디자인, 디자인대행, 디자인제작, 디자인업체, 디자인회사, 외주디자인, 프로젝트단위, 단기프로젝트, 장기프로젝트, 디자인컨설팅, 디자인기획, 비주얼디자인, 그래픽작업, 포토샵작업, 일러스트작업, 이미지편집, 사진보정, 3D디자인, 제품디자인, 산업디자인, 편집디자인, 출판디자인, 북디자인, 매뉴얼디자인, 프레젠테이션디자인, PPT디자인, 이벤트디자인, 전시디자인, 사인디자인, 간판디자인, 실사출력, 디지털프린팅, Fresh, Pop, Needs, 트렌드, 디테일, 합리적가격, 빠른작업, 고품질, 전문가, 경력자, 포트폴리오">
     
+    <!-- SEO 추가 메타 태그 -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    
     <!-- Open Graph 태그 (카카오톡, 페이스북 등에서 사용) -->
     <meta property="og:title" content="{{ if .IsHome }}NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta property="og:description" content="{{ .Description | default "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인, NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다." }}">
     <meta property="og:image" content="{{ "img/NFP.jpg" | absURL }}">
     <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
     <meta property="og:site_name" content="NFP 디자인">
+    {{ if not .IsHome }}
+        <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{ with .Params.categories }}
+            {{ range . }}
+                <meta property="article:section" content="{{ . }}">
+            {{ end }}
+        {{ end }}
+    {{ end }}
     
     <!-- Twitter 태그 -->
     <meta name="twitter:card" content="summary_large_image">
@@ -25,69 +145,58 @@
     <meta name="twitter:description" content="{{ .Description | default "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인, NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다." }}">
     <meta property="twitter:image" content="{{ "img/NFP.jpg" | absURL }}">
     
-    <!-- 구조화된 데이터 (JSON-LD) -->
+    <!-- 구조화된 데이터 (JSON-LD) - SEO 향상 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "NFP 디자인",
-      "description": "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인",
-      "url": "{{ .Site.BaseURL }}",
+      "@type": "{{ if .IsHome }}Organization{{ else }}Article{{ end }}",
+      "name": "{{ if .IsHome }}NFP 디자인{{ else }}{{ .Title }}{{ end }}",
+      "description": "{{ .Description | default "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인" }}",
+      "url": "{{ .Permalink }}",
+      {{ if .IsHome }}
       "logo": "{{ "img/NFP.jpg" | absURL }}",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "고객 서비스"
       },
       "services": [
-        "웹디자인",
-        "홈페이지디자인", 
-        "디지털배너디자인",
-        "상세페이지디자인",
-        "UXUI디자인",
-        "컨텐츠디자인",
-        "카드뉴스디자인",
-        "포스터디자인",
-        "SNS광고디자인",
-        "크리에이티브디자인",
-        "로고디자인",
-        "브랜딩",
-        "게임광고디자인",
-        "인터넷방송디자인",
-        "영상디자인",
-        "영상제작",
-        "영상편집",
-        "모션그래픽",
-        "유튜브썸네일",
-        "프로그래밍",
-        "프론트엔드",
-        "웹퍼블리싱",
-        "모바일앱",
-        "게임개발",
-        "광고디자인",
-        "인쇄디자인",
-        "현수막디자인",
-        "엑스배너디자인",
-        "명함디자인",
-        "브로슈어디자인",
-        "카탈로그디자인",
-        "광고매체디자인",
-        "패키지디자인"
+        "웹디자인", "홈페이지디자인", "디지털배너디자인", "상세페이지디자인", "UXUI디자인", "컨텐츠디자인", "카드뉴스디자인", "포스터디자인", "SNS광고디자인", "크리에이티브디자인", "로고디자인", "브랜딩", "게임광고디자인", "인터넷방송디자인", "영상디자인", "영상제작", "영상편집", "모션그래픽", "유튜브썸네일", "프로그래밍", "프론트엔드", "웹퍼블리싱", "모바일앱", "게임개발", "광고디자인", "인쇄디자인", "현수막디자인", "엑스배너디자인", "명함디자인", "브로슈어디자인", "카탈로그디자인", "광고매체디자인", "패키지디자인"
       ]
+      {{ else }}
+      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ .Site.Params.author }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "{{ .Site.BaseURL }}"
+      }
+      {{ end }}
     }
     </script>
     
-   <!-- CSS 파일들 - 절대 경로로 수정 -->
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/board.css">
-<link rel="stylesheet" href="/css/project_board.css">
-{{ if .IsHome }}
-    <link rel="stylesheet" href="/css/project.css">
-{{ end }}
-<!-- 기존 icon.png를 파비콘으로 사용 -->
-<link rel="icon" type="image/png" href="{{ "/img/icon.png" | relURL }}">
-<link rel="apple-touch-icon" href="{{ "/img/icon.png" | relURL }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS 파일들 - 절대 경로로 수정 (기존 유지) -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/project_board.css">
+    {{ if .IsHome }}
+        <link rel="stylesheet" href="/css/project.css">
+    {{ end }}
     
+    <!-- 기존 icon.png를 파비콘으로 사용 (기존 유지) -->
+    <link rel="icon" type="image/png" href="{{ "/img/icon.png" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ "/img/icon.png" | relURL }}">
+    
+    <!-- Font Awesome - CDN 유지 (중요: 아이콘 깨짐 방지) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Analytics 4 (프로덕션 환경에서만 실행) -->
+    {{ if and hugo.IsProduction .Site.Params.googleAnalyticsID }}
+        {{ partial "analytics-gtag.html" . }}
+    {{ end }}
 </head>
 <body>
     <div id="header-container"></div>
@@ -97,13 +206,13 @@
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
     
-    <!-- 컴포넌트 스크립트 - 절대 경로로 수정 -->
+    <!-- 컴포넌트 스크립트 - 절대 경로로 수정 (기존 유지) -->
     <script src="{{ "/components/header.js" | relURL }}"></script>
     <script src="{{ "/components/footer.js" | relURL }}"></script>
     <script src="{{ "/components/floating.js" | relURL }}"></script>
     <script src="{{ "/components/project.js" | relURL }}"></script>
     
-    <!-- 컴포넌트 초기화 -->
+    <!-- 컴포넌트 초기화 (기존 유지) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             createHeader('header-container');
@@ -112,12 +221,14 @@
         });
     </script>
     
+    <!-- 기존 스크립트 유지 -->
     {{ if .IsHome }}
     <script src="{{ "/js/scpript.js" | relURL }}"></script>
     {{ else }}
     <script src="{{ "/js/filter.js" | relURL }}"></script>
     {{ end }}
     
+    <!-- Netlify Identity 유지 -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </body>
 </html>

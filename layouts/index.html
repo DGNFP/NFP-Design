@@ -263,6 +263,207 @@
     </div>
 </section>
 
+
+<!-- 뉴스레터 섹션 -->
+<!-- 뉴스레터 구독 섹션 -->
+<section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-content">
+            <!-- 헤더 -->
+            <div class="newsletter-header">
+                <h2 class="newsletter-title">
+                    <i class="fas fa-envelope"></i>
+                    NFP 디자인 뉴스레터
+                </h2>
+                <p class="newsletter-description">
+                    새로운 포트폴리오와 프로젝트 소식을 가장 먼저 받아보세요
+                </p>
+            </div>
+            
+            <!-- Netlify Forms 구독 폼 -->
+            <form name="newsletter-signup" method="POST" data-netlify="true" class="newsletter-form" id="newsletter-form">
+                <input type="hidden" name="form-name" value="newsletter-signup">
+                
+                <!-- 이메일 입력 -->
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="이메일 주소를 입력하세요" 
+                            required 
+                            class="newsletter-input"
+                            id="newsletter-email"
+                        >
+                        <button type="submit" class="newsletter-submit">
+                            <span class="submit-text">구독하기</span>
+                            <i class="fas fa-paper-plane submit-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 관심 분야 선택 (선택사항) -->
+                <div class="interest-group">
+                    <p class="interest-label">관심 있는 분야를 선택해주세요 (선택사항):</p>
+                    <div class="interest-checkboxes">
+                        <label class="interest-item">
+                            <input type="checkbox" name="interests" value="웹디자인">
+                            <span class="checkmark"></span>
+                            웹디자인
+                        </label>
+                        <label class="interest-item">
+                            <input type="checkbox" name="interests" value="컨텐츠디자인">
+                            <span class="checkmark"></span>
+                            컨텐츠디자인
+                        </label>
+                        <label class="interest-item">
+                            <input type="checkbox" name="interests" value="크리에이티브디자인">
+                            <span class="checkmark"></span>
+                            크리에이티브디자인
+                        </label>
+                        <label class="interest-item">
+                            <input type="checkbox" name="interests" value="영상디자인">
+                            <span class="checkmark"></span>
+                            영상디자인
+                        </label>
+                        <label class="interest-item">
+                            <input type="checkbox" name="interests" value="프로그래밍">
+                            <span class="checkmark"></span>
+                            프로그래밍
+                        </label>
+                        <label class="interest-item">
+                            <input type="checkbox" name="interests" value="광고디자인">
+                            <span class="checkmark"></span>
+                            광고디자인
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 개인정보 동의 -->
+                <div class="newsletter-privacy">
+                    <label class="privacy-checkbox">
+                        <input type="checkbox" name="privacy_agree" required>
+                        <span class="checkmark"></span>
+                        <span class="privacy-text">
+                            개인정보 수집 및 이용에 동의합니다. 
+                            <a href="/privacy" target="_blank">개인정보처리방침 보기</a>
+                        </span>
+                    </label>
+                </div>
+                
+                <!-- 성공/오류 메시지 -->
+                <div class="form-message" id="form-message" style="display: none;">
+                    <div class="message-content"></div>
+                </div>
+            </form>
+            
+            <!-- 구독 혜택 -->
+            <div class="newsletter-benefits">
+                <h3 class="benefits-title">🎨 구독하시면 이런 것들을 받아보실 수 있어요</h3>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-palette"></i> 새로운 포트폴리오 및 프로젝트 업데이트</li>
+                    <li><i class="fas fa-lightbulb"></i> 디자인 트렌드와 실무 팁 공유</li>
+                    <li><i class="fas fa-star"></i> 독점 비하인드 스토리 및 작업 과정</li>
+                    <li><i class="fas fa-gift"></i> 무료 디자인 템플릿 및 리소스</li>
+                    <li><i class="fas fa-calendar-alt"></i> 월 1-2회 발송, 언제든 구독 취소 가능</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 뉴스레터 폼 JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('newsletter-form');
+    const message = document.getElementById('form-message');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const email = formData.get('email');
+            const privacyAgree = formData.get('privacy_agree');
+            
+            // 유효성 검사
+            if (!email || !privacyAgree) {
+                showMessage('이메일을 입력하고 개인정보 처리방침에 동의해주세요.', 'error');
+                return;
+            }
+            
+            // 제출 버튼 비활성화
+            const submitBtn = form.querySelector('.newsletter-submit');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 구독 중...';
+            submitBtn.disabled = true;
+            
+            // 관심 분야 수집
+            const interests = [];
+            const checkedInterests = form.querySelectorAll('input[name="interests"]:checked');
+            checkedInterests.forEach(input => interests.push(input.value));
+            
+            // Netlify Forms로 제출
+            const submitData = new URLSearchParams();
+            submitData.append('form-name', 'newsletter-signup');
+            submitData.append('email', email);
+            submitData.append('interests', interests.join(', '));
+            submitData.append('privacy_agree', privacyAgree);
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: submitData
+            })
+            .then(response => {
+                if (response.ok) {
+                    showMessage('🎉 구독이 완료되었습니다! 곧 환영 이메일을 받아보실 수 있어요.', 'success');
+                    form.reset();
+                    
+                    // Google Analytics 이벤트 추적
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'newsletter_signup', {
+                            event_category: 'lead_generation',
+                            event_label: 'newsletter',
+                            interests: interests.join(', ')
+                        });
+                    }
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showMessage('구독 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.', 'error');
+            })
+            .finally(() => {
+                // 제출 버튼 복원
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+    
+    function showMessage(text, type) {
+        if (!message) return;
+        
+        message.style.display = 'block';
+        message.className = `form-message ${type}`;
+        message.querySelector('.message-content').textContent = text;
+        
+        // 스크롤을 메시지로 이동
+        message.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // 5초 후 메시지 숨기기
+        setTimeout(() => {
+            message.style.display = 'none';
+        }, 6000);
+    }
+});
+</script>
+
+
+
 <!-- 팝업 배너 슬라이더 (PC 전용) -->
 <div id="popup-banner" class="popup-banner">
     <div class="popup-banner-container">

@@ -26,7 +26,11 @@ command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.147.5"
 
-# 보안 헤더
+# Functions 설정 (뉴스레터 자동 발송용)
+[functions]
+  directory = "netlify/functions"
+
+# 보안 헤더 (기존 유지)
 [[headers]]
   for = "/*"
   [headers.values]
@@ -35,13 +39,13 @@ HUGO_VERSION = "0.147.5"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     
-# SEO를 위한 robots 헤더 (검색엔진 최적화)
+# SEO를 위한 robots 헤더 (검색엔진 최적화) (기존 유지)
 [[headers]]
   for = "/*"
   [headers.values]
     X-Robots-Tag = "index, follow"
 
-# 정적 파일 캐싱 (성능 개선)
+# 정적 파일 캐싱 (성능 개선) (기존 유지)
 [[headers]]
   for = "/css/*"
   [headers.values]
@@ -57,7 +61,7 @@ HUGO_VERSION = "0.147.5"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
-# robots.txt와 sitemap.xml은 자주 확인되도록
+# robots.txt와 sitemap.xml은 자주 확인되도록 (기존 유지)
 [[headers]]
   for = "/robots.txt"
   [headers.values]
@@ -67,3 +71,26 @@ HUGO_VERSION = "0.147.5"
   for = "/sitemap.xml"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+# API 함수들은 캐시 안함 (새로 추가)
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# 폼 제출 처리 (새로 추가)
+[[redirects]]
+  from = "/newsletter-success"
+  to = "/?newsletter=success"
+  status = 302
+
+[[redirects]]
+  from = "/unsubscribe"
+  to = "/?newsletter=unsubscribe"
+  status = 302
+
+# 404 에러 페이지 처리 (새로 추가)
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
