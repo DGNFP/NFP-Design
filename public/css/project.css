@@ -281,7 +281,7 @@
 .custom-prev,
 .custom-next {
     position: absolute;
-    top: 50%;
+    top: 42.5%;
     transform: translateY(-50%);
     z-index: 20;
     width: 50px;
