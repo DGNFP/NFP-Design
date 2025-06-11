@@ -1388,12 +1388,18 @@ nav {
 .newsletter-title {
     font-size: 32px;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--text-color);
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
+}
+
+
+.newsletter-title span{
+  color: var(--accent-color);  
+  font-weight: 900;
 }
 
 .newsletter-title i {
@@ -1624,9 +1630,9 @@ nav {
 }
 
 .benefits-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
-    color: var(--accent-color);
+    color: var(--text-color-);
     margin-bottom: 20px;
     text-align: center;
 }
