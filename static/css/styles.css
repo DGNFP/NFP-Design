@@ -1035,7 +1035,7 @@ nav {
 /* 마크다운 에디터에서 업로드한 이미지만 타겟 */
 .post-body img[src^="/img/uploads/"] {
     /* 이미지 비율 처리 , 원본의 절반 크기로 줄여져서 게시글에 보여짐*/
-    max-width: 50% !important; 
+    max-width: 70% !important; 
     height: auto !important;
     margin-bottom: 20px !important;
     display: block;
@@ -1686,6 +1686,16 @@ nav {
         align-items: center;
         padding: 0px;
     }
+
+    /* 모바일에서 이미지 비율 */
+.post-body img[src^="/img/uploads/"] {
+    /* 이미지 비율 처리 , 원본의 절반 크기로 줄여져서 게시글에 보여짐*/
+    max-width: 75% !important; 
+    height: auto !important;
+    margin-bottom: 20px !important;
+    display: block;
+    border-radius: 4px; /* 선택사항: 모서리 둥글게 */
+}
 }
 
 @media (max-width: 768px) {
@@ -1791,6 +1801,8 @@ nav {
     .tags-container .project-scale-badge{
     font-size: 9px;
     padding: 6px 10px;
+    margin-bottom: 0px;
+    margin-right: 0px;
     }
 
 
@@ -2040,6 +2052,15 @@ nav {
     cursor: pointer;
 }
 
+/* 모바일에서 이미지 비율 */
+.post-body img[src^="/img/uploads/"] {
+    /* 이미지 비율 처리 , 원본의 절반 크기로 줄여져서 게시글에 보여짐*/
+    max-width: 100% !important; 
+    height: auto !important;
+    margin-bottom: 20px !important;
+    display: block;
+    border-radius: 4px; /* 선택사항: 모서리 둥글게 */
+}
 /* 뉴스레터 */
  .newsletter-content {
         padding: 0 10px;
