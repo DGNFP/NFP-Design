@@ -179,6 +179,43 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
+      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
+      - label: "커스텀 태그"
+        name: "custom_tags"
+        widget: "list"
+        allow_add: true
+        field: {label: "태그", name: "tag", widget: "string"}
+        hint: "새로운 태그를 직접 입력하세요"
+        required: false
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
+
+  - name: "notice"
+    label: "공지사항"
+    folder: "content/notice"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "제목", name: "title", widget: "string"}
+      - {label: "발행일", name: "date", widget: "datetime"}
+      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
+      - label: "커스텀 태그"
+        name: "custom_tags"
+        widget: "list"
+        allow_add: true
+        field: {label: "태그", name: "tag", widget: "string"}
+        hint: "새로운 태그를 직접 입력하세요"
+        required: false
+      - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
+
+  - name: "freeboard"
+    label: "자유게시판"
+    folder: "content/freeboard"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "제목", name: "title", widget: "string"}
+      - {label: "발행일", name: "date", widget: "datetime"}
+      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
