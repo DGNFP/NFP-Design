@@ -183,17 +183,17 @@
     }
     
     .project-minimal-content {
-        line-height: 1.2;  /* 핵심! */
-        padding: 7px;
+        line-height: 0.9;  /* 핵심! */
+        padding: 8px;
     }
     
     .project-scale-badge {
         font-size: 7px;
-        padding: 3px 5px;
-        margin: 0 2px 2px 0;
+        padding: 4px 5px 2px 5px;
+        margin: 0 1px 4px 0px;
         display: inline-block;  /* 이미 있을 수도 있음 */
-        line-height: 1;
-        vertical-align: top;    /* middle 대신 top */
+        line-height: 1.2;   
+        vertical-align: baseline;
     }
     
     .project-minimal-title {
