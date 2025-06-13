@@ -189,7 +189,7 @@ collections:
         required: false
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
-      - name: "notice"
+  - name: "notice"
     label: "공지사항"
     folder: "content/notice"
     create: true
@@ -207,7 +207,7 @@ collections:
         required: false
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
-      - name: "freeboard"
+  - name: "freeboard"
     label: "자유게시판"
     folder: "content/freeboard"
     create: true
