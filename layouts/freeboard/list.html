@@ -1,21 +1,21 @@
 {{ define "main" }}
 <section class="board-section">
     <div class="container">
-        <h2 class="board-section-title">소식</h2>
-        <p class="board-intro">NFP 디자인 최신 소식과 업데이트</p>
+        <h2 class="board-section-title">자유게시판</h2>
+        <p class="board-intro">NFP 디자인, 디자인 너머의 일상 이야기</p>
         
-        <!-- 탭 메뉴 -->
-        <div class="all-view-all-wrapper">
+        <!-- 탭메뉴 -->
+            <div class="all-view-all-wrapper">
             <a href="/notice/" class="all-view-all-button">공지사항</a>
-            <a href="/news/" class="all-view-all-button active">소식</a>
-            <a href="/freeboard/" class="all-view-all-button">자유게시판</a>
+            <a href="/news/" class="all-view-all-button">소식</a>
+            <a href="/freeboard/" class="all-view-all-button active">자유게시판</a>
         </div>
         
-        <!-- 소식 게시글 (기존 스타일 유지) -->
+        <!-- 자유게시판 게시글 (소식 스타일과 동일) -->
         <div class="news-list">
-            {{ $newsPosts := where .Site.RegularPages "Section" "news" }}
-            {{ if $newsPosts }}
-                {{ range $newsPosts.ByDate.Reverse }}
+            {{ $freeboardPosts := where .Site.RegularPages "Section" "freeboard" }}
+            {{ if $freeboardPosts }}
+                {{ range $freeboardPosts.ByDate.Reverse }}
                 <div class="news-item">
                     <a href="{{ .Permalink }}" class="news-link">
                         <span class="news-title">{{ .Title }}</span>
@@ -26,7 +26,7 @@
             {{ else }}
                 <div class="news-item">
                     <div class="news-link">
-                        <span class="news-title">소식이 없습니다</span>
+                        <span class="news-title">자유게시판 글이 없습니다</span>
                         <span class="news-date">2025.05.24</span>
                     </div>
                 </div>

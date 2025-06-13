@@ -1,24 +1,26 @@
 {{ define "main" }}
 <section class="board-section">
     <div class="container">
-        <h2 class="board-section-title">소식</h2>
-        <p class="board-intro">NFP 디자인 최신 소식과 업데이트</p>
+        <h2 class="board-section-title">공지사항</h2>
+        <p class="board-intro">NFP 디자인의 공지를 알려드립니다.</p>
         
         <!-- 탭 메뉴 -->
         <div class="all-view-all-wrapper">
-            <a href="/notice/" class="all-view-all-button">공지사항</a>
-            <a href="/news/" class="all-view-all-button active">소식</a>
+            <a href="/notice/" class="all-view-all-button active">공지사항</a>
+            <a href="/news/" class="all-view-all-button">소식</a>
             <a href="/freeboard/" class="all-view-all-button">자유게시판</a>
         </div>
         
-        <!-- 소식 게시글 (기존 스타일 유지) -->
+        <!-- 공지사항 게시글 ([공지] 배지 자동 추가) -->
         <div class="news-list">
-            {{ $newsPosts := where .Site.RegularPages "Section" "news" }}
-            {{ if $newsPosts }}
-                {{ range $newsPosts.ByDate.Reverse }}
+            {{ $noticePosts := where .Site.RegularPages "Section" "notice" }}
+            {{ if $noticePosts }}
+                {{ range $noticePosts.ByDate.Reverse }}
                 <div class="news-item">
                     <a href="{{ .Permalink }}" class="news-link">
-                        <span class="news-title">{{ .Title }}</span>
+                        <span class="news-title">
+                            <span class="notice-badge">[공지]</span> {{ .Title }}
+                        </span>
                         <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
                     </a>
                 </div>
@@ -26,7 +28,7 @@
             {{ else }}
                 <div class="news-item">
                     <div class="news-link">
-                        <span class="news-title">소식이 없습니다</span>
+                        <span class="news-title">공지사항이 없습니다</span>
                         <span class="news-date">2025.05.24</span>
                     </div>
                 </div>

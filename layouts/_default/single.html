@@ -105,7 +105,7 @@
             }
             </style>
 
-            <!-- 게시글 내용 -->
+           <!-- 게시글 내용 -->
             <div class="post-content">
                 <!-- 동영상 또는 이미지 표시 -->
                 <div class="post-media">
@@ -189,70 +189,82 @@
                     {{ .Content }}
                 </div>
 
-                <!-- 태그 표시 (본문 최하단) -->
-                {{ if .Params.tags }}
+                <!-- 태그 표시 (본문 최하단) - 타입 안전 처리 -->
+                {{ if or .Params.tags .Params.custom_tags }}
                 <div class="tags-container">
+                    <!-- 기본 태그 우선 표시 -->
                     {{ range .Params.tags }}
                     <span class="project-scale-badge">{{ . }}</span>
                     {{ end }}
-                <!-- 커스텀 태그 -->
-                {{ range .Params.custom_tags }}
-                <span class="project-scale-badge">{{ . }}</span>
-                {{ end }}
-
+                    <!-- 커스텀 태그 (두 형식 모두 지원) -->
+                    {{ range .Params.custom_tags }}
+                        {{ $tagValue := . }}
+                        {{ if reflect.IsMap . }}
+                            {{ $tagValue = .tag }}
+                        {{ end }}
+                        <span class="project-scale-badge">{{ $tagValue }}</span>
+                    {{ end }}
                 </div>
                 {{ end }}
             </div>
 
-            <!-- 페이지 네비게이션 (통합 버전) -->
-            <div class="post-navigation">
-                {{ $posts := slice }}
-                {{ $listUrl := "" }}
-                
-                {{ if eq .Section "news" }}
-                    <!-- 소식 게시판용 -->
-                    {{ $posts = where .Site.RegularPages "Section" "news" }}
-                    {{ $listUrl = "/news/" }}
-                {{ else }}
-                    <!-- 포스트 게시판용 -->
-                    {{ $currentCategory := index .Params.categories 0 }}
-                    {{ $posts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
-                    {{ $listUrl = printf "/categories/%s/" $currentCategory }}
-                {{ end }}
-                
-                {{ $posts = $posts.ByDate.Reverse }}
-                {{ $currentIndex := 0 }}
-                {{ range $index, $post := $posts }}
-                    {{ if eq $post.Permalink $.Permalink }}
-                        {{ $currentIndex = $index }}
-                    {{ end }}
-                {{ end }}
-                
-                <!-- 이전 게시글 -->
-                {{ $prevIndex := add $currentIndex 1 }}
-                {{ if lt $prevIndex (len $posts) }}
-                    {{ $prevPost := index $posts $prevIndex }}
-                    <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
-                        <i class="fas fa-chevron-left"></i> 이전
-                    </a>
-                {{ else }}
-                    <span></span>
-                {{ end }}
-                
-                <!-- 목록으로 -->
-                <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
+            <!-- 페이지 네비게이션 (수정된 버전) -->
+<div class="post-navigation">
+    {{ $posts := slice }}
+    {{ $listUrl := "" }}
+    
+    {{ if eq .Section "news" }}
+        <!-- 소식 게시판용 -->
+        {{ $posts = where .Site.RegularPages "Section" "news" }}
+        {{ $listUrl = "/news/" }}
+    {{ else if eq .Section "freeboard" }}
+        <!-- 자유게시판용 -->
+        {{ $posts = where .Site.RegularPages "Section" "freeboard" }}
+        {{ $listUrl = "/freeboard/" }}
+    {{ else if eq .Section "notice" }}
+        <!-- 공지사항용 -->
+        {{ $posts = where .Site.RegularPages "Section" "notice" }}
+        {{ $listUrl = "/notice/" }}
+    {{ else }}
+        <!-- 포스트 게시판용 (기존 코드 유지) -->
+        {{ $currentCategory := index .Params.categories 0 }}
+        {{ $posts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
+        {{ $listUrl = printf "/categories/%s/" $currentCategory }}
+    {{ end }}
+    
+    {{ $posts = $posts.ByDate.Reverse }}
+    {{ $currentIndex := 0 }}
+    {{ range $index, $post := $posts }}
+        {{ if eq $post.Permalink $.Permalink }}
+            {{ $currentIndex = $index }}
+        {{ end }}
+    {{ end }}
+    
+    <!-- 이전 게시글 -->
+    {{ $prevIndex := add $currentIndex 1 }}
+    {{ if lt $prevIndex (len $posts) }}
+        {{ $prevPost := index $posts $prevIndex }}
+        <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
+            <i class="fas fa-chevron-left"></i> 이전
+        </a>
+    {{ else }}
+        <span></span>
+    {{ end }}
+    
+    <!-- 목록으로 -->
+    <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
 
-                <!-- 다음 게시글 -->
-                {{ $nextIndex := sub $currentIndex 1 }}
-                {{ if ge $nextIndex 0 }}
-                    {{ $nextPost := index $posts $nextIndex }}
-                    <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
-                        다음 <i class="fas fa-chevron-right"></i>
-                    </a>
-                {{ else }}
-                    <span></span>
-                {{ end }}
-            </div>
+    <!-- 다음 게시글 -->
+    {{ $nextIndex := sub $currentIndex 1 }}
+    {{ if ge $nextIndex 0 }}
+        {{ $nextPost := index $posts $nextIndex }}
+        <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
+            다음 <i class="fas fa-chevron-right"></i>
+        </a>
+    {{ else }}
+        <span></span>
+    {{ end }}
+</div>
         </div>
     </div>
 </section>

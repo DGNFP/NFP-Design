@@ -218,15 +218,32 @@
                 <button class="banner-btn next-btn"><i class="fas fa-chevron-right"></i></button>
 
                <div class="news-list">
+    <!-- 공지사항 최신 1개 (맨 위에 표시) -->
+    {{ $noticePosts := where site.RegularPages "Section" "notice" }}
+    {{ range first 1 $noticePosts.ByDate.Reverse }}
+    <div class="news-item">
+        <a href="{{ .Permalink }}" class="news-link">
+            <span class="news-title">
+                <span class="notice-badge">[공지]</span> {{ .Title }}
+            </span>
+            <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
+        </a>
+    </div>
+    {{ end }}
+    
+    <!-- 일반 소식 최신 4개 -->
     {{ $newsPosts := where site.RegularPages "Section" "news" }}
-    {{ range first 5 $newsPosts.ByDate.Reverse }}
+    {{ range first 4 $newsPosts.ByDate.Reverse }}
     <div class="news-item">
         <a href="{{ .Permalink }}" class="news-link">
             <span class="news-title">{{ .Title }}</span>
             <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
         </a>
     </div>
-    {{ else }}
+    {{ end }}
+    
+    <!-- 게시글이 전혀 없을 때 -->
+    {{ if and (not $noticePosts) (not $newsPosts) }}
     <div class="news-item">
         <div class="news-link">
             <span class="news-title">소식이 없습니다</span>
@@ -235,7 +252,7 @@
     </div>
     {{ end }}
 </div>
-        </div>
+
     </div>
 </section>
 
