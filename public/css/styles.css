@@ -1661,12 +1661,14 @@ nav {
     text-align: center;
 }
 
+
 /* 공지사항 배지 스타일 */
 .notice-badge {
     color: #01FF75;
     font-weight: 600;
     margin-right: 5px;
 }
+
 
 /* 반응형 디자인 */
 @media (max-width: 991px) {
