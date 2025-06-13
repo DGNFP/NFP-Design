@@ -53,8 +53,9 @@
     margin-right: 2px;
     line-height: 1; /* 라인 높이 정규화 */
     vertical-align: middle; /* 세로 정렬 */
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 
+                 'Segoe UI', 'Roboto', sans-serif;
 }
-
 
 
 
