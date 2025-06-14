@@ -14,3 +14,5 @@ tags:
 description: ㅇㅇ
 draft: false
 ---
+
+https://www.youtube.com/shorts/57wgHkwEeQc

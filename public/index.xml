@@ -10,17 +10,24 @@
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>다른 카테고리 테스트</title>
+      <link>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy/</link>
+      <pubDate>Sat, 14 Jun 2025 16:47:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=JomumP0OESE&#34;&gt;https://www.youtube.com/watch?v=JomumP0OESE&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>쑈츠 테스트</title>
       <link>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
       <pubDate>Sat, 14 Jun 2025 16:47:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=JomumP0OESE&#34;&gt;https://www.youtube.com/watch?v=JomumP0OESE&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/shorts/WcgCQWrU5WE&#34;&gt;https://www.youtube.com/shorts/WcgCQWrU5WE&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>다른 카테고리 테스트</title>
       <link>http://localhost:1313/posts/creative/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
       <pubDate>Sat, 14 Jun 2025 16:44:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/creative/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=JomumP0OESE&#34;&gt;https://www.youtube.com/watch?v=JomumP0OESE&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=JomumP0OESE&#34;&gt;https://www.youtube.com/watch?v=JomumP0OESE&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;테스트&lt;/p&gt;</description>
     </item>
     <item>
       <title>자유게시판 테스트</title>
@@ -91,6 +98,20 @@
       <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/project/2025-06-08-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/uploads/kakaotalk_20230217_012336798.png&#34; alt=&#34;alt text&#34; title=&#34;title&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;귀 여운 이 모티콘&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>프로젝트 게시판 테스트</title>
+      <link>http://localhost:1313/posts/project/test-copy-3/</link>
+      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/project/test-copy-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=G-InoBsm_I4&#34;&gt;https://www.youtube.com/watch?v=G-InoBsm_I4&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;테스트를 위해 잠시 영상을 빌려 쓰겠습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>프로젝트 게시판 테스트</title>
+      <link>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</link>
+      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/uploads/kakaotalk_20230217_012336798.png&#34; alt=&#34;alt text&#34; title=&#34;title&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;귀 여운 이 모티콘&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=dXLE8vJp3HE&#34;&gt;https://www.youtube.com/watch?v=dXLE8vJp3HE&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;테스트를 위해 잠시 영상을 빌려 쓰겠습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>테스트</title>
@@ -181,21 +202,14 @@
       <link>http://localhost:1313/posts/ad/2025-05-29-%EA%B4%91%EA%B3%A0%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</link>
       <pubDate>Fri, 30 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/ad/2025-05-29-%EA%B4%91%EA%B3%A0%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</guid>
-      <description>&lt;p&gt;ㅇㅇ&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Cihh9fSP99g&#34;&gt;https://www.youtube.com/watch?v=Cihh9fSP99g&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;ㅇㅇ&lt;/p&gt;</description>
     </item>
     <item>
-      <title>영상디자인 테스트 0530</title>
-      <link>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</link>
-      <pubDate>Fri, 30 May 2025 00:04:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/video/2025-05-29-%EC%98%81%EC%83%81%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</guid>
-      <description>&lt;p&gt;ㅇㅇ&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>웹디자인 테스트 0530</title>
+      <title>쇼츠 영상 테스트</title>
       <link>http://localhost:1313/posts/web/2025-05-29-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</link>
       <pubDate>Fri, 30 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/web/2025-05-29-%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8-0530/</guid>
-      <description>&lt;p&gt;ㅇㅇㅇ&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/shorts/UbdHOV9_Cmk&#34;&gt;https://www.youtube.com/shorts/UbdHOV9_Cmk&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;쇼츠 영상 테스트&lt;/p&gt;</description>
     </item>
     <item>
       <title>광고디자인 테스트 0529</title>
@@ -209,7 +223,7 @@
       <link>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy-2/</link>
       <pubDate>Thu, 29 May 2025 23:35:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82-copy-2/</guid>
-      <description>&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://vimeo.com/1092265335&#34;&gt;https://vimeo.com/1092265335&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&lt;/p&gt;</description>
     </item>
     <item>
       <title>컨텐츠 디자인 테스트2</title>
@@ -223,7 +237,7 @@
       <link>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</link>
       <pubDate>Thu, 29 May 2025 23:35:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/content/2025-05-29-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B82/</guid>
-      <description>&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&lt;/p&gt;</description>
+      <description>&lt;p&gt;오 넷리파이 버전 2.0에서 3.0으로 바꾸니까 한글도 잘 써짐&#xA;&lt;a href=&#34;https://www.youtube.com/shorts/d5CJsXEmMzg&#34;&gt;https://www.youtube.com/shorts/d5CJsXEmMzg&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>소식 게시글 테스트2</title>
@@ -251,7 +265,7 @@
       <link>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-2/</link>
       <pubDate>Tue, 27 May 2025 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/posts/creative/2025-05-26-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%9E%91%EC%97%85%EB%AC%BC-%ED%85%8C%EC%8A%A4%ED%8A%B81-copy-2/</guid>
-      <description>&lt;p&gt;크리에이티브 작업물 테스트 1 입니다.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/shorts/xPShVEh0LDg&#34;&gt;https://www.youtube.com/shorts/xPShVEh0LDg&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>크리에이티브 작업물 테스트1</title>
@@ -318,13 +332,6 @@
     </item>
     <item>
       <title>광고 인쇄 디자인 테스트</title>
-      <link>http://localhost:1313/posts/project/test-copy-3/</link>
-      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/project/test-copy-3/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>광고 인쇄 디자인 테스트</title>
       <link>http://localhost:1313/posts/project/test-copy-4/</link>
       <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/project/test-copy-4/</guid>
@@ -342,14 +349,14 @@
       <link>http://localhost:1313/posts/project/test-copy-6/</link>
       <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/project/test-copy-6/</guid>
-      <description></description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://vimeo.com/1092137990?autoplay=1&amp;amp;muted=1&amp;amp;stream_id=Y2hhbm5lbHw5Mjd8aWQ6ZGVzY3x7InJlbW92ZV92b2RfdGl0bGVzIjpmYWxzZX0%3D&#34;&gt;https://vimeo.com/1092137990?autoplay=1&amp;amp;muted=1&amp;amp;stream_id=Y2hhbm5lbHw5Mjd8aWQ6ZGVzY3x7InJlbW92ZV92b2RfdGl0bGVzIjpmYWxzZX0%3D&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>광고 인쇄 디자인 테스트</title>
       <link>http://localhost:1313/posts/project/test-copy-7/</link>
       <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/project/test-copy-7/</guid>
-      <description></description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/shorts/57wgHkwEeQc&#34;&gt;https://www.youtube.com/shorts/57wgHkwEeQc&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>NFP 디자인 신규 오픈</title>

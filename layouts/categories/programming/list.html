@@ -35,80 +35,136 @@
         </div>
         
         <!-- 일반 3x3 게시판 그리드 -->
-<div class="board-grid">
-    <!-- 모든 게시물 로드 -->
-    {{ $allPosts := .Pages }}
-    {{ range $allPosts }}
-    <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
-        <a href="{{ .Permalink }}">
-            <!-- 썸네일 우선순위: 직접업로드 > 웹데모 > 에디터 이미지 > 서브카테고리별 기본 -->
-            <div class="board-item-img">
-                {{ if .Params.images }}
-                    <!-- 1순위: 직접 업로드 이미지 -->
-                    {{ $images := .Params.images }}
-                    {{ if eq (printf "%T" $images) "string" }}
-                        <img src="{{ $images }}" alt="{{ .Title }}">
-                    {{ else }}
-                        <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                    {{ end }}
-                {{ else if .Params.thumbnail }}
-                    <!-- 2순위: 기존 썸네일 -->
-                    <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
-                {{ else }}
-                    <!-- 3순위: 본문에서 첫 번째 이미지 추출 -->
-                    {{ $content := .Content }}
-                    {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
-                    {{ if $imageSrc }}
-                        <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
-                    {{ else }}
-                        <!-- 4순위: 서브카테고리별 기본 썸네일 -->
-                        <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
-                            <div class="demo-icon">
-                                {{ if eq .Params.subCategory "프론트엔드" }}
-                                    <i class="fab fa-react"></i>
-                                {{ else if eq .Params.subCategory "백엔드" }}
-                                    <i class="fas fa-server"></i>
-                                {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
-                                    <i class="fab fa-html5"></i>
-                                {{ else if eq .Params.subCategory "모바일 앱" }}
-                                    <i class="fas fa-mobile-alt"></i>
-                                {{ else if eq .Params.subCategory "게임 개발" }}
-                                    <i class="fas fa-gamepad"></i>
+        <div class="board-grid">
+            <!-- 모든 게시물 로드 -->
+            {{ $allPosts := .Pages }}
+            {{ range $allPosts }}
+            <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
+                <a href="{{ .Permalink }}">
+                    <div class="board-item-img">
+                        {{ $content := .Content }}
+                        {{ $hasVideo := false }}
+                        {{ $hasImage := false }}
+                        {{ $videoId := "" }}
+                        {{ $isVimeo := false }}
+                        {{ $firstImageSrc := "" }}
+                        {{ $firstContentType := "" }}
+                        {{ $showPlaceholder := false }}
+                        
+                        <!-- 프로그래밍 서브카테고리별 특별 규칙 -->
+                        {{ if or (eq .Params.subCategory "프론트엔드") (eq .Params.subCategory "웹 퍼블리싱") }}
+                            <!-- 프론트엔드, 웹퍼블리싱: 무조건 플레이스홀더 -->
+                            {{ $showPlaceholder = true }}
+                        {{ else }}
+                            <!-- 백엔드, 모바일앱, 게임개발: 이미지/영상 우선 -->
+                            
+                            <!-- 1순위: 본문에서 YouTube URL 찾기 (Shorts 포함) -->
+                            {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+                            {{ $vimeoMatches := "" }}
+                            {{ $imageMatches := "" }}
+                            
+                            {{ if $youtubeMatches }}
+                                {{ $firstContentType = "youtube" }}
+                                {{ $fullMatch := index $youtubeMatches 0 }}
+                                <!-- YouTube Shorts, 일반 YouTube, youtu.be 모두 처리 -->
+                                {{ if findRE "/shorts/" $fullMatch 1 }}
+                                    {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
                                 {{ else }}
-                                    <i class="fas fa-code"></i>
+                                    {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
                                 {{ end }}
-                            </div>
-                            <div class="demo-label">
-                                <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
-                                {{ if .Params.demoCode }}
-                                    <span class="demo-tech">WEB DEMO</span>
+                                {{ $hasVideo = true }}
+                            {{ else }}
+                                <!-- 2순위: 본문에서 Vimeo URL 찾기 -->
+                                {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
+                                {{ if $vimeoMatches }}
+                                    {{ $firstContentType = "vimeo" }}
+                                    {{ $fullMatch := index $vimeoMatches 0 }}
+                                    {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
+                                    {{ $hasVideo = true }}
+                                    {{ $isVimeo = true }}
+                                {{ else }}
+                                    <!-- 3순위: 본문에서 첫 번째 이미지 찾기 -->
+                                    {{ $imageMatches = findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                                    {{ if $imageMatches }}
+                                        {{ $firstContentType = "image" }}
+                                        {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                                        {{ $hasImage = true }}
+                                    {{ else }}
+                                        <!-- 4순위: 프로그래밍 플레이스홀더 -->
+                                        {{ $showPlaceholder = true }}
+                                    {{ end }}
                                 {{ end }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        <!-- 썸네일 표시 분기 -->
+                        {{ if $showPlaceholder }}
+                            <!-- 프로그래밍 서브카테고리별 플레이스홀더 -->
+                            <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
+                                <div class="demo-icon">
+                                    {{ if eq .Params.subCategory "프론트엔드" }}
+                                        <i class="fab fa-react"></i>
+                                    {{ else if eq .Params.subCategory "백엔드" }}
+                                        <i class="fas fa-server"></i>
+                                    {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
+                                        <i class="fab fa-html5"></i>
+                                    {{ else if eq .Params.subCategory "모바일 앱" }}
+                                        <i class="fas fa-mobile-alt"></i>
+                                    {{ else if eq .Params.subCategory "게임 개발" }}
+                                        <i class="fas fa-gamepad"></i>
+                                    {{ else }}
+                                        <i class="fas fa-code"></i>
+                                    {{ end }}
+                                </div>
+                                <div class="demo-label">
+                                    <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
+                                    {{ if .Params.demoCode }}
+                                        <span class="demo-tech">WEB DEMO</span>
+                                    {{ end }}
+                                </div>
                             </div>
-                        </div>
-                    {{ end }}
-                {{ end }}
-                
-                <!-- 오버레이 태그 추가 -->
-                {{ if .Params.subCategory }}
-                <div class="category-overlay">{{ .Params.subCategory }}</div>
-                {{ end }}
+                        {{ else if eq $firstContentType "youtube" }}
+                            <!-- YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
+                            <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+                                 alt="{{ .Title }}"
+                                 onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        {{ else if eq $firstContentType "vimeo" }}
+                            <!-- Vimeo 썸네일 + 재생 아이콘 -->
+                            <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
+                                 alt="{{ .Title }}"
+                                 onerror="this.src='/img/vimeo-default.jpg'">
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        {{ else if eq $firstContentType "image" }}
+                            <!-- 본문 첫 번째 이미지 -->
+                            <img src="{{ $firstImageSrc }}" alt="{{ .Title }}">
+                        {{ end }}
+                        
+                        <!-- 오버레이 태그 추가 -->
+                        {{ if .Params.subCategory }}
+                        <div class="category-overlay">{{ .Params.subCategory }}</div>
+                        {{ end }}
+                    </div>
+                    
+                    <div class="board-item-content">
+                        <h3 class="board-item-title">{{ .Title }}</h3>
+                        
+                        <!-- 소제목 추가 -->
+                        {{ if .Params.subtitle }}
+                        <h4 class="board-item-subtitle">{{ .Params.subtitle }}</h4>
+                        {{ end }}
+                        
+                        <!-- <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p> -->
+                        <span class="board-item-link">자세히 보기</span>
+                    </div>
+                </a>
             </div>
-            
-            <div class="board-item-content">
-                <h3 class="board-item-title">{{ .Title }}</h3>
-                
-                <!-- 소제목 추가 -->
-                {{ if .Params.subtitle }}
-                <h4 class="board-item-subtitle">{{ .Params.subtitle }}</h4>
-                {{ end }}
-                
-                <!-- <p class="board-item-date">{{ .Date.Format "2006.01.02" }}</p> -->
-                <span class="board-item-link">자세히 보기</span>
-            </div>
-        </a>
-    </div>
-    {{ end }}
-</div>
+            {{ end }}
+        </div>
 
         <!-- 새로운 JavaScript 페이지네이션 -->
         <div class="pagination js-pagination">
@@ -239,6 +295,20 @@
 .board-item:hover .demo-placeholder-grid .demo-tech {
     opacity: 1;
     letter-spacing: 2px;
+}
+
+/* 영상 오버레이 호버 효과 추가 */
+.board-item:hover .video-overlay {
+    background: var(--accent-color);
+    border-color: #01FF75;
+    box-shadow: 0 0 25px rgba(1, 255, 117, 0.8);
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.board-item:hover .video-overlay i {
+    color: var(--background-color);
 }
 
 /* 반응형 */

@@ -56,45 +56,66 @@
                 {{ end }}
                 <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
                     <a href="{{ .Permalink }}?from=all">
-                        <!-- 통합 썸네일 처리 -->
+                        <!-- 새로운 통합 썸네일 처리 -->
                         <div class="board-thumbnail">
-                            {{ if .Params.videoUrl }}
-                                <!-- 1순위: 동영상 URL (영상 게시판) -->
-                                {{ if (findRE "youtube\\.com|youtu\\.be" .Params.videoUrl) }}
-                                    <!-- 유튜브 썸네일 (재생 버튼 없음) -->
-                                    {{ $videoId := replaceRE ".*(?:youtube\\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\\.be/)([^\"&?/ ]{11}).*" "$1" .Params.videoUrl }}
-                                    <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
-                                         alt="{{ .Title }}"
-                                         onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
-                                {{ else if (findRE "vimeo\\.com" .Params.videoUrl) }}
-                                    <!-- Vimeo 썸네일 (기본 이미지 사용) -->
-                                    <img src="img/vimeo-default.jpg" alt="{{ .Title }}">
-                                {{ else }}
-                                    <!-- 기타 동영상 URL (기본 영상 아이콘) -->
-                                    <div class="video-placeholder-all">
-                                        <i class="fas fa-video"></i>
-                                        <span>동영상</span>
-                                    </div>
-                                {{ end }}
-                            {{ else if .Params.images }}
-                                <!-- 2순위: 직접 업로드 이미지 -->
-                                {{ $images := .Params.images }}
-                                {{ if eq (printf "%T" $images) "string" }}
-                                    <img src="{{ $images }}" alt="{{ .Title }}">
-                                {{ else }}
-                                    <img src="{{ index $images 0 }}" alt="{{ .Title }}">
-                                {{ end }}
-                            {{ else if .Params.thumbnail }}
-                                <!-- 3순위: 기존 썸네일 -->
-                                <img src="{{ .Params.thumbnail | default "img/design1.jpg" }}" alt="{{ .Title }}">
+                            {{ $content := .Content }}
+                            {{ $hasVideo := false }}
+                            {{ $hasImage := false }}
+                            {{ $videoId := "" }}
+                            {{ $isVimeo := false }}
+                            {{ $firstImageSrc := "" }}
+                            {{ $firstContentType := "" }}
+                            {{ $showPlaceholder := false }}
+                            
+                            <!-- 프로그래밍 카테고리 특별 규칙 확인 -->
+                            {{ if and (eq $mainCat "programming") (or (eq .Params.subCategory "프론트엔드") (eq .Params.subCategory "웹 퍼블리싱")) }}
+                                {{ $showPlaceholder = true }}
                             {{ else }}
-                                <!-- 4순위: 본문에서 첫 번째 이미지 추출 -->
-                                {{ $content := .Content }}
-                                {{ $imageSrc := findRE `/img/uploads/[^"'\s]+\.(jpg|jpeg|png|gif|webp)` $content 1 }}
-                                {{ if $imageSrc }}
-                                    <img src="{{ index $imageSrc 0 }}" alt="{{ .Title }}">
-                                {{ else if eq $mainCat "programming" }}
-                                    <!-- 5순위: 프로그래밍 카테고리 서브카테고리별 썸네일 -->
+                                <!-- 일반 카테고리 또는 프로그래밍 기타 서브카테고리 -->
+                                
+                                <!-- 1순위: 본문에서 YouTube URL 찾기 (Shorts 포함) -->
+                                {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+                                {{ $vimeoMatches := "" }}
+                                {{ $imageMatches := "" }}
+                                
+                                {{ if $youtubeMatches }}
+                                    {{ $firstContentType = "youtube" }}
+                                    {{ $fullMatch := index $youtubeMatches 0 }}
+                                    <!-- YouTube Shorts, 일반 YouTube, youtu.be 모두 처리 -->
+                                    {{ if findRE "/shorts/" $fullMatch 1 }}
+                                        {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
+                                    {{ else }}
+                                        {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+                                    {{ end }}
+                                    {{ $hasVideo = true }}
+                                {{ else }}
+                                    <!-- 2순위: 본문에서 Vimeo URL 찾기 -->
+                                    {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
+                                    {{ if $vimeoMatches }}
+                                        {{ $firstContentType = "vimeo" }}
+                                        {{ $fullMatch := index $vimeoMatches 0 }}
+                                        {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
+                                        {{ $hasVideo = true }}
+                                        {{ $isVimeo = true }}
+                                    {{ else }}
+                                        <!-- 3순위: 본문에서 첫 번째 이미지 찾기 -->
+                                        {{ $imageMatches = findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                                        {{ if $imageMatches }}
+                                            {{ $firstContentType = "image" }}
+                                            {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                                            {{ $hasImage = true }}
+                                        {{ else }}
+                                            <!-- 4순위: 프로그래밍이면 플레이스홀더, 아니면 카테고리별 플레이스홀더 -->
+                                            {{ $showPlaceholder = true }}
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                            
+                            <!-- 썸네일 표시 분기 -->
+                            {{ if $showPlaceholder }}
+                                {{ if eq $mainCat "programming" }}
+                                    <!-- 프로그래밍 서브카테고리별 플레이스홀더 -->
                                     <div class="demo-placeholder-all" data-subcategory="{{ .Params.subCategory }}">
                                         <div class="demo-icon">
                                             {{ if eq .Params.subCategory "프론트엔드" }}
@@ -119,7 +140,7 @@
                                         </div>
                                     </div>
                                 {{ else }}
-                                    <!-- 6순위: 카테고리별 기본 플레이스홀더 -->
+                                    <!-- 일반 카테고리별 플레이스홀더 -->
                                     <div class="category-placeholder-all" data-category="{{ $mainCat }}">
                                         {{ if eq $mainCat "web" }}
                                             <i class="fas fa-desktop"></i>
@@ -145,6 +166,25 @@
                                         {{ end }}
                                     </div>
                                 {{ end }}
+                            {{ else if eq $firstContentType "youtube" }}
+                                <!-- YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
+                                <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+                                     alt="{{ .Title }}"
+                                     onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+                                <div class="video-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            {{ else if eq $firstContentType "vimeo" }}
+                                <!-- Vimeo 썸네일 + 재생 아이콘 -->
+                                <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
+                                     alt="{{ .Title }}"
+                                     onerror="this.src='/img/vimeo-default.jpg'">
+                                <div class="video-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            {{ else if eq $firstContentType "image" }}
+                                <!-- 본문 첫 번째 이미지 -->
+                                <img src="{{ $firstImageSrc }}" alt="{{ .Title }}">
                             {{ end }}
                             
                             <!-- 오버레이 태그 추가 (2차 카테고리만) -->

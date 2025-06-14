@@ -2104,7 +2104,7 @@ nav {
 /* 모바일에서 이미지 비율 */
 .post-body img[src^="/img/uploads/"] {
     /* 이미지 비율 처리 , 원본의 절반 크기로 줄여져서 게시글에 보여짐*/
-    max-width: 100% !important; 
+    max-width: 75% !important; 
     height: auto !important;
     margin-bottom: 20px !important;
     display: block;

@@ -23,17 +23,17 @@
       <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/uploads/kakaotalk_20230217_012336798.png&#34; alt=&#34;alt text&#34; title=&#34;title&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;귀 여운 이 모티콘&lt;/p&gt;</description>
     </item>
     <item>
+      <title>프로젝트 게시판 테스트</title>
+      <link>http://localhost:1313/posts/project/test-copy-3/</link>
+      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/project/test-copy-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=G-InoBsm_I4&#34;&gt;https://www.youtube.com/watch?v=G-InoBsm_I4&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;테스트를 위해 잠시 영상을 빌려 쓰겠습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>광고 인쇄 디자인 테스트</title>
       <link>http://localhost:1313/posts/project/test-copy-2/</link>
       <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/project/test-copy-2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>광고 인쇄 디자인 테스트</title>
-      <link>http://localhost:1313/posts/project/test-copy-3/</link>
-      <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/project/test-copy-3/</guid>
       <description></description>
     </item>
     <item>
@@ -55,14 +55,14 @@
       <link>http://localhost:1313/posts/project/test-copy-6/</link>
       <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/project/test-copy-6/</guid>
-      <description></description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://vimeo.com/1092137990?autoplay=1&amp;amp;muted=1&amp;amp;stream_id=Y2hhbm5lbHw5Mjd8aWQ6ZGVzY3x7InJlbW92ZV92b2RfdGl0bGVzIjpmYWxzZX0%3D&#34;&gt;https://vimeo.com/1092137990?autoplay=1&amp;amp;muted=1&amp;amp;stream_id=Y2hhbm5lbHw5Mjd8aWQ6ZGVzY3x7InJlbW92ZV92b2RfdGl0bGVzIjpmYWxzZX0%3D&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>광고 인쇄 디자인 테스트</title>
       <link>http://localhost:1313/posts/project/test-copy-7/</link>
       <pubDate>Sun, 25 May 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/project/test-copy-7/</guid>
-      <description></description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/shorts/57wgHkwEeQc&#34;&gt;https://www.youtube.com/shorts/57wgHkwEeQc&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
