@@ -186,7 +186,21 @@
                 </div>
 
                 <div class="post-body">
-                    {{ .Content }}
+                    {{ $content := .Content }}
+                    
+                    <!-- a 태그로 감싸진 YouTube URL 처리 -->
+                    {{ $content = $content | replaceRE "<p><a href=\"https://www\\.youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)[^\"]*\">https://www\\.youtube\\.com/watch\\?v=[^<]+</a></p>" "<div class=\"video-container\" style=\"position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0;\"><iframe src=\"https://www.youtube.com/embed/$1\" style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>" }}
+                    
+                    <!-- 일반 p 태그로 감싸진 YouTube URL 처리 -->
+                    {{ $content = $content | replaceRE "<p>https://www\\.youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\" style=\"position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0;\"><iframe src=\"https://www.youtube.com/embed/$1\" style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>" }}
+                    
+                    <!-- youtu.be 형태도 처리 -->
+                    {{ $content = $content | replaceRE "<p><a href=\"https://youtu\\.be/([a-zA-Z0-9_-]+)[^\"]*\">https://youtu\\.be/[^<]+</a></p>" "<div class=\"video-container\" style=\"position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0;\"><iframe src=\"https://www.youtube.com/embed/$1\" style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>" }}
+                    
+                    <!-- Vimeo URL 처리 -->
+                    {{ $content = $content | replaceRE "<p><a href=\"https://vimeo\\.com/([0-9]+)[^\"]*\">https://vimeo\\.com/[^<]+</a></p>" "<div class=\"video-container\" style=\"position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0;\"><iframe src=\"https://player.vimeo.com/video/$1\" style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div>" }}
+                    
+                    {{ $content | safeHTML }}
                 </div>
 
                 <!-- 태그 표시 (본문 최하단) - 타입 안전 처리 -->
