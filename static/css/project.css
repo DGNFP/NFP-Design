@@ -70,6 +70,38 @@
     padding: 50px !important; /* 그림자를 위한 패딩 */
 }
 
+.highlight-video-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.highlight-video-container .video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 2px solid var(--accent-color 0.7);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.highlight-video-container .video-overlay i {
+    /* i 태그의 배경 스타일 제거 (불필요) */
+    color: #01ff75; /* 삼각형 색상 */
+    font-size: 15px;
+    transform: translateX(1.5px); /* X축으로 1px 이동 */
+}
+
 .center {
     margin: 0;
     padding: 0;
@@ -233,6 +265,19 @@
     z-index: 10;
 }
 
+
+.main-project-card a:hover .video-overlay i {
+   color: var(--background-color); /* 삼각형 색상 */
+}
+
+.main-project-card a:hover .video-overlay {
+    background: var(--accent-color); /* 검은색 반투명 */
+    border-color: #01FF75;
+    box-shadow: 0 0 25px rgba(1, 255, 117, 0.8);
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
 
 .main-project-wide-img {
     width: 100%;
@@ -576,5 +621,56 @@ body {
     margin: 0 0 1px 0;
 }
      
+.highlight-video-container .video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid var(--accent-color 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.highlight-video-container .video-overlay i {
+    /* i 태그의 배경 스타일 제거 (불필요) */
+    color: #01ff75; /* 삼각형 색상 */
+    font-size: 12px;
+    transform: translateX(1px); /* X축으로 1px 이동 */
+}
+
+.main-project-card .video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid var(--accent-color 0.7);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.main-project-card .video-overlay i {
+    /* i 태그의 배경 스타일 제거 (불필요) */
+    color: #01ff75; /* 삼각형 색상 */
+    font-size: 12px;
+    transform: translateX(1px); /* X축으로 1px 이동 */
+}
     
 }
