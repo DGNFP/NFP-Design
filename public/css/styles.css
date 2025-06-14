@@ -1019,6 +1019,26 @@ nav {
     border-radius: 4px; /* 선택사항: 모서리 둥글게 */
 }
 
+/* 본문 동영상 컨테이너 스타일 */
+.post-body .video-container {
+    position: relative; 
+    margin-bottom: 20px !important;
+    overflow: hidden; 
+    padding-bottom: 39.375%; /* 56.25% × 0.7 = 39.375% */
+    width: 70%;
+    height: 0; /* 필수! */
+}
+
+/* 본문 동영상 스타일 */
+.post-body .video-container iframe {
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
 /* 게시글 태그 섹션 스타일 */
 .post-tags-section {
     margin: 40px 0 30px 0;
@@ -1683,6 +1703,26 @@ nav {
 }
 
 @media (max-width: 768px) {
+
+    /* 본문 동영상 컨테이너 스타일 */
+.post-body .video-container {
+    position: relative; 
+    margin-bottom: 20px !important;
+    overflow: hidden; 
+    padding-bottom: 56.25%; /* 56.25% × 0.7 = 39.375% */
+    width: 100%;
+    height: 0; /* 필수! */
+}
+
+/* 본문 동영상 스타일 */
+.post-body .video-container iframe {
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
 
     .newsletter-section {
         padding: 60px 0;

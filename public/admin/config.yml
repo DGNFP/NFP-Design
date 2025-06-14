@@ -137,7 +137,6 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["영상 제작", "영상 편집", "모션그래픽", "유튜브 썸네일"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "브랜딩", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "광고매체 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "After Effects", "Premiere Pro", "Cinema 4D", "HTML5", "CSS3", "JavaScript", "Hugo", "Unity", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
