@@ -337,7 +337,7 @@ nav {
 
 .design-item {
     position: relative;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     height: 300px;
     cursor: pointer;
@@ -350,30 +350,7 @@ nav {
     transition: var(--transition);
 }
 
-/* .design-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: var(--transition);
-    padding: 20px;
-    text-align: center;
-} */
 
-
-
-
-
-/* .design-item:hover .design-img {
-    transform: scale(1.2);
-} */
 
 .design-item::before {
     content: '';
