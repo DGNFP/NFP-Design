@@ -5,33 +5,161 @@
         <p class="board-intro">NFP 디자인, 디자인 너머의 일상 이야기</p>
         
         <!-- 탭메뉴 -->
-            <div class="all-view-all-wrapper">
+        <div class="all-view-all-wrapper">
             <a href="/notice/" class="all-view-all-button">공지사항</a>
             <a href="/news/" class="all-view-all-button">소식</a>
             <a href="/freeboard/" class="all-view-all-button active">자유게시판</a>
         </div>
-        
-        <!-- 자유게시판 게시글 (소식 스타일과 동일) -->
-        <div class="news-list">
-            {{ $freeboardPosts := where .Site.RegularPages "Section" "freeboard" }}
-            {{ if $freeboardPosts }}
+
+        <!-- 카테고리 필터 (새로 추가) -->
+        <div class="board-filter">
+            <div class="filter-group">
+                <ul class="category-filter">
+                    <li><a class="active" data-filter="all">전체</a></li>
+                    <li><a data-filter="작업">작업</a></li>
+                    <li><a data-filter="취미">취미</a></li>
+                    <li><a data-filter="일상">일상</a></li>
+                    <li><a data-filter="기타">기타</a></li>
+                </ul>
+            </div>
+            
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <!-- 게시판 컨텐츠 (전체 게시판 스타일) -->
+        <section class="board-all-container">
+            <div class="board-all-grid">
+                {{ $freeboardPosts := where .Site.RegularPages "Section" "freeboard" }}
                 {{ range $freeboardPosts.ByDate.Reverse }}
-                <div class="news-item">
-                    <a href="{{ .Permalink }}" class="news-link">
-                        <span class="news-title">{{ .Title }}</span>
-                        <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
+                <div class="board-all-item" data-main="freeboard" data-category="{{ .Params.subCategory }}">
+                    <a href="{{ .Permalink }}?from=freeboard">
+                        <!-- 통합 썸네일 처리 -->
+                        <div class="board-thumbnail">
+                            {{ $content := .Content }}
+                            {{ $hasVideo := false }}
+                            {{ $hasImage := false }}
+                            {{ $videoId := "" }}
+                            {{ $isVimeo := false }}
+                            {{ $firstImageSrc := "" }}
+                            {{ $firstContentType := "" }}
+                            
+                            <!-- 1순위: 본문에서 YouTube URL 찾기 (Shorts 포함) -->
+                            {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+                            {{ $vimeoMatches := "" }}
+                            {{ $imageMatches := "" }}
+                            
+                            {{ if $youtubeMatches }}
+                                {{ $firstContentType = "youtube" }}
+                                {{ $fullMatch := index $youtubeMatches 0 }}
+                                <!-- YouTube Shorts, 일반 YouTube, youtu.be 모두 처리 -->
+                                {{ if findRE "/shorts/" $fullMatch 1 }}
+                                    {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
+                                {{ else }}
+                                    {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+                                {{ end }}
+                                {{ $hasVideo = true }}
+                            {{ else }}
+                                <!-- 2순위: 본문에서 Vimeo URL 찾기 -->
+                                {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
+                                {{ if $vimeoMatches }}
+                                    {{ $firstContentType = "vimeo" }}
+                                    {{ $fullMatch := index $vimeoMatches 0 }}
+                                    {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
+                                    {{ $hasVideo = true }}
+                                    {{ $isVimeo = true }}
+                                {{ else }}
+                                    <!-- 3순위: 본문에서 첫 번째 이미지 찾기 -->
+                                    {{ $imageMatches = findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                                    {{ if $imageMatches }}
+                                        {{ $firstContentType = "image" }}
+                                        {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                                        {{ $hasImage = true }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                            
+                            <!-- 썸네일 표시 분기 -->
+                            {{ if eq $firstContentType "youtube" }}
+                                <!-- YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
+                                <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+                                     alt="{{ .Title }}"
+                                     onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+                                <div class="video-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            {{ else if eq $firstContentType "vimeo" }}
+                                <!-- Vimeo 썸네일 + 재생 아이콘 -->
+                                <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
+                                     alt="{{ .Title }}"
+                                     onerror="this.src='/img/vimeo-default.jpg'">
+                                <div class="video-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            {{ else if eq $firstContentType "image" }}
+                                <!-- 본문 첫 번째 이미지 -->
+                                <img src="{{ $firstImageSrc }}" alt="{{ .Title }}">
+                            {{ else }}
+                                <!-- 자유게시판 기본 플레이스홀더 -->
+                                <div class="category-placeholder-all" data-category="freeboard">
+                                    <i class="fas fa-comments"></i>
+                                    <span>자유게시판</span>
+                                </div>
+                            {{ end }}
+                            
+                            <!-- 오버레이 태그 추가 (서브카테고리만) -->
+                            {{ if .Params.subCategory }}
+                            <div class="category-overlay">{{ .Params.subCategory }}</div>
+                            {{ end }}
+                        </div>
+                        
+                        <div class="board-all-item-content">
+                            <h3 class="board-all-item-title">{{ .Title }}</h3>
+                            
+                            
+                            
+                            <!-- 카테고리 표시 -->
+                            <p class="board-all-item-desc">
+                                자유게시판
+                                {{ if .Params.subCategory }}
+                                    > {{ .Params.subCategory }}
+                                {{ end }}
+                            </p>
+                            
+                            
+                            
+                            <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
+                            <!-- 커스텀 태그 표시 -->
+                            {{ if .Params.custom_tags }}
+                            <div class="freeboard-tags">
+                                {{ range first 3 .Params.custom_tags }}
+                                    {{ $tagValue := . }}
+                                    {{ if reflect.IsMap . }}
+                                        {{ $tagValue = .tag }}
+                                    {{ end }}
+                                    <span class="freeboard-tag">{{ $tagValue }}</span>
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                            <a href="{{ .Permalink }}?from=freeboard" class="board-all-item-link"></a>
+                        </div>
                     </a>
                 </div>
                 {{ end }}
-            {{ else }}
-                <div class="news-item">
-                    <div class="news-link">
-                        <span class="news-title">자유게시판 글이 없습니다</span>
-                        <span class="news-date">2025.05.24</span>
-                    </div>
-                </div>
-            {{ end }}
-        </div>
+            </div>
+            
+            <!-- JavaScript 페이지네이션 -->
+            <div class="pagination js-pagination">
+                <!-- JavaScript로 동적 생성됨 -->
+            </div>
+        </section>
     </div>
 </section>
+
+
+
 {{ end }}
+

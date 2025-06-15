@@ -179,7 +179,7 @@
     }
     
     .board-item-project-minimal img {
-        height: 80px; /* 100px → 80px */
+        height: 100px; /* 100px → 80px */
     }
     
     .project-minimal-content {

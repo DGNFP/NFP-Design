@@ -178,7 +178,6 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -196,7 +195,6 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -214,7 +212,8 @@ collections:
     fields:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "동영상 URL", name: "videoUrl", widget: "string", hint: "YouTube 또는 Vimeo URL을 입력하세요", required: false}
+      - {label: "카테고리", name: "categories", widget: "hidden", default: ["freeboard"]}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["작업", "취미", "일상", "기타"], required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"

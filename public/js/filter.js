@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 현재 페이지가 전체 게시판인지 개별 게시판인지 확인
     const isMainBoard = window.location.pathname.includes('/posts/');
+    // ✨ 자유게시판 확인 추가
+    const isFreeBoard = window.location.pathname.includes('/freeboard/');
     
-    console.log('현재 게시판 타입:', isMainBoard ? '전체 게시판' : '개별 게시판');
+    console.log('현재 게시판 타입:', isMainBoard ? '전체 게시판' : isFreeBoard ? '자유게시판' : '개별 게시판');
     
     // 필터 기능
     filters.forEach(filter => {
@@ -65,13 +67,27 @@ document.addEventListener('DOMContentLoaded', function() {
         // 3. 페이지네이션 업데이트
         updatePagination();
         
+        // 4. 결과 없음 메시지 업데이트 (모든 게시판에 적용)
+        updateNoResultsMessage();
+        
         console.log(`필터: ${currentFilter}, 검색: "${currentSearchTerm}", 페이지: ${currentPage}, 결과: ${filteredItems.length}개`);
     }
     
     // 필터링된 아이템들 가져오기
     function getFilteredItems() {
-        // 전체 게시판과 개별 게시판에 따라 선택자 변경 (프로젝트 게시판 추가)
-        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
+        let selector;
+        
+        if (isMainBoard) {
+            // 전체 게시판
+            selector = '.board-all-item';
+        } else if (isFreeBoard) {
+            // ✨ 자유게시판 추가
+            selector = '.board-all-item[data-main="freeboard"]';
+        } else {
+            // 개별 게시판들
+            selector = '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
+        }
+        
         const allItems = Array.from(document.querySelectorAll(selector));
         
         return allItems.filter(item => {
@@ -86,6 +102,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     const categoryFromDesc = getCategoryFromDescription(item);
                     const actualCategory = mainCategory || categoryFromDesc;
                     matchesFilter = actualCategory === currentFilter;
+                } else if (isFreeBoard) {
+                    // ✨ 자유게시판: 서브카테고리 확인
+                    const subCategory = item.getAttribute('data-category') || '';
+                    matchesFilter = subCategory === currentFilter;
                 } else {
                     // 개별 게시판: 2차 카테고리 확인
                     const subCategory = item.getAttribute('data-category') || '';
@@ -96,9 +116,17 @@ document.addEventListener('DOMContentLoaded', function() {
             // 2. 검색 조건 확인
             let matchesSearch = true;
             if (currentSearchTerm) {
-                // 프로젝트 게시판용 셀렉터 추가
-                const titleSelector = isMainBoard ? '.board-all-item-title' : '.board-item-title, .project-minimal-title';
-                const descSelector = isMainBoard ? '.board-all-item-desc' : '.board-item-desc, .project-minimal-desc';
+                let titleSelector, descSelector;
+                
+                if (isMainBoard || isFreeBoard) {
+                    // 전체 게시판, 자유게시판
+                    titleSelector = '.board-all-item-title';
+                    descSelector = '.board-all-item-desc';
+                } else {
+                    // 개별 게시판들
+                    titleSelector = '.board-item-title, .project-minimal-title';
+                    descSelector = '.board-item-desc, .project-minimal-desc';
+                }
                 
                 const titleElement = item.querySelector(titleSelector);
                 const descElement = item.querySelector(descSelector);
@@ -113,8 +141,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 현재 페이지 아이템들만 표시
     function showCurrentPage() {
-        // 프로젝트 게시판 추가
-        const selector = isMainBoard ? '.board-all-item' : '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
+        let selector;
+        
+        if (isMainBoard) {
+            selector = '.board-all-item';
+        } else if (isFreeBoard) {
+            // ✨ 자유게시판 추가
+            selector = '.board-all-item[data-main="freeboard"]';
+        } else {
+            selector = '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
+        }
+        
         const allItems = document.querySelectorAll(selector);
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
@@ -128,6 +165,75 @@ document.addEventListener('DOMContentLoaded', function() {
         filteredItems.slice(start, end).forEach(item => {
             item.style.display = '';
         });
+    }
+    
+    // ✨ 모든 게시판용 결과 없음 메시지 함수 (수정됨)
+    function updateNoResultsMessage() {
+        let container;
+        
+        // 게시판 타입별로 컨테이너 찾기
+        if (isMainBoard || isFreeBoard) {
+            container = document.querySelector('.board-all-grid');
+        } else {
+            // 개별 게시판들의 컨테이너 찾기
+            container = document.querySelector('.board-grid') || 
+                       document.querySelector('.board-square-grid') || 
+                       document.querySelector('.board-wide-grid') ||
+                       document.querySelector('.board-creative-grid') ||
+                       document.querySelector('.board-ad-grid') ||
+                       document.querySelector('.project-minimal-grid') ||
+                       document.querySelector('.board-container');
+        }
+        
+        if (!container) return;
+        
+        let noResultsMsg = container.querySelector('.no-results-message');
+        
+        if (filteredItems.length === 0) {
+            if (!noResultsMsg) {
+                noResultsMsg = document.createElement('div');
+                noResultsMsg.className = 'no-results-message';
+                noResultsMsg.style.cssText = `
+                    grid-column: 1 / -1;
+                    text-align: center;
+                    padding: 40px 20px;
+                    color: #666;
+                    font-size: 16px;
+                    background: rgba(108, 117, 125, 0.05);
+                    border-radius: 12px;
+                    border: 2px dashed rgba(108, 117, 125, 0.2);
+                    margin: 20px 0;
+                `;
+                
+                // 검색어가 있으면 검색 관련 메시지, 필터가 있으면 필터 관련 메시지
+                let message = '';
+                if (currentSearchTerm) {
+                    message = `<i class="fas fa-search" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>"${currentSearchTerm}"에 대한 검색 결과가 없습니다.`;
+                } else if (currentFilter !== 'all') {
+                    message = `<i class="fas fa-filter" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>해당 카테고리에 게시물이 없습니다.`;
+                } else {
+                    message = `<i class="fas fa-inbox" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>게시물이 없습니다.`;
+                }
+                
+                noResultsMsg.innerHTML = message;
+                container.appendChild(noResultsMsg);
+            } else {
+                // 기존 메시지 업데이트
+                let message = '';
+                if (currentSearchTerm) {
+                    message = `<i class="fas fa-search" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>"${currentSearchTerm}"에 대한 검색 결과가 없습니다.`;
+                } else if (currentFilter !== 'all') {
+                    message = `<i class="fas fa-filter" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>해당 카테고리에 게시물이 없습니다.`;
+                } else {
+                    message = `<i class="fas fa-inbox" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>게시물이 없습니다.`;
+                }
+                noResultsMsg.innerHTML = message;
+            }
+            
+            if (noResultsMsg) noResultsMsg.style.display = 'block';
+        } else if (noResultsMsg) {
+            noResultsMsg.style.display = 'none';
+        }
     }
     
     // 페이지네이션 업데이트
@@ -251,7 +357,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (desc.includes('광고/인쇄 디자인')) return 'ad';
         if (desc.includes('크리에이티브 디자인')) return 'creative';
         if (desc.includes('프로그래밍')) return 'programming';
-        if (desc.includes('프로젝트')) return 'project'; // 프로젝트 추가
+        if (desc.includes('프로젝트')) return 'project';
+        // ✨ 자유게시판 추가
+        if (desc.includes('자유게시판')) return 'freeboard';
         
         return '';
     }

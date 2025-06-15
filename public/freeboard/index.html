@@ -92,42 +92,282 @@
         <p class="board-intro">NFP 디자인, 디자인 너머의 일상 이야기</p>
         
         
-            <div class="all-view-all-wrapper">
+        <div class="all-view-all-wrapper">
             <a href="/notice/" class="all-view-all-button">공지사항</a>
             <a href="/news/" class="all-view-all-button">소식</a>
             <a href="/freeboard/" class="all-view-all-button active">자유게시판</a>
         </div>
+
         
-        
-        <div class="news-list">
+        <div class="board-filter">
+            <div class="filter-group">
+                <ul class="category-filter">
+                    <li><a class="active" data-filter="all">전체</a></li>
+                    <li><a data-filter="작업">작업</a></li>
+                    <li><a data-filter="취미">취미</a></li>
+                    <li><a data-filter="일상">일상</a></li>
+                    <li><a data-filter="기타">기타</a></li>
+                </ul>
+            </div>
             
             
-                
-                <div class="news-item">
-                    <a href="http://localhost:1313/freeboard/2025-06-13-%EC%9E%90%EC%9C%A0%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/" class="news-link">
-                        <span class="news-title">자유게시판 테스트</span>
-                        <span class="news-date">2025.06.13</span>
-                    </a>
-                </div>
-                
-                <div class="news-item">
-                    <a href="http://localhost:1313/freeboard/test/" class="news-link">
-                        <span class="news-title">요즘 관심있게 보고 있는 디자인 트렌드</span>
-                        <span class="news-date">2025.06.13</span>
-                    </a>
-                </div>
-                
-                <div class="news-item">
-                    <a href="http://localhost:1313/freeboard/test2/" class="news-link">
-                        <span class="news-title">주말에 본 전시회 후기</span>
-                        <span class="news-date">2025.06.12</span>
-                    </a>
-                </div>
-                
-            
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
         </div>
+
+        
+        <section class="board-all-container">
+            <div class="board-all-grid">
+                
+                
+                <div class="board-all-item" data-main="freeboard" data-category="작업">
+                    <a href="http://localhost:1313/freeboard/2025-06-13-%EC%9E%90%EC%9C%A0%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/?from=freeboard">
+                        
+                        <div class="board-thumbnail">
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                                
+                                
+                                
+                                    
+                                    
+                                    
+                                        
+                                        
+                                        
+                                    
+                                
+                            
+                            
+                            
+                            
+                                
+                                <img src="/img/uploads/kakaotalk_20230217_012336798.png" alt="자유게시판 테스트">
+                            
+                            
+                            
+                            
+                            <div class="category-overlay">작업</div>
+                            
+                        </div>
+                        
+                        <div class="board-all-item-content">
+                            <h3 class="board-all-item-title">자유게시판 테스트</h3>
+                            
+                            
+                            
+                            
+                            <p class="board-all-item-desc">
+                                자유게시판
+                                
+                                    > 작업
+                                
+                            </p>
+                            
+                            
+                            
+                            <p class="board-all-item-date">2025.06.13</p>
+                            
+                            
+                            <div class="freeboard-tags">
+                                
+                                    
+                                    
+                                    <span class="freeboard-tag">커스텀 태그</span>
+                                
+                            </div>
+                            
+                            <a href="http://localhost:1313/freeboard/2025-06-13-%EC%9E%90%EC%9C%A0%EA%B2%8C%EC%8B%9C%ED%8C%90-%ED%85%8C%EC%8A%A4%ED%8A%B8/?from=freeboard" class="board-all-item-link"></a>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="board-all-item" data-main="freeboard" data-category="">
+                    <a href="http://localhost:1313/freeboard/test/?from=freeboard">
+                        
+                        <div class="board-thumbnail">
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                                
+                                
+                                
+                                    
+                                    
+                                    
+                                
+                            
+                            
+                            
+                            
+                                
+                                <div class="category-placeholder-all" data-category="freeboard">
+                                    <i class="fas fa-comments"></i>
+                                    <span>자유게시판</span>
+                                </div>
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="board-all-item-content">
+                            <h3 class="board-all-item-title">요즘 관심있게 보고 있는 디자인 트렌드</h3>
+                            
+                            
+                            
+                            
+                            <p class="board-all-item-desc">
+                                자유게시판
+                                
+                            </p>
+                            
+                            
+                            
+                            <p class="board-all-item-date">2025.06.13</p>
+                            
+                            
+                            <div class="freeboard-tags">
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <span class="freeboard-tag">디자인 트렌드</span>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <span class="freeboard-tag">일상</span>
+                                
+                                    
+                                    
+                                        
+                                    
+                                    <span class="freeboard-tag">개인적인 생각</span>
+                                
+                            </div>
+                            
+                            <a href="http://localhost:1313/freeboard/test/?from=freeboard" class="board-all-item-link"></a>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="board-all-item" data-main="freeboard" data-category="">
+                    <a href="http://localhost:1313/freeboard/test2/?from=freeboard">
+                        
+                        <div class="board-thumbnail">
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                                
+                                
+                                
+                                    
+                                    
+                                    
+                                
+                            
+                            
+                            
+                            
+                                
+                                <div class="category-placeholder-all" data-category="freeboard">
+                                    <i class="fas fa-comments"></i>
+                                    <span>자유게시판</span>
+                                </div>
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="board-all-item-content">
+                            <h3 class="board-all-item-title">주말에 본 전시회 후기</h3>
+                            
+                            
+                            
+                            
+                            <p class="board-all-item-desc">
+                                자유게시판
+                                
+                            </p>
+                            
+                            
+                            
+                            <p class="board-all-item-date">2025.06.12</p>
+                            
+                            
+                            <div class="freeboard-tags">
+                                
+                                    
+                                    
+                                    <span class="freeboard-tag">전시회</span>
+                                
+                                    
+                                    
+                                    <span class="freeboard-tag">후기</span>
+                                
+                                    
+                                    
+                                    <span class="freeboard-tag">영감</span>
+                                
+                            </div>
+                            
+                            <a href="http://localhost:1313/freeboard/test2/?from=freeboard" class="board-all-item-link"></a>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+            
+            
+            <div class="pagination js-pagination">
+                
+            </div>
+        </section>
     </div>
 </section>
+
+
+
 
     
     <div id="footer-container"></div>

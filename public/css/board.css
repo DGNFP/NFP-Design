@@ -266,7 +266,7 @@
 .board-all-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px 20px;
+    padding: 0px 0px;
 }
 
 .board-all-header {
@@ -429,18 +429,18 @@
 .board-all-item-title {
     font-size: 19px;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
 }
 
 .board-all-item-subtitle {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 4px;
-    color: rgba(255, 255, 255, 0.6);
+    color: #8b8b8b;
 }
 
 .board-all-item-desc {
-    font-size: 13px;
+    font-size: 14px;
     color: #666;
     font-weight: 600;
     margin-bottom: 40px;
@@ -449,6 +449,7 @@
 .board-all-item-date {
     font-size: 12px;
     color: #999;
+    margin-top: 10px;
 }
 
 .board-all-item-link {
@@ -587,10 +588,6 @@
     line-height: 1.4;
 }
 
-.board-item-date {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
-}
 
 .board-item-link {
     font-size: 12px;
@@ -1402,6 +1399,85 @@ line-height: 1.2; /* 1.25 → 1.2 */
     background-color: transparent;
 }
 
+/* 공통 태그 컨테이너 */
+.board-tags {
+    margin: 8px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+/* 통일된 태그 스타일 (자유게시판과 동일) */
+.board-tag {
+    display: inline-block;
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid rgba(1, 255, 117, 0.2);
+    transition: all 0.2s ease;
+    line-height: 1.6;
+}
+
+.board-tag:hover {
+    background: rgba(1, 255, 117, 0.2);
+    border-color: var(--accent-color);
+}
+
+/* 자유게시판 태그 스타일 */
+.freeboard-tags {
+    margin: 8px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.freeboard-tag {
+    display: inline-block;
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid rgba(1, 255, 117, 0.2);
+    transition: all 0.2s ease;
+}
+
+.freeboard-tag:hover {
+    background: rgba(1, 255, 117, 0.2);
+    border-color: var(--accent-color);
+}
+
+/* 자유게시판 플레이스홀더 색상 */
+.category-placeholder-all[data-category="freeboard"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4/3;
+    transition: all 0.3s ease;
+}
+
+.category-placeholder-all[data-category="freeboard"]:hover {
+    background: linear-gradient(135deg, #7c7ce6 0%, #8a5aa8 100%);
+    transform: scale(1.02);
+}
+
+.category-placeholder-all[data-category="freeboard"] i {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.category-placeholder-all[data-category="freeboard"] span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
 
 /* ==============================
    반응형 스타일
@@ -1438,6 +1514,29 @@ line-height: 1.2; /* 1.25 → 1.2 */
 
 /* 태블릿 */
 @media (max-width: 768px) {
+
+    .board-tags {
+    margin: 6px 0;
+    gap: 3px;
+    }
+
+    .board-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    line-height: 1.5;
+    }
+    
+    .freeboard-tags {
+    margin: 6px 0;
+    gap: 3px;
+    }
+
+    .freeboard-tag {
+        padding: 2px 6px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
     .board-filter {
         flex-direction: column;
         align-items: flex-start;
@@ -1551,6 +1650,8 @@ line-height: 1.2; /* 1.25 → 1.2 */
     
     .board-all-item-date {
         font-size: 11px;
+        margin-bottom: 2px;
+        margin-top: 0;
     }
     
     .board-all-item-link {
@@ -1648,10 +1749,13 @@ line-height: 1.2; /* 1.25 → 1.2 */
         /* 고정 크기 추가 */
     width: 24px;
     height: 24px;
+    border: 1px solid rgba(1, 255, 117, 0.6);
 }
 
+
+
 .video-overlay i {
-    font-size: 7px;
+    font-size: 8px;
     transform: translateX(0.5px); /* X축으로 1px 이동 */
 }
 
@@ -1828,7 +1932,7 @@ font-size: 12px;
     
     .board-all-item-title {
        font-size: 14px;
-        margin-bottom: 4px;
+        margin-bottom: 0px;
         display: block;
         white-space: nowrap;
         overflow: hidden;
@@ -1836,8 +1940,8 @@ font-size: 12px;
     }
     
     .board-all-item-desc {
-        font-size: 12px;
-        margin-bottom: 6px;
+        font-size: 11px;
+        margin-bottom: 4px;
         display: block;
         white-space: nowrap;
         overflow: hidden;
@@ -1846,10 +1950,11 @@ font-size: 12px;
     
     .board-all-item-date {
         font-size: 10px;
+        margin-top: 0;
     }
     
     .board-all-item-link {
-        margin-top: 6px;
+        margin-top: 0px;
         font-size: 12px;
     }
 
