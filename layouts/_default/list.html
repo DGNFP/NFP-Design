@@ -225,59 +225,50 @@
                             <a href="{{ .Permalink }}?from=all" class="board-all-item-link"></a>
                             
                              <!-- ✨ 태그 시스템 추가 (일관된 스타일) -->
-                            {{ $mainCategory := index .Params.categories 0 }}
-                            {{ if eq $mainCategory "project" }}
-                                <!-- 프로젝트 게시판: 기본 태그 2개 + 커스텀 태그 1개 -->
-                                {{ if or .Params.tags .Params.custom_tags }}
-                                <div class="board-tags">
-                                    {{ if .Params.tags }}
-                                        {{ range first 2 .Params.tags }}
-                                        <span class="board-tag">{{ . }}</span>
-                                        {{ end }}
-                                    {{ end }}
-                                    {{ if .Params.custom_tags }}
-                                        {{ range first 1 .Params.custom_tags }}
-                                            {{ $tagValue := . }}
-                                            {{ if reflect.IsMap . }}
-                                                {{ $tagValue = .tag }}
-                                            {{ end }}
-                                            <span class="board-tag">{{ $tagValue }}</span>
-                                        {{ end }}
-                                    {{ end }}
-                                </div>
-                                {{ end }}
-                            {{ else if eq $mainCategory "freeboard" }}
-                                <!-- 자유게시판: 커스텀 태그 3개 -->
-                                {{ if .Params.custom_tags }}
-                                <div class="board-tags">
-                                    {{ range first 3 .Params.custom_tags }}
-                                        {{ $tagValue := . }}
-                                        {{ if reflect.IsMap . }}
-                                            {{ $tagValue = .tag }}
-                                        {{ end }}
-                                        <span class="board-tag">{{ $tagValue }}</span>
-                                    {{ end }}
-                                </div>
-                                {{ end }}
-                            {{ else }}
-                                <!-- 일반 게시판: 기본 태그가 있으면 표시 (최대 3개) -->
-                                {{ if .Params.tags }}
-                                <div class="board-tags">
-                                    {{ range first 3 .Params.tags }}
-                                    <span class="board-tag">{{ . }}</span>
-                                    {{ end }}
-                                </div>
-                                {{ end }}
-                            {{ end }}
-                        </div>
-                        
-                    </a>
-                    
-                </div>
-                
-                {{ end }}
-                
-            </div>
+{{ $mainCategory := index .Params.categories 0 }}
+{{ if eq $mainCategory "freeboard" }}
+   <!-- 자유게시판: 커스텀 태그 3개 -->
+   {{ if .Params.custom_tags }}
+   <div class="board-tags">
+       {{ range first 3 .Params.custom_tags }}
+           {{ $tagValue := . }}
+           {{ if reflect.IsMap . }}
+               {{ $tagValue = .tag }}
+           {{ end }}
+           <span class="board-tag">{{ $tagValue }}</span>
+       {{ end }}
+   </div>
+   {{ end }}
+{{ else }}
+   <!-- 일반 게시판 & 프로젝트 게시판: 기본 태그 2개 + 커스텀 태그 1개 -->
+   {{ if or .Params.tags .Params.custom_tags }}
+   <div class="board-tags">
+       {{ if .Params.tags }}
+           {{ range first 2 .Params.tags }}
+           <span class="board-tag">{{ . }}</span>
+           {{ end }}
+       {{ end }}
+       {{ if .Params.custom_tags }}
+           {{ range first 1 .Params.custom_tags }}
+               {{ $tagValue := . }}
+               {{ if reflect.IsMap . }}
+                   {{ $tagValue = .tag }}
+               {{ end }}
+               <span class="board-tag">{{ $tagValue }}</span>
+           {{ end }}
+       {{ end }}
+   </div>
+   {{ end }}
+{{ end }}
+</div>
+
+</a>
+
+</div>
+
+{{ end }}
+
+</div>
             
             <!-- 새로운 JavaScript 페이지네이션 -->
             <div class="pagination js-pagination">
