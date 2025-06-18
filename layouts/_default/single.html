@@ -149,18 +149,20 @@
                                     allowfullscreen>
                                 </iframe>
                             </div>
-                        {{ else if (findRE "vimeo\\.com" .Params.videoUrl) }}
+                       {{ else if (findRE "vimeo\\.com" .Params.videoUrl) }}
                             <!-- Vimeo 지원 -->
                             {{ $videoId := replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" .Params.videoUrl }}
                             <!-- VideoObject 스키마 추가 -->
                             {{ partial "video-schema.html" (dict "videoId" $videoId "videoType" "vimeo" "title" .Title "date" .Date "site" $.Site) }}
-                            <iframe 
-                                src="https://player.vimeo.com/video/{{ $videoId }}" 
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                                frameborder="0" 
-                                allow="autoplay; fullscreen; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
+                            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 20px;">
+                                <iframe 
+                                    src="https://player.vimeo.com/video/{{ $videoId }}?responsive=1&autopause=0&player_id=0&app_id=58479" 
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                                    frameborder="0" 
+                                    allow="autoplay; fullscreen; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
                         {{ end }}
                     {{ end }}
 
@@ -188,7 +190,7 @@
                     {{ end }}
                 </div>
 
-                <div class="post-body">
+               <div class="post-body">
                     {{ $content := .Content }}
                     
                     <!-- 본문에서 동영상 ID 추출 및 스키마 생성 -->
@@ -237,8 +239,10 @@
                     
                     {{ $content = $content | replaceRE "<p>https://youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://youtube.com/shorts/$1\" target=\"_blank\">🔗 YouTube Shorts에서 보기</a></p>" }}
                     
-                    <!-- Vimeo URL 처리 -->
-                    {{ $content = $content | replaceRE "<p><a href=\"https://vimeo\\.com/([0-9]+)[^\"]*\">https://vimeo\\.com/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://player.vimeo.com/video/$1\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://vimeo.com/$1\" target=\"_blank\">🔗 Vimeo에서 보기</a></p>" }}
+                    <!-- Vimeo URL 처리 (인라인 스타일 제거) -->
+                    {{ $content = $content | replaceRE "<p><a href=\"https://vimeo\\.com/([0-9]+)[^\"]*\">https://vimeo\\.com/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://player.vimeo.com/video/$1?responsive=1&autopause=0&player_id=0&app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://vimeo.com/$1\" target=\"_blank\">🔗 Vimeo에서 보기</a></p>" }}
+                    
+                    {{ $content = $content | replaceRE "<p>https://vimeo\\.com/([0-9]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://player.vimeo.com/video/$1?responsive=1&autopause=0&player_id=0&app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://vimeo.com/$1\" target=\"_blank\">🔗 Vimeo에서 보기</a></p>" }}
                     
                     {{ $content | safeHTML }}
                 </div>
