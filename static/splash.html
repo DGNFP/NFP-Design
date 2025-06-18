@@ -219,24 +219,24 @@
     </div>
 
     <script>
-        // 2.5초 후 메인 페이지로 이동
+        // 4초 후 메인 페이지로 이동 (애니메이션 완료 대기)
         setTimeout(() => {
             document.body.classList.add('fade-out');
             
             setTimeout(() => {
                 window.location.href = '/';
             }, 500);
-        }, 2500);
+        }, 4000);
         
-        // PWA 감지 시 조금 더 빠르게 이동 (선택사항)
+        // PWA 감지 시에도 충분한 시간 제공
         if (window.matchMedia('(display-mode: standalone)').matches) {
-            // PWA 모드일 때는 2초 후 이동
+            // PWA 모드일 때는 3.5초 후 이동
             setTimeout(() => {
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
                     window.location.href = '/';
                 }, 500);
-            }, 2000);
+            }, 3500);
         }
     </script>
 </body>
