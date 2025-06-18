@@ -44,3 +44,16 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+
+# config.yaml에 추가할 SEO 친화적 설정
+imaging:
+  # 적당한 압축 (품질과 용량의 균형)
+  quality: 85
+  # 고품질 리샘플링 알고리즘
+  resampleFilter: "Lanczos"
+  # 메타데이터 유지 (SEO를 위해)
+  exif:
+    includeFields: "DateTime|Camera|Lens|Software"  # 중요 정보만 유지
+    excludeFields: "GPS"  # 개인정보만 제거
+    disableLatLong: true  # 위치 정보 제거
