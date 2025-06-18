@@ -1,0 +1,26 @@
+{{ $videoId := .videoId }}
+{{ $videoType := .videoType }}
+{{ $title := .title }}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "{{ $title }}",
+  "description": "{{ $title }} - NFP 디자인 작업물",
+  {{ if eq $videoType "youtube" }}
+  "thumbnailUrl": [
+    "https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg",
+    "https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg"
+  ],
+  "embedUrl": "https://www.youtube.com/embed/{{ $videoId }}",
+  "contentUrl": "https://www.youtube.com/watch?v={{ $videoId }}",
+  "uploadDate": "{{ dateFormat "2006-01-02" .date }}"
+  {{ else if eq $videoType "vimeo" }}
+  "thumbnailUrl": "https://vumbnail.com/{{ $videoId }}.jpg",
+  "embedUrl": "https://player.vimeo.com/video/{{ $videoId }}",
+  "contentUrl": "https://vimeo.com/{{ $videoId }}",
+  "uploadDate": "{{ dateFormat "2006-01-02" .date }}"
+  {{ end }}
+}
+</script>

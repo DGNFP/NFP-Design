@@ -1,0 +1,20 @@
+{
+  "name": "NFP 디자인",
+  "short_name": "",
+  "description": "니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다.",
+  "start_url": "/splash.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "src": "/img/icon_180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon_180.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

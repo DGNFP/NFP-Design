@@ -134,7 +134,7 @@
     box-shadow: 
         0 0 0 2px rgba(1, 255, 117, 0.3), /* 호버 보더 */
         0 10px 20px rgba(1, 255, 117, 0.2); /* 호버 그림자 */
-    transform: translateY(-5px);
+/*     transform: translateY(-5px); 임시 주석처리 */
     z-index: 10;
 }
 
