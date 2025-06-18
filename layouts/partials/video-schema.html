@@ -1,26 +1,65 @@
-{{ $videoId := .videoId }}
-{{ $videoType := .videoType }}
-{{ $title := .title }}
-
+{{ if eq .videoType "youtube" }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoObject",
-  "name": "{{ $title }}",
-  "description": "{{ $title }} - NFP 디자인 작업물",
-  {{ if eq $videoType "youtube" }}
+  "name": "{{ .title }}",
+  "description": "{{ .title }} - NFP 디자인 작업물",
   "thumbnailUrl": [
-    "https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg",
-    "https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg"
+    "https://img.youtube.com/vi/{{ .videoId }}/maxresdefault.jpg",
+    "https://img.youtube.com/vi/{{ .videoId }}/hqdefault.jpg"
   ],
-  "embedUrl": "https://www.youtube.com/embed/{{ $videoId }}",
-  "contentUrl": "https://www.youtube.com/watch?v={{ $videoId }}",
-  "uploadDate": "{{ dateFormat "2006-01-02" .date }}"
-  {{ else if eq $videoType "vimeo" }}
-  "thumbnailUrl": "https://vumbnail.com/{{ $videoId }}.jpg",
-  "embedUrl": "https://player.vimeo.com/video/{{ $videoId }}",
-  "contentUrl": "https://vimeo.com/{{ $videoId }}",
-  "uploadDate": "{{ dateFormat "2006-01-02" .date }}"
-  {{ end }}
+  "embedUrl": "https://www.youtube.com/embed/{{ .videoId }}",
+  "contentUrl": "https://www.youtube.com/watch?v={{ .videoId }}",
+  "uploadDate": "{{ .date.Format "2006-01-02" }}",
+  "duration": "PT0H0M0S",
+  "publisher": {
+    "@type": "Organization",
+    "name": "NFP 디자인",
+    "url": "{{ .site.BaseURL }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .site.BaseURL }}img/nfp-main.png"
+    }
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "NFP Design"
+  },
+  "potentialAction": {
+    "@type": "WatchAction",
+    "target": "https://www.youtube.com/watch?v={{ .videoId }}"
+  }
 }
 </script>
+{{ else if eq .videoType "vimeo" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "{{ .title }}",
+  "description": "{{ .title }} - NFP 디자인 작업물",
+  "embedUrl": "https://player.vimeo.com/video/{{ .videoId }}",
+  "contentUrl": "https://vimeo.com/{{ .videoId }}",
+  "uploadDate": "{{ .date.Format "2006-01-02" }}",
+  "duration": "PT0H0M0S",
+  "publisher": {
+    "@type": "Organization",
+    "name": "NFP 디자인",
+    "url": "{{ .site.BaseURL }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .site.BaseURL }}img/nfp-main.png"
+    }
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "NFP Design"
+  },
+  "potentialAction": {
+    "@type": "WatchAction",
+    "target": "https://vimeo.com/{{ .videoId }}"
+  }
+}
+</script>
+{{ end }}
