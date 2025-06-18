@@ -29,6 +29,8 @@ jobs:
         webpQuality: 85
         # NFP 디자인 최적화 설정
         ignorePaths: 'node_modules/**,dist/**,.git/**'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: 📤 Commit compressed images
       run: |
