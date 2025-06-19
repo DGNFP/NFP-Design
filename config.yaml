@@ -23,18 +23,19 @@ menu:
     - name: "프로젝트"
       url: "/#design"
       weight: 2
-    - name: "게시판"
-      url: "/posts/"
-      weight: 3
     - name: "소개"
       url: "/#about"
-      weight: 4
-    - name: "소식"
-      url: "/news/"
-      weight: 5
+      weight: 3
     - name: "연락하기"
       url: "/#contact"
-      weight: 6      
+      weight: 4 
+    - name: "디자인게시판"
+      url: "/posts/"
+      weight: 5
+    - name: "소식 및 자유게시판"
+      url: "/freeboard/"
+      weight: 6
+         
 
 taxonomies:
   category: "categories"
