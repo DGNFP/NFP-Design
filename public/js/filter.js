@@ -12,12 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentFilter = 'all';
     let currentSearchTerm = '';
     
-    // 현재 페이지가 전체 게시판인지 개별 게시판인지 확인
+    // 현재 페이지가 어떤 게시판인지 확인
     const isMainBoard = window.location.pathname.includes('/posts/');
-    // ✨ 자유게시판 확인 추가
     const isFreeBoard = window.location.pathname.includes('/freeboard/');
+    const isGamesBoard = window.location.pathname.includes('/games/'); // ✨ 게임게시판 추가
     
-    console.log('현재 게시판 타입:', isMainBoard ? '전체 게시판' : isFreeBoard ? '자유게시판' : '개별 게시판');
+    console.log('현재 게시판 타입:', 
+        isMainBoard ? '전체 게시판' : 
+        isFreeBoard ? '자유게시판' : 
+        isGamesBoard ? '게임게시판' : '개별 게시판');
     
     // 필터 기능
     filters.forEach(filter => {
@@ -81,8 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // 전체 게시판
             selector = '.board-all-item';
         } else if (isFreeBoard) {
-            // ✨ 자유게시판 추가
+            // 자유게시판
             selector = '.board-all-item[data-main="freeboard"]';
+        } else if (isGamesBoard) {
+            // ✨ 게임게시판 추가
+            selector = '.board-all-item[data-main="games"]';
         } else {
             // 개별 게시판들
             selector = '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
@@ -102,8 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const categoryFromDesc = getCategoryFromDescription(item);
                     const actualCategory = mainCategory || categoryFromDesc;
                     matchesFilter = actualCategory === currentFilter;
-                } else if (isFreeBoard) {
-                    // ✨ 자유게시판: 서브카테고리 확인
+                } else if (isFreeBoard || isGamesBoard) {
+                    // ✨ 자유게시판, 게임게시판: 서브카테고리 확인
                     const subCategory = item.getAttribute('data-category') || '';
                     matchesFilter = subCategory === currentFilter;
                 } else {
@@ -118,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentSearchTerm) {
                 let titleSelector, descSelector;
                 
-                if (isMainBoard || isFreeBoard) {
-                    // 전체 게시판, 자유게시판
+                if (isMainBoard || isFreeBoard || isGamesBoard) {
+                    // ✨ 전체 게시판, 자유게시판, 게임게시판
                     titleSelector = '.board-all-item-title';
-                    descSelector = '.board-all-item-desc';
+                    descSelector = '.board-all-item-desc, .board-all-item-excerpt'; // 게임게시판 본문 검색 추가
                 } else {
                     // 개별 게시판들
                     titleSelector = '.board-item-title, .project-minimal-title';
@@ -146,8 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isMainBoard) {
             selector = '.board-all-item';
         } else if (isFreeBoard) {
-            // ✨ 자유게시판 추가
             selector = '.board-all-item[data-main="freeboard"]';
+        } else if (isGamesBoard) {
+            // ✨ 게임게시판 추가
+            selector = '.board-all-item[data-main="games"]';
         } else {
             selector = '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
         }
@@ -167,13 +175,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ✨ 모든 게시판용 결과 없음 메시지 함수 (수정됨)
+    // 모든 게시판용 결과 없음 메시지 함수
     function updateNoResultsMessage() {
         let container;
         
         // 게시판 타입별로 컨테이너 찾기
         if (isMainBoard || isFreeBoard) {
             container = document.querySelector('.board-all-grid');
+        } else if (isGamesBoard) {
+            // ✨ 게임게시판 컨테이너 추가
+            container = document.querySelector('.board-game-grid');
         } else {
             // 개별 게시판들의 컨테이너 찾기
             container = document.querySelector('.board-grid') || 
@@ -236,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // 페이지네이션 업데이트
+    // 페이지네이션 업데이트 (기존 코드와 동일)
     function updatePagination() {
         const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
         const paginationContainer = document.querySelector('.js-pagination');
@@ -358,8 +369,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (desc.includes('크리에이티브 디자인')) return 'creative';
         if (desc.includes('프로그래밍')) return 'programming';
         if (desc.includes('프로젝트')) return 'project';
-        // ✨ 자유게시판 추가
         if (desc.includes('자유게시판')) return 'freeboard';
+        if (desc.includes('게임게시판')) return 'games'; // ✨ 게임게시판 추가
         
         return '';
     }
