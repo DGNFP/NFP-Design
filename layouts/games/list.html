@@ -2,13 +2,13 @@
 <section class="board-section">
     <div class="container">
         <h2 class="board-section-title">게임게시판</h2>
-        <p class="board-intro">NFP디자인 - 게임 리뷰, 공략 등 게임에 대한 이야기</p>
+        <p class="board-intro">게임 개발, 플레이, 공략 등 게임에 대한 개인 기록</p>
         
         <!-- 탭메뉴 -->
         <div class="all-view-all-wrapper">
           <a href="/notice/" class="all-view-all-button">공지사항</a>
-            <a href="/news/" class="all-view-all-button active">소식</a>
-            <a href="/freeboard/" class="all-view-all-button active">자유게시판</a>
+            <a href="/news/" class="all-view-all-button">소식</a>
+            <a href="/freeboard/" class="all-view-all-button">자유게시판</a>
             <a href="/games/" class="all-view-all-button active">게임게시판</a>
         </div>
 
@@ -19,6 +19,7 @@
                     <li><a class="active" data-filter="all">전체</a></li>
                     <li><a data-filter="게임 공략">게임 공략</a></li>
                     <li><a data-filter="게임 소식">게임 소식</a></li>
+                    <li><a data-filter="게임 개발">게임 개발</a></li>
                     <li><a data-filter="게임 일상">게임 일상</a></li>
                 </ul>
             </div>
@@ -30,13 +31,13 @@
             </div>
         </div>
 
-        <!-- 게시판 컨텐츠 (전체 게시판 스타일) -->
+        <!-- 게시판 컨텐츠 (게임 게시판 스타일) -->
         <section class="board-all-container">
-            <div class="board-all-grid">
-                {{ $freeboardPosts := where .Site.RegularPages "Section" "freeboard" }}
-                {{ range $freeboardPosts.ByDate.Reverse }}
-                <div class="board-all-item" data-main="freeboard" data-category="{{ .Params.subCategory }}">
-                    <a href="{{ .Permalink }}?from=freeboard">
+            <div class="board-game-grid">
+                {{ $gamesPosts := where .Site.RegularPages "Section" "games" }}
+                {{ range $gamesPosts.ByDate.Reverse }}
+                <div class="board-all-item" data-main="games" data-category="{{ .Params.subCategory }}">
+                    <a href="{{ .Permalink }}?from=games">
                         <!-- 통합 썸네일 처리 -->
                         <div class="board-thumbnail">
                             {{ $content := .Content }}
@@ -103,10 +104,10 @@
                                 <!-- 본문 첫 번째 이미지 -->
                                 <img src="{{ $firstImageSrc }}" alt="{{ .Title }}">
                             {{ else }}
-                                <!-- 자유게시판 기본 플레이스홀더 -->
-                                <div class="category-placeholder-all" data-category="freeboard">
-                                    <i class="fas fa-comments"></i>
-                                    <span>자유게시판</span>
+                                <!-- 게임게시판 기본 플레이스홀더 -->
+                                <div class="category-placeholder-all" data-category="games">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>게임게시판</span>
                                 </div>
                             {{ end }}
                             
@@ -119,32 +120,44 @@
                         <div class="board-all-item-content">
                             <h3 class="board-all-item-title">{{ .Title }}</h3>
                             
-                            
-                            
-                            <!-- 카테고리 표시 -->
+                           <!-- 카테고리 표시 -->
                             <p class="board-all-item-desc">
-                                자유게시판
+                                
                                 {{ if .Params.subCategory }}
-                                    > {{ .Params.subCategory }}
+                                     {{ .Params.subCategory }}
                                 {{ end }}
+                            </p>
+                            
+                            <!-- 본문 내용 2줄 미리보기 -->
+                            <p class="board-all-item-excerpt">
+                                {{ $content := .Content | plainify | truncate 80 "..." }}
+                                {{ $content }}
                             </p>
                             
                             
                             
                             <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                            <!-- 커스텀 태그 표시 -->
-                            {{ if .Params.custom_tags }}
-                            <div class="freeboard-tags">
-                                {{ range first 3 .Params.custom_tags }}
-                                    {{ $tagValue := . }}
-                                    {{ if reflect.IsMap . }}
-                                        {{ $tagValue = .tag }}
+                            <a href="{{ .Permalink }}?from=games" class="board-all-item-link"></a>
+                            
+                            <!-- 태그 시스템 (게임게시판 스타일) -->
+                            {{ if or .Params.tags .Params.custom_tags }}
+                            <div class="board-tags">
+                                {{ if .Params.tags }}
+                                    {{ range first 2 .Params.tags }}
+                                    <span class="board-tag">{{ . }}</span>
                                     {{ end }}
-                                    <span class="freeboard-tag">{{ $tagValue }}</span>
+                                {{ end }}
+                                {{ if .Params.custom_tags }}
+                                    {{ range first 1 .Params.custom_tags }}
+                                        {{ $tagValue := . }}
+                                        {{ if reflect.IsMap . }}
+                                            {{ $tagValue = .tag }}
+                                        {{ end }}
+                                        <span class="board-tag">{{ $tagValue }}</span>
+                                    {{ end }}
                                 {{ end }}
                             </div>
                             {{ end }}
-                            <a href="{{ .Permalink }}?from=freeboard" class="board-all-item-link"></a>
                         </div>
                     </a>
                 </div>
@@ -162,4 +175,3 @@
 
 
 {{ end }}
-
