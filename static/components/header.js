@@ -20,8 +20,8 @@ function createHeader(targetElementId = 'header-container', activeMenu = '') {
                 <li><a href="/#design">프로젝트</a></li>
                 <li><a href="/#about" class="${activeMenu === 'about' ? 'active' : ''}">소개</a></li>
                 <li><a href="/#contact" class="${activeMenu === 'contact' ? 'active' : ''}">연락하기</a></li>
-                <li><a href="/posts/" class="${activeMenu === 'posts' ? 'active' : ''}">디자인게시판</a></li>
-                <li><a href="/freeboard/" class="${activeMenu === 'news' ? 'active' : ''}">소식 및 자유게시판</a></li>
+                <li><a href="/posts/" class="${activeMenu === 'posts' ? 'active' : ''}">작업 보기</a></li>
+                <li><a href="/freeboard/" class="${activeMenu === 'news' ? 'active' : ''}">자유게시판</a></li>
                 
             </ul>
             <div class="menu-btn"><i class="fas fa-bars"></i></div>
