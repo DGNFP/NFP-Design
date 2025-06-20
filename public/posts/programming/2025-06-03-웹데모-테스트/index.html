@@ -165,8 +165,11 @@
                         
                         
                         
+                            
+                            
+                            
                             <div class="web-demo-container">
-                                <div class="demo-frame">
+                                <div class="demo-frame ">
                                     <div class="demo-browser-bar">
                                         <div class="demo-browser-buttons">
                                             <span class="browser-btn red"></span>
@@ -174,9 +177,23 @@
                                             <span class="browser-btn green"></span>
                                         </div>
                                         <div class="demo-url-bar">웹데모 테스트 - Live Demo</div>
+                                        
+                                        <div class="demo-actions">
+                                            <button class="demo-action-btn" onclick="openFullscreen()" title="전체화면으로 보기">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="demo-action-btn" onclick="openInNewTab()" title="새 탭에서 열기">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
                                     
-                                    <iframe class="demo-iframe" 
+                                    <iframe id="demo-iframe" 
+                                            class="demo-iframe" 
                                             src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;7Ju5IOuNsOuqqCDthYzsiqTtirg8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgICogewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJvZHkgewogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuY29udGFpbmVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMjBweCA0MHB4IHJnYmEoMCwwLDAsMC4xKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBtYXgtd2lkdGg6IDQwMHB4OwogICAgICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMzMzOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICBmb250LXNpemU6IDJyZW07CiAgICAgICAgfQogICAgICAgIAogICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmJ0biB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgIzY2N2VlYSwgIzc2NGJhMik7CiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAzMHB4OwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4zcyBlYXNlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDEwcHggMjBweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5kZW1vLWJveCB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDJyZW07CiAgICAgICAgICAgIHBhZGRpbmc6IDFyZW07CiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmOGY5ZmE7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgIzY2N2VlYTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ&#43;Cjxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICA8aDE&#43;8J&#43;agCDsm7kg642w66qoPC9oMT4KICAgICAgICA8cD7qsITri6jtlZwg7Ju5IOuNsOuqqCDthYzsiqTtirgg7Y6Y7J207KeA7J6F64uI64ukLiDrsJjsnZHtmJUg65SU7J6Q7J246rO8IOuqqOuNmO2VnCDsiqTtg4DsnbzsnbQg7KCB7Jqp65CY7JeI7Iq164uI64ukLjwvcD4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4iIG9uY2xpY2s9InNob3dEZW1vKCkiPuuNsOuqqCDsi6Ttlok8L2J1dHRvbj4KICAgICAgICAKICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWJveCIgaWQ9ImRlbW9SZXN1bHQiIHN0eWxlPSJkaXNwbGF5OiBub25lOyI&#43;CiAgICAgICAgICAgIDxoMz7inIUg642w66qoIOyEseqztSE8L2gzPgogICAgICAgICAgICA8cD5KYXZhU2NyaXB07JmAIENTU&#43;qwgCDsoJXsg4HsoIHsnLzroZwg7J6R64&#43;Z7ZWp64uI64ukLjwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNob3dEZW1vKCkgewogICAgICAgICAgICBjb25zdCByZXN1bHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVtb1Jlc3VsdCcpOwogICAgICAgICAgICByZXN1bHQuc3R5bGUuZGlzcGxheSA9ICdibG9jayc7CiAgICAgICAgICAgIHJlc3VsdC5zdHlsZS5hbmltYXRpb24gPSAnZmFkZUluIDAuNXMgZWFzZS1pbic7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIENTUyDslaDri4jrqZTsnbTshZgg7LaU6rCACiAgICAgICAgY29uc3Qgc3R5bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpOwogICAgICAgIHN0eWxlLnRleHRDb250ZW50ID0gYAogICAgICAgICAgICBAa2V5ZnJhbWVzIGZhZGVJbiB7CiAgICAgICAgICAgICAgICBmcm9tIHsgb3BhY2l0eTogMDsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpOyB9CiAgICAgICAgICAgICAgICB0byB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgICAgICB9CiAgICAgICAgYDsKICAgICAgICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHN0eWxlKTsKICAgIDwvc2NyaXB0Pgo8L2JvZHk&#43;CjwvaHRtbD4=" 
                                             width="100%" 
                                             height="600px" 
@@ -185,6 +202,49 @@
                                     </iframe>
                                 </div>
                             </div>
+
+                            
+                            <div id="fullscreen-modal" class="fullscreen-modal">
+                                <div class="fullscreen-header">
+                                    <div class="fullscreen-title">
+                                        <h3>웹데모 테스트 - 전체화면 데모</h3>
+                                    </div>
+                                    <div class="fullscreen-controls">
+                                        <button class="control-btn" onclick="refreshDemo()" title="새로고침">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="control-btn" onclick="openInNewTab()" title="새 탭에서 열기">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="control-btn close-btn" onclick="closeFullscreen()" title="닫기">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="fullscreen-content">
+                                    <iframe id="fullscreen-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;7Ju5IOuNsOuqqCDthYzsiqTtirg8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgICogewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJvZHkgewogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuY29udGFpbmVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMjBweCA0MHB4IHJnYmEoMCwwLDAsMC4xKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBtYXgtd2lkdGg6IDQwMHB4OwogICAgICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMzMzOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICBmb250LXNpemU6IDJyZW07CiAgICAgICAgfQogICAgICAgIAogICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmJ0biB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgIzY2N2VlYSwgIzc2NGJhMik7CiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAzMHB4OwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4zcyBlYXNlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDEwcHggMjBweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5kZW1vLWJveCB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDJyZW07CiAgICAgICAgICAgIHBhZGRpbmc6IDFyZW07CiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmOGY5ZmE7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgIzY2N2VlYTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ&#43;Cjxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICA8aDE&#43;8J&#43;agCDsm7kg642w66qoPC9oMT4KICAgICAgICA8cD7qsITri6jtlZwg7Ju5IOuNsOuqqCDthYzsiqTtirgg7Y6Y7J207KeA7J6F64uI64ukLiDrsJjsnZHtmJUg65SU7J6Q7J246rO8IOuqqOuNmO2VnCDsiqTtg4DsnbzsnbQg7KCB7Jqp65CY7JeI7Iq164uI64ukLjwvcD4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4iIG9uY2xpY2s9InNob3dEZW1vKCkiPuuNsOuqqCDsi6Ttlok8L2J1dHRvbj4KICAgICAgICAKICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWJveCIgaWQ9ImRlbW9SZXN1bHQiIHN0eWxlPSJkaXNwbGF5OiBub25lOyI&#43;CiAgICAgICAgICAgIDxoMz7inIUg642w66qoIOyEseqztSE8L2gzPgogICAgICAgICAgICA8cD5KYXZhU2NyaXB07JmAIENTU&#43;qwgCDsoJXsg4HsoIHsnLzroZwg7J6R64&#43;Z7ZWp64uI64ukLjwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNob3dEZW1vKCkgewogICAgICAgICAgICBjb25zdCByZXN1bHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVtb1Jlc3VsdCcpOwogICAgICAgICAgICByZXN1bHQuc3R5bGUuZGlzcGxheSA9ICdibG9jayc7CiAgICAgICAgICAgIHJlc3VsdC5zdHlsZS5hbmltYXRpb24gPSAnZmFkZUluIDAuNXMgZWFzZS1pbic7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIENTUyDslaDri4jrqZTsnbTshZgg7LaU6rCACiAgICAgICAgY29uc3Qgc3R5bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpOwogICAgICAgIHN0eWxlLnRleHRDb250ZW50ID0gYAogICAgICAgICAgICBAa2V5ZnJhbWVzIGZhZGVJbiB7CiAgICAgICAgICAgICAgICBmcm9tIHsgb3BhY2l0eTogMDsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpOyB9CiAgICAgICAgICAgICAgICB0byB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgICAgICB9CiAgICAgICAgYDsKICAgICAgICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHN0eWxlKTsKICAgIDwvc2NyaXB0Pgo8L2JvZHk&#43;CjwvaHRtbD4=" 
+                                            width="100%" 
+                                            height="100%" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            
+                            <script type="application/json" id="demo-data">
+                            {
+                                "title": "웹데모 테스트",
+                                "code": "PCFET0NUWVBFIGh0bWw\u002bCjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ\u002bCiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI\u002bCiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI\u002bCiAgICA8dGl0bGU\u002b7Ju5IOuNsOuqqCDthYzsiqTtirg8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgICogewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJvZHkgewogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuY29udGFpbmVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMjBweCA0MHB4IHJnYmEoMCwwLDAsMC4xKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBtYXgtd2lkdGg6IDQwMHB4OwogICAgICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMzMzOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICBmb250LXNpemU6IDJyZW07CiAgICAgICAgfQogICAgICAgIAogICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmJ0biB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgIzY2N2VlYSwgIzc2NGJhMik7CiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAzMHB4OwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4zcyBlYXNlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDEwcHggMjBweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5kZW1vLWJveCB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDJyZW07CiAgICAgICAgICAgIHBhZGRpbmc6IDFyZW07CiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmOGY5ZmE7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgIzY2N2VlYTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ\u002bCjxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICA8aDE\u002b8J\u002bagCDsm7kg642w66qoPC9oMT4KICAgICAgICA8cD7qsITri6jtlZwg7Ju5IOuNsOuqqCDthYzsiqTtirgg7Y6Y7J207KeA7J6F64uI64ukLiDrsJjsnZHtmJUg65SU7J6Q7J246rO8IOuqqOuNmO2VnCDsiqTtg4DsnbzsnbQg7KCB7Jqp65CY7JeI7Iq164uI64ukLjwvcD4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4iIG9uY2xpY2s9InNob3dEZW1vKCkiPuuNsOuqqCDsi6Ttlok8L2J1dHRvbj4KICAgICAgICAKICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWJveCIgaWQ9ImRlbW9SZXN1bHQiIHN0eWxlPSJkaXNwbGF5OiBub25lOyI\u002bCiAgICAgICAgICAgIDxoMz7inIUg642w66qoIOyEseqztSE8L2gzPgogICAgICAgICAgICA8cD5KYXZhU2NyaXB07JmAIENTU\u002bqwgCDsoJXsg4HsoIHsnLzroZwg7J6R64\u002bZ7ZWp64uI64ukLjwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNob3dEZW1vKCkgewogICAgICAgICAgICBjb25zdCByZXN1bHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVtb1Jlc3VsdCcpOwogICAgICAgICAgICByZXN1bHQuc3R5bGUuZGlzcGxheSA9ICdibG9jayc7CiAgICAgICAgICAgIHJlc3VsdC5zdHlsZS5hbmltYXRpb24gPSAnZmFkZUluIDAuNXMgZWFzZS1pbic7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIENTUyDslaDri4jrqZTsnbTshZgg7LaU6rCACiAgICAgICAgY29uc3Qgc3R5bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpOwogICAgICAgIHN0eWxlLnRleHRDb250ZW50ID0gYAogICAgICAgICAgICBAa2V5ZnJhbWVzIGZhZGVJbiB7CiAgICAgICAgICAgICAgICBmcm9tIHsgb3BhY2l0eTogMDsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpOyB9CiAgICAgICAgICAgICAgICB0byB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgICAgICB9CiAgICAgICAgYDsKICAgICAgICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHN0eWxlKTsKICAgIDwvc2NyaXB0Pgo8L2JvZHk\u002bCjwvaHRtbD4="
+                            }
+                            </script>
                         
                     
 
@@ -306,6 +366,8 @@
     
     
     <script src="/js/lightbox.js"></script>
+    
+    <script src="/js/web-demo.js"></script>
     
 </section>
 

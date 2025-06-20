@@ -13,13 +13,286 @@
     overflow: hidden;
 }
 
+/* 기본 테마 (그라데이션) */
 .demo-browser-bar {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    height: 45px;
+    height: 50px;
     display: flex;
     align-items: center;
     padding: 0 20px;
     color: white;
+    position: relative; /* 🎯 추가: URL 바 절대 위치를 위해 */
+}
+
+.demo-url-bar {
+    background: rgba(255,255,255,0.2);
+    padding: 4px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    
+    /* 🎯 완벽한 중앙 정렬 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    min-width: 550px;
+    max-width: 800px;
+    
+    /* 말줄임표 처리 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 🎯 데모 액션 버튼들 */
+.demo-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto; /* 오른쪽으로 밀어냄 */
+}
+
+.demo-action-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demo-action-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* 전체화면 모달 */
+.fullscreen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+}
+
+.fullscreen-modal.active {
+    display: flex;
+}
+
+.fullscreen-header {
+    background: #1a1a1a;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.fullscreen-title h3 {
+    color: white;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.fullscreen-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.control-btn.close-btn:hover {
+    background: #dc2626;
+}
+
+.fullscreen-content {
+    flex: 1;
+    background: white;
+}
+
+.fullscreen-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 다크 테마 */
+.demo-frame.dark-theme .demo-browser-bar {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    color: #f9fafb;
+}
+
+.demo-frame.dark-theme {
+    background: #111827;
+    border: 1px solid #374151;
+}
+
+/* 미니멀 테마 */
+.demo-frame.minimal-theme .demo-browser-bar {
+    background: #f8fafc;
+    color: #64748b;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.demo-frame.minimal-theme .demo-url-bar {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.demo-frame.minimal-theme .demo-action-btn {
+    background: rgba(100, 116, 139, 0.2);
+    color: #64748b;
+}
+
+.demo-frame.minimal-theme .demo-action-btn:hover {
+    background: rgba(100, 116, 139, 0.3);
+}
+
+/* 네온 테마 */
+.demo-frame.neon-theme .demo-browser-bar {
+    background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.demo-frame.neon-theme {
+    border: 2px solid #06b6d4;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+}
+
+/* 클래식 테마 */
+.demo-frame.classic-theme .demo-browser-bar {
+    background: #dc2626;
+    color: white;
+}
+
+.demo-frame.classic-theme {
+    border: 3px solid #dc2626;
+    border-radius: 8px;
+}
+
+/* NFP 테마 - 글래스모피즘 */
+.demo-frame.nfp-theme {
+    background: linear-gradient(135deg, #000000 0%, rgba(1, 255, 117, 0.1) 100%);
+    border: 1px solid rgba(1, 255, 117, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.37),
+        0 0 20px rgba(1, 255, 117, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
+
+.demo-frame.nfp-theme .demo-browser-bar {
+    background: linear-gradient(135deg, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(1, 255, 117, 0.15) 50%,
+        rgba(0, 0, 0, 0.9) 100%);
+    color: #ffffff;
+    border-bottom: 1px solid rgba(1, 255, 117, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.demo-frame.nfp-theme .demo-browser-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(1, 255, 117, 0.1) 50%, 
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.demo-frame.nfp-theme .demo-browser-bar:hover::before {
+    opacity: 1;
+}
+
+.demo-frame.nfp-theme .demo-url-bar {
+    background: rgba(1, 255, 117, 0.1);
+    color: #01FF75;
+    border: 1px solid rgba(1, 255, 117, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(1, 255, 117, 0.3);
+    transition: all 0.3s ease;
+}
+
+.demo-frame.nfp-theme .demo-url-bar:hover {
+    background: rgba(1, 255, 117, 0.15);
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.2);
+    transform: translateX(-50%) translateY(-1px); /* 🎯 NFP 테마 호버 효과 수정 */
+}
+
+.demo-frame.nfp-theme .demo-action-btn {
+    background: rgba(1, 255, 117, 0.1);
+    color: #01FF75;
+    border: 1px solid rgba(1, 255, 117, 0.3);
+}
+
+.demo-frame.nfp-theme .demo-action-btn:hover {
+    background: rgba(1, 255, 117, 0.2);
+    box-shadow: 0 0 10px rgba(1, 255, 117, 0.3);
+}
+
+.demo-frame.nfp-theme .browser-btn {
+    transition: all 0.3s ease;
+}
+
+.demo-frame.nfp-theme .browser-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(1, 255, 117, 0.4);
+}
+
+.demo-frame.nfp-theme .browser-btn.red {
+    background: linear-gradient(45deg, #ff5f57, #01FF75);
+}
+
+.demo-frame.nfp-theme .browser-btn.yellow {
+    background: linear-gradient(45deg, #ffbd2e, #01FF75);
+}
+
+.demo-frame.nfp-theme .browser-btn.green {
+    background: #01FF75;
+    box-shadow: 0 0 8px rgba(1, 255, 117, 0.4);
+}
+
+.demo-frame.nfp-theme .demo-iframe {
+    background: rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(1, 255, 117, 0.1);
 }
 
 .demo-browser-buttons {
@@ -46,16 +319,6 @@
     background: #28ca42; 
 }
 
-.demo-url-bar {
-    background: rgba(255,255,255,0.2);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    flex: 1;
-    text-align: center;
-    backdrop-filter: blur(10px);
-}
-
 .demo-iframe {
     display: block;
     background: white;
@@ -73,10 +336,47 @@
     
     .demo-url-bar {
         font-size: 12px;
-        padding: 6px 12px;
+        padding: 2.5px 5px;
+        min-width: 120px; /* 모바일에서 최소 너비 조정 */
+        max-width: 700px; /* 모바일에서 최대 너비 조정 */
+        /* 말줄임표는 이미 위에서 정의됨 */
     }
     
     .demo-iframe {
         height: 400px;
     }
+
+    .demo-actions {
+        gap: 4px;
+    }
+
+    .demo-action-btn {
+        padding: 4px;
+    }
+
+    .fullscreen-header {
+        padding: 8px 12px;
+    }
+
+    .fullscreen-title h3 {
+        font-size: 14px;
+    }
+
+    /* 🎯 모바일에서 NFP 테마 호버 효과도 수정 */
+    .demo-frame.nfp-theme .demo-url-bar:hover {
+        transform: translateX(-50%) translateY(-1px);
+    }
+}
+
+@media (max-width: 480px){
+
+.demo-url-bar {
+        font-size: 12px;
+        padding: 2.5px 5px;
+        min-width: 60px; /* 모바일에서 최소 너비 조정 */
+        max-width: 120px; /* 모바일에서 최대 너비 조정 */
+        /* 말줄임표는 이미 위에서 정의됨 */
+    }
+    
+
 }
