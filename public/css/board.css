@@ -1203,7 +1203,7 @@ opacity: 0.3;
 
 .post-title {
     font-size: 32px;
-    font-weight: var(--font-black);
+    font-weight: var(--font-bold);
     margin-bottom: 15px;
     color: var(--accent-color);
 }

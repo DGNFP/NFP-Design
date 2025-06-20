@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+    
+
+    <title>[웹사이트 기능 구현] 클립보드 붙여넣기 - NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</title>
+    
+    
+    <meta name="description" content="프론트엔드(JavaScript)
+-Clipboard API 활용
+-File API로 이미지 처리
+-FormData로 파일 업로드
+-에디터 DOM 조작
+백엔드(넷리파이 CMS)
+-미디어 업로드 API 연동
+-디렉토리에 파일 저장
+-파일명 중복 방지 로직
+기대효과
+-컨트롤&#43;V로 게시글 작성 …">
+    
+    
+    <meta name="keywords" content="NFP디자인, 프리랜서디자이너, 디자인외주, 디자인용역, 웹디자이너, 그래픽디자이너, 영상편집자, 개발자, 웹개발자, 웹디자인, 홈페이지제작, 쇼핑몰제작, 랜딩페이지, 반응형웹, 웹사이트디자인, 컨텐츠디자인, 영상디자인, 프로그래밍, 광고디자인, 인쇄디자인, 디지털배너, 상세페이지디자인, UXUI디자인, 앱디자인, 카드뉴스, 포스터디자인, SNS광고, 인스타그램디자인, 페이스북광고, 블로그디자인, 로고디자인, 브랜딩, BI디자인, CI디자인, 게임광고, 인터넷방송디자인, 스트리밍디자인, 트위치디자인, 유튜브디자인, 영상제작, 영상편집, 모션그래픽, 애니메이션, 유튜브썸네일, 인트로영상, 아웃트로영상, 프론트엔드, 웹퍼블리싱, 모바일앱, 앱개발, 게임개발, 유니티, 현수막, 엑스배너, 명함디자인, 브로슈어, 카탈로그, 패키지디자인, 포장지디자인, 스타트업디자인, 중소기업디자인, 1인기업디자인, 창업디자인, 온라인쇼핑몰, 카페디자인, 음식점디자인, 병원디자인, 부동산디자인, 교육업디자인, 뷰티디자인, 패션디자인, IT디자인, 금융디자인, 건설업디자인, 제조업디자인, 서비스업디자인, 디자인대행, 디자인제작, 디자인업체, 디자인회사, 외주디자인, 프로젝트단위, 단기프로젝트, 장기프로젝트, 디자인컨설팅, 디자인기획, 비주얼디자인, 그래픽작업, 포토샵작업, 일러스트작업, 이미지편집, 사진보정, 3D디자인, 제품디자인, 산업디자인, 편집디자인, 출판디자인, 북디자인, 매뉴얼디자인, 프레젠테이션디자인, PPT디자인, 이벤트디자인, 전시디자인, 사인디자인, 간판디자인, 실사출력, 디지털프린팅, Fresh, Pop, Needs, 트렌드, 디테일, 합리적가격, 빠른작업, 고품질, 전문가, 경력자, 포트폴리오">
+    
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C-%EB%B6%99%EC%97%AC%EB%84%A3%EA%B8%B0/">
+    <meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="[웹사이트 기능 구현] 클립보드 붙여넣기 - NFP 디자인">
+    <meta property="og:description" content="프론트엔드(JavaScript)
+-Clipboard API 활용
+-File API로 이미지 처리
+-FormData로 파일 업로드
+-에디터 DOM 조작
+백엔드(넷리파이 CMS)
+-미디어 업로드 API 연동
+-디렉토리에 파일 저장
+-파일명 중복 방지 로직
+기대효과
+-컨트롤&#43;V로 게시글 작성 …">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C-%EB%B6%99%EC%97%AC%EB%84%A3%EA%B8%B0/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-06-20T20:20:00Z">
+        <meta property="article:modified_time" content="2025-06-20T20:20:00Z">
+        
+            
+                <meta property="article:section" content="programming">
+            
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="[웹사이트 기능 구현] 클립보드 붙여넣기 - NFP 디자인">
+    <meta name="twitter:description" content="프론트엔드(JavaScript)
+-Clipboard API 활용
+-File API로 이미지 처리
+-FormData로 파일 업로드
+-에디터 DOM 조작
+백엔드(넷리파이 CMS)
+-미디어 업로드 API 연동
+-디렉토리에 파일 저장
+-파일명 중복 방지 로직
+기대효과
+-컨트롤&#43;V로 게시글 작성 …">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "[웹사이트 기능 구현] 클립보드 붙여넣기",
+      "description": "\u003ch3 id=\u0022프론트엔드javascript\u0022\u003e프론트엔드(JavaScript)\u003c\/h3\u003e\n\u003cp\u003e-Clipboard API 활용\u003c\/p\u003e\n\u003cp\u003e-File API로 이미지 처리\u003c\/p\u003e\n\u003cp\u003e-FormData로 파일 업로드\u003c\/p\u003e\n\u003cp\u003e-에디터 DOM 조작\u003c\/p\u003e\n\u003ch3 id=\u0022백엔드넷리파이-cms\u0022\u003e백엔드(넷리파이 CMS)\u003c\/h3\u003e\n\u003cp\u003e-미디어 업로드 API 연동\u003c\/p\u003e\n\u003cp\u003e-디렉토리에 파일 저장\u003c\/p\u003e\n\u003cp\u003e-파일명 중복 방지 로직\u003c\/p\u003e\n\u003ch3 id=\u0022기대효과\u0022\u003e기대효과\u003c\/h3\u003e\n\u003cp\u003e-컨트롤\u002bV로 게시글 작성 …\u003c\/p\u003e",
+      "url": "http:\/\/localhost:1313\/posts\/programming\/2025-06-20-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C-%EB%B6%99%EC%97%AC%EB%84%A3%EA%B8%B0\/",
+      
+      "datePublished": "2025-06-20T20:20:00Z",
+      "dateModified": "2025-06-20T20:20:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/project_board.css">
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<section class="post-section">
+    <div class="container">
+        <div class="post-container">
+            
+            <div class="post-header">
+                <h1 class="post-title">[웹사이트 기능 구현] 클립보드 붙여넣기</h1>
+                <div class="post-meta">
+                    <span class="post-date">2025.06.20</span>
+                    
+                    
+                        <span class="post-category">
+                            
+                            
+                            
+                            
+                            
+                            프로그래밍
+                            
+                            
+                            
+                                > 프론트엔드
+                            
+                        </span>
+                    
+                </div>
+            </div>
+
+            
+            <link rel="stylesheet" href="/css/lightbox.css">
+            
+            <link rel="stylesheet" href="/css/web-demo.css">
+
+           
+            <div class="post-content">
+                
+                <div class="post-media">
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                    
+
+                    
+
+                    
+                </div>
+
+               <div class="post-body">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <h3 id="프론트엔드javascript">프론트엔드(JavaScript)</h3>
+<p>-Clipboard API 활용</p>
+<p>-File API로 이미지 처리</p>
+<p>-FormData로 파일 업로드</p>
+<p>-에디터 DOM 조작</p>
+<h3 id="백엔드넷리파이-cms">백엔드(넷리파이 CMS)</h3>
+<p>-미디어 업로드 API 연동</p>
+<p>-디렉토리에 파일 저장</p>
+<p>-파일명 중복 방지 로직</p>
+<h3 id="기대효과">기대효과</h3>
+<p>-컨트롤+V로 게시글 작성폼에서 이미지 붙여넣기 가능</p>
+<p>-업로드 된 이미지는 기존 이미지와 동일한 스타일 적용</p>
+<p>-디렉토리에 실제 파일 저장</p>
+
+                </div>
+
+                
+                
+                <div class="tags-container">
+                    
+                    
+                    <span class="project-scale-badge">웹 퍼블리싱</span>
+                    
+                    <span class="project-scale-badge">프론트엔드</span>
+                    
+                    
+                    
+                        
+                        
+                        <span class="project-scale-badge">백엔드</span>
+                    
+                        
+                        
+                        <span class="project-scale-badge">넷리파이 CMS</span>
+                    
+                </div>
+                
+            </div>
+
+        
+        <div class="post-navigation">
+            
+            
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            
+            
+            
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+            
+            
+                
+                <a href="/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/" class="nav-previous">
+                    <i class="fas fa-chevron-left"></i> 이전
+                </a>
+            
+            
+            
+            <a href="/posts/" class="nav-list">목록으로</a>
+
+            
+            
+            
+                
+                <a href="/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%A1%9C%EB%93%9C%EB%A7%B5-%ED%94%8C%EB%9E%98%EB%84%88/" class="nav-next">
+                    다음 <i class="fas fa-chevron-right"></i>
+                </a>
+            
+        </div>
+        </div>
+    </div>
+    
+    
+    <script src="/js/lightbox.js"></script>
+    
+</section>
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>

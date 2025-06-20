@@ -146,83 +146,8 @@
 
             
             <link rel="stylesheet" href="/css/lightbox.css">
-
             
-            <style>
-            .web-demo-container {
-                margin: 20px 0 30px 0;
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-                background: #f5f5f5;
-            }
-
-            .demo-frame {
-                background: white;
-                border-radius: 12px;
-                overflow: hidden;
-            }
-
-            .demo-browser-bar {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                height: 45px;
-                display: flex;
-                align-items: center;
-                padding: 0 20px;
-                color: white;
-            }
-
-            .demo-browser-buttons {
-                display: flex;
-                gap: 8px;
-                margin-right: 20px;
-            }
-
-            .browser-btn {
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-            }
-
-            .browser-btn.red { background: #ff5f57; }
-            .browser-btn.yellow { background: #ffbd2e; }
-            .browser-btn.green { background: #28ca42; }
-
-            .demo-url-bar {
-                background: rgba(255,255,255,0.2);
-                padding: 8px 15px;
-                border-radius: 20px;
-                font-size: 14px;
-                flex: 1;
-                text-align: center;
-                backdrop-filter: blur(10px);
-            }
-
-            .demo-iframe {
-                display: block;
-                background: white;
-                min-height: 400px;
-                border: none;
-                width: 100%;
-            }
-
-             
-            @media (max-width: 768px) {
-                .demo-browser-bar {
-                    height: 40px;
-                    padding: 0 15px;
-                }
-                
-                .demo-url-bar {
-                    font-size: 12px;
-                    padding: 6px 12px;
-                }
-                
-                .demo-iframe {
-                    height: 400px;
-                }
-            }
-            </style>
+            <link rel="stylesheet" href="/css/web-demo.css">
 
            
             <div class="post-content">
@@ -230,125 +155,37 @@
                 <div class="post-media">
                     
                     
-                        <div class="web-demo-container">
-                            <div class="demo-frame">
-                                <div class="demo-browser-bar">
-                                    <div class="demo-browser-buttons">
-                                        <span class="browser-btn red"></span>
-                                        <span class="browser-btn yellow"></span>
-                                        <span class="browser-btn green"></span>
+                        
+                        
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                            <div class="web-demo-container">
+                                <div class="demo-frame">
+                                    <div class="demo-browser-bar">
+                                        <div class="demo-browser-buttons">
+                                            <span class="browser-btn red"></span>
+                                            <span class="browser-btn yellow"></span>
+                                            <span class="browser-btn green"></span>
+                                        </div>
+                                        <div class="demo-url-bar">웹데모 테스트 - Live Demo</div>
                                     </div>
-                                    <div class="demo-url-bar">웹데모 테스트 - Live Demo</div>
+                                    
+                                    <iframe class="demo-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;7Ju5IOuNsOuqqCDthYzsiqTtirg8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgICogewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJvZHkgewogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuY29udGFpbmVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMjBweCA0MHB4IHJnYmEoMCwwLDAsMC4xKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBtYXgtd2lkdGg6IDQwMHB4OwogICAgICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMzMzOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICBmb250LXNpemU6IDJyZW07CiAgICAgICAgfQogICAgICAgIAogICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmJ0biB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgIzY2N2VlYSwgIzc2NGJhMik7CiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAzMHB4OwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4zcyBlYXNlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDEwcHggMjBweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5kZW1vLWJveCB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDJyZW07CiAgICAgICAgICAgIHBhZGRpbmc6IDFyZW07CiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmOGY5ZmE7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgIzY2N2VlYTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ&#43;Cjxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICA8aDE&#43;8J&#43;agCDsm7kg642w66qoPC9oMT4KICAgICAgICA8cD7qsITri6jtlZwg7Ju5IOuNsOuqqCDthYzsiqTtirgg7Y6Y7J207KeA7J6F64uI64ukLiDrsJjsnZHtmJUg65SU7J6Q7J246rO8IOuqqOuNmO2VnCDsiqTtg4DsnbzsnbQg7KCB7Jqp65CY7JeI7Iq164uI64ukLjwvcD4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4iIG9uY2xpY2s9InNob3dEZW1vKCkiPuuNsOuqqCDsi6Ttlok8L2J1dHRvbj4KICAgICAgICAKICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWJveCIgaWQ9ImRlbW9SZXN1bHQiIHN0eWxlPSJkaXNwbGF5OiBub25lOyI&#43;CiAgICAgICAgICAgIDxoMz7inIUg642w66qoIOyEseqztSE8L2gzPgogICAgICAgICAgICA8cD5KYXZhU2NyaXB07JmAIENTU&#43;qwgCDsoJXsg4HsoIHsnLzroZwg7J6R64&#43;Z7ZWp64uI64ukLjwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNob3dEZW1vKCkgewogICAgICAgICAgICBjb25zdCByZXN1bHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVtb1Jlc3VsdCcpOwogICAgICAgICAgICByZXN1bHQuc3R5bGUuZGlzcGxheSA9ICdibG9jayc7CiAgICAgICAgICAgIHJlc3VsdC5zdHlsZS5hbmltYXRpb24gPSAnZmFkZUluIDAuNXMgZWFzZS1pbic7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIENTUyDslaDri4jrqZTsnbTshZgg7LaU6rCACiAgICAgICAgY29uc3Qgc3R5bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpOwogICAgICAgIHN0eWxlLnRleHRDb250ZW50ID0gYAogICAgICAgICAgICBAa2V5ZnJhbWVzIGZhZGVJbiB7CiAgICAgICAgICAgICAgICBmcm9tIHsgb3BhY2l0eTogMDsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpOyB9CiAgICAgICAgICAgICAgICB0byB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgICAgICB9CiAgICAgICAgYDsKICAgICAgICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHN0eWxlKTsKICAgIDwvc2NyaXB0Pgo8L2JvZHk&#43;CjwvaHRtbD4=" 
+                                            width="100%" 
+                                            height="600px" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
                                 </div>
-                                
-                                <iframe class="demo-iframe" 
-                                        srcdoc='map[code:&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;ko&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-    &lt;title&gt;웹 데모 테스트&lt;/title&gt;
-    &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: &#39;Arial&#39;, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-        }
-        
-        p {
-            color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        
-        .btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .demo-box {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&#34;container&#34;&gt;
-        &lt;h1&gt;🚀 웹 데모&lt;/h1&gt;
-        &lt;p&gt;간단한 웹 데모 테스트 페이지입니다. 반응형 디자인과 모던한 스타일이 적용되었습니다.&lt;/p&gt;
-        &lt;button class=&#34;btn&#34; onclick=&#34;showDemo()&#34;&gt;데모 실행&lt;/button&gt;
-        
-        &lt;div class=&#34;demo-box&#34; id=&#34;demoResult&#34; style=&#34;display: none;&#34;&gt;
-            &lt;h3&gt;✅ 데모 성공!&lt;/h3&gt;
-            &lt;p&gt;JavaScript와 CSS가 정상적으로 작동합니다.&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    
-    &lt;script&gt;
-        function showDemo() {
-            const result = document.getElementById(&#39;demoResult&#39;);
-            result.style.display = &#39;block&#39;;
-            result.style.animation = &#39;fadeIn 0.5s ease-in&#39;;
-        }
-        
-        // CSS 애니메이션 추가
-        const style = document.createElement(&#39;style&#39;);
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt; lang:html]' 
-                                        width="100%" 
-                                        height="600px" 
-                                        frameborder="0"
-                                        sandbox="allow-scripts allow-same-origin">
-                                </iframe>
                             </div>
-                        </div>
+                        
                     
 
                     
@@ -407,63 +244,67 @@
             </div>
 
         
-<div class="post-navigation">
-    
-    
-    
-    
-    
-    
-    
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    
-    
-        
+        <div class="post-navigation">
             
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-    
-    
-    
-    
-        
-        <a href="/posts/programming/test6/" class="nav-previous">
-            <i class="fas fa-chevron-left"></i> 이전
-        </a>
-    
-    
-    
-    <a href="/posts/" class="nav-list">목록으로</a>
+            
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            
+            
+            
+                
+            
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+            
+            
+                
+                <a href="/posts/programming/test6/" class="nav-previous">
+                    <i class="fas fa-chevron-left"></i> 이전
+                </a>
+            
+            
+            
+            <a href="/posts/" class="nav-list">목록으로</a>
 
-    
-    
-    
-        <span></span>
-    
-</div>
+            
+            
+            
+                
+                <a href="/posts/programming/2025-06-20-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C-%EB%B6%99%EC%97%AC%EB%84%A3%EA%B8%B0/" class="nav-next">
+                    다음 <i class="fas fa-chevron-right"></i>
+                </a>
+            
+        </div>
         </div>
     </div>
-  
+    
+    
     <script src="/js/lightbox.js"></script>
     
 </section>

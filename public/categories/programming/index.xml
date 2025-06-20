@@ -6,8 +6,22 @@
     <description>Recent content in Programming on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 03 Jun 2025 13:48:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jun 2025 22:34:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[웹데모] 로드맵 플래너</title>
+      <link>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%A1%9C%EB%93%9C%EB%A7%B5-%ED%94%8C%EB%9E%98%EB%84%88/</link>
+      <pubDate>Fri, 20 Jun 2025 22:34:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%A1%9C%EB%93%9C%EB%A7%B5-%ED%94%8C%EB%9E%98%EB%84%88/</guid>
+      <description>&lt;p&gt;프로젝트 진행 일정을 도와주는 로드맵 플래너 웹 데모 입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[웹사이트 기능 구현] 클립보드 붙여넣기</title>
+      <link>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C-%EB%B6%99%EC%97%AC%EB%84%A3%EA%B8%B0/</link>
+      <pubDate>Fri, 20 Jun 2025 20:20:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C-%EB%B6%99%EC%97%AC%EB%84%A3%EA%B8%B0/</guid>
+      <description>&lt;h3 id=&#34;프론트엔드javascript&#34;&gt;프론트엔드(JavaScript)&lt;/h3&gt;&#xA;&lt;p&gt;-Clipboard API 활용&lt;/p&gt;&#xA;&lt;p&gt;-File API로 이미지 처리&lt;/p&gt;&#xA;&lt;p&gt;-FormData로 파일 업로드&lt;/p&gt;&#xA;&lt;p&gt;-에디터 DOM 조작&lt;/p&gt;&#xA;&lt;h3 id=&#34;백엔드넷리파이-cms&#34;&gt;백엔드(넷리파이 CMS)&lt;/h3&gt;&#xA;&lt;p&gt;-미디어 업로드 API 연동&lt;/p&gt;&#xA;&lt;p&gt;-디렉토리에 파일 저장&lt;/p&gt;&#xA;&lt;p&gt;-파일명 중복 방지 로직&lt;/p&gt;&#xA;&lt;h3 id=&#34;기대효과&#34;&gt;기대효과&lt;/h3&gt;&#xA;&lt;p&gt;-컨트롤+V로 게시글 작성폼에서 이미지 붙여넣기 가능&lt;/p&gt;&#xA;&lt;p&gt;-업로드 된 이미지는 기존 이미지와 동일한 스타일 적용&lt;/p&gt;&#xA;&lt;p&gt;-디렉토리에 실제 파일 저장&lt;/p&gt;</description>
+    </item>
     <item>
       <title>웹데모 테스트</title>
       <link>http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>

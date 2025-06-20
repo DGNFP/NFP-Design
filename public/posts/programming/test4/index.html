@@ -164,83 +164,8 @@
 
             
             <link rel="stylesheet" href="/css/lightbox.css">
-
             
-            <style>
-            .web-demo-container {
-                margin: 20px 0 30px 0;
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-                background: #f5f5f5;
-            }
-
-            .demo-frame {
-                background: white;
-                border-radius: 12px;
-                overflow: hidden;
-            }
-
-            .demo-browser-bar {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                height: 45px;
-                display: flex;
-                align-items: center;
-                padding: 0 20px;
-                color: white;
-            }
-
-            .demo-browser-buttons {
-                display: flex;
-                gap: 8px;
-                margin-right: 20px;
-            }
-
-            .browser-btn {
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-            }
-
-            .browser-btn.red { background: #ff5f57; }
-            .browser-btn.yellow { background: #ffbd2e; }
-            .browser-btn.green { background: #28ca42; }
-
-            .demo-url-bar {
-                background: rgba(255,255,255,0.2);
-                padding: 8px 15px;
-                border-radius: 20px;
-                font-size: 14px;
-                flex: 1;
-                text-align: center;
-                backdrop-filter: blur(10px);
-            }
-
-            .demo-iframe {
-                display: block;
-                background: white;
-                min-height: 400px;
-                border: none;
-                width: 100%;
-            }
-
-             
-            @media (max-width: 768px) {
-                .demo-browser-bar {
-                    height: 40px;
-                    padding: 0 15px;
-                }
-                
-                .demo-url-bar {
-                    font-size: 12px;
-                    padding: 6px 12px;
-                }
-                
-                .demo-iframe {
-                    height: 400px;
-                }
-            }
-            </style>
+            <link rel="stylesheet" href="/css/web-demo.css">
 
            
             <div class="post-content">
@@ -248,278 +173,37 @@
                 <div class="post-media">
                     
                     
-                        <div class="web-demo-container">
-                            <div class="demo-frame">
-                                <div class="demo-browser-bar">
-                                    <div class="demo-browser-buttons">
-                                        <span class="browser-btn red"></span>
-                                        <span class="browser-btn yellow"></span>
-                                        <span class="browser-btn green"></span>
+                        
+                        
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                            <div class="web-demo-container">
+                                <div class="demo-frame">
+                                    <div class="demo-browser-bar">
+                                        <div class="demo-browser-buttons">
+                                            <span class="browser-btn red"></span>
+                                            <span class="browser-btn yellow"></span>
+                                            <span class="browser-btn green"></span>
+                                        </div>
+                                        <div class="demo-url-bar">모던 카페 웹사이트 퍼블리싱 - Live Demo</div>
                                     </div>
-                                    <div class="demo-url-bar">모던 카페 웹사이트 퍼블리싱 - Live Demo</div>
+                                    
+                                    <iframe class="demo-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;Q2FmZSBNb2NoYSAtIO2KueuzhO2VnCDsu6TtlLwg6rK97ZeYPC90aXRsZT4KICAgIDxzdHlsZT4KICAgICAgICAqIHsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgIH0KICAgICAgICAKICAgICAgICBib2R5IHsKICAgICAgICAgICAgZm9udC1mYW1pbHk6ICdTZWdvZSBVSScsIFRhaG9tYSwgR2VuZXZhLCBWZXJkYW5hLCBzYW5zLXNlcmlmOwogICAgICAgICAgICBsaW5lLWhlaWdodDogMS42OwogICAgICAgICAgICBjb2xvcjogIzJjM2U1MDsKICAgICAgICAgICAgYmFja2dyb3VuZDogI2Y4ZjlmYTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmhlYWRlciB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxMzVkZWcsICM2ZjRlMzcsICM4YjQ1MTMsICNhMDUyMmQpOwogICAgICAgICAgICBjb2xvcjogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDNyZW0gMDsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5oZWFkZXI6OmJlZm9yZSB7CiAgICAgICAgICAgIGNvbnRlbnQ6ICcnOwogICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgICAgICAgIHRvcDogMDsKICAgICAgICAgICAgbGVmdDogMDsKICAgICAgICAgICAgcmlnaHQ6IDA7CiAgICAgICAgICAgIGJvdHRvbTogMDsKICAgICAgICAgICAgYmFja2dyb3VuZDogdXJsKCdkYXRhOmltYWdlL3N2Zyt4bWwsPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjQwIiByPSIxLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz48Y2lyY2xlIGN4PSI0MCIgY3k9IjcwIiByPSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjgwIiByPSIyLjUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4nKTsKICAgICAgICAgICAgYW5pbWF0aW9uOiBmbG9hdCAyMHMgZWFzZS1pbi1vdXQgaW5maW5pdGU7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIEBrZXlmcmFtZXMgZmxvYXQgewogICAgICAgICAgICAwJSwgMTAwJSB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwcHgpOyB9CiAgICAgICAgICAgIDUwJSB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTBweCk7IH0KICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmhlYWRlciBoMSB7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMy41cmVtOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICB0ZXh0LXNoYWRvdzogMnB4IDJweCA4cHggcmdiYSgwLDAsMCwwLjMpOwogICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICAgICAgICAgIHotaW5kZXg6IDE7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5oZWFkZXIgcCB7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMS4zcmVtOwogICAgICAgICAgICBvcGFjaXR5OiAwLjk7CiAgICAgICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgICAgICAgICAgei1pbmRleDogMTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmNvbnRhaW5lciB7CiAgICAgICAgICAgIG1heC13aWR0aDogMTIwMHB4OwogICAgICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgICAgICAgICAgcGFkZGluZzogMCAycmVtOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAubWVudS1zZWN0aW9uIHsKICAgICAgICAgICAgcGFkZGluZzogNXJlbSAwOwogICAgICAgICAgICBiYWNrZ3JvdW5kOiB3aGl0ZTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLnNlY3Rpb24tdGl0bGUgewogICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMi44cmVtOwogICAgICAgICAgICBjb2xvcjogIzZmNGUzNzsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogM3JlbTsKICAgICAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuc2VjdGlvbi10aXRsZTo6YWZ0ZXIgewogICAgICAgICAgICBjb250ZW50OiAnJzsKICAgICAgICAgICAgd2lkdGg6IDgwcHg7CiAgICAgICAgICAgIGhlaWdodDogNHB4OwogICAgICAgICAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoOTBkZWcsICM2ZjRlMzcsICNhMDUyMmQpOwogICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgICAgICAgIGJvdHRvbTogLTEwcHg7CiAgICAgICAgICAgIGxlZnQ6IDUwJTsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpOwogICAgICAgICAgICBib3JkZXItcmFkaXVzOiAycHg7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5tZW51LWdyaWQgewogICAgICAgICAgICBkaXNwbGF5OiBncmlkOwogICAgICAgICAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdChhdXRvLWZpdCwgbWlubWF4KDI4MHB4LCAxZnIpKTsKICAgICAgICAgICAgZ2FwOiAycmVtOwogICAgICAgICAgICBtYXJnaW4tdG9wOiAzcmVtOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAubWVudS1pdGVtIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgOHB4IDMwcHggcmdiYSgwLDAsMCwwLjA4KTsKICAgICAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZTsKICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2YwZjBmMDsKICAgICAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAubWVudS1pdGVtOjpiZWZvcmUgewogICAgICAgICAgICBjb250ZW50OiAnJzsKICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICAgICAgICB0b3A6IDA7CiAgICAgICAgICAgIGxlZnQ6IDA7CiAgICAgICAgICAgIHdpZHRoOiAxMDAlOwogICAgICAgICAgICBoZWlnaHQ6IDRweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDkwZGVnLCAjNmY0ZTM3LCAjYTA1MjJkKTsKICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZVgoMCk7CiAgICAgICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjNzIGVhc2U7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5tZW51LWl0ZW06aG92ZXIgewogICAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLThweCk7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMTVweCA0MHB4IHJnYmEoMCwwLDAsMC4xNSk7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5tZW51LWl0ZW06aG92ZXI6OmJlZm9yZSB7CiAgICAgICAgICAgIHRyYW5zZm9ybTogc2NhbGVYKDEpOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAubWVudS1pdGVtIGgzIHsKICAgICAgICAgICAgY29sb3I6ICM2ZjRlMzc7CiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDFyZW07CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMS40cmVtOwogICAgICAgICAgICBmb250LXdlaWdodDogNjAwOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAubWVudS1pdGVtIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMS41cmVtOwogICAgICAgICAgICBsaW5lLWhlaWdodDogMS42OwogICAgICAgIH0KICAgICAgICAKICAgICAgICAucHJpY2UgewogICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgY29sb3I6ICNhMDUyMmQ7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMS4zcmVtOwogICAgICAgICAgICB0ZXh0LWFsaWduOiByaWdodDsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmFib3V0IHsKICAgICAgICAgICAgcGFkZGluZzogNXJlbSAwOwogICAgICAgICAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCAjZjhmOWZhLCAjZTllY2VmKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYWJvdXQgcCB7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMS4ycmVtOwogICAgICAgICAgICBtYXgtd2lkdGg6IDcwMHB4OwogICAgICAgICAgICBtYXJnaW46IDAgYXV0bzsKICAgICAgICAgICAgY29sb3I6ICM1NTU7CiAgICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxLjg7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5mb290ZXIgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMmMzZTUwOwogICAgICAgICAgICBjb2xvcjogd2hpdGU7CiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgcGFkZGluZzogM3JlbSAwOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuZm9vdGVyIHAgewogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjVyZW07CiAgICAgICAgICAgIG9wYWNpdHk6IDAuOTsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgQG1lZGlhIChtYXgtd2lkdGg6IDc2OHB4KSB7CiAgICAgICAgICAgIC5oZWFkZXIgaDEgewogICAgICAgICAgICAgICAgZm9udC1zaXplOiAyLjVyZW07CiAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgIC5tZW51LWdyaWQgewogICAgICAgICAgICAgICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnI7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgIC5jb250YWluZXIgewogICAgICAgICAgICAgICAgcGFkZGluZzogMCAxcmVtOwogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICAuc2VjdGlvbi10aXRsZSB7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDIuMnJlbTsKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIDwvc3R5bGU&#43;CjwvaGVhZD4KPGJvZHk&#43;CiAgICA8aGVhZGVyIGNsYXNzPSJoZWFkZXIiPgogICAgICAgIDxkaXYgY2xhc3M9ImNvbnRhaW5lciI&#43;CiAgICAgICAgICAgIDxoMT7imJUgQ2FmZSBNb2NoYTwvaDE&#43;CiAgICAgICAgICAgIDxwPu2KueuzhO2VnCDsu6TtlLzsmYAg7ZWo6ruY7ZWY64qUIOyGjOykke2VnCDsiJzqsIQ8L3A&#43;CiAgICAgICAgPC9kaXY&#43;CiAgICA8L2hlYWRlcj4KICAgIAogICAgPHNlY3Rpb24gY2xhc3M9Im1lbnUtc2VjdGlvbiI&#43;CiAgICAgICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICAgICAgPGgyIGNsYXNzPSJzZWN0aW9uLXRpdGxlIj7si5zqt7jri4jsspgg66mU64m0PC9oMj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0ibWVudS1ncmlkIj4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9Im1lbnUtaXRlbSI&#43;CiAgICAgICAgICAgICAgICAgICAgPGgzPvCfjJ8g7ZSE66as66&#43;47JeEIOuqqOy5tOudvOuWvDwvaDM&#43;CiAgICAgICAgICAgICAgICAgICAgPHA&#43;67Ko6riw7JeQIOy0iOy9nOumv&#43;qzvCDsl5DsiqTtlITroIjshozsnZgg7JmE67K97ZWcIOyhsO2ZlOuhnCDrp4zrk6Ag7Iuc6re464uI7LKYIOydjOujjOyeheuLiOuLpC48L3A&#43;CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0icHJpY2UiPuKCqTYsNTAwPC9kaXY&#43;CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9Im1lbnUtaXRlbSI&#43;CiAgICAgICAgICAgICAgICAgICAgPGgzPvCfpZsg7YGs66a8IOy5tO2OmOudvOuWvDwvaDM&#43;CiAgICAgICAgICAgICAgICAgICAgPHA&#43;67aA65Oc65&#43;s7Jq0IOyasOycoCDqsbDtkojqs7wg7KeE7ZWcIOyXkOyKpO2UhOugiOyGjOqwgCDslrTsmrDrn6zsp4Qg7YG0656Y7Iud7ZWcIOunm&#43;yeheuLiOuLpC48L3A&#43;CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0icHJpY2UiPuKCqTUsODAwPC9kaXY&#43;CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9Im1lbnUtaXRlbSI&#43;CiAgICAgICAgICAgICAgICAgICAgPGgzPvCfjbAg7IiY7KCcIOy5mOymiOy8gOydtO2BrDwvaDM&#43;CiAgICAgICAgICAgICAgICAgICAgPHA&#43;66ek7J28IOyngeygkSDrp4zrk5zripQg7Iug7ISg7ZWcIOy5mOymiOy8gOydtO2BrOuhnCDsu6TtlLzsmYAg7JmE67K97ZWcIO2OmOyWtOungeydhCDsnpDrnpHtlanri4jri6QuPC9wPgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InByaWNlIj7igqk3LDIwMDwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY&#43;CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJtZW51LWl0ZW0iPgogICAgICAgICAgICAgICAgICAgIDxoMz7wn6eKIOy9nOuTnOu4jOujqCDsm5DslaE8L2gzPgogICAgICAgICAgICAgICAgICAgIDxwPjE47Iuc6rCEIOyggOyYqCDstpTstpztlZwg7ZSE66as66&#43;47JeEIOy9nOuTnOu4jOujqOuhnCDquZTrgZTtlZjqs6Ag7ZKN67aA7ZWcIOunm&#43;yeheuLiOuLpC48L3A&#43;CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0icHJpY2UiPuKCqTQsODAwPC9kaXY&#43;CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPC9kaXY&#43;CiAgICAgICAgPC9kaXY&#43;CiAgICA8L3NlY3Rpb24&#43;CiAgICAKICAgIDxzZWN0aW9uIGNsYXNzPSJhYm91dCI&#43;CiAgICAgICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICAgICAgPGgyIGNsYXNzPSJzZWN0aW9uLXRpdGxlIj5BYm91dCBDYWZlIE1vY2hhPC9oMj4KICAgICAgICAgICAgPHA&#43;CiAgICAgICAgICAgICAgICAyMDE164WE67aA7YSwIOyLnOyekeuQnCBDYWZlIE1vY2hh64qUIOy1nOyDgeq4iSDsm5DrkZDsmYAg7KCV7ISx7Iqk65&#43;s7Jq0IOyGkOq4uOuhnCAKICAgICAgICAgICAgICAgIOqzoOqwneuLmOq7mCDtirnrs4TtlZwg7Luk7ZS8IOqyve2XmOydhCDshKDsgqztlZjqs6Ag7J6I7Iq164uI64ukLiAKICAgICAgICAgICAgICAgIO2OuOyViO2VmOqzoCDslYTripHtlZwg6rO16rCE7JeQ7IScIOunm&#43;yeiOuKlCDsu6TtlLzsmYAg65SU7KCA7Yq466W8IOymkOq4sOupsCAKICAgICAgICAgICAgICAgIOyGjOykke2VnCDsgqzrnozrk6Tqs7wg7ZWo6ruY7ZWY64qUIO2Wieuzte2VnCDsi5zqsITsnYQg66eM65Ok7Ja067O07IS47JqULgogICAgICAgICAgICA8L3A&#43;CiAgICAgICAgPC9kaXY&#43;CiAgICA8L3NlY3Rpb24&#43;CiAgICAKICAgIDxmb290ZXIgY2xhc3M9ImZvb3RlciI&#43;CiAgICAgICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICAgICAgPHA&#43;JmNvcHk7IDIwMjUgQ2FmZSBNb2NoYS4gQWxsIHJpZ2h0cyByZXNlcnZlZC48L3A&#43;CiAgICAgICAgICAgIDxwPvCfk40g7ISc7Jq47IucIOqwleuCqOq1rCDrhbztmITroZwgNDU2IHwg4piO77iPIDAyLTk4NzYtNTQzMjwvcD4KICAgICAgICAgICAgPHA&#43;4o&#43;wIO2PieydvCAwNzowMC0yMjowMCB8IOyjvOunkCAwODowMC0yMzowMDwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZm9vdGVyPgo8L2JvZHk&#43;CjwvaHRtbD4K" 
+                                            width="100%" 
+                                            height="600px" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
                                 </div>
-                                
-                                <iframe class="demo-iframe" 
-                                        srcdoc='&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;ko&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-    &lt;title&gt;Cafe Mocha - 특별한 커피 경험&lt;/title&gt;
-    &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: &#39;Segoe UI&#39;, Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #f8f9fa;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #6f4e37, #8b4513, #a0522d);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: &#39;&#39;;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url(&#39;data:image/svg&#43;xml,&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 100 100&#34;&gt;&lt;circle cx=&#34;20&#34; cy=&#34;20&#34; r=&#34;2&#34; fill=&#34;rgba(255,255,255,0.1)&#34;/&gt;&lt;circle cx=&#34;80&#34; cy=&#34;40&#34; r=&#34;1.5&#34; fill=&#34;rgba(255,255,255,0.08)&#34;/&gt;&lt;circle cx=&#34;40&#34; cy=&#34;70&#34; r=&#34;1&#34; fill=&#34;rgba(255,255,255,0.1)&#34;/&gt;&lt;circle cx=&#34;70&#34; cy=&#34;80&#34; r=&#34;2.5&#34; fill=&#34;rgba(255,255,255,0.05)&#34;/&gt;&lt;/svg&gt;&#39;);
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .menu-section {
-            padding: 5rem 0;
-            background: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            color: #6f4e37;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: &#39;&#39;;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #6f4e37, #a0522d);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .menu-item {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .menu-item::before {
-            content: &#39;&#39;;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #6f4e37, #a0522d);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        
-        .menu-item:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .menu-item h3 {
-            color: #6f4e37;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-        
-        .menu-item p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: #a0522d;
-            font-size: 1.3rem;
-            text-align: right;
-        }
-        
-        .about {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            text-align: center;
-        }
-        
-        .about p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #555;
-            line-height: 1.8;
-        }
-        
-        .footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-        
-        .footer p {
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;header class=&#34;header&#34;&gt;
-        &lt;div class=&#34;container&#34;&gt;
-            &lt;h1&gt;☕ Cafe Mocha&lt;/h1&gt;
-            &lt;p&gt;특별한 커피와 함께하는 소중한 순간&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/header&gt;
-    
-    &lt;section class=&#34;menu-section&#34;&gt;
-        &lt;div class=&#34;container&#34;&gt;
-            &lt;h2 class=&#34;section-title&#34;&gt;시그니처 메뉴&lt;/h2&gt;
-            &lt;div class=&#34;menu-grid&#34;&gt;
-                &lt;div class=&#34;menu-item&#34;&gt;
-                    &lt;h3&gt;🌟 프리미엄 모카라떼&lt;/h3&gt;
-                    &lt;p&gt;벨기에 초콜릿과 에스프레소의 완벽한 조화로 만든 시그니처 음료입니다.&lt;/p&gt;
-                    &lt;div class=&#34;price&#34;&gt;₩6,500&lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class=&#34;menu-item&#34;&gt;
-                    &lt;h3&gt;🥛 크림 카페라떼&lt;/h3&gt;
-                    &lt;p&gt;부드러운 우유 거품과 진한 에스프레소가 어우러진 클래식한 맛입니다.&lt;/p&gt;
-                    &lt;div class=&#34;price&#34;&gt;₩5,800&lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class=&#34;menu-item&#34;&gt;
-                    &lt;h3&gt;🍰 수제 치즈케이크&lt;/h3&gt;
-                    &lt;p&gt;매일 직접 만드는 신선한 치즈케이크로 커피와 완벽한 페어링을 자랑합니다.&lt;/p&gt;
-                    &lt;div class=&#34;price&#34;&gt;₩7,200&lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class=&#34;menu-item&#34;&gt;
-                    &lt;h3&gt;🧊 콜드브루 원액&lt;/h3&gt;
-                    &lt;p&gt;18시간 저온 추출한 프리미엄 콜드브루로 깔끔하고 풍부한 맛입니다.&lt;/p&gt;
-                    &lt;div class=&#34;price&#34;&gt;₩4,800&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/section&gt;
-    
-    &lt;section class=&#34;about&#34;&gt;
-        &lt;div class=&#34;container&#34;&gt;
-            &lt;h2 class=&#34;section-title&#34;&gt;About Cafe Mocha&lt;/h2&gt;
-            &lt;p&gt;
-                2015년부터 시작된 Cafe Mocha는 최상급 원두와 정성스러운 손길로 
-                고객님께 특별한 커피 경험을 선사하고 있습니다. 
-                편안하고 아늑한 공간에서 맛있는 커피와 디저트를 즐기며 
-                소중한 사람들과 함께하는 행복한 시간을 만들어보세요.
-            &lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/section&gt;
-    
-    &lt;footer class=&#34;footer&#34;&gt;
-        &lt;div class=&#34;container&#34;&gt;
-            &lt;p&gt;&amp;copy; 2025 Cafe Mocha. All rights reserved.&lt;/p&gt;
-            &lt;p&gt;📍 서울시 강남구 논현로 456 | ☎️ 02-9876-5432&lt;/p&gt;
-            &lt;p&gt;⏰ 평일 07:00-22:00 | 주말 08:00-23:00&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/footer&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-' 
-                                        width="100%" 
-                                        height="600px" 
-                                        frameborder="0"
-                                        sandbox="allow-scripts allow-same-origin">
-                                </iframe>
                             </div>
-                        </div>
+                        
                     
 
                     
@@ -617,66 +301,67 @@
             </div>
 
         
-<div class="post-navigation">
-    
-    
-    
-    
-    
-    
-    
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    
-    
-        
-    
-        
-    
-        
-    
-        
+        <div class="post-navigation">
             
-        
-    
-        
-    
-        
-    
-        
-    
-    
-    
-    
-    
-        
-        <a href="/posts/programming/test3/" class="nav-previous">
-            <i class="fas fa-chevron-left"></i> 이전
-        </a>
-    
-    
-    
-    <a href="/posts/" class="nav-list">목록으로</a>
+            
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+            
+            
+                
+                <a href="/posts/programming/test3/" class="nav-previous">
+                    <i class="fas fa-chevron-left"></i> 이전
+                </a>
+            
+            
+            
+            <a href="/posts/" class="nav-list">목록으로</a>
 
-    
-    
-    
-        
-        <a href="/posts/programming/test5/" class="nav-next">
-            다음 <i class="fas fa-chevron-right"></i>
-        </a>
-    
-</div>
+            
+            
+            
+                
+                <a href="/posts/programming/test5/" class="nav-next">
+                    다음 <i class="fas fa-chevron-right"></i>
+                </a>
+            
+        </div>
         </div>
     </div>
-  
+    
+    
     <script src="/js/lightbox.js"></script>
     
 </section>

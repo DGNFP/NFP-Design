@@ -28,85 +28,10 @@
                 </div>
             </div>
 
-            <!-- 🎯 여기에 라이트박스 CSS 추가 -->
+            <!-- CSS 파일 로드 -->
             <link rel="stylesheet" href="/css/lightbox.css">
-
-            <!-- 웹 데모 스타일 -->
-            <style>
-            .web-demo-container {
-                margin: 20px 0 30px 0;
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-                background: #f5f5f5;
-            }
-
-            .demo-frame {
-                background: white;
-                border-radius: 12px;
-                overflow: hidden;
-            }
-
-            .demo-browser-bar {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                height: 45px;
-                display: flex;
-                align-items: center;
-                padding: 0 20px;
-                color: white;
-            }
-
-            .demo-browser-buttons {
-                display: flex;
-                gap: 8px;
-                margin-right: 20px;
-            }
-
-            .browser-btn {
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-            }
-
-            .browser-btn.red { background: #ff5f57; }
-            .browser-btn.yellow { background: #ffbd2e; }
-            .browser-btn.green { background: #28ca42; }
-
-            .demo-url-bar {
-                background: rgba(255,255,255,0.2);
-                padding: 8px 15px;
-                border-radius: 20px;
-                font-size: 14px;
-                flex: 1;
-                text-align: center;
-                backdrop-filter: blur(10px);
-            }
-
-            .demo-iframe {
-                display: block;
-                background: white;
-                min-height: 400px;
-                border: none;
-                width: 100%;
-            }
-
-            /* 반응형 처리 */
-            @media (max-width: 768px) {
-                .demo-browser-bar {
-                    height: 40px;
-                    padding: 0 15px;
-                }
-                
-                .demo-url-bar {
-                    font-size: 12px;
-                    padding: 6px 12px;
-                }
-                
-                .demo-iframe {
-                    height: 400px;
-                }
-            }
-            </style>
+            <!-- 웹데모 전용 CSS 추가 -->
+            <link rel="stylesheet" href="/css/web-demo.css">
 
            <!-- 게시글 내용 -->
             <div class="post-content">
@@ -114,26 +39,40 @@
                 <div class="post-media">
                     <!-- 웹 데모 코드가 있는 경우 (프론트엔드/퍼블리싱 카테고리) -->
                     {{ if .Params.demoCode }}
-                        <div class="web-demo-container">
-                            <div class="demo-frame">
-                                <div class="demo-browser-bar">
-                                    <div class="demo-browser-buttons">
-                                        <span class="browser-btn red"></span>
-                                        <span class="browser-btn yellow"></span>
-                                        <span class="browser-btn green"></span>
+                        {{ $demoCodeContent := "" }}
+                        
+                        <!-- demoCode가 맵 형태인지 확인하고 처리 -->
+                        {{ if reflect.IsMap .Params.demoCode }}
+                            <!-- Netlify CMS code widget: {lang: "html", code: "실제코드"} 형태 -->
+                            {{ $demoCodeContent = index .Params.demoCode "code" }}
+                        {{ else }}
+                            <!-- 단순 문자열인 경우 -->
+                            {{ $demoCodeContent = .Params.demoCode }}
+                        {{ end }}
+                        
+                        <!-- 데모 코드 내용이 실제로 존재하는지 확인 -->
+                        {{ if and $demoCodeContent (ne $demoCodeContent "") }}
+                            <div class="web-demo-container">
+                                <div class="demo-frame">
+                                    <div class="demo-browser-bar">
+                                        <div class="demo-browser-buttons">
+                                            <span class="browser-btn red"></span>
+                                            <span class="browser-btn yellow"></span>
+                                            <span class="browser-btn green"></span>
+                                        </div>
+                                        <div class="demo-url-bar">{{ .Title }} - Live Demo</div>
                                     </div>
-                                    <div class="demo-url-bar">{{ .Title }} - Live Demo</div>
+                                    <!-- Base64 인코딩 방식 유지 -->
+                                    <iframe class="demo-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,{{ $demoCodeContent | base64Encode }}" 
+                                            width="100%" 
+                                            height="600px" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
                                 </div>
-                                <!-- 핵심 수정: 단순한 srcdoc 방식으로 복원 -->
-                                <iframe class="demo-iframe" 
-                                        srcdoc='{{ .Params.demoCode }}' 
-                                        width="100%" 
-                                        height="600px" 
-                                        frameborder="0"
-                                        sandbox="allow-scripts allow-same-origin">
-                                </iframe>
                             </div>
-                        </div>
+                        {{ end }}
                     {{ end }}
 
                     {{ if .Params.videoUrl }}
@@ -269,71 +208,68 @@
                 {{ end }}
             </div>
 
-        <!-- 페이지 네비게이션 (수정된 버전) -->
-<div class="post-navigation">
-    {{ $posts := slice }}
-    {{ $listUrl := "" }}
-    
-    <!-- Referrer 헤더나 다른 방법으로 from 파라미터 확인 -->
-    {{ $from := .Params.from | default "" }}
-    
-    {{ if eq .Section "games" }}
-        {{ $posts = where .Site.RegularPages "Section" "games" }}
-        {{ $listUrl = "/games/" }}
-    {{ else if eq .Section "freeboard" }}
-        {{ $posts = where .Site.RegularPages "Section" "freeboard" }}
-        {{ $listUrl = "/freeboard/" }}
-    {{ else if eq .Section "news" }}
-        {{ $posts = where .Site.RegularPages "Section" "news" }}
-        {{ $listUrl = "/news/" }}
-    {{ else if eq .Section "notice" }}
-        {{ $posts = where .Site.RegularPages "Section" "notice" }}
-        {{ $listUrl = "/notice/" }}
-    {{ else if eq .Section "posts" }}
-        {{ $currentCategory := index .Params.categories 0 }}
-        {{ $posts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
-        
-        <!-- 기본값은 전체게시판으로 설정 -->
-        {{ $listUrl = "/posts/" }}
-    {{ end }}
-    
-    <!-- 나머지 코드는 동일 -->
-    {{ $posts = $posts.ByDate.Reverse }}
-    {{ $currentIndex := 0 }}
-    {{ range $index, $post := $posts }}
-        {{ if eq $post.Permalink $.Permalink }}
-            {{ $currentIndex = $index }}
-        {{ end }}
-    {{ end }}
-    
-    <!-- 이전 게시글 -->
-    {{ $prevIndex := add $currentIndex 1 }}
-    {{ if lt $prevIndex (len $posts) }}
-        {{ $prevPost := index $posts $prevIndex }}
-        <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
-            <i class="fas fa-chevron-left"></i> 이전
-        </a>
-    {{ else }}
-        <span></span>
-    {{ end }}
-    
-    <!-- 목록으로 -->
-    <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
+        <!-- 페이지 네비게이션 -->
+        <div class="post-navigation">
+            {{ $posts := slice }}
+            {{ $listUrl := "" }}
+            
+            {{ $from := .Params.from | default "" }}
+            
+            {{ if eq .Section "games" }}
+                {{ $posts = where .Site.RegularPages "Section" "games" }}
+                {{ $listUrl = "/games/" }}
+            {{ else if eq .Section "freeboard" }}
+                {{ $posts = where .Site.RegularPages "Section" "freeboard" }}
+                {{ $listUrl = "/freeboard/" }}
+            {{ else if eq .Section "news" }}
+                {{ $posts = where .Site.RegularPages "Section" "news" }}
+                {{ $listUrl = "/news/" }}
+            {{ else if eq .Section "notice" }}
+                {{ $posts = where .Site.RegularPages "Section" "notice" }}
+                {{ $listUrl = "/notice/" }}
+            {{ else if eq .Section "posts" }}
+                {{ $currentCategory := index .Params.categories 0 }}
+                {{ $posts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
+                {{ $listUrl = "/posts/" }}
+            {{ end }}
+            
+            {{ $posts = $posts.ByDate.Reverse }}
+            {{ $currentIndex := 0 }}
+            {{ range $index, $post := $posts }}
+                {{ if eq $post.Permalink $.Permalink }}
+                    {{ $currentIndex = $index }}
+                {{ end }}
+            {{ end }}
+            
+            <!-- 이전 게시글 -->
+            {{ $prevIndex := add $currentIndex 1 }}
+            {{ if lt $prevIndex (len $posts) }}
+                {{ $prevPost := index $posts $prevIndex }}
+                <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
+                    <i class="fas fa-chevron-left"></i> 이전
+                </a>
+            {{ else }}
+                <span></span>
+            {{ end }}
+            
+            <!-- 목록으로 -->
+            <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
 
-    <!-- 다음 게시글 -->
-    {{ $nextIndex := sub $currentIndex 1 }}
-    {{ if ge $nextIndex 0 }}
-        {{ $nextPost := index $posts $nextIndex }}
-        <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
-            다음 <i class="fas fa-chevron-right"></i>
-        </a>
-    {{ else }}
-        <span></span>
-    {{ end }}
-</div>
+            <!-- 다음 게시글 -->
+            {{ $nextIndex := sub $currentIndex 1 }}
+            {{ if ge $nextIndex 0 }}
+                {{ $nextPost := index $posts $nextIndex }}
+                <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
+                    다음 <i class="fas fa-chevron-right"></i>
+                </a>
+            {{ else }}
+                <span></span>
+            {{ end }}
+        </div>
         </div>
     </div>
-  <!-- 🎯 여기에 라이트박스 JavaScript 추가 -->
+    
+    <!-- JavaScript 파일들 -->
     <script src="/js/lightbox.js"></script>
     
 </section>
