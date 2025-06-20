@@ -1,0 +1,331 @@
+/* NFP 디자인 라이트박스 스타일 */
+.nfp-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nfp-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nfp-lightbox-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70vw;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nfp-lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    cursor: grab;
+}
+
+.nfp-lightbox-image:active {
+    cursor: grabbing;
+}
+
+.nfp-lightbox-image.zoomed {
+    cursor: zoom-out;
+}
+
+/* 닫기 버튼 */
+.nfp-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--background-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    color: var(--accent-color);
+    font-size: 18px;
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(1, 255, 117, 0.3);
+    line-height: 1;
+}
+
+.nfp-lightbox-close:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: 2px solid var(--accent-color);
+}
+
+/* 네비게이션 화살표 */
+.nfp-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--background-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    color: var(--accent-color);
+    font-size: 24px; /* 폰트 크기 증가 */
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(1, 255, 117, 0.3);
+    line-height: 1;
+}
+
+.nfp-lightbox-nav:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: 2px solid var(--accent-color);
+}
+
+.nfp-lightbox-nav.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.nfp-lightbox-prev {
+    left: 50px;
+}
+
+.nfp-lightbox-prev::before {
+    content: "‹"; /* 더 명확한 왼쪽 화살표 */
+}
+
+.nfp-lightbox-next {
+    right: 50px;
+}
+
+.nfp-lightbox-next::before {
+    content: "›"; /* 더 명확한 오른쪽 화살표 */
+}
+
+/* 이미지 카운터 - 이미지 컨테이너 기준 (이미지 아래쪽) */
+.nfp-lightbox-counter {
+    position: absolute;
+    top: -120px; /* 이미지 컨테이너 하단에서 70px 아래 */
+    left: 50%;
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 24px;
+    font-size: 16px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    z-index: 10001;
+}
+
+/* 줌 컨트롤 - 화면 하단 기준 고정 */
+.nfp-lightbox-zoom {
+    position: fixed;
+    bottom: -120px; /* PC에서 화면 하단 아래 위치 */
+    left: 50%;
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
+    display: flex;
+    gap: 15px;
+    z-index: 10001;
+}
+
+.nfp-lightbox-zoom button {
+    width: 50px;
+    height: 50px;
+    background-color: var(--background-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    color: var(--accent-color);
+    font-size: 22px; /* 폰트 크기 증가 */
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(1, 255, 117, 0.3);
+    line-height: 0; /* 수직 정렬 개선 */
+}
+
+.nfp-lightbox-zoom button:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: 2px solid var(--accent-color);
+}
+
+/* 로딩 스피너 */
+.nfp-lightbox-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+    .nfp-lightbox-container {
+        max-width: 90vw;
+        max-height: 70vh;
+    }
+    
+    .nfp-lightbox-close {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .nfp-lightbox-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 20px; /* 모바일에서도 충분한 크기 */
+    }
+    
+    .nfp-lightbox-prev {
+        left: 20px;
+    }
+    
+    .nfp-lightbox-next {
+        right: 20px;
+    }
+    
+    .nfp-lightbox-counter {
+        top: -100px; /* 이미지에서 60px 아래 */
+        font-size: 15px;
+        padding: 8px 16px;
+    }
+    
+    .nfp-lightbox-zoom {
+        bottom: -180px; /* 중간 해상도에서 화면 하단 아래 위치 */
+        gap: 10px;
+    }
+    
+    .nfp-lightbox-zoom button {
+        width: 45px;
+        height: 45px;
+        font-size: 20px; /* 모바일에서도 충분한 크기 */
+        line-height: 0; /* 수직 정렬 개선 */
+    }
+}
+
+/* 작은 모바일 화면 */
+@media (max-width: 480px) {
+    .nfp-lightbox-container {
+        max-width: 95vw;
+        max-height: 65vh;
+    }
+
+    .nfp-lightbox-image{
+        border-radius: 4px;
+    }
+    
+    .nfp-lightbox-close {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .nfp-lightbox-prev {
+        left: 15px;
+    }
+    
+    .nfp-lightbox-next {
+        right: 15px;
+    }
+    
+    .nfp-lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 18px; /* 작은 화면에서도 보기 좋은 크기 */
+    }
+
+    .nfp-lightbox-counter {
+        top:  -80px;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .nfp-lightbox-zoom {
+        bottom: -200px; /* 모바일에서 화면 하단 아래 위치 */
+        gap: 20px;
+    }
+
+    .nfp-lightbox-zoom button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px; /* 작은 화면에서도 보기 좋은 크기 */
+        line-height: 0; /* 수직 정렬 개선 */
+    }
+
+    
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+    .nfp-lightbox-nav:hover,
+    .nfp-lightbox-close:hover,
+    .nfp-lightbox-zoom button:hover {
+        background-color: var(--background-color);
+        color: var(--accent-color);
+        border: 2px solid var(--accent-color);
+    }
+    
+    .nfp-lightbox-nav:active,
+    .nfp-lightbox-close:active,
+    .nfp-lightbox-zoom button:active {
+        background-color: var(--accent-color);
+        color: var(--background-color);
+        border: 2px solid var(--accent-color);
+    }
+}
+
+/* 라이트박스 트리거 이미지 스타일 */
+.post-body img[data-lightbox] {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.post-body img[data-lightbox]:hover {
+    filter: brightness(1.1);
+}
