@@ -6,7 +6,7 @@
     <description>Recent content in Tags on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 20 Jun 2025 22:34:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jun 2025 00:06:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS3</title>
@@ -20,6 +20,13 @@
       <link>http://localhost:1313/tags/html5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/html5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/tags/javascript/</link>
+      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
@@ -37,10 +44,24 @@
       <description></description>
     </item>
     <item>
+      <title>UX/UI 디자인</title>
+      <link>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Tue, 10 Jun 2025 17:58:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>웹 퍼블리싱</title>
       <link>http://localhost:1313/tags/%EC%9B%B9-%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%8B%B1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/%EC%9B%B9-%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%8B%B1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>홈페이지 디자인</title>
+      <link>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Tue, 10 Jun 2025 01:21:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
       <description></description>
     </item>
     <item>
@@ -72,13 +93,6 @@
       <description></description>
     </item>
     <item>
-      <title>UX/UI 디자인</title>
-      <link>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
-      <pubDate>Tue, 10 Jun 2025 17:58:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ux/ui-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>로고 디자인</title>
       <link>http://localhost:1313/tags/%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
       <pubDate>Tue, 10 Jun 2025 17:58:00 +0000</pubDate>
@@ -90,13 +104,6 @@
       <link>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
       <pubDate>Tue, 10 Jun 2025 01:21:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>홈페이지 디자인</title>
-      <link>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
-      <pubDate>Tue, 10 Jun 2025 01:21:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
       <description></description>
     </item>
     <item>
@@ -118,13 +125,6 @@
       <link>http://localhost:1313/tags/hugo/</link>
       <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/hugo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>JavaScript</title>
-      <link>http://localhost:1313/tags/javascript/</link>
-      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/javascript/</guid>
       <description></description>
     </item>
     <item>

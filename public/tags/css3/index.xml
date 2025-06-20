@@ -6,14 +6,28 @@
     <description>Recent content in CSS3 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 20 Jun 2025 22:34:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jun 2025 00:06:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/css3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[웹데모] 컬러 팔레트 생성기</title>
+      <link>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%BB%AC%EB%9F%AC-%ED%8C%94%EB%A0%88%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B8%B0/</link>
+      <pubDate>Sat, 21 Jun 2025 00:06:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%BB%AC%EB%9F%AC-%ED%8C%94%EB%A0%88%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B8%B0/</guid>
+      <description>&lt;p&gt;컬러 생성과 애니메이션 효과를 적용한 웹 데모 프로젝트 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 시그니쳐&amp;rdquo; 테마를 활용하였습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[웹데모] 인터렉티브 버튼 컬렉션</title>
+      <link>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</link>
+      <pubDate>Fri, 20 Jun 2025 23:56:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</guid>
+      <description>&lt;p&gt;다양한 버튼 스타일과 상호작용을 구현한, 웹데모 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 네온&amp;quot;테마를 사용하였습니다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[웹데모] 로드맵 플래너</title>
       <link>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%A1%9C%EB%93%9C%EB%A7%B5-%ED%94%8C%EB%9E%98%EB%84%88/</link>
       <pubDate>Fri, 20 Jun 2025 22:34:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%A1%9C%EB%93%9C%EB%A7%B5-%ED%94%8C%EB%9E%98%EB%84%88/</guid>
-      <description>&lt;p&gt;프로젝트 진행 일정을 도와주는 로드맵 플래너 웹 데모 입니다.&lt;/p&gt;</description>
+      <description>&lt;p&gt;프로젝트 진행 일정을 도와주는 로드맵 플래너 웹 데모 입니다.&lt;br&gt;&#xA;테마는 템플릿으로 스타일링한 &amp;ldquo;NFP 다크모드&amp;rdquo; 테마를 적용하였습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>프로젝트 게시판 테스트</title>
