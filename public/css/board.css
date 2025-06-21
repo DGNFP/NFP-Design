@@ -50,7 +50,7 @@
     margin-bottom: 15px; /* 제목과 설명 사이 여백 줄임 */
     text-align: center;
     position: relative;
-    font-weight: var(--font-black);
+    font-weight: var(--font-bold);
 }
 
 .board-section-title::after {
