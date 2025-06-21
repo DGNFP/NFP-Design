@@ -13,6 +13,8 @@ class NFPLightbox {
         this.startX = 0;
         this.startY = 0;
         this.isDragging = false;
+        this.translateY = 0;
+        this.lastTranslateY = 0;
         
         this.init();
     }
@@ -118,38 +120,38 @@ class NFPLightbox {
             }
         });
         
-        // 터치/마우스 이벤트 (드래그 및 줌)
+        // 터치/마우스 이벤트 (확대 상태 드래그 및 휠 줌)
         this.setupTouchEvents();
     }
     
     setupTouchEvents() {
         const image = document.getElementById('lightbox-image');
         
-        // 마우스 이벤트
-        image.addEventListener('mousedown', (e) => this.handleStart(e));
-        image.addEventListener('mousemove', (e) => this.handleMove(e));
-        image.addEventListener('mouseup', () => this.handleEnd());
-        image.addEventListener('mouseleave', () => this.handleEnd());
+        // 마우스 이벤트 (확대 상태에서만 드래그)
+        image.addEventListener('mousedown', (e) => {
+            this.handleStart(e);
+        });
         
-        // 터치 이벤트
+        // 전역 이벤트로 마우스 업/무브 처리 (마우스가 이미지 밖으로 나가도 동작)
+        document.addEventListener('mousemove', (e) => {
+            if (this.isDragging) {
+                this.handleMove(e);
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            this.handleEnd();
+        });
+        
+        // 터치 이벤트 (확대 상태에서만 드래그)
         image.addEventListener('touchstart', (e) => this.handleStart(e.touches[0]));
         image.addEventListener('touchmove', (e) => {
             e.preventDefault();
-            this.handleMove(e.touches[0]);
+            if (this.isDragging) {
+                this.handleMove(e.touches[0]);
+            }
         });
         image.addEventListener('touchend', () => this.handleEnd());
-        
-        // 더블클릭/더블탭으로 줌
-        let lastTap = 0;
-        image.addEventListener('click', (e) => {
-            const currentTime = new Date().getTime();
-            const tapLength = currentTime - lastTap;
-            
-            if (tapLength < 500 && tapLength > 0) {
-                this.toggleZoom(e);
-            }
-            lastTap = currentTime;
-        });
         
         // 마우스 휠 줌
         image.addEventListener('wheel', (e) => {
@@ -163,35 +165,55 @@ class NFPLightbox {
     }
     
     handleStart(e) {
+        // 확대 상태이거나 이미지가 화면을 벗어났을 때 드래그 허용
+        if (!this.canDrag()) return;
+        
+        e.preventDefault(); // 기본 동작 방지
         this.isDragging = true;
         this.startX = e.clientX;
         this.startY = e.clientY;
+        
+        // 현재 드래그 시작점을 마지막 위치로 저장
+        this.lastTranslateY = this.translateY;
     }
     
     handleMove(e) {
-        if (!this.isDragging) return;
+        // 드래그 가능한 상태이고 드래그 중일 때만 이동
+        if (!this.isDragging || !this.canDrag()) return;
         
-        const deltaX = e.clientX - this.startX;
+        e.preventDefault(); // 기본 동작 방지
         const deltaY = e.clientY - this.startY;
         
-        // 줌 상태에서는 이미지 드래그, 일반 상태에서는 스와이프
-        if (this.isZoomed) {
-            // 줌된 이미지 드래그 (구현 생략 - 복잡한 로직)
-        } else {
-            // 좌우 스와이프 감지
-            if (Math.abs(deltaX) > 50 && Math.abs(deltaY) < 100) {
-                if (deltaX > 0) {
-                    this.prevImage();
-                } else {
-                    this.nextImage();
-                }
-                this.isDragging = false;
-            }
-        }
+        // 상하(Y축)로만 이동, 좌우(X축) 이동 차단
+        this.translateY = this.lastTranslateY + deltaY;
+        this.applyTransform();
     }
     
     handleEnd() {
+        if (!this.isDragging) return;
+        
         this.isDragging = false;
+        
+        // 드래그 종료 시 현재 위치를 저장
+        this.lastTranslateY = this.translateY;
+    }
+    
+    canDrag() {
+        // 확대 상태이거나 이미지가 화면을 벗어났을 때 드래그 가능
+        return this.isZoomed || this.isImageOverflowing();
+    }
+    
+    isImageOverflowing() {
+        const image = document.getElementById('lightbox-image');
+        const container = document.querySelector('.nfp-lightbox-container');
+        
+        if (!image || !container) return false;
+        
+        const imageRect = image.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // 이미지 높이가 컨테이너 높이보다 클 때 오버플로우로 판단
+        return imageRect.height > containerRect.height;
     }
     
     openLightbox(index) {
@@ -288,11 +310,12 @@ showImage() {
     }
     
     zoomOut() {
-        this.scale = Math.max(this.scale / 1.5, 1);
+        this.scale = Math.max(this.scale / 1.5, 0.25);  // 25%까지 축소 가능
         this.applyZoom();
     }
     
     toggleZoom(e) {
+        // 더블클릭 기능 제거됨 - 사용하지 않음
         if (this.isZoomed) {
             this.resetZoom();
         } else {
@@ -303,17 +326,33 @@ showImage() {
     
     applyZoom() {
         const image = document.getElementById('lightbox-image');
-        image.style.transform = `scale(${this.scale})`;
+        this.applyTransform();
         
         this.isZoomed = this.scale > 1;
         image.classList.toggle('zoomed', this.isZoomed);
+        
+        // 줌 상태가 아니면 위치 초기화
+        if (!this.isZoomed) {
+            this.resetPosition();
+        }
+    }
+    
+    applyTransform() {
+        const image = document.getElementById('lightbox-image');
+        image.style.transform = `scale(${this.scale}) translateY(${this.translateY}px)`;
+    }
+    
+    resetPosition() {
+        this.translateY = 0;
+        this.lastTranslateY = 0;
     }
     
     resetZoom() {
         this.scale = 1;
         this.isZoomed = false;
+        this.resetPosition();
         const image = document.getElementById('lightbox-image');
-        image.style.transform = 'scale(1)';
+        image.style.transform = 'scale(1) translateY(0px)';
         image.classList.remove('zoomed');
     }
 }
