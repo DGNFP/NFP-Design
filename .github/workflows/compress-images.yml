@@ -2,11 +2,9 @@ name: 🗜️ Auto Compress Images
 
 on:
   push:
-    paths:
-      - 'static/img/uploads/**'
     branches:
       - main
-  workflow_dispatch:  # 이 줄 추가        
+  workflow_dispatch: 
 
 jobs:
   compress:
