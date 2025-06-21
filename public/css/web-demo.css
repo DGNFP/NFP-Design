@@ -415,3 +415,13 @@
         transform: translateX(-50%) translateY(-1px);
     }
 }
+
+@media (max-width : 480px) {
+     .demo-url-bar {
+        font-size: 12px;
+        padding: 2.5px 8px;
+        min-width: 60px; /* 모바일에서 최소 너비 조정 */
+        max-width: 120px; /* 모바일에서 최대 너비 조정 */
+        border-radius: 6px;
+    }
+}
