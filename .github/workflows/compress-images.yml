@@ -6,6 +6,7 @@ on:
       - 'static/img/uploads/**'
     branches:
       - main
+  workflow_dispatch:  # 이 줄 추가        
 
 jobs:
   compress:
