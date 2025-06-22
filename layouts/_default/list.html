@@ -185,28 +185,28 @@
         <div class="video-overlay">
             <i class="fas fa-play"></i>
         </div>
-    {{ else if eq $firstContentType "image" }}
-        <!-- 본문 첫 번째 이미지 - WebP 지원 -->
-        {{ $imagePath := $firstImageSrc }}
-        {{ $fileName := path.Base $imagePath }}
-        {{ $fileExt := path.Ext $fileName }}
-        {{ $baseName := strings.TrimSuffix $fileName $fileExt }}
-        {{ $dirPath := path.Dir $imagePath }}
-        
-        <picture>
-            <!-- WebP 썸네일 (최우선) -->
-            <source srcset="{{ $dirPath }}/{{ $baseName }}_thumb.webp" type="image/webp">
-            <!-- JPEG/PNG 썸네일 (폴백) -->
-            <source srcset="{{ $dirPath }}/{{ $baseName }}_thumb{{ $fileExt }}" type="image/{{ if eq $fileExt ".png" }}png{{ else }}jpeg{{ end }}">
-            <!-- 원본 이미지 (최종 폴백) -->
-            <img src="{{ $firstImageSrc }}" alt="{{ .Title }}" loading="lazy">
-        </picture>
-    {{ end }}
+{{ else if eq $firstContentType "image" }}
+    <!-- 단순한 WebP 썸네일 처리 -->
+    {{ $originalSrc := $firstImageSrc }}
     
-    <!-- 오버레이 태그 추가 (2차 카테고리만) -->
-    {{ if .Params.subCategory }}
-    <div class="category-overlay">{{ .Params.subCategory }}</div>
-    {{ end }}
+    <!-- 파일명에서 확장자 제거 -->
+    {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+    
+    <picture>
+        <!-- WebP 썸네일 시도 -->
+        <source srcset="{{ $withoutExt }}_thumb.webp" type="image/webp">
+        <!-- 일반 썸네일 시도 -->  
+        <source srcset="{{ $withoutExt }}_thumb.jpg" type="image/jpeg">
+        <!-- 원본 이미지 (폴백) -->
+        <img src="{{ $originalSrc }}" alt="{{ .Title }}" loading="lazy">
+    </picture>
+{{ end }}
+
+<!-- 오버레이 태그 추가 (2차 카테고리만) -->
+{{ if .Params.subCategory }}
+<div class="category-overlay">{{ .Params.subCategory }}</div>
+{{ end }}
+
 </div>
 
 <div class="board-all-item-content">
