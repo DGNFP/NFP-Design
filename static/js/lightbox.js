@@ -15,6 +15,9 @@ class NFPLightbox {
         this.isDragging = false;
         this.dragDirection = null; // 'horizontal', 'vertical', null
         this.dragThreshold = 10; // 방향 감지를 위한 최소 이동 거리
+        this.dragSensitivityMobile = 0.3; // 모바일 드래그 감도
+        this.dragSensitivityDesktop = 0.8; // PC 드래그 감도
+        this.currentDragType = null; // 'touch' 또는 'mouse'
         this.translateX = 0;
         this.translateY = 0;
         this.lastTranslateX = 0;
@@ -178,7 +181,7 @@ class NFPLightbox {
     }
     
     handleStart(e, eventType) {
-        // 확대 상태이거나 이미지가 화면을 벗어났을 때 드래그 허용
+        // 확대 상태일 때만 드래그 허용
         if (!this.canDrag()) return;
         
         // 터치 이벤트의 경우 기본 동작 방지
@@ -187,6 +190,7 @@ class NFPLightbox {
         }
         
         this.isDragging = true;
+        this.currentDragType = eventType; // 현재 드래그 타입 저장
         this.startX = e.clientX;
         this.startY = e.clientY;
         
@@ -211,13 +215,17 @@ class NFPLightbox {
             }
         }
         
-        // 결정된 방향에 따라 해당 축으로만 이동
+        // 디바이스별 감도 적용
+        const sensitivity = this.currentDragType === 'touch' ? 
+            this.dragSensitivityMobile : this.dragSensitivityDesktop;
+        
+        // 결정된 방향에 따라 해당 축으로만 이동 (디바이스별 감도 적용)
         if (this.dragDirection === 'horizontal') {
-            this.translateX = this.lastTranslateX + deltaX;
+            this.translateX = this.lastTranslateX + (deltaX * sensitivity);
             // Y축은 고정
             this.translateY = this.lastTranslateY;
         } else if (this.dragDirection === 'vertical') {
-            this.translateY = this.lastTranslateY + deltaY;
+            this.translateY = this.lastTranslateY + (deltaY * sensitivity);
             // X축은 고정
             this.translateX = this.lastTranslateX;
         }
@@ -230,6 +238,7 @@ class NFPLightbox {
         
         this.isDragging = false;
         this.dragDirection = null; // 드래그 방향 초기화
+        this.currentDragType = null; // 드래그 타입 초기화
         
         // 드래그 종료 시 현재 위치를 저장
         this.lastTranslateX = this.translateX;
