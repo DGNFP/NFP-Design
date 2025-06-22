@@ -28,20 +28,21 @@ class NFPLightbox {
     createLightbox() {
         const lightboxHTML = `
             <div class="nfp-lightbox" id="nfp-lightbox">
-                <div class="nfp-lightbox-container">
-                    <div class="nfp-lightbox-loading"></div>
-                    <img class="nfp-lightbox-image" id="lightbox-image" alt="">
-                    <div class="nfp-lightbox-counter" id="lightbox-counter">1 / 1</div>
-                    <div class="nfp-lightbox-zoom">
-                        <button id="lightbox-zoom-out">−</button>
-                        <button id="lightbox-zoom-in">+</button>
-                    </div>
-                </div>
-                <button class="nfp-lightbox-close" id="lightbox-close">×</button>
-                <button class="nfp-lightbox-nav nfp-lightbox-prev" id="lightbox-prev">‹</button>
-                <button class="nfp-lightbox-nav nfp-lightbox-next" id="lightbox-next">›</button>
+            <div class="nfp-lightbox-container">
+                <div class="nfp-lightbox-loading"></div>
+                <img class="nfp-lightbox-image" id="lightbox-image" alt="">
+                <div class="nfp-lightbox-counter" id="lightbox-counter">1 / 1</div>
             </div>
-        `;
+
+            <div class="nfp-lightbox-zoom">
+                <button id="lightbox-zoom-out">−</button>
+                <button id="lightbox-zoom-in">+</button>
+            </div>
+            <button class="nfp-lightbox-close" id="lightbox-close">×</button>
+            <button class="nfp-lightbox-nav nfp-lightbox-prev" id="lightbox-prev">‹</button>
+            <button class="nfp-lightbox-nav nfp-lightbox-next" id="lightbox-next">›</button>
+        </div>
+    `;
         
         document.body.insertAdjacentHTML('beforeend', lightboxHTML);
         this.lightbox = document.getElementById('nfp-lightbox');
