@@ -15,7 +15,7 @@ class NFPLightbox {
         this.isDragging = false;
         this.dragDirection = null; // 'horizontal', 'vertical', null
         this.dragThreshold = 10; // 방향 감지를 위한 최소 이동 거리
-        this.dragSensitivityMobile = 0.3; // 모바일 드래그 감도
+        this.dragSensitivityMobile = 0.4; // 모바일 드래그 감도
         this.dragSensitivityDesktop = 0.8; // PC 드래그 감도
         this.currentDragType = null; // 'touch' 또는 'mouse'
         this.translateX = 0;

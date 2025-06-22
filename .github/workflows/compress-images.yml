@@ -1,4 +1,4 @@
-name: 🗜️ Auto Compress Images
+name: 🗜️ Auto Compress Images & Generate WebP
 
 on:
   push:
@@ -17,29 +17,61 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
     
+    # ImageMagick 설치 (WebP 지원)
+    - name: 🛠️ Install ImageMagick with WebP support
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y imagemagick webp
+    
+    # 기존 이미지 압축
     - name: 🗜️ Compress Images
       uses: calibreapp/image-actions@main
       with:
         githubToken: ${{ secrets.GITHUB_TOKEN }}
         compressOnly: true
-        # 압축 설정
         jpegQuality: 85
         pngQuality: 85
         webpQuality: 85
-        # NFP 디자인 최적화 설정
         ignorePaths: 'node_modules/**,dist/**,.git/**'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    # WebP 변환 및 썸네일 생성
+    - name: 🌐 Generate WebP and Thumbnails
+      run: |
+        echo "🔄 Converting images to WebP format..."
         
-    - name: 📤 Commit compressed images
+        # static/img/uploads 폴더의 모든 이미지 처리
+        find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) | while read img; do
+          filename=$(basename "$img")
+          dirname=$(dirname "$img")
+          name="${filename%.*}"
+          
+          echo "Processing: $img"
+          
+          # 1. WebP 변환 (원본 크기)
+          cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+          
+          # 2. 썸네일 생성 (300x200)
+          convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
+          cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
+          
+          # 3. 중간 크기 생성 (600x400)
+          convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
+          cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
+          
+          echo "✅ Generated WebP versions for $filename"
+        done
+        
+        echo "🎉 WebP conversion completed!"
+        
+    - name: 📤 Commit compressed images and WebP files
       run: |
         git config --local user.email "nfp-compress-bot@github.com"
         git config --local user.name "NFP Compress Bot"
-        git add .
+        git add static/img/uploads/
         if git diff --cached --quiet; then
-          echo "📸 No images to compress"
+          echo "📸 No images to compress or convert"
         else
-          git commit -m "🗜️ Auto compress images [skip ci]"
+          git commit -m "🗜️ Auto compress images and generate WebP variants [skip ci]"
           git push
-          echo "✅ Images compressed and committed"
+          echo "✅ Images compressed and WebP variants generated"
         fi
