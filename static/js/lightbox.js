@@ -13,7 +13,11 @@ class NFPLightbox {
         this.startX = 0;
         this.startY = 0;
         this.isDragging = false;
+        this.dragDirection = null; // 'horizontal', 'vertical', null
+        this.dragThreshold = 10; // 방향 감지를 위한 최소 이동 거리
+        this.translateX = 0;
         this.translateY = 0;
+        this.lastTranslateX = 0;
         this.lastTranslateY = 0;
         
         this.init();
@@ -28,21 +32,20 @@ class NFPLightbox {
     createLightbox() {
         const lightboxHTML = `
             <div class="nfp-lightbox" id="nfp-lightbox">
-            <div class="nfp-lightbox-container">
-                <div class="nfp-lightbox-loading"></div>
-                <img class="nfp-lightbox-image" id="lightbox-image" alt="">
-                <div class="nfp-lightbox-counter" id="lightbox-counter">1 / 1</div>
+                <div class="nfp-lightbox-container">
+                    <div class="nfp-lightbox-loading"></div>
+                    <img class="nfp-lightbox-image" id="lightbox-image" alt="">
+                    <div class="nfp-lightbox-counter" id="lightbox-counter">1 / 1</div>
+                </div>
+                <div class="nfp-lightbox-zoom">
+                    <button id="lightbox-zoom-out">−</button>
+                    <button id="lightbox-zoom-in">+</button>
+                </div>
+                <button class="nfp-lightbox-close" id="lightbox-close">×</button>
+                <button class="nfp-lightbox-nav nfp-lightbox-prev" id="lightbox-prev">‹</button>
+                <button class="nfp-lightbox-nav nfp-lightbox-next" id="lightbox-next">›</button>
             </div>
-
-            <div class="nfp-lightbox-zoom">
-                <button id="lightbox-zoom-out">−</button>
-                <button id="lightbox-zoom-in">+</button>
-            </div>
-            <button class="nfp-lightbox-close" id="lightbox-close">×</button>
-            <button class="nfp-lightbox-nav nfp-lightbox-prev" id="lightbox-prev">‹</button>
-            <button class="nfp-lightbox-nav nfp-lightbox-next" id="lightbox-next">›</button>
-        </div>
-    `;
+        `;
         
         document.body.insertAdjacentHTML('beforeend', lightboxHTML);
         this.lightbox = document.getElementById('nfp-lightbox');
@@ -130,7 +133,7 @@ class NFPLightbox {
         
         // 마우스 이벤트 (확대 상태에서만 드래그)
         image.addEventListener('mousedown', (e) => {
-            this.handleStart(e);
+            this.handleStart(e, 'mouse');
         });
         
         // 전역 이벤트로 마우스 업/무브 처리 (마우스가 이미지 밖으로 나가도 동작)
@@ -144,15 +147,24 @@ class NFPLightbox {
             this.handleEnd();
         });
         
-        // 터치 이벤트 (확대 상태에서만 드래그)
-        image.addEventListener('touchstart', (e) => this.handleStart(e.touches[0]));
-        image.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            if (this.isDragging) {
-                this.handleMove(e.touches[0]);
+        // 터치 이벤트 - 이미지에서 시작
+        image.addEventListener('touchstart', (e) => {
+            this.handleStart(e.touches[0], 'touch');
+        }, { passive: false });
+        
+        // 전역 터치무브 - 라이트박스가 활성화되어 있을 때 모든 스크롤 차단
+        document.addEventListener('touchmove', (e) => {
+            if (this.lightbox && this.lightbox.classList.contains('active')) {
+                e.preventDefault(); // 라이트박스 활성화 시 모든 스크롤 차단
+                if (this.isDragging) {
+                    this.handleMove(e.touches[0]);
+                }
             }
+        }, { passive: false });
+        
+        document.addEventListener('touchend', () => {
+            this.handleEnd();
         });
-        image.addEventListener('touchend', () => this.handleEnd());
         
         // 마우스 휠 줌
         image.addEventListener('wheel', (e) => {
@@ -165,16 +177,21 @@ class NFPLightbox {
         });
     }
     
-    handleStart(e) {
+    handleStart(e, eventType) {
         // 확대 상태이거나 이미지가 화면을 벗어났을 때 드래그 허용
         if (!this.canDrag()) return;
         
-        e.preventDefault(); // 기본 동작 방지
+        // 터치 이벤트의 경우 기본 동작 방지
+        if (eventType === 'mouse') {
+            e.preventDefault();
+        }
+        
         this.isDragging = true;
         this.startX = e.clientX;
         this.startY = e.clientY;
         
         // 현재 드래그 시작점을 마지막 위치로 저장
+        this.lastTranslateX = this.translateX;
         this.lastTranslateY = this.translateY;
     }
     
@@ -182,11 +199,29 @@ class NFPLightbox {
         // 드래그 가능한 상태이고 드래그 중일 때만 이동
         if (!this.isDragging || !this.canDrag()) return;
         
-        e.preventDefault(); // 기본 동작 방지
+        const deltaX = e.clientX - this.startX;
         const deltaY = e.clientY - this.startY;
         
-        // 상하(Y축)로만 이동, 좌우(X축) 이동 차단
-        this.translateY = this.lastTranslateY + deltaY;
+        // 방향이 아직 결정되지 않았고, 충분히 움직였을 때 방향 결정
+        if (this.dragDirection === null && (Math.abs(deltaX) > this.dragThreshold || Math.abs(deltaY) > this.dragThreshold)) {
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                this.dragDirection = 'horizontal';
+            } else {
+                this.dragDirection = 'vertical';
+            }
+        }
+        
+        // 결정된 방향에 따라 해당 축으로만 이동
+        if (this.dragDirection === 'horizontal') {
+            this.translateX = this.lastTranslateX + deltaX;
+            // Y축은 고정
+            this.translateY = this.lastTranslateY;
+        } else if (this.dragDirection === 'vertical') {
+            this.translateY = this.lastTranslateY + deltaY;
+            // X축은 고정
+            this.translateX = this.lastTranslateX;
+        }
+        
         this.applyTransform();
     }
     
@@ -194,14 +229,16 @@ class NFPLightbox {
         if (!this.isDragging) return;
         
         this.isDragging = false;
+        this.dragDirection = null; // 드래그 방향 초기화
         
         // 드래그 종료 시 현재 위치를 저장
+        this.lastTranslateX = this.translateX;
         this.lastTranslateY = this.translateY;
     }
     
     canDrag() {
-        // 확대 상태이거나 이미지가 화면을 벗어났을 때 드래그 가능
-        return this.isZoomed || this.isImageOverflowing();
+        // 이미지가 화면을 벗어났을 때만 드래그 가능 (확대 상태 조건 제거)
+        return this.isImageOverflowing();
     }
     
     isImageOverflowing() {
@@ -210,11 +247,27 @@ class NFPLightbox {
         
         if (!image || !container) return false;
         
-        const imageRect = image.getBoundingClientRect();
+        // 현재 스케일을 적용한 실제 이미지 크기 계산
+        const naturalWidth = image.naturalWidth * this.scale;
+        const naturalHeight = image.naturalHeight * this.scale;
+        
+        // 컨테이너 크기
         const containerRect = container.getBoundingClientRect();
         
-        // 이미지 높이가 컨테이너 높이보다 클 때 오버플로우로 판단
-        return imageRect.height > containerRect.height;
+        // 실제 이미지 크기가 컨테이너보다 크면 오버플로우
+        const isWidthOverflow = naturalWidth > containerRect.width;
+        const isHeightOverflow = naturalHeight > containerRect.height;
+        
+        return {
+            any: isWidthOverflow || isHeightOverflow,
+            horizontal: isWidthOverflow,
+            vertical: isHeightOverflow
+        };
+    }
+    
+    canDrag() {
+        // 확대 상태(scale > 1)일 때만 드래그 가능
+        return this.scale > 1;
     }
     
     openLightbox(index) {
@@ -233,29 +286,29 @@ class NFPLightbox {
         this.resetZoom();
     }
     
-showImage() {
-    const image = document.getElementById('lightbox-image');
-    const loading = document.querySelector('.nfp-lightbox-loading');
-    
-    // 이미지에 로딩 클래스 추가 (투명도 낮춤)
-    image.classList.add('loading');
-    loading.style.display = 'block';
-    
-    // 새 이미지 프리로드
-    const newImage = new Image();
-    newImage.onload = () => {
-        // 로딩 완료 후 이미지 교체
-        image.src = newImage.src;
-        image.alt = this.images[this.currentIndex].alt;
+    showImage() {
+        const image = document.getElementById('lightbox-image');
+        const loading = document.querySelector('.nfp-lightbox-loading');
         
-        // 로딩 효과 제거
-        loading.style.display = 'none';
-        image.classList.remove('loading');
-    };
-    
-    // 새 이미지 로딩 시작
-    newImage.src = this.images[this.currentIndex].src;
-}
+        // 이미지에 로딩 클래스 추가 (투명도 낮춤)
+        image.classList.add('loading');
+        loading.style.display = 'block';
+        
+        // 새 이미지 프리로드
+        const newImage = new Image();
+        newImage.onload = () => {
+            // 로딩 완료 후 이미지 교체
+            image.src = newImage.src;
+            image.alt = this.images[this.currentIndex].alt;
+            
+            // 로딩 효과 제거
+            loading.style.display = 'none';
+            image.classList.remove('loading');
+        };
+        
+        // 새 이미지 로딩 시작
+        newImage.src = this.images[this.currentIndex].src;
+    }
     
     prevImage() {
         if (this.images.length <= 1) return;
@@ -340,11 +393,13 @@ showImage() {
     
     applyTransform() {
         const image = document.getElementById('lightbox-image');
-        image.style.transform = `scale(${this.scale}) translateY(${this.translateY}px)`;
+        image.style.transform = `scale(${this.scale}) translate(${this.translateX}px, ${this.translateY}px)`;
     }
     
     resetPosition() {
+        this.translateX = 0;
         this.translateY = 0;
+        this.lastTranslateX = 0;
         this.lastTranslateY = 0;
     }
     
@@ -353,7 +408,7 @@ showImage() {
         this.isZoomed = false;
         this.resetPosition();
         const image = document.getElementById('lightbox-image');
-        image.style.transform = 'scale(1) translateY(0px)';
+        image.style.transform = 'scale(1) translate(0px, 0px)';
         image.classList.remove('zoomed');
     }
 }
