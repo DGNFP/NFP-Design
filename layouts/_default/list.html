@@ -172,7 +172,7 @@
         <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
              alt="{{ .Title }}"
              onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'"
-             loading="lazy">
+             >
         <div class="video-overlay">
             <i class="fas fa-play"></i>
         </div>
@@ -180,8 +180,7 @@
         <!-- Vimeo 썸네일 + 재생 아이콘 -->
         <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
              alt="{{ .Title }}"
-             onerror="this.src='/img/vimeo-default.jpg'"
-             loading="lazy">
+             onerror="this.src='/img/vimeo-default.jpg'">
         <div class="video-overlay">
             <i class="fas fa-play"></i>
         </div>
@@ -198,7 +197,7 @@
         <!-- 일반 썸네일 시도 -->  
         <source srcset="{{ $withoutExt }}_thumb.jpg" type="image/jpeg">
         <!-- 원본 이미지 (폴백) -->
-        <img src="{{ $originalSrc }}" alt="{{ .Title }}" loading="lazy">
+        <img src="{{ $originalSrc }}" alt="{{ .Title }}">
     </picture>
 {{ end }}
 
