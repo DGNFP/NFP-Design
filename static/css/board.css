@@ -1523,6 +1523,7 @@ line-height: 1.2; /* 1.25 → 1.2 */
 }
 
 
+
 /* ==============================
    반응형 스타일
    ============================== */
@@ -1565,6 +1566,7 @@ line-height: 1.2; /* 1.25 → 1.2 */
      .board-game-grid .board-all-item {
         flex-direction: column; /* 세로 배치로 변경 */
         max-width: 100%;
+        align-items: stretch; /* 전체 너비 사용 */
     }
 
    /* 게임게시판 썸네일 와이드 비율 추가 */
@@ -1583,7 +1585,13 @@ line-height: 1.2; /* 1.25 → 1.2 */
     }
 
     
-    
+    .board-all-item-subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    width: 100%; /* 추가로 명시적 너비 설정 */
+}
     
     
     .board-game-grid .board-all-item-title {
@@ -1727,10 +1735,11 @@ line-height: 1.2; /* 1.25 → 1.2 */
     }
     
     .board-all-item-content {
-        padding: 15px 10px 15px 0;
+        padding: 2px 2px 2px 0;
+        min-width: 0; /* 이게 핵심! */
     }
 
-        .board-game-grid .board-all-item-content {
+    .board-game-grid .board-all-item-content {
         padding: 15px !important;
         justify-content: flex-start !important;
         text-align: left !important;
@@ -2163,7 +2172,7 @@ font-size: 12px;
         font-size: 9px;
     }
 
-        .board-game-grid .board-all-item-content {
+    .board-game-grid .board-all-item-content {
         padding: 15px !important;
         justify-content: flex-start !important;
         text-align: left !important;
