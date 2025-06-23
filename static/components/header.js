@@ -1,6 +1,6 @@
 function createHeader(targetElementId = 'header-container', activeMenu = '') {
     // 외부 CSS 로드
-    const cssHref = './css/styles.css';
+    const cssHref = '/css/styles.css';
     const existingLink = document.querySelector(`link[href="${cssHref}"]`);
     if (!existingLink) {
         const link = document.createElement('link');

@@ -202,12 +202,28 @@
     }
     </script>
     
-    <!-- CSS 파일들 - 절대 경로로 수정 (기존 유지) -->
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/board.css">
-    <link rel="stylesheet" href="/css/project_board.css">
+    <!-- CSS 파일들 - 모든 상대 경로 CSS 제거 후 절대 경로로 강제 로딩 -->
+    <script>
+        // 기존 CSS 링크 중 상대 경로인 것들 제거
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="{{ "/css/styles.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "/css/board.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "/css/project_board.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "/css/lightbox.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "/css/web-demo.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "/css/popup.css" | absURL }}">
     {{ if .IsHome }}
-        <link rel="stylesheet" href="/css/project.css">
+        <link rel="stylesheet" href="{{ "/css/project.css" | absURL }}">
     {{ end }}
     
     <!-- 파비콘 및 모바일 아이콘 설정 -->
@@ -232,8 +248,9 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{{ "/img/icon_180.png" | relURL }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ "/img/icon_180.png" | relURL }}">
     
-    <!-- PWA 웹앱 관련 메타 태그 -->
+    <!-- PWA 웹앱 관련 메타 태그 - 수정됨 -->
     <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="NFP 디자인">

@@ -2115,7 +2115,7 @@ font-size: 12px;
 
     /* 영상 게시판 모바일 반응형 */
     .board-item-wide .board-item-content {
-        padding: 15px; /* 모바일에서 최소 패딩 */
+        padding: 10px; /* 모바일에서 최소 패딩 */
     }
     
     .board-item-wide .board-item-title {

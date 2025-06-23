@@ -35,8 +35,17 @@ menu:
     - name: "소식 및 자유게시판"
       url: "/freeboard/"
       weight: 6
-         
 
+# CSS MIME 타입 설정 추가 (CSS 오류 해결)
+mediaTypes:
+  text/css:
+    suffixes: ["css"]
+
+outputFormats:
+  CSS:
+    mediaType: "text/css"
+    isPlainText: false
+         
 taxonomies:
   category: "categories"
   tag: "tags"
