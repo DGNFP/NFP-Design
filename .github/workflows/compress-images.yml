@@ -23,7 +23,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y imagemagick webp
     
-    # 기존 이미지 압축
+    # 기존 이미지 압축 (변경된 파일만)
     - name: 🗜️ Compress Images
       uses: calibreapp/image-actions@main
       with:
@@ -34,10 +34,10 @@ jobs:
         webpQuality: 85
         ignorePaths: 'node_modules/**,dist/**,.git/**'
     
-    # WebP 변환 및 썸네일 생성
-    - name: 🌐 Generate WebP and Thumbnails
+    # 스마트 WebP 변환 및 썸네일 생성
+    - name: 🌐 Smart WebP Generation
       run: |
-        echo "🔄 Converting images to WebP format..."
+        echo "🔄 Processing NEW and MODIFIED images..."
         
         # static/img/uploads 폴더의 모든 이미지 처리
         find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) | while read img; do
@@ -45,23 +45,28 @@ jobs:
           dirname=$(dirname "$img")
           name="${filename%.*}"
           
-          echo "Processing: $img"
-          
-          # 1. WebP 변환 (원본 크기)
-          cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
-          
-          # 2. 썸네일 생성 (300x200)
-          convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
-          cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
-          
-          # 3. 중간 크기 생성 (600x400)
-          convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
-          cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
-          
-          echo "✅ Generated WebP versions for $filename"
+          # WebP가 없거나, 원본이 더 최신인 경우만 처리
+          if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
+            echo "🆕 Processing: $img (new or modified)"
+            
+            # 1. WebP 변환 (원본 크기)
+            cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+            
+            # 2. 썸네일 생성 (300x200) - 기존 파일 있으면 덮어쓰기
+            convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
+            cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
+            
+            # 3. 중간 크기 생성 (600x400) - 기존 파일 있으면 덮어쓰기
+            convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
+            cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
+            
+            echo "✅ Generated WebP versions for $filename"
+          else
+            echo "⏭️ Skipping: $filename (already up-to-date)"
+          fi
         done
         
-        echo "🎉 WebP conversion completed!"
+        echo "🎉 Smart WebP conversion completed!"
         
     - name: 📤 Commit compressed images and WebP files
       run: |
@@ -69,7 +74,7 @@ jobs:
         git config --local user.name "NFP Compress Bot"
         git add static/img/uploads/
         if git diff --cached --quiet; then
-          echo "📸 No images to compress or convert"
+          echo "📸 No new images to compress or convert"
         else
           git commit -m "🗜️ Auto compress images and generate WebP variants [skip ci]"
           git push
