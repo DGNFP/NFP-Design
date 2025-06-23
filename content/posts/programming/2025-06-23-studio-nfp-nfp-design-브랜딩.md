@@ -11,7 +11,7 @@ tags:
   - CSS3
   - NFP 디자인
   - NFP Design
-demoTheme: default
+demoTheme: dark
 demoCode:
   lang: html
   code: >-
