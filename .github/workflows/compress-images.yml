@@ -1,11 +1,8 @@
-name: 🗜️ Auto Compress Images & Generate WebP
+name: 🗜️ Smart Image Processing
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch: 
-
+  workflow_dispatch: # 수동 실행만
+  
 jobs:
   compress:
     runs-on: ubuntu-latest
@@ -17,66 +14,56 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
     
-    # ImageMagick 설치 (WebP 지원)
     - name: 🛠️ Install ImageMagick with WebP support
       run: |
         sudo apt-get update
         sudo apt-get install -y imagemagick webp
     
-    # 기존 이미지 압축 (변경된 파일만)
-    - name: 🗜️ Compress Images
-      uses: calibreapp/image-actions@main
-      with:
-        githubToken: ${{ secrets.GITHUB_TOKEN }}
-        compressOnly: true
-        jpegQuality: 85
-        pngQuality: 85
-        webpQuality: 85
-        ignorePaths: 'node_modules/**,dist/**,.git/**'
-    
-    # 스마트 WebP 변환 및 썸네일 생성
-    - name: 🌐 Smart WebP Generation
+    - name: 🌐 Smart WebP Generation (원본 파일만)
       run: |
-        echo "🔄 Processing NEW and MODIFIED images..."
+        echo "🔄 Processing ONLY original images..."
         
-        # static/img/uploads 폴더의 모든 이미지 처리
-        find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) | while read img; do
+        # 원본 파일만 찾기 (언더스코어 없는 파일)
+        find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) | grep -v "_" | while read img; do
           filename=$(basename "$img")
           dirname=$(dirname "$img")
           name="${filename%.*}"
           
-          # WebP가 없거나, 원본이 더 최신인 경우만 처리
-          if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
-            echo "🆕 Processing: $img (new or modified)"
-            
-            # 1. WebP 변환 (원본 크기)
+          echo "🔍 Checking: $img"
+          
+          # WebP가 없으면 생성
+          if [ ! -f "${dirname}/${name}.webp" ]; then
+            echo "🆕 Creating WebP: ${name}.webp"
             cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
-            
-            # 2. 썸네일 생성 (300x200) - 기존 파일 있으면 덮어쓰기
+          fi
+          
+          # 썸네일이 없으면 생성
+          if [ ! -f "${dirname}/${name}_thumb.jpg" ]; then
+            echo "🆕 Creating thumbnail: ${name}_thumb.jpg"
             convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
             cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
-            
-            # 3. 중간 크기 생성 (600x400) - 기존 파일 있으면 덮어쓰기
+          fi
+          
+          # 중간크기가 없으면 생성
+          if [ ! -f "${dirname}/${name}_medium.jpg" ]; then
+            echo "🆕 Creating medium: ${name}_medium.jpg"
             convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
             cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
-            
-            echo "✅ Generated WebP versions for $filename"
-          else
-            echo "⏭️ Skipping: $filename (already up-to-date)"
           fi
+          
         done
         
-        echo "🎉 Smart WebP conversion completed!"
+        echo "🎉 Smart processing completed!"
         
-    - name: 📤 Commit compressed images and WebP files
+    - name: 📤 Commit changes
       run: |
         git config --local user.email "nfp-compress-bot@github.com"
         git config --local user.name "NFP Compress Bot"
         git add static/img/uploads/
         if git diff --cached --quiet; then
-          echo "📸 No new images to compress or convert"
+          echo "📸 No changes to commit"
         else
-          git commit -m "🗜️ Auto compress images and generate WebP variants [skip ci]"
+          git commit -m "🗜️ Smart image processing [skip ci]"
           git push
-          echo "✅ Images compressed and WebP variants generated"
+          echo "✅ Changes committed"
         fi
