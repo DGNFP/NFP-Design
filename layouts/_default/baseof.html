@@ -7,121 +7,246 @@
     <!-- 네이버 웹마스터 인증 -->
     <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
 
-    <!-- Google Analytics 4 - 단일 버전 (중복 제거됨) -->
-    {{ if hugo.IsProduction }}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG6N24RD49"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <!-- Google Analytics 4 - 완전 통합 버전 -->
+{{ if hugo.IsProduction }}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG6N24RD49"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-HG6N24RD49', {
+    page_title: '{{ .Title }}',
+    page_location: '{{ .Permalink }}',
+    send_page_view: true
+  });
+
+  // NFP 디자인 사이트 특화 이벤트 추적 - 완전 통합 버전
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. 포트폴리오 카드 클릭 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.closest('.design-item') || 
+          event.target.closest('.board-item') || 
+          event.target.closest('.highlight-card')) {
+        gtag('event', 'portfolio_view', {
+          event_category: 'engagement',
+          event_label: 'portfolio_click'
+        });
+      }
+    });
+
+    // 2. 연락하기 버튼 클릭 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.closest('.floating-btn') || 
+          event.target.textContent.includes('연락') || 
+          event.target.textContent.includes('문의')) {
+        gtag('event', 'contact_intent', {
+          event_category: 'lead',
+          event_label: 'contact_button'
+        });
+      }
+    });
+
+    // 3. 카테고리 필터 사용 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.closest('.category-tab') || 
+          event.target.closest('.category-filter')) {
+        let category = event.target.textContent.trim() || 'unknown';
+        gtag('event', 'category_filter', {
+          event_category: 'navigation',
+          event_label: category
+        });
+      }
+    });
+
+    // 4. 외부 링크 클릭 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A' && 
+          event.target.hostname !== window.location.hostname) {
+        gtag('event', 'outbound_click', {
+          event_category: 'external_link',
+          event_label: event.target.href
+        });
+      }
+    });
+
+    // 5. 스크롤 깊이 추적
+    let scrollDepths = [25, 50, 75, 100];
+    let maxScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      let scrollPercent = Math.round(
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+      );
       
-      gtag('config', 'G-HG6N24RD49', {
-        page_title: '{{ .Title }}',
-        page_location: '{{ .Permalink }}',
-        send_page_view: true
-      });
-
-      // NFP 디자인 사이트 특화 이벤트 추적
-      document.addEventListener('DOMContentLoaded', function() {
+      if (scrollPercent > maxScroll) {
+        maxScroll = scrollPercent;
         
-        // 1. 포트폴리오 카드 클릭 추적
-        document.addEventListener('click', function(event) {
-          if (event.target.closest('.design-item') || 
-              event.target.closest('.board-item') || 
-              event.target.closest('.highlight-card')) {
-            gtag('event', 'portfolio_view', {
+        scrollDepths.forEach(function(depth) {
+          if (scrollPercent >= depth && !window['scroll' + depth + 'Fired']) {
+            gtag('event', 'scroll_depth', {
               event_category: 'engagement',
-              event_label: 'portfolio_click'
+              event_label: depth + '%'
             });
+            window['scroll' + depth + 'Fired'] = true;
           }
         });
+      }
+    });
 
-        // 2. 연락하기 버튼 클릭 추적
-        document.addEventListener('click', function(event) {
-          if (event.target.closest('.floating-btn') || 
-              event.target.textContent.includes('연락') || 
-              event.target.textContent.includes('문의')) {
-            gtag('event', 'contact_intent', {
-              event_category: 'lead',
-              event_label: 'contact_button'
-            });
-          }
-        });
-
-        // 3. 카테고리 필터 사용 추적
-        document.addEventListener('click', function(event) {
-          if (event.target.closest('.category-tab') || 
-              event.target.closest('.category-filter')) {
-            let category = event.target.textContent.trim() || 'unknown';
-            gtag('event', 'category_filter', {
-              event_category: 'navigation',
-              event_label: category
-            });
-          }
-        });
-
-        // 4. 외부 링크 클릭 추적
-        document.addEventListener('click', function(event) {
-          if (event.target.tagName === 'A' && 
-              event.target.hostname !== window.location.hostname) {
-            gtag('event', 'outbound_click', {
-              event_category: 'external_link',
-              event_label: event.target.href
-            });
-          }
-        });
-
-        // 5. 스크롤 깊이 추적
-        let scrollDepths = [25, 50, 75, 100];
-        let maxScroll = 0;
-        
-        window.addEventListener('scroll', function() {
-          let scrollPercent = Math.round(
-            (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-          );
-          
-          if (scrollPercent > maxScroll) {
-            maxScroll = scrollPercent;
-            
-            scrollDepths.forEach(function(depth) {
-              if (scrollPercent >= depth && !window['scroll' + depth + 'Fired']) {
-                gtag('event', 'scroll_depth', {
-                  event_category: 'engagement',
-                  event_label: depth + '%'
-                });
-                window['scroll' + depth + 'Fired'] = true;
-              }
-            });
-          }
-        });
-
-        // 6. 파일 다운로드 추적
-        document.addEventListener('click', function(event) {
-          if (event.target.tagName === 'A') {
-            let href = event.target.getAttribute('href');
-            if (href && (href.includes('.pdf') || href.includes('.zip') || 
-                        href.includes('.psd') || href.includes('.ai'))) {
-              gtag('event', 'file_download', {
-                event_category: 'engagement',
-                event_label: href
-              });
-            }
-          }
-        });
-
-        // 7. 뉴스레터 구독 추적 (추가)
-        const newsletterForm = document.getElementById('newsletter-form');
-        if (newsletterForm) {
-          newsletterForm.addEventListener('submit', function() {
-            gtag('event', 'newsletter_signup', {
-              event_category: 'lead_generation',
-              event_label: 'newsletter'
-            });
+    // 6. 파일 다운로드 추적
+    document.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        let href = event.target.getAttribute('href');
+        if (href && (href.includes('.pdf') || href.includes('.zip') || 
+                    href.includes('.psd') || href.includes('.ai'))) {
+          gtag('event', 'file_download', {
+            event_category: 'engagement',
+            event_label: href
           });
         }
+      }
+    });
+
+    // 7. 뉴스레터 구독 추적
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function() {
+        gtag('event', 'newsletter_signup', {
+          event_category: 'lead_generation',
+          event_label: 'newsletter'
+        });
       });
-    </script>
-    {{ end }}
+    }
+
+    // 8. 페이지 체류 시간 추적 (신규)
+    let startTime = Date.now();
+    let engagementSent = false;
+    
+    // 30초, 60초, 120초 체류 시점에서 각각 이벤트 발송
+    const engagementTimeouts = [
+      setTimeout(() => {
+        gtag('event', 'page_engagement', {
+          event_category: 'engagement',
+          event_label: 'engaged_30s',
+          value: 30
+        });
+      }, 30000),
+      
+      setTimeout(() => {
+        gtag('event', 'page_engagement', {
+          event_category: 'engagement',
+          event_label: 'engaged_60s',
+          value: 60
+        });
+      }, 60000),
+      
+      setTimeout(() => {
+        gtag('event', 'page_engagement', {
+          event_category: 'engagement',
+          event_label: 'engaged_120s',
+          value: 120
+        });
+      }, 120000)
+    ];
+    
+    // 페이지 떠날 때 체류 시간 추적
+    window.addEventListener('beforeunload', function() {
+      let timeSpent = Math.round((Date.now() - startTime) / 1000);
+      if (timeSpent > 10 && !engagementSent) {
+        gtag('event', 'page_time_spent', {
+          event_category: 'engagement',
+          event_label: 'total_time',
+          value: timeSpent
+        });
+        engagementSent = true;
+      }
+      
+      // 타이머들 정리
+      engagementTimeouts.forEach(timeout => clearTimeout(timeout));
+    });
+
+    // 9. 이미지 로딩 완료 추적 (신규)
+    window.addEventListener('load', function() {
+      const portfolioImages = document.querySelectorAll('img[src*="portfolio"], img[src*="design"], img[src*="project"], .design-item img, .board-item img');
+      let loadedCount = 0;
+      let totalCount = portfolioImages.length;
+      
+      if (totalCount > 0) {
+        portfolioImages.forEach((img, index) => {
+          if (img.complete && img.naturalHeight > 0) {
+            loadedCount++;
+          } else {
+            img.addEventListener('load', function() {
+              loadedCount++;
+              if (loadedCount === totalCount) {
+                gtag('event', 'images_loaded', {
+                  event_category: 'performance',
+                  event_label: 'portfolio_images_complete',
+                  value: totalCount
+                });
+              }
+            });
+            
+            img.addEventListener('error', function() {
+              gtag('event', 'image_error', {
+                event_category: 'performance',
+                event_label: 'portfolio_image_failed'
+              });
+            });
+          }
+        });
+        
+        // 이미 로드된 이미지들이 전체라면 즉시 이벤트 발송
+        if (loadedCount === totalCount) {
+          gtag('event', 'images_loaded', {
+            event_category: 'performance',
+            event_label: 'portfolio_images_complete',
+            value: totalCount
+          });
+        }
+      }
+    });
+
+    // 10. 검색/필터 키워드 추적 (신규)
+    let searchTimeout;
+    document.addEventListener('input', function(event) {
+      if (event.target.matches('[type="search"], .search-input, input[placeholder*="검색"], input[placeholder*="search"], #search')) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          let searchTerm = event.target.value.trim();
+          if (searchTerm.length > 2) {
+            gtag('event', 'search', {
+              search_term: searchTerm,
+              event_category: 'site_search',
+              event_label: 'internal_search'
+            });
+          }
+        }, 1000);
+      }
+    });
+    
+    // 필터 선택 시 키워드도 함께 추적
+    document.addEventListener('change', function(event) {
+      if (event.target.matches('select[name*="category"], select[name*="filter"], .filter-select')) {
+        let filterValue = event.target.value;
+        let filterName = event.target.name || 'unknown_filter';
+        
+        if (filterValue && filterValue !== '' && filterValue !== 'all') {
+          gtag('event', 'filter_applied', {
+            event_category: 'navigation',
+            event_label: filterName + '_' + filterValue,
+            filter_type: filterName,
+            filter_value: filterValue
+          });
+        }
+      }
+    });
+
+  });
+</script>
+{{ end }}
 
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     
