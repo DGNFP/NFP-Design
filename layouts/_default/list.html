@@ -170,7 +170,7 @@
     {{ else if eq $firstContentType "youtube" }}
         <!-- YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
         <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
-             alt="{{ .Title }}"
+             alt="{{ .Title }}" width="1280" height="720" loading="lazy"
              onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'"
              >
         <div class="video-overlay">
@@ -179,7 +179,7 @@
     {{ else if eq $firstContentType "vimeo" }}
         <!-- Vimeo 썸네일 + 재생 아이콘 -->
         <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
-             alt="{{ .Title }}"
+             alt="{{ .Title }}" width="640" height="360" loading="lazy"
              onerror="this.src='/img/vimeo-default.jpg'">
         <div class="video-overlay">
             <i class="fas fa-play"></i>
@@ -197,7 +197,7 @@
         <!-- 일반 썸네일 시도 -->  
         <source srcset="{{ $withoutExt }}_thumb.jpg" type="image/jpeg">
         <!-- 원본 이미지 (폴백) -->
-        <img src="{{ $originalSrc }}" alt="{{ .Title }}">
+        <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
     </picture>
 {{ end }}
 
