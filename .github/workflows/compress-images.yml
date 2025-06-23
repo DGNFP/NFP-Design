@@ -1,8 +1,14 @@
-name: 🗜️ Smart Image Processing
+name: 🗜️ Safe Auto Image Processing
 
 on:
-  workflow_dispatch: # 수동 실행만
-  
+  push:
+    branches:
+      - main
+    paths:
+      - 'static/img/uploads/**/*.{jpg,jpeg,png}'  # 이미지 파일 변경 시에만
+      - '!static/img/uploads/**/*_*.{jpg,jpeg,png,webp}'  # 썸네일/미디엄 제외
+  workflow_dispatch: 
+
 jobs:
   compress:
     runs-on: ubuntu-latest
@@ -14,48 +20,59 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
     
+    - name: 📋 Get changed original images only
+      id: changed-files
+      uses: tj-actions/changed-files@v35
+      with:
+        files: |
+          static/img/uploads/**/*.{jpg,jpeg,png}
+        files_ignore: |
+          static/img/uploads/**/*_*.{jpg,jpeg,png,webp}
+    
     - name: 🛠️ Install ImageMagick with WebP support
+      if: steps.changed-files.outputs.any_changed == 'true'
       run: |
         sudo apt-get update
         sudo apt-get install -y imagemagick webp
     
-    - name: 🌐 Smart WebP Generation (원본 파일만)
+    - name: 🌐 Process ONLY new/changed original images
+      if: steps.changed-files.outputs.any_changed == 'true'
       run: |
-        echo "🔄 Processing ONLY original images..."
+        echo "🔄 Processing only NEW/CHANGED original images..."
         
-        # 원본 파일만 찾기 (언더스코어 없는 파일)
-        find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) | grep -v "_" | while read img; do
-          filename=$(basename "$img")
-          dirname=$(dirname "$img")
-          name="${filename%.*}"
-          
-          echo "🔍 Checking: $img"
-          
-          # WebP가 없으면 생성
-          if [ ! -f "${dirname}/${name}.webp" ]; then
-            echo "🆕 Creating WebP: ${name}.webp"
-            cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+        # 변경된 원본 파일들만 처리 (언더스코어 없는 파일만)
+        echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
+          if [ -f "$img" ] && [[ ! "$img" =~ _ ]]; then  # 원본 파일만
+            filename=$(basename "$img")
+            dirname=$(dirname "$img")
+            name="${filename%.*}"
+            
+            echo "🆕 Processing: $img"
+            
+            # WebP 변환 (없거나 원본이 더 최신인 경우)
+            if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
+              cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+              echo "✅ WebP: ${name}.webp"
+            fi
+            
+            # 썸네일 생성
+            if [ ! -f "${dirname}/${name}_thumb.jpg" ] || [ "$img" -nt "${dirname}/${name}_thumb.jpg" ]; then
+              convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
+              cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
+              echo "✅ Thumbnail: ${name}_thumb"
+            fi
+            
+            # 중간크기 생성
+            if [ ! -f "${dirname}/${name}_medium.jpg" ] || [ "$img" -nt "${dirname}/${name}_medium.jpg" ]; then
+              convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
+              cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
+              echo "✅ Medium: ${name}_medium"
+            fi
           fi
-          
-          # 썸네일이 없으면 생성
-          if [ ! -f "${dirname}/${name}_thumb.jpg" ]; then
-            echo "🆕 Creating thumbnail: ${name}_thumb.jpg"
-            convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
-            cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
-          fi
-          
-          # 중간크기가 없으면 생성
-          if [ ! -f "${dirname}/${name}_medium.jpg" ]; then
-            echo "🆕 Creating medium: ${name}_medium.jpg"
-            convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
-            cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
-          fi
-          
         done
         
-        echo "🎉 Smart processing completed!"
-        
     - name: 📤 Commit changes
+      if: steps.changed-files.outputs.any_changed == 'true'
       run: |
         git config --local user.email "nfp-compress-bot@github.com"
         git config --local user.name "NFP Compress Bot"
@@ -63,7 +80,7 @@ jobs:
         if git diff --cached --quiet; then
           echo "📸 No changes to commit"
         else
-          git commit -m "🗜️ Smart image processing [skip ci]"
+          git commit -m "🗜️ Auto process new/changed images [skip ci]"
           git push
           echo "✅ Changes committed"
         fi
