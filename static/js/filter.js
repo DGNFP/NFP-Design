@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded');
-    
     const searchInput = document.getElementById('searchInput');
     const searchBtn = document.getElementById('searchBtn');
     const filters = document.querySelectorAll('.category-filter a');
     
-    // 🆕 게시판별 페이지네이션 설정
+    // 게시판별 페이지네이션 설정
     function getItemsPerPage() {
         const currentPath = window.location.pathname;
         
@@ -27,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 페이지네이션 변수
     let currentPage = 1;
-    let itemsPerPage = getItemsPerPage(); // 🆕 동적으로 설정
+    let itemsPerPage = getItemsPerPage();
     let filteredItems = [];
     let currentFilter = 'all';
     let currentSearchTerm = '';
@@ -43,23 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const isProgrammingBoard = window.location.pathname.includes('/programming/');
     const isAdBoard = window.location.pathname.includes('/ad/');
     const isProjectBoard = window.location.pathname.includes('/project/');
-    
-    // 🆕 현재 게시판 타입과 설정 출력
-    console.log('=== 페이지네이션 설정 ===');
-    console.log('현재 경로:', window.location.pathname);
-    if (isMainBoard) console.log('게시판: 전체게시판 (9개씩)');
-    else if (isCreativeBoard) console.log('게시판: 크리에이티브디자인 (15개씩)');
-    else if (isContentBoard) console.log('게시판: 컨텐츠디자인 (15개씩)');
-    else if (isWebBoard) console.log('게시판: 웹디자인 (12개씩)');
-    else if (isVideoBoard) console.log('게시판: 영상디자인 (12개씩)');
-    else if (isProgrammingBoard) console.log('게시판: 프로그래밍 (12개씩)');
-    else if (isAdBoard) console.log('게시판: 광고/인쇄디자인 (12개씩)');
-    else if (isProjectBoard) console.log('게시판: 프로젝트 (12개씩)');
-    else if (isFreeBoard) console.log('게시판: 자유게시판 (12개씩)');
-    else if (isGamesBoard) console.log('게시판: 게임게시판 (12개씩)');
-    else console.log('게시판: 기타 (12개씩)');
-    console.log('페이지당 항목 수:', itemsPerPage);
-    console.log('========================');
     
     // 필터 기능
     filters.forEach(filter => {
@@ -111,9 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 4. 결과 없음 메시지 업데이트 (모든 게시판에 적용)
         updateNoResultsMessage();
-        
-        // 🆕 상세 로그 출력
-        console.log(`필터: ${currentFilter}, 검색: "${currentSearchTerm}", 페이지: ${currentPage}/${Math.ceil(filteredItems.length / itemsPerPage)}, 결과: ${filteredItems.length}개 (${itemsPerPage}개씩 표시)`);
     }
     
     // 필터링된 아이템들 가져오기
@@ -162,23 +140,52 @@ document.addEventListener('DOMContentLoaded', function() {
             // 2. 검색 조건 확인
             let matchesSearch = true;
             if (currentSearchTerm) {
-                let titleSelector, descSelector;
+                let titleSelector, subtitleSelector, descSelector, tagSelector, categorySelector;
                 
                 if (isMainBoard || isFreeBoard || isGamesBoard) {
                     // 전체 게시판, 자유게시판, 게임게시판
                     titleSelector = '.board-all-item-title';
-                    descSelector = '.board-all-item-desc, .board-all-item-excerpt'; // 게임게시판 본문 검색 추가
+                    subtitleSelector = '.board-all-item-subtitle';
+                    descSelector = '.board-all-item-desc, .board-all-item-excerpt';
+                    tagSelector = '.board-all-item-tags .tag, .board-all-item-tag, .tags .tag, .tag';
+                    categorySelector = '.board-all-item-category, .category, .board-all-item-desc';
                 } else {
                     // 개별 게시판들
                     titleSelector = '.board-item-title, .project-minimal-title';
+                    subtitleSelector = '.board-item-subtitle, .project-minimal-subtitle';
                     descSelector = '.board-item-desc, .project-minimal-desc';
+                    tagSelector = '.board-item-tags .tag, .project-minimal-tags .tag, .tags .tag, .tag, .board-item-tag';
+                    categorySelector = '.board-item-category, .project-minimal-category, .category';
                 }
                 
+                // 기본 필드들 (제목, 서브타이틀, 설명)
                 const titleElement = item.querySelector(titleSelector);
+                const subtitleElement = item.querySelector(subtitleSelector);
                 const descElement = item.querySelector(descSelector);
                 const title = titleElement ? titleElement.textContent.toLowerCase() : '';
+                const subtitle = subtitleElement ? subtitleElement.textContent.toLowerCase() : '';
                 const desc = descElement ? descElement.textContent.toLowerCase() : '';
-                matchesSearch = title.includes(currentSearchTerm) || desc.includes(currentSearchTerm);
+                
+                // 태그 검색
+                const tagElements = item.querySelectorAll(tagSelector);
+                let tags = '';
+                tagElements.forEach(tagEl => {
+                    tags += tagEl.textContent.toLowerCase() + ' ';
+                });
+                
+                // 카테고리 검색 (data-category 속성과 카테고리 요소)
+                const categoryElement = item.querySelector(categorySelector);
+                const dataCategory = item.getAttribute('data-category') || '';
+                const dataMain = item.getAttribute('data-main') || '';
+                const categoryText = categoryElement ? categoryElement.textContent.toLowerCase() : '';
+                const categories = (dataCategory + ' ' + dataMain + ' ' + categoryText).toLowerCase();
+                
+                // 통합 검색: 제목, 서브타이틀, 설명, 태그, 카테고리 중 하나라도 포함되면 매칭
+                matchesSearch = title.includes(currentSearchTerm) || 
+                               subtitle.includes(currentSearchTerm) ||
+                               desc.includes(currentSearchTerm) || 
+                               tags.includes(currentSearchTerm) || 
+                               categories.includes(currentSearchTerm);
             }
             
             return matchesFilter && matchesSearch;
@@ -213,9 +220,6 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPageItems.forEach(item => {
             item.style.display = '';
         });
-        
-        // 🆕 현재 페이지 표시 정보 로그
-        console.log(`페이지 ${currentPage}: ${start + 1}~${start + currentPageItems.length} (총 ${filteredItems.length}개 중)`);
     }
     
     // 모든 게시판용 결과 없음 메시지 함수
@@ -228,14 +232,20 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (isGamesBoard) {
             container = document.querySelector('.board-game-grid');
         } else {
-            // 개별 게시판들의 컨테이너 찾기
+            // 개별 게시판들의 컨테이너 찾기 (더 포괄적으로)
             container = document.querySelector('.board-grid') || 
                        document.querySelector('.board-square-grid') || 
                        document.querySelector('.board-wide-grid') ||
                        document.querySelector('.board-creative-grid') ||
                        document.querySelector('.board-ad-grid') ||
                        document.querySelector('.project-minimal-grid') ||
-                       document.querySelector('.board-container');
+                       document.querySelector('.board-container') ||
+                       // 추가 컨테이너 선택자들
+                       document.querySelector('[class*="board"][class*="grid"]') ||
+                       document.querySelector('[class*="grid"]:has(.board-item)') ||
+                       document.querySelector('main .container') ||
+                       document.querySelector('.content-area') ||
+                       document.querySelector('.main-content');
         }
         
         if (!container) return;
@@ -289,9 +299,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // 🆕 페이지네이션 업데이트 (동적 itemsPerPage 사용)
+    // 페이지네이션 업데이트
     function updatePagination() {
-        const totalPages = Math.ceil(filteredItems.length / itemsPerPage); // 🆕 동적 itemsPerPage 사용
+        const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
         const paginationContainer = document.querySelector('.js-pagination');
         
         if (!paginationContainer) return;
@@ -395,9 +405,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             paginationContainer.appendChild(pageBtn);
         }
-        
-        // 🆕 페이지네이션 정보 로그
-        console.log(`페이지네이션: ${currentPage}/${totalPages} (${itemsPerPage}개씩, 총 ${filteredItems.length}개)`);
     }
     
     // 설명에서 카테고리 추출하는 함수 (전체 게시판용)
