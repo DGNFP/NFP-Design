@@ -4,7 +4,7 @@
  * 웹사이트 푸터를 생성하고 페이지에 삽입하는 함수
  * @param {string} targetElementId - 푸터를 삽입할 요소의 ID (기본값: 'footer-container')
  * @param {number} year - 저작권 연도 (기본값: 현재 연도)
- * @param {string} companyName - 회사명 (기본값: 'NFP DESIGN 전인혁')
+ * @param {string} companyName - 회사명 (기본값: 'NFP DESIGN')
  */
 function createFooter(targetElementId = 'footer-container', year = new Date().getFullYear(), companyName = 'NFP DESIGN') {
     // 외부 CSS 로드 (절대 경로로 수정)
@@ -38,7 +38,10 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
                     <i class="fas fa-cog"></i>
                 </a>
             </div>
-            <p class="copyright">© ${year} ${companyName}. All rights reserved.</p>
+            <div class="footer-credits">
+                <p class="copyright">© ${year} ${companyName}. All rights reserved.</p>
+                <p class="creative-credit">Creative by Studio NFP</p>
+            </div>
         </div>
     </footer>
     `;
@@ -171,11 +174,49 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
             color: var(--background-color);
         }
         
+        /* 푸터 크레딧 영역 */
+        .footer-credits {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
         .copyright {
-            opacity: 0.7;
+            opacity: 1;
             font-size: 14px;
             font-weight: var(--font-medium);
             color: var(--text-color);
+            margin: 0;
+        }
+        
+        .creative-credit {
+            opacity: 1;
+            font-size: 12px;
+            font-weight: var(--font-medium);
+            color: var(--accent-color);
+            margin: 0;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .creative-credit:hover {
+            opacity: 1;
+        }
+        
+        /* 모바일에서는 크레딧을 세로로 정렬 */
+        @media (max-width: 768px) {
+            .footer-credits {
+                gap: 8px;
+            }
+            
+            .copyright {
+                font-size: 13px;
+            }
+            
+            .creative-credit {
+                font-size: 11px;
+            }
         }
     </style>
     `;
