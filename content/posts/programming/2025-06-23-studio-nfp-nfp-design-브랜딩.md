@@ -26,7 +26,7 @@ demoCode:
         <style>
             body {
                 margin: 0;
-                padding: 40px;
+                padding: 20px;
                 background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
                 font-family: 'Arial', sans-serif;
                 color: white;
@@ -41,31 +41,33 @@ demoCode:
             h1 {
                 text-align: center;
                 font-size: 2.5em;
-                margin-bottom: 50px;
+                margin-bottom: 30px;
                 color: #01ff75;
                 text-shadow: 0 0 20px rgba(1, 255, 117, 0.5);
+                line-height: 1.2;
             }
             
             .gradient-section {
-                margin-bottom: 60px;
-                padding: 30px;
+                margin-bottom: 40px;
+                padding: 20px;
                 background: rgba(0,0,0,0.3);
-                border-radius: 20px;
+                border-radius: 15px;
                 border: 1px solid rgba(255,255,255,0.1);
             }
             
             .gradient-title {
-                font-size: 1.5em;
-                margin-bottom: 30px;
+                font-size: 1.3em;
+                margin-bottom: 20px;
                 text-align: center;
                 color: #ffffff;
+                line-height: 1.3;
             }
             
             .gradient-bar {
-                height: 100px;
-                border-radius: 15px;
-                margin-bottom: 30px;
-                box-shadow: 0 0 30px rgba(255,255,255,0.2);
+                height: 80px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                box-shadow: 0 0 20px rgba(255,255,255,0.2);
             }
             
             .gradient1 {
@@ -79,37 +81,43 @@ demoCode:
             .color-labels {
                 display: flex;
                 justify-content: space-between;
-                font-size: 0.9em;
+                font-size: 0.8em;
                 color: #cccccc;
                 margin-top: 10px;
+                flex-wrap: wrap;
+                gap: 5px;
             }
             
             .logo-simulation {
                 display: flex;
-                justify-content: space-around;
+                justify-content: center;
                 flex-wrap: wrap;
-                gap: 30px;
-                margin-top: 40px;
+                gap: 20px;
+                margin-top: 30px;
             }
             
             .logo-card {
                 background: rgba(0,0,0,0.5);
-                padding: 30px;
+                padding: 20px;
                 border-radius: 15px;
                 text-align: center;
                 border: 1px solid rgba(255,255,255,0.1);
-                min-width: 250px;
+                min-width: 200px;
+                flex: 1;
+                max-width: 300px;
             }
             
             .logo-text {
-                font-size: 2em;
+                font-size: 1.6em;
                 font-weight: bold;
                 margin-bottom: 10px;
-                height: 60px;
+                height: auto;
+                min-height: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 border-radius: 10px;
+                line-height: 1.2;
             }
             
             .logo1 {
@@ -142,15 +150,19 @@ demoCode:
             
             .color-meaning {
                 display: flex;
-                justify-content: space-around;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
                 margin-top: 30px;
                 text-align: center;
             }
             
             .color-item {
-                padding: 15px;
+                padding: 15px 10px;
                 border-radius: 10px;
-                min-width: 120px;
+                min-width: 100px;
+                flex: 1;
+                max-width: 150px;
             }
             
             .neon-green {
@@ -169,16 +181,16 @@ demoCode:
             }
             
             .workflow {
-                margin-top: 40px;
-                padding: 30px;
+                margin-top: 30px;
+                padding: 20px;
                 background: rgba(0,0,0,0.3);
                 border-radius: 15px;
                 text-align: center;
             }
             
             .workflow-title {
-                font-size: 1.3em;
-                margin-bottom: 20px;
+                font-size: 1.2em;
+                margin-bottom: 15px;
                 color: #ffffff;
             }
             
@@ -186,13 +198,99 @@ demoCode:
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 20px;
-                font-size: 1.1em;
+                gap: 10px;
+                font-size: 1em;
+                flex-wrap: wrap;
             }
             
             .arrow {
                 color: #666;
-                font-size: 1.5em;
+                font-size: 1.2em;
+            }
+            
+            /* 모바일 최적화 */
+            @media (max-width: 768px) {
+                body {
+                    padding: 15px;
+                }
+                
+                h1 {
+                    font-size: 1.8em;
+                    margin-bottom: 20px;
+                }
+                
+                .gradient-title {
+                    font-size: 1.1em;
+                    line-height: 1.4;
+                }
+                
+                .gradient-bar {
+                    height: 60px;
+                }
+                
+                .color-labels {
+                    font-size: 0.7em;
+                    text-align: center;
+                    flex-direction: column;
+                    gap: 3px;
+                }
+                
+                .logo-card {
+                    min-width: auto;
+                    max-width: 100%;
+                    padding: 15px;
+                }
+                
+                .logo-text {
+                    font-size: 1.3em;
+                    min-height: 40px;
+                }
+                
+                .color-item {
+                    min-width: 80px;
+                    padding: 12px 8px;
+                    font-size: 0.9em;
+                }
+                
+                .workflow-arrow {
+                    gap: 8px;
+                    font-size: 0.9em;
+                }
+                
+                .arrow {
+                    font-size: 1em;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                h1 {
+                    font-size: 1.5em;
+                }
+                
+                .gradient-title {
+                    font-size: 1em;
+                }
+                
+                .gradient-bar {
+                    height: 50px;
+                }
+                
+                .logo-text {
+                    font-size: 1.1em;
+                }
+                
+                .color-labels {
+                    font-size: 0.65em;
+                }
+                
+                .workflow-arrow {
+                    flex-direction: column;
+                    gap: 5px;
+                }
+                
+                .arrow {
+                    transform: rotate(90deg);
+                }
             }
         </style>
     </head>
