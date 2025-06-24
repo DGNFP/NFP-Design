@@ -6,8 +6,15 @@
     <description>Recent content in Programming on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Sat, 21 Jun 2025 00:06:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jun 2025 07:26:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Studio NFP - NFP Design 브랜딩</title>
+      <link>http://localhost:1313/posts/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</link>
+      <pubDate>Tue, 24 Jun 2025 07:26:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</guid>
+      <description>&lt;p&gt;세개의 컬러가 상징하는 의미&lt;/p&gt;&#xA;&lt;p&gt;디자인 (네온그린 ) :  01ff75&lt;/p&gt;&#xA;&lt;p&gt;프로그래밍 ( 네온블루) :  00f0ff&lt;/p&gt;&#xA;&lt;p&gt;게임 ( 네온옐로) : fff200&lt;/p&gt;&#xA;&lt;p&gt;NFP 디자인의 네온그린과 NFP 게임즈의 네온블루~옐로 그라데이션&lt;/p&gt;&#xA;&lt;p&gt;세 컬러의 그라데이션이 어우러진 스튜디오 NFP의 브랜딩 기획입니다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[웹데모] 컬러 팔레트 생성기</title>
       <link>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%BB%AC%EB%9F%AC-%ED%8C%94%EB%A0%88%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B8%B0/</link>

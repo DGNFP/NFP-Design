@@ -1,0 +1,27 @@
+{{/* 
+파일 위치: layouts/_default/_markup/render-image.html 
+이 파일을 생성하면 마크다운의 모든 ![](이미지) 태그가 이 템플릿으로 렌더링됩니다
+
+상세페이지용: 원본 크기 유지, WebP로만 압축하여 용량 절약
+- 썸네일은 게시판 리스트에서만 사용 (크롭된 고정 비율)
+- 상세페이지는 업로드된 원본 이미지 그대로 표시
+*/}}
+
+{{ $src := .Destination }}
+{{ $alt := .Text }}
+{{ $title := .Title }}
+
+{{/* 이미지 경로에서 확장자 제거 */}}
+{{ $withoutExt := $src | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+
+{{/* WebP 압축 버전 우선, 원본 폴백 */}}
+<picture>
+    {{/* WebP 압축 버전 (품질 85%, 원본 크기 유지) */}}
+    <source srcset="{{ $withoutExt }}.webp" type="image/webp">
+    {{/* 폴백 원본 */}}
+    <img src="{{ $src | relURL }}" 
+         alt="{{ $alt }}" 
+         {{ with $title }}title="{{ . }}"{{ end }}
+         style="max-width: 100%; height: auto;" 
+         loading="lazy">
+</picture>

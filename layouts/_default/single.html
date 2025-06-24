@@ -167,28 +167,7 @@
                         {{ end }}
                     {{ end }}
 
-                    {{ if .Params.images }}
-                        <!-- 이미지 표시 (배열/단일 모두 안전하게 처리) -->
-                        {{ $images := .Params.images }}
-                        {{ if eq (printf "%T" $images) "string" }}
-                            <!-- 단일 이미지인 경우 -->
-                            <div class="post-image">
-                                <img src="{{ $images | relURL }}" alt="{{ .Title }}" style="max-width: 100%; margin-bottom: 20px;">
-                            </div>
-                        {{ else }}
-                            <!-- 배열인 경우 -->
-                            {{ range $images }}
-                                <div class="post-image">
-                                    <img src="{{ . | relURL }}" alt="{{ $.Title }}" style="height: auto; margin-bottom: 20px; max-width: 100%;">
-                                </div>
-                            {{ end }}
-                        {{ end }}
-                    {{ else if .Params.thumbnail }}
-                        <!-- 기존 썸네일 이미지 (하위 호환성) -->
-                        <div class="post-image">
-                            <img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
-                        </div>
-                    {{ end }}
+                  
                 </div>
 
                <div class="post-body">

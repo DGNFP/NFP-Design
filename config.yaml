@@ -8,7 +8,7 @@ timezone: "Asia/Seoul"
 googleAnalyticsID: "G-HG6N24RD49"
 
 images:
-    - "img/nfp-main.png"
+  - "img/nfp-main.png"
 
 params:
   description: "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인"
@@ -28,7 +28,7 @@ menu:
       weight: 3
     - name: "연락하기"
       url: "/#contact"
-      weight: 4 
+      weight: 4
     - name: "디자인게시판"
       url: "/posts/"
       weight: 5
@@ -45,7 +45,7 @@ outputFormats:
   CSS:
     mediaType: "text/css"
     isPlainText: false
-         
+
 taxonomies:
   category: "categories"
   tag: "tags"
@@ -54,3 +54,6 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+    parser:
+      autoHeadingID: true
+      wrapStandAloneImageWithinParagraph: false  # 🔥 이 설정이 핵심!
