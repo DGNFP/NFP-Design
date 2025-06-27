@@ -427,19 +427,19 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     }
 
     .bar-value {
-        font-size: 11px; /* 폰트 크기 키움 (9px → 11px) */
-        font-weight: 700; /* 폰트 굵기 증가 */
+        font-size: 11px;
+        font-weight: 700;
         color: var(--accent-color);
         text-align: center;
         opacity: 1;
         display: block;
-        position: absolute; /* 절대 위치로 조정 */
-        top: -20px; /* 막대 위쪽으로 위치 */
+        position: absolute;
+        top: -20px; /* 고정된 높이로 되돌림 */
         left: 50%;
-        transform: translateX(-50%); /* 중앙 정렬 */
+        transform: translateX(-50%);
         width: 100%;
         line-height: 1;
-        z-index: 10; /* 다른 요소 위에 표시 */
+        z-index: 10;
     }
 
     .bar {
@@ -538,31 +538,9 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
             transform: none !important;
         }
 
-        /* 모바일에서는 방문자 카운터를 하단 왼쪽으로 재위치 + 심플 스타일 */
+        /* 모바일에서는 방문자 카운터 완전히 숨김 */
         .visitor-counter {
-            position: fixed !important;
-            left: 15px !important;
-            bottom: 80px !important;
-            right: auto !important; /* PC의 right 속성 무효화 */
-            top: auto !important; /* PC의 top 속성 무효화 */
-            transform: none !important; /* PC의 transform 무효화 */
-            width: auto !important;
-            background-color: transparent !important; /* 배경 투명하게 */
-            border: none !important; /* 테두리 제거 */
-            border-radius: 0 !important; /* 보더레디우스 제거 */
-            padding: 0 !important; /* 패딩 제거 */
-            backdrop-filter: none !important; /* 블러 효과 제거 */
-            box-shadow: none !important; /* 그림자 제거 */
-        }
-
-        .visitor-stats-simple {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 8px !important;
-        }
-
-        .visitor-stats-graph {
-            display: none !important; /* PC용 그래프 완전히 숨김 */
+            display: none !important; /* 완전히 숨김 */
         }
 
         .floating-btn {
@@ -607,25 +585,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         }
 
         .visitor-counter {
-            left: 10px !important;
-            bottom: 70px !important;
-            right: auto !important; /* PC의 right 속성 무효화 */
-            top: auto !important; /* PC의 top 속성 무효화 */
-            transform: none !important; /* PC의 transform 무효화 */
-            background-color: transparent !important; /* 배경 투명하게 */
-            border: none !important; /* 테두리 제거 */
-            border-radius: 0 !important; /* 보더레디우스 제거 */
-            padding: 0 !important; /* 패딩 제거 */
-        }
-
-        .visitor-stats-simple .stat-count {
-            font-size: 12px !important;
-            color: #ffffff !important; /* 흰색 유지 */
-        }
-
-        .visitor-stats-simple .stat-label {
-            font-size: 10px !important;
-            color: var(--accent-color) !important;
+            display: none !important; /* 완전히 숨김 */
         }
 
         .floating-btn {
