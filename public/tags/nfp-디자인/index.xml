@@ -79,7 +79,7 @@
       <description>&lt;p&gt;글래스모피즘 효과와 호버 애니메이션을 적용한 퍼블리싱 작업물 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 미니멀&amp;rdquo; 테마를 사용했습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[웹데모] 로드맵 플래너</title>
+      <title>[앱개발] 로드맵 플래너</title>
       <link>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%A1%9C%EB%93%9C%EB%A7%B5-%ED%94%8C%EB%9E%98%EB%84%88/</link>
       <pubDate>Fri, 20 Jun 2025 22:34:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%A1%9C%EB%93%9C%EB%A7%B5-%ED%94%8C%EB%9E%98%EB%84%88/</guid>
@@ -91,6 +91,13 @@
       <pubDate>Tue, 17 Jun 2025 22:57:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/creative/2025-06-17-%ED%83%9C%EA%B7%B8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
       <description>&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/nfp.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/nfp.jpg&#34; &#xD;&#xA;         alt=&#34;&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;본문 내용&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>웹데모 기능 구현</title>
+      <link>http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
+      <pubDate>Sun, 01 Jun 2025 22:48:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-03-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
+      <description>&lt;p&gt;기본적인 버튼 동작과 게시글에 html, css를 삽입하는 기능을 구현했습니다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+    <title>웹데모 기능 구현 - NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</title>
+    
+    
+    <meta name="description" content="기본적인 버튼 동작과 게시글에 html, css를 삽입하는 기능을 구현했습니다.">
+    
+    
+    <meta name="keywords" content="NFP디자인, 프리랜서디자이너, 디자인외주, 디자인용역, 웹디자이너, 그래픽디자이너, 영상편집자, 개발자, 웹개발자, 웹디자인, 홈페이지제작, 쇼핑몰제작, 랜딩페이지, 반응형웹, 웹사이트디자인, 컨텐츠디자인, 영상디자인, 프로그래밍, 광고디자인, 인쇄디자인, 디지털배너, 상세페이지디자인, UXUI디자인, 앱디자인, 카드뉴스, 포스터디자인, SNS광고, 인스타그램디자인, 페이스북광고, 블로그디자인, 로고디자인, 브랜딩, BI디자인, CI디자인, 게임광고, 인터넷방송디자인, 스트리밍디자인, 트위치디자인, 유튜브디자인, 영상제작, 영상편집, 모션그래픽, 애니메이션, 유튜브썸네일, 인트로영상, 아웃트로영상, 프론트엔드, 웹퍼블리싱, 모바일앱, 앱개발, 게임개발, 유니티, 현수막, 엑스배너, 명함디자인, 브로슈어, 카탈로그, 패키지디자인, 포장지디자인, 스타트업디자인, 중소기업디자인, 1인기업디자인, 창업디자인, 온라인쇼핑몰, 카페디자인, 음식점디자인, 병원디자인, 부동산디자인, 교육업디자인, 뷰티디자인, 패션디자인, IT디자인, 금융디자인, 건설업디자인, 제조업디자인, 서비스업디자인, 디자인대행, 디자인제작, 디자인업체, 디자인회사, 외주디자인, 프로젝트단위, 단기프로젝트, 장기프로젝트, 디자인컨설팅, 디자인기획, 비주얼디자인, 그래픽작업, 포토샵작업, 일러스트작업, 이미지편집, 사진보정, 3D디자인, 제품디자인, 산업디자인, 편집디자인, 출판디자인, 북디자인, 매뉴얼디자인, 프레젠테이션디자인, PPT디자인, 이벤트디자인, 전시디자인, 사인디자인, 간판디자인, 실사출력, 디지털프린팅, Fresh, Pop, Needs, 트렌드, 디테일, 합리적가격, 빠른작업, 고품질, 전문가, 경력자, 포트폴리오">
+    
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="http://localhost:1313/posts/programming/2025-05-28-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/">
+    <meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="웹데모 기능 구현 - NFP 디자인">
+    <meta property="og:description" content="기본적인 버튼 동작과 게시글에 html, css를 삽입하는 기능을 구현했습니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/posts/programming/2025-05-28-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-05-26T22:48:00Z">
+        <meta property="article:modified_time" content="2025-05-26T22:48:00Z">
+        
+            
+                <meta property="article:section" content="programming">
+            
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="웹데모 기능 구현 - NFP 디자인">
+    <meta name="twitter:description" content="기본적인 버튼 동작과 게시글에 html, css를 삽입하는 기능을 구현했습니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "웹데모 기능 구현",
+      "description": "\u003cp\u003e기본적인 버튼 동작과 게시글에 html, css를 삽입하는 기능을 구현했습니다.\u003c\/p\u003e",
+      "url": "http:\/\/localhost:1313\/posts\/programming\/2025-05-28-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84\/",
+      
+      "datePublished": "2025-05-26T22:48:00Z",
+      "dateModified": "2025-05-26T22:48:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<section class="post-section">
+    <div class="container">
+        <div class="post-container">
+            
+            <div class="post-header">
+                <h1 class="post-title">웹데모 기능 구현</h1>
+                <div class="post-meta">
+                    <span class="post-date">2025.05.26</span>
+                    
+                    
+                        <span class="post-category">
+                            
+                            
+                            
+                            
+                            
+                            프로그래밍
+                            
+                            
+                            
+                                > 웹 퍼블리싱
+                            
+                        </span>
+                    
+                </div>
+            </div>
+
+           
+            <div class="post-content">
+                
+                <div class="post-media">
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                                
+                                    
+                                
+                            
+                            
+                            <div class="web-demo-container">
+                                <div class="demo-frame dark-theme">
+                                    <div class="demo-browser-bar">
+                                        <div class="demo-browser-buttons">
+                                            <span class="browser-btn red"></span>
+                                            <span class="browser-btn yellow"></span>
+                                            <span class="browser-btn green"></span>
+                                        </div>
+                                        <div class="demo-url-bar">웹데모 기능 구현 - Live Demo</div>
+                                        
+                                        <div class="demo-actions">
+                                            <button class="demo-action-btn" onclick="openFullscreen()" title="전체화면으로 보기">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="demo-action-btn" onclick="openInNewTab()" title="새 탭에서 열기">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <iframe id="demo-iframe" 
+                                            class="demo-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;7Ju5IOuNsOuqqCDthYzsiqTtirg8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgICogewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJvZHkgewogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuY29udGFpbmVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMjBweCA0MHB4IHJnYmEoMCwwLDAsMC4xKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBtYXgtd2lkdGg6IDQwMHB4OwogICAgICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMzMzOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICBmb250LXNpemU6IDJyZW07CiAgICAgICAgfQogICAgICAgIAogICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmJ0biB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgIzY2N2VlYSwgIzc2NGJhMik7CiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAzMHB4OwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4zcyBlYXNlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDEwcHggMjBweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5kZW1vLWJveCB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDJyZW07CiAgICAgICAgICAgIHBhZGRpbmc6IDFyZW07CiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmOGY5ZmE7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgIzY2N2VlYTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ&#43;Cjxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICA8aDE&#43;8J&#43;agCDsm7kg642w66qoPC9oMT4KICAgICAgICA8cD7qsITri6jtlZwg7Ju5IOuNsOuqqCDthYzsiqTtirgg7Y6Y7J207KeA7J6F64uI64ukLiDrsJjsnZHtmJUg65SU7J6Q7J246rO8IOuqqOuNmO2VnCDsiqTtg4DsnbzsnbQg7KCB7Jqp65CY7JeI7Iq164uI64ukLjwvcD4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4iIG9uY2xpY2s9InNob3dEZW1vKCkiPuuNsOuqqCDsi6Ttlok8L2J1dHRvbj4KICAgICAgICAKICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWJveCIgaWQ9ImRlbW9SZXN1bHQiIHN0eWxlPSJkaXNwbGF5OiBub25lOyI&#43;CiAgICAgICAgICAgIDxoMz7inIUg642w66qoIOyEseqztSE8L2gzPgogICAgICAgICAgICA8cD5KYXZhU2NyaXB07JmAIENTU&#43;qwgCDsoJXsg4HsoIHsnLzroZwg7J6R64&#43;Z7ZWp64uI64ukLjwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNob3dEZW1vKCkgewogICAgICAgICAgICBjb25zdCByZXN1bHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVtb1Jlc3VsdCcpOwogICAgICAgICAgICByZXN1bHQuc3R5bGUuZGlzcGxheSA9ICdibG9jayc7CiAgICAgICAgICAgIHJlc3VsdC5zdHlsZS5hbmltYXRpb24gPSAnZmFkZUluIDAuNXMgZWFzZS1pbic7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIENTUyDslaDri4jrqZTsnbTshZgg7LaU6rCACiAgICAgICAgY29uc3Qgc3R5bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpOwogICAgICAgIHN0eWxlLnRleHRDb250ZW50ID0gYAogICAgICAgICAgICBAa2V5ZnJhbWVzIGZhZGVJbiB7CiAgICAgICAgICAgICAgICBmcm9tIHsgb3BhY2l0eTogMDsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpOyB9CiAgICAgICAgICAgICAgICB0byB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgICAgICB9CiAgICAgICAgYDsKICAgICAgICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHN0eWxlKTsKICAgIDwvc2NyaXB0Pgo8L2JvZHk&#43;CjwvaHRtbD4=" 
+                                            width="100%" 
+                                            height="600px" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            
+                            <div id="fullscreen-modal" class="fullscreen-modal">
+                                <div class="fullscreen-header">
+                                    <div class="fullscreen-title">
+                                        <h3>웹데모 기능 구현 - 전체화면 데모</h3>
+                                    </div>
+                                    <div class="fullscreen-controls">
+                                        <button class="control-btn" onclick="refreshDemo()" title="새로고침">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="control-btn" onclick="openInNewTab()" title="새 탭에서 열기">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="control-btn close-btn" onclick="closeFullscreen()" title="닫기">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="fullscreen-content">
+                                    <iframe id="fullscreen-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;7Ju5IOuNsOuqqCDthYzsiqTtirg8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgICogewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJvZHkgewogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuY29udGFpbmVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMjBweCA0MHB4IHJnYmEoMCwwLDAsMC4xKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBtYXgtd2lkdGg6IDQwMHB4OwogICAgICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMzMzOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICBmb250LXNpemU6IDJyZW07CiAgICAgICAgfQogICAgICAgIAogICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmJ0biB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgIzY2N2VlYSwgIzc2NGJhMik7CiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAzMHB4OwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4zcyBlYXNlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDEwcHggMjBweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5kZW1vLWJveCB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDJyZW07CiAgICAgICAgICAgIHBhZGRpbmc6IDFyZW07CiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmOGY5ZmE7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgIzY2N2VlYTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ&#43;Cjxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICA8aDE&#43;8J&#43;agCDsm7kg642w66qoPC9oMT4KICAgICAgICA8cD7qsITri6jtlZwg7Ju5IOuNsOuqqCDthYzsiqTtirgg7Y6Y7J207KeA7J6F64uI64ukLiDrsJjsnZHtmJUg65SU7J6Q7J246rO8IOuqqOuNmO2VnCDsiqTtg4DsnbzsnbQg7KCB7Jqp65CY7JeI7Iq164uI64ukLjwvcD4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4iIG9uY2xpY2s9InNob3dEZW1vKCkiPuuNsOuqqCDsi6Ttlok8L2J1dHRvbj4KICAgICAgICAKICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWJveCIgaWQ9ImRlbW9SZXN1bHQiIHN0eWxlPSJkaXNwbGF5OiBub25lOyI&#43;CiAgICAgICAgICAgIDxoMz7inIUg642w66qoIOyEseqztSE8L2gzPgogICAgICAgICAgICA8cD5KYXZhU2NyaXB07JmAIENTU&#43;qwgCDsoJXsg4HsoIHsnLzroZwg7J6R64&#43;Z7ZWp64uI64ukLjwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNob3dEZW1vKCkgewogICAgICAgICAgICBjb25zdCByZXN1bHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVtb1Jlc3VsdCcpOwogICAgICAgICAgICByZXN1bHQuc3R5bGUuZGlzcGxheSA9ICdibG9jayc7CiAgICAgICAgICAgIHJlc3VsdC5zdHlsZS5hbmltYXRpb24gPSAnZmFkZUluIDAuNXMgZWFzZS1pbic7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIENTUyDslaDri4jrqZTsnbTshZgg7LaU6rCACiAgICAgICAgY29uc3Qgc3R5bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpOwogICAgICAgIHN0eWxlLnRleHRDb250ZW50ID0gYAogICAgICAgICAgICBAa2V5ZnJhbWVzIGZhZGVJbiB7CiAgICAgICAgICAgICAgICBmcm9tIHsgb3BhY2l0eTogMDsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpOyB9CiAgICAgICAgICAgICAgICB0byB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgICAgICB9CiAgICAgICAgYDsKICAgICAgICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHN0eWxlKTsKICAgIDwvc2NyaXB0Pgo8L2JvZHk&#43;CjwvaHRtbD4=" 
+                                            width="100%" 
+                                            height="100%" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            
+                            <script type="application/json" id="demo-data">
+                            {
+                                "title": "웹데모 기능 구현",
+                                "code": "PCFET0NUWVBFIGh0bWw\u002bCjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ\u002bCiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI\u002bCiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI\u002bCiAgICA8dGl0bGU\u002b7Ju5IOuNsOuqqCDthYzsiqTtirg8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgICogewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIGJvZHkgewogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMDAlKTsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuY29udGFpbmVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogd2hpdGU7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMjBweCA0MHB4IHJnYmEoMCwwLDAsMC4xKTsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBtYXgtd2lkdGg6IDQwMHB4OwogICAgICAgICAgICB3aWR0aDogOTAlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMzMzOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxcmVtOwogICAgICAgICAgICBmb250LXNpemU6IDJyZW07CiAgICAgICAgfQogICAgICAgIAogICAgICAgIHAgewogICAgICAgICAgICBjb2xvcjogIzY2NjsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMnJlbTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgLmJ0biB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0NWRlZywgIzY2N2VlYSwgIzc2NGJhMik7CiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAzMHB4OwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICAgICAgZm9udC1zaXplOiAxcmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMC4zcyBlYXNlOwogICAgICAgIH0KICAgICAgICAKICAgICAgICAuYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0ycHgpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDEwcHggMjBweCByZ2JhKDAsMCwwLDAuMik7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC5kZW1vLWJveCB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDJyZW07CiAgICAgICAgICAgIHBhZGRpbmc6IDFyZW07CiAgICAgICAgICAgIGJhY2tncm91bmQ6ICNmOGY5ZmE7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1sZWZ0OiA0cHggc29saWQgIzY2N2VlYTsKICAgICAgICB9CiAgICA8L3N0eWxlPgo8L2hlYWQ\u002bCjxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICA8aDE\u002b8J\u002bagCDsm7kg642w66qoPC9oMT4KICAgICAgICA8cD7qsITri6jtlZwg7Ju5IOuNsOuqqCDthYzsiqTtirgg7Y6Y7J207KeA7J6F64uI64ukLiDrsJjsnZHtmJUg65SU7J6Q7J246rO8IOuqqOuNmO2VnCDsiqTtg4DsnbzsnbQg7KCB7Jqp65CY7JeI7Iq164uI64ukLjwvcD4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4iIG9uY2xpY2s9InNob3dEZW1vKCkiPuuNsOuqqCDsi6Ttlok8L2J1dHRvbj4KICAgICAgICAKICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWJveCIgaWQ9ImRlbW9SZXN1bHQiIHN0eWxlPSJkaXNwbGF5OiBub25lOyI\u002bCiAgICAgICAgICAgIDxoMz7inIUg642w66qoIOyEseqztSE8L2gzPgogICAgICAgICAgICA8cD5KYXZhU2NyaXB07JmAIENTU\u002bqwgCDsoJXsg4HsoIHsnLzroZwg7J6R64\u002bZ7ZWp64uI64ukLjwvcD4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIHNob3dEZW1vKCkgewogICAgICAgICAgICBjb25zdCByZXN1bHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVtb1Jlc3VsdCcpOwogICAgICAgICAgICByZXN1bHQuc3R5bGUuZGlzcGxheSA9ICdibG9jayc7CiAgICAgICAgICAgIHJlc3VsdC5zdHlsZS5hbmltYXRpb24gPSAnZmFkZUluIDAuNXMgZWFzZS1pbic7CiAgICAgICAgfQogICAgICAgIAogICAgICAgIC8vIENTUyDslaDri4jrqZTsnbTshZgg7LaU6rCACiAgICAgICAgY29uc3Qgc3R5bGUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzdHlsZScpOwogICAgICAgIHN0eWxlLnRleHRDb250ZW50ID0gYAogICAgICAgICAgICBAa2V5ZnJhbWVzIGZhZGVJbiB7CiAgICAgICAgICAgICAgICBmcm9tIHsgb3BhY2l0eTogMDsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDEwcHgpOyB9CiAgICAgICAgICAgICAgICB0byB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgICAgICB9CiAgICAgICAgYDsKICAgICAgICBkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHN0eWxlKTsKICAgIDwvc2NyaXB0Pgo8L2JvZHk\u002bCjwvaHRtbD4="
+                            }
+                            </script>
+                        
+                    
+
+                    
+
+                  
+                </div>
+
+               <div class="post-body">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <p>기본적인 버튼 동작과 게시글에 html, css를 삽입하는 기능을 구현했습니다.</p>
+
+                </div>
+
+                
+                
+                <div class="tags-container">
+                    
+                    
+                    <span class="project-scale-badge">웹 퍼블리싱</span>
+                    
+                    <span class="project-scale-badge">HTML5</span>
+                    
+                    <span class="project-scale-badge">CSS3</span>
+                    
+                    <span class="project-scale-badge">NFP 디자인</span>
+                    
+                    <span class="project-scale-badge">NFP Design</span>
+                    
+                    
+                    
+                </div>
+                
+            </div>
+
+        
+        <div class="post-navigation">
+            
+            
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                    
+                
+            
+            
+            
+            
+            
+                <span></span>
+            
+            
+            
+            <a href="/posts/" class="nav-list">목록으로</a>
+
+            
+            
+            
+                
+                <a href="/posts/programming/2025-05-29-%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%81%B4%EB%A1%A0/" class="nav-next">
+                    다음 <i class="fas fa-chevron-right"></i>
+                </a>
+            
+        </div>
+        </div>
+    </div>
+    
+    
+    <script src="/js/lightbox.js"></script>
+    
+    <script src="/js/web-demo.js"></script>
+    
+</section>
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>
