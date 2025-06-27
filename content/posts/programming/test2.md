@@ -1,6 +1,6 @@
 ---
 title: "랜딩페이지 클론"
-subtitle: 소제목 확인용 디버깅깅
+subtitle: 간단한 웹 데모
 categories: ["programming"]
 subCategory: "프론트엔드"
 demoCode: |
@@ -21,3 +21,6 @@ demoCode: |
   </body>
   </html>
 ---
+css와 html을 이용하여 작성한 코드를 사이트 내 게시글 작성폼에 입력하여
+
+웹 데모 기능을 확인하기 위한 테스트 게시글 입니다.

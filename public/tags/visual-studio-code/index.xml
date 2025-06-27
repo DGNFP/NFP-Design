@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visual Studio Code on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</title>
+    <link>http://localhost:1313/tags/visual-studio-code/</link>
+    <description>Recent content in Visual Studio Code on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 27 Jun 2025 22:52:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/visual-studio-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[앱개발] NFP 디자인 어시스턴트 - 이미지 사이즈 가이드 탭 (인쇄)</title>
+      <link>http://localhost:1313/posts/programming/2025-06-27-%EC%95%B1%EA%B0%9C%EB%B0%9C-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AC%EC%9D%B4%EC%A6%88-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%83%AD-%EC%9D%B8/</link>
+      <pubDate>Fri, 27 Jun 2025 22:52:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-27-%EC%95%B1%EA%B0%9C%EB%B0%9C-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AC%EC%9D%B4%EC%A6%88-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%83%AD-%EC%9D%B8/</guid>
+      <description>&lt;p&gt;“NFP 디자인 어시스턴트&amp;quot;라는 디자인에 도움이 되는 올인원 서포트 앱을 개발중입니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능은 4가지탭으로 구성되어있으며, 현재 “가이드” 탭에 있는 이미지 사이즈 가이드 탭의 인쇄 부분 내용 입니다.&lt;/p&gt;&#xA;&lt;p&gt;자주 사용되는 이미지의 규격을 정리해놓았으며, 실제 앱에선 컨텐츠 탭시 사이즈가 클립보드에 복사되는 기능을 추가 구현 예정입니다.&lt;/p&gt;&#xA;&lt;p&gt;전체적인 기능을 완성하면 플레이 스토어에 출시 예정입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[앱개발] NFP 디자인 어시스턴트 - 이미지 사이즈 가이드 탭 (웹,SNS)</title>
+      <link>http://localhost:1313/posts/programming/2025-06-27-%EC%95%B1%EA%B0%9C%EB%B0%9C-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AC%EC%9D%B4%EC%A6%88-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%83%AD-%EC%9B%B9-sns/</link>
+      <pubDate>Fri, 27 Jun 2025 22:48:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-27-%EC%95%B1%EA%B0%9C%EB%B0%9C-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AC%EC%9D%B4%EC%A6%88-%EA%B0%80%EC%9D%B4%EB%93%9C-%ED%83%AD-%EC%9B%B9-sns/</guid>
+      <description>&lt;p&gt;“NFP 디자인 어시스턴트&amp;quot;라는 디자인에 도움이 되는 올인원 서포트 앱을 개발중입니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능은 4가지탭으로 구성되어있으며, 현재 “가이드” 탭에 있는 이미지 사이즈 가이드 탭의 일부 내용 입니다.&lt;/p&gt;&#xA;&lt;p&gt;자주 사용되는 이미지의 규격을 정리해놓았으며, 실제 앱에선 컨텐츠 탭시 사이즈가 클립보드에 복사되는 기능을 추가 구현 예정입니다.&lt;/p&gt;&#xA;&lt;p&gt;전체적인 기능을 완성하면 플레이 스토어에 출시 예정입니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

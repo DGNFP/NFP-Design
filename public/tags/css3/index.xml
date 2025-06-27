@@ -6,8 +6,15 @@
     <description>Recent content in CSS3 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 24 Jun 2025 07:26:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Jun 2025 22:29:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/css3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>스켈레톤 애니메이션으로 레이아웃 시프트 이슈 해결</title>
+      <link>http://localhost:1313/posts/programming/2025-06-27-%EC%8A%A4%EC%BC%88%EB%A0%88%ED%86%A4-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%8B%9C%ED%94%84%ED%8A%B8-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0/</link>
+      <pubDate>Fri, 27 Jun 2025 22:29:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-27-%EC%8A%A4%EC%BC%88%EB%A0%88%ED%86%A4-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%8B%9C%ED%94%84%ED%8A%B8-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0/</guid>
+      <description>&lt;p&gt;html과 css 조합으로, 이미지가 로드 되기 전 자리를 잡지 못하고 먼저 레이아웃이 로드 되고&lt;/p&gt;&#xA;&lt;p&gt;나중에 이미지가 레이아웃 영역을 침범하면서 생기는, 레이아웃 시프트 현상을 해결하기 위한&lt;/p&gt;&#xA;&lt;p&gt;스켈레톤 애니메이션 입니다.&lt;/p&gt;&#xA;&lt;p&gt;이미지가 삽입 될 영역에 로딩중이라는 효과를 시각적으로 표현하기 위해 많이 사용합니다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Studio NFP - NFP Design 브랜딩</title>
       <link>http://localhost:1313/posts/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</link>
