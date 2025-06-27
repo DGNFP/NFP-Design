@@ -474,7 +474,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     }
 
     .bar-label {
-        font-size: 9px;
+        font-size: 12px;
         color: #ffffff; /* 날짜 텍스트 흰색으로 변경 */
         font-weight: 500;
         position: absolute; /* 절대 위치로 조정 */
