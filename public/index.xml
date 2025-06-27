@@ -6,8 +6,15 @@
     <description>Recent content on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 24 Jun 2025 07:26:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 00:53:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TEST</title>
+      <link>http://localhost:1313/posts/programming/2025-06-25-test/</link>
+      <pubDate>Thu, 26 Jun 2025 00:53:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-06-25-test/</guid>
+      <description>&lt;p&gt;TEST1&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Studio NFP - NFP Design 브랜딩</title>
       <link>http://localhost:1313/posts/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</link>
