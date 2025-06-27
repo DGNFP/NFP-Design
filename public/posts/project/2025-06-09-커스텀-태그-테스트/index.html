@@ -218,7 +218,7 @@
                   
                 </div>
 
-               <div class="post-body">
+                <div class="post-body" data-category="project">
                     
                     
                     
@@ -365,6 +365,65 @@
     <script src="/js/lightbox.js"></script>
     
     <script src="/js/web-demo.js"></script>
+
+    
+
+<script>
+console.log('TEST: Script started');
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('TEST: DOM ready');
+    
+    const postBody = document.querySelector('.post-body');
+    console.log('TEST: post-body found:', !!postBody);
+    
+    if (!postBody) return;
+    
+    const images = postBody.querySelectorAll('img');
+    console.log('TEST: Found images:', images.length);
+    
+    images.forEach(function(img, i) {
+        console.log('TEST: Processing image', i+1, img.src);
+        
+        
+        if (img.parentNode.classList && img.parentNode.classList.contains('image-container')) {
+            console.log('TEST: Image', i+1, 'already processed');
+            return;
+        }
+        
+        
+        const container = document.createElement('div');
+        container.className = 'image-container loading';
+        container.style.minHeight = '600px'; 
+        
+        
+        const skeleton = document.createElement('div');
+        skeleton.className = 'image-skeleton';
+        skeleton.innerHTML = '📷';
+        
+        
+        const parent = img.parentNode;
+        parent.insertBefore(container, img);
+        container.appendChild(skeleton);
+        container.appendChild(img);
+        
+        console.log('TEST: Image', i+1, 'wrapped');
+        
+        
+        function loaded() {
+            console.log('TEST: Image', i+1, 'loaded');
+            container.classList.remove('loading');
+            container.classList.add('loaded');
+        }
+        
+        if (img.complete) {
+            loaded();
+        } else {
+            img.addEventListener('load', loaded);
+        }
+    });
+});
+</script>
     
 </section>
 

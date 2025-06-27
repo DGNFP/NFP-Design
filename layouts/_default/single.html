@@ -170,7 +170,7 @@
                   
                 </div>
 
-               <div class="post-body">
+                <div class="post-body" data-category="{{ if .Params.categories }}{{ index .Params.categories 0 }}{{ end }}">
                     {{ $content := .Content }}
                     
                     <!-- 본문에서 동영상 ID 추출 및 스키마 생성 -->
@@ -311,6 +311,84 @@
     <script src="/js/lightbox.js"></script>
     <!-- 🎯 웹데모 JavaScript 추가 -->
     <script src="/js/web-demo.js"></script>
+
+    <!-- 이미지 스켈레톤 JavaScript -->
+<!-- 기존 JavaScript를 완전히 삭제하고 이것으로 교체 -->
+<script>
+console.log('TEST: Script started');
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('TEST: DOM ready');
+    
+    const postBody = document.querySelector('.post-body');
+    console.log('TEST: post-body found:', !!postBody);
+    
+    if (!postBody) return;
+    
+    const images = postBody.querySelectorAll('img');
+    console.log('TEST: Found images:', images.length);
+    
+    images.forEach(function(img, i) {
+        console.log('TEST: Processing image', i+1, img.src);
+        
+        // 이미 처리된 이미지는 건너뛰기
+        if (img.parentNode.classList && img.parentNode.classList.contains('image-container')) {
+            console.log('TEST: Image', i+1, 'already processed');
+            return;
+        }
+        
+        // 컨테이너 생성
+        const container = document.createElement('div');
+        container.className = 'image-container loading';
+        
+        // 부모 컨테이너의 실제 너비 확인
+        const parentWidth = postBody.offsetWidth;
+        const maxWidth = window.innerWidth > 768 ? Math.min(800, parentWidth) : parentWidth;
+        
+        console.log('TEST: Parent width:', parentWidth, 'Max width:', maxWidth);
+        
+        container.style.minHeight = '600px'; // 일단 고정값으로 크게
+        container.style.maxWidth = maxWidth + 'px';
+        
+        // 스켈레톤 생성
+        const skeleton = document.createElement('div');
+        skeleton.className = 'image-skeleton';
+        skeleton.innerHTML = '📷';
+        
+        // 부모에 삽입
+        const parent = img.parentNode;
+        parent.insertBefore(container, img);
+        container.appendChild(skeleton);
+        container.appendChild(img);
+        
+        console.log('TEST: Image', i+1, 'wrapped');
+        
+        // 로드 처리
+        function loaded() {
+            console.log('TEST: Image', i+1, 'loaded');
+            console.log('TEST: Natural size:', img.naturalWidth + 'x' + img.naturalHeight);
+            console.log('TEST: Container width:', container.offsetWidth);
+            
+            // 실제 표시될 높이 계산
+            const actualHeight = (img.naturalHeight / img.naturalWidth) * container.offsetWidth;
+            console.log('TEST: Calculated height should be:', Math.round(actualHeight) + 'px');
+            console.log('TEST: Current skeleton height was:', container.style.minHeight);
+            
+            container.classList.remove('loading');
+            container.classList.add('loaded');
+            
+            // 실제 높이로 조정
+            container.style.minHeight = 'auto';
+        }
+        
+        if (img.complete) {
+            loaded();
+        } else {
+            img.addEventListener('load', loaded);
+        }
+    });
+});
+</script>
     
 </section>
 {{ end }}
