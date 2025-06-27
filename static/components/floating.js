@@ -127,7 +127,8 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         let chartHTML = '<div class="chart-bars">';
         
         chartData.forEach((data, index) => {
-            const height = Math.max((data.count / maxValue) * 50, 3); // 최대 50px, 최소 3px
+            // 비례적 높이 계산: 최대값 기준으로 0~35px 범위에서 계산
+            const height = data.count === 0 ? 3 : Math.max((data.count / maxValue) * 35, 3);
             const isToday = index === chartData.length - 1;
             
             chartHTML += `
@@ -201,10 +202,9 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
                     <span class="stat-label">Today</span>
                     <span class="stat-count" id="today-count">${visitorCount.today}</span>
                 </div>
-                <div class="stat-divider">|</div>
                 <div class="stat-item">
                     <span class="stat-label">Total</span>
-                    <span class="stat-count" id="total-count">${visitorCount.total}</span>
+                    <span class="stat-count" id="total-count">${visitorCount.total.toLocaleString()}</span>
                 </div>
             </div>
             
@@ -340,8 +340,8 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     /* 방문자 카운터 스타일 */
     .visitor-counter {
         position: fixed; /* PC에서도 독립적으로 위치 */
-        left: 30px; /* 왼쪽에서 30px 마진 (플로팅 버튼과 동일) */
-        bottom: 10%; /* 화면 하단에서 10% 위에 위치 */
+        right: 30px; /* 오른쪽에서 30px 마진 (플로팅 버튼과 동일) */
+        bottom: 70px; /* 연락하기 버튼 밑에 위치 */
         background-color: rgba(0, 0, 0, 0.9);
         border: 2px solid var(--accent-color);
         border-radius: 16px;
@@ -360,54 +360,60 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     /* 모바일용 심플 스타일 (기본 숨김) */
     .visitor-stats-simple {
         display: none;
-        padding: 12px 16px;
+        flex-direction: column;
+        gap: 8px; /* 두 컨테이너 사이 간격 */
     }
 
     .visitor-stats-simple .stat-item {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between; /* 좌우 배치 */
         align-items: center;
-        gap: 2px;
+        padding: 8px 16px;
+        background-color: rgba(0, 0, 0, 0.9);
+        border: 2px solid var(--accent-color);
+        border-radius: 50px; /* 최대한 둥글게 (캡슐 모양) */
+        min-width: 120px;
+        backdrop-filter: blur(10px);
     }
 
     .visitor-stats-simple .stat-label {
-        font-size: 10px;
-        opacity: 0.8;
+        font-size: 12px;
         color: var(--accent-color);
+        font-weight: 600;
     }
 
     .visitor-stats-simple .stat-count {
         font-size: 14px;
         font-weight: 900;
-        color: var(--accent-color);
+        color: #ffffff; /* 숫자는 흰색 */
     }
 
     .visitor-stats-simple .stat-divider {
-        font-size: 12px;
-        opacity: 0.6;
-        margin: 0 4px;
-        color: var(--accent-color);
+        display: none; /* 구분선 제거 */
     }
 
     /* PC용 그래프 스타일 */
     .visitor-stats-graph {
         display: block;
-        padding: 20px;
-        width: 300px; /* 폭을 늘려서 큰 숫자 대비 */
+        padding: 16px; /* 패딩 줄임 */
+        width: 200px; /* 폭 대폭 축소 (300px → 200px) */
     }
 
     .chart-container {
-        margin-bottom: 20px;
+        margin-bottom: 16px; /* 간격 줄임 */
+        padding-top: 12px; /* 상단 패딩 추가로 방문자 수 공간 확보 */
     }
 
     .chart-bars {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-        height: 80px; /* 차트 영역 높이 줄임 */
-        padding: 0 10px;
-        gap: 12px; /* 막대 간격 조금 늘림 */
-        overflow: hidden; /* 넘치는 부분 숨김 */
+        align-items: stretch; /* 모든 컨테이너 높이 동일하게 */
+        height: 65px; /* 전체 차트 영역 높이 */
+        padding: 0 8px;
+        gap: 6px;
+        overflow: visible; /* 방문자 수가 위로 나올 수 있게 */
+        margin-top: 8px;
+        position: relative; /* 절대 위치 요소들의 기준점 */
     }
 
     .bar-container {
@@ -415,60 +421,78 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         flex-direction: column;
         align-items: center;
         flex: 1;
-        max-width: 45px; /* 막대 폭 조금 늘림 */
+        max-width: 35px; /* 컨테이너 폭 (막대 10px + 여백) */
+        position: relative; /* 방문자 수 위치 조정을 위해 */
+        height: 100%; /* 전체 높이 사용 */
     }
 
     .bar-value {
-        font-size: 13px; /* 폰트 크기 조금 늘림 */
-        font-weight: 600;
+        font-size: 11px; /* 폰트 크기 키움 (9px → 11px) */
+        font-weight: 700; /* 폰트 굵기 증가 */
         color: var(--accent-color);
-        margin-bottom: 8px;
-        min-height: 18px; /* 높이 조금 늘림 */
         text-align: center;
+        opacity: 1;
+        display: block;
+        position: absolute; /* 절대 위치로 조정 */
+        top: -20px; /* 막대 위쪽으로 위치 */
+        left: 50%;
+        transform: translateX(-50%); /* 중앙 정렬 */
+        width: 100%;
+        line-height: 1;
+        z-index: 10; /* 다른 요소 위에 표시 */
     }
 
     .bar {
-        width: 100%;
-        min-height: 20px;
+        width: 10px; /* 막대 폭 정확히 10px */
+        min-height: 3px; /* 최소 높이 */
         background: transparent;
-        position: relative;
-        border-radius: 6px 6px 0 0; /* 모서리 조금 더 둥글게 */
-        height: 60px; /* 막대 컨테이너 높이 줄임 */
+        position: absolute; /* 절대 위치로 정확한 센터 배치 */
+        bottom: 20px; /* 날짜 라벨 위쪽에 위치 */
+        left: 50%;
+        transform: translateX(-50%); /* 정확한 중앙 정렬 */
+        border-radius: 2px 2px 0 0; /* 모서리 2px */
         transition: all 0.3s ease;
         display: flex;
         align-items: flex-end; /* 하단 정렬 */
         overflow: hidden; /* 넘치는 부분 숨김 */
+        height: var(--bar-height); /* CSS 변수로 동적 높이 */
+        max-height: 35px; /* 컨테이너 내부 최대 높이 제한 */
     }
 
     .bar-fill {
-        width: 100%;
-        height: var(--bar-height); /* CSS 변수 직접 사용 */
+        width: 100%; /* 막대 전체 폭 */
+        height: 100%; /* 부모의 높이를 모두 사용 */
         background: linear-gradient(180deg, #01FF75 0%, #00cc5e 100%);
-        border-radius: 6px 6px 0 0;
+        border-radius: 2px 2px 0 0; /* 모서리 2px */
         animation: growUp 1.5s ease-out;
-        min-height: 3px; /* 0일 때도 최소 높이 보장 */
-        max-height: 50px; /* 최대 높이 강제 제한 */
+        min-height: 3px; /* 최소 높이 */
     }
 
     .bar[data-is-today="true"] .bar-fill {
         background: linear-gradient(180deg, #01FF75 0%, #01FF75 100%);
-        box-shadow: 0 0 15px rgba(1, 255, 117, 0.6); /* 글로우 효과 강화 */
+        box-shadow: 0 0 8px rgba(1, 255, 117, 0.6); /* 글로우 효과 */
     }
 
     .bar-label {
-        font-size: 13px; /* 폰트 크기 조금 늘림 */
-        color: var(--accent-color);
-        margin-top: 8px;
+        font-size: 9px;
+        color: #ffffff; /* 날짜 텍스트 흰색으로 변경 */
         font-weight: 500;
+        position: absolute; /* 절대 위치로 조정 */
+        bottom: 0; /* 컨테이너 맨 아래 */
+        left: 50%;
+        transform: translateX(-50%); /* 중앙 정렬 */
+        width: 100%;
+        text-align: center;
+        line-height: 1;
     }
 
     @keyframes growUp {
         from {
-            height: 3px; /* 최소 높이에서 시작 */
+            height: 0; /* 0에서 시작 */
             opacity: 0.7;
         }
         to {
-            height: var(--bar-height); /* 목표 높이까지 */
+            height: 100%; /* 부모 높이까지 */
             opacity: 1;
         }
     }
@@ -476,28 +500,28 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     .stats-summary {
         display: flex;
         justify-content: space-between;
-        padding-top: 20px;
+        padding-top: 16px; /* 패딩 줄임 */
         border-top: 1px solid rgba(1, 255, 117, 0.2);
-        gap: 20px; /* 간격 추가 */
+        gap: 16px; /* 간격 줄임 */
     }
 
     .stat-today, .stat-total {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 6px; /* 간격 조금 늘림 */
+        gap: 4px; /* 간격 줄임 */
         flex: 1; /* 균등 분할 */
         min-width: 0; /* flexbox 자식 요소 최소 크기 제한 해제 */
     }
 
     .stat-label-lg {
-        font-size: 16px; /* 폰트 크기 늘림 */
+        font-size: 12px; /* 폰트 크기 축소 (16px → 12px) */
         color: #ffffff;
         font-weight: 600; /* 폰트 굵기 증가 */
     }
 
     .stat-count-lg {
-        font-size: 32px; /* 폰트 크기 크게 증가 (큰 숫자 대비) */
+        font-size: 18px; /* 폰트 크기 축소 (32px → 18px) */
         font-weight: 900;
         color: var(--accent-color);
         line-height: 1; /* 줄 간격 조정 */
@@ -519,25 +543,26 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
             position: fixed !important;
             left: 15px !important;
             bottom: 80px !important;
+            right: auto !important; /* PC의 right 속성 무효화 */
             top: auto !important; /* PC의 top 속성 무효화 */
             transform: none !important; /* PC의 transform 무효화 */
             width: auto !important;
-            background-color: rgba(1, 255, 117, 0.1) !important;
-            border-radius: 25px !important;
-            padding: 12px 16px !important;
+            background-color: transparent !important; /* 배경 투명하게 */
+            border: none !important; /* 테두리 제거 */
+            border-radius: 0 !important; /* 보더레디우스 제거 */
+            padding: 0 !important; /* 패딩 제거 */
+            backdrop-filter: none !important; /* 블러 효과 제거 */
+            box-shadow: none !important; /* 그림자 제거 */
         }
 
         .visitor-stats-simple {
             display: flex !important;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--accent-color);
-            font-weight: var(--font-bold);
+            flex-direction: column !important;
+            gap: 8px !important;
         }
 
         .visitor-stats-graph {
-            display: none !important;
+            display: none !important; /* PC용 그래프 완전히 숨김 */
         }
 
         .floating-btn {
@@ -584,21 +609,23 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         .visitor-counter {
             left: 10px !important;
             bottom: 70px !important;
+            right: auto !important; /* PC의 right 속성 무효화 */
             top: auto !important; /* PC의 top 속성 무효화 */
             transform: none !important; /* PC의 transform 무효화 */
-        }
-
-        .visitor-stats-simple {
-            font-size: 10px !important;
-            gap: 6px !important;
+            background-color: transparent !important; /* 배경 투명하게 */
+            border: none !important; /* 테두리 제거 */
+            border-radius: 0 !important; /* 보더레디우스 제거 */
+            padding: 0 !important; /* 패딩 제거 */
         }
 
         .visitor-stats-simple .stat-count {
             font-size: 12px !important;
+            color: #ffffff !important; /* 흰색 유지 */
         }
 
         .visitor-stats-simple .stat-label {
-            font-size: 8px !important;
+            font-size: 10px !important;
+            color: var(--accent-color) !important;
         }
 
         .floating-btn {
