@@ -25,7 +25,7 @@
     <item>
       <title>Git</title>
       <link>http://localhost:1313/tags/git/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 29 May 2025 23:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/git/</guid>
       <description></description>
     </item>
@@ -195,6 +195,13 @@
       <link>http://localhost:1313/tags/%EC%9D%B8%ED%84%B0%EB%84%B7-%EB%B0%A9%EC%86%A1-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
       <pubDate>Sat, 07 Jun 2025 01:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/%EC%9D%B8%ED%84%B0%EB%84%B7-%EB%B0%A9%EC%86%A1-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>반응형</title>
+      <link>http://localhost:1313/tags/%EB%B0%98%EC%9D%91%ED%98%95/</link>
+      <pubDate>Sun, 01 Jun 2025 15:30:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%EB%B0%98%EC%9D%91%ED%98%95/</guid>
       <description></description>
     </item>
     <item>
