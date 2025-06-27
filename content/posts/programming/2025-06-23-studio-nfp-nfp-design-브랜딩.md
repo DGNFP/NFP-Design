@@ -6,13 +6,10 @@ categories:
   - programming
 subCategory: 프론트엔드
 tags:
-  - 모바일 앱
-  - Android
-  - React Native
-  - Java
-  - Visual Studio Code
-  - Node.js
-  - Android Studio
+  - 웹 퍼블리싱
+  - HTML5
+  - CSS3
+  - JavaScript
   - NFP 디자인
   - NFP Design
 custom_tags:
