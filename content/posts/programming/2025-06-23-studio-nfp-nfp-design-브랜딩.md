@@ -4,13 +4,19 @@ subtitle: 두개의 브랜드를 묶는 홀딩스
 date: 2025-06-24T07:26:00.000Z
 categories:
   - programming
-subCategory: 웹 퍼블리싱
+subCategory: 프론트엔드
 tags:
-  - 브랜딩
-  - HTML5
-  - CSS3
+  - 모바일 앱
+  - Android
+  - React Native
+  - Java
+  - Visual Studio Code
+  - Node.js
+  - Android Studio
   - NFP 디자인
   - NFP Design
+custom_tags:
+  - 브랜딩
 demoTheme: dark
 demoCode:
   lang: html
