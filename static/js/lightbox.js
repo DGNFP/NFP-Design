@@ -276,7 +276,7 @@ class NFPLightbox {
     
     canDrag() {
         // 확대 상태(scale > 1)일 때만 드래그 가능
-        return this.scale > 1;
+        return true;
     }
     
     openLightbox(index) {

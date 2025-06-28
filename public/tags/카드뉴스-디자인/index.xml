@@ -15,19 +15,5 @@
       <guid>http://localhost:1313/posts/content/2025-06-16-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
       <description>&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/nfp-%ec%8d%b8%eb%84%a4%ec%9d%bc.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/nfp-%ec%8d%b8%eb%84%a4%ec%9d%bc.png&#34; &#xD;&#xA;         alt=&#34;&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;컨텐츠 디자인 카테고리 썸네일&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>다른 카테고리 테스트</title>
-      <link>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy/</link>
-      <pubDate>Sat, 14 Jun 2025 16:47:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8-copy/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=JomumP0OESE&#34;&gt;https://www.youtube.com/watch?v=JomumP0OESE&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>쑈츠 테스트</title>
-      <link>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
-      <pubDate>Sat, 14 Jun 2025 16:47:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/video/2025-06-14-%EB%8B%A4%EB%A5%B8-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/shorts/WcgCQWrU5WE&#34;&gt;https://www.youtube.com/shorts/WcgCQWrU5WE&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
