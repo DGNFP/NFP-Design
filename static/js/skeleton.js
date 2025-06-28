@@ -1,120 +1,107 @@
-// 🎯 시각적 늘어짐 없는 CLS 방지 - 컨테이너 방식으로 수정
+// ========================================
+// 라이트박스 인라인 스타일 방지 + 기본 기능 유지
+// ========================================
+
 document.addEventListener('DOMContentLoaded', function() {
-    const postBody = document.querySelector('.post-body');
-    if (!postBody) return;
-
-    const images = postBody.querySelectorAll('img[src^="/img/uploads/"]');
-
+    // 🎯 1단계: 라이트박스가 실행되기 전에 이미지 스타일 고정
+    const images = document.querySelectorAll('.post-body img[src^="/img/uploads/"]');
+    
     images.forEach(function(img, index) {
-        // 이미 처리된 이미지는 건너뛰기
-        if (img.dataset.processed) return;
-        img.dataset.processed = 'true';
+        // 🎯 로딩 최적화
+        img.loading = index === 0 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        
+        // 🎯 즉시 올바른 크기 적용
+        applyCorrectSize(img);
+        
+        // 🎯 라이트박스가 인라인 스타일을 추가하는 것을 지속적으로 방지
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    // 인라인 스타일이 추가되면 즉시 올바른 크기로 되돌리기
+                    applyCorrectSize(img);
+                }
+            });
+        });
+        
+        // 스타일 속성 변화 감지
+        observer.observe(img, { 
+            attributes: true, 
+            attributeFilter: ['style'] 
+        });
+    });
+    
+    // 🎯 올바른 크기 적용 함수
+    function applyCorrectSize(img) {
+        const windowWidth = window.innerWidth;
+        let targetWidth;
+        
+        if (windowWidth <= 576 || windowWidth <= 991) {
+            targetWidth = '75%';
+        } else {
+            targetWidth = '70%';
+        }
+        
+        // 인라인 스타일 완전 제거 후 CSS가 적용되도록
+        img.removeAttribute('style');
+        
+        // 필요시 강제 적용 (다른 스크립트가 덮어쓸 경우 대비)
+        img.style.setProperty('max-width', targetWidth, 'important');
+        img.style.setProperty('width', 'auto', 'important');
+        img.style.setProperty('height', 'auto', 'important');
+        img.style.setProperty('display', 'block', 'important');
+        img.style.setProperty('margin-bottom', '20px', 'important');
+        img.style.setProperty('border-radius', '4px', 'important');
+    }
+    
+    // 🎯 윈도우 리사이즈 시 크기 재조정
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            const images = document.querySelectorAll('.post-body img[src^="/img/uploads/"]');
+            images.forEach(applyCorrectSize);
+        }, 250);
+    });
+});
 
-        try {
-            // 🎯 1단계: WebP 최적화
-            const originalSrc = img.src;
-            const webpSrc = originalSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+// ========================================
+// 라이트박스 실행 후 추가 보정 (안전장치)
+// ========================================
+
+// 🎯 라이트박스가 초기화된 후 실행되는 안전장치
+setTimeout(function() {
+    const images = document.querySelectorAll('.post-body img[src^="/img/uploads/"][data-lightbox]');
+    
+    images.forEach(function(img) {
+        // 라이트박스 속성이 추가된 후에도 올바른 크기 유지
+        const windowWidth = window.innerWidth;
+        let targetWidth = (windowWidth <= 576 || windowWidth <= 991) ? '75%' : '70%';
+        
+        img.style.setProperty('max-width', targetWidth, 'important');
+        img.style.setProperty('width', 'auto', 'important');
+    });
+}, 100); // 라이트박스 초기화 후 실행
+
+// ========================================
+// 주기적 검사 (최후 보루)
+// ========================================
+
+// 🎯 3초마다 이미지 크기 검사 및 복구
+setInterval(function() {
+    const images = document.querySelectorAll('.post-body img[src^="/img/uploads/"]');
+    
+    images.forEach(function(img) {
+        const computedStyle = window.getComputedStyle(img);
+        const currentMaxWidth = computedStyle.maxWidth;
+        
+        // 100%로 변경되었거나 예상 크기가 아니면 복구
+        if (currentMaxWidth === '100%' || currentMaxWidth === 'none') {
+            const windowWidth = window.innerWidth;
+            let targetWidth = (windowWidth <= 576 || windowWidth <= 991) ? '75%' : '70%';
             
-            if (supportsWebP() && originalSrc !== webpSrc) {
-                img.src = webpSrc;
-            }
-
-            // 🎯 2단계: 래퍼 컨테이너 생성 + 충분한 초기 높이로 공간 확보
-            const wrapper = document.createElement('div');
-            wrapper.className = 'img-aspect-wrapper';
-            
-            // 🚀 보수적인 초기 높이 - 대부분 이미지보다 약간 크게 설정
-            const conservativeHeight = Math.max(300, Math.round(window.innerWidth * 0.5));
-            
-            wrapper.style.cssText = `
-                width: 70%;
-                height: ${conservativeHeight}px;
-                margin: 0 0 20px 0;
-                border-radius: 4px;
-                overflow: hidden;
-                position: relative;
-                background: linear-gradient(110deg, rgba(40, 40, 40, 0.9) 8%, rgba(60, 60, 60, 0.95) 18%, rgba(40, 40, 40, 0.9) 33%);
-                background-size: 200% 100%;
-                animation: shimmer 1.5s ease-in-out infinite;
-                transition: height 0.2s ease;
-            `;
-
-            // 🎯 3단계: 이미지를 래퍼로 감싸기
-            const parent = img.parentNode;
-            parent.insertBefore(wrapper, img);
-            wrapper.appendChild(img);
-
-            // 🎯 4단계: 이미지 스타일 설정 (높이 건드리지 않음)
-            img.style.cssText = `
-                width: 100% !important;
-                height: auto !important;
-                display: block !important;
-                margin: 0 !important;
-                border-radius: 0 !important;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            `;
-
-            // 🎯 5단계: 실제 이미지 크기로 래퍼 높이 정확히 조정
-            const tempImg = new Image();
-            tempImg.onload = function() {
-                const wrapperWidth = wrapper.offsetWidth;
-                const aspectRatio = tempImg.naturalHeight / tempImg.naturalWidth;
-                const accurateHeight = wrapperWidth * aspectRatio;
-                
-                // 🚀 보수적 높이에서 정확한 높이로 조정 (항상 실행)
-                wrapper.style.height = accurateHeight + 'px';
-                wrapper.style.animation = 'none';
-                wrapper.style.background = 'transparent';
-            };
-
-            // 🎯 6단계: 이미지 로드 완료 처리
-            function showImage() {
-                img.style.opacity = '1';
-                wrapper.style.animation = 'none';
-                wrapper.style.background = 'transparent';
-                
-                // 로드 완료 후 래퍼를 auto 높이로
-                setTimeout(() => {
-                    wrapper.style.height = 'auto';
-                }, 150);
-            }
-
-            // 🎯 7단계: 로딩 최적화
-            img.loading = index === 0 ? 'eager' : 'lazy';
-            img.decoding = 'async';
-
-            // 이벤트 리스너
-            if (img.complete && img.naturalHeight !== 0) {
-                setTimeout(showImage, 0);
-            } else {
-                img.addEventListener('load', showImage);
-                img.addEventListener('error', function() {
-                    if (img.src === webpSrc && img.src !== originalSrc) {
-                        img.src = originalSrc;
-                    } else {
-                        showImage(); // 에러여도 표시
-                    }
-                });
-            }
-
-            // 임시 이미지로 크기 확인
-            tempImg.src = img.src;
-
-        } catch (error) {
-            console.warn('이미지 처리 중 오류:', error);
+            img.style.setProperty('max-width', targetWidth, 'important');
+            img.style.setProperty('width', 'auto', 'important');
         }
     });
-
-    // WebP 지원 확인
-    function supportsWebP() {
-        try {
-            const canvas = document.createElement('canvas');
-            canvas.width = 1;
-            canvas.height = 1;
-            return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-        } catch (e) {
-            return false;
-        }
-    }
-});
+}, 3000);

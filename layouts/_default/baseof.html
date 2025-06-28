@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- 🎯 Critical CSS 인라인 -->
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+<!-- 🎯 CSS 비동기 로드 -->
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<!-- 🎯 이미지 preload (조건부) -->
+{{ if eq .Kind "page" }}
+  {{ if .Resources }}
+    {{ with (index (.Resources.ByType "image") 0) }}
+      <link rel="preload" as="image" href="{{ .RelPermalink | replaceRE `\.(png|jpg|jpeg)$` `.webp` }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!-- 🎯 확장 프로그램 충돌 방지 -->
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
     <!-- 네이버 웹마스터 인증 -->
     <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
 

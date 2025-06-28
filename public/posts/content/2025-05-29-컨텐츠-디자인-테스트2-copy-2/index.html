@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
     <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
 
     
@@ -134,26 +157,6 @@
     <div id="header-container"></div>
     
     
-<link rel="stylesheet" href="/css/skeleton.css">
-
-<script>
-
-window.addEventListener('error', function(e) {
-    if (e.message && e.message.includes('message channel closed')) {
-        e.preventDefault();
-        console.warn('확장 프로그램 관련 에러 무시됨');
-    }
-});
-
-
-window.addEventListener('unhandledrejection', function(e) {
-    if (e.reason && e.reason.toString().includes('message channel closed')) {
-        e.preventDefault();
-        console.warn('확장 프로그램 Promise 에러 무시됨');
-    }
-});
-</script>
-
 <section class="post-section">
     <div class="container">
         <div class="post-container">
@@ -189,8 +192,6 @@ window.addEventListener('unhandledrejection', function(e) {
                     
 
                     
-
-                  
                 </div>
 
                 <div class="post-body" data-category="content">
@@ -337,39 +338,9 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
     
     
-    <script src="/js/lightbox.js"></script>
-    
-    <script src="/js/web-demo.js"></script>
-    
-    <script src="/js/skeleton.js"></script>
-
-    
-<script>
-
-(function() {
-    function supportsWebP() {
-        try {
-            const canvas = document.createElement('canvas');
-            return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-        } catch (e) {
-            return false;
-        }
-    }
-    
-    
-    const firstImageSrc = '';
-    if (firstImageSrc) {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = supportsWebP() ? firstImageSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp') : firstImageSrc;
-        document.head.appendChild(link);
-    }
-})();
-</script>
-   
-
-    
+    <script src="/js/lightbox.js" defer></script>
+    <script src="/js/web-demo.js" defer></script>
+    <script src="/js/skeleton.js" defer></script>
 </section>
 
     

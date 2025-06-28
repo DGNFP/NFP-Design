@@ -1,71 +1,97 @@
 /* ========================================
-   단순하고 효과적인 이미지 CLS 방지 CSS
+   기존 이미지 스타일 + 라이트박스 인라인 스타일 무력화
    ======================================== */
 
-/* ========================================
-   이미지 크롭 없는 안전한 CLS 방지 CSS
-   ======================================== */
-
-/* 🎯 기본 이미지 스타일 */
+/* 🎯 기본 이미지 스타일 (기존과 동일) */
 .post-body img[src^="/img/uploads/"] {
     max-width: 70% !important; 
+    width: auto !important;
     height: auto !important;
-    margin: 0 0 20px 0 !important;
+    margin-bottom: 20px !important;
     display: block !important;
     border-radius: 4px !important;
 }
 
-/* 🎯 래퍼 스타일 - aspect-ratio 완전 제거 */
-.img-aspect-wrapper {
-    contain: layout style paint;
-    transition: height 0.15s ease;
-    min-height: 300px; /* 고정 최소 높이로 초기 공간 확보 */
-}
-
-/* 🎯 스켈레톤 애니메이션 */
-@keyframes shimmer {
-    0% { background-position: -200px 0; }
-    100% { background-position: calc(200px + 100%) 0; }
-}
-
-/* 반응형 처리 */
-@media (max-width: 768px) {
+/* 🎯 태블릿 (991px 이하) */
+@media (max-width: 991px) {
     .post-body img[src^="/img/uploads/"] {
-        max-width: 100% !important;
-        border-radius: 6px !important;
+        max-width: 75% !important;
     }
-    
-    .img-aspect-wrapper {
-        width: 100% !important;
-        min-height: 250px; /* 모바일 최소 높이 */
+}
+
+/* 🎯 모바일 (576px 이하) */
+@media (max-width: 576px) {
+    .post-body img[src^="/img/uploads/"] {
+        max-width: 75% !important;
+    }
+}
+
+/* ========================================
+   라이트박스 인라인 스타일 무력화 (핵심!)
+   ======================================== */
+
+/* 🎯 라이트박스가 추가하는 인라인 스타일을 무력화 */
+.post-body img[src^="/img/uploads/"][data-lightbox][style] {
+    max-width: 70% !important;
+    width: auto !important;
+}
+
+@media (max-width: 991px) {
+    .post-body img[src^="/img/uploads/"][data-lightbox][style] {
+        max-width: 75% !important;
     }
 }
 
 @media (max-width: 576px) {
-    .post-body img[src^="/img/uploads/"] {
+    .post-body img[src^="/img/uploads/"][data-lightbox][style] {
         max-width: 75% !important;
-        border-radius: 4px !important;
-    }
-    
-    .img-aspect-wrapper {
-        width: 75% !important;
-        min-height: 200px; /* 작은 모바일 최소 높이 */
     }
 }
 
-/* 성능 최적화 */
-.post-body img[src^="/img/uploads/"] {
-    will-change: opacity;
+/* ========================================
+   라이트박스 기능 유지를 위한 스타일
+   ======================================== */
+
+/* 🎯 라이트박스 클릭 커서 */
+.post-body img[data-lightbox] {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(1, 255, 117, 0), 
+                0 0 10px rgba(1, 255, 117, 0), 
+                0 0 20px rgba(1, 255, 117, 0);
 }
 
-/* 사용자가 애니메이션을 선호하지 않는 경우 */
-@media (prefers-reduced-motion: reduce) {
-    .img-aspect-wrapper {
-        animation: none !important;
-        transition: none !important;
+
+
+/* 호버시 네온글로우 */
+/* .post-body img[data-lightbox]:hover {
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.8), 
+                0 0 60px rgba(0, 123, 255, 0.4);
+    filter: brightness(1.1) contrast(1.1);
+} */
+
+/* 호버시 NFP 그린 펄스 */
+.post-body img[data-lightbox]:hover {
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(1, 255, 117, 0.8), 
+                0 0 10px rgba(1, 255, 117, 0.6), 
+                0 0 20px rgba(1, 255, 117, 0.4);
+                
+    animation: electric-pulse 0.5s infinite alternate;
+}
+
+@keyframes electric-pulse {
+    0% { 
+        box-shadow: 0 0 5px rgba(1, 255, 117, 0.8), 
+                    0 0 10px rgba(1, 255, 117, 0.6), 
+                    0 0 20px rgba(1, 255, 117, 0.4);
+                    border-radius: 4px;
     }
-    
-    .post-body img[src^="/img/uploads/"] {
-        transition: opacity 0.1s ease !important;
+    100% { 
+        box-shadow: 0 0 8px rgba(1, 255, 117, 1), 
+                    0 0 15px rgba(1, 255, 117, 0.8), 
+                    0 0 30px rgba(1, 255, 117, 0.6);
+                    border-radius: 4px;
     }
 }

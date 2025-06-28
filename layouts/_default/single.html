@@ -1,24 +1,4 @@
 {{ define "main" }}
-<link rel="stylesheet" href="/css/skeleton.css">
-<!-- single.html <head>에 추가 -->
-<script>
-// 🎯 확장 프로그램 충돌 방지
-window.addEventListener('error', function(e) {
-    if (e.message && e.message.includes('message channel closed')) {
-        e.preventDefault();
-        console.warn('확장 프로그램 관련 에러 무시됨');
-    }
-});
-
-// 🎯 Promise rejection 에러 처리
-window.addEventListener('unhandledrejection', function(e) {
-    if (e.reason && e.reason.toString().includes('message channel closed')) {
-        e.preventDefault();
-        console.warn('확장 프로그램 Promise 에러 무시됨');
-    }
-});
-</script>
-
 <section class="post-section">
     <div class="container">
         <div class="post-container">
@@ -186,8 +166,6 @@ window.addEventListener('unhandledrejection', function(e) {
                             </div>
                         {{ end }}
                     {{ end }}
-
-                  
                 </div>
 
                 <div class="post-body" data-category="{{ if .Params.categories }}{{ index .Params.categories 0 }}{{ end }}">
@@ -327,39 +305,9 @@ window.addEventListener('unhandledrejection', function(e) {
         </div>
     </div>
     
-    <!-- JavaScript 파일들 -->
-    <script src="/js/lightbox.js"></script>
-    <!-- 🎯 웹데모 JavaScript 추가 -->
-    <script src="/js/web-demo.js"></script>
-    <!-- 스켈레톤 스크립트 -->
-    <script src="/js/skeleton.js"></script>
-
-    <!-- single.html의 <head> 섹션에 추가 -->
-<script>
-// 🎯 즉시 실행: LCP 이미지 preload
-(function() {
-    function supportsWebP() {
-        try {
-            const canvas = document.createElement('canvas');
-            return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-        } catch (e) {
-            return false;
-        }
-    }
-    
-    // 첫 번째 이미지가 있으면 preload
-    const firstImageSrc = '{{ if .Params.featured_image }}{{ .Params.featured_image }}{{ else }}{{ with (index (.Resources.ByType "image") 0) }}{{ .RelPermalink }}{{ end }}{{ end }}';
-    if (firstImageSrc) {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = supportsWebP() ? firstImageSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp') : firstImageSrc;
-        document.head.appendChild(link);
-    }
-})();
-</script>
-   
-
-    
+    <!-- JavaScript 파일들 - 올바른 위치 -->
+    <script src="/js/lightbox.js" defer></script>
+    <script src="/js/web-demo.js" defer></script>
+    <script src="/js/skeleton.js" defer></script>
 </section>
 {{ end }}

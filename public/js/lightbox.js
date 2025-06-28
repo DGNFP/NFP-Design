@@ -170,14 +170,14 @@ class NFPLightbox {
         });
         
         // 마우스 휠 줌
-        image.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            if (e.deltaY < 0) {
-                this.zoomIn();
-            } else {
-                this.zoomOut();
-            }
-        });
+        // image.addEventListener('wheel', (e) => {
+        //     e.preventDefault();
+        //     if (e.deltaY < 0) {
+        //         this.zoomIn();
+        //     } else {
+        //         this.zoomOut();
+        //     }
+        // });
     }
     
     handleStart(e, eventType) {
