@@ -146,6 +146,26 @@
     <div id="header-container"></div>
     
     
+<link rel="stylesheet" href="/css/skeleton.css">
+
+<script>
+
+window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+        console.warn('확장 프로그램 관련 에러 무시됨');
+    }
+});
+
+
+window.addEventListener('unhandledrejection', function(e) {
+    if (e.reason && e.reason.toString().includes('message channel closed')) {
+        e.preventDefault();
+        console.warn('확장 프로그램 Promise 에러 무시됨');
+    }
+});
+</script>
+
 <section class="post-section">
     <div class="container">
         <div class="post-container">
@@ -318,60 +338,34 @@
     <script src="/js/lightbox.js"></script>
     
     <script src="/js/web-demo.js"></script>
+    
+    <script src="/js/skeleton.js"></script>
 
     
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const postBody = document.querySelector('.post-body');
-    if (!postBody) return;
 
-    const images = postBody.querySelectorAll('img');
-
-    images.forEach(function(img) {
-        
-        if (img.parentNode.classList && img.parentNode.classList.contains('image-container')) {
-            return;
+(function() {
+    function supportsWebP() {
+        try {
+            const canvas = document.createElement('canvas');
+            return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+        } catch (e) {
+            return false;
         }
-
-        
-        const container = document.createElement('div');
-        container.className = 'image-container loading';
-
-        
-        const parentWidth = postBody.offsetWidth;
-        const maxWidth = window.innerWidth > 768 ? Math.min(800, parentWidth) : parentWidth;
-
-        container.style.minHeight = '600px'; 
-        container.style.maxWidth = maxWidth + 'px';
-
-        
-        const skeleton = document.createElement('div');
-        skeleton.className = 'image-skeleton';
-        skeleton.innerHTML = '📷';
-
-        
-        const parent = img.parentNode;
-        parent.insertBefore(container, img);
-        container.appendChild(skeleton);
-        container.appendChild(img);
-
-        
-        function loaded() {
-            const actualHeight = (img.naturalHeight / img.naturalWidth) * container.offsetWidth;
-            container.classList.remove('loading');
-            container.classList.add('loaded');
-            container.style.minHeight = 'auto';
-        }
-
-        if (img.complete) {
-            loaded();
-        } else {
-            img.addEventListener('load', loaded);
-        }
-    });
-});
+    }
+    
+    
+    const firstImageSrc = '';
+    if (firstImageSrc) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = supportsWebP() ? firstImageSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp') : firstImageSrc;
+        document.head.appendChild(link);
+    }
+})();
 </script>
+   
 
     
 </section>

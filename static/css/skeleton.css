@@ -1,0 +1,71 @@
+/* ========================================
+   단순하고 효과적인 이미지 CLS 방지 CSS
+   ======================================== */
+
+/* ========================================
+   이미지 크롭 없는 안전한 CLS 방지 CSS
+   ======================================== */
+
+/* 🎯 기본 이미지 스타일 */
+.post-body img[src^="/img/uploads/"] {
+    max-width: 70% !important; 
+    height: auto !important;
+    margin: 0 0 20px 0 !important;
+    display: block !important;
+    border-radius: 4px !important;
+}
+
+/* 🎯 래퍼 스타일 - aspect-ratio 완전 제거 */
+.img-aspect-wrapper {
+    contain: layout style paint;
+    transition: height 0.15s ease;
+    min-height: 300px; /* 고정 최소 높이로 초기 공간 확보 */
+}
+
+/* 🎯 스켈레톤 애니메이션 */
+@keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+    .post-body img[src^="/img/uploads/"] {
+        max-width: 100% !important;
+        border-radius: 6px !important;
+    }
+    
+    .img-aspect-wrapper {
+        width: 100% !important;
+        min-height: 250px; /* 모바일 최소 높이 */
+    }
+}
+
+@media (max-width: 576px) {
+    .post-body img[src^="/img/uploads/"] {
+        max-width: 75% !important;
+        border-radius: 4px !important;
+    }
+    
+    .img-aspect-wrapper {
+        width: 75% !important;
+        min-height: 200px; /* 작은 모바일 최소 높이 */
+    }
+}
+
+/* 성능 최적화 */
+.post-body img[src^="/img/uploads/"] {
+    will-change: opacity;
+}
+
+/* 사용자가 애니메이션을 선호하지 않는 경우 */
+@media (prefers-reduced-motion: reduce) {
+    .img-aspect-wrapper {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .post-body img[src^="/img/uploads/"] {
+        transition: opacity 0.1s ease !important;
+    }
+}

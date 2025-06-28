@@ -1685,128 +1685,6 @@ nav {
 
 
 
-/* 기존 CSS에서 이미지 스켈레톤 부분을 이것으로 완전히 교체하세요 */
-
-/* ========================================
-   개선된 이미지 스켈레톤 UI 스타일  
-   ======================================== */
-
-/* 스켈레톤 애니메이션 */
-@keyframes shimmer {
-    0% { background-position: -200px 0; }
-    100% { background-position: calc(200px + 100%) 0; }
-}
-
-/* 이미지 컨테이너 기본 스타일 - 기존 post-body 이미지 설정과 통합 */
-.image-container {
-    position: relative;
-    width: 100%;
-    max-width: 70%; /* 기존 post-body img 설정과 동일 */
-    margin: 0 0 20px 0; /* 왼쪽 정렬, 아래쪽 마진만 */
-    border-radius: 4px; /* 기존과 동일 */
-    overflow: hidden;
-    background: #f8f9fa;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-    display: block;
-}
-
-/* 로딩 상태 스켈레톤 */
-.image-container.loading {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200px 100%;
-    animation: shimmer 1.5s infinite;
-}
-
-/* 로딩 완료 상태 */
-.image-container.loaded {
-    background: none;
-    animation: none;
-    min-height: auto !important;
-}
-
-/* 에러 상태 */
-.image-container.error {
-    background: #fee;
-    border: 2px dashed #fcc;
-    animation: none;
-}
-
-/* 스켈레톤 플레이스홀더 */
-.image-skeleton {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 32px;
-    color: #ccc;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.image-container.loaded .image-skeleton {
-    opacity: 0;
-}
-
-.image-container.error .image-skeleton {
-    color: #f56565;
-}
-
-/* 이미지 스타일 - 기존 설정 유지하면서 스켈레톤과 통합 */
-.image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    position: relative;
-    z-index: 2;
-    border-radius: 4px; /* 기존과 동일 */
-}
-
-.image-container.loaded img {
-    opacity: 1;
-}
-
-/* 카테고리별 기본 높이 설정 - 더 정확한 비율 */
-.post-body[data-category="web"] .image-container { 
-    min-height: 350px; /* 웹사이트 스크린샷은 길 수 있음 */
-}
-
-.post-body[data-category="ad"] .image-container { 
-    min-height: 450px; /* 광고/인쇄물은 세로가 긴 경우 많음 */
-}
-
-.post-body[data-category="content"] .image-container { 
-    min-height: 300px; /* 콘텐츠는 정사각형에 가까움 */
-}
-
-.post-body[data-category="creative"] .image-container { 
-    min-height: 380px; /* 크리에이티브는 다양한 비율 */
-}
-
-.post-body[data-category="programming"] .image-container { 
-    min-height: 280px; /* 코드 스크린샷은 상대적으로 짧음 */
-}
-
-.post-body[data-category="video"] .image-container { 
-    min-height: 320px; /* 영상 썸네일 */
-}
-
-.post-body[data-category="project"] .image-container { 
-    min-height: 350px; /* 프로젝트는 혼합 */
-}
-
-/* 기본값 (카테고리 없을 때) */
-.post-body:not([data-category]) .image-container,
-.post-body[data-category=""] .image-container {
-    min-height: 320px; /* 기본값 상향 조정 */
-}
-
-
-
 
 
 
@@ -1881,29 +1759,8 @@ nav {
     margin-bottom: 10px;
 }
 
-  .image-container {
-        max-width: 100%; /* 모바일에서는 전체 너비 */
-        margin: 0 0 16px 0; /* 왼쪽 정렬, 아래쪽 마진 축소 */
-        border-radius: 6px; /* 기존 비디오 설정과 동일 */
-    }
-    
-    /* 스켈레톤 */
-    .post-body[data-category="web"] .image-container { min-height: 220px; }
-    .post-body[data-category="ad"] .image-container { min-height: 280px; }
-    .post-body[data-category="content"] .image-container { min-height: 200px; }
-    .post-body[data-category="creative"] .image-container { min-height: 240px; }
-    .post-body[data-category="programming"] .image-container { min-height: 180px; }
-    .post-body[data-category="video"] .image-container { min-height: 200px; }
-    .post-body[data-category="project"] .image-container { min-height: 220px; }
-    
-    .post-body:not([data-category]) .image-container,
-    .post-body[data-category=""] .image-container {
-        min-height: 200px;
-    }
-    
-    .image-skeleton { font-size: 24px; }
-
-
+ 
+   
     .newsletter-section {
         padding: 60px 0;
     }
@@ -2217,37 +2074,6 @@ nav {
 }
 
 @media (max-width: 576px) {
-
- .image-container {
-        max-width: 75%; /* 원본 이미지와 동일하게 */
-        margin: 0 0 12px 0;
-    }
-
- .image-container {
-        max-width: 75%; /* 기존 설정과 동일 */
-        margin: 0 0 12px 0; /* 왼쪽 정렬, 아래쪽 마진 더 축소 */
-    }
-    
-    .post-body[data-category="web"] .image-container { min-height: 160px; }
-    .post-body[data-category="ad"] .image-container { min-height: 200px; }
-    .post-body[data-category="content"] .image-container { min-height: 180px; }
-    .post-body[data-category="creative"] .image-container { min-height: 190px; }
-    .post-body[data-category="programming"] .image-container { min-height: 140px; }
-    .post-body[data-category="video"] .image-container { min-height: 160px; }
-    .post-body[data-category="project"] .image-container { min-height: 160px; }
-    
-    .post-body:not([data-category]) .image-container,
-    .post-body[data-category=""] .image-container {
-        min-height: 160px;
-    }
-    
-    .image-skeleton { font-size: 20px; }
-
-
-
-
-
-
     .demo-placeholder-all .demo-icon,
     .video-placeholder-all i,
     .category-placeholder-all i {
@@ -2310,62 +2136,6 @@ nav {
     }
 
 
-   .post-body[data-category="web"] .image-container { min-height: 160px; }
-    .post-body[data-category="ad"] .image-container { min-height: 200px; }
-    .post-body[data-category="content"] .image-container { min-height: 180px; }
-    .post-body[data-category="creative"] .image-container { min-height: 190px; }
-    .post-body[data-category="programming"] .image-container { min-height: 140px; }
-    .post-body[data-category="video"] .image-container { min-height: 160px; }
-    .post-body[data-category="project"] .image-container { min-height: 160px; }
-    
-    .post-body:not([data-category]) .image-container,
-    .post-body[data-category=""] .image-container {
-        min-height: 160px;
-    }
-
-        }
-
-/* 기존 마크다운 이미지 스타일과 충돌 방지 */
-.post-body img[src^="/img/uploads/"]:not(.skeleton-processed) {
-    /* 스켈레톤 처리되지 않은 이미지는 기존 스타일 유지 */
-    max-width: 70% !important; 
-    height: auto !important;
-    margin: 0 0 20px 0 !important; /* 왼쪽 정렬 */
-    display: block;
-    border-radius: 4px;
 }
 
-/* 반응형 - 태블릿 (991px 이하) */
-@media (max-width: 991px) {
-    .post-body img[src^="/img/uploads/"]:not(.skeleton-processed) {
-        max-width: 75% !important;
-    }
-}
 
-/* 반응형 - 모바일 (768px 이하) */
-@media (max-width: 768px) {
-    .post-body img[src^="/img/uploads/"]:not(.skeleton-processed) {
-        max-width: 100% !important; /* 스켈레톤과 동일하게 */
-    }
-}
-
-/* 반응형 - 작은 모바일 (576px 이하) */
-@media (max-width: 576px) {
-    .post-body img[src^="/img/uploads/"]:not(.skeleton-processed) {
-        max-width: 75% !important; /* 스켈레톤과 동일하게 */
-    }
-}
-
-/* 스켈레톤 처리된 이미지는 컨테이너가 크기 제어 */
-.post-body .image-container img[src^="/img/uploads/"] {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 0 !important;
-}
-
-/* post-body 자체의 overflow 처리 (기존 설정 유지) */
-.post-body {
-    overflow-x: hidden;
-    width: 100%;
-    box-sizing: border-box;
-}
