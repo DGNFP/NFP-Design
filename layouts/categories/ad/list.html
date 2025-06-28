@@ -109,24 +109,22 @@
                         <div class="video-overlay">
                             <i class="fas fa-play"></i>
                         </div>
-                        {{ else if eq $firstContentType "image" }}
-                        <!-- 2. 본문 첫 번째 이미지 - WebP 썸네일 지원 -->
-                        {{ $originalSrc := $firstImageSrc }}
-                        {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+                        
+                     {{ else if eq $firstContentType "image" }}
+    <!-- WebP 썸네일 처리 -->
+    {{ $originalSrc := $firstImageSrc }}
+    
+    <!-- 파일명에서 확장자 제거 -->
+    {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+    
+    <picture>
+        <!-- WebP 버전 우선 로드 -->
+        <source srcset="{{ $withoutExt }}.webp" type="image/webp">
+        <!-- 원본 이미지 (폴백) -->
+        <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
+    </picture>
+{{ end }}
 
-                        <picture>
-                            <!-- WebP 썸네일 시도 -->
-                            <source srcset="{{ $withoutExt }}_thumb.webp" type="image/webp">
-                            <!-- 일반 썸네일 시도 -->  
-                            <source srcset="{{ $withoutExt }}_thumb.jpg" type="image/jpeg">
-                            <!-- 원본 이미지 (폴백) -->
-                            <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
-                        </picture>
-
-                        {{ else }}
-                            <!-- 3. 기본 이미지 -->
-                            <img src="img/design1.jpg" alt="{{ .Title }}">
-                        {{ end }}
                         
                         <!-- 오버레이 태그 추가 -->
                         {{ if .Params.subCategory }}

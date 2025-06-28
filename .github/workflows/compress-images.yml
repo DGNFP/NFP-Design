@@ -42,7 +42,6 @@ jobs:
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         echo "🧹 Cleaning up old thumbnail and medium files..."
-        # 기존 썸네일/미디엄 파일들 삭제
         find static/img/uploads -name "*_thumb.*" -type f -delete
         find static/img/uploads -name "*_medium.*" -type f -delete
         find static/img/uploads -name "*-thumb.*" -type f -delete
@@ -52,7 +51,6 @@ jobs:
     - name: 🌐 Process original images to WebP
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
-        # 수동 실행시에는 모든 원본 이미지 처리, 자동 실행시에는 변경된 파일만 처리
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "🔄 Processing ALL original images (manual run)..."
           find static/img/uploads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | grep -v "_thumb" | grep -v "_medium" | grep -v "-thumb" | grep -v "-medium" | while read img; do
@@ -61,15 +59,12 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              # 한글 파일명을 영문으로 변환 (URL-safe)
-              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
-              
+              # 원본 파일명 그대로 유지, 확장자만 .webp로 변경
               echo "🆕 Processing: $img"
               
-              # WebP 변환만 (원본 비율 유지, 품질만 최적화)
-              if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
-                cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
-                echo "✅ WebP: ${safe_name}.webp"
+              if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
+                cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+                echo "✅ WebP: ${name}.webp"
               fi
             fi
           done
@@ -81,15 +76,12 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              # 한글 파일명을 영문으로 변환 (URL-safe)
-              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
-              
+              # 원본 파일명 그대로 유지, 확장자만 .webp로 변경
               echo "🆕 Processing: $img"
               
-              # WebP 변환만 (원본 비율 유지, 품질만 최적화)
-              if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
-                cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
-                echo "✅ WebP: ${safe_name}.webp"
+              if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
+                cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+                echo "✅ WebP: ${name}.webp"
               fi
             fi
           done

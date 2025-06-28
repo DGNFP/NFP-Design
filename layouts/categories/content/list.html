@@ -87,9 +87,7 @@
                             {{ end }}
                         {{ end }}
                         
-                       네! 맞아요! 2번 컨텐츠디자인 게시판이네요! 🎯
-컨텐츠디자인 게시판 - 전체 수정:
-html<!-- 첫 번째 컨텐츠 타입에 따라 썸네일 표시 -->
+<!-- 첫 번째 컨텐츠 타입에 따라 썸네일 표시 -->
 {{ if eq $firstContentType "youtube" }}
     <!-- 1. YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
     <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
@@ -110,26 +108,22 @@ html<!-- 첫 번째 컨텐츠 타입에 따라 썸네일 표시 -->
     <div class="video-overlay">
         <i class="fas fa-play"></i>
     </div>
+
 {{ else if eq $firstContentType "image" }}
-    <!-- 2. 본문 첫 번째 이미지 - WebP 썸네일 지원 -->
+    <!-- WebP 썸네일 처리 -->
     {{ $originalSrc := $firstImageSrc }}
+    
+    <!-- 파일명에서 확장자 제거 -->
     {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
     
     <picture>
-        <!-- WebP 썸네일 시도 -->
-        <source srcset="{{ $withoutExt }}_thumb.webp" type="image/webp">
-        <!-- 일반 썸네일 시도 -->  
-        <source srcset="{{ $withoutExt }}_thumb.jpg" type="image/jpeg">
+        <!-- WebP 버전 우선 로드 -->
+        <source srcset="{{ $withoutExt }}.webp" type="image/webp">
         <!-- 원본 이미지 (폴백) -->
-        <img src="{{ $originalSrc }}" 
-             alt="{{ .Title }}"
-             width="360" height="202"
-             loading="lazy">
+        <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
     </picture>
-                        {{ else }}
-                            <!-- 3. 기본 이미지 -->
-                            <img src="img/design1.jpg" alt="{{ .Title }}">
-                        {{ end }}
+{{ end }}
+
                         
                         <!-- 오버레이 태그 추가 -->
                         {{ if .Params.subCategory }}

@@ -103,20 +103,21 @@
     <div class="video-overlay">
         <i class="fas fa-play"></i>
     </div>
+    
 {{ else if eq $firstContentType "image" }}
-    <!-- 2. 본문 첫 번째 이미지 - WebP 썸네일 지원 -->
+    <!-- WebP 썸네일 처리 -->
     {{ $originalSrc := $firstImageSrc }}
+    
+    <!-- 파일명에서 확장자 제거 -->
     {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
     
-   <picture>
-        <!-- 모든 해상도에서 원본 WebP 이미지 우선 -->
+    <picture>
+        <!-- WebP 버전 우선 로드 -->
         <source srcset="{{ $withoutExt }}.webp" type="image/webp">
-        <!-- WebP 지원하지 않는 브라우저용 원본 이미지 -->
-        <img src="{{ $originalSrc }}" 
-             alt="{{ .Title }}"
-             width="360" height="202"
-             loading="lazy">
+        <!-- 원본 이미지 (폴백) -->
+        <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
     </picture>
+
                             {{ else }}
                                 <!-- 게임게시판 기본 플레이스홀더 -->
                                 <div class="category-placeholder-all" data-category="games">
