@@ -35,18 +35,22 @@ jobs:
           static/img/uploads/**/*.webp
     
     - name: 🛠️ Install ImageMagick with WebP support
-      if: steps.changed-files.outputs.any_changed == 'true'
+      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         sudo apt-get update
         sudo apt-get install -y imagemagick webp
     
     - name: 🌐 Process ONLY new/changed original images
-      if: steps.changed-files.outputs.any_changed == 'true'
+      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
-        echo "🔄 Processing only NEW/CHANGED original images..."
-        
-        # 변경된 원본 파일들만 처리 (언더스코어 없는 파일만)
-        echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
+        # 수동 실행시에는 모든 원본 이미지 처리, 자동 실행시에는 변경된 파일만 처리
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          echo "🔄 Processing ALL original images (manual run)..."
+          find static/img/uploads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | grep -v "_" | while read img; do
+        else
+          echo "🔄 Processing only NEW/CHANGED original images..."
+          echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
+        fi
           if [ -f "$img" ] && [[ ! "$img" =~ _ ]]; then  # 원본 파일만
             filename=$(basename "$img")
             dirname=$(dirname "$img")
@@ -77,7 +81,7 @@ jobs:
         done
         
     - name: 📤 Commit changes
-      if: steps.changed-files.outputs.any_changed == 'true'
+      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         git config --local user.email "nfp-compress-bot@github.com"
         git config --local user.name "NFP Compress Bot"
