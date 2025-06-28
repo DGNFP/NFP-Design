@@ -32,20 +32,20 @@ jobs:
         files_ignore: |
           static/img/uploads/**/*.webp
     
-    - name: 🛠️ Install ImageMagick with WebP support
+    - name: 🛠️ Install WebP support
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         sudo apt-get update
-        sudo apt-get install -y imagemagick webp
+        sudo apt-get install -y webp
     
-    - name: 🌐 Process ONLY new/changed original images
+    - name: 🌐 Process original images to WebP
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         # 수동 실행시에는 모든 원본 이미지 처리, 자동 실행시에는 변경된 파일만 처리
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "🔄 Processing ALL original images (manual run)..."
           find static/img/uploads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | while read img; do
-            if [ -f "$img" ]; then  # 원본 파일만
+            if [ -f "$img" ]; then
               filename=$(basename "$img")
               dirname=$(dirname "$img")
               name="${filename%.*}"
@@ -55,55 +55,30 @@ jobs:
               
               echo "🆕 Processing: $img"
               
-              # WebP 변환 (영문 파일명 사용)
+              # WebP 변환만 (원본 비율 유지, 품질만 최적화)
               if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
                 cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
                 echo "✅ WebP: ${safe_name}.webp"
-              fi
-              
-              # 썸네일 생성 (영문 파일명 사용)
-              if [ ! -f "${dirname}/${safe_name}_thumb.jpg" ] || [ "$img" -nt "${dirname}/${safe_name}_thumb.jpg" ]; then
-                convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${safe_name}_thumb.jpg"
-                cwebp -q 80 "${dirname}/${safe_name}_thumb.jpg" -o "${dirname}/${safe_name}_thumb.webp"
-                echo "✅ Thumbnail: ${safe_name}_thumb"
-              fi
-              
-              # 중간크기 생성 (영문 파일명 사용)
-              if [ ! -f "${dirname}/${safe_name}_medium.jpg" ] || [ "$img" -nt "${dirname}/${safe_name}_medium.jpg" ]; then
-                convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${safe_name}_medium.jpg"
-                cwebp -q 80 "${dirname}/${safe_name}_medium.jpg" -o "${dirname}/${safe_name}_medium.webp"
-                echo "✅ Medium: ${safe_name}_medium"
               fi
             fi
           done
         else
           echo "🔄 Processing only NEW/CHANGED original images..."
           echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
-            if [ -f "$img" ]; then  # 원본 파일만
+            if [ -f "$img" ]; then
               filename=$(basename "$img")
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
+              # 한글 파일명을 영문으로 변환 (URL-safe)
+              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+              
               echo "🆕 Processing: $img"
               
-              # WebP 변환 (없거나 원본이 더 최신인 경우)
-              if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
-                cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
-                echo "✅ WebP: ${name}.webp"
-              fi
-              
-              # 썸네일 생성
-              if [ ! -f "${dirname}/${name}_thumb.jpg" ] || [ "$img" -nt "${dirname}/${name}_thumb.jpg" ]; then
-                convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
-                cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
-                echo "✅ Thumbnail: ${name}_thumb"
-              fi
-              
-              # 중간크기 생성
-              if [ ! -f "${dirname}/${name}_medium.jpg" ] || [ "$img" -nt "${dirname}/${name}_medium.jpg" ]; then
-                convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
-                cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
-                echo "✅ Medium: ${name}_medium"
+              # WebP 변환만 (원본 비율 유지, 품질만 최적화)
+              if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
+                cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
+                echo "✅ WebP: ${safe_name}.webp"
               fi
             fi
           done
