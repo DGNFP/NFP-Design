@@ -8,11 +8,6 @@ on:
       - 'static/img/uploads/**/*.jpg'
       - 'static/img/uploads/**/*.jpeg'
       - 'static/img/uploads/**/*.png'
-    paths-ignore:
-      - 'static/img/uploads/**/*_*.jpg'
-      - 'static/img/uploads/**/*_*.jpeg'
-      - 'static/img/uploads/**/*_*.png'
-      - 'static/img/uploads/**/*_*.webp'
   workflow_dispatch: 
 
 jobs:
