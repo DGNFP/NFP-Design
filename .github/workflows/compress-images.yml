@@ -38,13 +38,24 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y webp
     
+    - name: 🧹 Clean up old thumbnail and medium files
+      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+      run: |
+        echo "🧹 Cleaning up old thumbnail and medium files..."
+        # 기존 썸네일/미디엄 파일들 삭제
+        find static/img/uploads -name "*_thumb.*" -type f -delete
+        find static/img/uploads -name "*_medium.*" -type f -delete
+        find static/img/uploads -name "*-thumb.*" -type f -delete
+        find static/img/uploads -name "*-medium.*" -type f -delete
+        echo "✅ Cleanup completed"
+    
     - name: 🌐 Process original images to WebP
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         # 수동 실행시에는 모든 원본 이미지 처리, 자동 실행시에는 변경된 파일만 처리
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "🔄 Processing ALL original images (manual run)..."
-          find static/img/uploads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | while read img; do
+          find static/img/uploads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | grep -v "_thumb" | grep -v "_medium" | grep -v "-thumb" | grep -v "-medium" | while read img; do
             if [ -f "$img" ]; then
               filename=$(basename "$img")
               dirname=$(dirname "$img")
