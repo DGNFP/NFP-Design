@@ -47,38 +47,66 @@ jobs:
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "🔄 Processing ALL original images (manual run)..."
           find static/img/uploads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | grep -v "_" | while read img; do
+            if [ -f "$img" ]; then  # 원본 파일만
+              filename=$(basename "$img")
+              dirname=$(dirname "$img")
+              name="${filename%.*}"
+              
+              echo "🆕 Processing: $img"
+              
+              # WebP 변환 (없거나 원본이 더 최신인 경우)
+              if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
+                cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+                echo "✅ WebP: ${name}.webp"
+              fi
+              
+              # 썸네일 생성
+              if [ ! -f "${dirname}/${name}_thumb.jpg" ] || [ "$img" -nt "${dirname}/${name}_thumb.jpg" ]; then
+                convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
+                cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
+                echo "✅ Thumbnail: ${name}_thumb"
+              fi
+              
+              # 중간크기 생성
+              if [ ! -f "${dirname}/${name}_medium.jpg" ] || [ "$img" -nt "${dirname}/${name}_medium.jpg" ]; then
+                convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
+                cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
+                echo "✅ Medium: ${name}_medium"
+              fi
+            fi
+          done
         else
           echo "🔄 Processing only NEW/CHANGED original images..."
           echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
+            if [ -f "$img" ] && [[ ! "$img" =~ _ ]]; then  # 원본 파일만
+              filename=$(basename "$img")
+              dirname=$(dirname "$img")
+              name="${filename%.*}"
+              
+              echo "🆕 Processing: $img"
+              
+              # WebP 변환 (없거나 원본이 더 최신인 경우)
+              if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
+                cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
+                echo "✅ WebP: ${name}.webp"
+              fi
+              
+              # 썸네일 생성
+              if [ ! -f "${dirname}/${name}_thumb.jpg" ] || [ "$img" -nt "${dirname}/${name}_thumb.jpg" ]; then
+                convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
+                cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
+                echo "✅ Thumbnail: ${name}_thumb"
+              fi
+              
+              # 중간크기 생성
+              if [ ! -f "${dirname}/${name}_medium.jpg" ] || [ "$img" -nt "${dirname}/${name}_medium.jpg" ]; then
+                convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
+                cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
+                echo "✅ Medium: ${name}_medium"
+              fi
+            fi
+          done
         fi
-          if [ -f "$img" ] && [[ ! "$img" =~ _ ]]; then  # 원본 파일만
-            filename=$(basename "$img")
-            dirname=$(dirname "$img")
-            name="${filename%.*}"
-            
-            echo "🆕 Processing: $img"
-            
-            # WebP 변환 (없거나 원본이 더 최신인 경우)
-            if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
-              cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
-              echo "✅ WebP: ${name}.webp"
-            fi
-            
-            # 썸네일 생성
-            if [ ! -f "${dirname}/${name}_thumb.jpg" ] || [ "$img" -nt "${dirname}/${name}_thumb.jpg" ]; then
-              convert "$img" -resize 300x200^ -gravity center -crop 300x200+0+0 "${dirname}/${name}_thumb.jpg"
-              cwebp -q 80 "${dirname}/${name}_thumb.jpg" -o "${dirname}/${name}_thumb.webp"
-              echo "✅ Thumbnail: ${name}_thumb"
-            fi
-            
-            # 중간크기 생성
-            if [ ! -f "${dirname}/${name}_medium.jpg" ] || [ "$img" -nt "${dirname}/${name}_medium.jpg" ]; then
-              convert "$img" -resize 600x400^ -gravity center -crop 600x400+0+0 "${dirname}/${name}_medium.jpg"
-              cwebp -q 80 "${dirname}/${name}_medium.jpg" -o "${dirname}/${name}_medium.webp"
-              echo "✅ Medium: ${name}_medium"
-            fi
-          fi
-        done
         
     - name: 📤 Commit changes
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
