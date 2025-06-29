@@ -60,11 +60,11 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "$name")
+              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe='').lower())" "$name")
               
               echo "🆕 Processing: $img"
               echo "   Original name: $name"
-              echo "   URL-encoded name: $safe_name"
+              echo "   URL-encoded name (lowercase): $safe_name"
               
               if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
                 cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
@@ -80,11 +80,11 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "$name")
+              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe='').lower())" "$name")
               
               echo "🆕 Processing: $img"
               echo "   Original name: $name"
-              echo "   URL-encoded name: $safe_name"
+              echo "   URL-encoded name (lowercase): $safe_name"
               
               if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
                 cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
