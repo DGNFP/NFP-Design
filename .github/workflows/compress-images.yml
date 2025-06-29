@@ -48,60 +48,97 @@ jobs:
         find static/img/uploads -name "*-medium.*" -type f -delete 2>/dev/null || true
         echo "✅ Cleanup completed"
     
-    - name: 🌐 Process original images to WebP
+    - name: 🌐 Process original images to WebP with original filenames
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
+        # 파일명 매핑을 위한 JSON 파일 초기화
+        mapping_file="static/img/uploads/.filename-mapping.json"
+        if [ ! -f "$mapping_file" ]; then
+          echo '{}' > "$mapping_file"
+        fi
+        
+        process_image() {
+          local img="$1"
+          local filename=$(basename "$img")
+          local dirname=$(dirname "$img")
+          local name="${filename%.*}"
+          local extension="${filename##*.}"
+          
+          echo "🆕 Processing: $img"
+          echo "   Original name: $name"
+          
+          # 방법 1: 원본 파일명을 URL 안전하게 보존 (권장)
+          # 한글과 특수문자는 유지하되, 파일시스템에서 문제되는 문자만 변경
+          safe_name=$(echo "$name" | sed 's/[<>:"|?*]/_/g' | sed 's/\//_/g')
+          webp_filename="${safe_name}.webp"
+          
+          # 방법 2: URL 인코딩된 파일명으로도 생성 (브라우저 호환성)
+          # Python을 사용해 URL 인코딩
+          encoded_name=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$name', safe=''))")
+          encoded_webp_filename="${encoded_name}.webp"
+          
+          echo "   Safe name: $safe_name"
+          echo "   Encoded name: $encoded_name"
+          
+          # WebP 생성 (원본 파일명 기반)
+          if [ ! -f "${dirname}/${webp_filename}" ] || [ "$img" -nt "${dirname}/${webp_filename}" ]; then
+            cwebp -q 85 "$img" -o "${dirname}/${webp_filename}"
+            echo "✅ WebP created: ${webp_filename}"
+          fi
+          
+          # URL 인코딩된 버전도 생성 (심볼릭 링크 또는 복사)
+          if [ "$safe_name" != "$encoded_name" ]; then
+            if [ ! -f "${dirname}/${encoded_webp_filename}" ] || [ "${dirname}/${webp_filename}" -nt "${dirname}/${encoded_webp_filename}" ]; then
+              cp "${dirname}/${webp_filename}" "${dirname}/${encoded_webp_filename}"
+              echo "✅ Encoded WebP created: ${encoded_webp_filename}"
+            fi
+          fi
+          
+          # 매핑 정보 업데이트
+          python3 -c "
+import json
+import os
+import urllib.parse
+
+mapping_file = '$mapping_file'
+original_name = '$name'
+safe_name = '$safe_name'
+encoded_name = '$encoded_name'
+
+# 기존 매핑 로드
+try:
+    with open(mapping_file, 'r', encoding='utf-8') as f:
+        mapping = json.load(f)
+except:
+    mapping = {}
+
+# 매핑 업데이트
+mapping[original_name] = {
+    'safe_name': safe_name,
+    'encoded_name': encoded_name,
+    'webp_safe': safe_name + '.webp',
+    'webp_encoded': encoded_name + '.webp'
+}
+
+# 매핑 저장
+with open(mapping_file, 'w', encoding='utf-8') as f:
+    json.dump(mapping, f, ensure_ascii=False, indent=2)
+"
+        }
+        
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "🔄 Processing ALL original images (manual run)..."
           find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
             -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" | while read img; do
             if [ -f "$img" ]; then
-              filename=$(basename "$img")
-              dirname=$(dirname "$img")
-              name="${filename%.*}"
-              
-              # 한글을 영문으로 변환 (ASCII safe)
-              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
-              
-              # 빈 문자열이면 파일명의 해시 사용
-              if [ -z "$safe_name" ]; then
-                safe_name=$(echo -n "$name" | md5sum | cut -d' ' -f1)
-              fi
-              
-              echo "🆕 Processing: $img"
-              echo "   Original name: $name"
-              echo "   ASCII safe name: $safe_name"
-              
-              if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
-                cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
-                echo "✅ WebP: ${safe_name}.webp"
-              fi
+              process_image "$img"
             fi
           done
         else
           echo "🔄 Processing only NEW/CHANGED original images..."
           echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
             if [ -f "$img" ] && [ -n "$img" ]; then
-              filename=$(basename "$img")
-              dirname=$(dirname "$img")
-              name="${filename%.*}"
-              
-              # 한글을 영문으로 변환 (ASCII safe)
-              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
-              
-              # 빈 문자열이면 파일명의 해시 사용
-              if [ -z "$safe_name" ]; then
-                safe_name=$(echo -n "$name" | md5sum | cut -d' ' -f1)
-              fi
-              
-              echo "🆕 Processing: $img"
-              echo "   Original name: $name"
-              echo "   ASCII safe name: $safe_name"
-              
-              if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
-                cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
-                echo "✅ WebP: ${safe_name}.webp"
-              fi
+              process_image "$img"
             fi
           done
         fi
