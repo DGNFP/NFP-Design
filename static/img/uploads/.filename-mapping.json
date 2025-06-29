@@ -148,5 +148,11 @@
     "encoded_name": "%eb%a1%9c%ea%b3%a0",
     "webp_safe": "로고.webp",
     "webp_encoded": "%eb%a1%9c%ea%b3%a0.webp"
+  },
+  "정병호님-로고1": {
+    "safe_name": "정병호님-로고1",
+    "encoded_name": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a01",
+    "webp_safe": "정병호님-로고1.webp",
+    "webp_encoded": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a01.webp"
   }
 }
