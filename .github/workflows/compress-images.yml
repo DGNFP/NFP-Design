@@ -1,39 +1,40 @@
-name: 🔍 Debug Image Path Detection
+name: 🗜️ Safe Auto Image Processing with Debug
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+    paths:
+      - 'static/img/uploads/**/*.jpg'
+      - 'static/img/uploads/**/*.jpeg'
+      - 'static/img/uploads/**/*.png'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.png'
+  workflow_dispatch: 
 
 jobs:
-  debug:
+  compress:
     runs-on: ubuntu-latest
     
     steps:
     - name: 📂 Checkout repository
       uses: actions/checkout@v4
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
     
-    - name: 🔍 Find all image files in repository
+    - name: 🔍 Debug - Find all image files in repository
       run: |
         echo "🔍 모든 이미지 파일 검색 중..."
-        echo "=== JPG 파일 ==="
-        find . -name "*.jpg" -type f | head -20
-        echo "=== JPEG 파일 ==="
-        find . -name "*.jpeg" -type f | head -20
-        echo "=== PNG 파일 ==="
-        find . -name "*.png" -type f | head -20
-        echo "=== WebP 파일 ==="
-        find . -name "*.webp" -type f | head -20
-        
-    - name: 📊 Check recent commits for image changes
-      run: |
-        echo "🔍 최근 커밋에서 이미지 변경사항 확인..."
-        git log --name-only --oneline -5 | grep -E '\.(jpg|jpeg|png|webp)$' || echo "최근 5개 커밋에 이미지 변경사항 없음"
-        
-    - name: 📋 Get changed files (current detection)
+        echo "=== static/img/uploads/ 경로 이미지 ==="
+        find static/img/uploads/ -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" 2>/dev/null | head -10 || echo "static/img/uploads/ 경로에 이미지 없음"
+        echo "=== 전체 경로 이미지 (최근 추가된 것들) ==="
+        find . -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | grep -v ".git" | head -10
+        echo "=== 최근 커밋 변경사항 ==="
+        git log --name-only --oneline -3 | head -15
+    
+    - name: 📋 Get changed original images (specific path)
       id: changed-files
       uses: tj-actions/changed-files@v35
       with:
@@ -44,14 +45,8 @@ jobs:
         files_ignore: |
           static/img/uploads/**/*.webp
     
-    - name: 📊 Show detection results
-      run: |
-        echo "🔍 변경된 파일 감지 결과:"
-        echo "any_changed: ${{ steps.changed-files.outputs.any_changed }}"
-        echo "all_changed_files: ${{ steps.changed-files.outputs.all_changed_files }}"
-        
-    - name: 🔍 Alternative: Detect ALL image changes
-      id: all-images
+    - name: 📋 Get changed original images (all paths)
+      id: all-changed-files
       uses: tj-actions/changed-files@v35
       with:
         files: |
@@ -60,9 +55,156 @@ jobs:
           **/*.png
         files_ignore: |
           **/*.webp
+          .git/**/*
     
-    - name: 📊 Show alternative detection results
+    - name: 📊 Debug - Show detection results
       run: |
-        echo "🔍 전체 경로 이미지 감지 결과:"
-        echo "any_changed: ${{ steps.all-images.outputs.any_changed }}"
-        echo "all_changed_files: ${{ steps.all-images.outputs.all_changed_files }}"
+        echo "🔍 감지 결과:"
+        echo "특정 경로 any_changed: ${{ steps.changed-files.outputs.any_changed }}"
+        echo "특정 경로 files: ${{ steps.changed-files.outputs.all_changed_files }}"
+        echo "전체 경로 any_changed: ${{ steps.all-changed-files.outputs.any_changed }}"
+        echo "전체 경로 files: ${{ steps.all-changed-files.outputs.all_changed_files }}"
+    
+    - name: 🛠️ Install WebP support
+      if: steps.changed-files.outputs.any_changed == 'true' || steps.all-changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y webp
+    
+    - name: 🧹 Clean up old thumbnail and medium files
+      if: steps.changed-files.outputs.any_changed == 'true' || steps.all-changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+      run: |
+        echo "🧹 Cleaning up old thumbnail and medium files..."
+        find . -name "*_thumb.*" -type f -delete 2>/dev/null || true
+        find . -name "*_medium.*" -type f -delete 2>/dev/null || true
+        find . -name "*-thumb.*" -type f -delete 2>/dev/null || true
+        find . -name "*-medium.*" -type f -delete 2>/dev/null || true
+        echo "✅ Cleanup completed"
+    
+    - name: 🌐 Process original images to WebP with original filenames
+      if: steps.changed-files.outputs.any_changed == 'true' || steps.all-changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+      run: |
+        # 파일명 매핑을 위한 JSON 파일 초기화 (uploads 폴더에 생성)
+        mkdir -p static/img/uploads
+        mapping_file="static/img/uploads/.filename-mapping.json"
+        if [ ! -f "$mapping_file" ]; then
+          echo '{}' > "$mapping_file"
+        fi
+        
+        # Python 스크립트를 별도 파일로 생성
+        cat > update_mapping.py << 'EOF'
+        import json
+        import sys
+        import urllib.parse
+        import os
+        
+        mapping_file = sys.argv[1]
+        original_name = sys.argv[2]
+        safe_name = sys.argv[3]
+        encoded_name = sys.argv[4]
+        
+        # 기존 매핑 로드
+        try:
+            with open(mapping_file, 'r', encoding='utf-8') as f:
+                mapping = json.load(f)
+        except:
+            mapping = {}
+        
+        # 매핑 업데이트
+        mapping[original_name] = {
+            "safe_name": safe_name,
+            "encoded_name": encoded_name,
+            "webp_safe": safe_name + ".webp",
+            "webp_encoded": encoded_name + ".webp"
+        }
+        
+        # 매핑 저장
+        with open(mapping_file, 'w', encoding='utf-8') as f:
+            json.dump(mapping, f, ensure_ascii=False, indent=2)
+        EOF
+        
+        process_image() {
+          local img="$1"
+          local filename=$(basename "$img")
+          local dirname=$(dirname "$img")
+          local name="${filename%.*}"
+          local extension="${filename##*.}"
+          
+          echo "🆕 Processing: $img"
+          echo "   Original name: $name"
+          
+          # 대상 디렉토리를 uploads로 통일 (다른 경로의 이미지도 uploads로 이동)
+          target_dir="static/img/uploads"
+          mkdir -p "$target_dir"
+          
+          # 원본 파일명을 URL 안전하게 보존
+          safe_name=$(echo "$name" | sed 's/[<>:"|?*]/_/g' | sed 's/\//_/g')
+          webp_filename="${safe_name}.webp"
+          
+          # 소문자 URL 인코딩 (브라우저 표준)
+          encoded_name=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$name', safe='').lower())")
+          encoded_webp_filename="${encoded_name}.webp"
+          
+          echo "   Safe name: $safe_name"
+          echo "   Encoded name: $encoded_name"
+          echo "   Target dir: $target_dir"
+          
+          # WebP 생성 (원본 파일명 기반)
+          if [ ! -f "${target_dir}/${webp_filename}" ] || [ "$img" -nt "${target_dir}/${webp_filename}" ]; then
+            cwebp -q 85 "$img" -o "${target_dir}/${webp_filename}"
+            echo "✅ WebP created: ${target_dir}/${webp_filename}"
+          fi
+          
+          # URL 인코딩된 버전도 생성 (소문자만, 표준 준수)
+          if [ "$safe_name" != "$encoded_name" ]; then
+            if [ ! -f "${target_dir}/${encoded_webp_filename}" ] || [ "${target_dir}/${webp_filename}" -nt "${target_dir}/${encoded_webp_filename}" ]; then
+              cp "${target_dir}/${webp_filename}" "${target_dir}/${encoded_webp_filename}"
+              echo "✅ Encoded WebP created: ${target_dir}/${encoded_webp_filename}"
+            fi
+          fi
+          
+          # 매핑 정보 업데이트
+          python3 update_mapping.py "$mapping_file" "$name" "$safe_name" "$encoded_name"
+        }
+        
+        # 처리할 파일 목록 결합
+        all_files=""
+        
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          echo "🔄 Processing ALL original images (manual run)..."
+          all_files=$(find . -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
+            -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" \
+            -not -path "./.git/*" | head -50)
+        else
+          echo "🔄 Processing NEW/CHANGED original images..."
+          # 특정 경로와 전체 경로 파일 모두 처리
+          specific_files="${{ steps.changed-files.outputs.all_changed_files }}"
+          all_path_files="${{ steps.all-changed-files.outputs.all_changed_files }}"
+          all_files="$specific_files $all_path_files"
+        fi
+        
+        echo "처리할 파일 목록: $all_files"
+        
+        # 중복 제거하고 처리
+        echo "$all_files" | tr ' ' '\n' | sort -u | while read img; do
+          if [ -f "$img" ] && [ -n "$img" ]; then
+            # WebP 파일은 제외
+            if [[ ! "$img" =~ \.webp$ ]]; then
+              process_image "$img"
+            fi
+          fi
+        done
+        
+    - name: 📤 Commit changes
+      if: steps.changed-files.outputs.any_changed == 'true' || steps.all-changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+      run: |
+        git config --local user.email "nfp-compress-bot@github.com"
+        git config --local user.name "NFP Compress Bot"
+        git add static/img/uploads/
+        if git diff --cached --quiet; then
+          echo "📸 No changes to commit"
+        else
+          git commit -m "🗜️ Auto process new/changed images [skip ci]"
+          git push
+          echo "✅ Changes committed"
+        fi
