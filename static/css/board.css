@@ -566,7 +566,7 @@
 /* 2. 웹디자인/프로그래밍 - 4:3 비율 */
 .board-item img {
     width: 100%;
-    aspect-ratio: 4/3; /* 4:3 비율 유지 */
+    aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
 }
@@ -1561,6 +1561,9 @@ line-height: 1.2; /* 1.25 → 1.2 */
         grid-template-columns: repeat(3, 1fr); /* 4열에서 3열로 */
         gap: 18px;
     }
+
+
+    
 }
 
 /* 태블릿 */
@@ -1589,6 +1592,16 @@ line-height: 1.2; /* 1.25 → 1.2 */
         object-fit: cover !important;
         object-position: center !important;
     }
+
+    /* 웹디자인,프로그래밍 게시판 반응형 이미지처리 */
+    .board-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
 
     
     .board-all-item-subtitle {
@@ -1854,6 +1867,7 @@ line-height: 1.2; /* 1.25 → 1.2 */
         padding: 0px 20px;
     }
 
+
     .board-all-container {
     padding: 0px 0px;
 }
@@ -1880,9 +1894,9 @@ line-height: 1.2; /* 1.25 → 1.2 */
 .category-overlay {
     top: 8px;
     left: 50%;
-    padding: 5px 8px !important;
+    padding: 4px 6px !important;
     border-radius: 5px !important;
-    font-size: 10px !important;
+    font-size: 9px !important;
 }
 
 .video-overlay {
