@@ -60,11 +60,17 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe='').lower())" "$name")
+              # 한글을 영문으로 변환 (ASCII safe)
+              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+              
+              # 빈 문자열이면 파일명의 해시 사용
+              if [ -z "$safe_name" ]; then
+                safe_name=$(echo -n "$name" | md5sum | cut -d' ' -f1)
+              fi
               
               echo "🆕 Processing: $img"
               echo "   Original name: $name"
-              echo "   URL-encoded name (lowercase): $safe_name"
+              echo "   ASCII safe name: $safe_name"
               
               if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
                 cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
@@ -80,11 +86,17 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe='').lower())" "$name")
+              # 한글을 영문으로 변환 (ASCII safe)
+              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+              
+              # 빈 문자열이면 파일명의 해시 사용
+              if [ -z "$safe_name" ]; then
+                safe_name=$(echo -n "$name" | md5sum | cut -d' ' -f1)
+              fi
               
               echo "🆕 Processing: $img"
               echo "   Original name: $name"
-              echo "   URL-encoded name (lowercase): $safe_name"
+              echo "   ASCII safe name: $safe_name"
               
               if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
                 cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
