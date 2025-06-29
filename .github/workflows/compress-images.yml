@@ -61,12 +61,16 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              # 원본 파일명 그대로 유지, 확장자만 .webp로 변경
-              echo "🆕 Processing: $img"
+              # 한글 파일명을 URL-safe하게 변환 (워크플로우와 동일한 로직)
+              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
               
-              if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
-                cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
-                echo "✅ WebP: ${name}.webp"
+              echo "🆕 Processing: $img"
+              echo "   Original name: $name"
+              echo "   Safe name: $safe_name"
+              
+              if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
+                cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
+                echo "✅ WebP: ${safe_name}.webp"
               fi
             fi
           done
@@ -78,12 +82,16 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              # 원본 파일명 그대로 유지, 확장자만 .webp로 변경
-              echo "🆕 Processing: $img"
+              # 한글 파일명을 URL-safe하게 변환 (워크플로우와 동일한 로직)
+              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
               
-              if [ ! -f "${dirname}/${name}.webp" ] || [ "$img" -nt "${dirname}/${name}.webp" ]; then
-                cwebp -q 85 "$img" -o "${dirname}/${name}.webp"
-                echo "✅ WebP: ${name}.webp"
+              echo "🆕 Processing: $img"
+              echo "   Original name: $name"
+              echo "   Safe name: $safe_name"
+              
+              if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
+                cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
+                echo "✅ WebP: ${safe_name}.webp"
               fi
             fi
           done
