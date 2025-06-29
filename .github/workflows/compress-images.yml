@@ -104,7 +104,8 @@ jobs:
           webp_filename="${safe_name}.webp"
           
           # 방법 2: URL 인코딩된 파일명으로도 생성 (브라우저 호환성)
-          encoded_name=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$name', safe=''))")
+          # 소문자 인코딩으로 생성 (브라우저 표준)
+          encoded_name=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$name', safe='').lower())")
           encoded_webp_filename="${encoded_name}.webp"
           
           echo "   Safe name: $safe_name"
@@ -116,7 +117,7 @@ jobs:
             echo "✅ WebP created: ${webp_filename}"
           fi
           
-          # URL 인코딩된 버전도 생성 (심볼릭 링크 또는 복사)
+          # URL 인코딩된 버전도 생성 (소문자만, 표준 준수)
           if [ "$safe_name" != "$encoded_name" ]; then
             if [ ! -f "${dirname}/${encoded_webp_filename}" ] || [ "${dirname}/${webp_filename}" -nt "${dirname}/${encoded_webp_filename}" ]; then
               cp "${dirname}/${webp_filename}" "${dirname}/${encoded_webp_filename}"
