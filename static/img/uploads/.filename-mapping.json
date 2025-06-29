@@ -154,5 +154,125 @@
     "encoded_name": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a01",
     "webp_safe": "정병호님-로고1.webp",
     "webp_encoded": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a01.webp"
+  },
+  "banner1": {
+    "safe_name": "banner1",
+    "encoded_name": "banner1",
+    "webp_safe": "banner1.webp",
+    "webp_encoded": "banner1.webp"
+  },
+  "banner2": {
+    "safe_name": "banner2",
+    "encoded_name": "banner2",
+    "webp_safe": "banner2.webp",
+    "webp_encoded": "banner2.webp"
+  },
+  "content": {
+    "safe_name": "content",
+    "encoded_name": "content",
+    "webp_safe": "content.webp",
+    "webp_encoded": "content.webp"
+  },
+  "programming": {
+    "safe_name": "programming",
+    "encoded_name": "programming",
+    "webp_safe": "programming.webp",
+    "webp_encoded": "programming.webp"
+  },
+  "video": {
+    "safe_name": "video",
+    "encoded_name": "video",
+    "webp_safe": "video.webp",
+    "webp_encoded": "video.webp"
+  },
+  "광고": {
+    "safe_name": "광고",
+    "encoded_name": "%ea%b4%91%ea%b3%a0",
+    "webp_safe": "광고.webp",
+    "webp_encoded": "%ea%b4%91%ea%b3%a0.webp"
+  },
+  "웹디자인": {
+    "safe_name": "웹디자인",
+    "encoded_name": "%ec%9b%b9%eb%94%94%ec%9e%90%ec%9d%b8",
+    "webp_safe": "웹디자인.webp",
+    "webp_encoded": "%ec%9b%b9%eb%94%94%ec%9e%90%ec%9d%b8.webp"
+  },
+  "크리에이티브": {
+    "safe_name": "크리에이티브",
+    "encoded_name": "%ed%81%ac%eb%a6%ac%ec%97%90%ec%9d%b4%ed%8b%b0%eb%b8%8c",
+    "webp_safe": "크리에이티브.webp",
+    "webp_encoded": "%ed%81%ac%eb%a6%ac%ec%97%90%ec%9d%b4%ed%8b%b0%eb%b8%8c.webp"
+  },
+  "프로그래밍": {
+    "safe_name": "프로그래밍",
+    "encoded_name": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d",
+    "webp_safe": "프로그래밍.webp",
+    "webp_encoded": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d.webp"
+  },
+  "coser_hover": {
+    "safe_name": "coser_hover",
+    "encoded_name": "coser_hover",
+    "webp_safe": "coser_hover.webp",
+    "webp_encoded": "coser_hover.webp"
+  },
+  "design2": {
+    "safe_name": "design2",
+    "encoded_name": "design2",
+    "webp_safe": "design2.webp",
+    "webp_encoded": "design2.webp"
+  },
+  "icon": {
+    "safe_name": "icon",
+    "encoded_name": "icon",
+    "webp_safe": "icon.webp",
+    "webp_encoded": "icon.webp"
+  },
+  "icon_180": {
+    "safe_name": "icon_180",
+    "encoded_name": "icon_180",
+    "webp_safe": "icon_180.webp",
+    "webp_encoded": "icon_180.webp"
+  },
+  "nfp-main": {
+    "safe_name": "nfp-main",
+    "encoded_name": "nfp-main",
+    "webp_safe": "nfp-main.webp",
+    "webp_encoded": "nfp-main.webp"
+  },
+  "popup-banner-3": {
+    "safe_name": "popup-banner-3",
+    "encoded_name": "popup-banner-3",
+    "webp_safe": "popup-banner-3.webp",
+    "webp_encoded": "popup-banner-3.webp"
+  },
+  "popup-banner-5": {
+    "safe_name": "popup-banner-5",
+    "encoded_name": "popup-banner-5",
+    "webp_safe": "popup-banner-5.webp",
+    "webp_encoded": "popup-banner-5.webp"
+  },
+  "kakaotalk_20230217_012336798": {
+    "safe_name": "kakaotalk_20230217_012336798",
+    "encoded_name": "kakaotalk_20230217_012336798",
+    "webp_safe": "kakaotalk_20230217_012336798.webp",
+    "webp_encoded": "kakaotalk_20230217_012336798.webp"
+  },
+  "screenshot_20250608-120052_fc-online-m": {
+    "safe_name": "screenshot_20250608-120052_fc-online-m",
+    "encoded_name": "screenshot_20250608-120052_fc-online-m",
+    "webp_safe": "screenshot_20250608-120052_fc-online-m.webp",
+    "webp_encoded": "screenshot_20250608-120052_fc-online-m.webp"
+  },
+  "youtube1": {
+    "safe_name": "youtube1",
+    "encoded_name": "youtube1",
+    "webp_safe": "youtube1.webp",
+    "webp_encoded": "youtube1.webp"
+  },
+  "youtube3": {
+    "safe_name": "youtube3",
+    "encoded_name": "youtube3",
+    "webp_safe": "youtube3.webp",
+    "webp_encoded": "youtube3.webp"
   }
 }
