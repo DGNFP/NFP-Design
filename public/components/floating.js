@@ -353,8 +353,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
 
     .visitor-counter:hover {
         background-color: rgba(0, 0, 0, 0.95);
-        transform: scale(1.02);
-        box-shadow: 0 6px 20px rgba(1, 255, 117, 0.3);
+        box-shadow: 0 6px 20px rgba(1, 255, 117, 0.5);
     }
 
     /* 모바일용 심플 스타일 (기본 숨김) */
