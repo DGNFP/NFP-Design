@@ -53,7 +53,6 @@ jobs:
       run: |
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "🔄 Processing ALL original images (manual run)..."
-          # grep 대신 find의 -not 옵션 사용
           find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
             -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" | while read img; do
             if [ -f "$img" ]; then
@@ -61,12 +60,11 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              # 한글 파일명을 URL-safe하게 변환 (워크플로우와 동일한 로직)
-              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "$name")
               
               echo "🆕 Processing: $img"
               echo "   Original name: $name"
-              echo "   Safe name: $safe_name"
+              echo "   URL-encoded name: $safe_name"
               
               if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
                 cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
@@ -82,12 +80,11 @@ jobs:
               dirname=$(dirname "$img")
               name="${filename%.*}"
               
-              # 한글 파일명을 URL-safe하게 변환 (워크플로우와 동일한 로직)
-              safe_name=$(echo "$name" | sed 's/[^a-zA-Z0-9.-]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+              safe_name=$(python3 -c "import urllib.parse; import sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "$name")
               
               echo "🆕 Processing: $img"
               echo "   Original name: $name"
-              echo "   Safe name: $safe_name"
+              echo "   URL-encoded name: $safe_name"
               
               if [ ! -f "${dirname}/${safe_name}.webp" ] || [ "$img" -nt "${dirname}/${safe_name}.webp" ]; then
                 cwebp -q 85 "$img" -o "${dirname}/${safe_name}.webp"
