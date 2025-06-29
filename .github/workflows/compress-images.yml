@@ -57,6 +57,37 @@ jobs:
           echo '{}' > "$mapping_file"
         fi
         
+        # Python 스크립트를 별도 파일로 생성
+        cat > update_mapping.py << 'EOF'
+        import json
+        import sys
+        import urllib.parse
+        
+        mapping_file = sys.argv[1]
+        original_name = sys.argv[2]
+        safe_name = sys.argv[3]
+        encoded_name = sys.argv[4]
+        
+        # 기존 매핑 로드
+        try:
+            with open(mapping_file, 'r', encoding='utf-8') as f:
+                mapping = json.load(f)
+        except:
+            mapping = {}
+        
+        # 매핑 업데이트
+        mapping[original_name] = {
+            "safe_name": safe_name,
+            "encoded_name": encoded_name,
+            "webp_safe": safe_name + ".webp",
+            "webp_encoded": encoded_name + ".webp"
+        }
+        
+        # 매핑 저장
+        with open(mapping_file, 'w', encoding='utf-8') as f:
+            json.dump(mapping, f, ensure_ascii=False, indent=2)
+        EOF
+        
         process_image() {
           local img="$1"
           local filename=$(basename "$img")
@@ -73,7 +104,6 @@ jobs:
           webp_filename="${safe_name}.webp"
           
           # 방법 2: URL 인코딩된 파일명으로도 생성 (브라우저 호환성)
-          # Python을 사용해 URL 인코딩
           encoded_name=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$name', safe=''))")
           encoded_webp_filename="${encoded_name}.webp"
           
@@ -95,35 +125,7 @@ jobs:
           fi
           
           # 매핑 정보 업데이트
-          python3 -c "
-import json
-import os
-import urllib.parse
-
-mapping_file = '$mapping_file'
-original_name = '$name'
-safe_name = '$safe_name'
-encoded_name = '$encoded_name'
-
-# 기존 매핑 로드
-try:
-    with open(mapping_file, 'r', encoding='utf-8') as f:
-        mapping = json.load(f)
-except:
-    mapping = {}
-
-# 매핑 업데이트
-mapping[original_name] = {
-    'safe_name': safe_name,
-    'encoded_name': encoded_name,
-    'webp_safe': safe_name + '.webp',
-    'webp_encoded': encoded_name + '.webp'
-}
-
-# 매핑 저장
-with open(mapping_file, 'w', encoding='utf-8') as f:
-    json.dump(mapping, f, ensure_ascii=False, indent=2)
-"
+          python3 update_mapping.py "$mapping_file" "$name" "$safe_name" "$encoded_name"
         }
         
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
