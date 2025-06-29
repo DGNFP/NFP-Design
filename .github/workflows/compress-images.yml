@@ -42,10 +42,10 @@ jobs:
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         echo "🧹 Cleaning up old thumbnail and medium files..."
-        find static/img/uploads -name "*_thumb.*" -type f -delete
-        find static/img/uploads -name "*_medium.*" -type f -delete
-        find static/img/uploads -name "*-thumb.*" -type f -delete
-        find static/img/uploads -name "*-medium.*" -type f -delete
+        find static/img/uploads -name "*_thumb.*" -type f -delete 2>/dev/null || true
+        find static/img/uploads -name "*_medium.*" -type f -delete 2>/dev/null || true
+        find static/img/uploads -name "*-thumb.*" -type f -delete 2>/dev/null || true
+        find static/img/uploads -name "*-medium.*" -type f -delete 2>/dev/null || true
         echo "✅ Cleanup completed"
     
     - name: 🌐 Process original images to WebP
@@ -53,7 +53,9 @@ jobs:
       run: |
         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           echo "🔄 Processing ALL original images (manual run)..."
-          find static/img/uploads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | grep -v "_thumb" | grep -v "_medium" | grep -v "-thumb" | grep -v "-medium" | while read img; do
+          # grep 대신 find의 -not 옵션 사용
+          find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
+            -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" | while read img; do
             if [ -f "$img" ]; then
               filename=$(basename "$img")
               dirname=$(dirname "$img")
@@ -71,7 +73,7 @@ jobs:
         else
           echo "🔄 Processing only NEW/CHANGED original images..."
           echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
-            if [ -f "$img" ]; then
+            if [ -f "$img" ] && [ -n "$img" ]; then
               filename=$(basename "$img")
               dirname=$(dirname "$img")
               name="${filename%.*}"
