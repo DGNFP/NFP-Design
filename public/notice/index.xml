@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 13 Jun 2025 10:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/notice/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>NFP 디자인 웹사이트 리뉴얼 오픈 안내</title>
+      <title>NFP 디자인 웹사이트 오픈 안내</title>
       <link>http://localhost:1313/notice/test/</link>
       <pubDate>Fri, 13 Jun 2025 10:00:00 +0900</pubDate>
       <guid>http://localhost:1313/notice/test/</guid>
-      <description>&lt;h2 id=&#34;주요-변경-사항&#34;&gt;주요 변경 사항&lt;/h2&gt;&#xA;&lt;p&gt;-모바일, 태블릿, PC 모든 기기에서 최적화된 화면&lt;/p&gt;&#xA;&lt;p&gt;-카테고리별 작업물을 더 쉽게 탐색&lt;/p&gt;&#xA;&lt;p&gt;-소식, 자유게시판, 공지사항으로 구분&lt;/p&gt;&#xA;&lt;p&gt;-더욱 간편해진 문의 시스템&lt;/p&gt;&#xA;&lt;p&gt;앞으로도 더 나은 서비스로 찾아뵙겠습니다.&lt;/p&gt;&#xA;&lt;p&gt;감사합니다.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;주요-변경-사항&#34;&gt;주요 변경 사항&lt;/h2&gt;&#xA;&lt;p&gt;-모바일, 태블릿, PC 모든 기기에서 최적화된 화면&lt;/p&gt;&#xA;&lt;p&gt;-카테고리별 작업물을 더 쉽게 탐색&lt;/p&gt;&#xA;&lt;p&gt;-소식, 자유게시판, 공지사항으로 구분&lt;/p&gt;&#xA;&lt;p&gt;-더욱 간편해진 문의 시스템&lt;/p&gt;&#xA;&lt;p&gt;테스트를 거쳐서 전반적인 기능을 순차적으로 도입하고 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;더욱 완성도 높은 사이트와 편리한 시스템을 제공하도록 노력하겠습니다.&lt;/p&gt;&#xA;&lt;p&gt;감사합니다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
