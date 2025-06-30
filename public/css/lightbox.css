@@ -329,3 +329,13 @@
 .post-body img[data-lightbox]:hover {
     filter: brightness(1.1);
 }
+
+.nfp-lightbox-image {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: auto; /* 클릭은 허용 */
+    -webkit-tap-highlight-color: transparent;
+}

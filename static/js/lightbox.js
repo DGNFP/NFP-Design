@@ -368,12 +368,12 @@ class NFPLightbox {
     }
     
     zoomIn() {
-        this.scale = Math.min(this.scale * 1.5, 3);
+        this.scale = Math.min(this.scale * 1.2, 5);
         this.applyZoom();
     }
     
     zoomOut() {
-        this.scale = Math.max(this.scale / 1.5, 0.25);  // 25%까지 축소 가능
+        this.scale = Math.max(this.scale / 1.2, 0.1);  // 25%까지 축소 가능
         this.applyZoom();
     }
     
