@@ -1,0 +1,152 @@
+{
+  "cmyk": {
+    "safe_name": "cmyk",
+    "encoded_name": "cmyk",
+    "webp_safe": "cmyk.webp",
+    "webp_encoded": "cmyk.webp"
+  },
+  "youtube4": {
+    "safe_name": "youtube4",
+    "encoded_name": "youtube4",
+    "webp_safe": "youtube4.webp",
+    "webp_encoded": "youtube4.webp"
+  },
+  "youtube2": {
+    "safe_name": "youtube2",
+    "encoded_name": "youtube2",
+    "webp_safe": "youtube2.webp",
+    "webp_encoded": "youtube2.webp"
+  },
+  "레더우드-카드뉴스-소개형-1": {
+    "safe_name": "레더우드-카드뉴스-소개형-1",
+    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-1",
+    "webp_safe": "레더우드-카드뉴스-소개형-1.webp",
+    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-1.webp"
+  },
+  "nfp": {
+    "safe_name": "nfp",
+    "encoded_name": "nfp",
+    "webp_safe": "nfp.webp",
+    "webp_encoded": "nfp.webp"
+  },
+  "홈페이지-배너3": {
+    "safe_name": "홈페이지-배너3",
+    "encoded_name": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%883",
+    "webp_safe": "홈페이지-배너3.webp",
+    "webp_encoded": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%883.webp"
+  },
+  "레더우드-웹사이트-복사": {
+    "safe_name": "레더우드-웹사이트-복사",
+    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%9b%b9%ec%82%ac%ec%9d%b4%ed%8a%b8-%eb%b3%b5%ec%82%ac",
+    "webp_safe": "레더우드-웹사이트-복사.webp",
+    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%9b%b9%ec%82%ac%ec%9d%b4%ed%8a%b8-%eb%b3%b5%ec%82%ac.webp"
+  },
+  "홈페이지-배너2": {
+    "safe_name": "홈페이지-배너2",
+    "encoded_name": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%882",
+    "webp_safe": "홈페이지-배너2.webp",
+    "webp_encoded": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%882.webp"
+  },
+  "nfp-썸네일": {
+    "safe_name": "nfp-썸네일",
+    "encoded_name": "nfp-%ec%8d%b8%eb%84%a4%ec%9d%bc",
+    "webp_safe": "nfp-썸네일.webp",
+    "webp_encoded": "nfp-%ec%8d%b8%eb%84%a4%ec%9d%bc.webp"
+  },
+  "모베컴-썸네일": {
+    "safe_name": "모베컴-썸네일",
+    "encoded_name": "%eb%aa%a8%eb%b2%a0%ec%bb%b4-%ec%8d%b8%eb%84%a4%ec%9d%bc",
+    "webp_safe": "모베컴-썸네일.webp",
+    "webp_encoded": "%eb%aa%a8%eb%b2%a0%ec%bb%b4-%ec%8d%b8%eb%84%a4%ec%9d%bc.webp"
+  },
+  "엘-뮤직타운-1": {
+    "safe_name": "엘-뮤직타운-1",
+    "encoded_name": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-1",
+    "webp_safe": "엘-뮤직타운-1.webp",
+    "webp_encoded": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-1.webp"
+  },
+  "레더우드-카드뉴스-소개형-2": {
+    "safe_name": "레더우드-카드뉴스-소개형-2",
+    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-2",
+    "webp_safe": "레더우드-카드뉴스-소개형-2.webp",
+    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-2.webp"
+  },
+  "가로2": {
+    "safe_name": "가로2",
+    "encoded_name": "%ea%b0%80%eb%a1%9c2",
+    "webp_safe": "가로2.webp",
+    "webp_encoded": "%ea%b0%80%eb%a1%9c2.webp"
+  },
+  "홈페이지-배너1": {
+    "safe_name": "홈페이지-배너1",
+    "encoded_name": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%881",
+    "webp_safe": "홈페이지-배너1.webp",
+    "webp_encoded": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%881.webp"
+  },
+  "6조-인테르-복사": {
+    "safe_name": "6조-인테르-복사",
+    "encoded_name": "6%ec%a1%b0-%ec%9d%b8%ed%85%8c%eb%a5%b4-%eb%b3%b5%ec%82%ac",
+    "webp_safe": "6조-인테르-복사.webp",
+    "webp_encoded": "6%ec%a1%b0-%ec%9d%b8%ed%85%8c%eb%a5%b4-%eb%b3%b5%ec%82%ac.webp"
+  },
+  "레더우드-카드뉴스-상품형-1": {
+    "safe_name": "레더우드-카드뉴스-상품형-1",
+    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-1",
+    "webp_safe": "레더우드-카드뉴스-상품형-1.webp",
+    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-1.webp"
+  },
+  "엘-뮤직타운-2": {
+    "safe_name": "엘-뮤직타운-2",
+    "encoded_name": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-2",
+    "webp_safe": "엘-뮤직타운-2.webp",
+    "webp_encoded": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-2.webp"
+  },
+  "명함-뒷면": {
+    "safe_name": "명함-뒷면",
+    "encoded_name": "%eb%aa%85%ed%95%a8-%eb%92%b7%eb%a9%b4",
+    "webp_safe": "명함-뒷면.webp",
+    "webp_encoded": "%eb%aa%85%ed%95%a8-%eb%92%b7%eb%a9%b4.webp"
+  },
+  "1749463761603": {
+    "safe_name": "1749463761603",
+    "encoded_name": "1749463761603",
+    "webp_safe": "1749463761603.webp",
+    "webp_encoded": "1749463761603.webp"
+  },
+  "정병호님-채널아트": {
+    "safe_name": "정병호님-채널아트",
+    "encoded_name": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%ec%b1%84%eb%84%90%ec%95%84%ed%8a%b8",
+    "webp_safe": "정병호님-채널아트.webp",
+    "webp_encoded": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%ec%b1%84%eb%84%90%ec%95%84%ed%8a%b8.webp"
+  },
+  "레더우드-카드뉴스-상품형-2": {
+    "safe_name": "레더우드-카드뉴스-상품형-2",
+    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-2",
+    "webp_safe": "레더우드-카드뉴스-상품형-2.webp",
+    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-2.webp"
+  },
+  "정병호님-로고": {
+    "safe_name": "정병호님-로고",
+    "encoded_name": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a0",
+    "webp_safe": "정병호님-로고.webp",
+    "webp_encoded": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a0.webp"
+  },
+  "design1": {
+    "safe_name": "design1",
+    "encoded_name": "design1",
+    "webp_safe": "design1.webp",
+    "webp_encoded": "design1.webp"
+  },
+  "creative": {
+    "safe_name": "creative",
+    "encoded_name": "creative",
+    "webp_safe": "creative.webp",
+    "webp_encoded": "creative.webp"
+  },
+  "로고": {
+    "safe_name": "로고",
+    "encoded_name": "%eb%a1%9c%ea%b3%a0",
+    "webp_safe": "로고.webp",
+    "webp_encoded": "%eb%a1%9c%ea%b3%a0.webp"
+  }
+}
