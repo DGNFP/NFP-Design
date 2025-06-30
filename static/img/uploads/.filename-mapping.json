@@ -1,278 +1,52 @@
 {
-  "cmyk": {
-    "safe_name": "cmyk",
-    "encoded_name": "cmyk",
-    "webp_safe": "cmyk.webp",
-    "webp_encoded": "cmyk.webp"
-  },
-  "youtube4": {
-    "safe_name": "youtube4",
-    "encoded_name": "youtube4",
-    "webp_safe": "youtube4.webp",
-    "webp_encoded": "youtube4.webp"
-  },
-  "youtube2": {
-    "safe_name": "youtube2",
-    "encoded_name": "youtube2",
-    "webp_safe": "youtube2.webp",
-    "webp_encoded": "youtube2.webp"
-  },
-  "레더우드-카드뉴스-소개형-1": {
-    "safe_name": "레더우드-카드뉴스-소개형-1",
-    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-1",
-    "webp_safe": "레더우드-카드뉴스-소개형-1.webp",
-    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-1.webp"
-  },
-  "nfp": {
-    "safe_name": "nfp",
-    "encoded_name": "nfp",
-    "webp_safe": "nfp.webp",
-    "webp_encoded": "nfp.webp"
-  },
-  "홈페이지-배너3": {
-    "safe_name": "홈페이지-배너3",
-    "encoded_name": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%883",
-    "webp_safe": "홈페이지-배너3.webp",
-    "webp_encoded": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%883.webp"
-  },
-  "레더우드-웹사이트-복사": {
-    "safe_name": "레더우드-웹사이트-복사",
-    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%9b%b9%ec%82%ac%ec%9d%b4%ed%8a%b8-%eb%b3%b5%ec%82%ac",
-    "webp_safe": "레더우드-웹사이트-복사.webp",
-    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%9b%b9%ec%82%ac%ec%9d%b4%ed%8a%b8-%eb%b3%b5%ec%82%ac.webp"
-  },
-  "홈페이지-배너2": {
-    "safe_name": "홈페이지-배너2",
-    "encoded_name": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%882",
-    "webp_safe": "홈페이지-배너2.webp",
-    "webp_encoded": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%882.webp"
-  },
-  "nfp-썸네일": {
-    "safe_name": "nfp-썸네일",
-    "encoded_name": "nfp-%ec%8d%b8%eb%84%a4%ec%9d%bc",
-    "webp_safe": "nfp-썸네일.webp",
-    "webp_encoded": "nfp-%ec%8d%b8%eb%84%a4%ec%9d%bc.webp"
-  },
-  "모베컴-썸네일": {
-    "safe_name": "모베컴-썸네일",
-    "encoded_name": "%eb%aa%a8%eb%b2%a0%ec%bb%b4-%ec%8d%b8%eb%84%a4%ec%9d%bc",
-    "webp_safe": "모베컴-썸네일.webp",
-    "webp_encoded": "%eb%aa%a8%eb%b2%a0%ec%bb%b4-%ec%8d%b8%eb%84%a4%ec%9d%bc.webp"
-  },
-  "엘-뮤직타운-1": {
-    "safe_name": "엘-뮤직타운-1",
-    "encoded_name": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-1",
-    "webp_safe": "엘-뮤직타운-1.webp",
-    "webp_encoded": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-1.webp"
-  },
-  "레더우드-카드뉴스-소개형-2": {
-    "safe_name": "레더우드-카드뉴스-소개형-2",
-    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-2",
-    "webp_safe": "레더우드-카드뉴스-소개형-2.webp",
-    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%86%8c%ea%b0%9c%ed%98%95-2.webp"
-  },
-  "가로2": {
-    "safe_name": "가로2",
-    "encoded_name": "%ea%b0%80%eb%a1%9c2",
-    "webp_safe": "가로2.webp",
-    "webp_encoded": "%ea%b0%80%eb%a1%9c2.webp"
-  },
-  "홈페이지-배너1": {
-    "safe_name": "홈페이지-배너1",
-    "encoded_name": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%881",
-    "webp_safe": "홈페이지-배너1.webp",
-    "webp_encoded": "%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b0%b0%eb%84%881.webp"
-  },
-  "6조-인테르-복사": {
-    "safe_name": "6조-인테르-복사",
-    "encoded_name": "6%ec%a1%b0-%ec%9d%b8%ed%85%8c%eb%a5%b4-%eb%b3%b5%ec%82%ac",
-    "webp_safe": "6조-인테르-복사.webp",
-    "webp_encoded": "6%ec%a1%b0-%ec%9d%b8%ed%85%8c%eb%a5%b4-%eb%b3%b5%ec%82%ac.webp"
-  },
-  "레더우드-카드뉴스-상품형-1": {
-    "safe_name": "레더우드-카드뉴스-상품형-1",
-    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-1",
-    "webp_safe": "레더우드-카드뉴스-상품형-1.webp",
-    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-1.webp"
-  },
-  "엘-뮤직타운-2": {
-    "safe_name": "엘-뮤직타운-2",
-    "encoded_name": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-2",
-    "webp_safe": "엘-뮤직타운-2.webp",
-    "webp_encoded": "%ec%97%98-%eb%ae%a4%ec%a7%81%ed%83%80%ec%9a%b4-2.webp"
-  },
-  "명함-뒷면": {
-    "safe_name": "명함-뒷면",
-    "encoded_name": "%eb%aa%85%ed%95%a8-%eb%92%b7%eb%a9%b4",
-    "webp_safe": "명함-뒷면.webp",
-    "webp_encoded": "%eb%aa%85%ed%95%a8-%eb%92%b7%eb%a9%b4.webp"
-  },
-  "1749463761603": {
-    "safe_name": "1749463761603",
-    "encoded_name": "1749463761603",
-    "webp_safe": "1749463761603.webp",
-    "webp_encoded": "1749463761603.webp"
-  },
-  "정병호님-채널아트": {
-    "safe_name": "정병호님-채널아트",
-    "encoded_name": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%ec%b1%84%eb%84%90%ec%95%84%ed%8a%b8",
-    "webp_safe": "정병호님-채널아트.webp",
-    "webp_encoded": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%ec%b1%84%eb%84%90%ec%95%84%ed%8a%b8.webp"
-  },
-  "레더우드-카드뉴스-상품형-2": {
-    "safe_name": "레더우드-카드뉴스-상품형-2",
-    "encoded_name": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-2",
-    "webp_safe": "레더우드-카드뉴스-상품형-2.webp",
-    "webp_encoded": "%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%b9%b4%eb%93%9c%eb%89%b4%ec%8a%a4-%ec%83%81%ed%92%88%ed%98%95-2.webp"
-  },
-  "정병호님-로고": {
-    "safe_name": "정병호님-로고",
-    "encoded_name": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a0",
-    "webp_safe": "정병호님-로고.webp",
-    "webp_encoded": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a0.webp"
-  },
-  "design1": {
-    "safe_name": "design1",
-    "encoded_name": "design1",
-    "webp_safe": "design1.webp",
-    "webp_encoded": "design1.webp"
-  },
-  "creative": {
-    "safe_name": "creative",
-    "encoded_name": "creative",
-    "webp_safe": "creative.webp",
-    "webp_encoded": "creative.webp"
-  },
-  "로고": {
-    "safe_name": "로고",
-    "encoded_name": "%eb%a1%9c%ea%b3%a0",
-    "webp_safe": "로고.webp",
-    "webp_encoded": "%eb%a1%9c%ea%b3%a0.webp"
-  },
-  "정병호님-로고1": {
-    "safe_name": "정병호님-로고1",
-    "encoded_name": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a01",
-    "webp_safe": "정병호님-로고1.webp",
-    "webp_encoded": "%ec%a0%95%eb%b3%91%ed%98%b8%eb%8b%98-%eb%a1%9c%ea%b3%a01.webp"
-  },
-  "banner1": {
-    "safe_name": "banner1",
-    "encoded_name": "banner1",
-    "webp_safe": "banner1.webp",
-    "webp_encoded": "banner1.webp"
-  },
-  "banner2": {
-    "safe_name": "banner2",
-    "encoded_name": "banner2",
-    "webp_safe": "banner2.webp",
-    "webp_encoded": "banner2.webp"
-  },
-  "content": {
-    "safe_name": "content",
-    "encoded_name": "content",
-    "webp_safe": "content.webp",
-    "webp_encoded": "content.webp"
-  },
-  "programming": {
-    "safe_name": "programming",
-    "encoded_name": "programming",
-    "webp_safe": "programming.webp",
-    "webp_encoded": "programming.webp"
-  },
-  "video": {
-    "safe_name": "video",
-    "encoded_name": "video",
-    "webp_safe": "video.webp",
-    "webp_encoded": "video.webp"
-  },
-  "광고": {
-    "safe_name": "광고",
-    "encoded_name": "%ea%b4%91%ea%b3%a0",
-    "webp_safe": "광고.webp",
-    "webp_encoded": "%ea%b4%91%ea%b3%a0.webp"
-  },
-  "웹디자인": {
-    "safe_name": "웹디자인",
-    "encoded_name": "%ec%9b%b9%eb%94%94%ec%9e%90%ec%9d%b8",
-    "webp_safe": "웹디자인.webp",
-    "webp_encoded": "%ec%9b%b9%eb%94%94%ec%9e%90%ec%9d%b8.webp"
-  },
-  "크리에이티브": {
-    "safe_name": "크리에이티브",
-    "encoded_name": "%ed%81%ac%eb%a6%ac%ec%97%90%ec%9d%b4%ed%8b%b0%eb%b8%8c",
-    "webp_safe": "크리에이티브.webp",
-    "webp_encoded": "%ed%81%ac%eb%a6%ac%ec%97%90%ec%9d%b4%ed%8b%b0%eb%b8%8c.webp"
-  },
-  "프로그래밍": {
-    "safe_name": "프로그래밍",
-    "encoded_name": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d",
-    "webp_safe": "프로그래밍.webp",
-    "webp_encoded": "%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d.webp"
-  },
-  "coser_hover": {
-    "safe_name": "coser_hover",
-    "encoded_name": "coser_hover",
-    "webp_safe": "coser_hover.webp",
-    "webp_encoded": "coser_hover.webp"
-  },
-  "design2": {
-    "safe_name": "design2",
-    "encoded_name": "design2",
-    "webp_safe": "design2.webp",
-    "webp_encoded": "design2.webp"
-  },
-  "icon": {
-    "safe_name": "icon",
-    "encoded_name": "icon",
-    "webp_safe": "icon.webp",
-    "webp_encoded": "icon.webp"
-  },
-  "icon_180": {
-    "safe_name": "icon_180",
-    "encoded_name": "icon_180",
-    "webp_safe": "icon_180.webp",
-    "webp_encoded": "icon_180.webp"
-  },
-  "nfp-main": {
-    "safe_name": "nfp-main",
-    "encoded_name": "nfp-main",
-    "webp_safe": "nfp-main.webp",
-    "webp_encoded": "nfp-main.webp"
-  },
-  "popup-banner-3": {
-    "safe_name": "popup-banner-3",
-    "encoded_name": "popup-banner-3",
-    "webp_safe": "popup-banner-3.webp",
-    "webp_encoded": "popup-banner-3.webp"
-  },
-  "popup-banner-5": {
-    "safe_name": "popup-banner-5",
-    "encoded_name": "popup-banner-5",
-    "webp_safe": "popup-banner-5.webp",
-    "webp_encoded": "popup-banner-5.webp"
-  },
-  "kakaotalk_20230217_012336798": {
-    "safe_name": "kakaotalk_20230217_012336798",
-    "encoded_name": "kakaotalk_20230217_012336798",
-    "webp_safe": "kakaotalk_20230217_012336798.webp",
-    "webp_encoded": "kakaotalk_20230217_012336798.webp"
-  },
-  "screenshot_20250608-120052_fc-online-m": {
-    "safe_name": "screenshot_20250608-120052_fc-online-m",
-    "encoded_name": "screenshot_20250608-120052_fc-online-m",
-    "webp_safe": "screenshot_20250608-120052_fc-online-m.webp",
-    "webp_encoded": "screenshot_20250608-120052_fc-online-m.webp"
-  },
-  "youtube1": {
-    "safe_name": "youtube1",
-    "encoded_name": "youtube1",
-    "webp_safe": "youtube1.webp",
-    "webp_encoded": "youtube1.webp"
-  },
-  "youtube3": {
-    "safe_name": "youtube3",
-    "encoded_name": "youtube3",
-    "webp_safe": "youtube3.webp",
-    "webp_encoded": "youtube3.webp"
-  }
+  "banner2": "NFP_20250630_013112.webp",
+  "youtube4": "NFP_20250630_013113.webp",
+  "popup-banner-3": "NFP_20250630_013114.webp",
+  "coser_hover": "NFP_20250630_013115.webp",
+  "youtube2": "NFP_20250630_013116.webp",
+  "youtube3": "NFP_20250630_013117.webp",
+  "icon": "NFP_20250630_013118.webp",
+  "youtube4_medium_medium_thumb_medium": "NFP_20250630_013119.webp",
+  "screenshot_20250608-120052_fc-online-m_medium_thumb_thumb": "NFP_20250630_013120.webp",
+  "레더우드-웹사이트-복사_medium_thumb_medium": "NFP_20250630_013121.webp",
+  "홈페이지-배너3_medium_thumb": "NFP_20250630_013122.webp",
+  "홈페이지-배너2_medium_thumb": "NFP_20250630_013123.webp",
+  "screenshot_20250608-120052_fc-online-m_thumb_medium_medium": "NFP_20250630_013124.webp",
+  "cmyk_medium_thumb": "NFP_20250630_013125.webp",
+  "로고_medium": "NFP_20250630_013126.webp",
+  "6조-인테르-복사_thumb_thumb_medium_thumb": "NFP_20250630_013128.webp",
+  "홈페이지-배너3_thumb_thumb_medium_medium": "NFP_20250630_013129.webp",
+  "nfp_thumb_thumb": "NFP_20250630_013130.webp",
+  "6조-인테르-복사_thumb": "NFP_20250630_013131.webp",
+  "cmyk_thumb_medium_medium_medium": "NFP_20250630_013132.webp",
+  "1749463761603_thumb_thumb_medium": "NFP_20250630_013133.webp",
+  "레더우드-웹사이트-복사_medium_medium": "NFP_20250630_013134.webp",
+  "레더우드-웹사이트-복사_thumb_thumb_medium_thumb": "NFP_20250630_013135.webp",
+  "kakaotalk_20230217_012336798_medium_medium_medium_medium": "NFP_20250630_013136.webp",
+  "레더우드-웹사이트-복사_medium_medium_thumb_medium": "NFP_20250630_013137.webp",
+  "정병호님-채널아트_thumb_medium_medium": "NFP_20250630_013138.webp",
+  "youtube2_thumb_medium_thumb_thumb": "NFP_20250630_013139.webp",
+  "가로2_thumb_thumb_medium_medium": "NFP_20250630_013140.webp",
+  "cmyk": "NFP_20250630_013141.webp",
+  "로고_medium_medium_medium_thumb": "NFP_20250630_013142.webp",
+  "youtube4_thumb_medium_thumb_medium": "NFP_20250630_013143.webp",
+  "로고_thumb_thumb_medium_medium": "NFP_20250630_013144.webp",
+  "홈페이지-배너3_medium_medium_thumb_medium": "NFP_20250630_013145.webp",
+  "정병호님-로고_medium_thumb_medium_thumb": "NFP_20250630_013146.webp",
+  "creative_medium_thumb": "NFP_20250630_013147.webp",
+  "nfp_medium_medium_thumb": "NFP_20250630_013148.webp",
+  "정병호님-로고_thumb_thumb_medium_thumb": "NFP_20250630_013149.webp",
+  "kakaotalk_20230217_012336798_medium_thumb": "NFP_20250630_013150.webp",
+  "홈페이지-배너1_thumb_medium_thumb_medium": "NFP_20250630_013151.webp",
+  "가로2_thumb_medium_medium": "NFP_20250630_013152.webp",
+  "정병호님-채널아트_thumb": "NFP_20250630_013153.webp",
+  "kakaotalk_20230217_012336798_medium_medium_medium": "NFP_20250630_013154.webp",
+  "6조-인테르-복사_thumb_medium_medium_medium": "NFP_20250630_013155.webp",
+  "로고_medium_thumb_thumb_thumb": "NFP_20250630_013156.webp",
+  "youtube4_thumb_medium_thumb_thumb": "NFP_20250630_013157.webp",
+  "정병호님-채널아트_medium_medium_thumb_thumb": "NFP_20250630_013158.webp",
+  "kakaotalk_20230217_012336798_medium_thumb_medium": "NFP_20250630_013159.webp",
+  "홈페이지-배너3_thumb_thumb": "NFP_20250630_013200.webp",
+  "kakaotalk_20230217_012336798_medium_medium": "NFP_20250630_013201.webp",
+  "1749463761603_medium_medium_medium_medium": "NFP_20250630_013202.webp"
 }
