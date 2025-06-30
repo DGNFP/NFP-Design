@@ -123,7 +123,7 @@ jobs:
         if git diff --cached --quiet; then
           echo "📸 No changes to commit"
         else
-          git commit -m "🗜️ Auto process new/changed images [skip ci]"
+          git commit -m "🗜️ Auto process new/changed images"
           git push
           echo "✅ Changes committed"
         fi
