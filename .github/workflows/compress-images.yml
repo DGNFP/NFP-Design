@@ -48,9 +48,19 @@ jobs:
         find static/img/uploads -name "*-medium.*" -type f -delete 2>/dev/null || true
         echo "✅ Multi-size cleanup completed - now using single WebP only"
     
-    - name: 🌐 Create single WebP version (원본 파일명 유지)
+    - name: 🌐 Create WebP with dual filename support (원본 + URL 인코딩)
       if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
+        # Python 스크립트를 별도 파일로 생성
+        cat > url_encode.py << 'EOF'
+        import urllib.parse
+        import sys
+        
+        filename = sys.argv[1]
+        encoded = urllib.parse.quote(filename, safe='').lower()
+        print(encoded)
+        EOF
+        
         process_image() {
           local img="$1"
           local filename=$(basename "$img")
@@ -58,16 +68,32 @@ jobs:
           local name="${filename%.*}"
           
           echo "🆕 Processing: $img"
-          echo "   Creating single WebP version: ${name}.webp"
+          echo "   Original name: $name"
           
-          # 단일 WebP 파일만 생성 (원본 파일명 유지, 품질 85%)
-          webp_path="${dirname}/${name}.webp"
+          # 1. 원본 파일명으로 WebP 생성
+          original_webp="${dirname}/${name}.webp"
           
-          if [ ! -f "$webp_path" ] || [ "$img" -nt "$webp_path" ]; then
-            cwebp -q 85 "$img" -o "$webp_path"
-            echo "✅ Single WebP created: ${name}.webp"
+          if [ ! -f "$original_webp" ] || [ "$img" -nt "$original_webp" ]; then
+            cwebp -q 85 "$img" -o "$original_webp"
+            echo "✅ Original WebP created: ${name}.webp"
           else
-            echo "⏭️ WebP already exists and up to date: ${name}.webp"
+            echo "⏭️ Original WebP already up to date: ${name}.webp"
+          fi
+          
+          # 2. URL 인코딩된 파일명으로도 생성 (브라우저 호환성)
+          encoded_name=$(python3 url_encode.py "$name")
+          encoded_webp="${dirname}/${encoded_name}.webp"
+          
+          echo "   Encoded name: $encoded_name"
+          
+          # 원본과 인코딩된 이름이 다를 때만 복사본 생성
+          if [ "$name" != "$encoded_name" ]; then
+            if [ ! -f "$encoded_webp" ] || [ "$original_webp" -nt "$encoded_webp" ]; then
+              cp "$original_webp" "$encoded_webp"
+              echo "✅ Encoded WebP created: ${encoded_name}.webp"
+            else
+              echo "⏭️ Encoded WebP already up to date: ${encoded_name}.webp"
+            fi
           fi
         }
         
