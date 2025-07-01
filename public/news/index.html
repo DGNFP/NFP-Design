@@ -244,13 +244,11 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   
-  console.log('🔥 Firebase 준비 완료!');
   
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
   
-  console.log('✅ Firebase 전역 변수 설정 완료!');
 </script>
 
    

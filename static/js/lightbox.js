@@ -295,13 +295,71 @@ class NFPLightbox {
         this.resetZoom();
     }
     
-    showImage() {
+   showImage() {
         const image = document.getElementById('lightbox-image');
         const loading = document.querySelector('.nfp-lightbox-loading');
         
         // 이미지에 로딩 클래스 추가 (투명도 낮춤)
         image.classList.add('loading');
         loading.style.display = 'block';
+        
+        // 🔥 WebP 지원 로직 추가
+        const originalSrc = this.images[this.currentIndex].src;
+        
+        // WebP 버전 경로 생성
+        const webpSrc = this.getWebPPath(originalSrc);
+        
+        // WebP 버전 먼저 시도
+        this.tryLoadImage(webpSrc)
+            .then((webpUrl) => {
+                // WebP 로딩 성공
+                this.loadImageToLightbox(webpUrl);
+            })
+            .catch(() => {
+                // WebP 실패 시 원본 이미지 사용
+                console.log('WebP 로딩 실패, 원본 사용:', originalSrc);
+                this.loadImageToLightbox(originalSrc);
+            });
+    }
+    
+    // 🔥 WebP 경로 생성 함수
+    getWebPPath(originalSrc) {
+        // 파일 확장자를 .webp로 변경
+        const webpSrc = originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        
+        // 한글 파일명인 경우 인코딩된 버전도 시도
+        if (this.hasKoreanChars(originalSrc)) {
+            // 파일명 부분만 URL 인코딩
+            const pathParts = webpSrc.split('/');
+            const fileName = pathParts[pathParts.length - 1];
+            const encodedFileName = encodeURIComponent(fileName.replace('.webp', '')).toLowerCase() + '.webp';
+            pathParts[pathParts.length - 1] = encodedFileName;
+            return pathParts.join('/');
+        }
+        
+        return webpSrc;
+    }
+    
+    // 🔥 한글 문자 확인 함수
+    hasKoreanChars(str) {
+        const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+        return koreanRegex.test(str);
+    }
+    
+    // 🔥 이미지 로딩 시도 함수 (Promise 기반)
+    tryLoadImage(src) {
+        return new Promise((resolve, reject) => {
+            const testImage = new Image();
+            testImage.onload = () => resolve(src);
+            testImage.onerror = () => reject(new Error('Image load failed'));
+            testImage.src = src;
+        });
+    }
+    
+    // 🔥 라이트박스에 이미지 로딩 함수
+    loadImageToLightbox(imageSrc) {
+        const image = document.getElementById('lightbox-image');
+        const loading = document.querySelector('.nfp-lightbox-loading');
         
         // 새 이미지 프리로드
         const newImage = new Image();
@@ -315,8 +373,14 @@ class NFPLightbox {
             image.classList.remove('loading');
         };
         
+        newImage.onerror = () => {
+            // 로딩 실패 시에도 로딩 효과 제거
+            loading.style.display = 'none';
+            image.classList.remove('loading');
+        };
+        
         // 새 이미지 로딩 시작
-        newImage.src = this.images[this.currentIndex].src;
+        newImage.src = imageSrc;
     }
     
     prevImage() {

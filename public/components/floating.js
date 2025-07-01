@@ -608,7 +608,7 @@ async function generateChartHTML() {
     }
 
     .bar {
-        width: 10px;
+        width: 8px;
         min-height: 3px;
         background: transparent;
         position: absolute;
