@@ -317,7 +317,6 @@ class NFPLightbox {
             })
             .catch(() => {
                 // WebP 실패 시 원본 이미지 사용
-                console.log('WebP 로딩 실패, 원본 사용:', originalSrc);
                 this.loadImageToLightbox(originalSrc);
             });
     }
