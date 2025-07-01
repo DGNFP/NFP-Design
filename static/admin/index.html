@@ -8,47 +8,103 @@
   
   <!-- 🔥 Title 필드만 숨기기 CSS 추가 -->
   <style>
-    /* 이미지 업로드 시 Title 필드만 숨기기 (Alt text는 유지) */
+    /* 더 강력한 TITLE 필드 숨기기 - 모든 가능한 선택자 */
     
-    /* Decap CMS 이미지 Title 필드 숨기기 */
-    input[placeholder*="Title"],
-    input[placeholder*="title"],
-    input[name*="title"],
-    .image-title-field,
-    [data-testid="image-title"],
+    /* 텍스트로 TITLE이 포함된 모든 라벨/필드 */
+    [class*="title"]:not([class*="subtitle"]):not(.page-title),
+    *[class*="Title"]:not([class*="Subtitle"]),
     
-    /* 더 구체적인 Decap CMS 선택자 */
-    .css-1dbjc4n:has(input[placeholder*="Title"]),
-    .form-control:has(input[placeholder*="Title"]),
+    /* TITLE 텍스트가 있는 부모 요소들 */
+    *:has-text("TITLE"),
+    *:has-text("Title"), 
+    *:has-text("title"),
     
-    /* 미디어 라이브러리에서 Title 필드 */
-    .media-library input[placeholder*="Title"],
-    .media-modal input[placeholder*="Title"],
+    /* 스크린샷에서 보이는 구조 기반 */
+    .css-*:nth-child(3):has-text("TITLE"),
+    div:nth-child(3):has-text("TITLE"),
     
-    /* 이미지 에디터에서 Title 관련 요소들 */
-    [class*="title"]:not([class*="subtitle"]):not(.page-title):not(.field-title),
-    .image-widget input[placeholder*="Title"] {
+    /* 모든 input의 placeholder에서 title 포함된 것들 */
+    input[placeholder*="Title" i],
+    input[placeholder*="TITLE" i],
+    input[placeholder*="title" i],
+    
+    /* 부모 div가 title을 포함하는 경우 */
+    div:has(input[placeholder*="title" i]),
+    div:has(label:contains("title" i)),
+    div:has(label:contains("TITLE")),
+    
+    /* 더 구체적인 Decap CMS 선택자들 */
+    .form-group:has-text("TITLE"),
+    .field-wrapper:has-text("TITLE"),
+    .control-group:has-text("TITLE") {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+    }
+    
+    /* 스크린샷 기준 - 세 번째 필드 숨기기 (TITLE이 세 번째에 있음) */
+    .css-*:nth-child(3):contains("TITLE") {
       display: none !important;
     }
-    
-    /* Alt text는 보이도록 명시적으로 표시 (혹시 숨겨질 수 있으니) */
-    input[placeholder*="Alt"],
-    input[placeholder*="alt"],
-    input[name*="alt"],
-    .image-alt-field {
-      display: block !important;
-    }
-    
-    /* CMS 전체적인 스타일 개선 (선택사항) */
-    .css-1pahdxg-AppMainContainer {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    
-    /* 한글 폰트 지원 강화 */
-    * {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
-    }
   </style>
+  
+  <!-- 🔥 JavaScript로 강제 숨기기 추가 -->
+  <script>
+    // TITLE 필드를 강제로 숨기는 함수
+    function hideTitleFields() {
+      // 모든 요소에서 "TITLE" 텍스트를 포함하는 것들 찾기
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach(element => {
+        if (element.textContent && element.textContent.trim() === 'TITLE') {
+          // TITLE 텍스트를 가진 요소의 부모 컨테이너 숨기기
+          let container = element.closest('div');
+          while (container && !container.querySelector('input')) {
+            container = container.parentElement;
+          }
+          if (container && container.querySelector('input')) {
+            container.style.display = 'none';
+            console.log('🚫 TITLE 필드 숨김:', container);
+          }
+        }
+      });
+      
+      // 추가로 placeholder나 label에서 title 포함된 것들
+      const titleInputs = document.querySelectorAll('input, label, div');
+      titleInputs.forEach(element => {
+        const text = element.textContent || element.placeholder || '';
+        if (text.toLowerCase().includes('title') && !text.toLowerCase().includes('subtitle')) {
+          const fieldContainer = element.closest('.field, .form-group, div[class*="css-"]');
+          if (fieldContainer) {
+            fieldContainer.style.display = 'none';
+            console.log('🚫 Title 관련 필드 숨김:', fieldContainer);
+          }
+        }
+      });
+    }
+    
+    // 페이지 로드 후 여러 번 시도
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(hideTitleFields, 1000);
+      setTimeout(hideTitleFields, 3000);
+      setTimeout(hideTitleFields, 5000);
+    });
+    
+    // MutationObserver로 DOM 변화 감지
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length > 0) {
+          setTimeout(hideTitleFields, 500);
+        }
+      });
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  </script>
   
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
@@ -65,21 +121,12 @@
       });
     }
     
-    // 🔥 Decap CMS 로드 후 추가 Title 필드 숨기기 (더 확실하게)
+    // 🔥 Decap CMS 로드 후 TITLE 필드 강제 숨기기
     window.addEventListener('load', function() {
       setTimeout(function() {
-        // Title 관련 요소들을 다시 한번 체크해서 숨기기
-        const titleInputs = document.querySelectorAll('input[placeholder*="Title"], input[placeholder*="title"]');
-        titleInputs.forEach(function(input) {
-          const container = input.closest('.form-control, .css-1dbjc4n, .field');
-          if (container) {
-            container.style.display = 'none';
-          }
-          input.style.display = 'none';
-        });
-        
-        console.log('📝 CMS Title 필드 숨기기 완료 - Alt text는 유지됨');
-      }, 2000); // CMS 완전 로드 후 2초 뒤 실행
+        hideTitleFields();
+        console.log('📝 CMS 로드 완료 - TITLE 필드 숨기기 재시도');
+      }, 2000);
     });
   </script>
 </body>
