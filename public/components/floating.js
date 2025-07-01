@@ -1,13 +1,35 @@
-// floating-buttons.js - 웹사이트 플로팅 버튼 요소를 생성하는 스크립트 (방문자 카운터 포함)
+// floating-buttons.js - Firebase 실시간 방문자 카운터 버전
 
 /**
- * 방문자 수를 관리하는 클래스
+ * Firebase 실시간 방문자 수를 관리하는 클래스
  */
-class VisitorCounter {
+
+class FirebaseVisitorCounter {
     constructor() {
-        this.todayKey = 'visitor_today_' + this.getTodayString();
-        this.totalKey = 'visitor_total';
-        this.lastVisitKey = 'last_visit_date';
+        this.db = window.firebaseDB;
+        this.firestoreUtils = window.firestoreUtils;
+        this.todayKey = this.getTodayString();
+        this.sessionKey = 'visitor_session_' + this.todayKey;
+        
+        // Firebase가 로드될 때까지 대기
+        this.waitForFirebase();
+    }
+
+    // Firebase 로딩 대기
+    async waitForFirebase() {
+        let attempts = 0;
+        while (!this.db && attempts < 50) { // 5초 대기
+            await new Promise(resolve => setTimeout(resolve, 100));
+            this.db = window.firebaseDB;
+            this.firestoreUtils = window.firestoreUtils;
+            attempts++;
+        }
+        
+        if (!this.db) {
+            console.error('Firebase가 로드되지 않았습니다. localStorage로 폴백합니다.');
+            return false;
+        }
+        return true;
     }
 
     // 오늘 날짜 문자열 반환 (YYYY-MM-DD)
@@ -18,36 +40,111 @@ class VisitorCounter {
                String(today.getDate()).padStart(2, '0');
     }
 
-    // 방문자 수 증가 및 반환 (세션당 1회만)
-    updateVisitorCount() {
-        const today = this.getTodayString();
-        const sessionKey = 'visitor_session_' + today;
-        const hasVisitedToday = sessionStorage.getItem(sessionKey);
-
-        // 이미 오늘 세션에서 카운트했다면 현재 카운트만 반환
-        if (hasVisitedToday) {
-            return this.getCurrentCount();
+    // Firebase에서 카운터 문서 참조 생성
+    getCounterRef(type, date = null) {
+        const { doc } = this.firestoreUtils;
+        if (type === 'today') {
+            return doc(this.db, 'visitors', `today_${date || this.todayKey}`);
+        } else if (type === 'total') {
+            return doc(this.db, 'visitors', 'total_count');
         }
+    }
 
-        // 세션에서 처음 방문이면 카운트 증가
+    // Firebase에서 방문자 수 조회
+    async getCurrentCountFromFirebase() {
+        try {
+            const { getDoc } = this.firestoreUtils;
+            
+            // 오늘 방문자 수 조회
+            const todayRef = this.getCounterRef('today');
+            const todaySnap = await getDoc(todayRef);
+            const todayCount = todaySnap.exists() ? todaySnap.data().count || 0 : 0;
+            
+            // 전체 방문자 수 조회
+            const totalRef = this.getCounterRef('total');
+            const totalSnap = await getDoc(totalRef);
+            const totalCount = totalSnap.exists() ? totalSnap.data().count || 0 : 0;
+            
+            return {
+                today: todayCount,
+                total: totalCount
+            };
+        } catch (error) {
+            console.error('Firebase에서 카운터 조회 실패:', error);
+            // 에러 시 localStorage 폴백
+            return this.getCurrentCountFromLocalStorage();
+        }
+    }
+
+    // localStorage 폴백 메서드 (기존 로직)
+    getCurrentCountFromLocalStorage() {
+        const todayCount = parseInt(localStorage.getItem('visitor_today_' + this.todayKey) || '0');
+        const totalCount = parseInt(localStorage.getItem('visitor_total') || '0');
+        return {
+            today: todayCount,
+            total: totalCount
+        };
+    }
+
+    // Firebase에 방문자 수 업데이트
+    async updateVisitorCountInFirebase() {
+        try {
+            const { getDoc, setDoc, updateDoc, increment } = this.firestoreUtils;
+            
+            // 오늘 카운터 업데이트
+            const todayRef = this.getCounterRef('today');
+            const todaySnap = await getDoc(todayRef);
+            
+            if (todaySnap.exists()) {
+                await updateDoc(todayRef, {
+                    count: increment(1),
+                    lastUpdated: new Date()
+                });
+            } else {
+                await setDoc(todayRef, {
+                    count: 1,
+                    date: this.todayKey,
+                    lastUpdated: new Date()
+                });
+            }
+            
+            // 전체 카운터 업데이트
+            const totalRef = this.getCounterRef('total');
+            const totalSnap = await getDoc(totalRef);
+            
+            if (totalSnap.exists()) {
+                await updateDoc(totalRef, {
+                    count: increment(1),
+                    lastUpdated: new Date()
+                });
+            } else {
+                await setDoc(totalRef, {
+                    count: 1,
+                    lastUpdated: new Date()
+                });
+            }
+            
+            // 업데이트된 카운트 반환
+            return await this.getCurrentCountFromFirebase();
+            
+        } catch (error) {
+            console.error('Firebase 카운터 업데이트 실패:', error);
+            // 에러 시 localStorage 폴백
+            return this.updateVisitorCountInLocalStorage();
+        }
+    }
+
+    // localStorage 폴백 업데이트 (기존 로직)
+    updateVisitorCountInLocalStorage() {
         // 오늘 방문자 수 증가
-        let todayCount = parseInt(localStorage.getItem(this.todayKey) || '0');
+        let todayCount = parseInt(localStorage.getItem('visitor_today_' + this.todayKey) || '0');
         todayCount++;
-        localStorage.setItem(this.todayKey, todayCount.toString());
+        localStorage.setItem('visitor_today_' + this.todayKey, todayCount.toString());
 
         // 전체 방문자 수 증가
-        let totalCount = parseInt(localStorage.getItem(this.totalKey) || '0');
+        let totalCount = parseInt(localStorage.getItem('visitor_total') || '0');
         totalCount++;
-        localStorage.setItem(this.totalKey, totalCount.toString());
-
-        // 세션에 방문 기록 저장 (브라우저 종료시까지 유지)
-        sessionStorage.setItem(sessionKey, 'true');
-
-        // 마지막 방문 날짜 업데이트
-        localStorage.setItem(this.lastVisitKey, today);
-
-        // 어제 이전 데이터 정리 (선택적)
-        this.cleanOldData();
+        localStorage.setItem('visitor_total', totalCount.toString());
 
         return {
             today: todayCount,
@@ -55,35 +152,47 @@ class VisitorCounter {
         };
     }
 
-    // 현재 카운트 조회
-    getCurrentCount() {
-        const todayCount = parseInt(localStorage.getItem(this.todayKey) || '0');
-        const totalCount = parseInt(localStorage.getItem(this.totalKey) || '0');
-        return {
-            today: todayCount,
-            total: totalCount
-        };
+    // 메인 방문자 수 업데이트 메서드
+    async updateVisitorCount() {
+        // 세션에서 이미 카운트했는지 확인
+        const hasVisitedToday = sessionStorage.getItem(this.sessionKey);
+        
+        if (hasVisitedToday) {
+            // 이미 카운트했으면 현재 카운트만 반환
+            return await this.getCurrentCount();
+        }
+
+        // Firebase가 준비되었는지 확인
+        const firebaseReady = await this.waitForFirebase();
+        
+        let result;
+        if (firebaseReady) {
+            // Firebase로 업데이트
+            result = await this.updateVisitorCountInFirebase();
+        } else {
+            // localStorage로 폴백
+            result = this.updateVisitorCountInLocalStorage();
+        }
+        
+        // 세션에 방문 기록 저장
+        sessionStorage.setItem(this.sessionKey, 'true');
+        
+        return result;
     }
 
-    // 오래된 일별 데이터 정리 (7일 이전 데이터 삭제)
-    cleanOldData() {
-        const keys = Object.keys(localStorage);
-        const sevenDaysAgo = new Date();
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-
-        keys.forEach(key => {
-            if (key.startsWith('visitor_today_')) {
-                const dateStr = key.replace('visitor_today_', '');
-                const date = new Date(dateStr);
-                if (date < sevenDaysAgo) {
-                    localStorage.removeItem(key);
-                }
-            }
-        });
+    // 현재 카운트 조회 (Firebase 우선, localStorage 폴백)
+    async getCurrentCount() {
+        const firebaseReady = await this.waitForFirebase();
+        
+        if (firebaseReady) {
+            return await this.getCurrentCountFromFirebase();
+        } else {
+            return this.getCurrentCountFromLocalStorage();
+        }
     }
 
-    // 최근 5일간 데이터 가져오기
-    getLast5DaysData() {
+    // 최근 5일간 데이터 가져오기 (Firebase + localStorage 조합)
+    async getLast5DaysData() {
         const data = [];
         const today = new Date();
         
@@ -94,8 +203,25 @@ class VisitorCounter {
                           String(date.getMonth() + 1).padStart(2, '0') + '-' + 
                           String(date.getDate()).padStart(2, '0');
             
-            const dayKey = 'visitor_today_' + dateStr;
-            const count = parseInt(localStorage.getItem(dayKey) || '0');
+            let count = 0;
+            
+            // Firebase에서 먼저 시도
+            const firebaseReady = await this.waitForFirebase();
+            if (firebaseReady) {
+                try {
+                    const { getDoc } = this.firestoreUtils;
+                    const dayRef = this.getCounterRef('today', dateStr);
+                    const daySnap = await getDoc(dayRef);
+                    count = daySnap.exists() ? daySnap.data().count || 0 : 0;
+                } catch (error) {
+                    // Firebase 실패 시 localStorage 폴백
+                    count = parseInt(localStorage.getItem('visitor_today_' + dateStr) || '0');
+                }
+            } else {
+                // Firebase 없으면 localStorage 사용
+                count = parseInt(localStorage.getItem('visitor_today_' + dateStr) || '0');
+            }
+            
             const dayNum = date.getDate();
             
             data.push({
@@ -107,28 +233,64 @@ class VisitorCounter {
         
         return data;
     }
+
+    // 오래된 데이터 정리 (Firebase + localStorage)
+    async cleanOldData() {
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+        
+        // localStorage 정리 (기존 로직)
+        const keys = Object.keys(localStorage);
+        keys.forEach(key => {
+            if (key.startsWith('visitor_today_')) {
+                const dateStr = key.replace('visitor_today_', '');
+                const date = new Date(dateStr);
+                if (date < sevenDaysAgo) {
+                    localStorage.removeItem(key);
+                }
+            }
+        });
+        
+        // Firebase 정리는 비용 때문에 생략 (자동 TTL 설정 권장)
+    }
 }
 
 /**
- * 웹사이트 플로팅 버튼을 생성하고 페이지에 삽입하는 함수
- * @param {string} targetElementId - 플로팅 버튼을 삽입할 요소의 ID (기본값: 'floating-buttons-container')
- * @param {Array} buttons - 버튼 구성 배열 (기본값: 작업 보기, 연락하기 버튼)
- * @param {boolean} showVisitorCounter - 방문자 카운터 표시 여부 (기본값: true)
+ * 웹사이트 플로팅 버튼을 생성하고 페이지에 삽입하는 함수 (Firebase 버전)
  */
 function createFloatingButtons(targetElementId = 'floating-buttons-container', buttons = null, showVisitorCounter = true) {
+    // Firebase 방문자 카운터 인스턴스
+    let counter = null;
+    let visitorCount = { today: 0, total: 0 };
+    
     // 5일간 차트 HTML 생성 함수
-    function generateChartHTML() {
-        if (!showVisitorCounter) return '';
+    // 🔥 이 함수만 복사 (라인 2~44)
+async function generateChartHTML() {
+    if (!showVisitorCounter || !counter) return '';
+    
+    try {
+        const chartData = await counter.getLast5DaysData();
         
-        const counter = new VisitorCounter();
-        const chartData = counter.getLast5DaysData();
-        const maxValue = Math.max(...chartData.map(d => d.count), 1);
+        // 🔧 개선된 높이 계산 로직
+        const counts = chartData.map(d => d.count);
+        const maxValue = Math.max(...counts);
+        const minValue = Math.min(...counts);
+        const range = maxValue - minValue;
         
         let chartHTML = '<div class="chart-bars">';
         
         chartData.forEach((data, index) => {
-            // 비례적 높이 계산: 최대값 기준으로 0~35px 범위에서 계산
-            const height = data.count === 0 ? 3 : Math.max((data.count / maxValue) * 35, 3);
+            let height;
+            
+            if (data.count === 0) {
+                height = 3;
+            } else if (range === 0) {
+                height = 20;
+            } else {
+                const ratio = (data.count - minValue) / range;
+                height = Math.max(8 + (ratio * 40), 12);
+            }
+            
             const isToday = index === chartData.length - 1;
             
             chartHTML += `
@@ -144,16 +306,52 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         
         chartHTML += '</div>';
         return chartHTML;
+    } catch (error) {
+        console.error('차트 생성 실패:', error);
+        return '<div class="chart-error">차트 로딩 중...</div>';
+    }
+}
+
+    // Firebase 카운터 초기화 및 차트 생성
+    async function initializeCounter() {
+        if (!showVisitorCounter) return;
+        
+        try {
+            counter = new FirebaseVisitorCounter();
+            visitorCount = await counter.updateVisitorCount();
+            
+            // 차트 HTML 재생성
+            const chartContainer = document.querySelector('.chart-container');
+            if (chartContainer) {
+                chartContainer.innerHTML = await generateChartHTML();
+            }
+            
+            // 카운터 숫자 업데이트
+            updateCounterDisplay();
+            
+        } catch (error) {
+            console.error('Firebase 카운터 초기화 실패:', error);
+            // 에러 시에도 기본값으로 표시
+            updateCounterDisplay();
+        }
     }
 
-    // 방문자 카운터 초기화 및 업데이트
-    let visitorCount = { today: 0, total: 0 };
-    if (showVisitorCounter) {
-        const counter = new VisitorCounter();
-        visitorCount = counter.updateVisitorCount();
+    // 카운터 표시 업데이트
+    function updateCounterDisplay() {
+        // 심플 스타일 업데이트 (모바일)
+        const todayElement = document.getElementById('today-count');
+        const totalElement = document.getElementById('total-count');
+        if (todayElement) todayElement.textContent = visitorCount.today;
+        if (totalElement) totalElement.textContent = visitorCount.total;
+        
+        // 그래프 스타일 업데이트 (PC)
+        const todayElementLg = document.getElementById('today-count-lg');
+        const totalElementLg = document.getElementById('total-count-lg');
+        if (todayElementLg) todayElementLg.textContent = visitorCount.today;
+        if (totalElementLg) totalElementLg.textContent = visitorCount.total.toLocaleString();
     }
 
-    // 외부 CSS 로드 (절대경로로 수정)
+    // 외부 CSS 로드
     const cssHref = '/css/styles.css';
     const existingLink = document.querySelector(`link[href="${cssHref}"]`);
     if (!existingLink) {
@@ -163,7 +361,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         document.head.appendChild(link);
     }
 
-    // 기본 버튼 설정 (폰트어썸 아이콘으로 변경)
+    // 기본 버튼 설정
     const defaultButtons = [
         {
             id: 'work-btn',
@@ -173,13 +371,12 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         },
         {
             id: 'contact-btn',
-            href: '/index.html#contact', // 절대경로로 수정
+            href: '/index.html#contact',
             icon: '<i class="fas fa-comment"></i>',
             text: '연락하기'
         }
     ];
     
-    // 사용자 정의 버튼 또는 기본 버튼 사용
     const buttonList = buttons || defaultButtons;
     
     // 버튼 HTML 생성
@@ -193,10 +390,9 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         `;
     });
 
-    // 방문자 카운터 HTML 생성
+    // 방문자 카운터 HTML 생성 (초기값으로 생성, 나중에 업데이트)
     const visitorCounterHtml = showVisitorCounter ? `
         <div class="visitor-counter">
-            <!-- 모바일용 심플 스타일 -->
             <div class="visitor-stats-simple">
                 <div class="stat-item">
                     <span class="stat-label">Today</span>
@@ -208,10 +404,9 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
                 </div>
             </div>
             
-            <!-- PC용 그래프 스타일 -->
             <div class="visitor-stats-graph">
                 <div class="chart-container">
-                    ${generateChartHTML()}
+                    <div class="chart-loading">로딩 중...</div>
                 </div>
                 <div class="stats-summary">
                     <div class="stat-today">
@@ -226,37 +421,8 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
             </div>
         </div>
     ` : '';
-
-    // 5일간 차트 HTML 생성 함수
-    function generateChartHTML() {
-        if (!showVisitorCounter) return '';
-        
-        const counter = new VisitorCounter();
-        const chartData = counter.getLast5DaysData();
-        const maxValue = Math.max(...chartData.map(d => d.count), 1);
-        
-        let chartHTML = '<div class="chart-bars">';
-        
-        chartData.forEach((data, index) => {
-            const height = (data.count / maxValue) * 100;
-            const isToday = index === chartData.length - 1;
-            
-            chartHTML += `
-                <div class="bar-container">
-                    <div class="bar-value">${data.count}</div>
-                    <div class="bar" style="--bar-height: ${height}%" data-is-today="${isToday}">
-                        <div class="bar-fill"></div>
-                    </div>
-                    <div class="bar-label">${data.day}</div>
-                </div>
-            `;
-        });
-        
-        chartHTML += '</div>';
-        return chartHTML;
-    }
     
-    // 플로팅 버튼 컨테이너 생성 (방문자 카운터는 별도 위치)
+    // 플로팅 버튼 컨테이너 생성
     const floatingButtonsHtml = `
     <div class="floating-buttons">
         ${buttonsHtml}
@@ -264,7 +430,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     ${visitorCounterHtml}
     `;
     
-    // 플로팅 버튼 스타일 삽입
+    // 플로팅 버튼 스타일 (기존과 동일)
     const floatingButtonsStyles = `
 <style>
     .floating-buttons {
@@ -281,20 +447,20 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     .floating-btn {
         width: 80px;
         height: 80px;
-        background-color: transparent; /* 투명 배경 */
+        background-color: transparent;
         border-radius: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: var(--accent-color); /* 액센트 컬러 텍스트 */
+        color: var(--accent-color);
         font-weight: var(--font-bold);
         font-size: 14px;
         text-align: center;
         box-shadow: 0 4px 15px rgba(1, 255, 117, 0.2);
         transition: all 0.3s ease;
         position: relative;
-        border: 2px solid var(--accent-color); /* 액센트 컬러 테두리 */
+        border: 2px solid var(--accent-color);
         box-sizing: border-box;
         padding: 6px;
         overflow: hidden;
@@ -302,8 +468,8 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     }
 
     .floating-btn:hover {
-        background-color: var(--accent-color); /* 호버시 배경 채움 */
-        color: var(--background-color); /* 호버시 텍스트 색상 반전 */
+        background-color: var(--accent-color);
+        color: var(--background-color);
         border-color: var(--accent-color);
         transform: scale(1.1);
         box-shadow: 0 8px 25px rgba(1, 255, 117, 0.4);
@@ -313,11 +479,11 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         font-size: 18px;
         margin-bottom: 4px;
         transition: all 0.3s ease;
-        color: var(--accent-color); /* 기본 액센트 컬러 */
+        color: var(--accent-color);
     }
 
     .floating-btn:hover .floating-btn-icon {
-        color: var(--background-color); /* 호버시 배경색 */
+        color: var(--background-color);
         transform: scale(1.1);
     }
 
@@ -328,27 +494,26 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         white-space: normal;
         transition: all 0.3s ease;
         opacity: 1;
-        color: var(--accent-color); /* 기본 액센트 컬러 */
+        color: var(--accent-color);
     }
 
     .floating-btn:hover .floating-btn-text {
         opacity: 1;
         font-weight: 900;
-        color: var(--background-color); /* 호버시 배경색 */
+        color: var(--background-color);
     }
 
-    /* 방문자 카운터 스타일 */
     .visitor-counter {
-        position: fixed; /* PC에서도 독립적으로 위치 */
-        right: 30px; /* 오른쪽에서 30px 마진 (플로팅 버튼과 동일) */
-        bottom: 70px; /* 연락하기 버튼 밑에 위치 */
+        position: fixed;
+        right: 30px;
+        bottom: 70px;
         background-color: rgba(0, 0, 0, 0.9);
         border: 2px solid var(--accent-color);
         border-radius: 16px;
         backdrop-filter: blur(10px);
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(1, 255, 117, 0.2);
-        z-index: 998; /* 팝업보다는 낮지만 다른 요소보다는 높게 */
+        z-index: 998;
     }
 
     .visitor-counter:hover {
@@ -356,21 +521,20 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         box-shadow: 0 6px 20px rgba(1, 255, 117, 0.5);
     }
 
-    /* 모바일용 심플 스타일 (기본 숨김) */
     .visitor-stats-simple {
         display: none;
         flex-direction: column;
-        gap: 8px; /* 두 컨테이너 사이 간격 */
+        gap: 8px;
     }
 
     .visitor-stats-simple .stat-item {
         display: flex;
-        justify-content: space-between; /* 좌우 배치 */
+        justify-content: space-between;
         align-items: center;
         padding: 8px 16px;
         background-color: rgba(0, 0, 0, 0.9);
         border: 2px solid var(--accent-color);
-        border-radius: 50px; /* 최대한 둥글게 (캡슐 모양) */
+        border-radius: 50px;
         min-width: 120px;
         backdrop-filter: blur(10px);
     }
@@ -384,35 +548,37 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     .visitor-stats-simple .stat-count {
         font-size: 14px;
         font-weight: 900;
-        color: #ffffff; /* 숫자는 흰색 */
+        color: #ffffff;
     }
 
-    .visitor-stats-simple .stat-divider {
-        display: none; /* 구분선 제거 */
-    }
-
-    /* PC용 그래프 스타일 */
     .visitor-stats-graph {
         display: block;
-        padding: 16px; /* 패딩 줄임 */
-        width: 200px; /* 폭 대폭 축소 (300px → 200px) */
+        padding: 16px;
+        width: 200px;
     }
 
     .chart-container {
-        margin-bottom: 16px; /* 간격 줄임 */
-        padding-top: 12px; /* 상단 패딩 추가로 방문자 수 공간 확보 */
+        margin-bottom: 16px;
+        padding-top: 12px;
+    }
+
+    .chart-loading, .chart-error {
+        text-align: center;
+        color: var(--accent-color);
+        font-size: 12px;
+        padding: 20px 0;
     }
 
     .chart-bars {
         display: flex;
         justify-content: space-between;
-        align-items: stretch; /* 모든 컨테이너 높이 동일하게 */
-        height: 65px; /* 전체 차트 영역 높이 */
+        align-items: stretch;
+        height: 65px;
         padding: 0 8px;
         gap: 6px;
-        overflow: visible; /* 방문자 수가 위로 나올 수 있게 */
+        overflow: visible;
         margin-top: 8px;
-        position: relative; /* 절대 위치 요소들의 기준점 */
+        position: relative;
     }
 
     .bar-container {
@@ -420,9 +586,9 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         flex-direction: column;
         align-items: center;
         flex: 1;
-        max-width: 35px; /* 컨테이너 폭 (막대 10px + 여백) */
-        position: relative; /* 방문자 수 위치 조정을 위해 */
-        height: 100%; /* 전체 높이 사용 */
+        max-width: 35px;
+        position: relative;
+        height: 100%;
     }
 
     .bar-value {
@@ -433,7 +599,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         opacity: 1;
         display: block;
         position: absolute;
-        top: -20px; /* 고정된 높이로 되돌림 */
+        top: -20px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
@@ -442,44 +608,44 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     }
 
     .bar {
-        width: 10px; /* 막대 폭 정확히 10px */
-        min-height: 3px; /* 최소 높이 */
+        width: 10px;
+        min-height: 3px;
         background: transparent;
-        position: absolute; /* 절대 위치로 정확한 센터 배치 */
-        bottom: 20px; /* 날짜 라벨 위쪽에 위치 */
+        position: absolute;
+        bottom: 20px;
         left: 50%;
-        transform: translateX(-50%); /* 정확한 중앙 정렬 */
-        border-radius: 2px 2px 0 0; /* 모서리 2px */
+        transform: translateX(-50%);
+        border-radius: 2px 2px 0 0;
         transition: all 0.3s ease;
         display: flex;
-        align-items: flex-end; /* 하단 정렬 */
-        overflow: hidden; /* 넘치는 부분 숨김 */
-        height: var(--bar-height); /* CSS 변수로 동적 높이 */
-        max-height: 35px; /* 컨테이너 내부 최대 높이 제한 */
+        align-items: flex-end;
+        overflow: hidden;
+        height: var(--bar-height);
+        max-height: 55px;
     }
 
     .bar-fill {
-        width: 100%; /* 막대 전체 폭 */
-        height: 100%; /* 부모의 높이를 모두 사용 */
+        width: 100%;
+        height: 100%;
         background: linear-gradient(180deg, #01FF75 0%, #00cc5e 100%);
-        border-radius: 2px 2px 0 0; /* 모서리 2px */
+        border-radius: 2px 2px 0 0;
         animation: growUp 1.5s ease-out;
-        min-height: 3px; /* 최소 높이 */
+        min-height: 3px;
     }
 
     .bar[data-is-today="true"] .bar-fill {
         background: linear-gradient(180deg, #01FF75 0%, #01FF75 100%);
-        box-shadow: 0 0 8px rgba(1, 255, 117, 0.6); /* 글로우 효과 */
+        box-shadow: 0 0 8px rgba(1, 255, 117, 0.6);
     }
 
     .bar-label {
         font-size: 12px;
-        color: #ffffff; /* 날짜 텍스트 흰색으로 변경 */
+        color: #ffffff;
         font-weight: 500;
-        position: absolute; /* 절대 위치로 조정 */
-        bottom: 0; /* 컨테이너 맨 아래 */
+        position: absolute;
+        bottom: 0;
         left: 50%;
-        transform: translateX(-50%); /* 중앙 정렬 */
+        transform: translateX(-50%);
         width: 100%;
         text-align: center;
         line-height: 1;
@@ -487,11 +653,11 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
 
     @keyframes growUp {
         from {
-            height: 0; /* 0에서 시작 */
+            height: 0;
             opacity: 0.7;
         }
         to {
-            height: 100%; /* 부모 높이까지 */
+            height: 100%;
             opacity: 1;
         }
     }
@@ -499,33 +665,33 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     .stats-summary {
         display: flex;
         justify-content: space-between;
-        padding-top: 16px; /* 패딩 줄임 */
+        padding-top: 16px;
         border-top: 1px solid rgba(1, 255, 117, 0.2);
-        gap: 16px; /* 간격 줄임 */
+        gap: 16px;
     }
 
     .stat-today, .stat-total {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 4px; /* 간격 줄임 */
-        flex: 1; /* 균등 분할 */
-        min-width: 0; /* flexbox 자식 요소 최소 크기 제한 해제 */
+        gap: 4px;
+        flex: 1;
+        min-width: 0;
     }
 
     .stat-label-lg {
-        font-size: 12px; /* 폰트 크기 축소 (16px → 12px) */
+        font-size: 12px;
         color: #ffffff;
-        font-weight: 600; /* 폰트 굵기 증가 */
+        font-weight: 600;
     }
 
     .stat-count-lg {
-        font-size: 18px; /* 폰트 크기 축소 (32px → 18px) */
+        font-size: 18px;
         font-weight: 900;
         color: var(--accent-color);
-        line-height: 1; /* 줄 간격 조정 */
+        line-height: 1;
         text-align: center;
-        word-break: break-all; /* 긴 숫자 줄바꿈 허용 */
+        word-break: break-all;
         overflow-wrap: break-word;
     }
 
@@ -533,13 +699,12 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         .floating-buttons {
             right: 15px !important;
             top: auto !important;
-            bottom: 80px !important; /* 모바일에서 하단 고정 - !important로 강제 적용 */
+            bottom: 80px !important;
             transform: none !important;
         }
 
-        /* 모바일에서는 방문자 카운터 완전히 숨김 */
         .visitor-counter {
-            display: none !important; /* 완전히 숨김 */
+            display: none !important;
         }
 
         .floating-btn {
@@ -550,30 +715,12 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         }
 
         .floating-btn:hover {
-            transform: scale(1.05); /* 모바일에서는 확대 효과 줄임 */
+            transform: scale(1.05);
         }
 
         .floating-btn-icon {
             font-size: 14px;
             margin-bottom: 2px;
-        }
-
-        .visitor-counter {
-            padding: 8px 12px;
-            border-radius: 20px;
-        }
-
-        .visitor-stats {
-            font-size: 10px;
-            gap: 6px;
-        }
-
-        .stat-count {
-            font-size: 12px;
-        }
-
-        .stat-label {
-            font-size: 8px;
         }
     }
 
@@ -584,7 +731,7 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         }
 
         .visitor-counter {
-            display: none !important; /* 완전히 숨김 */
+            display: none !important;
         }
 
         .floating-btn {
@@ -596,28 +743,6 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
         .floating-btn-icon {
             font-size: 12px;
         }
-
-        .visitor-counter {
-            padding: 6px 10px;
-            border-radius: 18px;
-        }
-
-        .visitor-stats {
-            font-size: 9px;
-            gap: 4px;
-        }
-
-        .stat-count {
-            font-size: 11px;
-        }
-
-        .stat-label {
-            font-size: 7px;
-        }
-
-        .stat-divider {
-            font-size: 10px;
-        }
     }
 </style>
 `;
@@ -627,38 +752,25 @@ function createFloatingButtons(targetElementId = 'floating-buttons-container', b
     if (targetElement) {
         targetElement.innerHTML = floatingButtonsStyles + floatingButtonsHtml;
     } else {
-        // targetElement가 없으면 body에 직접 삽입
         document.body.insertAdjacentHTML('beforeend', floatingButtonsStyles + floatingButtonsHtml);
     }
 
-    // 방문자 카운터 실시간 업데이트 (선택적)
+    // Firebase 카운터 초기화 (비동기)
+    initializeCounter();
+
+    // 실시간 업데이트 (30초마다)
     if (showVisitorCounter) {
-        setInterval(() => {
-            const counter = new VisitorCounter();
-            const currentCount = counter.getCurrentCount();
-            
-            // 심플 스타일 업데이트 (모바일)
-            const todayElement = document.getElementById('today-count');
-            const totalElement = document.getElementById('total-count');
-            if (todayElement) todayElement.textContent = currentCount.today;
-            if (totalElement) totalElement.textContent = currentCount.total;
-            
-            // 그래프 스타일 업데이트 (PC)
-            const todayElementLg = document.getElementById('today-count-lg');
-            const totalElementLg = document.getElementById('total-count-lg');
-            if (todayElementLg) todayElementLg.textContent = currentCount.today;
-            if (totalElementLg) totalElementLg.textContent = currentCount.total.toLocaleString();
-            
-        }, 30000); // 30초마다 업데이트
+        setInterval(async () => {
+            try {
+                if (counter) {
+                    visitorCount = await counter.getCurrentCount();
+                    updateCounterDisplay();
+                }
+            } catch (error) {
+                console.error('실시간 업데이트 실패:', error);
+            }
+        }, 30000);
     }
 }
 
-// 페이지 로드 시 플로팅 버튼 자동 생성 (선택적으로 사용)
-// document.addEventListener('DOMContentLoaded', function() {
-//     createFloatingButtons();
-// });
-
-// 사용 예시:
-// createFloatingButtons(); // 기본 설정으로 방문자 카운터 포함
-// createFloatingButtons('my-container', null, false); // 방문자 카운터 제외
-// createFloatingButtons('my-container', customButtons, true); // 커스텀 버튼 + 방문자 카운터
+// 사용 예시는 기존과 동일

@@ -456,6 +456,15 @@
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
     
     
     <script src="/components/header.js"></script>
@@ -479,5 +488,36 @@
     
     
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  console.log('🔥 Firebase 준비 완료!');
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+  console.log('✅ Firebase 전역 변수 설정 완료!');
+</script>
+
+   
+
 </body>
 </html>
