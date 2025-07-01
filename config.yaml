@@ -23,18 +23,21 @@ menu:
     - name: "프로젝트"
       url: "/#design"
       weight: 2
+    - name: "Studio NFP"
+      url: "/studio/"
+      weight: 3
     - name: "소개"
       url: "/#about"
-      weight: 3
+      weight: 4
     - name: "연락하기"
       url: "/#contact"
-      weight: 4
-    - name: "디자인게시판"
-      url: "/posts/"
       weight: 5
-    - name: "소식 및 자유게시판"
-      url: "/freeboard/"
+    - name: "작업 보기"
+      url: "/posts/"
       weight: 6
+    - name: "자유게시판"
+      url: "/freeboard/"
+      weight: 7
 
 # CSS MIME 타입 설정 추가 (CSS 오류 해결)
 mediaTypes:

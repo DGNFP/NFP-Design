@@ -1,0 +1,251 @@
+{{ define "main" }}
+<!-- QR 코드 라이브러리 -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>Studio <span>NFP</span></h1>
+            <p>디자인 작업을 위한 전문 도구 모음</p>
+        </div>
+
+        <!-- 탭 네비게이션 -->
+        <div class="studio-page-tabs">
+            <div class="studio-page-tab active" data-tab="qr-generator">
+                <i class="fas fa-qrcode"></i>
+                QR 생성기
+                <span class="studio-new-badge">NEW</span>
+            </div>
+            <div class="studio-page-tab" data-tab="color-palette">
+                <i class="fas fa-palette"></i>
+                컬러 팔레트
+            </div>
+            <div class="studio-page-tab" data-tab="color-extractor">
+                <i class="fas fa-eye-dropper"></i>
+                컬러 추출기
+            </div>
+            <div class="studio-page-tab" data-tab="size-guide">
+                <i class="fas fa-ruler-combined"></i>
+                사이즈 가이드
+            </div>
+            <div class="studio-page-tab" data-tab="design-calculator">
+                <i class="fas fa-calculator"></i>
+                디자인 계산기
+            </div>
+        </div>
+
+        <!-- 탭 컨텐츠 -->
+        <div class="studio-page-content">
+            <!-- QR 생성기 -->
+            <div class="studio-tab-panel active" id="qr-generator">
+                <h2>QR 코드 생성기</h2>
+                <p>URL, 텍스트, 연락처 정보를 QR 코드로 변환하세요</p>
+                
+                <div class="studio-qr-container">
+                    <div>
+                        <div class="studio-input-group">
+                            <label for="studio-qr-input">변환할 내용</label>
+                            <input type="text" id="studio-qr-input" class="studio-form-input" placeholder="URL 또는 텍스트를 입력하세요" value="https://nfpdesign.com">
+                        </div>
+                        
+                        <div class="studio-input-group">
+                            <label for="studio-qr-size">QR 코드 크기</label>
+                            <select id="studio-qr-size" class="studio-form-input">
+                                <option value="200">200x200px</option>
+                                <option value="300" selected>300x300px</option>
+                                <option value="400">400x400px</option>
+                                <option value="500">500x500px</option>
+                            </select>
+                        </div>
+                        
+                        <button class="studio-page-btn" onclick="generateQR()">QR 코드 생성</button>
+                    </div>
+                    
+                    <div class="studio-qr-result">
+                        <h3>생성된 QR 코드</h3>
+                        <canvas id="studio-qr-canvas"></canvas>
+                        <button class="studio-page-btn" onclick="downloadQR()" id="studio-download-btn" style="display: none;">다운로드</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 컬러 팔레트 -->
+            <div class="studio-tab-panel" id="color-palette">
+                <h2>컬러 팔레트 생성기</h2>
+                <p>다양한 색상 조합과 그라디언트를 생성하세요</p>
+                
+                <div class="studio-input-group">
+                    <label for="studio-base-color">기본 색상</label>
+                    <input type="color" id="studio-base-color" class="studio-form-input" value="#01FF75" style="height: 60px;">
+                </div>
+                
+                <div class="studio-input-group">
+                    <label for="studio-palette-type">팔레트 타입</label>
+                    <select id="studio-palette-type" class="studio-form-input">
+                        <option value="monochrome">단색 조합</option>
+                        <option value="analogous">유사 색상</option>
+                        <option value="complementary">보색 조합</option>
+                        <option value="triadic">삼각 조합</option>
+                        <option value="gradient">그라디언트</option>
+                    </select>
+                </div>
+                
+                <button class="studio-page-btn" onclick="generatePalette()">팔레트 생성</button>
+                
+                <div class="studio-color-grid" id="studio-palette-result"></div>
+            </div>
+
+            <!-- 컬러 추출기 -->
+            <div class="studio-tab-panel" id="color-extractor">
+                <h2>이미지 컬러 추출기</h2>
+                <p>이미지에서 주요 색상을 추출하여 팔레트를 만들어보세요</p>
+                
+                <div class="studio-upload-area" id="studio-image-upload" onclick="document.getElementById('studio-image-file').click()">
+                    <div class="studio-upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>이미지 업로드</h3>
+                    <p>클릭하거나 파일을 드래그하여 업로드하세요</p>
+                    <input type="file" id="studio-image-file" accept="image/*" style="display: none;">
+                </div>
+                
+                <canvas id="studio-extraction-canvas" style="display: none;"></canvas>
+                <div class="studio-color-grid" id="studio-extracted-colors"></div>
+            </div>
+
+            <!-- 사이즈 가이드 -->
+            <div class="studio-tab-panel" id="size-guide">
+                <h2>디자인 사이즈 가이드</h2>
+                <p>다양한 플랫폼과 매체의 표준 사이즈를 확인하세요</p>
+                
+                <div class="studio-size-categories">
+                    <div class="studio-size-category">
+                        <h3>소셜 미디어</h3>
+                        <div class="studio-size-item">
+                            <span>인스타그램 포스트</span>
+                            <span>1080 x 1080px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>인스타그램 스토리</span>
+                            <span>1080 x 1920px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>페이스북 커버</span>
+                            <span>820 x 312px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>유튜브 썸네일</span>
+                            <span>1280 x 720px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>카카오톡 채널 커버</span>
+                            <span>960 x 320px</span>
+                        </div>
+                    </div>
+                    
+                    <div class="studio-size-category">
+                        <h3>웹사이트</h3>
+                        <div class="studio-size-item">
+                            <span>데스크톱 헤더</span>
+                            <span>1920 x 500px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>모바일 배너</span>
+                            <span>375 x 200px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>블로그 포스트</span>
+                            <span>1200 x 630px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>파비콘</span>
+                            <span>32 x 32px</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>OG 이미지</span>
+                            <span>1200 x 630px</span>
+                        </div>
+                    </div>
+                    
+                    <div class="studio-size-category">
+                        <h3>인쇄물</h3>
+                        <div class="studio-size-item">
+                            <span>A4 용지</span>
+                            <span>210 x 297mm</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>명함</span>
+                            <span>90 x 54mm</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>포스터 A3</span>
+                            <span>297 x 420mm</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>현수막</span>
+                            <span>1000 x 700mm</span>
+                        </div>
+                        <div class="studio-size-item">
+                            <span>엽서</span>
+                            <span>152 x 102mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 디자인 계산기 -->
+            <div class="studio-tab-panel" id="design-calculator">
+                <h2>디자인 계산기</h2>
+                <p>폰트 사이즈, 그리드 시스템 등을 계산하세요</p>
+                
+                <div class="studio-calculator-grid">
+                    <div class="studio-calculator-section">
+                        <h3>폰트 크기 계산기</h3>
+                        <div class="studio-input-group">
+                            <label for="studio-base-font">기본 폰트 크기 (px)</label>
+                            <input type="number" id="studio-base-font" class="studio-form-input" value="16">
+                        </div>
+                        <div class="studio-input-group">
+                            <label for="studio-scale-ratio">스케일 비율</label>
+                            <select id="studio-scale-ratio" class="studio-form-input">
+                                <option value="1.125">Minor Second (1.125)</option>
+                                <option value="1.2">Minor Third (1.2)</option>
+                                <option value="1.25">Major Third (1.25)</option>
+                                <option value="1.333">Perfect Fourth (1.333)</option>
+                                <option value="1.414">Augmented Fourth (1.414)</option>
+                                <option value="1.5">Perfect Fifth (1.5)</option>
+                                <option value="1.618" selected>Golden Ratio (1.618)</option>
+                            </select>
+                        </div>
+                        <button class="studio-page-btn" onclick="calculateFontSizes()">계산하기</button>
+                        <div id="studio-font-result" class="studio-calc-result" style="display: none;"></div>
+                    </div>
+                    
+                    <div class="studio-calculator-section">
+                        <h3>그리드 계산기</h3>
+                        <div class="studio-input-group">
+                            <label for="studio-container-width">컨테이너 너비 (px)</label>
+                            <input type="number" id="studio-container-width" class="studio-form-input" value="1200">
+                        </div>
+                        <div class="studio-input-group">
+                            <label for="studio-columns">컬럼 수</label>
+                            <input type="number" id="studio-columns" class="studio-form-input" value="12">
+                        </div>
+                        <div class="studio-input-group">
+                            <label for="studio-gutter">거터 크기 (px)</label>
+                            <input type="number" id="studio-gutter" class="studio-form-input" value="20">
+                        </div>
+                        <button class="studio-page-btn" onclick="calculateGrid()">계산하기</button>
+                        <div id="studio-grid-result" class="studio-calc-result" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{ end }}

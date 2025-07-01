@@ -13,6 +13,7 @@
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
+
 <!-- 🎯 이미지 preload (조건부) -->
 {{ if eq .Kind "page" }}
   {{ if .Resources }}
@@ -374,6 +375,8 @@
     <link rel="stylesheet" href="{{ "/css/lightbox.css" | absURL }}">
     <link rel="stylesheet" href="{{ "/css/web-demo.css" | absURL }}">
     <link rel="stylesheet" href="{{ "/css/popup.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "/css/studio.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "/css/studiopage.css" | absURL }}">
     {{ if .IsHome }}
         <link rel="stylesheet" href="{{ "/css/project.css" | absURL }}">
     {{ end }}
@@ -432,6 +435,9 @@
     <script src="{{ "/components/footer.js" | relURL }}"></script>
     <script src="{{ "/components/floating.js" | relURL }}"></script>
     <script src="{{ "/components/project.js" | relURL }}"></script>
+    <script src="{{ "/js/studio.js" | relURL }}"></script>
+    <script src="{{ "/js/studiopage.js" | relURL }}"></script>
+    
     
     <!-- 컴포넌트 초기화 (기존 유지) -->
     <script>

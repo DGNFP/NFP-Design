@@ -1,0 +1,596 @@
+/* Studio NFP 섹션 전용 스타일 */
+.studio {
+    position: relative;
+    background: radial-gradient(circle at 30% 70%, rgba(1, 255, 117, 0.05) 0%, transparent 50%);
+}
+
+.studio span{
+    color: var(--accent-color);
+}
+
+.studio::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(1, 255, 117, 0.08);
+    border-radius: 50%;
+    filter: blur(120px);
+    top: -50px;
+    left: -100px;
+    z-index: -1;
+}
+
+.studio::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(1, 255, 117, 0.06);
+    border-radius: 50%;
+    filter: blur(80px);
+    bottom: -50px;
+    right: -80px;
+    z-index: -1;
+}
+
+/* 그리드 레이아웃 - 한 줄에 5개 */
+.studio-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 스튜디오 아이템 */
+.studio-item {
+    position: relative;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
+    border: 2px solid rgba(1, 255, 117, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 홀로그램 스캔 효과 */
+.studio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(1, 255, 117, 0.03) 50%,
+        transparent 70%
+    );
+    animation: studio-hologram 4s infinite linear;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes studio-hologram {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+/* 아이콘 스타일 */
+.studio-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(1, 255, 117, 0.15) 0%, rgba(1, 255, 117, 0.05) 100%);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.studio-icon i {
+    font-size: 26px;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+/* 컨텐츠 스타일 */
+.studio-content {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.studio-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.studio-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* 신기능 배지 스타일 */
+.studio-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #00cc5a 100%);
+    color: var(--background-color);
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    animation: badge-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes badge-glow {
+    0% { 
+        box-shadow: 0 0 5px rgba(1, 255, 117, 0.5);
+    }
+    100% { 
+        box-shadow: 0 0 15px rgba(1, 255, 117, 0.8);
+    }
+}
+
+/* 오버레이 스타일 */
+.studio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(1, 255, 117, 0.1) 50%, rgba(0, 0, 0, 0.95) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 18px;
+    backdrop-filter: blur(15px);
+    z-index: 3;
+}
+
+.studio-launch {
+    background: var(--accent-color);
+    color: var(--background-color);
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent-color);
+}
+
+/* 호버 효과 */
+.studio-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(1, 255, 117, 0.6);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(1, 255, 117, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(1, 1, 1, 1) 100%);
+}
+
+.studio-item:hover::before {
+    background: linear-gradient(
+        45deg,
+        transparent 20%,
+        rgba(1, 255, 117, 0.08) 50%,
+        transparent 80%
+    );
+    animation-duration: 1.5s;
+}
+
+.studio-item:hover .studio-icon {
+    background: linear-gradient(135deg, rgba(1, 255, 117, 0.25) 0%, rgba(1, 255, 117, 0.15) 100%);
+    border-color: rgba(1, 255, 117, 0.7);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.3);
+}
+
+.studio-item:hover .studio-icon i {
+    color: #00FF88;
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(1, 255, 117, 0.6);
+}
+
+.studio-item:hover .studio-content {
+    transform: translateY(-5px);
+}
+
+.studio-item:hover .studio-title {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(1, 255, 117, 0.5);
+}
+
+.studio-item:hover .studio-description {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.studio-item:hover .studio-overlay {
+    opacity: 1;
+}
+
+.studio-item:hover .studio-launch {
+    transform: translateY(0);
+}
+
+.studio-item:hover .studio-launch:hover {
+    background: transparent;
+    color: var(--accent-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.4);
+}
+
+/* 더 많은 기능 버튼 - 메인 프로젝트 스타일과 동일 */
+.studio-more-btn {
+    display: block;
+    width: fit-content;
+    margin: 60px auto 40px auto;
+    padding: 12px 24px;
+    border: 2px solid rgba(1, 255, 117, 0.4) !important;
+    background: rgba(1, 255, 117, 0.1) !important;
+    color: #01FF75;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.studio-more-btn:hover {
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.7) !important;
+    border-color: #01FF75;
+    background: rgba(1, 255, 117, 0.15) !important;
+    transform: translateY(-2px);
+}
+
+/* 앱 다운로드 섹션 */
+.app-download-section {
+    display: flex;
+    justify-content: center;
+    margin: 25px auto 0 auto;
+    max-width: 1200px;
+}
+
+.app-download-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 50%, rgba(0, 0, 0, 0.9) 100%);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    border-radius: 50px;
+    padding: 12px 25px 12px 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    max-width: 300px;
+    margin-top: 40px;
+}
+
+/* 배경 글로우 효과 */
+.app-download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(1, 255, 117, 0.1), transparent);
+    transition: left 0.8s ease;
+}
+
+.app-download-btn:hover::before {
+    left: 100%;
+}
+
+/* 다운로드 아이콘 */
+.download-icon {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, rgba(1, 255, 117, 0.2) 0%, rgba(1, 255, 117, 0.1) 100%);
+    border: 2px solid rgba(1, 255, 117, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+}
+
+.download-icon i {
+    font-size: 20px;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+/* 펄스 효과 */
+.download-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* 다운로드 텍스트 */
+.download-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.download-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.download-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+/* 다운로드 화살표 */
+.download-arrow {
+    width: 30px;
+    height: 30px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+}
+
+.download-arrow i {
+    font-size: 14px;
+    color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+/* 호버 효과 */
+.app-download-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(1, 255, 117, 0.7);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(1, 255, 117, 0.2);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(2, 2, 2, 1) 50%, rgba(0, 0, 0, 0.95) 100%);
+}
+
+.app-download-btn:hover .download-icon {
+    background: linear-gradient(135deg, rgba(1, 255, 117, 0.3) 0%, rgba(1, 255, 117, 0.2) 100%);
+    border-color: rgba(1, 255, 117, 0.8);
+    transform: rotate(10deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.4);
+}
+
+.app-download-btn:hover .download-icon i {
+    color: #00FF88;
+    transform: scale(1.1);
+}
+
+.app-download-btn:hover .download-title {
+    color: var(--accent-color);
+}
+
+.app-download-btn:hover .download-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.app-download-btn:hover .download-arrow {
+    background: #00FF88;
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.5);
+}
+
+.app-download-btn:hover .download-arrow i {
+    animation: bounce-download 0.6s ease;
+}
+
+@keyframes bounce-download {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+    .studio-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .studio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .studio-item {
+        border-radius: 15px;
+    }
+    
+    .studio-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    
+    .studio-icon i {
+        font-size: 24px;
+    }
+    
+    .studio-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    
+    .studio-description {
+        font-size: 12px;
+    }
+    
+    .studio-launch {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+    
+    .studio-more-btn {
+        margin: 30px auto 25px auto;
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+    
+    .app-download-btn {
+        max-width: 280px;
+        padding: 10px 20px 10px 12px;
+        gap: 12px;
+    }
+    
+    .download-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .download-icon i {
+        font-size: 18px;
+    }
+    
+    .download-title {
+        font-size: 15px;
+    }
+    
+    .download-subtitle {
+        font-size: 11px;
+    }
+    
+    .download-arrow {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .download-arrow i {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .studio-item {
+        padding: 15px 10px;
+    }
+    
+    .studio-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+    }
+    
+    .studio-icon i {
+        font-size: 20px;
+    }
+    
+    .studio-title {
+        font-size: 14px;
+    }
+    
+    .studio-description {
+        font-size: 11px;
+    }
+    
+    .studio-more-btn {
+        margin: 25px auto 20px auto;
+        padding: 10px 18px;
+        font-size: 11px;
+    }
+    
+    .app-download-btn {
+        max-width: 260px;
+        padding: 8px 18px 8px 10px;
+        gap: 10px;
+        border-radius: 40px;
+    }
+    
+    .download-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .download-icon i {
+        font-size: 16px;
+    }
+    
+    .download-title {
+        font-size: 14px;
+    }
+    
+    .download-subtitle {
+        font-size: 10px;
+    }
+    
+    .download-arrow {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .download-arrow i {
+        font-size: 11px;
+    }
+}

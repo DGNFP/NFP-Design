@@ -18,6 +18,7 @@
 
 
 
+
 <script>
   window.addEventListener('error', function(e) {
     if (e.message && e.message.includes('message channel closed')) {
@@ -110,6 +111,8 @@
     <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
     <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studiopage.css">
     
         <link rel="stylesheet" href="http://localhost:1313/css/project.css">
     
@@ -267,6 +270,100 @@
          
     </div>
     <a href="/categories/project/" class="main-project-more-btn">프로젝트 더보기</a>
+</section>
+
+
+
+<section class="studio">
+    <div class="container">
+        <h2 class="section-title">Studio <span>NFP</span></h2>
+        
+        <div class="studio-grid">
+            <div class="studio-item" data-app="qr-generator">
+                <div class="studio-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="studio-content">
+                    <h3 class="studio-title">QR 생성기</h3>
+                    <p class="studio-description">URL, 텍스트를<br>QR코드로 변환</p>
+                </div>
+                <div class="studio-overlay">
+                    <span class="studio-launch">사용하기</span>
+                </div>
+            </div>
+
+            <div class="studio-item" data-app="color-palette">
+                <div class="studio-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="studio-content">
+                    <h3 class="studio-title">컬러 팔레트</h3>
+                    <p class="studio-description">단색·그라디언트<br>색상 조합 생성</p>
+                </div>
+                <div class="studio-overlay">
+                    <span class="studio-launch">사용하기</span>
+                </div>
+            </div>
+
+            <div class="studio-item" data-app="image-extractor">
+                <div class="studio-icon">
+                    <i class="fas fa-eye-dropper"></i>
+                </div>
+                <div class="studio-content">
+                    <h3 class="studio-title">컬러 추출기</h3>
+                    <p class="studio-description">이미지에서<br>색상 팔레트 추출</p>
+                </div>
+                <div class="studio-overlay">
+                    <span class="studio-launch">사용하기</span>
+                </div>
+            </div>
+
+            <div class="studio-item" data-app="size-guide">
+                <div class="studio-icon">
+                    <i class="fas fa-ruler-combined"></i>
+                </div>
+                <div class="studio-content">
+                    <h3 class="studio-title">사이즈 가이드</h3>
+                    <p class="studio-description">디자인 표준<br>사이즈 참고표</p>
+                </div>
+                <div class="studio-overlay">
+                    <span class="studio-launch">사용하기</span>
+                </div>
+            </div>
+
+            <div class="studio-item" data-app="design-calculator">
+                <div class="studio-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="studio-content">
+                    <h3 class="studio-title">디자인 계산기</h3>
+                    <p class="studio-description">폰트·그리드<br>비율 계산</p>
+                </div>
+                <div class="studio-overlay">
+                    <span class="studio-launch">사용하기</span>
+                </div>
+            </div>
+        </div>
+
+        <a href="/studio/" class="studio-more-btn">더 많은 기능</a>
+        
+        
+        <div class="app-download-section">
+            <div class="app-download-btn" id="app-download-btn">
+                <div class="download-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div class="download-pulse"></div>
+                </div>
+                <div class="download-content">
+                    <span class="download-title">NFP Studio 앱</span>
+                    <span class="download-subtitle">모바일에서 더 편리하게</span>
+                </div>
+                <div class="download-arrow">
+                    <i class="fas fa-download"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
@@ -1602,7 +1699,7 @@ document.addEventListener('DOMContentLoaded', function() {
             subtitle: "\"최고급 원목과 가죽만 사용하는 가구 브랜드 레더우드의 브랜딩\"",
             url: "\"/posts/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/\"",
             tags: ["\"브랜딩\"","\"홈페이지 디자인\"","\"디지털 배너 디자인\"","\"상세페이지 디자인\"","\"카드뉴스 디자인\"","\"SNS광고 디자인\"","\"현수막/엑스배너 디자인\"","\"로고 디자인\"","\"NFP 디자인\"","\"NFP Design\"",],
-            customTags: [],
+            customTags: ["\"레더우드\"",],
             content: "\"\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ed%95%a9%eb%b3%b82-%eb%b3%b5%ec%82%ac.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ed%95%a9%eb%b3%b82-%eb%b3%b5%ec%82%ac.jpg\\\" \\r\\n         alt=\\\"최고급 원목과 가죽만 사용하는 가구 브랜드 - 레더우드\\\" \\r\\n         title=\\\"레더우드 - 브랜딩\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e안녕하세요, 소개드릴 작품은 최고급 원목과 가구만 사용하는 브랜드 \\u0026ldquo;레더우드\\u0026quot;의 브랜딩 프로젝트 입니다.\\u003c/p\\u003e\\n\\u003cp\\u003e하나의 프로젝트에 여러가지 카테고리가 담겨있습니다.\\u003c/p\\u003e\\n\\u003cp\\u003e원목 가구에 초점을 맞춰 메인컬러는 우드톤으로 잡았고, 세련되고 깔끔한 컨셉을 기획하였습니다.\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%eb%a1%9c%ea%b3%a0-%eb%b3%b5%ec%82%ac.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%eb%a1%9c%ea%b3%a0-%eb%b3%b5%ec%82%ac.jpg\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 로고 디자인\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 로고 디자인\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%97%91%ec%8a%a4%eb%b0%b0%eb%84%88-%eb%b3%b5%ec%82%ac.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%97%91%ec%8a%a4%eb%b0%b0%eb%84%88-%eb%b3%b5%ec%82%ac.png\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 엑스배너\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 엑스배너 디자인\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%EB%84%881.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%EB%84%881.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 메인배너 1\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 홈페이지 메인 배너 (디지털 배너) 디자인\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%EB%84%882.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%EB%84%882.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 메인 배너2\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 홈페이지 메인배너 (디지털 배너) 디자인 2\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%EB%84%883.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%B0%EB%84%883.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 메인 배너3\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 홈페이지 메인배너 (디지털 배너) 디자인 3\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%83%81%ec%84%b8%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b3%b5%ec%82%ac.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ec%83%81%ec%84%b8%ed%8e%98%ec%9d%b4%ec%a7%80-%eb%b3%b5%ec%82%ac.png\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 상세페이지 디자인\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 상세페이지 디자인\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%B3%B5%EC%82%AC.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%B3%B5%EC%82%AC.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 홈페이지 디자인\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 홈페이지 디자인\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%83%81%ED%92%88%ED%98%95-1.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%83%81%ED%92%88%ED%98%95-1.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 상품 소개 카드뉴스 타이틀\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 상품 소개형 카드뉴스 디자인 (타이틀)\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%83%81%ED%92%88%ED%98%95-2.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%83%81%ED%92%88%ED%98%95-2.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 상품 소개 카드뉴스 디자인 (본문)\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 상품 소개형 카드뉴스 디자인 (본문)\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%86%8C%EA%B0%9C%ED%98%95-1.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%86%8C%EA%B0%9C%ED%98%95-1.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 상품 홍보 카드뉴스 디자인 (타이틀)\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 상품 홍보형 카드뉴스 디자인 (타이틀)\\u003c/p\\u003e\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\r\\n\\u003cpicture\\u003e\\r\\n    \\r\\n    \\u003csource srcset=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%86%8C%EA%B0%9C%ED%98%95-2.webp\\\" type=\\\"image/webp\\\"\\u003e\\r\\n    \\r\\n    \\u003cimg src=\\\"/img/uploads/%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4-%EC%86%8C%EA%B0%9C%ED%98%95-2.webp\\\" \\r\\n         alt=\\\"\\\" \\r\\n         title=\\\"레더우드 상품 홍보형 카드뉴스 디자인 (본문)\\\"\\r\\n         style=\\\"max-width: 100%; height: auto;\\\" \\r\\n         loading=\\\"lazy\\\"\\u003e\\r\\n\\u003c/picture\\u003e\\u003cp\\u003e\\u0026ldquo;레더우드\\u0026rdquo; 상품 홍보형 카드뉴스 디자인 (본문)\\u003c/p\\u003e\\n\\u003cp\\u003e*레더우드는 가상의 브랜드임을 알려드립니다.\\u003c/p\\u003e\\n\\u003cp\\u003e최고급 원목과 가죽만 사용하는 가구 브랜드 \\u0026ldquo;레더우드\\u0026quot;의 브랜딩이었습니다.\\u003c/p\\u003e\\n\"",
             
             contentVideoUrl: "",
@@ -1890,6 +1987,9 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="/components/footer.js"></script>
     <script src="/components/floating.js"></script>
     <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    <script src="/js/studiopage.js"></script>
+    
     
     
     <script>
