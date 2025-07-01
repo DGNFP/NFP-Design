@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta name="generator" content="Hugo 0.147.8"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.147.5"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -1239,6 +1239,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+      
+    function getWebpImageUrl(originalUrl) {
+        if (!originalUrl || typeof originalUrl !== 'string') {
+            return originalUrl;
+        }
+        const webpUrl = originalUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        return webpUrl;
+    }
+    
+    function createWebpImageHtml(originalUrl, alt, className = '') {
+        if (!originalUrl) return '';
+        
+        const webpUrl = getWebpImageUrl(originalUrl);
+        const cleanAlt = alt || '';
+        const classAttr = className ? ` class="${className}"` : '';
+        
+        return `<picture>
+                    <source srcset="${webpUrl}" type="image/webp">
+                    <img src="${originalUrl}" alt="${cleanAlt}"${classAttr}>
+                </picture>`;
+    }
+
     
     
     const highlightPosts = [
@@ -1391,59 +1414,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
-    function getImageHtml(highlight) {
-        const cleanCategory = cleanUrl(highlight.category);
-        const cleanSubCategory = cleanUrl(highlight.subCategory);
-        const cleanContentVideoUrl = cleanUrl(highlight.contentVideoUrl); 
-        const cleanTitle = cleanUrl(highlight.title);
-        
-        
-        if (cleanContentVideoUrl && cleanContentVideoUrl.trim()) {
-            if (cleanContentVideoUrl.includes('youtube.com') || cleanContentVideoUrl.includes('youtu.be')) {
-                const videoId = extractYouTubeId(cleanContentVideoUrl);
-                if (videoId) {
-                    return '<div class="highlight-video-container">' +
-                           '<img src="https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\'">' +
-                           '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
-                           '</div>';
-                }
-            } else if (cleanContentVideoUrl.includes('vimeo.com')) {
-                const vimeoId = extractVimeoId(cleanContentVideoUrl);
-                if (vimeoId) {
-                    return '<div class="highlight-video-container">' +
-                           '<img src="https://vumbnail.com/' + vimeoId + '.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'/img/vimeo-default.jpg\'">' +
-                           '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
-                           '</div>';
-                }
+function getImageHtml(highlight) {
+    const cleanCategory = cleanUrl(highlight.category);
+    const cleanSubCategory = cleanUrl(highlight.subCategory);
+    const cleanContentVideoUrl = cleanUrl(highlight.contentVideoUrl);
+    const cleanTitle = cleanUrl(highlight.title);
+    
+    
+    if (cleanContentVideoUrl && cleanContentVideoUrl.trim()) {
+        if (cleanContentVideoUrl.includes('youtube.com') || cleanContentVideoUrl.includes('youtu.be')) {
+            const videoId = extractYouTubeId(cleanContentVideoUrl);
+            if (videoId) {
+                return '<div class="highlight-video-container">' +
+                       '<img src="https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\'">' +
+                       '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
+                       '</div>';
+            }
+        } else if (cleanContentVideoUrl.includes('vimeo.com')) {
+            const vimeoId = extractVimeoId(cleanContentVideoUrl);
+            if (vimeoId) {
+                return '<div class="highlight-video-container">' +
+                       '<img src="https://vumbnail.com/' + vimeoId + '.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'/img/vimeo-default.jpg\'">' +
+                       '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
+                       '</div>';
             }
         }
-        
-        
-        if (highlight.firstImage && highlight.firstImage.trim()) {
-            return '<img src="' + cleanUrl(highlight.firstImage) + '" alt="' + cleanTitle + '" class="highlight-square-img">';
-        }
-        
-        
-        if (cleanCategory === 'programming') {
-            let icon = 'fas fa-code';
-            let label = cleanSubCategory || '프로그래밍';
-            
-            if (cleanSubCategory === '프론트엔드') icon = 'fab fa-react';
-            else if (cleanSubCategory === '백엔드') icon = 'fas fa-server';
-            else if (cleanSubCategory === '웹 퍼블리싱') icon = 'fab fa-html5';
-            else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
-            else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
-            
-            return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '">' +
-                   '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
-                   '<div class="demo-label">' +
-                   '<span class="demo-type">' + label + '</span>' +
-                   '</div></div>';
-        }
-        
-        
-        return '<img src="img/design1.jpg" alt="' + cleanTitle + '" class="highlight-square-img">';
     }
+    
+    
+    if (highlight.firstImage && highlight.firstImage.trim()) {
+        return createWebpImageHtml(cleanUrl(highlight.firstImage), cleanTitle, 'highlight-square-img');
+    }
+    
+    
+    if (cleanCategory === 'programming') {
+        let icon = 'fas fa-code';
+        let label = cleanSubCategory || '프로그래밍';
+        
+        if (cleanSubCategory === '프론트엔드') icon = 'fab fa-react';
+        else if (cleanSubCategory === '백엔드') icon = 'fas fa-server';
+        else if (cleanSubCategory === '웹 퍼블리싱') icon = 'fab fa-html5';
+        else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
+        else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
+        
+        return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '">' +
+               '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
+               '<div class="demo-label">' +
+               '<span class="demo-type">' + label + '</span>' +
+               '</div></div>';
+    }
+    
+    
+    return createWebpImageHtml('img/design1.jpg', cleanTitle, 'highlight-square-img');
+}
     
     
     function getRandomHighlights(posts, count = 5) {
@@ -1505,6 +1528,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+    
+    function getWebpImageUrl(originalUrl) {
+        if (!originalUrl || typeof originalUrl !== 'string') {
+            return originalUrl;
+        }
+        const webpUrl = originalUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        return webpUrl;
+    }
+    
+    function createWebpImageHtml(originalUrl, alt, className = '') {
+        if (!originalUrl) return '';
+        
+        const webpUrl = getWebpImageUrl(originalUrl);
+        const cleanAlt = alt || '';
+        const classAttr = className ? ` class="${className}"` : '';
+        
+        return `<picture>
+                    <source srcset="${webpUrl}" type="image/webp">
+                    <img src="${originalUrl}" alt="${cleanAlt}"${classAttr}>
+                </picture>`;
+    }
     
     
     const projectPosts = [
@@ -1512,7 +1557,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         {
             title: "\"[레더우드] 가구 브랜딩\"",
-            subtitle: "\"최고급 원목과 가죽만 사용하는 가구 브랜드 \\\"레더우드\\\"의 브랜딩\"",
+            subtitle: "\"최고급 원목과 가죽만 사용하는 가구 브랜드 레더우드의 브랜딩\"",
             url: "\"/posts/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/\"",
             tags: ["\"브랜딩\"","\"홈페이지 디자인\"","\"디지털 배너 디자인\"","\"상세페이지 디자인\"","\"카드뉴스 디자인\"","\"SNS광고 디자인\"","\"현수막/엑스배너 디자인\"","\"로고 디자인\"","\"NFP 디자인\"","\"NFP Design\"",],
             customTags: [],
@@ -1726,6 +1771,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (imageData.type === 'youtube' || imageData.type === 'vimeo') {
                 const iconClass = imageData.type === 'vimeo' ? 'fas fa-play' : 'fas fa-play';
                 const onError = imageData.fallback ? `onerror="this.src='${imageData.fallback}'"` : '';
+                
                 imageHtml = `
                     <div style="position: relative;">
                         <img src="${imageData.url}" alt="${cleanUrl(project.title)}" class="main-project-wide-img" ${onError}>
@@ -1735,7 +1781,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
             } else {
-                imageHtml = `<img src="${imageData.url}" alt="${cleanUrl(project.title)}" class="main-project-wide-img">`;
+                
+                imageHtml = createWebpImageHtml(imageData.url, cleanUrl(project.title), 'main-project-wide-img');
             }
             
             const basicTags = (project.tags || []).slice(0, 2);

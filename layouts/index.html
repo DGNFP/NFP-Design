@@ -1194,6 +1194,29 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- 하이라이트 섹션 스크립트 (수정됨) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+      // ✨ 새로 추가할 함수들 (여기에 추가!)
+    function getWebpImageUrl(originalUrl) {
+        if (!originalUrl || typeof originalUrl !== 'string') {
+            return originalUrl;
+        }
+        const webpUrl = originalUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        return webpUrl;
+    }
+    
+    function createWebpImageHtml(originalUrl, alt, className = '') {
+        if (!originalUrl) return '';
+        
+        const webpUrl = getWebpImageUrl(originalUrl);
+        const cleanAlt = alt || '';
+        const classAttr = className ? ` class="${className}"` : '';
+        
+        return `<picture>
+                    <source srcset="${webpUrl}" type="image/webp">
+                    <img src="${originalUrl}" alt="${cleanAlt}"${classAttr}>
+                </picture>`;
+    }
+
     
     // 프로젝트 카테고리와 웹데모 게시글을 제외한 데이터
     const highlightPosts = [
@@ -1238,59 +1261,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 우선순위 기반 이미지/썸네일 처리 (수정됨)
-    function getImageHtml(highlight) {
-        const cleanCategory = cleanUrl(highlight.category);
-        const cleanSubCategory = cleanUrl(highlight.subCategory);
-        const cleanContentVideoUrl = cleanUrl(highlight.contentVideoUrl); // ✨ 새로 추가
-        const cleanTitle = cleanUrl(highlight.title);
-        
-        // ✨ 1순위: 본문에서 추출한 동영상 URL (YouTube Shorts 포함)
-        if (cleanContentVideoUrl && cleanContentVideoUrl.trim()) {
-            if (cleanContentVideoUrl.includes('youtube.com') || cleanContentVideoUrl.includes('youtu.be')) {
-                const videoId = extractYouTubeId(cleanContentVideoUrl);
-                if (videoId) {
-                    return '<div class="highlight-video-container">' +
-                           '<img src="https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\'">' +
-                           '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
-                           '</div>';
-                }
-            } else if (cleanContentVideoUrl.includes('vimeo.com')) {
-                const vimeoId = extractVimeoId(cleanContentVideoUrl);
-                if (vimeoId) {
-                    return '<div class="highlight-video-container">' +
-                           '<img src="https://vumbnail.com/' + vimeoId + '.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'/img/vimeo-default.jpg\'">' +
-                           '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
-                           '</div>';
-                }
+function getImageHtml(highlight) {
+    const cleanCategory = cleanUrl(highlight.category);
+    const cleanSubCategory = cleanUrl(highlight.subCategory);
+    const cleanContentVideoUrl = cleanUrl(highlight.contentVideoUrl);
+    const cleanTitle = cleanUrl(highlight.title);
+    
+    // 1순위: 본문에서 추출한 동영상 URL (YouTube Shorts 포함)
+    if (cleanContentVideoUrl && cleanContentVideoUrl.trim()) {
+        if (cleanContentVideoUrl.includes('youtube.com') || cleanContentVideoUrl.includes('youtu.be')) {
+            const videoId = extractYouTubeId(cleanContentVideoUrl);
+            if (videoId) {
+                return '<div class="highlight-video-container">' +
+                       '<img src="https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg\'">' +
+                       '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
+                       '</div>';
+            }
+        } else if (cleanContentVideoUrl.includes('vimeo.com')) {
+            const vimeoId = extractVimeoId(cleanContentVideoUrl);
+            if (vimeoId) {
+                return '<div class="highlight-video-container">' +
+                       '<img src="https://vumbnail.com/' + vimeoId + '.jpg" alt="' + cleanTitle + '" class="highlight-square-img" onerror="this.src=\'/img/vimeo-default.jpg\'">' +
+                       '<div class="video-overlay"><i class="fas fa-play"></i></div>' +
+                       '</div>';
             }
         }
-        
-        // 2순위: 본문에서 첫 번째 이미지 추출
-        if (highlight.firstImage && highlight.firstImage.trim()) {
-            return '<img src="' + cleanUrl(highlight.firstImage) + '" alt="' + cleanTitle + '" class="highlight-square-img">';
-        }
-        
-        // 3순위: 프로그래밍 카테고리 플레이스홀더
-        if (cleanCategory === 'programming') {
-            let icon = 'fas fa-code';
-            let label = cleanSubCategory || '프로그래밍';
-            
-            if (cleanSubCategory === '프론트엔드') icon = 'fab fa-react';
-            else if (cleanSubCategory === '백엔드') icon = 'fas fa-server';
-            else if (cleanSubCategory === '웹 퍼블리싱') icon = 'fab fa-html5';
-            else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
-            else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
-            
-            return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '">' +
-                   '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
-                   '<div class="demo-label">' +
-                   '<span class="demo-type">' + label + '</span>' +
-                   '</div></div>';
-        }
-        
-        // 4순위: 기본 이미지
-        return '<img src="img/design1.jpg" alt="' + cleanTitle + '" class="highlight-square-img">';
     }
+    
+    // 2순위: 본문에서 첫 번째 이미지 추출 (WebP 적용!)
+    if (highlight.firstImage && highlight.firstImage.trim()) {
+        return createWebpImageHtml(cleanUrl(highlight.firstImage), cleanTitle, 'highlight-square-img');
+    }
+    
+    // 3순위: 프로그래밍 카테고리 플레이스홀더 (변경없음)
+    if (cleanCategory === 'programming') {
+        let icon = 'fas fa-code';
+        let label = cleanSubCategory || '프로그래밍';
+        
+        if (cleanSubCategory === '프론트엔드') icon = 'fab fa-react';
+        else if (cleanSubCategory === '백엔드') icon = 'fas fa-server';
+        else if (cleanSubCategory === '웹 퍼블리싱') icon = 'fab fa-html5';
+        else if (cleanSubCategory === '모바일 앱') icon = 'fas fa-mobile-alt';
+        else if (cleanSubCategory === '게임 개발') icon = 'fas fa-gamepad';
+        
+        return '<div class="demo-placeholder-all" data-subcategory="' + cleanSubCategory + '">' +
+               '<div class="demo-icon"><i class="' + icon + '"></i></div>' +
+               '<div class="demo-label">' +
+               '<span class="demo-type">' + label + '</span>' +
+               '</div></div>';
+    }
+    
+    // 4순위: 기본 이미지 (WebP 적용!)
+    return createWebpImageHtml('img/design1.jpg', cleanTitle, 'highlight-square-img');
+}
     
     // 랜덤 선택 함수
     function getRandomHighlights(posts, count = 5) {
@@ -1352,6 +1375,28 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- 메인 프로젝트 섹션 스크립트 (수정됨) -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+
+    // ✨ 새로 추가할 함수들 (여기에 추가!)
+    function getWebpImageUrl(originalUrl) {
+        if (!originalUrl || typeof originalUrl !== 'string') {
+            return originalUrl;
+        }
+        const webpUrl = originalUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        return webpUrl;
+    }
+    
+    function createWebpImageHtml(originalUrl, alt, className = '') {
+        if (!originalUrl) return '';
+        
+        const webpUrl = getWebpImageUrl(originalUrl);
+        const cleanAlt = alt || '';
+        const classAttr = className ? ` class="${className}"` : '';
+        
+        return `<picture>
+                    <source srcset="${webpUrl}" type="image/webp">
+                    <img src="${originalUrl}" alt="${cleanAlt}"${classAttr}>
+                </picture>`;
+    }
     
     // 프로젝트 데이터
     const projectPosts = [
@@ -1489,6 +1534,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (imageData.type === 'youtube' || imageData.type === 'vimeo') {
                 const iconClass = imageData.type === 'vimeo' ? 'fas fa-play' : 'fas fa-play';
                 const onError = imageData.fallback ? `onerror="this.src='${imageData.fallback}'"` : '';
+                // YouTube/Vimeo 썸네일은 WebP 처리 안함
                 imageHtml = `
                     <div style="position: relative;">
                         <img src="${imageData.url}" alt="${cleanUrl(project.title)}" class="main-project-wide-img" ${onError}>
@@ -1498,7 +1544,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
             } else {
-                imageHtml = `<img src="${imageData.url}" alt="${cleanUrl(project.title)}" class="main-project-wide-img">`;
+                // 일반 이미지는 WebP 처리
+                imageHtml = createWebpImageHtml(imageData.url, cleanUrl(project.title), 'main-project-wide-img');
             }
             
             const basicTags = (project.tags || []).slice(0, 2);
