@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'static/img/uploads/**/*.jpg'
+      - 'static/img/uploads/**/*.jpeg'
+      - 'static/img/uploads/**/*.png'
+      - 'content/**/*.md'  # 새 게시글도 감지
   workflow_dispatch: 
 
 jobs:
@@ -90,24 +95,26 @@ jobs:
           fi
         }
         
-        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-          echo "🔄 Processing ALL original images (manual run)..."
-          find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
-            -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" | while read img; do
-            if [ -f "$img" ]; then
+        # 더 안전한 이미지 처리 로직
+        echo "🔄 Processing images - checking for new/updated files..."
+        
+        # 모든 이미지를 확인하되, 이미 최신 WebP가 있으면 건너뛰기
+        find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
+          -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" | while read img; do
+          if [ -f "$img" ]; then
+            filename=$(basename "$img")
+            name="${filename%.*}"
+            webp_file="static/img/uploads/${name}.webp"
+            
+            # 원본이 WebP보다 최신이거나 WebP가 없으면 처리
+            if [ ! -f "$webp_file" ] || [ "$img" -nt "$webp_file" ]; then
+              echo "🆕 Processing updated/new image: $img"
               process_image "$img"
+            else
+              echo "⏭️ Skipping up-to-date: $img"
             fi
-          done
-        else
-          echo "🔄 Processing ALL images (auto run - more reliable)..."
-          # 자동 실행에서도 모든 이미지를 확인하되, 이미 WebP가 있으면 건너뛰기
-          find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
-            -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" | while read img; do
-            if [ -f "$img" ]; then
-              process_image "$img"
-            fi
-          done
-        fi
+          fi
+        done
         
     - name: 📤 Commit changes
       run: |

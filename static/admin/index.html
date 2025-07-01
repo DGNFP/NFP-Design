@@ -4,53 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>NFP Design 관리자</title>
-  
-  <!-- 🔥 안전한 CSS만으로 TITLE 필드 숨기기 -->
-  <style>
-    /* 더 정확한 TITLE 필드 완전 제거 */
-    
-    /* 이미지 다이얼로그에서 세 번째 필드(TITLE) 완전 숨기기 */
-    /* ALT TEXT 다음에 오는 필드를 숨기기 */
-    div[class*="css-"]:has(> *:contains("ALT TEXT")) + div[class*="css-"] {
-      display: none !important;
-      height: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    
-    /* 세 번째 input 필드 숨기기 (IMAGE, ALT TEXT 다음) */
-    input:nth-of-type(3) {
-      display: none !important;
-    }
-    
-    /* 세 번째 필드 컨테이너 숨기기 */
-    div:nth-child(3):has(input):not(:has(*:contains("ALT"))) {
-      display: none !important;
-    }
-    
-    /* 빈 라벨이 있는 필드 숨기기 (TITLE 텍스트가 사라진 필드) */
-    div:has(> input):not(:has(*:contains("IMAGE"))):not(:has(*:contains("ALT"))):not(:has(*:contains("URL"))) {
-      display: none !important;
-    }
-    
-    /* 더 구체적으로: 마지막 input 필드 숨기기 */
-    div:last-child:has(input):not(:has(*:contains("ALT"))) {
-      display: none !important;
-    }
-    
-    /* 이미지 모달에서 마지막 필드 숨기기 */
-    .image-widget > div:last-child:has(input),
-    [class*="image"] > div:last-child:has(input) {
-      display: none !important;
-    }
-    
-    /* 스크린샷 기준: ALT TEXT 아래 빈 필드 숨기기 */
-    div:has(> div:contains("ALT TEXT")) ~ div:has(input):not(:has(*:contains("ALT"))) {
-      display: none !important;
-    }
-  </style>
-  
+  <title>NFP Design 관리자 페이지</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -65,27 +19,6 @@
         }
       });
     }
-    
-    // 🔥 안전한 단순 버전 - 에러 방지
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        try {
-          // 간단하게 TITLE만 찾아서 숨기기
-          const elements = document.querySelectorAll('*');
-          elements.forEach(function(el) {
-            if (el.textContent === 'TITLE' && el.tagName !== 'TITLE') {
-              const parent = el.closest('div');
-              if (parent) {
-                parent.style.display = 'none';
-                console.log('🚫 TITLE 필드 숨김');
-              }
-            }
-          });
-        } catch (error) {
-          console.log('⚠️ TITLE 숨기기 실패:', error);
-        }
-      }, 3000);
-    });
   </script>
 </body>
 </html>
