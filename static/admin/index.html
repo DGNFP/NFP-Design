@@ -8,29 +8,45 @@
   
   <!-- 🔥 안전한 CSS만으로 TITLE 필드 숨기기 -->
   <style>
-    /* 간단하고 안전한 TITLE 필드 숨기기 */
+    /* 더 정확한 TITLE 필드 완전 제거 */
     
-    /* TITLE 라벨이 있는 필드 그룹 숨기기 */
-    div:has(> div:contains("TITLE")),
-    .field:has(label:contains("TITLE")),
-    .form-group:has(label:contains("TITLE")) {
+    /* 이미지 다이얼로그에서 세 번째 필드(TITLE) 완전 숨기기 */
+    /* ALT TEXT 다음에 오는 필드를 숨기기 */
+    div[class*="css-"]:has(> *:contains("ALT TEXT")) + div[class*="css-"] {
+      display: none !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    /* 세 번째 input 필드 숨기기 (IMAGE, ALT TEXT 다음) */
+    input:nth-of-type(3) {
       display: none !important;
     }
     
-    /* nth-child로 세 번째 필드 숨기기 (스크린샷 기준) */
-    .css-*:nth-child(3):last-child {
+    /* 세 번째 필드 컨테이너 숨기기 */
+    div:nth-child(3):has(input):not(:has(*:contains("ALT"))) {
       display: none !important;
     }
     
-    /* 더 간단한 방법: TITLE 텍스트 포함된 요소의 부모 숨기기 */
-    *:contains("TITLE"):not(title):not(.page-title) {
+    /* 빈 라벨이 있는 필드 숨기기 (TITLE 텍스트가 사라진 필드) */
+    div:has(> input):not(:has(*:contains("IMAGE"))):not(:has(*:contains("ALT"))):not(:has(*:contains("URL"))) {
       display: none !important;
     }
     
-    /* CSS로만 처리 - JavaScript 없이 */
-    input[value="TITLE"],
-    label[for*="title"],
-    [aria-label*="title" i] {
+    /* 더 구체적으로: 마지막 input 필드 숨기기 */
+    div:last-child:has(input):not(:has(*:contains("ALT"))) {
+      display: none !important;
+    }
+    
+    /* 이미지 모달에서 마지막 필드 숨기기 */
+    .image-widget > div:last-child:has(input),
+    [class*="image"] > div:last-child:has(input) {
+      display: none !important;
+    }
+    
+    /* 스크린샷 기준: ALT TEXT 아래 빈 필드 숨기기 */
+    div:has(> div:contains("ALT TEXT")) ~ div:has(input):not(:has(*:contains("ALT"))) {
       display: none !important;
     }
   </style>
