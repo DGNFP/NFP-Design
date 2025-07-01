@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'static/img/uploads/**/*.jpg'
-      - 'static/img/uploads/**/*.jpeg'
-      - 'static/img/uploads/**/*.png'
   workflow_dispatch: 
 
 jobs:
@@ -33,13 +29,11 @@ jobs:
           static/img/uploads/**/*.webp
     
     - name: 🛠️ Install WebP support
-      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         sudo apt-get update
         sudo apt-get install -y webp
     
     - name: 🧹 Clean up old multi-size files (one-time cleanup)
-      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         echo "🧹 Cleaning up old thumbnail and medium files..."
         find static/img/uploads -name "*_thumb.*" -type f -delete 2>/dev/null || true
@@ -49,7 +43,6 @@ jobs:
         echo "✅ Multi-size cleanup completed - now using single WebP only"
     
     - name: 🌐 Create WebP with dual filename support (원본 + URL 인코딩)
-      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         # Python 스크립트를 별도 파일로 생성
         cat > url_encode.py << 'EOF'
@@ -106,16 +99,17 @@ jobs:
             fi
           done
         else
-          echo "🔄 Processing only NEW/CHANGED original images..."
-          echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read img; do
-            if [ -f "$img" ] && [ -n "$img" ]; then
+          echo "🔄 Processing ALL images (auto run - more reliable)..."
+          # 자동 실행에서도 모든 이미지를 확인하되, 이미 WebP가 있으면 건너뛰기
+          find static/img/uploads -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) \
+            -not -name "*_thumb*" -not -name "*_medium*" -not -name "*-thumb*" -not -name "*-medium*" | while read img; do
+            if [ -f "$img" ]; then
               process_image "$img"
             fi
           done
         fi
         
     - name: 📤 Commit changes
-      if: steps.changed-files.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
       run: |
         git config --local user.email "nfp-compress-bot@github.com"
         git config --local user.name "NFP Compress Bot"
