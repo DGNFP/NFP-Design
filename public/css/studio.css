@@ -42,7 +42,7 @@
 /* 그리드 레이아웃 - 한 줄에 5개 */
 .studio-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -92,8 +92,8 @@
 
 /* 아이콘 스타일 */
 .studio-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(135deg, rgba(1, 255, 117, 0.15) 0%, rgba(1, 255, 117, 0.05) 100%);
     border: 2px solid rgba(1, 255, 117, 0.3);
     border-radius: 50%;
@@ -107,7 +107,7 @@
 }
 
 .studio-icon i {
-    font-size: 26px;
+    font-size: 20px;
     color: var(--accent-color);
     transition: all 0.3s ease;
 }

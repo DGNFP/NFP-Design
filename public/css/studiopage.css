@@ -390,12 +390,14 @@ select.studio-form-input option {
     font-size: 12px;
     color: var(--text-color);
     margin-top: 5px;
+    font-family: 'Pretendard'!important;
 }
 
 .studio-color-code:first-child {
     font-weight: 700;
     color: var(--accent-color);
     font-size: 18px;
+    font-family: 'Pretendard'!important;
 }
 
 /* 그라디언트 바 스타일 */

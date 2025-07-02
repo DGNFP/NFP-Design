@@ -1,0 +1,252 @@
+/* ==================== 컬러 카드 뽑기 스타일 ==================== */
+
+.studio-card-picker {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.studio-today-info {
+    background: rgba(1, 255, 117, 0.05);
+    border: 1px solid rgba(1, 255, 117, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.studio-today-info h3 {
+    color: #01ff75;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.studio-today-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
+
+.studio-card-deck {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    height: 400px; /* 카드가 더 커졌으니 높이 증가 */
+}
+
+/* 기본 카드 스타일 */
+.studio-card {
+    width: 200px;
+    height: 280px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(1, 255, 117, 0.1) 100%);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.studio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(1, 255, 117, 0.3);
+    border-color: #01ff75;
+}
+
+.studio-card-icon {
+    font-size: 48px;
+    color: #01ff75;
+    margin-bottom: 15px;
+}
+
+.studio-card-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+
+/* 새로운 카드 스타일 - 이미지처럼 깔끔하게 */
+.color-result-card {
+    width: 280px;
+    height: 350px;
+    background: white;
+    /* border-radius: 20px; */
+    padding: 0;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.color-result-card .color-display-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.color-result-card .color-info-area {
+    flex: 1;
+    padding: 30px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.color-result-card .color-brand-name {
+    font-size: 32px;
+    font-weight: 900;
+    color: #333;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.color-result-card .color-hex-code {
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 15px;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.color-result-card .color-korean-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.color-result-card .color-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* 버튼 스타일 */
+.studio-pick-btn {
+    background: #01ff75;
+    color: black;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.studio-pick-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.studio-pick-btn:hover::before {
+    left: 100%;
+}
+
+.studio-pick-btn:hover {
+    background: #00e066;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(1, 255, 117, 0.4);
+}
+
+.studio-pick-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.studio-picked-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #01ff75;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    animation: studio-card-reveal 0.6s ease;
+}
+
+@keyframes studio-card-reveal {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.studio-card-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.studio-action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.studio-action-btn:hover {
+    border-color: #01ff75;
+    background: rgba(1, 255, 117, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .color-result-card {
+        width: 240px;
+        height: 320px;
+    }
+    
+    .color-result-card .color-display-area {
+        height: 160px;
+    }
+    
+    .color-result-card .color-info-area {
+        padding: 20px;
+    }
+    
+    .color-result-card .color-brand-name {
+        font-size: 24px;
+    }
+    
+    .color-result-card .color-korean-name {
+        font-size: 20px;
+    }
+    
+    .studio-card-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
