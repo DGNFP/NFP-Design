@@ -278,7 +278,8 @@ select.studio-form-input option {
         cursor: pointer;
         transition: var(--transition);
         font-size: 16px;
-        margin-top: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .studio-page-btn:hover {
@@ -334,8 +335,8 @@ select.studio-form-input option {
 
     .studio-color-preview {
         width: 100%;
-        height: 80px;
-        border-radius: 8px;
+        height: 120px;
+        border-radius: 4px;
         margin-bottom: 10px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -502,69 +503,86 @@ select.studio-form-input option {
     align-self: center; /* 자기 자신을 중앙 정렬 */
 }
 
-/* 그라디언트 연결 컨테이너 스타일 */
-.studio-gradient-container {
+/* 전체 컨테이너를 세로로 배치 */
+.studio-color-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 색상 아이템들 가로 배열 - 동일한 너비로 배치 */
+.studio-color-items-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+/* 개별 색상 아이템 - 동일한 너비 설정 */
+.studio-color-item {
+    flex: 1;
+    min-width: 0; /* flex 아이템이 내용에 맞춰 축소되도록 */
+}
+
+/* 그라디언트 바 스타일 */
+.studio-gradient-bar {
     width: 100%;
-    margin-top: 20px;
-    border: 2px solid #333;
-    border-radius: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #fff;
 }
 
-.studio-gradient-container:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.studio-gradient-bar:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.studio-gradient-preview {
+.studio-gradient-strip {
     width: 100%;
-    height: 80px;
+    height: 60px;
     position: relative;
 }
 
-.studio-gradient-preview::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, 
-        transparent 24%, 
-        rgba(255, 255, 255, 0.1) 25%, 
-        rgba(255, 255, 255, 0.1) 26%, 
-        transparent 27%, 
-        transparent 74%, 
-        rgba(255, 255, 255, 0.1) 75%, 
-        rgba(255, 255, 255, 0.1) 76%, 
-        transparent 77%
-    );
-    background-size: 20px 20px;
-    pointer-events: none;
-}
-
-.studio-gradient-info {
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.05);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.studio-gradient-title {
-    font-weight: 600;
+.studio-gradient-label {
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
     font-size: 14px;
-    color: #333;
-    margin-bottom: 8px;
+    color: #495057;
 }
 
-.studio-gradient-code {
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+.studio-gradient-label span {
+    font-weight: 600;
+}
+
+.studio-gradient-label code {
+    margin-left: 8px;
+    padding: 4px 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
     font-size: 12px;
-    color: #666;
-    background: rgba(0, 0, 0, 0.05);
-    padding: 8px 12px;
-    border-radius: 6px;
+    color: #6c757d;
     word-break: break-all;
-    line-height: 1.4;
+}
+
+/* 다크 테마 지원 */
+@media (prefers-color-scheme: dark) {
+    .studio-gradient-bar {
+        border-color: #444;
+        background: #2a2a2a;
+    }
+    
+    .studio-gradient-label {
+        background: #333;
+        border-top-color: #444;
+        color: #e9ecef;
+    }
+    
+    .studio-gradient-label code {
+        background: #444;
+        color: #ced4da;
+    }
 }
