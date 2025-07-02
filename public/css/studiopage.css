@@ -198,7 +198,7 @@
     .studio-form-input:focus {
         outline: none;
         border-color: var(--accent-color);
-        box-shadow: 0 0 15px rgba(1, 255, 117, 0.3);
+        /* box-shadow: 0 0 15px rgba(1, 255, 117, 0.3); */
     }
 
     .studio-page-btn {
@@ -211,6 +211,7 @@
         cursor: pointer;
         transition: var(--transition);
         font-size: 16px;
+        margin-top: 20px;
     }
 
     .studio-page-btn:hover {
@@ -233,13 +234,83 @@
         border-radius: 15px;
         padding: 30px;
         border: 2px solid rgba(1, 255, 117, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 중앙 정렬 강화 */
+    }
+
+    .studio-qr-result h3 {
+    margin-bottom: 20px;
     }
 
     #studio-qr-canvas {
         border-radius: 10px;
         margin: 20px 0;
         max-width: 100%;
+        display: block; /* 블록 요소로 설정 */
     }
+
+    #studio-download-btn {
+    margin-top: 20px; /* 고정 여백 */
+    align-self: center; /* 자기 자신을 중앙 정렬 */
+    }
+
+/* Select 드롭다운 완전한 커스터마이징 */
+select.studio-form-input {
+    /* 기본 설정 */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 16px;
+    padding: 15px 40px 15px 15px;
+    cursor: pointer;
+    
+    /* 커스텀 화살표 */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2301FF75' stroke-width='2'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+
+/* 옵션 스타일 - 더 강력한 설정 */
+select.studio-form-input option {
+    background-color: #1a1a1a !important;  /* 어두운 배경 강제 적용 */
+    color: #ffffff !important;              /* 흰색 텍스트 강제 적용 */
+    padding: 12px 15px !important;
+    border: none !important;
+}
+
+/* 선택된 옵션 스타일 */
+select.studio-form-input option:checked {
+    background-color: var(--accent-color) !important;
+    color: var(--background-color) !important;
+    font-weight: 600 !important;
+}
+
+
+
+select.studio-form-input option:checked {
+    background-color: var(--accent-color) !important;
+    color: var(--background-color) !important;
+}
+
+/* 브라우저별 추가 설정 */
+select.studio-form-input::-ms-expand {
+    display: none; /* IE의 기본 화살표 제거 */
+}
+
+/* Firefox 전용 */
+@-moz-document url-prefix() {
+    select.studio-form-input {
+        text-indent: 0.01px;
+        text-overflow: '';
+    }
+}
 
     /* 컬러 팔레트 스타일 */
     .studio-color-grid {
@@ -273,15 +344,14 @@
     }
 
     .studio-color-code {
-        font-family: 'Courier New', monospace;
         font-size: 12px;
-        color: var(--accent-color);
+        color: var(--text-color);
         margin-top: 5px;
     }
 
     /* 이미지 업로드 영역 */
     .studio-upload-area {
-        border: 2px dashed rgba(1, 255, 117, 0.5);
+        border: 2px dashed rgba(108, 117, 125, 0.2);
         border-radius: 15px;
         padding: 40px;
         text-align: center;
@@ -304,9 +374,19 @@
 
     .studio-upload-icon {
         font-size: 48px;
-        color: var(--accent-color);
+        /* color: var(--text-color); */
+        color: rgb(102, 102, 102);
         margin-bottom: 15px;
     }
+
+    .studio-upload-area h3 {
+        color: rgb(102, 102, 102);
+    }
+
+    .studio-upload-area p {
+        color: rgb(102, 102, 102);
+    }
+
 
     /* 사이즈 가이드 스타일 */
     .studio-size-categories {
@@ -370,6 +450,16 @@
         font-family: 'Courier New', monospace;
         color: var(--accent-color);
     }
+
+    .studio-form-input[type="number"]::-webkit-outer-spin-button,
+.studio-form-input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.studio-form-input[type="number"] {
+    -moz-appearance: textfield;
+}
 
     /* 반응형 */
     @media (max-width: 768px) {

@@ -271,5 +271,7 @@
   </url><url>
     <loc>http://localhost:1313/news/2025-05-24-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%80%EC%98%A4%ED%94%88/</loc>
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/studio/</loc>
   </url>
 </urlset>
