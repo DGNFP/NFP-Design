@@ -664,8 +664,10 @@ function displayColors(colors, container) {
         item.className = 'studio-color-item';
         item.innerHTML = `
             <div class="studio-color-preview" style="background-color: ${color}"></div>
-            <div class="studio-color-code">${color}</div>
-            <div class="studio-color-code">RGB: ${hexToRgb(color)}</div>
+            <div class="studio-color-info">
+                <div class="studio-color-code">${color}</div>
+                <div class="studio-color-code">RGB: ${hexToRgb(color)}</div>
+            </div>
         `;
         item.addEventListener('click', () => {
             navigator.clipboard.writeText(color);

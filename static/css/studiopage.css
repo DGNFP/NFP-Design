@@ -1,112 +1,46 @@
-    .studio-page-section {
-        padding: 60px 0;
-        position: relative;
-    }
-
-    .studio-page-section::before {
-        content: '';
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        background: rgba(1, 255, 117, 0.05);
-        border-radius: 50%;
-        filter: blur(100px);
-        top: -100px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-    }
-
-    /* 기본 select 스타일 제거 및 커스텀 */
-.studio-form-input[type="color"],
-select.studio-form-input {
-    /* 기본 브라우저 스타일 제거 */
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    
-    /* 커스텀 스타일 */
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 10px;
-    color: var(--text-color);
-    font-size: 16px;
-    padding: 15px 40px 15px 15px; /* 오른쪽에 화살표 공간 */
-    transition: var(--transition);
-    cursor: pointer;
-    
-    /* 커스텀 화살표 추가 */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2301FF75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 16px;
-}
-
-/* 호버 효과 */
-select.studio-form-input:hover {
-    border-color: var(--accent-color);
-    background-color: rgba(1, 255, 117, 0.05);
-}
-
-/* 포커스 효과 */
-select.studio-form-input:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.3);
-    background-color: rgba(1, 255, 117, 0.08);
-}
-
-/* Chrome, Safari, Edge, Opera */
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-/* 옵션 스타일 (일부 브라우저에서만 지원) */
-select.studio-form-input option {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding: 10px;
-}
-
-/* 더 고급 스타일링을 위한 대안 */
-.custom-select-wrapper {
+/* 기본 섹션 스타일 */
+.studio-page-section {
+    padding: 60px 0;
     position: relative;
-    display: inline-block;
-    width: 100%;
 }
 
+.studio-page-section::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(1, 255, 117, 0.05);
+    border-radius: 50%;
+    filter: blur(100px);
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
 
+/* 헤더 스타일 */
+.studio-page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-    .studio-page-header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
+.studio-page-header h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
 
-    .studio-page-header h1 {
-        font-size: 48px;
-        font-weight: 900;
-        margin-bottom: 15px;
-    }
+.studio-page-header h1 span {
+    color: var(--accent-color);
+}
 
-    .studio-page-header h1 span {
-        color: var(--accent-color);
-    }
-
-    .studio-page-header p {
-        font-size: 18px;
-        opacity: 0.8;
-    }
-
+.studio-page-header p {
+    font-size: 18px;
+    opacity: 0.8;
+}
 
 /* 앱 다운로드 버튼 */
-.studio-download-section{
+.studio-download-section {
     display: flex;
     justify-content: center;
     margin: 25px auto 0 auto;
@@ -131,373 +65,485 @@ select.studio-form-input option {
     margin-bottom: 40px;
 }
 
-.studio-download-section .download-subtitle{
+.studio-download-section .download-subtitle {
     text-align: center;
 }
 
+/* 탭 네비게이션 */
+.studio-page-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
 
-    /* 탭 네비게이션 */
-    .studio-page-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 50px;
-        flex-wrap: wrap;
-    }
+.studio-page-tab {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    border-radius: 25px;
+    padding: 12px 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
 
-    .studio-page-tab {
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid rgba(1, 255, 117, 0.3);
-        border-radius: 25px;
-        padding: 12px 24px;
-        color: var(--text-color);
-        cursor: pointer;
-        transition: var(--transition);
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        position: relative;
-        overflow: hidden;
-    }
+.studio-page-tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(1, 255, 117, 0.1), transparent);
+    transition: left 0.5s ease;
+}
 
-    .studio-page-tab::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(1, 255, 117, 0.1), transparent);
-        transition: left 0.5s ease;
-    }
+.studio-page-tab:hover::before {
+    left: 100%;
+}
 
-    .studio-page-tab:hover::before {
-        left: 100%;
-    }
+.studio-page-tab:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(1, 255, 117, 0.2);
+}
 
-    .studio-page-tab:hover {
-        border-color: var(--accent-color);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(1, 255, 117, 0.2);
-    }
+.studio-page-tab.active {
+    background: var(--accent-color);
+    color: var(--background-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.4);
+}
 
-    .studio-page-tab.active {
-        background: var(--accent-color);
-        color: var(--background-color);
-        border-color: var(--accent-color);
-        box-shadow: 0 0 20px rgba(1, 255, 117, 0.4);
-    }
+.studio-page-tab i {
+    font-size: 16px;
+}
 
-    .studio-page-tab i {
-        font-size: 16px;
-    }
+.studio-new-badge {
+    background: #ff4444;
+    color: white;
+    font-size: 8px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-left: 5px;
+    animation: studio-badge-pulse 2s infinite;
+}
 
-    .studio-new-badge {
-        background: #ff4444;
-        color: white;
-        font-size: 8px;
-        padding: 2px 6px;
-        border-radius: 8px;
-        margin-left: 5px;
-        animation: studio-badge-pulse 2s infinite;
-    }
+@keyframes studio-badge-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
 
-    @keyframes studio-badge-pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.7; }
-    }
+/* 탭 컨텐츠 */
+.studio-page-content {
+    min-height: 600px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
+    border: 2px solid rgba(1, 255, 117, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
 
-    /* 탭 컨텐츠 */
-    .studio-page-content {
-        min-height: 600px;
-        background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
-        border: 2px solid rgba(1, 255, 117, 0.2);
-        border-radius: 20px;
-        padding: 40px;
-        backdrop-filter: blur(10px);
-        position: relative;
-        overflow: hidden;
-    }
+.studio-page-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(1, 255, 117, 0.02) 50%,
+        transparent 70%
+    );
+    animation: studio-content-scan 8s infinite linear;
+    pointer-events: none;
+}
 
-    .studio-page-content::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-            45deg,
-            transparent 30%,
-            rgba(1, 255, 117, 0.02) 50%,
-            transparent 70%
-        );
-        animation: studio-content-scan 8s infinite linear;
-        pointer-events: none;
-    }
+@keyframes studio-content-scan {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(200%) skewX(-15deg); }
+}
 
-    @keyframes studio-content-scan {
-        0% { transform: translateX(-100%) skewX(-15deg); }
-        100% { transform: translateX(200%) skewX(-15deg); }
-    }
+.studio-tab-panel {
+    display: none;
+    position: relative;
+    z-index: 2;
+}
 
-    .studio-tab-panel {
-        display: none;
-        position: relative;
-        z-index: 2;
-    }
+.studio-tab-panel.active {
+    display: block;
+    animation: studio-fadeIn 0.3s ease;
+}
 
-    .studio-tab-panel.active {
-        display: block;
-        animation: studio-fadeIn 0.3s ease;
-    }
+@keyframes studio-fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    @keyframes studio-fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+.studio-tab-panel h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
 
-    .studio-tab-panel h2 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 10px;
-        color: var(--accent-color);
-    }
+.studio-tab-panel p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
 
-    .studio-tab-panel p {
-        font-size: 16px;
-        opacity: 0.8;
-        margin-bottom: 30px;
-    }
+/* 공통 입력 스타일 */
+.studio-input-group {
+    margin-bottom: 20px;
+}
 
-    /* 공통 입력 스타일 */
-    .studio-input-group {
-        margin-bottom: 20px;
-    }
+.studio-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
 
-    .studio-input-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: var(--accent-color);
-    }
+.studio-form-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 16px;
+    transition: var(--transition);
+}
 
-    .studio-form-input {
-        width: 100%;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid rgba(1, 255, 117, 0.3);
-        border-radius: 10px;
-        color: var(--text-color);
-        font-size: 16px;
-        transition: var(--transition);
-    }
+.studio-form-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.3);
+}
 
-    .studio-form-input:focus {
-        outline: none;
-        border-color: var(--accent-color);
-        box-shadow: 0 0 15px rgba(1, 255, 117, 0.3);
-    }
+/* 셀렉트 및 컬러 입력 스타일 */
+.studio-form-input[type="color"],
+select.studio-form-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(1, 255, 117, 0.3);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 16px;
+    padding: 15px 40px 15px 15px;
+    transition: var(--transition);
+    cursor: pointer;
+    
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2301FF75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
 
-    .studio-page-btn {
-        background: var(--accent-color);
-        color: var(--background-color);
-        border: none;
-        padding: 15px 30px;
-        border-radius: 10px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: var(--transition);
-        font-size: 16px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+select.studio-form-input:hover {
+    border-color: var(--accent-color);
+    background-color: rgba(1, 255, 117, 0.05);
+}
 
-    .studio-page-btn:hover {
-        background: #00e066;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(1, 255, 117, 0.4);
-    }
+select.studio-form-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.3);
+    background-color: rgba(1, 255, 117, 0.08);
+}
 
-    /* QR 생성기 스타일 */
-    .studio-qr-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: start;
-    }
+/* 숫자 입력 스피너 제거 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-    .studio-qr-result {
-        text-align: center;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 15px;
-        padding: 30px;
-        border: 2px solid rgba(1, 255, 117, 0.2);
-    }
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 
-    #studio-qr-canvas {
-        border-radius: 10px;
-        margin: 20px 0;
-        max-width: 100%;
-    }
+select.studio-form-input option {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 10px;
+}
 
-    /* 컬러 팔레트 스타일 */
-    .studio-color-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
-    }
+.custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
 
-    .studio-color-item {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
-        padding: 15px;
-        text-align: center;
-        border: 2px solid rgba(1, 255, 117, 0.2);
-        transition: var(--transition);
-        cursor: pointer;
-    }
+/* 버튼 스타일 */
+.studio-page-btn {
+    background: var(--accent-color);
+    color: var(--background-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
-    .studio-color-item:hover {
-        border-color: var(--accent-color);
-        transform: translateY(-3px);
-    }
+.studio-page-btn:hover {
+    background: #00e066;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(1, 255, 117, 0.4);
+}
 
-    .studio-color-preview {
-        width: 100%;
-        aspect-ratio: 1;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+/* QR 생성기 스타일 */
+.studio-qr-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
 
-    .studio-color-code {
-        font-size: 12px;
-        color: var(--text-color-color);
-        margin-top: 5px;
-    }
+.studio-qr-result {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    border: 2px solid rgba(1, 255, 117, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    /* 이미지 업로드 영역 */
-    .studio-upload-area {
-        border: 2px dashed rgba(108, 117, 125, 0.2);
-        border-radius: 15px;
-        padding: 40px;
-        text-align: center;
-        background: rgba(255, 255, 255, 0.02);
-        transition: var(--transition);
-        cursor: pointer;
-        margin-bottom: 20px;
-    }
+.studio-qr-result h3 {
+    margin-bottom: 20px;
+}
 
-    .studio-upload-area:hover {
-        border-color: var(--accent-color);
-        background: rgba(1, 255, 117, 0.05);
-    }
+#studio-qr-canvas {
+    border-radius: 10px;
+    margin: 20px 0;
+    max-width: 100%;
+    display: block;
+}
 
-    .studio-upload-area.dragover {
-        border-color: var(--accent-color);
-        background: rgba(1, 255, 117, 0.1);
-        transform: scale(1.02);
-    }
+#studio-download-btn {
+    margin-top: 20px;
+    align-self: center;
+}
 
-    .studio-upload-icon {
-        font-size: 48px;
-        color:rgb(102, 102, 102);
-        margin-bottom: 15px;
-    }
+/* 컬러 팔레트 스타일 */
+.studio-color-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
 
-    /* 사이즈 가이드 스타일 */
-    .studio-size-categories {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin-top: 20px;
-    }
+.studio-color-items-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
 
-    .studio-size-category {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 15px;
-        padding: 25px;
-        border: 2px solid rgba(1, 255, 117, 0.2);
-    }
+.studio-color-item {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid rgba(1, 255, 117, 0.2);
+    transition: var(--transition);
+    cursor: pointer;
+}
 
-    .studio-size-category h3 {
-        color: var(--accent-color);
-        margin-bottom: 15px;
-        font-size: 20px;
-    }
+.studio-color-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
 
-    .studio-size-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+.studio-color-preview {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    .studio-size-item:last-child {
-        border-bottom: none;
-    }
+.studio-color-code {
+    font-size: 12px;
+    color: var(--text-color);
+    margin-top: 5px;
+}
 
-    /* 계산기 스타일 */
-    .studio-calculator-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 20px;
-    }
+.studio-color-code:first-child {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 18px;
+}
 
-    .studio-calculator-section {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 15px;
-        padding: 25px;
-        border: 2px solid rgba(1, 255, 117, 0.2);
-    }
+/* 그라디언트 바 스타일 */
+.studio-gradient-bar {
+    width: 100%;
+    border: 2px solid rgba(1, 255, 117, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
 
-    .studio-calculator-section h3 {
-        color: var(--accent-color);
-        margin-bottom: 20px;
-        font-size: 20px;
-    }
+.studio-gradient-bar:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.2);
+    border-color: var(--accent-color);
+}
 
-    .studio-calc-result {
-        background: rgba(1, 255, 117, 0.1);
-        border: 1px solid var(--accent-color);
-        border-radius: 8px;
-        padding: 15px;
-        margin-top: 15px;
-        font-family: 'Courier New', monospace;
-        color: var(--accent-color);
-    }
+.studio-gradient-strip {
+    width: 100%;
+    height: 60px;
+    position: relative;
+}
 
-    /* 개선된 계산기 스타일 */
+.studio-gradient-label {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(1, 255, 117, 0.2);
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.studio-gradient-label span {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.studio-gradient-label code {
+    margin-left: 8px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--text-color);
+    word-break: break-all;
+}
+
+/* 이미지 업로드 영역 */
+.studio-upload-area {
+    border: 2px dashed rgba(1, 255, 117, 0.3);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    transition: var(--transition);
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.studio-upload-area:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.05);
+}
+
+.studio-upload-area.dragover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+    transform: scale(1.02);
+}
+
+.studio-upload-icon {
+    font-size: 48px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* 사이즈 가이드 스타일 */
+.studio-size-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.studio-size-category {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(1, 255, 117, 0.2);
+}
+
+.studio-size-category h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.studio-size-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.studio-size-item:last-child {
+    border-bottom: none;
+}
+
+/* 계산기 공통 스타일 - NFP 톤에 맞게 통일 */
+.studio-calculator-grid,
+.studio-enhanced-calculator {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
 .studio-enhanced-calculator {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
+.studio-calculator-section,
 .studio-calc-section {
-    background: #1a1a1a;
-    border-radius: 16px;
-    padding: 24px;
-    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(1, 255, 117, 0.2);
 }
 
+.studio-calculator-section h3,
 .studio-calc-section h3 {
-    color: #01FF75;
+    color: var(--accent-color);
+    margin-bottom: 20px;
     font-size: 24px;
-    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .studio-calc-desc {
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 24px;
     font-size: 14px;
 }
 
-/* 그리드 계산기 스타일 */
+/* 그리드 계산기 전용 스타일 */
 .studio-grid-inputs {
     margin-bottom: 24px;
 }
@@ -514,7 +560,7 @@ select.studio-form-input option {
 
 .studio-input-col label {
     display: block;
-    color: #fff;
+    color: var(--accent-color);
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 14px;
@@ -523,9 +569,9 @@ select.studio-form-input option {
 .studio-input-with-unit {
     display: flex;
     align-items: center;
-    background: #2a2a2a;
-    border-radius: 8px;
-    border: 1px solid #444;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 2px solid rgba(1, 255, 117, 0.3);
     overflow: hidden;
 }
 
@@ -534,17 +580,18 @@ select.studio-form-input option {
     background: transparent;
     border: none;
     padding: 12px 16px;
-    color: #fff;
+    color: var(--text-color);
     font-size: 16px;
     outline: none;
 }
 
 .studio-input-with-unit span {
     padding: 12px 16px;
-    background: #333;
-    color: #888;
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
     font-size: 14px;
-    border-left: 1px solid #444;
+    border-left: 1px solid rgba(1, 255, 117, 0.3);
+    font-weight: 600;
 }
 
 .studio-grid-result-info {
@@ -552,8 +599,9 @@ select.studio-form-input option {
     gap: 24px;
     margin-bottom: 24px;
     padding: 16px;
-    background: #252525;
-    border-radius: 8px;
+    background: rgba(1, 255, 117, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(1, 255, 117, 0.2);
 }
 
 .studio-result-item {
@@ -563,23 +611,23 @@ select.studio-form-input option {
 }
 
 .studio-result-item span:first-child {
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 12px;
 }
 
 .studio-result-item span:last-child {
-    color: #01FF75;
-    font-weight: 600;
+    color: var(--accent-color);
+    font-weight: 700;
     font-size: 18px;
 }
 
 /* 그리드 시각화 */
 .studio-grid-preview {
-    background: #2a2a2a;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
     padding: 20px;
     overflow-x: auto;
-    border: 1px solid #444;
+    border: 1px solid rgba(1, 255, 117, 0.2);
 }
 
 .studio-grid-container {
@@ -589,20 +637,20 @@ select.studio-form-input option {
 }
 
 .studio-grid-column {
-    background: #01FF75;
-    opacity: 0.3;
+    background: var(--accent-color);
+    opacity: 0.6;
     border-radius: 4px;
     position: absolute;
     top: 0;
     bottom: 0;
-    border: 1px solid #01FF75;
+    border: 1px solid var(--accent-color);
 }
 
 .studio-grid-margin {
     position: absolute;
     top: 0;
     bottom: 0;
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(255, 100, 100, 0.2);
     border: 1px dashed #ff6b6b;
 }
 
@@ -621,8 +669,9 @@ select.studio-form-input option {
     gap: 20px;
     margin-bottom: 32px;
     padding: 20px;
-    background: #252525;
-    border-radius: 12px;
+    background: rgba(1, 255, 117, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(1, 255, 117, 0.2);
 }
 
 .studio-converter-item {
@@ -631,7 +680,7 @@ select.studio-form-input option {
 
 .studio-converter-item label {
     display: block;
-    color: #fff;
+    color: var(--accent-color);
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 14px;
@@ -640,9 +689,9 @@ select.studio-form-input option {
 .studio-size-input {
     display: flex;
     align-items: center;
-    background: #2a2a2a;
-    border-radius: 8px;
-    border: 2px solid #01FF75;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 2px solid var(--accent-color);
     overflow: hidden;
 }
 
@@ -651,7 +700,7 @@ select.studio-form-input option {
     background: transparent;
     border: none;
     padding: 16px;
-    color: #01FF75;
+    color: var(--text-color);
     font-size: 24px;
     font-weight: 700;
     text-align: center;
@@ -660,13 +709,14 @@ select.studio-form-input option {
 
 .studio-size-input span {
     padding: 16px;
-    color: #888;
+    color: var(--accent-color);
     font-size: 12px;
-    background: #333;
+    background: rgba(1, 255, 117, 0.1);
+    font-weight: 600;
 }
 
 .studio-converter-arrow {
-    color: #01FF75;
+    color: var(--accent-color);
     font-size: 24px;
     font-weight: bold;
 }
@@ -677,9 +727,10 @@ select.studio-form-input option {
 }
 
 .studio-responsive-sizes h4 {
-    color: #01FF75;
+    color: var(--accent-color);
     margin-bottom: 16px;
     font-size: 18px;
+    font-weight: 600;
 }
 
 .studio-device-sizes {
@@ -689,11 +740,11 @@ select.studio-form-input option {
 
 .studio-device-item {
     flex: 1;
-    background: #2a2a2a;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     padding: 16px;
     text-align: center;
-    border: 1px solid #444;
+    border: 1px solid rgba(1, 255, 117, 0.2);
 }
 
 .studio-device-icon {
@@ -708,13 +759,13 @@ select.studio-form-input option {
 }
 
 .studio-device-info span:first-child {
-    color: #fff;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 14px;
 }
 
 .studio-device-info span:last-child {
-    color: #01FF75;
+    color: var(--accent-color);
     font-weight: 700;
     font-size: 16px;
 }
@@ -725,9 +776,10 @@ select.studio-form-input option {
 }
 
 .studio-size-guide h4 {
-    color: #01FF75;
+    color: var(--accent-color);
     margin-bottom: 16px;
     font-size: 18px;
+    font-weight: 600;
 }
 
 .studio-size-list {
@@ -740,19 +792,19 @@ select.studio-form-input option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #2a2a2a;
+    background: rgba(255, 255, 255, 0.05);
     padding: 16px 20px;
-    border-radius: 8px;
-    border: 1px solid #444;
+    border-radius: 10px;
+    border: 1px solid rgba(1, 255, 117, 0.2);
 }
 
 .studio-size-guide-item span:first-child {
-    color: #fff;
+    color: var(--text-color);
     font-weight: 600;
 }
 
 .studio-size-guide-item span:last-child {
-    color: #888;
+    color: rgba(255, 255, 255, 0.7);
     font-family: 'Monaco', 'Menlo', monospace;
     font-size: 14px;
 }
@@ -763,17 +815,18 @@ select.studio-form-input option {
 }
 
 .studio-font-preview h4 {
-    color: #01FF75;
+    color: var(--accent-color);
     margin-bottom: 16px;
     font-size: 18px;
+    font-weight: 600;
 }
 
 .studio-preview-text {
-    background: #2a2a2a;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
     padding: 24px;
-    color: #fff;
-    border: 1px solid #444;
+    color: var(--text-color);
+    border: 1px solid rgba(1, 255, 117, 0.2);
     text-align: center;
     min-height: 80px;
     display: flex;
@@ -781,10 +834,73 @@ select.studio-form-input option {
     justify-content: center;
 }
 
+/* 기존 계산기 결과 스타일 */
+.studio-calc-result {
+    background: rgba(1, 255, 117, 0.1);
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    color: var(--accent-color);
+}
 
-    /* 반응형 */
-    @media (max-width: 768px) {
-         .studio-input-row {
+
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .studio-enhanced-calculator {
+        grid-template-columns: 1fr;
+    }
+    
+    .studio-calculator-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 기본 레이아웃 */
+    .studio-page-header h1 {
+        font-size: 36px;
+    }
+
+    .studio-page-tabs {
+        gap: 5px;
+    }
+
+    .studio-page-tab {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .studio-page-content {
+        padding: 25px;
+    }
+
+    /* QR 컨테이너 */
+    .studio-qr-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* 컬러 그리드 */
+    .studio-color-items-row {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .studio-color-item {
+        min-width: calc(50% - 5px);
+    }
+
+    /* 사이즈 가이드 */
+    .studio-size-categories {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* 계산기 반응형 */
+    .studio-input-row {
         flex-direction: column;
         gap: 16px;
     }
@@ -804,149 +920,280 @@ select.studio-form-input option {
         gap: 12px;
     }
 
-
-        .studio-page-header h1 {
-            font-size: 36px;
-        }
-
-        .studio-page-tabs {
-            gap: 5px;
-        }
-
-        .studio-page-tab {
-            padding: 10px 16px;
-            font-size: 14px;
-        }
-
-        .studio-page-content {
-            padding: 25px;
-        }
-
-        .studio-qr-container {
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .studio-color-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .studio-size-categories {
-            grid-template-columns: 1fr;
-        }
-
-        .studio-calculator-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .studio-qr-result {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 30px;
-    border: 2px solid rgba(1, 255, 117, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 중앙 정렬 강화 */
-}
-
-.studio-qr-result h3 {
-    margin-bottom: 20px;
-}
-
-#studio-qr-canvas {
-    border-radius: 10px;
-    margin: 20px 0;
-    max-width: 100%;
-    display: block; /* 블록 요소로 설정 */
-}
-
-#studio-download-btn {
-    margin-top: 20px; /* 고정 여백 */
-    align-self: center; /* 자기 자신을 중앙 정렬 */
-}
-
-/* 전체 컨테이너를 세로로 배치 */
-.studio-color-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* 색상 아이템들 가로 배열 - 동일한 너비로 배치 */
-.studio-color-items-row {
-    display: flex;
-    gap: 15px;
-    flex-wrap: nowrap;
-}
-
-/* 개별 색상 아이템 - 동일한 너비 설정 */
-.studio-color-item {
-    flex: 1;
-    min-width: 0; /* flex 아이템이 내용에 맞춰 축소되도록 */
-}
-
-/* 그라디언트 바 스타일 */
-.studio-gradient-bar {
-    width: 100%;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background: #fff;
-}
-
-.studio-gradient-bar:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.studio-gradient-strip {
-    width: 100%;
-    height: 60px;
-    position: relative;
-}
-
-.studio-gradient-label {
-    padding: 12px 16px;
-    background: #f8f9fa;
-    border-top: 1px solid #e9ecef;
-    font-size: 14px;
-    color: #495057;
-}
-
-.studio-gradient-label span {
-    font-weight: 600;
-}
-
-.studio-gradient-label code {
-    margin-left: 8px;
-    padding: 4px 8px;
-    background: #e9ecef;
-    border-radius: 4px;
-    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
-    font-size: 12px;
-    color: #6c757d;
-    word-break: break-all;
-}
-
-/* 다크 테마 지원 */
-@media (prefers-color-scheme: dark) {
-    .studio-gradient-bar {
-        border-color: #444;
-        background: #2a2a2a;
-    }
-    
+    /* 그라디언트 바 */
     .studio-gradient-label {
-        background: #333;
-        border-top-color: #444;
-        color: #e9ecef;
+        padding: 10px 12px;
+    }
+
+    .studio-gradient-label code {
+        display: block;
+        margin-left: 0;
+        margin-top: 8px;
+        font-size: 11px;
+    }
+
+      /* 컬러 팔레트 모바일 레이아웃 - 5줄 세로 배치 */
+    .studio-color-items-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .studio-color-item {
+        min-width: unset;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 16px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .studio-color-preview {
+        width: 60px;
+        height: 60px;
+        aspect-ratio: 1;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        border-radius: 8px;
+    }
+
+    .studio-color-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .studio-color-code {
+        font-size: 15px;
+        margin-top: 0;
+        line-height: 1.4;
+        display: block;
+    }
+
+    .studio-color-code:first-child {
+        font-weight: 700;
+        color: var(--accent-color);
+        font-size: 16px;
+    }
+
+    .studio-color-code:last-child {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+    }
+
+    /* 계산기 모바일 최적화 */
+    .studio-input-row {
+        flex-direction: column;
+        gap: 16px;
     }
     
+    .studio-font-converter {
+        flex-direction: column;
+        gap: 16px;
+        padding: 15px;
+    }
+    
+    .studio-device-sizes {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .studio-grid-result-info {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* 그리드 시각화 가로 스크롤 방지 */
+    .studio-grid-preview {
+        overflow-x: auto;
+        padding: 15px;
+    }
+
+    .studio-grid-container {
+        min-width: 280px; /* 최소 너비 보장 */
+        max-width: 100%;
+    }
+
+    /* 입력 필드 크기 조정 */
+    .studio-input-with-unit {
+        min-width: 0;
+    }
+
+    .studio-input-with-unit input {
+        padding: 10px 12px;
+        font-size: 14px;
+        min-width: 0;
+    }
+
+    .studio-input-with-unit span {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    /* 폰트 사이즈 입력 필드 조정 */
+    .studio-size-input input {
+        font-size: 20px;
+        padding: 12px;
+    }
+
+    .studio-size-input span {
+        padding: 12px;
+        font-size: 11px;
+    }
+
+    /* 결과 표시 영역 최적화 */
+    .studio-result-item span:last-child {
+        font-size: 16px;
+    }
+
+    /* 디바이스 아이템 패딩 조정 */
+    .studio-device-item {
+        padding: 12px;
+    }
+
+    .studio-device-icon {
+        font-size: 20px;
+    }
+
+    /* 계산기 섹션 패딩 조정 */
+    .studio-calc-section,
+    .studio-calculator-section {
+        padding: 20px 15px;
+    }
+
+    .studio-calc-section h3 {
+        font-size: 20px;
+    }
+
+    /* 가이드 아이템 최적화 */
+    .studio-size-guide-item {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .studio-size-guide-item span:last-child {
+        font-size: 12px;
+        align-self: flex-end;
+    }
+
+    /* 미리보기 텍스트 조정 */
+    .studio-preview-text {
+        padding: 20px 15px;
+        min-height: 60px;
+        font-size: 14px;
+    }
+
+    /* 그라디언트 바 모바일 최적화 */
+    .studio-gradient-strip {
+        height: 50px;
+    }
+
+    .studio-gradient-label {
+        padding: 10px 12px;
+    }
+
     .studio-gradient-label code {
-        background: #444;
-        color: #ced4da;
+        display: block;
+        margin-left: 0;
+        margin-top: 8px;
+        font-size: 11px;
+        padding: 6px 8px;
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-page-content {
+        padding: 20px;
+    }
+
+    .studio-color-items-row {
+        gap: 8px;
+    }
+
+    .studio-color-item {
+        min-width: calc(50% - 4px);
+        padding: 10px;
+    }
+
+    .studio-font-converter {
+        padding: 15px;
+    }
+
+    .studio-size-input input {
+        font-size: 20px;
+        padding: 12px;
+    }
+
+    .studio-device-item {
+        padding: 12px;
+    }
+
+    .studio-calc-section,
+    .studio-calculator-section {
+        padding: 20px;
+    }
+
+    .studio-page-content {
+        padding: 20px 15px;
+    }
+
+    .studio-color-item {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .studio-color-preview {
+        width: 50px;
+        height: 50px;
+    }
+
+    .studio-color-code {
+        font-size: 13px;
+    }
+
+    .studio-font-converter {
+        padding: 12px;
+    }
+
+    .studio-size-input input {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .studio-calc-section,
+    .studio-calculator-section {
+        padding: 15px 12px;
+    }
+
+    .studio-calc-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    /* 입력 라벨 크기 조정 */
+    .studio-input-col label,
+    .studio-converter-item label {
+        font-size: 13px;
+    }
+
+    /* 결과 정보 더 컴팩트하게 */
+    .studio-grid-result-info {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .studio-result-item span:first-child {
+        font-size: 11px;
+    }
+
+    .studio-result-item span:last-child {
+        font-size: 14px;
     }
 }
