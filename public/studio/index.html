@@ -117,6 +117,7 @@
     <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
     <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/todaycard.css">
     <link rel="stylesheet" href="http://localhost:1313/css/studiopage.css">
     
     
@@ -386,7 +387,7 @@
                     <div class="studio-input-col">
                         <label>최대 너비</label>
                         <div class="studio-input-with-unit">
-                            <input type="number" id="calc-max-width" value="1200">
+                            <input type="number" id="calc-max-width" value="1920">
                             <span>px</span>
                         </div>
                     </div>
@@ -580,18 +581,27 @@ function initStudio() {
     const tabs = document.querySelectorAll('.studio-page-tab');
     const panels = document.querySelectorAll('.studio-tab-panel');
     
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            tabs.forEach(t => t.classList.remove('active'));
-            panels.forEach(p => p.classList.remove('active'));
+ tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        
+        this.classList.add('active');
+        const targetPanel = document.getElementById(this.dataset.tab);
+        if (targetPanel) {
+            targetPanel.classList.add('active');
             
-            this.classList.add('active');
-            const targetPanel = document.getElementById(this.dataset.tab);
-            if (targetPanel) {
-                targetPanel.classList.add('active');
+            
+            if (this.dataset.tab === 'design-calculator') {
+                setTimeout(() => {
+                    if (document.getElementById('calc-max-width')) {
+                        calculateAndVisualizeGrid();
+                    }
+                }, 100);
             }
-        });
+        }
     });
+});
 
     
     setupImageEvents();
@@ -934,10 +944,11 @@ function rgbToHex(r, g, b) {
 
 
 function calculateAndVisualizeGrid() {
-    const maxWidth = parseInt(document.getElementById('calc-max-width')?.value) || 1200;
+    const maxWidth = parseInt(document.getElementById('calc-max-width')?.value) || 1920;
     const columns = parseInt(document.getElementById('calc-columns')?.value) || 12;
     const gutter = parseInt(document.getElementById('calc-gutter')?.value) || 20;
     const margin = parseInt(document.getElementById('calc-margin')?.value) || 20;
+    
     
     
     const totalGutters = (columns - 1) * gutter;
@@ -957,36 +968,58 @@ function calculateAndVisualizeGrid() {
     visualizeGrid(actualPageWidth, columnWidth, columns, gutter, margin);
 }
 
+
 function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
     const preview = document.getElementById('calc-grid-preview');
     if (!preview) return;
     
     preview.innerHTML = '';
     
+    
+    const previewRect = preview.getBoundingClientRect();
+    const containerPadding = 40; 
+    const availableWidth = previewRect.width - containerPadding;
+    
+    
+  let maxWidth;
+if (window.innerWidth <= 375) {
+    maxWidth = Math.min(availableWidth, 220); 
+} else if (window.innerWidth <= 480) {
+    maxWidth = Math.min(availableWidth, 260); 
+} else if (window.innerWidth <= 768) {
+    maxWidth = Math.min(availableWidth, 320);
+} else if (window.innerWidth <= 1024) {
+    maxWidth = Math.min(availableWidth, 500);
+} else {
+    maxWidth = Math.min(availableWidth, 700);
+}
+    
     const container = document.createElement('div');
     container.className = 'studio-grid-container';
-    container.style.width = `${Math.min(pageWidth, 800)}px`;
-    container.style.height = '120px';
     
     
-    const scale = Math.min(800 / pageWidth, 1);
+    const scale = Math.min(maxWidth / pageWidth, 1);
     const scaledWidth = pageWidth * scale;
     const scaledColumnWidth = columnWidth * scale;
     const scaledGutter = gutter * scale;
     const scaledMargin = margin * scale;
     
+    
+    const baseHeight = window.innerWidth <= 480 ? 80 : window.innerWidth <= 768 ? 100 : 120;
+    container.style.height = `${baseHeight}px`;
     container.style.width = `${scaledWidth}px`;
+    container.style.margin = '0 auto';
     
     
-    if (margin > 0) {
+    if (margin > 0 && scaledMargin >= 1) { 
         const leftMargin = document.createElement('div');
         leftMargin.className = 'studio-grid-margin left';
-        leftMargin.style.width = `${scaledMargin}px`;
+        leftMargin.style.width = `${Math.max(scaledMargin, 2)}px`; 
         container.appendChild(leftMargin);
         
         const rightMargin = document.createElement('div');
         rightMargin.className = 'studio-grid-margin right';
-        rightMargin.style.width = `${scaledMargin}px`;
+        rightMargin.style.width = `${Math.max(scaledMargin, 2)}px`; 
         container.appendChild(rightMargin);
     }
     
@@ -996,13 +1029,33 @@ function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
         column.className = 'studio-grid-column';
         
         const left = scaledMargin + (i * (scaledColumnWidth + scaledGutter));
+        const finalColumnWidth = Math.max(scaledColumnWidth, 4); 
+        
         column.style.left = `${left}px`;
-        column.style.width = `${scaledColumnWidth}px`;
+        column.style.width = `${finalColumnWidth}px`;
+        
+        
+        if (finalColumnWidth < 8) {
+            column.style.opacity = '0.7';
+        }
         
         container.appendChild(column);
     }
     
     preview.appendChild(container);
+    
+    
+    if (scale < 0.8) {
+        const scaleInfo = document.createElement('div');
+        scaleInfo.style.cssText = `
+            text-align: center; 
+            font-size: 11px; 
+            color: rgba(255,255,255,0.5); 
+            margin-top: 8px;
+        `;
+        scaleInfo.textContent = `축소 비율: ${Math.round(scale * 100)}%`;
+        preview.appendChild(scaleInfo);
+    }
 }
 
 
@@ -1126,7 +1179,7 @@ function setupEnhancedCalculator() {
     
     
     if (document.getElementById('calc-max-width')) {
-        calculateAndVisualizeGrid();
+        setTimeout(calculateAndVisualizeGrid, 200);
     }
     if (document.getElementById('calc-px-input')) {
         updateFontSizes();

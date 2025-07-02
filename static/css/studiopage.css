@@ -628,6 +628,7 @@ select.studio-form-input option {
     padding: 20px;
     overflow-x: auto;
     border: 1px solid rgba(1, 255, 117, 0.2);
+    
 }
 
 .studio-grid-container {
@@ -637,13 +638,17 @@ select.studio-form-input option {
 }
 
 .studio-grid-column {
-    background: var(--accent-color);
+    /* background: #00cc5a; */
     opacity: 0.6;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     position: absolute;
     top: 0;
     bottom: 0;
-    border: 1px solid var(--accent-color);
+    /* border: 2px solid var(--accent-color); */
+
+    background: rgba(1, 255, 117, 0.3);
+    border: 1px solid #01FF75;
+
 }
 
 .studio-grid-margin {
@@ -845,7 +850,21 @@ select.studio-form-input option {
     color: var(--accent-color);
 }
 
+.studio-grid-preview {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: hidden; /* 스크롤 완전 제거 */
+    border: 1px solid rgba(1, 255, 117, 0.2);
+    box-sizing: border-box;
+}
 
+.studio-grid-container {
+    position: relative;
+    min-height: 120px;
+    box-sizing: border-box;
+    overflow: hidden; /* 내부 요소 스크롤도 방지 */
+}
 
 /* 반응형 디자인 */
 @media (max-width: 1024px) {
@@ -1106,6 +1125,26 @@ select.studio-form-input option {
         word-break: break-all;
         overflow-wrap: break-word;
     }
+
+     .studio-grid-preview {
+        padding: 15px;
+        overflow: hidden; /* 강제로 스크롤 방지 */
+    }
+
+    .studio-grid-container {
+        min-height: 100px;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /* 작은 화면에서 컬럼이 너무 작을 때 */
+    .studio-grid-column {
+        min-width: 6px; /* 최소 너비 보장 */
+    }
+
+    .studio-grid-margin {
+        min-width: 4px; /* 마진 최소 너비 */
+    }
 }
 
 @media (max-width: 480px) {
@@ -1196,4 +1235,13 @@ select.studio-form-input option {
     .studio-result-item span:last-child {
         font-size: 14px;
     }
+
+        .studio-grid-preview {
+        padding: 10px;
+    }
+
+    .studio-grid-container {
+        min-height: 80px;
+    }
 }
+
