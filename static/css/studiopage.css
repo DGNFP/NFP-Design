@@ -341,9 +341,8 @@ select.studio-form-input option {
     }
 
     .studio-color-code {
-        font-family: 'Courier New', monospace;
         font-size: 12px;
-        color: var(--accent-color);
+        color: var(--text-color-color);
         margin-top: 5px;
     }
 
@@ -501,4 +500,71 @@ select.studio-form-input option {
 #studio-download-btn {
     margin-top: 20px; /* 고정 여백 */
     align-self: center; /* 자기 자신을 중앙 정렬 */
+}
+
+/* 그라디언트 연결 컨테이너 스타일 */
+.studio-gradient-container {
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.studio-gradient-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.studio-gradient-preview {
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+
+.studio-gradient-preview::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 24%, 
+        rgba(255, 255, 255, 0.1) 25%, 
+        rgba(255, 255, 255, 0.1) 26%, 
+        transparent 27%, 
+        transparent 74%, 
+        rgba(255, 255, 255, 0.1) 75%, 
+        rgba(255, 255, 255, 0.1) 76%, 
+        transparent 77%
+    );
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+.studio-gradient-info {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.studio-gradient-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.studio-gradient-code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 12px;
+    color: #666;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 8px 12px;
+    border-radius: 6px;
+    word-break: break-all;
+    line-height: 1.4;
 }
