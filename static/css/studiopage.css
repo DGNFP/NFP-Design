@@ -471,8 +471,340 @@ select.studio-form-input option {
         color: var(--accent-color);
     }
 
+    /* 개선된 계산기 스타일 */
+.studio-enhanced-calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.studio-calc-section {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #333;
+}
+
+.studio-calc-section h3 {
+    color: #01FF75;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.studio-calc-desc {
+    color: #888;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+/* 그리드 계산기 스타일 */
+.studio-grid-inputs {
+    margin-bottom: 24px;
+}
+
+.studio-input-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.studio-input-col {
+    flex: 1;
+}
+
+.studio-input-col label {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.studio-input-with-unit {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border: 1px solid #444;
+    overflow: hidden;
+}
+
+.studio-input-with-unit input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.studio-input-with-unit span {
+    padding: 12px 16px;
+    background: #333;
+    color: #888;
+    font-size: 14px;
+    border-left: 1px solid #444;
+}
+
+.studio-grid-result-info {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: #252525;
+    border-radius: 8px;
+}
+
+.studio-result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.studio-result-item span:first-child {
+    color: #888;
+    font-size: 12px;
+}
+
+.studio-result-item span:last-child {
+    color: #01FF75;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* 그리드 시각화 */
+.studio-grid-preview {
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+    border: 1px solid #444;
+}
+
+.studio-grid-container {
+    position: relative;
+    margin: 0 auto;
+    min-height: 120px;
+}
+
+.studio-grid-column {
+    background: #01FF75;
+    opacity: 0.3;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 1px solid #01FF75;
+}
+
+.studio-grid-margin {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px dashed #ff6b6b;
+}
+
+.studio-grid-margin.left {
+    left: 0;
+}
+
+.studio-grid-margin.right {
+    right: 0;
+}
+
+/* 폰트 사이즈 계산기 스타일 */
+.studio-font-converter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding: 20px;
+    background: #252525;
+    border-radius: 12px;
+}
+
+.studio-converter-item {
+    flex: 1;
+}
+
+.studio-converter-item label {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.studio-size-input {
+    display: flex;
+    align-items: center;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border: 2px solid #01FF75;
+    overflow: hidden;
+}
+
+.studio-size-input input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 16px;
+    color: #01FF75;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+}
+
+.studio-size-input span {
+    padding: 16px;
+    color: #888;
+    font-size: 12px;
+    background: #333;
+}
+
+.studio-converter-arrow {
+    color: #01FF75;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 반응형 사이즈 */
+.studio-responsive-sizes {
+    margin-bottom: 32px;
+}
+
+.studio-responsive-sizes h4 {
+    color: #01FF75;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.studio-device-sizes {
+    display: flex;
+    gap: 16px;
+}
+
+.studio-device-item {
+    flex: 1;
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+.studio-device-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.studio-device-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.studio-device-info span:first-child {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.studio-device-info span:last-child {
+    color: #01FF75;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* 권장 사이즈 가이드 */
+.studio-size-guide {
+    margin-bottom: 32px;
+}
+
+.studio-size-guide h4 {
+    color: #01FF75;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.studio-size-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.studio-size-guide-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a2a2a;
+    padding: 16px 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.studio-size-guide-item span:first-child {
+    color: #fff;
+    font-weight: 600;
+}
+
+.studio-size-guide-item span:last-child {
+    color: #888;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 14px;
+}
+
+/* 미리보기 */
+.studio-font-preview {
+    margin-bottom: 0;
+}
+
+.studio-font-preview h4 {
+    color: #01FF75;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.studio-preview-text {
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 24px;
+    color: #fff;
+    border: 1px solid #444;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
     /* 반응형 */
     @media (max-width: 768px) {
+         .studio-input-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .studio-font-converter {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .studio-device-sizes {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .studio-grid-result-info {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+
         .studio-page-header h1 {
             font-size: 36px;
         }

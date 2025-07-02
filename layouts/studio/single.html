@@ -210,54 +210,154 @@
             </div>
 
             <!-- 디자인 계산기 -->
-            <div class="studio-tab-panel" id="design-calculator">
-                <h2>디자인 계산기</h2>
-                <p>폰트 사이즈, 그리드 시스템 등을 계산하세요</p>
-                
-                <div class="studio-calculator-grid">
-                    <div class="studio-calculator-section">
-                        <h3>폰트 크기 계산기</h3>
-                        <div class="studio-input-group">
-                            <label for="studio-base-font">기본 폰트 크기 (px)</label>
-                            <input type="number" id="studio-base-font" class="studio-form-input" value="16">
+            <!-- 디자인 계산기 탭 - 개선된 버전 -->
+<div class="studio-tab-panel" id="design-calculator">
+    <h2>디자인 계산기</h2>
+    <p>그리드 시스템과 폰트 사이즈를 계산하고 미리보기하세요</p>
+    
+    <div class="studio-enhanced-calculator">
+        <!-- 그리드 계산기 -->
+        <div class="studio-calc-section">
+            <h3>그리드 계산기</h3>
+            <div class="studio-grid-inputs">
+                <div class="studio-input-row">
+                    <div class="studio-input-col">
+                        <label>최대 너비</label>
+                        <div class="studio-input-with-unit">
+                            <input type="number" id="calc-max-width" value="1200">
+                            <span>px</span>
                         </div>
-                        <div class="studio-input-group">
-                            <label for="studio-scale-ratio">스케일 비율</label>
-                            <select id="studio-scale-ratio" class="studio-form-input">
-                                <option value="1.125">Minor Second (1.125)</option>
-                                <option value="1.2">Minor Third (1.2)</option>
-                                <option value="1.25">Major Third (1.25)</option>
-                                <option value="1.333">Perfect Fourth (1.333)</option>
-                                <option value="1.414">Augmented Fourth (1.414)</option>
-                                <option value="1.5">Perfect Fifth (1.5)</option>
-                                <option value="1.618" selected>Golden Ratio (1.618)</option>
-                            </select>
-                        </div>
-                        <button class="studio-page-btn" onclick="calculateFontSizes()">계산하기</button>
-                        <div id="studio-font-result" class="studio-calc-result" style="display: none;"></div>
                     </div>
-                    
-                    <div class="studio-calculator-section">
-                        <h3>그리드 계산기</h3>
-                        <div class="studio-input-group">
-                            <label for="studio-container-width">컨테이너 너비 (px)</label>
-                            <input type="number" id="studio-container-width" class="studio-form-input" value="1200">
+                    <div class="studio-input-col">
+                        <label>컬럼 수</label>
+                        <div class="studio-input-with-unit">
+                            <input type="number" id="calc-columns" value="12">
+                            <span>개</span>
                         </div>
-                        <div class="studio-input-group">
-                            <label for="studio-columns">컬럼 수</label>
-                            <input type="number" id="studio-columns" class="studio-form-input" value="12">
-                        </div>
-                        <div class="studio-input-group">
-                            <label for="studio-gutter">거터 크기 (px)</label>
-                            <input type="number" id="studio-gutter" class="studio-form-input" value="20">
-                        </div>
-                        <button class="studio-page-btn" onclick="calculateGrid()">계산하기</button>
-                        <div id="studio-grid-result" class="studio-calc-result" style="display: none;"></div>
                     </div>
+                </div>
+                <div class="studio-input-row">
+                    <div class="studio-input-col">
+                        <label>간격</label>
+                        <div class="studio-input-with-unit">
+                            <input type="number" id="calc-gutter" value="20">
+                            <span>px</span>
+                        </div>
+                    </div>
+                    <div class="studio-input-col">
+                        <label>마진</label>
+                        <div class="studio-input-with-unit">
+                            <input type="number" id="calc-margin" value="20">
+                            <span>px</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 그리드 결과 표시 -->
+            <div class="studio-grid-result-info">
+                <div class="studio-result-item">
+                    <span>페이지 너비:</span>
+                    <span id="calc-page-width">1200px</span>
+                </div>
+                <div class="studio-result-item">
+                    <span>컬럼 너비:</span>
+                    <span id="calc-column-width">80px</span>
+                </div>
+            </div>
+            
+            <!-- 그리드 시각화 -->
+            <div class="studio-grid-preview" id="calc-grid-preview">
+                <!-- 그리드가 동적으로 생성됩니다 -->
+            </div>
+        </div>
+        
+        <!-- 폰트 사이즈 계산기 -->
+        <div class="studio-calc-section">
+            <h3>폰트 사이즈 계산기</h3>
+            <p class="studio-calc-desc">웹과 인쇄용 사이즈 변환</p>
+            
+            <!-- 사이즈 변환 -->
+            <div class="studio-font-converter">
+                <div class="studio-converter-item">
+                    <label>웹용 (px)</label>
+                    <div class="studio-size-input">
+                        <input type="number" id="calc-px-input" value="16" min="1">
+                        <span>픽셀</span>
+                    </div>
+                </div>
+                <div class="studio-converter-arrow">⇄</div>
+                <div class="studio-converter-item">
+                    <label>인쇄용 (pt)</label>
+                    <div class="studio-size-input">
+                        <input type="number" id="calc-pt-input" value="12" min="1">
+                        <span>포인트</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 반응형 사이즈 -->
+            <div class="studio-responsive-sizes">
+                <h4>반응형 사이즈</h4>
+                <div class="studio-device-sizes">
+                    <div class="studio-device-item">
+                        <div class="studio-device-info">
+                            <span>모바일</span>
+                            <span id="mobile-size">14.0px</span>
+                        </div>
+                    </div>
+                    <div class="studio-device-item">
+                        <div class="studio-device-info">
+                            <span>태블릿</span>
+                            <span id="tablet-size">16.0px</span>
+                        </div>
+                    </div>
+                    <div class="studio-device-item">
+                        <div class="studio-device-info">
+                            <span>데스크톱</span>
+                            <span id="desktop-size">18.0px</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 권장 사이즈 가이드 -->
+            <div class="studio-size-guide">
+                <h4>권장 사이즈</h4>
+                <div class="studio-size-list">
+                    <div class="studio-size-guide-item">
+                        <span>본문</span>
+                        <span id="guide-body">웹: 16px 인쇄: 12pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>소제목</span>
+                        <span id="guide-subtitle">웹: 20px 인쇄: 15pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>제목</span>
+                        <span id="guide-title">웹: 24px 인쇄: 18pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>대제목</span>
+                        <span id="guide-heading">웹: 32px 인쇄: 24pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>캡션</span>
+                        <span id="guide-caption">웹: 14px 인쇄: 10pt</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 미리보기 -->
+            <div class="studio-font-preview">
+                <h4>미리보기</h4>
+                <div class="studio-preview-text" id="font-preview-text">
+                    이 텍스트는 16px(12pt) 크기입니다
                 </div>
             </div>
         </div>
     </div>
+</div>
 </section>
 
 
@@ -284,7 +384,6 @@ function loadQRLibrary() {
         
         function tryLoadFromCdn() {
             if (currentCdnIndex >= cdnUrls.length) {
-                console.error('모든 CDN에서 QRious 라이브러리 로드 실패');
                 reject();
                 return;
             }
@@ -297,7 +396,6 @@ function loadQRLibrary() {
                 resolve();
             };
             newScript.onerror = () => {
-                console.error('QRious CDN 로드 실패:', url);
                 currentCdnIndex++;
                 // 실패한 스크립트 제거
                 if (newScript.parentNode) {
@@ -316,14 +414,12 @@ function loadQRLibrary() {
 
 // Studio 초기화 함수 (QR 라이브러리 없이도 작동)
 function initStudio() {
-    
     // 탭 전환 기능
     const tabs = document.querySelectorAll('.studio-page-tab');
     const panels = document.querySelectorAll('.studio-tab-panel');
     
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
-            
             tabs.forEach(t => t.classList.remove('active'));
             panels.forEach(p => p.classList.remove('active'));
             
@@ -340,22 +436,17 @@ function initStudio() {
     
     // 컬러 팔레트는 QR 없이도 작동
     generatePalette();
-    
-   
 }
 
 // QR 코드 생성 (라이브러리 로드 확인 포함)
 function generateQR() {
-    
     if (typeof QRious === 'undefined') {
         return;
     }
     
-    
     const input = document.getElementById('studio-qr-input');
     const size = document.getElementById('studio-qr-size');
     const canvas = document.getElementById('studio-qr-canvas');
-    
     
     if (!input || !size || !canvas) {
         return;
@@ -364,9 +455,7 @@ function generateQR() {
     const inputValue = input.value;
     const sizeValue = parseInt(size.value);
     
-    
     try {
-        
         const qr = new QRious({
             element: canvas,
             value: inputValue,
@@ -375,10 +464,11 @@ function generateQR() {
             background: '#FFFFFF'
         });
 
-
-        // 다운로드 버튼 보이게 하기 - 이 줄을 추가!
-    document.getElementById('studio-download-btn').style.display = 'inline-block';
-    
+        // 다운로드 버튼 보이게 하기
+        const downloadBtn = document.getElementById('studio-download-btn');
+        if (downloadBtn) {
+            downloadBtn.style.display = 'inline-block';
+        }
         
     } catch (error) {
         throw error; // 에러를 다시 던져서 Promise catch로 전달
@@ -389,7 +479,6 @@ function generateQR() {
 function downloadQR() {
     const canvas = document.getElementById('studio-qr-canvas');
     if (!canvas) {
-        console.error('캔버스를 찾을 수 없습니다.');
         return;
     }
     
@@ -437,7 +526,6 @@ function setupImageEvents() {
 
 // 컬러 팔레트 생성
 function generatePalette() {
-    
     const baseColor = document.getElementById('studio-base-color');
     const type = document.getElementById('studio-palette-type');
     const result = document.getElementById('studio-palette-result');
@@ -629,7 +717,6 @@ function extractColorsFromImage(file) {
         img.onload = function() {
             const canvas = document.getElementById('studio-extraction-canvas');
             if (!canvas) {
-                console.error('추출 캔버스를 찾을 수 없습니다.');
                 return;
             }
             
@@ -681,13 +768,214 @@ function rgbToHex(r, g, b) {
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
 }
 
+// 개선된 그리드 계산 및 시각화
+function calculateAndVisualizeGrid() {
+    const maxWidth = parseInt(document.getElementById('calc-max-width')?.value) || 1200;
+    const columns = parseInt(document.getElementById('calc-columns')?.value) || 12;
+    const gutter = parseInt(document.getElementById('calc-gutter')?.value) || 20;
+    const margin = parseInt(document.getElementById('calc-margin')?.value) || 20;
+    
+    // 계산
+    const totalGutters = (columns - 1) * gutter;
+    const totalMargins = margin * 2;
+    const availableWidth = maxWidth - totalGutters - totalMargins;
+    const columnWidth = Math.floor(availableWidth / columns);
+    const actualPageWidth = (columnWidth * columns) + totalGutters + totalMargins;
+    
+    // 결과 표시
+    const pageWidthEl = document.getElementById('calc-page-width');
+    const columnWidthEl = document.getElementById('calc-column-width');
+    
+    if (pageWidthEl) pageWidthEl.textContent = `${actualPageWidth}px`;
+    if (columnWidthEl) columnWidthEl.textContent = `${columnWidth}px`;
+    
+    // 그리드 시각화
+    visualizeGrid(actualPageWidth, columnWidth, columns, gutter, margin);
+}
+
+function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
+    const preview = document.getElementById('calc-grid-preview');
+    if (!preview) return;
+    
+    preview.innerHTML = '';
+    
+    const container = document.createElement('div');
+    container.className = 'studio-grid-container';
+    container.style.width = `${Math.min(pageWidth, 800)}px`;
+    container.style.height = '120px';
+    
+    // 스케일 조정 (화면에 맞게)
+    const scale = Math.min(800 / pageWidth, 1);
+    const scaledWidth = pageWidth * scale;
+    const scaledColumnWidth = columnWidth * scale;
+    const scaledGutter = gutter * scale;
+    const scaledMargin = margin * scale;
+    
+    container.style.width = `${scaledWidth}px`;
+    
+    // 마진 표시
+    if (margin > 0) {
+        const leftMargin = document.createElement('div');
+        leftMargin.className = 'studio-grid-margin left';
+        leftMargin.style.width = `${scaledMargin}px`;
+        container.appendChild(leftMargin);
+        
+        const rightMargin = document.createElement('div');
+        rightMargin.className = 'studio-grid-margin right';
+        rightMargin.style.width = `${scaledMargin}px`;
+        container.appendChild(rightMargin);
+    }
+    
+    // 컬럼 표시
+    for (let i = 0; i < columns; i++) {
+        const column = document.createElement('div');
+        column.className = 'studio-grid-column';
+        
+        const left = scaledMargin + (i * (scaledColumnWidth + scaledGutter));
+        column.style.left = `${left}px`;
+        column.style.width = `${scaledColumnWidth}px`;
+        
+        container.appendChild(column);
+    }
+    
+    preview.appendChild(container);
+}
+
+// 폰트 사이즈 변환 함수들
+function convertPxToPt(px) {
+    return Math.round((px * 0.75) * 10) / 10;
+}
+
+function convertPtToPx(pt) {
+    return Math.round((pt / 0.75) * 10) / 10;
+}
+
+function updateFontSizes() {
+    const pxInput = document.getElementById('calc-px-input');
+    const ptInput = document.getElementById('calc-pt-input');
+    
+    if (!pxInput || !ptInput) return;
+    
+    const px = parseFloat(pxInput.value) || 16;
+    const pt = convertPxToPt(px);
+    
+    ptInput.value = pt;
+    
+    // 반응형 사이즈 업데이트
+    updateResponsiveSizes(px);
+    
+    // 권장 사이즈 가이드 업데이트
+    updateSizeGuide(px);
+    
+    // 미리보기 업데이트
+    updateFontPreview(px, pt);
+}
+
+function updateFontSizesFromPt() {
+    const pxInput = document.getElementById('calc-px-input');
+    const ptInput = document.getElementById('calc-pt-input');
+    
+    if (!pxInput || !ptInput) return;
+    
+    const pt = parseFloat(ptInput.value) || 12;
+    const px = convertPtToPx(pt);
+    
+    pxInput.value = px;
+    
+    // 반응형 사이즈 업데이트
+    updateResponsiveSizes(px);
+    
+    // 권장 사이즈 가이드 업데이트
+    updateSizeGuide(px);
+    
+    // 미리보기 업데이트
+    updateFontPreview(px, pt);
+}
+
+function updateResponsiveSizes(basePx) {
+    const mobile = Math.round((basePx * 0.875) * 10) / 10;  // 87.5%
+    const tablet = basePx;  // 100%
+    const desktop = Math.round((basePx * 1.125) * 10) / 10;  // 112.5%
+    
+    const mobileEl = document.getElementById('mobile-size');
+    const tabletEl = document.getElementById('tablet-size');
+    const desktopEl = document.getElementById('desktop-size');
+    
+    if (mobileEl) mobileEl.textContent = `${mobile}px`;
+    if (tabletEl) tabletEl.textContent = `${tablet}px`;
+    if (desktopEl) desktopEl.textContent = `${desktop}px`;
+}
+
+function updateSizeGuide(basePx) {
+    const baseRatio = basePx / 16; // 16px을 기준으로 비율 계산
+    
+    const sizes = {
+        body: Math.round(16 * baseRatio),
+        subtitle: Math.round(20 * baseRatio),
+        title: Math.round(24 * baseRatio),
+        heading: Math.round(32 * baseRatio),
+        caption: Math.round(14 * baseRatio)
+    };
+    
+    const guideBody = document.getElementById('guide-body');
+    const guideSubtitle = document.getElementById('guide-subtitle');
+    const guideTitle = document.getElementById('guide-title');
+    const guideHeading = document.getElementById('guide-heading');
+    const guideCaption = document.getElementById('guide-caption');
+    
+    if (guideBody) guideBody.textContent = `웹: ${sizes.body}px 인쇄: ${convertPxToPt(sizes.body)}pt`;
+    if (guideSubtitle) guideSubtitle.textContent = `웹: ${sizes.subtitle}px 인쇄: ${convertPxToPt(sizes.subtitle)}pt`;
+    if (guideTitle) guideTitle.textContent = `웹: ${sizes.title}px 인쇄: ${convertPxToPt(sizes.title)}pt`;
+    if (guideHeading) guideHeading.textContent = `웹: ${sizes.heading}px 인쇄: ${convertPxToPt(sizes.heading)}pt`;
+    if (guideCaption) guideCaption.textContent = `웹: ${sizes.caption}px 인쇄: ${convertPxToPt(sizes.caption)}pt`;
+}
+
+function updateFontPreview(px, pt) {
+    const preview = document.getElementById('font-preview-text');
+    if (preview) {
+        preview.style.fontSize = `${px}px`;
+        preview.textContent = `이 텍스트는 ${px}px(${pt}pt) 크기입니다`;
+    }
+}
+
+function setupEnhancedCalculator() {
+    // 그리드 계산기 이벤트
+    const gridInputs = ['calc-max-width', 'calc-columns', 'calc-gutter', 'calc-margin'];
+    gridInputs.forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.addEventListener('input', calculateAndVisualizeGrid);
+        }
+    });
+    
+    // 폰트 사이즈 계산기 이벤트
+    const pxInput = document.getElementById('calc-px-input');
+    const ptInput = document.getElementById('calc-pt-input');
+    
+    if (pxInput) {
+        pxInput.addEventListener('input', updateFontSizes);
+    }
+    
+    if (ptInput) {
+        ptInput.addEventListener('input', updateFontSizesFromPt);
+    }
+    
+    // 초기 계산 실행 (요소가 존재할 때만)
+    if (document.getElementById('calc-max-width')) {
+        calculateAndVisualizeGrid();
+    }
+    if (document.getElementById('calc-px-input')) {
+        updateFontSizes();
+    }
+}
+
+// 기존 호환성을 위한 함수들 (구 버전 계산기)
 function calculateFontSizes() {
     const baseSize = document.getElementById('studio-base-font');
     const ratio = document.getElementById('studio-scale-ratio');
     const result = document.getElementById('studio-font-result');
     
     if (!baseSize || !ratio || !result) {
-        console.error('폰트 계산에 필요한 요소를 찾을 수 없습니다.');
         return;
     }
     
@@ -721,7 +1009,6 @@ function calculateGrid() {
     const result = document.getElementById('studio-grid-result');
     
     if (!containerWidth || !columns || !gutter || !result) {
-        console.error('그리드 계산에 필요한 요소를 찾을 수 없습니다.');
         return;
     }
     
@@ -745,17 +1032,20 @@ function calculateGrid() {
 
 // 페이지 로드 시 실행
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // 일단 QR 없이도 작동하는 기능들 먼저 초기화
+    // Studio 기본 기능 초기화
     initStudio();
+    
+    // 새로운 계산기 기능 설정 (약간의 지연 후)
+    setTimeout(setupEnhancedCalculator, 100);
     
     // QRious 라이브러리 로드 시도
     loadQRLibrary().then(() => {
+        // QR 라이브러리 로드 성공
     }).catch(() => {
         // QR 기능만 비활성화, 다른 기능은 정상 작동
     });
 });
-</script> 
+</script>
 
 
 {{ end }}
