@@ -363,6 +363,12 @@ async function generateChartHTML() {
 
     // 기본 버튼 설정
     const defaultButtons = [
+          {
+        id: 'studio-btn',
+        href: '/studio/',  // 스튜디오 페이지 경로로 수정하세요
+        icon: '<i class="fas fa-paint-brush"></i>',  // 또는 원하는 아이콘으로
+        text: '스튜디오'
+        },
         {
             id: 'work-btn',
             href: '/posts/',
