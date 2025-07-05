@@ -638,7 +638,7 @@ select.studio-form-input option {
     /* 기존 회색 바 */
     /* background: rgba(255, 255, 255, 0.1); */
     /* 녹색 바 */
-    background: rgba(1, 255, 117, 0.05);
+    background: rgba(1, 255, 117, 0.1);
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -745,19 +745,19 @@ select.studio-form-input option {
 
 .palette-5-colors {
     display: flex;
-    gap: 15px;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* 모바일 대응 */
 }
+
 
 .palette-5-color {
     width: 100px;
     height: 100px;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    position: relative;
+    transition: transform 0.2s ease;
 }
 
 .palette-5-color:hover {
@@ -766,26 +766,31 @@ select.studio-form-input option {
 }
 
 .palette-5-color-code {
-    text-align: center;
     margin-top: 8px;
-    font-size: 12px;
-    color: var(--text-color);
-    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
 }
 
 /* 그라디언트 결과 스타일 */
 .gradient-result {
     margin-top: 30px;
+    width: 100%;
+    max-width: 500px; /* 부모 컨테이너 폭 확장 */
+    margin: 0 auto;
 }
 
 .gradient-bar {
     width: 100%;
-    height: 80px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    max-width: 500px; /* 최대 너비 설정 */
+    height: 60px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    /* border: 2px solid rgba(1, 255, 117, 0.2); */
+    transition: transform 0.2s ease;
+    margin: 0 auto 15px auto; /* 중앙 정렬 + 아래 여백 */
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .gradient-bar:hover {
@@ -795,17 +800,27 @@ select.studio-form-input option {
 
 .gradient-colors {
     display: flex;
-    gap: 15px;
     justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px; /* 그라디언트 바와 간격 */
 }
+
+.gradient-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
 
 .gradient-color {
     width: 80px;
     height: 80px;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    /* border: 2px solid rgba(255, 255, 255, 0.1); */
+    transition: transform 0.2s ease;
 }
 
 .gradient-color:hover {
@@ -814,11 +829,10 @@ select.studio-form-input option {
 }
 
 .gradient-color-code {
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
     text-align: center;
-    margin-top: 8px;
-    font-size: 11px;
-    color: var(--text-color);
-    font-family: 'Monaco', 'Menlo', monospace;
 }
 
 /* ==================== 컬러 추출기 개선된 스타일 ==================== */
@@ -1429,6 +1443,9 @@ select.studio-form-input option {
     transition: all 0.3s ease;
     margin-bottom: 20px;
     position: relative;
+
+    border: none; /* 부모에서 보더 제거 */
+    background: transparent; /* 부모는 투명 */
 }
 
 .color-card:hover {
@@ -1436,6 +1453,7 @@ select.studio-form-input option {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* 뽑기 전 카드 */
 .card-question {
     height: 100%;
     display: flex;
@@ -1444,7 +1462,46 @@ select.studio-form-input option {
     justify-content: center;
     padding: 20px;
     text-align: center;
+    border: 2px solid #01FF75; /* 뽑기 전은 녹색 보더로 */
+    border-radius: 8px;
+    box-sizing: border-box; /* 일관성을 위해 추가 */
+    /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 50, 0, 0.8) 100%); */
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 50, 0, 0.8), rgba(0, 0, 0, 0.9));
+    background-size: 200% 200%;
+    animation: gradientMove 3s ease-in-out infinite;
+    /* animation: borderGlow 2s ease-in-out infinite; */
+    /* animation: cardPulse 4s ease-in-out infinite, gradientShift 6s ease-in-out infinite; */
 }
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* @keyframes borderGlow {
+    0%, 100% { 
+        border-color: #01FF75;
+        box-shadow: 0 0 10px rgba(1, 255, 117, 0.5);
+    }
+    50% { 
+        border-color: #00ff88;
+        box-shadow: 0 0 20px rgba(1, 255, 117, 0.8);
+    }
+}
+
+@keyframes cardPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+} */
+
+
 
 .question-icon {
     font-size: 80px;
@@ -1466,10 +1523,21 @@ select.studio-form-input option {
     line-height: 1.5;
 }
 
+.question-text h3,
+.question-text p {
+    color: #01FF75; /* 텍스트도 녹색 */
+}
+
+/* 카드 뽑기 결과 카드 */
 .card-result {
     height: 100%;
     display: flex;
     flex-direction: column;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 15px solid var(--text-color);
+    box-sizing: border-box; /* 보더 포함해서 전체 크기 계산 */
 }
 
 .color-display-area {
@@ -1848,7 +1916,7 @@ select.studio-form-input option {
     }
 
     .studio-action-btn {
-        width: 100%;
+        /* width: 100%; */
         justify-content: center;
     }
 }
@@ -2083,8 +2151,8 @@ select.studio-form-input option {
 
     .studio-input-group label {
         display: block;
-        margin-top: 4px;
-        margin-bottom: 4px;
+        margin-top: 6px;
+        margin-bottom: 6px;
         color: var(--accent-color);
     }
         
@@ -2187,5 +2255,53 @@ select.studio-form-input option {
     .question-text p {
         font-size: 14px;
     }
+
+    .studio-pick-btn{
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    margin: 20px 0;
+    gap: 8px;
+    height: 30;
+    min-width: 100px; 
+    }
+
+.gradient-bar {
+max-width: 300px;
+height: 40px;
+border-radius: 8px;
+}
+
+.studio-sub-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2열 */
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-items: stretch; /* center → stretch로 변경 */
+    max-width: 100%;
+}
+
+.studio-sub-tab i{
+    font-size: 10px;
+}
+
+.studio-sub-tab {
+    padding: 5px 8px;
+    font-size: 12px;
+    gap: 5px;
+    width: 100%; /* 전체 너비 사용 */
+    min-width: 80px;
+    text-align: center; /* 텍스트 중앙 정렬 */
+
+        /* 가로 배치로 변경 */
+    display: flex;
+    flex-direction: row; /* column → row로 변경 */
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* 아이콘과 텍스트 간격 */
+    text-align: center;
+}
+
+
 
 }

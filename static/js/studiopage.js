@@ -724,18 +724,16 @@ function generate5ColorPalette() {
         const colors = generateRandomPalette([baseHue, baseSat, baseLit], 5);
         
         // 5색 팔레트 표시
-        result.innerHTML = `
-            <div class="palette-5-colors">
-                ${colors.map(color => `
+       result.innerHTML = `
+        <div class="palette-5-colors">
+            ${colors.map(color => `
+                <div class="palette-5-item">
                     <div class="palette-5-color" style="background-color: ${color}" onclick="copyColorWithFeedback('${color}')"></div>
-                `).join('')}
-            </div>
-            <div style="display: flex; gap: 15px; justify-content: center;">
-                ${colors.map(color => `
                     <div class="palette-5-color-code">${color}</div>
-                `).join('')}
-            </div>
-        `;
+                </div>
+            `).join('')}
+        </div>
+    `;
         
         result.style.display = 'block';
         
@@ -762,17 +760,15 @@ function generateGradient(colorCount) {
         const colors = generateRandomGradient([baseHue, baseSat, baseLit], colorCount);
         const gradientCSS = `linear-gradient(to right, ${colors.join(', ')})`;
         
-        // 그라디언트 결과 표시
+      // 그라디언트 결과 표시
         result.innerHTML = `
             <div class="gradient-bar" style="background: ${gradientCSS}" onclick="copyColorWithFeedback('background: ${gradientCSS};')"></div>
             <div class="gradient-colors">
                 ${colors.map(color => `
-                    <div class="gradient-color" style="background-color: ${color}" onclick="copyColorWithFeedback('${color}')"></div>
-                `).join('')}
-            </div>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 10px;">
-                ${colors.map(color => `
-                    <div class="gradient-color-code">${color}</div>
+                    <div class="gradient-item">
+                        <div class="gradient-color" style="background-color: ${color}" onclick="copyColorWithFeedback('${color}')"></div>
+                        <div class="gradient-color-code">${color}</div>
+                    </div>
                 `).join('')}
             </div>
         `;
