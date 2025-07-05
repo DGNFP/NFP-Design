@@ -202,7 +202,7 @@
             </div>
             <div class="studio-page-tab" data-tab="color-generator">
                 <i class="fas fa-magic"></i>
-                <span class="tab-text">컬러 생성기</span>
+                <span class="tab-text">컬러 팔레트</span>
             </div>
             <div class="studio-page-tab" data-tab="color-extractor">
                 <i class="fas fa-eye-dropper"></i>
@@ -259,7 +259,7 @@
 <div class="studio-tab-panel" id="color-palette">
     <div class="tab-header">
         <h2>컬러 조합기</h2>
-        <p>원하는 색상을 직접 선택하거나 색상코드를 입력하면<br>선택한 색상을 바탕으로 어울리는 색조합을 자동으로 만들어드립니다.</p>
+        <p>원하는 색상을 직접 선택하거나 색상코드를 입력하면<br>선택한 색상을 바탕으로 어울리는 색조합을 자동으로 만들어드립니다.<br>결과 카드를 탭하면 클립보드에 색상코드가 복사됩니다.</p>
     </div>
     
     <div class="color-palette-layout">
@@ -328,7 +328,7 @@
             
             <div class="studio-tab-panel" id="color-generator">
                 <div class="tab-header">
-                    <h2>컬러 생성기</h2>
+                    <h2>컬러 팔레트</h2>
                     <p>다양한 방식으로 컬러를 랜덤 생성합니다</p>
                 </div>
 
@@ -351,17 +351,27 @@
                     </div>
                 </div>
 
-              
+
 <div class="studio-sub-panel active" id="single-card">
     <div class="single-card-container">
         <div class="color-card" id="single-card-element">
-            <div class="card-question">
+            <div class="card-question" id="card-question">
                 <div class="question-icon">
                     <i class="fas fa-question"></i>
                 </div>
                 <div class="question-text">
                     <h3>컬러 카드 뽑기</h3>
                     <p>클릭하여 새로운 컬러를 발견해보세요</p>
+                </div>
+            </div>
+            
+            <div class="card-result" id="card-result" style="display: none;">
+                <div class="color-display-area" id="color-display"></div>
+                <div class="color-info-area">
+                    <h2 class="color-brand-name">STUDIO NFP</h2>
+                    <p class="color-hex-code" id="color-hex"></p>
+                    <h3 class="color-korean-name" id="color-name"></h3>
+                    <p class="color-description" id="color-description"></p>
                 </div>
             </div>
         </div>

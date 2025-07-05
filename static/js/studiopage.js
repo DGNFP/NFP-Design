@@ -159,9 +159,11 @@ const colorCards = [
     }
 ];
 
+// 상태 변수들
+let isFlipped = false;
+let currentColor = null;
+let isAnimating = false;
 // 전역 변수
-let currentCard = null;
-
 // ==================== QR 라이브러리 로드 ====================
 
 function loadQRLibrary() {
@@ -406,73 +408,135 @@ function generatePalette() {
 // ==================== 수정된 컬러 생성기 기능 ====================
 
 function initColorGenerator() {
-    // 단색 카드 이벤트
-    const singlePickBtn = document.getElementById('single-pick-btn');
-    const singleCopyBtn = document.getElementById('single-copy-btn');
-    const singleNewBtn = document.getElementById('single-new-btn');
+    // 단색 카드 변수들
+    let isFlipped = false;
+    let currentColor = null;
+    let isAnimating = false;
+
+    // DOM 요소들
+    const cardElement = document.getElementById('single-card-element');
+    const cardQuestion = document.getElementById('card-question');
+    const cardResult = document.getElementById('card-result');
+    const colorDisplay = document.getElementById('color-display');
+    const colorHex = document.getElementById('color-hex');
+    const colorName = document.getElementById('color-name');
+    const colorDescription = document.getElementById('color-description');
+    const pickBtn = document.getElementById('single-pick-btn');
+    const cardActions = document.getElementById('single-card-actions');
+    const copyBtn = document.getElementById('single-copy-btn');
+    const newBtn = document.getElementById('single-new-btn');
+
+    // 카드 뽑기 함수
+    function drawCard() {
+        if (isAnimating) return;
+        
+        isAnimating = true;
+        pickBtn.disabled = true;
+        pickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
+        
+        // 카드 뒤집기 애니메이션
+        cardElement.classList.add('card-flip');
+        
+        setTimeout(() => {
+            // 랜덤 색상 선택
+            const randomIndex = Math.floor(Math.random() * colorCards.length);
+            currentColor = colorCards[randomIndex];
+            
+            // 카드 내용 업데이트
+            colorDisplay.style.backgroundColor = currentColor.hex;
+            colorHex.textContent = currentColor.hex;
+            colorName.textContent = currentColor.name;
+            colorDescription.textContent = currentColor.description;
+            
+            // 카드 상태 변경
+            cardQuestion.style.display = 'none';
+            cardResult.style.display = 'flex';
+            
+            // 버튼 상태 변경
+            pickBtn.style.display = 'none';
+            cardActions.style.display = 'flex';
+            
+            isFlipped = true;
+            isAnimating = false;
+            
+            cardElement.classList.remove('card-flip');
+        }, 800);
+    }
+
+    // 카드 리셋 함수
+    function resetCard() {
+        if (isAnimating) return;
+        
+        isAnimating = true;
+        
+        // 페이드 아웃 애니메이션
+        cardElement.classList.add('card-fade');
+        
+        setTimeout(() => {
+            // 카드 상태 리셋
+            cardResult.style.display = 'none';
+            cardQuestion.style.display = 'flex';
+            
+            // 버튼 상태 리셋
+            cardActions.style.display = 'none';
+            pickBtn.style.display = 'inline-block';
+            pickBtn.disabled = false;
+            pickBtn.innerHTML = '<i class="fas fa-magic"></i> 컬러 카드 뽑기';
+            
+            isFlipped = false;
+            currentColor = null;
+            isAnimating = false;
+            
+            cardElement.classList.remove('card-fade');
+        }, 300);
+    }
+
+    // 색상 코드 복사 함수
+    function copyColorCode() {
+        if (!currentColor) return;
+        
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(currentColor.hex).then(() => {
+                // 토스트 메시지 표시
+                showCopyToast();
+                
+                // 버튼 피드백
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
+                copyBtn.style.borderColor = '#01FF75';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.style.borderColor = 'rgba(1, 255, 117, 0.3)';
+                }, 1500);
+            });
+        }
+    }
+
+    // 이벤트 리스너 등록
+    if (cardElement) {
+        cardElement.addEventListener('click', () => {
+            if (!isFlipped && !isAnimating) {
+                drawCard();
+            }
+        });
+    }
     
-    if (singlePickBtn) singlePickBtn.addEventListener('click', pickSingleCard);
-    if (singleCopyBtn) singleCopyBtn.addEventListener('click', copySingleColor);
-    if (singleNewBtn) singleNewBtn.addEventListener('click', resetSingleCard);
+    if (pickBtn) pickBtn.addEventListener('click', drawCard);
+    if (newBtn) newBtn.addEventListener('click', resetCard);
+    if (copyBtn) copyBtn.addEventListener('click', copyColorCode);
     
-    // 5색 팔레트 이벤트
+    // 5색 팔레트 이벤트 (기존 코드 그대로 유지)
     const palette5Btn = document.getElementById('palette-5-btn');
     if (palette5Btn) palette5Btn.addEventListener('click', generate5ColorPalette);
     
-    // 그라디언트 이벤트
+    // 그라디언트 이벤트 (기존 코드 그대로 유지)
     const gradient2Btn = document.getElementById('gradient-2-btn');
     const gradient3Btn = document.getElementById('gradient-3-btn');
     if (gradient2Btn) gradient2Btn.addEventListener('click', () => generateGradient(2));
     if (gradient3Btn) gradient3Btn.addEventListener('click', () => generateGradient(3));
     
     // 초기 상태에서 결과 숨기기
-    resetAllGeneratorResults();
-    
-    // 초기 카드 상태 설정 (물음표만 표시)
-    resetSingleCardToInitial();
-}
-
-function resetAllGeneratorResults() {
-    const palette5Result = document.getElementById('palette-5-result');
-    const gradient2Result = document.getElementById('gradient-2-result');
-    const gradient3Result = document.getElementById('gradient-3-result');
-    
-    if (palette5Result) palette5Result.style.display = 'none';
-    if (gradient2Result) gradient2Result.style.display = 'none';
-    if (gradient3Result) gradient3Result.style.display = 'none';
-}
-
-function resetSingleCardToInitial() {
-    const card = document.getElementById('single-card-element');
-    const button = document.getElementById('single-pick-btn');
-    const actions = document.getElementById('single-card-actions');
-    
-    if (!card) return;
-    
-    // 카드 초기 상태로 설정 (물음표만 표시)
-    card.innerHTML = `
-        <div class="card-question active">
-            <div class="question-icon">
-                <i class="fas fa-question"></i>
-            </div>
-            <div class="question-text">
-                <h3>컬러 카드 뽑기</h3>
-                <p>클릭하여 새로운 컬러를 발견해보세요</p>
-            </div>
-        </div>
-    `;
-    
-    // 버튼 상태 초기화
-    if (button) {
-        button.style.display = 'inline-block';
-        button.disabled = false;
-        button.innerHTML = '<i class="fas fa-magic"></i> 컬러 카드 뽑기';
-    }
-    
-    // 액션 버튼 숨기기
-    if (actions) actions.style.display = 'none';
-    
-    currentCard = null;
 }
 
 function pickSingleCard() {
