@@ -1,5 +1,7 @@
 {{ define "main" }}
 
+<link rel="stylesheet" href="{{ "css/studiopage.css" | relURL }}">
+
 <section class="studio-page-section">
     <div class="container">
         <!-- 헤더 -->
@@ -8,7 +10,7 @@
             <p>디자인 작업을 위한 전문 도구 모음</p>
         </div>
 
-         <!-- 앱 다운로드 버튼 -->
+        <!-- 앱 다운로드 버튼 -->
         <div class="studio-download-section">
             <div class="app-download-btn" id="app-download-btn">
                 <div class="download-icon">
@@ -25,7 +27,7 @@
             </div>
         </div>
 
-        <!-- 탭 네비게이션 - 개선된 모바일 정렬 -->
+        <!-- 메인 탭 네비게이션 -->
         <div class="studio-page-tabs">
             <div class="studio-page-tab active" data-tab="qr-generator">
                 <i class="fas fa-qrcode"></i>
@@ -33,23 +35,23 @@
             </div>
             <div class="studio-page-tab" data-tab="color-palette">
                 <i class="fas fa-palette"></i>
-                <span class="tab-text">컬러 팔레트</span>
+                <span class="tab-text">컬러 조합 생성기</span>
+            </div>
+            <div class="studio-page-tab" data-tab="color-generator">
+                <i class="fas fa-magic"></i>
+                <span class="tab-text">컬러 생성기</span>
             </div>
             <div class="studio-page-tab" data-tab="color-extractor">
                 <i class="fas fa-eye-dropper"></i>
                 <span class="tab-text">컬러 추출기</span>
             </div>
-            <div class="studio-page-tab" data-tab="size-guide">
-                <i class="fas fa-ruler-combined"></i>
-                <span class="tab-text">사이즈 가이드</span>
-            </div>
             <div class="studio-page-tab" data-tab="design-calculator">
                 <i class="fas fa-calculator"></i>
                 <span class="tab-text">디자인 계산기</span>
             </div>
-            <div class="studio-page-tab" data-tab="color-card">
-                <i class="fas fa-clone"></i>
-                <span class="tab-text">컬러 카드 뽑기</span>
+            <div class="studio-page-tab" data-tab="size-guide">
+                <i class="fas fa-ruler-combined"></i>
+                <span class="tab-text">사이즈 가이드</span>
             </div>
         </div>
 
@@ -90,79 +92,166 @@
                 </div>
             </div>
 
-            <!-- 컬러 팔레트 - 개선된 색상 입력 및 RGB 조절 -->
-            <div class="studio-tab-panel" id="color-palette">
+          <!-- 컬러 팔레트 -->
+<div class="studio-tab-panel" id="color-palette">
+    <div class="tab-header">
+        <h2>컬러 조합 생성기</h2>
+        <p>원하는 색상을 직접 선택하거나 색상코드를 입력하면<br>선택한 색상을 바탕으로 어울리는 색조합을 자동으로 만들어드립니다.</p>
+    </div>
+    
+    <div class="color-palette-layout">
+        <!-- 왼쪽: 컬러 피커 + 색상 코드 -->
+        <div class="color-picker-section">
+            <div class="base-color-label">베이스 컬러</div>
+            <input type="color" id="studio-base-color" class="large-color-picker" value="#01FF75">
+            
+            <!-- 색상 코드 입력을 여기로 이동 -->
+            <div class="studio-input-group">
+                <label for="studio-color-code-input">색상 코드 <span>( 직접 입력이 가능합니다. )</span></label>
+                <div class="color-code-input">
+                    <input type="text" id="studio-color-code-input" class="studio-form-input" placeholder="#01FF75" maxlength="7">
+                    <button class="color-apply-btn" onclick="applyColorCode()">적용</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 오른쪽: 컨트롤들 -->
+        <div class="color-controls-section">
+            <div class="studio-input-group">
+                <label>팔레트 타입</label>
+                <div class="palette-type-radios">
+                    <label class="radio-option">
+                        <input type="radio" name="palette-type" value="monochrome" checked>
+                        <span>단색 조합</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="palette-type" value="analogous">
+                        <span>유사 색상</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="palette-type" value="complementary">
+                        <span>보색 조합</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="palette-type" value="triadic">
+                        <span>삼각 조합</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="rgb-controls">
+                <div class="rgb-slider">
+                    <label for="red-slider">Red</label>
+                    <input type="range" id="red-slider" min="0" max="255" value="1" class="color-range">
+                    <span id="red-value">1</span>
+                </div>
+                <div class="rgb-slider">
+                    <label for="green-slider">Green</label>
+                    <input type="range" id="green-slider" min="0" max="255" value="255" class="color-range">
+                    <span id="green-value">255</span>
+                </div>
+                <div class="rgb-slider">
+                    <label for="blue-slider">Blue</label>
+                    <input type="range" id="blue-slider" min="0" max="255" value="117" class="color-range">
+                    <span id="blue-value">117</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="studio-color-grid" id="studio-palette-result"></div>
+</div>
+
+            <!-- 컬러 생성기 -->
+            <div class="studio-tab-panel" id="color-generator">
                 <div class="tab-header">
-                    <h2>컬러 팔레트 생성기</h2>
-                    <p>다양한 색상 조합과 그라디언트를 생성할 수 있습니다.<br><span>기본색상</span> 탭에서 원하는 컬러를 선택하신 후 생성하시면 생성 된 카드를 클릭하여 색상 컬러가 클립보드로 복사됩니다.</p>
-                </div>
-                
-                <!-- 개선된 색상 입력 섹션 -->
-                <div class="color-input-section">
-                    <div class="color-picker-container">
-                        <div class="studio-input-group">
-                            <label for="studio-base-color">베이스 컬러</label>
-                            <div class="color-input-wrapper">
-                                <input type="color" id="studio-base-color" class="studio-color-picker" value="#01FF75">
-                                <div class="color-code-input">
-                                    <input type="text" id="studio-color-code-input" class="studio-form-input" placeholder="#01FF75" maxlength="7">
-                                    <button class="color-apply-btn" onclick="applyColorCode()">적용</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- RGB 조절 바 -->
-                        <div class="rgb-controls">
-                            <div class="rgb-slider">
-                                <label>Red</label>
-                                <input type="range" id="red-slider" min="0" max="255" value="1" class="color-range">
-                                <span id="red-value">1</span>
-                            </div>
-                            <div class="rgb-slider">
-                                <label>Green</label>
-                                <input type="range" id="green-slider" min="0" max="255" value="255" class="color-range">
-                                <span id="green-value">255</span>
-                            </div>
-                            <div class="rgb-slider">
-                                <label>Blue</label>
-                                <input type="range" id="blue-slider" min="0" max="255" value="117" class="color-range">
-                                <span id="blue-value">117</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="studio-input-group">
-                    <label for="studio-palette-type">팔레트 타입</label>
-                    <select id="studio-palette-type" class="studio-form-input">
-                        <option value="monochrome">단색 조합</option>
-                        <option value="analogous">유사 색상</option>
-                        <option value="complementary">보색 조합</option>
-                        <option value="triadic">삼각 조합</option>
-                        <option value="gradient">그라디언트</option>
-                    </select>
+                    <h2>컬러 생성기</h2>
+                    <p>다양한 방식으로 컬러를 랜덤 생성합니다</p>
                 </div>
 
-                <!-- 그라디언트 색상 수 선택 -->
-                <div class="studio-input-group gradient-options" style="display: none;">
-                    <label for="studio-gradient-colors">그라디언트 색상 수</label>
-                    <select id="studio-gradient-colors" class="studio-form-input">
-                        <option value="2">2색 그라디언트</option>
-                        <option value="3">3색 그라디언트</option>
-                        <option value="5" selected>5색 그라디언트</option>
-                    </select>
+                <div class="studio-sub-tabs">
+                    <div class="studio-sub-tab active" data-subtab="single-card">
+                        <i class="fas fa-square"></i>
+                        단색 카드
+                    </div>
+                    <div class="studio-sub-tab" data-subtab="palette-5">
+                        <i class="fas fa-th"></i>
+                        5색 팔레트
+                    </div>
+                    <div class="studio-sub-tab" data-subtab="gradient-2">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        2색 그라디언트
+                    </div>
+                    <div class="studio-sub-tab" data-subtab="gradient-3">
+                        <i class="fas fa-layer-group"></i>
+                        3색 그라디언트
+                    </div>
                 </div>
-                
-                <button class="studio-page-btn" onclick="generatePalette()">팔레트 생성</button>
-                
-                <div class="studio-color-grid" id="studio-palette-result"></div>
+
+              <!-- 기존 단색 카드 부분을 교체 -->
+<div class="studio-sub-panel active" id="single-card">
+    <div class="single-card-container">
+        <div class="color-card" id="single-card-element">
+            <div class="card-question">
+                <div class="question-icon">
+                    <i class="fas fa-question"></i>
+                </div>
+                <div class="question-text">
+                    <h3>컬러 카드 뽑기</h3>
+                    <p>클릭하여 새로운 컬러를 발견해보세요</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-controls">
+            <button class="studio-pick-btn" id="single-pick-btn">
+                <i class="fas fa-magic"></i> 컬러 카드 뽑기
+            </button>
+            
+            <div class="studio-card-actions" id="single-card-actions" style="display: none;">
+                <button class="studio-action-btn" id="single-copy-btn">
+                    <i class="fas fa-copy"></i> 색상 코드 복사
+                </button>
+                <button class="studio-action-btn" id="single-new-btn">
+                    <i class="fas fa-redo"></i> 다시 뽑기
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+                <div class="studio-sub-panel" id="palette-5">
+                    <div class="palette-generator-container">
+                        <button class="studio-pick-btn" id="palette-5-btn">
+                            <i class="fas fa-magic"></i> 5색 팔레트 생성
+                        </button>
+                        <div class="palette-5-result" id="palette-5-result" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="studio-sub-panel" id="gradient-2">
+                    <div class="gradient-generator-container">
+                        <button class="studio-pick-btn" id="gradient-2-btn">
+                            <i class="fas fa-magic"></i> 2색 그라디언트 생성
+                        </button>
+                        <div class="gradient-result" id="gradient-2-result" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="studio-sub-panel" id="gradient-3">
+                    <div class="gradient-generator-container">
+                        <button class="studio-pick-btn" id="gradient-3-btn">
+                            <i class="fas fa-magic"></i> 3색 그라디언트 생성
+                        </button>
+                        <div class="gradient-result" id="gradient-3-result" style="display: none;"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- 컬러 추출기 -->
             <div class="studio-tab-panel" id="color-extractor">
                 <div class="tab-header">
                     <h2>이미지 컬러 추출기</h2>
-                    <p>이미지를 업로드하시면 8개의 컬러 팔레트가 추출됩니다.</p>
+                    <p>이미지를 업로드하시면 5개의 주요 컬러와 비중을 추출해 드립니다.</p>
                 </div>
                 
                 <div class="studio-upload-area" id="studio-image-upload" onclick="document.getElementById('studio-image-file').click()">
@@ -175,7 +264,157 @@
                 </div>
                 
                 <canvas id="studio-extraction-canvas" style="display: none;"></canvas>
-                <div class="studio-color-grid" id="studio-extracted-colors"></div>
+                <div class="color-extraction-result" id="studio-extracted-colors" style="display: none;"></div>
+            </div>
+
+            <!-- 디자인 계산기 -->
+            <div class="studio-tab-panel" id="design-calculator">
+                <div class="tab-header">
+                    <h2>디자인 계산기</h2>
+                    <p>그리드 시스템과 폰트 사이즈를 계산하고 미리보기하세요</p>
+                </div>
+
+                <div class="studio-sub-tabs">
+                    <div class="studio-sub-tab active" data-subtab="grid-calculator">
+                        <i class="fas fa-th-large"></i>
+                        그리드 계산기
+                    </div>
+                    <div class="studio-sub-tab" data-subtab="font-calculator">
+                        <i class="fas fa-font"></i>
+                        폰트 계산기
+                    </div>
+                </div>
+
+                <div class="studio-sub-panel active" id="grid-calculator">
+                    <div class="studio-grid-inputs">
+                        <div class="studio-input-row">
+                            <div class="studio-input-col">
+                                <label>최대 너비</label>
+                                <div class="studio-input-with-unit">
+                                    <input type="number" id="calc-max-width" value="800" min="320" max="3840">
+                                    <span>px</span>
+                                </div>
+                            </div>
+                            <div class="studio-input-col">
+                                <label>컬럼 수</label>
+                                <div class="studio-input-with-unit">
+                                    <input type="number" id="calc-columns" value="4" min="1" max="24">
+                                    <span>개</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="studio-input-row">
+                            <div class="studio-input-col">
+                                <label>간격</label>
+                                <div class="studio-input-with-unit">
+                                    <input type="number" id="calc-gutter" value="20" min="0" max="100">
+                                    <span>px</span>
+                                </div>
+                            </div>
+                            <div class="studio-input-col">
+                                <label>마진</label>
+                                <div class="studio-input-with-unit">
+                                    <input type="number" id="calc-margin" value="20" min="0" max="200">
+                                    <span>px</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="studio-grid-result-info">
+                        <div class="studio-result-item">
+                            <span>페이지 너비:</span>
+                            <span id="calc-page-width">800px</span>
+                        </div>
+                        <div class="studio-result-item">
+                            <span>컬럼 너비:</span>
+                            <span id="calc-column-width">175px</span>
+                        </div>
+                    </div>
+                    
+                    <div class="studio-grid-preview-wrapper">
+                        <div class="studio-grid-preview" id="calc-grid-preview"></div>
+                    </div>
+                </div>
+
+                <div class="studio-sub-panel" id="font-calculator">
+                    <div class="studio-font-calc-container">
+                        <div class="studio-font-preview">
+                            <h4>미리보기</h4>
+                            <div class="studio-preview-text" id="font-preview-text">
+                                이 텍스트는 16px(12pt) 크기입니다
+                            </div>
+                        </div>
+                        
+                        <div class="studio-font-converter">
+                            <div class="studio-converter-item">
+                                <label>웹용 (px)</label>
+                                <div class="studio-size-input">
+                                    <input type="number" id="calc-px-input" value="16" min="1" max="200">
+                                    <span>픽셀</span>
+                                </div>
+                            </div>
+                            <div class="studio-converter-arrow">⇄</div>
+                            <div class="studio-converter-item">
+                                <label>인쇄용 (pt)</label>
+                                <div class="studio-size-input">
+                                    <input type="number" id="calc-pt-input" value="12" min="1" max="150">
+                                    <span>포인트</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="studio-responsive-sizes">
+                            <h4>반응형 사이즈</h4>
+                            <div class="studio-device-sizes">
+                                <div class="studio-device-item">
+                                    <div class="studio-device-info">
+                                        <span>모바일</span>
+                                        <span id="mobile-size">14.0px</span>
+                                    </div>
+                                </div>
+                                <div class="studio-device-item">
+                                    <div class="studio-device-info">
+                                        <span>태블릿</span>
+                                        <span id="tablet-size">16.0px</span>
+                                    </div>
+                                </div>
+                                <div class="studio-device-item">
+                                    <div class="studio-device-info">
+                                        <span>데스크톱</span>
+                                        <span id="desktop-size">18.0px</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="studio-size-guide">
+                            <h4>권장 사이즈</h4>
+                            <div class="studio-size-list">
+                                <div class="studio-size-guide-item">
+                                    <span>본문</span>
+                                    <span id="guide-body">웹: 16px 인쇄: 12pt</span>
+                                </div>
+                                <div class="studio-size-guide-item">
+                                    <span>소제목</span>
+                                    <span id="guide-subtitle">웹: 20px 인쇄: 15pt</span>
+                                </div>
+                                <div class="studio-size-guide-item">
+                                    <span>제목</span>
+                                    <span id="guide-title">웹: 24px 인쇄: 18pt</span>
+                                </div>
+                                <div class="studio-size-guide-item">
+                                    <span>대제목</span>
+                                    <span id="guide-heading">웹: 32px 인쇄: 24pt</span>
+                                </div>
+                                <div class="studio-size-guide-item">
+                                    <span>캡션</span>
+                                    <span id="guide-caption">웹: 14px 인쇄: 10pt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- 사이즈 가이드 -->
@@ -259,2830 +498,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- 디자인 계산기 - 완전 재작업된 반응형 -->
-            <div class="studio-tab-panel" id="design-calculator">
-                <div class="tab-header">
-                    <h2>디자인 계산기</h2>
-                    <p>그리드 시스템과 폰트 사이즈를 계산하고 미리보기하세요</p>
-                </div>
-                
-                <div class="studio-enhanced-calculator">
-                    <!-- 그리드 계산기 -->
-                    <div class="studio-calc-section">
-                        <h3>그리드 계산기</h3>
-                        <div class="studio-grid-inputs">
-                            <div class="studio-input-row">
-                                <div class="studio-input-col">
-                                    <label>최대 너비</label>
-                                    <div class="studio-input-with-unit">
-                                        <input type="number" id="calc-max-width" value="1920" min="320" max="3840">
-                                        <span>px</span>
-                                    </div>
-                                </div>
-                                <div class="studio-input-col">
-                                    <label>컬럼 수</label>
-                                    <div class="studio-input-with-unit">
-                                        <input type="number" id="calc-columns" value="12" min="1" max="24">
-                                        <span>개</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="studio-input-row">
-                                <div class="studio-input-col">
-                                    <label>간격</label>
-                                    <div class="studio-input-with-unit">
-                                        <input type="number" id="calc-gutter" value="20" min="0" max="100">
-                                        <span>px</span>
-                                    </div>
-                                </div>
-                                <div class="studio-input-col">
-                                    <label>마진</label>
-                                    <div class="studio-input-with-unit">
-                                        <input type="number" id="calc-margin" value="20" min="0" max="200">
-                                        <span>px</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 그리드 결과 표시 -->
-                        <div class="studio-grid-result-info">
-                            <div class="studio-result-item">
-                                <span>페이지 너비:</span>
-                                <span id="calc-page-width">1200px</span>
-                            </div>
-                            <div class="studio-result-item">
-                                <span>컬럼 너비:</span>
-                                <span id="calc-column-width">80px</span>
-                            </div>
-                        </div>
-                        
-                        <!-- 개선된 그리드 시각화 -->
-                        <div class="studio-grid-preview-wrapper">
-                            <div class="studio-grid-preview" id="calc-grid-preview">
-                                <!-- 그리드가 동적으로 생성됩니다 -->
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 폰트 사이즈 계산기 - 개선된 반응형 -->
-                    <div class="studio-calc-section">
-                        <h3>폰트 사이즈 계산기</h3>
-                        <p class="studio-calc-desc">웹과 인쇄용 사이즈 변환</p>
-                        
-                        <!-- 사이즈 변환 - 개선된 반응형 -->
-                        <div class="studio-font-converter">
-                            <div class="studio-converter-item">
-                                <label>웹용 (px)</label>
-                                <div class="studio-size-input">
-                                    <input type="number" id="calc-px-input" value="16" min="1" max="200">
-                                    <span>픽셀</span>
-                                </div>
-                            </div>
-                            <div class="studio-converter-arrow">⇄</div>
-                            <div class="studio-converter-item">
-                                <label>인쇄용 (pt)</label>
-                                <div class="studio-size-input">
-                                    <input type="number" id="calc-pt-input" value="12" min="1" max="150">
-                                    <span>포인트</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 반응형 사이즈 -->
-                        <div class="studio-responsive-sizes">
-                            <h4>반응형 사이즈</h4>
-                            <div class="studio-device-sizes">
-                                <div class="studio-device-item">
-                                    <div class="studio-device-info">
-                                        <span>모바일</span>
-                                        <span id="mobile-size">14.0px</span>
-                                    </div>
-                                </div>
-                                <div class="studio-device-item">
-                                    <div class="studio-device-info">
-                                        <span>태블릿</span>
-                                        <span id="tablet-size">16.0px</span>
-                                    </div>
-                                </div>
-                                <div class="studio-device-item">
-                                    <div class="studio-device-info">
-                                        <span>데스크톱</span>
-                                        <span id="desktop-size">18.0px</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 권장 사이즈 가이드 -->
-                        <div class="studio-size-guide">
-                            <h4>권장 사이즈</h4>
-                            <div class="studio-size-list">
-                                <div class="studio-size-guide-item">
-                                    <span>본문</span>
-                                    <span id="guide-body">웹: 16px 인쇄: 12pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>소제목</span>
-                                    <span id="guide-subtitle">웹: 20px 인쇄: 15pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>제목</span>
-                                    <span id="guide-title">웹: 24px 인쇄: 18pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>대제목</span>
-                                    <span id="guide-heading">웹: 32px 인쇄: 24pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>캡션</span>
-                                    <span id="guide-caption">웹: 14px 인쇄: 10pt</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 미리보기 -->
-                        <div class="studio-font-preview">
-                            <h4>미리보기</h4>
-                            <div class="studio-preview-text" id="font-preview-text">
-                                이 텍스트는 16px(12pt) 크기입니다
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 컬러 카드 뽑기 탭 - 개선된 카드 높이 -->
-            <div class="studio-tab-panel" id="color-card">
-                <div class="tab-header">
-                    <h2>오늘의 컬러 카드 뽑기</h2>
-                    <p>매일 새로운 영감을 주는 컬러를 발견해보세요</p>
-                </div>
-                
-                <div class="studio-card-picker">
-                    <div class="studio-card-deck" id="studio-card-deck">
-                        <div class="studio-card" id="colorCard">
-                            <div class="studio-card-icon">
-                                <i class="fas fa-question"></i>
-                            </div>
-                            <div class="studio-card-text">
-                                클릭하여<br>컬러 카드 뽑기
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="studio-pick-btn" id="pickButton">
-                        <i class="fas fa-magic"></i> 컬러 카드 뽑기
-                    </button>
-
-                    <div class="studio-picked-card" id="pickedCard" style="display: none;">
-                        <div class="studio-card-actions">
-                            <button class="studio-action-btn" id="copyColorBtn">
-                                <i class="fas fa-copy"></i> 색상 코드 복사
-                            </button>
-                            <!-- <button class="studio-action-btn" id="saveColorBtn">
-                                <i class="fas fa-heart"></i> 즐겨찾기 추가
-                            </button> -->
-                            <button class="studio-action-btn" id="newCardBtn">
-                                <i class="fas fa-redo"></i> 다시 뽑기
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
 
-<style>
-/* ==================== 기본 섹션 스타일 ==================== */
-.studio-page-section {
-    padding: 140px 0;
-    position: relative;
-}
-
-.studio-page-section::before {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: rgba(1, 255, 117, 0.05);
-    border-radius: 50%;
-    filter: blur(100px);
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
-}
-
-/* ==================== 헤더 스타일 ==================== */
-.studio-page-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.studio-page-header h1 {
-    font-size: 48px;
-    font-weight: 900;
-    margin-bottom: 15px;
-}
-
-.studio-page-header h1 span {
-    color: var(--accent-color);
-}
-
-.studio-page-header p {
-    font-size: 18px;
-    opacity: 0.8;
-}
-
-/* ==================== 앱 다운로드 버튼 ==================== */
-.studio-download-section {
-    display: flex;
-    justify-content: center;
-    margin: 25px auto 0 auto;
-    max-width: 1200px;
-}
-
-.studio-download-section .app-download-btn {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 50%, rgba(0, 0, 0, 0.9) 100%);
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 50px;
-    padding: 12px 25px 12px 15px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    max-width: 300px;
-    margin-top: 0px;
-    margin-bottom: 40px;
-}
-
-.studio-download-section .download-subtitle {
-    text-align: center;
-}
-
-/* ==================== 개선된 탭 네비게이션 ==================== */
-.studio-page-tabs {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
-    margin-bottom: 50px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.studio-page-tab {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 50px;
-    padding: 16px 20px;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    min-height: 60px;
-}
-
-.studio-page-tab::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(1, 255, 117, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.studio-page-tab:hover::before {
-    left: 100%;
-}
-
-.studio-page-tab:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(1, 255, 117, 0.2);
-}
-
-.studio-page-tab.active {
-    background: var(--accent-color);
-    color: var(--background-color);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 20px rgba(1, 255, 117, 0.4);
-}
-
-.studio-page-tab i {
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-.tab-text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* ==================== 탭 컨텐츠 기본 스타일 ==================== */
-.studio-page-content {
-    min-height: 600px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
-    border: 2px solid rgba(1, 255, 117, 0.2);
-    border-radius: 20px;
-    padding: 40px;
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-}
-
-.studio-page-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(1, 255, 117, 0.02) 50%,
-        transparent 70%
-    );
-    animation: studio-content-scan 8s infinite linear;
-    pointer-events: none;
-}
-
-@keyframes studio-content-scan {
-    0% { transform: translateX(-100%) skewX(-15deg); }
-    100% { transform: translateX(200%) skewX(-15deg); }
-}
-
-.studio-tab-panel {
-    display: none;
-    position: relative;
-    z-index: 2;
-}
-
-.studio-tab-panel.active {
-    display: block;
-    animation: studio-fadeIn 0.3s ease;
-}
-
-@keyframes studio-fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tab-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.tab-header h2 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--accent-color);
-}
-
-.tab-header p {
-    font-size: 16px;
-    opacity: 0.8;
-    margin-bottom: 0;
-}
-
-/* ==================== 공통 입력 스타일 ==================== */
-.studio-input-group {
-    margin-bottom: 20px;
-}
-
-.studio-input-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--accent-color);
-}
-
-.studio-form-input {
-    width: 100%;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 10px;
-    color: var(--text-color);
-    font-size: 16px;
-    transition: var(--transition);
-    box-sizing: border-box;
-}
-
-.studio-form-input:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.3);
-}
-
-/* ==================== 셀렉트 및 컬러 입력 스타일 ==================== */
-.studio-form-input[type="color"],
-select.studio-form-input {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 10px;
-    color: var(--text-color);
-    font-size: 16px;
-    padding: 15px 40px 15px 15px;
-    transition: var(--transition);
-    cursor: pointer;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2301FF75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 16px;
-}
-
-select.studio-form-input:hover {
-    border-color: var(--accent-color);
-    background-color: rgba(1, 255, 117, 0.05);
-}
-
-select.studio-form-input:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.3);
-    background-color: rgba(1, 255, 117, 0.08);
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-select.studio-form-input option {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding: 10px;
-}
-
-/* ==================== 버튼 스타일 ==================== */
-.studio-page-btn {
-    background: var(--accent-color);
-    color: var(--background-color);
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.studio-page-btn:hover {
-    background: #00e066;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(1, 255, 117, 0.4);
-}
-
-/* ==================== QR 생성기 스타일 ==================== */
-.studio-qr-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.studio-qr-result {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 30px;
-    border: 2px solid rgba(1, 255, 117, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.studio-qr-result h3 {
-    margin-bottom: 20px;
-}
-
-#studio-qr-canvas {
-    /* border-radius: 10px; */
-    margin: 20px 0;
-    max-width: 100%;
-    display: block;
-}
-
-#studio-download-btn {
-    margin-top: 20px;
-    align-self: center;
-}
-
-/* ==================== 개선된 컬러 팔레트 스타일 ==================== */
-.color-input-section {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 2px solid rgba(1, 255, 117, 0.2);
-}
-
-.color-picker-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.color-input-wrapper {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.studio-color-picker {
-    width: 80%;
-    height: 20px;
-    padding: 0;
-    /* border: 2px solid rgba(1, 255, 117, 0.3); */
-    /* border-radius: 10px; */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border:none;
-}
-
-.color-code-input {
-    flex: 1;
-    display: flex;
-    gap: 10px;
-}
-
-.color-code-input input {
-    flex: 1;
-    text-transform: uppercase;
-}
-
-.color-apply-btn {
-    background: var(--accent-color);
-    color: var(--background-color);
-    border: none;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.color-apply-btn:hover {
-    background: #00e066;
-    transform: translateY(-1px);
-}
-
-/* RGB 조절 바 스타일 */
-.rgb-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.rgb-slider {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.rgb-slider label {
-    min-width: 50px;
-    color: var(--accent-color);
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 0;
-}
-
-.color-range {
-    flex: 1;
-    height: 8px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.color-range::-webkit-slider-thumb {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    cursor: pointer;
-    border: 2px solid var(--background-color);
-    box-shadow: 0 2px 8px rgba(1, 255, 117, 0.3);
-}
-
-.color-range::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    cursor: pointer;
-    border: 2px solid var(--background-color);
-    box-shadow: 0 2px 8px rgba(1, 255, 117, 0.3);
-}
-
-.rgb-slider span {
-    min-width: 35px;
-    text-align: center;
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.gradient-options {
-    background: rgba(1, 255, 117, 0.05);
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(1, 255, 117, 0.2);
-}
-
-/* ==================== 컬러 그리드 스타일 ==================== */
-.studio-color-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.studio-color-items-row {
-    display: flex;
-    gap: 15px;
-    flex-wrap: nowrap;
-    align-items: stretch;
-}
-
-.studio-color-item {
-    flex: 1;
-    min-width: 0;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    border: 2px solid rgba(1, 255, 117, 0.2);
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.studio-color-item:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-3px);
-}
-
-.studio-color-preview {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.studio-color-code {
-    font-size: 12px;
-    color: var(--text-color);
-    margin-top: 5px;
-    font-family: 'Pretendard'!important;
-}
-
-.studio-color-code:first-child {
-    font-weight: 700;
-    color: var(--accent-color);
-    font-size: 18px;
-    font-family: 'Pretendard'!important;
-}
-
-/* 그라디언트 바 스타일 */
-.studio-gradient-bar {
-    width: 100%;
-    border: 2px solid rgba(1, 255, 117, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.studio-gradient-bar:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.2);
-    border-color: var(--accent-color);
-}
-
-.studio-gradient-strip {
-    width: 100%;
-    height: 60px;
-    position: relative;
-}
-
-.studio-gradient-label {
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border-top: 1px solid rgba(1, 255, 117, 0.2);
-    font-size: 14px;
-    color: var(--text-color);
-}
-
-.studio-gradient-label span {
-    font-weight: 600;
-    color: var(--accent-color);
-}
-
-.studio-gradient-label code {
-    margin-left: 8px;
-    padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
-    font-size: 12px;
-    color: var(--text-color);
-    word-break: break-all;
-}
-
-/* ==================== 이미지 업로드 영역 ==================== */
-.studio-upload-area {
-    border: 2px dashed rgba(1, 255, 117, 0.3);
-    border-radius: 15px;
-    padding: 40px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.02);
-    transition: var(--transition);
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-.studio-upload-area:hover {
-    border-color: var(--accent-color);
-    background: rgba(1, 255, 117, 0.05);
-}
-
-.studio-upload-area.dragover {
-    border-color: var(--accent-color);
-    background: rgba(1, 255, 117, 0.1);
-    transform: scale(1.02);
-}
-
-.studio-upload-icon {
-    font-size: 48px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-/* ==================== 사이즈 가이드 스타일 ==================== */
-.studio-size-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.studio-size-category {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 25px;
-    border: 2px solid rgba(1, 255, 117, 0.2);
-}
-
-.studio-size-category h3 {
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    font-size: 20px;
-}
-
-.studio-size-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.studio-size-item:last-child {
-    border-bottom: none;
-}
-
-/* ==================== 개선된 계산기 스타일 ==================== */
-.studio-enhanced-calculator {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.studio-calc-section {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 25px;
-    border: 2px solid rgba(1, 255, 117, 0.2);
-}
-
-.studio-calc-section h3 {
-    color: var(--accent-color);
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.studio-calc-desc {
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 24px;
-    font-size: 14px;
-}
-
-/* 그리드 계산기 전용 스타일 */
-.studio-grid-inputs {
-    margin-bottom: 24px;
-}
-
-.studio-input-row {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 16px;
-}
-
-.studio-input-col {
-    flex: 1;
-}
-
-.studio-input-col label {
-    display: block;
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-.studio-input-with-unit {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.studio-input-with-unit input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 12px 16px;
-    color: var(--text-color);
-    font-size: 16px;
-    outline: none;
-    min-width: 0;
-    box-sizing: border-box;
-}
-
-.studio-input-with-unit span {
-    padding: 12px 16px;
-    background: rgba(1, 255, 117, 0.1);
-    color: var(--accent-color);
-    font-size: 14px;
-    border-left: 1px solid rgba(1, 255, 117, 0.3);
-    font-weight: 600;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.studio-grid-result-info {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 24px;
-    padding: 16px;
-    background: rgba(1, 255, 117, 0.05);
-    border-radius: 10px;
-    border: 1px solid rgba(1, 255, 117, 0.2);
-}
-
-.studio-result-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.studio-result-item span:first-child {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12px;
-}
-
-.studio-result-item span:last-child {
-    color: var(--accent-color);
-    font-weight: 700;
-    font-size: 18px;
-}
-
-/* 개선된 그리드 시각화 */
-.studio-grid-preview-wrapper {
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 15px;
-    padding: 25px;
-    border: 1px solid rgba(1, 255, 117, 0.2);
-    overflow: hidden;
-}
-
-.studio-grid-preview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 120px;
-    overflow: hidden;
-    flex-direction: column;
-}
-
-.studio-grid-container {
-    position: relative;
-    margin: 0 auto;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.studio-grid-column {
-    background: rgba(1, 255, 117, 0.3);
-    border: 1px solid #01FF75;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.studio-grid-margin {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background: rgba(255, 100, 100, 0.2);
-    border: 1px dashed #ff6b6b;
-}
-
-.studio-grid-margin.left {
-    left: 0;
-}
-
-.studio-grid-margin.right {
-    right: 0;
-}
-
-/* 폰트 사이즈 계산기 개선된 스타일 */
-.studio-font-converter {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 32px;
-    padding: 20px;
-    background: rgba(1, 255, 117, 0.05);
-    border-radius: 15px;
-    border: 1px solid rgba(1, 255, 117, 0.2);
-}
-
-.studio-converter-item {
-    flex: 1;
-}
-
-.studio-converter-item label {
-    display: block;
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.studio-size-input {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    border: 2px solid var(--accent-color);
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.studio-size-input input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 16px;
-    color: var(--text-color);
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
-    outline: none;
-    min-width: 0;
-    box-sizing: border-box;
-}
-
-.studio-size-input span {
-    padding: 16px;
-    color: var(--accent-color);
-    font-size: 12px;
-    background: rgba(1, 255, 117, 0.1);
-    font-weight: 600;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.studio-converter-arrow {
-    color: var(--accent-color);
-    font-size: 24px;
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-/* 반응형 사이즈 */
-.studio-responsive-sizes {
-    margin-bottom: 32px;
-}
-
-.studio-responsive-sizes h4 {
-    color: var(--accent-color);
-    margin-bottom: 16px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.studio-device-sizes {
-    display: flex;
-    gap: 16px;
-}
-
-.studio-device-item {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 16px;
-    text-align: center;
-    border: 1px solid rgba(1, 255, 117, 0.2);
-}
-
-.studio-device-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.studio-device-info span:first-child {
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.studio-device-info span:last-child {
-    color: var(--accent-color);
-    font-weight: 700;
-    font-size: 16px;
-}
-
-/* 권장 사이즈 가이드 */
-.studio-size-guide {
-    margin-bottom: 32px;
-}
-
-.studio-size-guide h4 {
-    color: var(--accent-color);
-    margin-bottom: 16px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.studio-size-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.studio-size-guide-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 16px 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(1, 255, 117, 0.2);
-}
-
-.studio-size-guide-item span:first-child {
-    color: var(--text-color);
-    font-weight: 600;
-}
-
-.studio-size-guide-item span:last-child {
-    color: rgba(255, 255, 255, 0.7);
-    font-family: 'Monaco', 'Menlo', monospace;
-    font-size: 14px;
-}
-
-/* 미리보기 */
-.studio-font-preview {
-    margin-bottom: 0;
-}
-
-.studio-font-preview h4 {
-    color: var(--accent-color);
-    margin-bottom: 16px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.studio-preview-text {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 24px;
-    color: var(--text-color);
-    border: 1px solid rgba(1, 255, 117, 0.2);
-    text-align: center;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ==================== 개선된 컬러 카드 스타일 ==================== */
-.studio-card-picker {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.studio-card-deck {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin: 40px 0; */
-    min-height: 300px;
-    /* padding: 20px; */
-    box-sizing: border-box;
-}
-
-.studio-card {
-    width: 200px;
-    height: 280px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(1, 255, 117, 0.1) 100%);
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.studio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(1, 255, 117, 0.3);
-    border-color: #01ff75;
-}
-
-.studio-card-icon {
-    font-size: 48px;
-    color: #01ff75;
-    margin-bottom: 15px;
-}
-
-.studio-card-text {
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    line-height: 1.4;
-}
-
-/* 새로운 결과 카드 스타일 - 잘림 방지 */
-.color-result-card {
-  width: 200px;
-    height: auto; /* 기존 380px에서 auto로 변경 */
-    background: white;
-    /* border-radius: 15px; */
-    padding: 0;
-    margin: 0 auto;
-    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); */
-    border: 10px solid white;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-bottom: 40px;
-    margin-top: 40px;
-}
-
-.color-result-card .color-display-area {
-    width: 100%;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.color-result-card .color-info-area {
-    flex: 1;
-    padding: 5px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    min-height: 130px;
-    align-items: flex-start;
-}
-
-.color-result-card .color-brand-name {
-    font-size: 20px;
-    font-weight: 900;
-    color: #333;
-    margin-bottom: -7px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.color-result-card .color-hex-code {
-    font-size: 15px;
-    font-weight: 600;
-    color: #666;
-    margin-bottom: 6px;
-    /* font-family: 'Monaco', 'Menlo', monospace; */
-}
-
-.color-result-card .color-korean-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 8px;
-    line-height: 1.2;
-}
-
-.color-result-card .color-description {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.4;
-    text-align: left;
-}
-
-.studio-pick-btn {
-    background: #01ff75;
-    color: black;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 16px;
-    margin: 20px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.studio-pick-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.studio-pick-btn:hover::before {
-    left: 100%;
-}
-
-.studio-pick-btn:hover {
-    background: #00e066;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(1, 255, 117, 0.4);
-}
-
-.studio-pick-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.studio-picked-card {
-    /* background: rgba(255, 255, 255, 0.05); */
-    /* border: 2px solid #01ff75; */
-    /* border-radius: 20px; */
-    padding: 20px;
-    margin-top: 20px;
-    animation: studio-card-reveal 0.6s ease;
-}
-
-@keyframes studio-card-reveal {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.studio-card-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.studio-action-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.studio-action-btn:hover {
-    border-color: #01ff75;
-    background: rgba(1, 255, 117, 0.1);
-    transform: translateY(-1px);
-}
-
-/* ==================== 반응형 디자인 ==================== */
-
-/* 태블릿 */
-@media (max-width: 1024px) {
-    .studio-enhanced-calculator {
-        gap: 30px;
-    }
-    
-    .studio-font-converter {
-        gap: 15px;
-    }
-    
-    .color-input-wrapper {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .studio-color-picker {
-        width: 100%;
-        height: 20px;
-    }
-}
-
-/* 모바일 */
-@media (max-width: 768px) {
-    /* 기본 레이아웃 */
-    .studio-page-header h1 {
-        font-size: 36px;
-    }
-
-    .studio-page-header {
-        text-align: center;
-    }
-
-    .tab-header {
-        text-align: center;
-    }
-
-    .tab-header h2 {
-        font-size: 28px;
-    }
-
-    /* 개선된 탭 버튼 - 3x2 그리드 */
-    .studio-page-tabs {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-        max-width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .studio-page-tab {
-        padding: 12px 8px;
-        min-height: 70px;
-        flex-direction: column;
-        gap: 6px;
-        font-size: 12px;
-    }
-
-    .studio-page-tab i {
-        font-size: 16px;
-    }
-
-    .tab-text {
-        font-size: 11px;
-        line-height: 1.2;
-    }
-
-    .studio-page-content {
-        padding: 25px 20px;
-    }
-
-    /* QR 컨테이너 */
-    .studio-qr-container {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    /* 개선된 컬러 팔레트 */
-    .color-input-wrapper {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .studio-color-picker {
-        width: 100%;
-        height: 20px;
-    }
-
-    .color-code-input {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .rgb-controls {
-        gap: 12px;
-    }
-
-    .rgb-slider {
-        flex-direction: column;
-        gap: 8px;
-        align-items: stretch;
-    }
-
-    .rgb-slider label {
-        min-width: auto;
-        text-align: center;
-    }
-
-    .rgb-slider span {
-        text-align: center;
-        min-width: auto;
-    }
-
-    /* 컬러 그리드 - 세로 배치 */
-    .studio-color-items-row {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .studio-color-item {
-        min-width: unset;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 15px;
-        text-align: left;
-        width: 100%;
-    }
-
-    .studio-color-preview {
-        width: 60px;
-        height: 60px;
-        flex-shrink: 0;
-        margin-bottom: 0;
-        border-radius: 8px;
-    }
-
-    .studio-color-info {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .studio-color-code {
-        font-size: 14px;
-        margin-top: 0;
-        line-height: 1.4;
-        text-align: left;
-    }
-
-    .studio-color-code:first-child {
-        font-size: 16px;
-    }
-
-    /* 사이즈 가이드 */
-    .studio-size-categories {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    /* 개선된 계산기 반응형 */
-    .studio-input-row {
-        flex-direction: column;
-        gap: 16px;
-    }
-    
-    .studio-font-converter {
-        flex-direction: column;
-        gap: 16px;
-        padding: 20px 15px;
-    }
-
-    .studio-converter-arrow {
-        align-self: center;
-        transform: rotate(90deg);
-    }
-    
-    .studio-device-sizes {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .studio-grid-result-info {
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px;
-    }
-
-    /* 그리드 미리보기 중앙정렬 개선 */
-    .studio-grid-preview-wrapper {
-        padding: 20px 15px;
-        text-align: center;
-    }
-
-    .studio-grid-preview {
-        justify-content: center;
-        min-height: 100px;
-        width: 100%;
-    }
-
-    .studio-grid-container {
-        margin: 0 auto;
-        max-width: 100%;
-        min-width: 280px;
-    }
-
-    /* 폰트사이즈 계산기 오버플로우 해결 */
-    .studio-size-input {
-        min-width: 0;
-        width: 100%;
-    }
-
-    .studio-size-input input {
-        padding: 12px;
-        font-size: 18px;
-        min-width: 0;
-    }
-
-    .studio-size-input span {
-        padding: 12px;
-        font-size: 11px;
-    }
-
-    /* 컬러카드 높이 개선 */
-    .studio-card-deck {
-        min-height: 420px;
-        padding: 15px;
-    }
-
-    .color-result-card {
-        width: 250px;
-        height: 350px;
-    }
-    
-    .color-result-card .color-display-area {
-        height: 170px;
-    }
-    
-    .color-result-card .color-info-area {
-        padding: 20px;
-        min-height: 160px;
-    }
-    
-    .color-result-card .color-brand-name {
-        font-size: 24px;
-    }
-    
-    .color-result-card .color-korean-name {
-        font-size: 18px;
-    }
-
-    .color-result-card .color-description {
-        font-size: 12px;
-    }
-
-    .studio-card-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .studio-action-btn {
-        width: 100%;
-        justify-content: center;
-    }
-
-    /* 그라디언트 바 모바일 최적화 */
-    .studio-gradient-strip {
-        height: 50px;
-    }
-
-    .studio-gradient-label {
-        padding: 10px 12px;
-    }
-
-    .studio-gradient-label code {
-        display: block;
-        margin-left: 0;
-        margin-top: 8px;
-        font-size: 11px;
-        word-break: break-all;
-        overflow-wrap: break-word;
-    }
-}
-
-/* 소형 모바일 */
-@media (max-width: 480px) {
-    .studio-page-content {
-        padding: 20px 15px;
-    }
-
-    .studio-page-tabs {
-        gap: 6px;
-    }
-
-    .studio-page-tab {
-        padding: 10px 6px;
-        min-height: 65px;
-        font-size: 11px;
-        border-radius: 10px;
-    }
-
-    .studio-page-tab i {
-        font-size: 12px;
-    }
-
-    .tab-text {
-        font-size: 12px;
-    }
-
-    .color-input-section {
-        padding: 20px 15px;
-    }
-
-    .rgb-controls {
-        gap: 10px;
-    }
-
-    .studio-color-item {
-        padding: 12px;
-        gap: 12px;
-    }
-
-    .studio-color-preview {
-        width: 50px;
-        height: 50px;
-    }
-
-    .studio-font-converter {
-        padding: 15px 12px;
-    }
-
-    .studio-size-input input {
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    .studio-calc-section {
-        padding: 20px 15px;
-    }
-
-    .studio-calc-section h3 {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-
-    .studio-input-col label {
-        font-size: 13px;
-    }
-
-    .studio-grid-result-info {
-        padding: 12px;
-        gap: 8px;
-    }
-
-    .studio-result-item span:first-child {
-        font-size: 11px;
-    }
-
-    .studio-result-item span:last-child {
-        font-size: 16px;
-    }
-
-    .studio-grid-preview-wrapper {
-        padding: 15px 10px;
-    }
-
-    .studio-grid-container {
-        min-height: 80px;
-        min-width: 260px;
-    }
-
-    .studio-card-deck {
-        min-height: 380px;
-        padding: 10px;
-    }
-
-    .color-result-card {
-        width: 220px;
-        height: 320px;
-    }
-
-    .color-result-card .color-display-area {
-        height: 140px;
-    }
-
-    .color-result-card .color-info-area {
-        padding: 15px;
-        min-height: 140px;
-    }
-
-    .color-result-card .color-brand-name {
-        font-size: 20px;
-    }
-
-    .color-result-card .color-korean-name {
-        font-size: 16px;
-    }
-
-    .studio-device-item {
-        padding: 12px;
-    }
-
-    .studio-size-guide-item {
-        padding: 12px 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .studio-size-guide-item span:last-child {
-        font-size: 12px;
-        align-self: flex-end;
-    }
-
-    .studio-preview-text {
-        padding: 20px 15px;
-        min-height: 60px;
-        font-size: 14px;
-    }
-
-    .studio-input-with-unit input {
-        padding: 10px 12px;
-        font-size: 14px;
-    }
-
-    .studio-input-with-unit span {
-        padding: 10px 12px;
-        font-size: 12px;
-    }
-}
-</style>
-
-<!--QR 라이브러리 동적 로드 -->
-<script>
-// ==================== 전역 변수 및 설정 ====================
-
-// 컬러 카드 데이터
-const colorCards = [
-    {
-        name: "미드나이트 블루",
-        hex: "#191970",
-        description: "깊은 밤하늘처럼 신비로운 색상으로, 집중력과 안정감을 가져다줍니다."
-    },
-    {
-        name: "코랄 핑크",
-        hex: "#FF7F7F",
-        description: "따뜻하고 친근한 에너지를 가진 색상으로, 창의성과 열정을 자극합니다."
-    },
-    {
-        name: "포레스트 그린",
-        hex: "#228B22",
-        description: "자연의 생명력을 담은 색상으로, 평온함과 성장을 상징합니다."
-    },
-    {
-        name: "골든 옐로우",
-        hex: "#FFD700",
-        description: "태양의 빛을 닮은 밝은 색상으로, 활력과 행복을 불러일으킵니다."
-    },
-    {
-        name: "라벤더 퍼플",
-        hex: "#E6E6FA",
-        description: "우아하고 고요한 색상으로, 내면의 평화와 직관력을 높여줍니다."
-    },
-    {
-        name: "터키쉬 블루",
-        hex: "#40E0D0",
-        description: "맑은 바다처럼 상쾌한 색상으로, 소통과 치유의 에너지를 전달합니다."
-    },
-    {
-        name: "로즈 골드",
-        hex: "#E8B4B8",
-        description: "고급스럽고 온화한 색상으로, 사랑과 조화를 상징합니다."
-    },
-    {
-        name: "슬레이트 그레이",
-        hex: "#708090",
-        description: "균형잡힌 중성 색상으로, 안정감과 전문성을 나타냅니다."
-    },
-    {
-        name: "피치 오렌지",
-        hex: "#FFCBA4",
-        description: "부드럽고 따뜻한 색상으로, 친밀감과 편안함을 제공합니다."
-    },
-    {
-        name: "인디고 블루",
-        hex: "#4B0082",
-        description: "깊이 있는 지혜의 색상으로, 통찰력과 직관을 개발시킵니다."
-    }
-];
-
-// 전역 변수
-let currentCard = null;
-let isCardFlipped = false;
-
-// ==================== QR 라이브러리 로드 ====================
-
-function loadQRLibrary() {
-    return new Promise((resolve, reject) => {
-        if (typeof QRious !== 'undefined') {
-            resolve();
-            return;
-        }
-        
-        const cdnUrls = [
-            'https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js',
-            'https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js'
-        ];
-        
-        let currentCdnIndex = 0;
-        
-        function tryLoadFromCdn() {
-            if (currentCdnIndex >= cdnUrls.length) {
-                reject();
-                return;
-            }
-            
-            const url = cdnUrls[currentCdnIndex];
-            const newScript = document.createElement('script');
-            newScript.src = url;
-            newScript.onload = () => resolve();
-            newScript.onerror = () => {
-                currentCdnIndex++;
-                if (newScript.parentNode) {
-                    newScript.parentNode.removeChild(newScript);
-                }
-                setTimeout(tryLoadFromCdn, 500);
-            };
-            
-            document.head.appendChild(newScript);
-        }
-        
-        tryLoadFromCdn();
-    });
-}
-
-// ==================== 스튜디오 메인 초기화 ====================
-
-function initStudio() {
-    // 탭 전환 기능
-    const tabs = document.querySelectorAll('.studio-page-tab');
-    const panels = document.querySelectorAll('.studio-tab-panel');
-    
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            tabs.forEach(t => t.classList.remove('active'));
-            panels.forEach(p => p.classList.remove('active'));
-            
-            this.classList.add('active');
-            const targetPanel = document.getElementById(this.dataset.tab);
-            if (targetPanel) {
-                targetPanel.classList.add('active');
-                
-                // 디자인 계산기 탭이 활성화될 때 그리드 다시 계산
-                if (this.dataset.tab === 'design-calculator') {
-                    setTimeout(() => {
-                        if (document.getElementById('calc-max-width')) {
-                            calculateAndVisualizeGrid();
-                        }
-                    }, 100);
-                }
-                
-                // 컬러 팔레트 탭 활성화 시 그라디언트 옵션 체크
-                if (this.dataset.tab === 'color-palette') {
-                    setTimeout(() => {
-                        toggleGradientOptions();
-                    }, 100);
-                }
-            }
-        });
-    });
-
-    // 각 탭별 초기화
-    initQRGenerator();
-    initColorPalette();
-    initImageExtractor();
-    initDesignCalculator();
-    initColorCard();
-}
-
-// ==================== QR 생성기 기능 ====================
-
-function initQRGenerator() {
-    // QR 생성기는 별도 초기화 불필요
-}
-
-function generateQR() {
-    if (typeof QRious === 'undefined') {
-        alert('QR 라이브러리를 로드하는 중입니다. 잠시 후 다시 시도해주세요.');
-        return;
-    }
-    
-    const input = document.getElementById('studio-qr-input');
-    const size = document.getElementById('studio-qr-size');
-    const canvas = document.getElementById('studio-qr-canvas');
-    
-    if (!input || !size || !canvas) return;
-    
-    const inputValue = input.value;
-    const sizeValue = parseInt(size.value);
-    
-    try {
-        const qr = new QRious({
-            element: canvas,
-            value: inputValue,
-            size: sizeValue,
-            foreground: '#000000',
-            background: '#FFFFFF'
-        });
-
-        const downloadBtn = document.getElementById('studio-download-btn');
-        if (downloadBtn) {
-            downloadBtn.style.display = 'inline-block';
-        }
-        
-    } catch (error) {
-        alert('QR 코드 생성 중 오류가 발생했습니다.');
-    }
-}
-
-function downloadQR() {
-    const canvas = document.getElementById('studio-qr-canvas');
-    if (!canvas) return;
-    
-    const link = document.createElement('a');
-    link.download = 'qrcode.png';
-    link.href = canvas.toDataURL();
-    link.click();
-}
-
-// ==================== 개선된 컬러 팔레트 기능 ====================
-
-function initColorPalette() {
-    // 컬러 피커 이벤트
-    const colorPicker = document.getElementById('studio-base-color');
-    if (colorPicker) {
-        colorPicker.addEventListener('input', syncColorFromPicker);
-    }
-    
-    // RGB 슬라이더 이벤트
-    ['red', 'green', 'blue'].forEach(color => {
-        const slider = document.getElementById(`${color}-slider`);
-        if (slider) {
-            slider.addEventListener('input', syncColorFromRGB);
-        }
-    });
-    
-    // 팔레트 타입 변경 시 그라디언트 옵션 토글
-    const paletteType = document.getElementById('studio-palette-type');
-    if (paletteType) {
-        paletteType.addEventListener('change', toggleGradientOptions);
-    }
-    
-    // 초기 팔레트 생성
-    generatePalette();
-}
-
-function syncColorFromPicker() {
-    const colorPicker = document.getElementById('studio-base-color');
-    const colorCodeInput = document.getElementById('studio-color-code-input');
-    
-    if (!colorPicker || !colorCodeInput) return;
-    
-    const hex = colorPicker.value;
-    colorCodeInput.value = hex;
-    updateRGBFromHex(hex);
-}
-
-function syncColorFromRGB() {
-    const r = parseInt(document.getElementById('red-slider').value);
-    const g = parseInt(document.getElementById('green-slider').value);
-    const b = parseInt(document.getElementById('blue-slider').value);
-    
-    // 값 표시 업데이트
-    document.getElementById('red-value').textContent = r;
-    document.getElementById('green-value').textContent = g;
-    document.getElementById('blue-value').textContent = b;
-    
-    // HEX 변환
-    const hex = rgbToHex(r, g, b);
-    
-    // 컬러 피커와 입력 필드 업데이트
-    const colorPicker = document.getElementById('studio-base-color');
-    const colorCodeInput = document.getElementById('studio-color-code-input');
-    
-    if (colorPicker) colorPicker.value = hex;
-    if (colorCodeInput) colorCodeInput.value = hex;
-}
-
-function updateRGBFromHex(hex) {
-    const rgb = hexToRgbValues(hex);
-    
-    document.getElementById('red-slider').value = rgb.r;
-    document.getElementById('green-slider').value = rgb.g;
-    document.getElementById('blue-slider').value = rgb.b;
-    
-    document.getElementById('red-value').textContent = rgb.r;
-    document.getElementById('green-value').textContent = rgb.g;
-    document.getElementById('blue-value').textContent = rgb.b;
-}
-
-function applyColorCode() {
-    const colorCodeInput = document.getElementById('studio-color-code-input');
-    if (!colorCodeInput) return;
-    
-    let hex = colorCodeInput.value.trim();
-    
-    // # 추가
-    if (!hex.startsWith('#')) {
-        hex = '#' + hex;
-    }
-    
-    // 유효성 검사
-    if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) {
-        alert('올바른 색상 코드를 입력해주세요. (예: #01FF75)');
-        return;
-    }
-    
-    // 컬러 피커 업데이트
-    const colorPicker = document.getElementById('studio-base-color');
-    if (colorPicker) {
-        colorPicker.value = hex;
-    }
-    
-    // RGB 슬라이더 업데이트
-    updateRGBFromHex(hex);
-    
-    colorCodeInput.value = hex;
-}
-
-function toggleGradientOptions() {
-    const paletteType = document.getElementById('studio-palette-type');
-    const gradientOptions = document.querySelector('.gradient-options');
-    
-    if (!paletteType || !gradientOptions) return;
-    
-    if (paletteType.value === 'gradient') {
-        gradientOptions.style.display = 'block';
-    } else {
-        gradientOptions.style.display = 'none';
-    }
-}
-
-function generatePalette() {
-    const baseColor = document.getElementById('studio-base-color');
-    const type = document.getElementById('studio-palette-type');
-    const result = document.getElementById('studio-palette-result');
-    
-    if (!baseColor || !type || !result) return;
-    
-    let colors = [];
-    const hsl = hexToHsl(baseColor.value);
-    
-    switch(type.value) {
-        case 'monochrome':
-            colors = generateMonochrome(hsl);
-            break;
-        case 'analogous':
-            colors = generateAnalogous(hsl);
-            break;
-        case 'complementary':
-            colors = generateComplementary(hsl);
-            break;
-        case 'triadic':
-            colors = generateTriadic(hsl);
-            break;
-        case 'gradient':
-            const gradientColors = document.getElementById('studio-gradient-colors');
-            const colorCount = gradientColors ? parseInt(gradientColors.value) : 5;
-            colors = generateGradient(hsl, colorCount);
-            break;
-    }
-    
-    displayColors(colors, result);
-}
-
-// ==================== 이미지 컬러 추출기 ====================
-
-function initImageExtractor() {
-    const imageFile = document.getElementById('studio-image-file');
-    const uploadArea = document.getElementById('studio-image-upload');
-    
-    if (imageFile) {
-        imageFile.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                extractColorsFromImage(file);
-            }
-        });
-    }
-
-    if (uploadArea) {
-        uploadArea.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            this.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', function(e) {
-            e.preventDefault();
-            this.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', function(e) {
-            e.preventDefault();
-            this.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                extractColorsFromImage(files[0]);
-            }
-        });
-    }
-}
-
-function extractColorsFromImage(file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const img = new Image();
-        img.onload = function() {
-            const canvas = document.getElementById('studio-extraction-canvas');
-            if (!canvas) return;
-            
-            const ctx = canvas.getContext('2d');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
-            
-            const colors = extractDominantColors(ctx, canvas.width, canvas.height);
-            const container = document.getElementById('studio-extracted-colors');
-            if (container) {
-                displayColors(colors, container);
-            }
-        };
-        img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-}
-
-function extractDominantColors(ctx, width, height) {
-    const imageData = ctx.getImageData(0, 0, width, height);
-    const data = imageData.data;
-    const colorCounts = {};
-    
-    for (let i = 0; i < data.length; i += 40) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        const alpha = data[i + 3];
-        
-        if (alpha > 128) {
-            const color = `${r},${g},${b}`;
-            colorCounts[color] = (colorCounts[color] || 0) + 1;
-        }
-    }
-    
-    const sortedColors = Object.entries(colorCounts)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 8)
-        .map(([color]) => {
-            const [r, g, b] = color.split(',').map(Number);
-            return rgbToHex(r, g, b);
-        });
-    
-    return sortedColors;
-}
-
-// ==================== 개선된 디자인 계산기 ====================
-
-function initDesignCalculator() {
-    // 그리드 계산기 이벤트
-    const gridInputs = ['calc-max-width', 'calc-columns', 'calc-gutter', 'calc-margin'];
-    gridInputs.forEach(id => {
-        const input = document.getElementById(id);
-        if (input) {
-            input.addEventListener('input', calculateAndVisualizeGrid);
-        }
-    });
-    
-    // 폰트 사이즈 계산기 이벤트
-    const pxInput = document.getElementById('calc-px-input');
-    const ptInput = document.getElementById('calc-pt-input');
-    
-    if (pxInput) {
-        pxInput.addEventListener('input', updateFontSizes);
-    }
-    
-    if (ptInput) {
-        ptInput.addEventListener('input', updateFontSizesFromPt);
-    }
-    
-    // 초기 계산 실행
-    setTimeout(() => {
-        if (document.getElementById('calc-max-width')) {
-            calculateAndVisualizeGrid();
-        }
-        if (document.getElementById('calc-px-input')) {
-            updateFontSizes();
-        }
-    }, 200);
-}
-
-function calculateAndVisualizeGrid() {
-    const maxWidth = parseInt(document.getElementById('calc-max-width')?.value) || 1920;
-    const columns = parseInt(document.getElementById('calc-columns')?.value) || 12;
-    const gutter = parseInt(document.getElementById('calc-gutter')?.value) || 20;
-    const margin = parseInt(document.getElementById('calc-margin')?.value) || 20;
-    
-    const totalGutters = (columns - 1) * gutter;
-    const totalMargins = margin * 2;
-    const availableWidth = maxWidth - totalGutters - totalMargins;
-    const columnWidth = Math.floor(availableWidth / columns);
-    const actualPageWidth = (columnWidth * columns) + totalGutters + totalMargins;
-    
-    const pageWidthEl = document.getElementById('calc-page-width');
-    const columnWidthEl = document.getElementById('calc-column-width');
-    
-    if (pageWidthEl) pageWidthEl.textContent = `${actualPageWidth}px`;
-    if (columnWidthEl) columnWidthEl.textContent = `${columnWidth}px`;
-    
-    visualizeGrid(actualPageWidth, columnWidth, columns, gutter, margin);
-}
-
-function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
-    const preview = document.getElementById('calc-grid-preview');
-    if (!preview) return;
-    
-    preview.innerHTML = '';
-    
-    const containerPadding = 50;
-    const previewRect = preview.getBoundingClientRect();
-    const availableWidth = Math.max(previewRect.width - containerPadding, 280);
-    
-    let maxWidth;
-    if (window.innerWidth <= 480) {
-        maxWidth = Math.min(availableWidth, 260);
-    } else if (window.innerWidth <= 768) {
-        maxWidth = Math.min(availableWidth, 350);
-    } else {
-        maxWidth = Math.min(availableWidth, 600);
-    }
-    
-    const scale = Math.min(maxWidth / pageWidth, 1);
-    const scaledWidth = pageWidth * scale;
-    const scaledColumnWidth = columnWidth * scale;
-    const scaledGutter = gutter * scale;
-    const scaledMargin = margin * scale;
-    
-    const container = document.createElement('div');
-    container.className = 'studio-grid-container';
-    
-    const baseHeight = window.innerWidth <= 480 ? 80 : window.innerWidth <= 768 ? 100 : 120;
-    container.style.height = `${baseHeight}px`;
-    container.style.width = `${scaledWidth}px`;
-    container.style.position = 'relative';
-    container.style.margin = '0 auto';
-    
-    // 마진 표시
-    if (margin > 0 && scaledMargin >= 1) {
-        const leftMargin = document.createElement('div');
-        leftMargin.className = 'studio-grid-margin left';
-        leftMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
-        container.appendChild(leftMargin);
-        
-        const rightMargin = document.createElement('div');
-        rightMargin.className = 'studio-grid-margin right';
-        rightMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
-        container.appendChild(rightMargin);
-    }
-    
-    // 컬럼 생성
-    for (let i = 0; i < columns; i++) {
-        const column = document.createElement('div');
-        column.className = 'studio-grid-column';
-        
-        const left = scaledMargin + (i * (scaledColumnWidth + scaledGutter));
-        const finalColumnWidth = Math.max(scaledColumnWidth, 4);
-        
-        column.style.left = `${left}px`;
-        column.style.width = `${finalColumnWidth}px`;
-        
-        if (finalColumnWidth < 8) {
-            column.style.opacity = '0.6';
-        }
-        
-        container.appendChild(column);
-    }
-    
-    preview.appendChild(container);
-    
-    // 축소 정보 표시
-    if (scale < 0.8) {
-        const scaleInfo = document.createElement('div');
-        scaleInfo.style.cssText = `
-            text-align: center; 
-            font-size: 11px; 
-            color: rgba(255,255,255,0.5); 
-            margin-top: 8px;
-        `;
-        scaleInfo.textContent = `축소 비율: ${Math.round(scale * 100)}%`;
-        preview.appendChild(scaleInfo);
-    }
-}
-
-// 폰트 사이즈 계산 함수들
-function convertPxToPt(px) {
-    return Math.round((px * 0.75) * 10) / 10;
-}
-
-function convertPtToPx(pt) {
-    return Math.round((pt / 0.75) * 10) / 10;
-}
-
-function updateFontSizes() {
-    const pxInput = document.getElementById('calc-px-input');
-    const ptInput = document.getElementById('calc-pt-input');
-    
-    if (!pxInput || !ptInput) return;
-    
-    const px = parseFloat(pxInput.value) || 16;
-    const pt = convertPxToPt(px);
-    
-    ptInput.value = pt;
-    updateResponsiveSizes(px);
-    updateSizeGuide(px);
-    updateFontPreview(px, pt);
-}
-
-function updateFontSizesFromPt() {
-    const pxInput = document.getElementById('calc-px-input');
-    const ptInput = document.getElementById('calc-pt-input');
-    
-    if (!pxInput || !ptInput) return;
-    
-    const pt = parseFloat(ptInput.value) || 12;
-    const px = convertPtToPx(pt);
-    
-    pxInput.value = px;
-    updateResponsiveSizes(px);
-    updateSizeGuide(px);
-    updateFontPreview(px, pt);
-}
-
-function updateResponsiveSizes(basePx) {
-    const mobile = Math.round((basePx * 0.875) * 10) / 10;
-    const tablet = basePx;
-    const desktop = Math.round((basePx * 1.125) * 10) / 10;
-    
-    const mobileEl = document.getElementById('mobile-size');
-    const tabletEl = document.getElementById('tablet-size');
-    const desktopEl = document.getElementById('desktop-size');
-    
-    if (mobileEl) mobileEl.textContent = `${mobile}px`;
-    if (tabletEl) tabletEl.textContent = `${tablet}px`;
-    if (desktopEl) desktopEl.textContent = `${desktop}px`;
-}
-
-function updateSizeGuide(basePx) {
-    const baseRatio = basePx / 16;
-    
-    const sizes = {
-        body: Math.round(16 * baseRatio),
-        subtitle: Math.round(20 * baseRatio),
-        title: Math.round(24 * baseRatio),
-        heading: Math.round(32 * baseRatio),
-        caption: Math.round(14 * baseRatio)
-    };
-    
-    const guideBody = document.getElementById('guide-body');
-    const guideSubtitle = document.getElementById('guide-subtitle');
-    const guideTitle = document.getElementById('guide-title');
-    const guideHeading = document.getElementById('guide-heading');
-    const guideCaption = document.getElementById('guide-caption');
-    
-    if (guideBody) guideBody.textContent = `웹: ${sizes.body}px 인쇄: ${convertPxToPt(sizes.body)}pt`;
-    if (guideSubtitle) guideSubtitle.textContent = `웹: ${sizes.subtitle}px 인쇄: ${convertPxToPt(sizes.subtitle)}pt`;
-    if (guideTitle) guideTitle.textContent = `웹: ${sizes.title}px 인쇄: ${convertPxToPt(sizes.title)}pt`;
-    if (guideHeading) guideHeading.textContent = `웹: ${sizes.heading}px 인쇄: ${convertPxToPt(sizes.heading)}pt`;
-    if (guideCaption) guideCaption.textContent = `웹: ${sizes.caption}px 인쇄: ${convertPxToPt(sizes.caption)}pt`;
-}
-
-function updateFontPreview(px, pt) {
-    const preview = document.getElementById('font-preview-text');
-    if (preview) {
-        preview.style.fontSize = `${px}px`;
-        preview.textContent = `이 텍스트는 ${px}px(${pt}pt) 크기입니다`;
-    }
-}
-
-// ==================== 개선된 컬러 카드 뽑기 ====================
-
-function initColorCard() {
-    setTimeout(() => {
-        const pickButton = document.getElementById('pickButton');
-        const colorCard = document.getElementById('colorCard');
-        const copyColorBtn = document.getElementById('copyColorBtn');
-        const saveColorBtn = document.getElementById('saveColorBtn');
-        const newCardBtn = document.getElementById('newCardBtn');
-        
-        if (pickButton) {
-            pickButton.addEventListener('click', pickColorCard);
-        }
-        if (colorCard) {
-            colorCard.addEventListener('click', pickColorCard);
-        }
-        if (copyColorBtn) {
-            copyColorBtn.addEventListener('click', copyColor);
-        }
-        if (saveColorBtn) {
-            saveColorBtn.addEventListener('click', saveColor);
-        }
-        if (newCardBtn) {
-            newCardBtn.addEventListener('click', newCard);
-        }
-    }, 200);
-}
-
-function pickColorCard() {
-    if (isCardFlipped) {
-        return;
-    }
-
-    const button = document.getElementById('pickButton');
-    const cardDeck = document.getElementById('studio-card-deck');
-    
-    if (!button || !cardDeck) {
-        return;
-    }
-    
-    // 랜덤 컬러 선택
-    currentCard = colorCards[Math.floor(Math.random() * colorCards.length)];
-    
-    // 버튼 상태 변경
-    button.disabled = true;
-    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 생성 중...';
-    
-    setTimeout(() => {
-        // 개선된 카드 구조로 교체 (높이 문제 해결)
-        cardDeck.innerHTML = `
-            <div class="color-result-card">
-                <div class="color-display-area" style="background-color: ${currentCard.hex};">
-                </div>
-                <div class="color-info-area">
-                    <div class="color-brand-name">Studio NFP</div>
-                    <div class="color-hex-code">${currentCard.hex}</div>
-                    <div class="color-korean-name">${currentCard.name}</div>
-                    <div class="color-description">${currentCard.description}</div>
-                </div>
-            </div>
-        `;
-        
-        // 버튼 숨기고 액션 버튼 보이기
-        button.style.display = 'none';
-        const pickedCard = document.getElementById('pickedCard');
-        if (pickedCard) {
-            pickedCard.style.display = 'block';
-        }
-        
-        isCardFlipped = true;
-    }, 1000);
-}
-
-function copyColor() {
-    if (!currentCard) return;
-    
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(currentCard.hex).then(() => {
-            showCopyFeedback();
-        }).catch(() => {
-            fallbackCopyTextToClipboard(currentCard.hex);
-        });
-    } else {
-        fallbackCopyTextToClipboard(currentCard.hex);
-    }
-}
-
-function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-        document.execCommand('copy');
-        showCopyFeedback();
-    } catch (err) {
-        // 복사 실패 시 무시
-    }
-    
-    document.body.removeChild(textArea);
-}
-
-function showCopyFeedback() {
-    const btn = document.getElementById('copyColorBtn');
-    if (!btn) return;
-    
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
-    setTimeout(() => {
-        btn.innerHTML = originalText;
-    }, 2000);
-}
-
-function saveColor() {
-    const btn = document.getElementById('saveColorBtn');
-    if (!btn) return;
-    
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-heart" style="color: #ff4444;"></i> 저장됨!';
-    setTimeout(() => {
-        btn.innerHTML = originalText;
-    }, 2000);
-}
-
-function newCard() {
-    const pickButton = document.getElementById('pickButton');
-    const pickedCard = document.getElementById('pickedCard');
-    const cardDeck = document.getElementById('studio-card-deck');
-    
-    // 원래 카드 구조로 복원
-    if (cardDeck) {
-        cardDeck.innerHTML = `
-            <div class="studio-card" id="colorCard">
-                <div class="studio-card-icon">
-                    <i class="fas fa-question"></i>
-                </div>
-                <div class="studio-card-text">클릭하여<br>컬러 카드 뽑기</div>
-            </div>
-        `;
-        
-        // 이벤트 재연결
-        const newColorCard = document.getElementById('colorCard');
-        if (newColorCard) {
-            newColorCard.addEventListener('click', pickColorCard);
-        }
-    }
-    
-    // 버튼 복원
-    if (pickButton) {
-        pickButton.style.display = 'inline-block';
-        pickButton.disabled = false;
-        pickButton.innerHTML = '<i class="fas fa-magic"></i> 컬러 카드 뽑기';
-    }
-    
-    // 액션 버튼 숨기기
-    if (pickedCard) {
-        pickedCard.style.display = 'none';
-    }
-    
-    isCardFlipped = false;
-    currentCard = null;
-}
-
-// ==================== 색상 변환 유틸리티 함수들 ====================
-
-function hexToHsl(hex) {
-    const r = parseInt(hex.slice(1, 3), 16) / 255;
-    const g = parseInt(hex.slice(3, 5), 16) / 255;
-    const b = parseInt(hex.slice(5, 7), 16) / 255;
-    
-    const max = Math.max(r, g, b);
-    const min = Math.min(r, g, b);
-    let h, s, l = (max + min) / 2;
-    
-    if (max === min) {
-        h = s = 0;
-    } else {
-        const d = max - min;
-        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-        switch (max) {
-            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-            case g: h = (b - r) / d + 2; break;
-            case b: h = (r - g) / d + 4; break;
-        }
-        h /= 6;
-    }
-    
-    return [h * 360, s * 100, l * 100];
-}
-
-function hslToHex(h, s, l) {
-    l /= 100;
-    const a = s * Math.min(l, 1 - l) / 100;
-    const f = n => {
-        const k = (n + h / 30) % 12;
-        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-        return Math.round(255 * color).toString(16).padStart(2, '0');
-    };
-    return `#${f(0)}${f(8)}${f(4)}`;
-}
-
-function hexToRgb(hex) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return `${r}, ${g}, ${b}`;
-}
-
-function hexToRgbValues(hex) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return { r, g, b };
-}
-
-function rgbToHex(r, g, b) {
-    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
-}
-
-// ==================== 팔레트 생성 함수들 ====================
-
-function generateMonochrome(hsl) {
-    const colors = [];
-    for (let i = 0; i < 5; i++) {
-        const lightness = 20 + (i * 20);
-        colors.push(hslToHex(hsl[0], hsl[1], lightness));
-    }
-    return colors;
-}
-
-function generateAnalogous(hsl) {
-    const colors = [];
-    for (let i = -2; i <= 2; i++) {
-        const hue = (hsl[0] + i * 30) % 360;
-        colors.push(hslToHex(hue, hsl[1], hsl[2]));
-    }
-    return colors;
-}
-
-function generateComplementary(hsl) {
-    const colors = [];
-    colors.push(hslToHex(hsl[0], hsl[1], hsl[2]));
-    colors.push(hslToHex((hsl[0] + 180) % 360, hsl[1], hsl[2]));
-    colors.push(hslToHex(hsl[0], hsl[1] * 0.7, hsl[2] * 1.2));
-    colors.push(hslToHex((hsl[0] + 180) % 360, hsl[1] * 0.7, hsl[2] * 1.2));
-    colors.push(hslToHex(hsl[0], hsl[1] * 0.5, hsl[2] * 0.8));
-    return colors;
-}
-
-function generateTriadic(hsl) {
-    const colors = [];
-    colors.push(hslToHex(hsl[0], hsl[1], hsl[2]));
-    colors.push(hslToHex((hsl[0] + 120) % 360, hsl[1], hsl[2]));
-    colors.push(hslToHex((hsl[0] + 240) % 360, hsl[1], hsl[2]));
-    colors.push(hslToHex(hsl[0], hsl[1] * 0.6, hsl[2] * 1.1));
-    colors.push(hslToHex((hsl[0] + 120) % 360, hsl[1] * 0.6, hsl[2] * 1.1));
-    return colors;
-}
-
-function generateGradient(hsl, colorCount = 5) {
-    const colors = [];
-    const endHue = (hsl[0] + 60) % 360;
-    
-    for (let i = 0; i < colorCount; i++) {
-        const ratio = i / (colorCount - 1);
-        const hue = hsl[0] + (endHue - hsl[0]) * ratio;
-        const saturation = hsl[1] + (80 - hsl[1]) * ratio;
-        const lightness = hsl[2] + (60 - hsl[2]) * ratio;
-        colors.push(hslToHex(hue, saturation, lightness));
-    }
-    return colors;
-}
-
-function displayColors(colors, container) {
-    if (!container) return;
-    
-    container.innerHTML = '';
-    
-    const colorItemsContainer = document.createElement('div');
-    colorItemsContainer.className = 'studio-color-items-row';
-    
-    colors.forEach(color => {
-        const item = document.createElement('div');
-        item.className = 'studio-color-item';
-        item.innerHTML = `
-            <div class="studio-color-preview" style="background-color: ${color}"></div>
-            <div class="studio-color-info">
-                <div class="studio-color-code">${color}</div>
-                <div class="studio-color-code">RGB: ${hexToRgb(color)}</div>
-            </div>
-        `;
-        item.addEventListener('click', () => {
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(color);
-            }
-            
-            // 시각적 피드백
-            const originalBorder = item.style.borderColor;
-            item.style.borderColor = 'var(--accent-color)';
-            item.style.transform = 'scale(0.95)';
-            
-            setTimeout(() => {
-                item.style.borderColor = originalBorder;
-                item.style.transform = 'translateY(-3px)';
-            }, 200);
-        });
-        colorItemsContainer.appendChild(item);
-    });
-    
-    container.appendChild(colorItemsContainer);
-    
-    // 그라디언트 타입인 경우에만 그라디언트 바 추가
-    const paletteType = document.getElementById('studio-palette-type');
-    if (paletteType && paletteType.value === 'gradient') {
-        const gradientBar = document.createElement('div');
-        gradientBar.className = 'studio-gradient-bar';
-        
-        const gradientCSS = `linear-gradient(to right, ${colors.join(', ')})`;
-        
-        gradientBar.innerHTML = `
-            <div class="studio-gradient-strip" style="background: ${gradientCSS}"></div>
-            <div class="studio-gradient-label">
-                <span>Gradient CSS: </span>
-                <code>background: ${gradientCSS};</code>
-            </div>
-        `;
-        
-        gradientBar.addEventListener('click', () => {
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(`background: ${gradientCSS};`);
-            }
-            
-            // 시각적 피드백
-            const originalTransform = gradientBar.style.transform;
-            gradientBar.style.transform = 'scale(0.98)';
-            
-            setTimeout(() => {
-                gradientBar.style.transform = originalTransform;
-            }, 200);
-        });
-        
-        container.appendChild(gradientBar);
-    }
-}
-
-// ==================== 메인 초기화 ====================
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Studio 기본 기능 초기화
-    initStudio();
-    
-    // QRious 라이브러리 로드 시도
-    loadQRLibrary().then(() => {
-        // QR 라이브러리 로드 완료
-    }).catch(() => {
-        // QR 라이브러리 로드 실패 시 무시
-    });
-});
-</script>
+<script src="{{ "js/studiopage.js" | relURL }}"></script>
 
 {{ end }}
