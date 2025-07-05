@@ -1860,18 +1860,18 @@ select.studio-form-input option {
     }
 
     .studio-page-tab {
-        padding: 10px 6px;
+        padding: 8px 4px;
         min-height: 65px;
         font-size: 11px;
         border-radius: 10px;
     }
 
     .studio-page-tab i {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .tab-text {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .color-input-section {
@@ -1879,7 +1879,7 @@ select.studio-form-input option {
     }
 
     .rgb-controls {
-        gap: 10px;
+        gap: 0px;
     }
 
     .studio-color-item {
@@ -2035,4 +2035,121 @@ select.studio-form-input option {
     .question-text p {
         font-size: 14px;
     }
+
+    /* 컬러 조합 생성기 탭 */
+    .color-palette-layout {
+    grid-template-columns: 1fr;  /* 1열로 변경 */
+    gap: 20px;
+}
+    
+    /* 컬러 피커 크기 축소 */
+    .large-color-picker {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+    
+    .base-color-label{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .color-picker-section {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    /* 색상 코드 입력 */
+    .color-code-input {
+        flex-direction: column;  /* 세로 배치 */
+        gap: 8px;
+    }
+    
+    .color-code-input input {
+        text-align: center;
+    }
+    
+    /* 팔레트 타입 라디오 버튼 */
+    .palette-type-radios {
+        grid-template-columns: 1fr 1fr;  /* 2열 유지 */
+        column-gap: 8px;
+        row-gap: 0px;
+    }
+
+    .studio-input-group label {
+        display: block;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        color: var(--accent-color);
+    }
+        
+    
+    .radio-option {
+        padding: 8px 6px;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    /* RGB 슬라이더 */
+    .rgb-slider {
+        gap: 10px;
+    }
+    
+    .rgb-slider label {
+        min-width: 40px;
+        font-size: 14px;
+    }
+    
+    .rgb-slider span {
+        min-width: 30px;
+        font-size: 14px;
+    }
+    
+    /* 전체 간격 조정 */
+    .studio-input-group {
+        margin-bottom: 15px;
+    }
+
+       .rgb-controls .rgb-slider .color-range {
+        height: 4px !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+    }
+    
+    /* 웹킷 브라우저 썸 (동그라미) 크기 줄이기 */
+    .color-range::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        width: 16px !important;  /* 기본보다 작게 */
+        height: 16px !important;
+        border-radius: 50% !important;
+        background: #01FF75 !important;
+        cursor: pointer !important;
+        border: 1px solid #000 !important;
+    }
+    
+    /* 웹킷 트랙 */
+    .color-range::-webkit-slider-track {
+        height: 4px !important;
+        border-radius: 2px !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* 파이어폭스 썸 */
+    .color-range::-moz-range-thumb {
+        width: 12px !important;
+        height: 12px !important;
+        border-radius: 50% !important;
+        background: #01FF75 !important;
+        cursor: pointer !important;
+        border: 1px solid #000 !important;
+    }
+    
+    /* 파이어폭스 트랙 */
+    .color-range::-moz-range-track {
+        height: 4px !important;
+        border-radius: 2px !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+
 }
