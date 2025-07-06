@@ -1041,6 +1041,8 @@ function initDesignCalculator() {
         if (document.getElementById('calc-px-input')) {
             updateFontSizes();
         }
+         initSizeCalculator();
+        initUnitConverter();
     }, 200);
 }
 
@@ -1092,62 +1094,63 @@ function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
     
     const baseHeight = window.innerWidth <= 480 ? 100 : window.innerWidth <= 768 ? 120 : 140;
     container.style.height = `${baseHeight}px`;
-    container.style.width = `${scaledWidth}px`;
+    container.style.width = `${scaledWidth}px`; // 더 넓게 설정
     container.style.position = 'relative';
-    container.style.margin = '0 auto'; // ← 세미콜론 추가
+    container.style.margin = '0 auto'
     
-    // 마진이 0 이하일 때는 표시하지 않음
-    if (margin > 0) {
-        const leftMargin = document.createElement('div');
-        leftMargin.className = 'studio-grid-margin left';
-        leftMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
-        leftMargin.textContent = margin;
-        container.appendChild(leftMargin);
-        
-        const rightMargin = document.createElement('div');
-        rightMargin.className = 'studio-grid-margin right';
-        rightMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
-        rightMargin.textContent = margin;
-        container.appendChild(rightMargin);
+   // 마진이 0 이하일 때는 표시하지 않음
+if (margin > 0) {
+    const leftMargin = document.createElement('div');
+    leftMargin.className = 'studio-grid-margin left';
+    leftMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
+    leftMargin.textContent = margin;
+    container.appendChild(leftMargin);
+    
+    const rightMargin = document.createElement('div');
+    rightMargin.className = 'studio-grid-margin right';
+    rightMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
+    rightMargin.textContent = margin;
+    container.appendChild(rightMargin);
+}
+    
+// 컬럼 생성
+for (let i = 0; i < columns; i++) {
+    const column = document.createElement('div');
+    column.className = 'studio-grid-column';
+    
+    const left = scaledMargin + (i * (scaledColumnWidth + scaledGutter));
+    const finalColumnWidth = Math.max(scaledColumnWidth, 4);
+    
+    column.style.left = `${left}px`;
+    column.style.width = `${finalColumnWidth}px`;
+    column.textContent = columnWidth;
+    
+    if (finalColumnWidth < 8) {
+        column.style.opacity = '0.6';
+        column.style.fontSize = '10px';
     }
     
-    // 컬럼 생성
-    for (let i = 0; i < columns; i++) {
-        const column = document.createElement('div');
-        column.className = 'studio-grid-column';
-        
-        const left = scaledMargin + (i * (scaledColumnWidth + scaledGutter));
-        const finalColumnWidth = Math.max(scaledColumnWidth, 4);
-        
-        column.style.left = `${left}px`;
-        column.style.width = `${finalColumnWidth}px`;
-        column.textContent = columnWidth;
-        
-        if (finalColumnWidth < 8) {
-            column.style.opacity = '0.6';
-            column.style.fontSize = '10px';
-        }
-        
-        container.appendChild(column);
-    }
+    container.appendChild(column);
+}
 
-    // 간격 시각화 추가
-    for (let i = 0; i < columns - 1; i++) {
-        if (gutter > 0 && scaledGutter >= 1) {
-            const gutterElement = document.createElement('div');
-            gutterElement.className = 'studio-grid-gutter';
-            
-            // 간격 위치를 더 정확하게 계산
-            const gutterLeft = scaledMargin + ((i + 1) * scaledColumnWidth) + (i * scaledGutter);
-            gutterElement.style.left = `${gutterLeft}px`;
-            gutterElement.style.width = `${Math.max(scaledGutter, 8)}px`;
-            gutterElement.textContent = gutter;
-            
-            container.appendChild(gutterElement);
-        }
+// 간격 시각화 추가
+for (let i = 0; i < columns - 1; i++) {
+    if (gutter > 0 && scaledGutter >= 1) {
+        const gutterElement = document.createElement('div');
+        gutterElement.className = 'studio-grid-gutter';
+        
+        // 간격 위치를 더 정확하게 계산
+        const gutterLeft = scaledMargin + ((i + 1) * scaledColumnWidth) + (i * scaledGutter);
+        gutterElement.style.left = `${gutterLeft}px`;
+        gutterElement.style.width = `${Math.max(scaledGutter, 8)}px`;
+        gutterElement.textContent = gutter;
+        
+        container.appendChild(gutterElement);
     }
+}
 
-    preview.appendChild(container);
+preview.appendChild(container);
+
 }
 
 // 폰트 사이즈 계산 함수들
@@ -1233,6 +1236,235 @@ function updateFontPreview(px, pt) {
         preview.style.fontSize = `${px}px`;
         preview.textContent = `이 텍스트는 ${px}px(${pt}pt) 크기입니다`;
     }
+}
+
+// ==================== 새로운 사이즈 계산기 기능 ====================
+
+function initSizeCalculator() {
+    // 비율 계산기 이벤트 리스너
+    const ratioWidthInput = document.getElementById('ratio-width');
+    const ratioHeightInput = document.getElementById('ratio-height');
+    
+    if (ratioWidthInput) {
+        ratioWidthInput.addEventListener('input', calculateRatioResolutions);
+    }
+    if (ratioHeightInput) {
+        ratioHeightInput.addEventListener('input', calculateRatioResolutions);
+    }
+    
+    // 커스텀 사이즈 변환 이벤트 리스너
+    const originalWidthInput = document.getElementById('original-width');
+    const originalHeightInput = document.getElementById('original-height');
+    const targetRatioWidthInput = document.getElementById('target-ratio-width');
+    const targetRatioHeightInput = document.getElementById('target-ratio-height');
+    
+    const customInputs = [originalWidthInput, originalHeightInput, targetRatioWidthInput, targetRatioHeightInput];
+    customInputs.forEach(input => {
+        if (input) {
+            input.addEventListener('input', calculateCustomSizeConversion);
+        }
+    });
+    
+    // 초기 계산 실행
+    setTimeout(() => {
+        calculateRatioResolutions();
+    }, 100);
+}
+
+function calculateRatioResolutions() {
+    const ratioWidth = parseFloat(document.getElementById('ratio-width')?.value) || 16;
+    const ratioHeight = parseFloat(document.getElementById('ratio-height')?.value) || 9;
+    
+    // 기준 해상도들
+    const baseResolutions = {
+        '4k': 3840,
+        'fhd': 1920,
+        'hd': 1280,
+        'sd': 854
+    };
+    
+    // 비율에 맞춰 높이 계산
+    Object.keys(baseResolutions).forEach(key => {
+        const width = baseResolutions[key];
+        const height = Math.round((width * ratioHeight) / ratioWidth);
+        
+        const resultElement = document.getElementById(`ratio-${key}`);
+        if (resultElement) {
+            resultElement.textContent = `${width}×${height}`;
+        }
+    });
+}
+
+function calculateCustomSizeConversion() {
+    const originalWidth = parseFloat(document.getElementById('original-width')?.value);
+    const originalHeight = parseFloat(document.getElementById('original-height')?.value);
+    const targetRatioWidth = parseFloat(document.getElementById('target-ratio-width')?.value);
+    const targetRatioHeight = parseFloat(document.getElementById('target-ratio-height')?.value);
+    
+    const cropResult = document.getElementById('crop-result');
+    const fitResult = document.getElementById('fit-result');
+    
+    // 입력값이 모두 있는지 확인
+    if (!originalWidth || !originalHeight || !targetRatioWidth || !targetRatioHeight) {
+        if (cropResult) cropResult.textContent = '-';
+        if (fitResult) fitResult.textContent = '-';
+        return;
+    }
+    
+    // 현재 비율과 목표 비율 계산
+    const currentRatio = originalWidth / originalHeight;
+    const targetRatio = targetRatioWidth / targetRatioHeight;
+    
+    let cropWidth, cropHeight, fitWidth, fitHeight;
+    
+    if (currentRatio > targetRatio) {
+        // 현재가 더 가로로 긴 경우
+        // 크롭: 높이 기준으로 가로를 줄임
+        cropHeight = originalHeight;
+        cropWidth = Math.round(originalHeight * targetRatio);
+        
+        // 핏: 가로 기준으로 높이를 늘림
+        fitWidth = originalWidth;
+        fitHeight = Math.round(originalWidth / targetRatio);
+    } else {
+        // 현재가 더 세로로 긴 경우
+        // 크롭: 가로 기준으로 세로를 줄임
+        cropWidth = originalWidth;
+        cropHeight = Math.round(originalWidth / targetRatio);
+        
+        // 핏: 세로 기준으로 가로를 늘림
+        fitHeight = originalHeight;
+        fitWidth = Math.round(originalHeight * targetRatio);
+    }
+    
+    // 결과 표시
+    if (cropResult) {
+        cropResult.textContent = `${cropWidth}×${cropHeight}`;
+    }
+    if (fitResult) {
+        fitResult.textContent = `${fitWidth}×${fitHeight}`;
+    }
+}
+
+// ==================== 새로운 단위 변환기 기능 ====================
+
+function initUnitConverter() {
+    // 단위 변환 상수 (96 DPI 기준)
+    const CONVERSION_RATES = {
+        // 모든 단위를 px 기준으로 변환
+        px: 1,
+        pt: 96 / 72,        // 1pt = 96/72 px (96 DPI 기준)
+        mm: 96 / 25.4,      // 1mm = 96/25.4 px (96 DPI 기준)
+        cm: 96 / 2.54,      // 1cm = 96/2.54 px (96 DPI 기준)
+        inch: 96            // 1inch = 96px (96 DPI 기준)
+    };
+    
+    // 라디오 버튼 이벤트 리스너
+    const baseUnitRadios = document.querySelectorAll('input[name="base-unit"]');
+    const targetUnitRadios = document.querySelectorAll('input[name="target-unit"]');
+    
+    baseUnitRadios.forEach(radio => {
+        radio.addEventListener('change', updateUnitLabels);
+    });
+    
+    targetUnitRadios.forEach(radio => {
+        radio.addEventListener('change', updateUnitLabels);
+    });
+    
+    // 입력 필드 이벤트 리스너
+    const baseInput = document.getElementById('base-unit-input');
+    const targetInput = document.getElementById('target-unit-input');
+    
+    if (baseInput) {
+        baseInput.addEventListener('input', () => convertFromBase());
+    }
+    
+    if (targetInput) {
+        targetInput.addEventListener('input', () => convertFromTarget());
+    }
+    
+    // 초기 라벨 설정
+    updateUnitLabels();
+}
+
+function updateUnitLabels() {
+    const baseUnit = document.querySelector('input[name="base-unit"]:checked')?.value || 'px';
+    const targetUnit = document.querySelector('input[name="target-unit"]:checked')?.value || 'mm';
+    
+    // 단위 이름 맵핑
+    const unitNames = {
+        px: '픽셀 (px)',
+        pt: '포인트 (pt)',
+        mm: '밀리미터 (mm)',
+        cm: '센티미터 (cm)',
+        inch: '인치 (inch)'
+    };
+    
+    // 라벨과 심볼 업데이트
+    const baseLabel = document.getElementById('base-unit-label');
+    const targetLabel = document.getElementById('target-unit-label');
+    const baseSymbol = document.getElementById('base-unit-symbol');
+    const targetSymbol = document.getElementById('target-unit-symbol');
+    
+    if (baseLabel) baseLabel.textContent = unitNames[baseUnit];
+    if (targetLabel) targetLabel.textContent = unitNames[targetUnit];
+    if (baseSymbol) baseSymbol.textContent = baseUnit;
+    if (targetSymbol) targetSymbol.textContent = targetUnit;
+    
+    // 현재 값이 있으면 변환 실행
+    const baseInput = document.getElementById('base-unit-input');
+    if (baseInput && baseInput.value) {
+        convertFromBase();
+    }
+}
+
+function convertFromBase() {
+    const baseUnit = document.querySelector('input[name="base-unit"]:checked')?.value || 'px';
+    const targetUnit = document.querySelector('input[name="target-unit"]:checked')?.value || 'mm';
+    const baseValue = parseFloat(document.getElementById('base-unit-input')?.value);
+    
+    if (isNaN(baseValue) || baseValue === '') {
+        document.getElementById('target-unit-input').value = '';
+        return;
+    }
+    
+    const convertedValue = convertUnits(baseValue, baseUnit, targetUnit);
+    document.getElementById('target-unit-input').value = formatConversionResult(convertedValue);
+}
+
+function convertFromTarget() {
+    const baseUnit = document.querySelector('input[name="base-unit"]:checked')?.value || 'px';
+    const targetUnit = document.querySelector('input[name="target-unit"]:checked')?.value || 'mm';
+    const targetValue = parseFloat(document.getElementById('target-unit-input')?.value);
+    
+    if (isNaN(targetValue) || targetValue === '') {
+        document.getElementById('base-unit-input').value = '';
+        return;
+    }
+    
+    const convertedValue = convertUnits(targetValue, targetUnit, baseUnit);
+    document.getElementById('base-unit-input').value = formatConversionResult(convertedValue);
+}
+
+function convertUnits(value, fromUnit, toUnit) {
+    const CONVERSION_RATES = {
+        px: 1,
+        pt: 96 / 72,
+        mm: 96 / 25.4,
+        cm: 96 / 2.54,
+        inch: 96
+    };
+    
+    // 먼저 px로 변환한 다음 목표 단위로 변환
+    const pxValue = value * CONVERSION_RATES[fromUnit];
+    const result = pxValue / CONVERSION_RATES[toUnit];
+    
+    return result;
+}
+
+function formatConversionResult(value) {
+    // 소수점 3자리까지 표시하되, 불필요한 0은 제거
+    return parseFloat(value.toFixed(3)).toString();
 }
 
 // ==================== 색상 변환 유틸리티 함수들 ====================

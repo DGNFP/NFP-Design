@@ -329,7 +329,7 @@
             <div class="studio-tab-panel" id="color-generator">
                 <div class="tab-header">
                     <h2>컬러 팔레트</h2>
-                    <p>오늘은 무슨 컬러가 좋을까요?<br>카드 뽑기와 랜덤 팔레트로 색상 영감을 찾아보세요.</p>
+                    <p>오늘은 무슨 컬러가 좋을까요?<br>5색 팔레트, 2색,3색 그라디언트를 랜덤으로 생성해드립니다.<br>카드 뽑기와 랜덤 팔레트로 영감을 얻어보세요.</p>
                 </div>
 
                 <div class="studio-sub-tabs">
@@ -440,171 +440,359 @@
                 <div class="color-extraction-result" id="studio-extracted-colors" style="display: none;"></div>
             </div>
 
+           
+<div class="studio-tab-panel" id="design-calculator">
+    <div class="tab-header">
+        <h2>디자인 계산기</h2>
+        <p>웹과 인쇄, 각종 디자인에 필요한 그리드, 폰트, 사이즈 계산부터<br>단위 변환까지 복잡한 수치 작업을 간편하게 해결하세요.</p>
+    </div>
+
+    
+    <div class="studio-sub-tabs">
+        <div class="studio-sub-tab active" data-subtab="grid-calculator">
+            <i class="fas fa-th-large"></i>
+            그리드 계산기
+        </div>
+        <div class="studio-sub-tab" data-subtab="font-calculator">
+            <i class="fas fa-font"></i>
+            폰트 계산기
+        </div>
+        <div class="studio-sub-tab" data-subtab="size-calculator">
+            <i class="fas fa-ruler"></i>
+            사이즈 계산기
+        </div>
+        <div class="studio-sub-tab" data-subtab="unit-converter">
+            <i class="fas fa-exchange-alt"></i>
+            단위 변환기
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel active" id="grid-calculator">
+        <div class="studio-grid-inputs">
+            <div class="studio-input-row">
+                <div class="studio-input-col">
+                    <label>최대 너비</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="calc-max-width" value="1280" min="320" max="3840">
+                        <span>px</span>
+                    </div>
+                </div>
+                <div class="studio-input-col">
+                    <label>컬럼 수</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="calc-columns" value="4" min="1" max="24">
+                        <span>개</span>
+                    </div>
+                </div>
+            </div>
+            <div class="studio-input-row">
+                <div class="studio-input-col">
+                    <label>간격</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="calc-gutter" value="0" min="0" max="100">
+                        <span>px</span>
+                    </div>
+                </div>
+                <div class="studio-input-col">
+                    <label>좌우 마진</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="calc-margin" value="0" min="0" max="200">
+                        <span>px</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="studio-grid-result-info">
+            <div class="studio-result-item">
+                <span>페이지 너비</span>
+                <span id="calc-page-width">800px</span>
+            </div>
+            <div class="studio-result-item">
+                <span>컬럼 너비</span>
+                <span id="calc-column-width">175px</span>
+            </div>
+            <div class="studio-result-item">
+                <span>간격</span>
+                <span id="calc-gutter-display">20px</span>
+            </div>
+            <div class="studio-result-item">
+                <span>좌우 마진</span>
+                <span id="calc-margin-display">20px</span>
+            </div>
+        </div>
+        
+        <div class="studio-grid-preview-wrapper">
+            <div class="studio-grid-preview" id="calc-grid-preview"></div>
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel" id="font-calculator">
+        <div class="studio-font-calc-container">
+            <div class="studio-font-converter">
+                <div class="studio-converter-item">
+                    
+                    <div class="studio-size-input">
+                        <input type="number" id="calc-px-input" value="16" min="1" max="200">
+                        <span>픽셀</span>
+                    </div>
+                </div>
+                <div class="studio-converter-arrow">⇄</div>
+                <div class="studio-converter-item">
+                    
+                    <div class="studio-size-input">
+                        <input type="number" id="calc-pt-input" value="12" min="1" max="150">
+                        <span>포인트</span>
+                    </div>
+                </div>
+            </div>
             
-            <div class="studio-tab-panel" id="design-calculator">
-                <div class="tab-header">
-                    <h2>디자인 계산기</h2>
-                    <p>그리드 시스템과 폰트 사이즈를 계산하고 미리보기하세요</p>
+            <div class="studio-font-preview">
+                <h4>미리보기</h4>
+                <div class="studio-preview-text" id="font-preview-text">
+                    이 텍스트는 16px(12pt) 크기입니다
                 </div>
+            </div>    
 
-                <div class="studio-sub-tabs">
-                    <div class="studio-sub-tab active" data-subtab="grid-calculator">
-                        <i class="fas fa-th-large"></i>
-                        그리드 계산기
-                    </div>
-                    <div class="studio-sub-tab" data-subtab="font-calculator">
-                        <i class="fas fa-font"></i>
-                        폰트 계산기
-                    </div>
-                </div>
-
-                <div class="studio-sub-panel active" id="grid-calculator">
-                    <div class="studio-grid-inputs">
-                        <div class="studio-input-row">
-                            <div class="studio-input-col">
-                                <label>최대 너비</label>
-                                <div class="studio-input-with-unit">
-                                    <input type="number" id="calc-max-width" value="1280" min="320" max="3840">
-                                    <span>px</span>
-                                </div>
-                            </div>
-                            <div class="studio-input-col">
-                                <label>컬럼 수</label>
-                                <div class="studio-input-with-unit">
-                                    <input type="number" id="calc-columns" value="4" min="1" max="24">
-                                    <span>개</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="studio-input-row">
-                            <div class="studio-input-col">
-                                <label>간격</label>
-                                <div class="studio-input-with-unit">
-                                    <input type="number" id="calc-gutter" value="0" min="0" max="100">
-                                    <span>px</span>
-                                </div>
-                            </div>
-                            <div class="studio-input-col">
-                                <label>좌우 마진</label>
-                                <div class="studio-input-with-unit">
-                                    <input type="number" id="calc-margin" value="0" min="0" max="200">
-                                    <span>px</span>
-                                </div>
-                            </div>
+            <div class="studio-responsive-sizes">
+                <h4>반응형 사이즈</h4>
+                <div class="studio-device-sizes">
+                    <div class="studio-device-item">
+                        <div class="studio-device-info">
+                            <span>모바일</span>
+                            <span id="mobile-size">14.0px</span>
                         </div>
                     </div>
-                    
-                    <div class="studio-grid-result-info">
-                          <div class="studio-result-item">
-                        <span>페이지 너비</span>
-                        <span id="calc-page-width">800px</span>
-                    </div>
-                    <div class="studio-result-item">
-                        <span>컬럼 너비</span>
-                        <span id="calc-column-width">175px</span>
-                    </div>
-                    <div class="studio-result-item">
-                        <span>간격</span>
-                        <span id="calc-gutter-display">20px</span>
-                    </div>
-                    <div class="studio-result-item">
-                        <span>좌우 마진</span>
-                        <span id="calc-margin-display">20px</span>
-                    </div>
-                </div>
-                    
-                    <div class="studio-grid-preview-wrapper">
-                        <div class="studio-grid-preview" id="calc-grid-preview"></div>
-                    </div>
-                </div>
-
-                <div class="studio-sub-panel" id="font-calculator">
-                    <div class="studio-font-calc-container">
-                       
-                        
-                        <div class="studio-font-converter">
-                            <div class="studio-converter-item">
-                                <label>웹용 (px)</label>
-                                <div class="studio-size-input">
-                                    <input type="number" id="calc-px-input" value="16" min="1" max="200">
-                                    <span>픽셀</span>
-                                </div>
-                            </div>
-                            <div class="studio-converter-arrow">⇄</div>
-                            <div class="studio-converter-item">
-                                <label>인쇄용 (pt)</label>
-                                <div class="studio-size-input">
-                                    <input type="number" id="calc-pt-input" value="12" min="1" max="150">
-                                    <span>포인트</span>
-                                </div>
-                            </div>
+                    <div class="studio-device-item">
+                        <div class="studio-device-info">
+                            <span>태블릿</span>
+                            <span id="tablet-size">16.0px</span>
                         </div>
-                        
-                         <div class="studio-font-preview">
-                            <h4>미리보기</h4>
-                            <div class="studio-preview-text" id="font-preview-text">
-                                이 텍스트는 16px(12pt) 크기입니다
-                            </div>
-                        </div>    
-
-                        <div class="studio-responsive-sizes">
-                            <h4>반응형 사이즈</h4>
-                            <div class="studio-device-sizes">
-                                <div class="studio-device-item">
-                                    <div class="studio-device-info">
-                                        <span>모바일</span>
-                                        <span id="mobile-size">14.0px</span>
-                                    </div>
-                                </div>
-                                <div class="studio-device-item">
-                                    <div class="studio-device-info">
-                                        <span>태블릿</span>
-                                        <span id="tablet-size">16.0px</span>
-                                    </div>
-                                </div>
-                                <div class="studio-device-item">
-                                    <div class="studio-device-info">
-                                        <span>데스크톱</span>
-                                        <span id="desktop-size">18.0px</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="studio-size-guide">
-                            <h4>권장 사이즈</h4>
-                            <div class="studio-size-list">
-                                <div class="studio-size-guide-item">
-                                    <span>본문</span>
-                                    <span id="guide-body">웹: 16px 인쇄: 12pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>소제목</span>
-                                    <span id="guide-subtitle">웹: 20px 인쇄: 15pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>제목</span>
-                                    <span id="guide-title">웹: 24px 인쇄: 18pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>대제목</span>
-                                    <span id="guide-heading">웹: 32px 인쇄: 24pt</span>
-                                </div>
-                                <div class="studio-size-guide-item">
-                                    <span>캡션</span>
-                                    <span id="guide-caption">웹: 14px 인쇄: 10pt</span>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="studio-device-item">
+                        <div class="studio-device-info">
+                            <span>데스크톱</span>
+                            <span id="desktop-size">18.0px</span>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="studio-size-guide">
+                <h4>권장 사이즈</h4>
+                <div class="studio-size-list">
+                    <div class="studio-size-guide-item">
+                        <span>본문</span>
+                        <span id="guide-body">웹: 16px 인쇄: 12pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>소제목</span>
+                        <span id="guide-subtitle">웹: 20px 인쇄: 15pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>제목</span>
+                        <span id="guide-title">웹: 24px 인쇄: 18pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>대제목</span>
+                        <span id="guide-heading">웹: 32px 인쇄: 24pt</span>
+                    </div>
+                    <div class="studio-size-guide-item">
+                        <span>캡션</span>
+                        <span id="guide-caption">웹: 14px 인쇄: 10pt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel" id="size-calculator">
+        
+        <div class="studio-calc-section">
+            <h3>비율 계산기</h3>
+            <p class="studio-calc-desc">비율을 입력하면 다양한 해상도를 자동으로 계산해드립니다.</p>
+            
+            <div class="studio-input-row">
+                <div class="studio-input-col">
+                    <label>가로 비율</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="ratio-width" value="16" min="1" max="50">
+                        <span>비율</span>
+                    </div>
+                </div>
+                <div class="studio-input-col">
+                    <label>세로 비율</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="ratio-height" value="9" min="1" max="50">
+                        <span>비율</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="studio-grid-result-info" id="ratio-results">
+                <div class="studio-result-item">
+                    <span>4K</span>
+                    <span id="ratio-4k">3840×2160</span>
+                </div>
+                <div class="studio-result-item">
+                    <span>Full HD</span>
+                    <span id="ratio-fhd">1920×1080</span>
+                </div>
+                <div class="studio-result-item">
+                    <span>HD</span>
+                    <span id="ratio-hd">1280×720</span>
+                </div>
+                <div class="studio-result-item">
+                    <span>SD</span>
+                    <span id="ratio-sd">854×480</span>
+                </div>
+            </div>
+        </div>
+
+        
+<div class="studio-calc-section">
+    <h3>커스텀 사이즈 변환</h3>
+    <p class="studio-calc-desc">원본 이미지를 원하는 비율로 변환합니다. 잘라내기와 늘리기 두 가지 방식으로 결과를 제공합니다.</p>
+    
+    <div class="studio-input-row">
+        <div class="studio-input-col">
+            <label>원본 너비</label>
+            <div class="studio-input-with-unit">
+                <input type="number" id="original-width" placeholder="1200" min="1">
+                <span>px</span>
+            </div>
+        </div>
+        <div class="studio-input-col">
+            <label>원본 높이</label>
+            <div class="studio-input-with-unit">
+                <input type="number" id="original-height" placeholder="800" min="1">
+                <span>px</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="studio-input-row">
+        <div class="studio-input-col">
+            <label>목표 비율 (가로)</label>
+            <div class="studio-input-with-unit">
+                <input type="number" id="target-ratio-width" placeholder="1" min="1">
+                <span>비율</span>
+            </div>
+        </div>
+        <div class="studio-input-col">
+            <label>목표 비율 (세로)</label>
+            <div class="studio-input-with-unit">
+                <input type="number" id="target-ratio-height" placeholder="1" min="1">
+                <span>비율</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="studio-grid-result-info" id="convert-results">
+        <div class="studio-result-item">
+            <span>잘라내기 (작게)</span>
+            <span id="crop-result">-</span>
+        </div>
+        <div class="studio-result-item">
+            <span>늘리기 (크게)</span>
+            <span id="fit-result">-</span>
+        </div>
+    </div>
+</div>
+
+    
+    <div class="studio-sub-panel" id="unit-converter">
+        <div class="studio-calc-section">
+            <h3>단위 변환기</h3>
+            <p class="studio-calc-desc">다양한 길이 단위를 상호 변환합니다. </p>
+            
+            
+            <div class="studio-unit-selection">
+                <div class="studio-unit-group">
+                    <label>기준 단위</label>
+                    <div class="studio-unit-radios">
+                        <label class="radio-option">
+                            <input type="radio" name="base-unit" value="px" checked>
+                            <span>픽셀 (px)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="base-unit" value="pt">
+                            <span>포인트 (pt)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="base-unit" value="mm">
+                            <span>밀리미터 (mm)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="base-unit" value="cm">
+                            <span>센티미터 (cm)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="base-unit" value="inch">
+                            <span>인치 (inch)</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="studio-unit-group">
+                    <label>변환 단위</label>
+                    <div class="studio-unit-radios">
+                        <label class="radio-option">
+                            <input type="radio" name="target-unit" value="px">
+                            <span>픽셀 (px)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="target-unit" value="pt">
+                            <span>포인트 (pt)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="target-unit" value="mm" checked>
+                            <span>밀리미터 (mm)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="target-unit" value="cm">
+                            <span>센티미터 (cm)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="target-unit" value="inch">
+                            <span>인치 (inch)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="studio-font-converter">
+                <div class="studio-converter-item">
+                    
+                    <div class="studio-size-input">
+                        <input type="number" id="base-unit-input" placeholder="100" step="0.01">
+                        <span id="base-unit-symbol">px</span>
+                    </div>
+                </div>
+                <div class="studio-converter-arrow">⇄</div>
+                <div class="studio-converter-item">
+                    
+                    <div class="studio-size-input">
+                        <input type="number" id="target-unit-input" placeholder="26.46" step="0.01">
+                        <span id="target-unit-symbol">mm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            
 
             
             <div class="studio-tab-panel" id="size-guide">
                 <div class="tab-header">
                     <h2>디자인 사이즈 가이드</h2>
-                    <p>다양한 플랫폼과 매체의 표준 사이즈를 확인하세요</p>
+                    <p>다양한 플랫폼과 매체의 표준 사이즈를 확인하세요.</p>
                 </div>
                 
                 <div class="studio-size-categories">
