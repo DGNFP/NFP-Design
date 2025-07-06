@@ -489,62 +489,64 @@
             </div>
         </div>
 
-        <!-- 커스텀 사이즈 변환 섹션 (기존 HTML에서 이 부분만 교체) -->
-<div class="studio-calc-section">
-    <h3>커스텀 사이즈 변환</h3>
-    <p class="studio-calc-desc">원본 이미지를 원하는 비율로 변환합니다. 잘라내기와 늘리기 두 가지 방식으로 결과를 제공합니다.</p>
-    
-    <div class="studio-input-row">
-        <div class="studio-input-col">
-            <label>원본 너비</label>
-            <div class="studio-input-with-unit">
-                <input type="number" id="original-width" placeholder="1200" min="1">
-                <span>px</span>
+        <!-- 커스텀 사이즈 변환 -->
+        <div class="studio-calc-section">
+            <h3>커스텀 사이즈 변환</h3>
+            <p class="studio-calc-desc">원본 이미지를 원하는 비율로 변환합니다. 잘라내기와 늘리기 두 가지 방식으로 결과를 제공합니다.</p>
+            
+            <div class="studio-input-row">
+                <div class="studio-input-col">
+                    <label>원본 너비</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="original-width" placeholder="1200" min="1">
+                        <span>px</span>
+                    </div>
+                </div>
+                <div class="studio-input-col">
+                    <label>원본 높이</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="original-height" placeholder="800" min="1">
+                        <span>px</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="studio-input-col">
-            <label>원본 높이</label>
-            <div class="studio-input-with-unit">
-                <input type="number" id="original-height" placeholder="800" min="1">
-                <span>px</span>
+            
+            <div class="studio-input-row">
+                <div class="studio-input-col">
+                    <label>목표 비율 (가로)</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="target-ratio-width" placeholder="1" min="1">
+                        <span>비율</span>
+                    </div>
+                </div>
+                <div class="studio-input-col">
+                    <label>목표 비율 (세로)</label>
+                    <div class="studio-input-with-unit">
+                        <input type="number" id="target-ratio-height" placeholder="1" min="1">
+                        <span>비율</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="studio-grid-result-info" id="convert-results">
+                <div class="studio-result-item">
+                    <span>잘라내기 (작게)</span>
+                    <span id="crop-result">-</span>
+                </div>
+                <div class="studio-result-item">
+                    <span>늘리기 (크게)</span>
+                    <span id="fit-result">-</span>
+                </div>
             </div>
         </div>
     </div>
-    
-    <div class="studio-input-row">
-        <div class="studio-input-col">
-            <label>목표 비율 (가로)</label>
-            <div class="studio-input-with-unit">
-                <input type="number" id="target-ratio-width" placeholder="1" min="1">
-                <span>비율</span>
-            </div>
-        </div>
-        <div class="studio-input-col">
-            <label>목표 비율 (세로)</label>
-            <div class="studio-input-with-unit">
-                <input type="number" id="target-ratio-height" placeholder="1" min="1">
-                <span>비율</span>
-            </div>
-        </div>
-    </div>
-    
-    <div class="studio-grid-result-info" id="convert-results">
-        <div class="studio-result-item">
-            <span>잘라내기 (작게)</span>
-            <span id="crop-result">-</span>
-        </div>
-        <div class="studio-result-item">
-            <span>늘리기 (크게)</span>
-            <span id="fit-result">-</span>
-        </div>
-    </div>
-</div>
+    <!-- ✅ 여기가 사이즈 계산기 패널 닫는 태그 - 이게 빠져있었음 -->
 
     <!-- 새로운 단위 변환기 -->
     <div class="studio-sub-panel" id="unit-converter">
         <div class="studio-calc-section">
             <h3>단위 변환기</h3>
-            <p class="studio-calc-desc">다양한 길이 단위를 상호 변환합니다. </p>
+            <p class="studio-calc-desc">다양한 길이 단위를 상호 변환합니다.</p>
             
             <!-- 단위 선택 -->
             <div class="studio-unit-selection">
@@ -604,7 +606,6 @@
             <!-- 양방향 변환 입력 -->
             <div class="studio-font-converter">
                 <div class="studio-converter-item">
-                    <!-- <label id="base-unit-label">픽셀 (px)</label> -->
                     <div class="studio-size-input">
                         <input type="number" id="base-unit-input" placeholder="100" step="0.01">
                         <span id="base-unit-symbol">px</span>
@@ -612,7 +613,6 @@
                 </div>
                 <div class="studio-converter-arrow">⇄</div>
                 <div class="studio-converter-item">
-                    <!-- <label id="target-unit-label">밀리미터 (mm)</label> -->
                     <div class="studio-size-input">
                         <input type="number" id="target-unit-input" placeholder="26.46" step="0.01">
                         <span id="target-unit-symbol">mm</span>
@@ -622,8 +622,7 @@
         </div>
     </div>
 </div>
-
-            
+<!-- ✅ 여기가 디자인 계산기 전체 패널 닫는 태그 -->  
 
             <!-- 사이즈 가이드 -->
             <div class="studio-tab-panel" id="size-guide">
