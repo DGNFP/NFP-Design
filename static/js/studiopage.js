@@ -108,11 +108,11 @@ window.generatePalette = function() {
 // 확장된 컬러 카드 데이터 (기존 10개 + 신규 20개)
 const colorCards = [
     // === 기존 데이터 ===
-    {
-        name: "미드나이트 블루",
-        hex: "#191970",
-        description: "깊은 밤하늘처럼 신비로운 색상으로, 집중력과 안정감을 가져다줍니다."
-    },
+ {
+    name: "미드나이트 블루",
+    hex: "#0F1419", // 더 어두운 진짜 블루
+    description: "깊은 밤하늘처럼 신비로운 색상으로, 집중력과 안정감을 가져다줍니다."
+},
     {
         name: "코랄 핑크",
         hex: "#FF7F7F",
@@ -154,10 +154,11 @@ const colorCards = [
         description: "부드럽고 따뜻한 색상으로, 친밀감과 편안함을 제공합니다."
     },
     {
-        name: "인디고 블루",
-        hex: "#4B0082",
-        description: "깊이 있는 지혜의 색상으로, 통찰력과 직관을 개발시킵니다."
-    },
+    name: "인디고 블루",
+    hex: "#2E4B89",
+    description: "깊이 있는 지혜의 색상으로, 통찰력과 직관을 개발시킵니다."
+    }
+    ,
     
     // === 신규 색다른 명칭 ===
     {
@@ -195,11 +196,11 @@ const colorCards = [
         hex: "#C0C0C0",
         description: "높은 하늘 구름 사이로 스며드는 은빛처럼 몽환적이고 세련된 분위기입니다."
     },
-    {
-        name: "심해어 블랙",
-        hex: "#2F4F4F",
-        description: "깊은 바닷속 미지의 세계처럼 신비롭고 깊이 있는 사색을 불러일으킵니다."
-    },
+  {
+    name: "심해어 블랙",
+    hex: "#0A0A0A", // 진짜 깊은 바다색
+    description: "깊은 바닷속 미지의 세계처럼 신비롭고 깊이 있는 사색을 불러일으킵니다."
+},
     {
         name: "샐러드믹스 그린",
         hex: "#90EE90",
@@ -262,19 +263,217 @@ const colorCards = [
     }
     ,
 
-      // === NFP 특별 색상들 ===
-    {
-        name: "NFP 시그니쳐 그린",
-        hex: "#01FF75",
-        description: "창의적 혁신과 무한한 가능성을 상징하는 NFP의 시그니쳐 컬러입니다. 새로운 아이디어와 도전 정신을 불러일으킵니다.",
-        isSpecial: true
-    },
-    {
-        name: "NFP 에메랄드 에디션",
-        hex: "#00CC5E",
-        description: "깊이 있는 성장과 지속가능한 성공을 의미하는 NFP 에메랄드 에디션입니다. 신뢰와 안정성 위에 구축된 혁신을 나타냅니다.",
-        isSpecial: true
-    }
+    // === 신선한 명칭의 추가 단색 컬러들 ===
+{
+    name: "모닝커피 에스프레소",
+    hex: "#3E2723",
+    description: "첫 모금의 진한 커피처럼 하루를 깨우는 강렬하면서도 따뜻한 에너지를 담고 있습니다."
+},
+{
+    name: "픽셀아트 청록",
+    hex: "#26A69A",
+    description: "8비트 게임 속 바다처럼 디지털과 자연이 만나는 새로운 세대의 감성을 표현합니다."
+},
+{
+    name: "비닐하우스 연두",
+    hex: "#8BC34A",
+    description: "도시 농업의 희망처럼 인공과 자연이 조화롭게 공존하는 지속가능한 미래를 상징합니다."
+},
+{
+    name: "레트로 TV 블루",
+    hex: "#2196F3",
+    description: "옛날 브라운관 TV의 파란 화면처럼 아날로그 감성과 디지털 꿈이 어우러진 향수를 불러일으킵니다."
+},
+{
+    name: "타피오카 펄 화이트",
+    hex: "#FAFAFA",
+    description: "버블티 속 쫄깃한 타피오카처럼 젊은 세대의 달콤하고 유쾌한 일상의 소확행을 담았습니다."
+},
+{
+    name: "인스타그램 핑크",
+    hex: "#E91E63",
+    description: "SNS 속 감성적인 순간들처럼 현대인의 소통과 공감, 그리고 개성 표현의 매개체가 되는 색상입니다."
+},
+{
+    name: "택배박스 카키",
+    hex: "#8D6E63",
+    description: "온라인 쇼핑의 설렘처럼 기다림과 만족, 그리고 현대적 편리함을 상징하는 일상의 색깔입니다."
+},
+{
+    name: "노트북 키보드 그레이",
+    hex: "#455A64",
+    description: "무수한 아이디어가 탄생하는 키보드처럼 창작과 소통의 도구가 되는 현대인의 필수 동반자입니다."
+},
+{
+    name: "에어팟 케이스 실버",
+    hex: "#ECEFF1",
+    description: "무선의 자유로움처럼 제약 없는 라이프스타일과 스마트한 일상을 추구하는 현대적 감각을 나타냅니다."
+},
+{
+    name: "플라네타리움 퍼플",
+    hex: "#673AB7",
+    description: "인공 별하늘 아래에서 느끼는 경이로움처럼 과학과 상상력이 만들어내는 무한한 우주의 신비를 담았습니다."
+}
+,
+// === 몽환적이고 신화적인 단색 컬러들 ===
+{
+    name: "유니콘의 속눈썹",
+    hex: "#F8BBD9",
+    description: "전설 속 유니콘이 눈을 감을 때 떨어지는 속눈썹처럼 순수하고 마법적인 분홍빛 꿈을 간직하고 있습니다."
+},
+{
+    name: "인어공주의 비늘",
+    hex: "#5DADE2",
+    description: "깊은 바다 궁전의 인어가 간직한 푸른 비늘처럼 신비로운 바다의 노래와 꿈을 품고 있는 색상입니다."
+},
+{
+    name: "요정의 날개 먼지",
+    hex: "#D5DBDB",
+    description: "숲속 요정들이 날아다닐 때 떨어뜨리는 마법의 가루처럼 희미하고 신비로운 은빛 마법을 담고 있습니다."
+},
+{
+    name: "달토끼의 방아절구",
+    hex: "#AED6F1",
+    description: "달에서 떡을 찧는 토끼의 방아절구처럼 순수한 달빛과 정성이 어우러진 부드러운 하늘색 온기입니다."
+},
+{
+    name: "피터팬의 그림자",
+    hex: "#566573",
+    description: "네버랜드를 떠나지 못하는 피터팬의 그림자처럼 영원한 동심과 모험의 꿈이 스며든 회색빛 향수입니다."
+},
+{
+    name: "앨리스의 체셔캣 미소",
+    hex: "#BB8FCE",
+    description: "이상한 나라에서 사라지고 나타나는 체셔캣의 신비한 미소처럼 수수께끼 같은 보라빛 장난기를 품고 있습니다."
+},
+{
+    name: "잠자는 숲속 미녀의 장미",
+    hex: "#EC7063",
+    description: "백 년의 잠에 빠진 공주를 깨우는 진실한 사랑의 장미처럼 깊은 붉은빛 운명의 키스를 상징합니다."
+},
+{
+    name: "신데렐라의 유리구두",
+    hex: "#D6EAF8",
+    description: "자정이 되면 사라지는 마법의 유리구두처럼 투명하고 덧없는 꿈과 희망의 푸른빛을 간직하고 있습니다."
+},
+{
+    name: "헨젤과 그레텔의 과자집",
+    hex: "#F9E79F",
+    description: "숲속에서 발견한 달콤한 과자집처럼 유혹적이면서도 위험한 노란빛 동화 속 마법을 품고 있습니다."
+},
+{
+    name: "라푼젤의 황금 머리카락",
+    hex: "#F7DC6F",
+    description: "탑 꼭대기에서 흘러내리는 라푼젤의 긴 머리카락처럼 자유를 향한 희망과 인내의 황금빛 실을 담고 있습니다."
+}
+,
+{
+    name: "유튜브 레드",
+    hex: "#FF0000",
+    description: "전 세계 크리에이터들의 열정과 꿈이 담긴 빨간 재생 버튼처럼 무한한 콘텐츠와 창작 에너지를 상징합니다."
+},
+{
+    name: "페이스북 블루",
+    hex: "#1877F2",
+    description: "전 세계를 연결하는 소셜 네트워크처럼 사람과 사람 사이의 따뜻한 연결과 소통의 다리 역할을 하는 신뢰의 파랑입니다."
+},
+{
+    name: "스포티파이 그린",
+    hex: "#1DB954",
+    description: "음악이 흐르는 모든 순간처럼 리듬과 멜로디가 만들어내는 생동감 넘치는 라이프스타일을 상징하는 음악의 초록입니다."
+},
+{
+    name: "트위터 스카이 블루",
+    hex: "#1DA1F2",
+    description: "140자 속에 담긴 순간의 생각들처럼 빠르고 간결한 소통과 실시간으로 흐르는 정보의 하늘빛 물결을 나타냅니다."
+},
+{
+    name: "넷플릭스 레드",
+    hex: "#E50914",
+    description: "무한한 스토리의 세계로 빠져드는 몰입감처럼 집에서 즐기는 프리미엄 엔터테인먼트의 깊고 진한 빨간 열정입니다."
+},
+{
+    name: "디스코드 퍼플",
+    hex: "#5865F2",
+    description: "게이머들과 커뮤니티가 모이는 공간처럼 취미와 관심사를 공유하는 사람들의 유대감과 소속감을 나타내는 보라빛 연결고리입니다."
+},
+{
+    name: "슬랙 퍼플",
+    hex: "#4A154B",
+    description: "효율적인 팀워크와 협업의 공간처럼 현대적 업무 환경에서 소통과 생산성을 높여주는 프로페셔널한 깊은 자주색입니다."
+},
+{
+    name: "줌 코발트 블루",
+    hex: "#2D8CFF",
+    description: "화상회의로 연결되는 전 세계처럼 물리적 거리를 뛰어넘어 사람들을 하나로 묶어주는 디지털 소통의 맑은 파란색입니다."
+},
+{
+    name: "카카오톡 옐로우",
+    hex: "#FFE812",
+    description: "일상 속 가장 친근한 메신저처럼 한국인들의 소통과 정서가 담긴 따뜻하고 밝은 노란빛 대화의 창구입니다."
+},
+{
+    name: "네이버 그린",
+    hex: "#03C75A",
+    description: "검색에서 쇼핑까지 모든 디지털 라이프의 시작점처럼 정보와 편의를 제공하는 한국 인터넷의 상징적인 초록빛 관문입니다."
+}
+,
+{
+    name: "쿠팡 로켓 오렌지",
+    hex: "#FF6600",
+    description: "로켓배송의 빠른 속도처럼 일상의 편리함을 극대화시켜주는 이커머스 혁신의 주황빛 배송 혁명을 상징합니다."
+},
+{
+    name: "삼성 갤럭시 블루",
+    hex: "#1428A0",
+    description: "글로벌 기술 혁신의 선두주자처럼 한국이 세계에 자랑하는 첨단 기술과 미래 비전을 담은 깊고 신뢰감 있는 파란색입니다."
+},
+{
+    name: "지마켓 그린",
+    hex: "#00B04F",
+    description: "온라인 쇼핑의 즐거움과 신뢰할 수 있는 거래처럼 소비자들에게 안전하고 합리적인 쇼핑 경험을 선사하는 신뢰의 초록빛입니다."
+},
+{
+    name: "배달의민족 민트",
+    hex: "#00C896",
+    description: "언제 어디서나 맛있는 음식을 배달해주는 서비스처럼 한국인의 식생활을 혁신시킨 상쾌하고 친근한 민트색 편의입니다."
+},
+{
+    name: "현대자동차 실버",
+    hex: "#C8C8C8",
+    description: "글로벌 자동차 브랜드로 성장한 한국의 자부심처럼 품질과 신뢰성을 바탕으로 세계 도로를 달리는 은빛 기술력입니다."
+},
+{
+    name: "LG 와인 레드",
+    hex: "#A50034",
+    description: "생활가전에서 IT까지 품격 있는 기술력처럼 세련되고 프리미엄한 라이프스타일을 제안하는 고급스러운 와인빛 혁신입니다."
+},
+{
+    name: "신한은행 블루",
+    hex: "#0046FF",
+    description: "금융의 신뢰와 안정성을 바탕으로 한 디지털 혁신처럼 고객의 미래를 함께 설계하는 믿음직한 파란색 금융 파트너입니다."
+},
+{
+    name: "SK텔레콤 마젠타",
+    hex: "#E91E5A",
+    description: "5G와 통신 기술의 최전선에서 연결의 가치를 실현하는 것처럼 소통과 혁신을 선도하는 역동적인 마젠타 커넥션입니다."
+}
+,
+
+
+// === NFP 특별 색상들 ===
+{
+    name: "NFP 시그니쳐 그린",
+    hex: "#01FF75",
+    description: "창의적 혁신과 무한한 가능성을 상징하는 NFP의 시그니쳐 컬러입니다. 새로운 아이디어와 도전 정신을 불러일으킵니다.",
+    isSpecial: true
+},
+{
+    name: "NFP 에메랄드 에디션",
+    hex: "#00CC5E",
+    description: "깊이 있는 성장과 지속가능한 성공을 의미하는 NFP 에메랄드 에디션입니다. 신뢰와 안정성 위에 구축된 혁신을 나타냅니다.",
+    isSpecial: true
+}
 
 ];
 
@@ -307,7 +506,7 @@ const gradientColorCards = [
     },
     {
         name: "화산폭발 마그마",
-        gradient: "linear-gradient(135deg, #ff9a9e, #fad0c4, #ff6b6b)",
+        gradient: "linear-gradient(135deg,rgb(255, 81, 0),rgb(255, 55, 0),rgb(248, 148, 17))",
         description: "뜨거운 용암의 분출처럼 폭발적인 열정과 강인한 생명력을 상징합니다."
     },
     {
@@ -331,6 +530,166 @@ const gradientColorCards = [
         description: "우주로 향하는 로켓 추진체처럼 미래를 향한 강력한 추진력과 도전정신을 나타냅니다."
     }
     ,
+
+    // === 신선한 명칭의 추가 그라데이션들 ===
+{
+    name: "스마트폰 스크린 글로우",
+    gradient: "linear-gradient(135deg, #001F3F, #0074D9, #7FDBFF, #001F3F)",
+    description: "새벽 3시 휴대폰 화면처럼 현대인의 디지털 라이프와 불면의 밤이 만들어내는 몽환적인 빛의 여행입니다."
+}
+,
+{
+    name: "택시 야간 드라이브",
+    gradient: "linear-gradient(90deg, #1a1a2e, #ff6b35, #f7931e, #1a1a2e)",
+    description: "밤거리를 달리는 택시 창문 너머로 스쳐가는 네온사인처럼 도시의 속도감과 감성을 담은 이동의 시간입니다."
+}
+,
+{
+    name: "카페 라떼아트 브라운",
+    gradient: "linear-gradient(45deg, #8B4513, #D2B48C, #F5DEB3)",
+    description: "바리스타의 정성이 담긴 라떼아트처럼 일상 속 작은 예술과 따뜻한 위로를 선사하는 오후의 감성입니다."
+},
+{
+    name: "지하철 2호선 그린",
+    gradient: "linear-gradient(180deg, #2E7D32, #4CAF50, #81C784)",
+    description: "도시를 관통하는 지하철처럼 바쁜 일상 속에서도 목적지를 향해 달려가는 현대인의 역동적인 에너지를 표현합니다."
+},
+{
+    name: "컨베이어벨트 실버",
+    gradient: "linear-gradient(90deg, #B8B8B8, #DCDCDC, #F0F0F0, #C0C0C0)",
+    description: "회전초밥집 컨베이어벨트처럼 끊임없이 순환하는 일상의 리듬과 편리함이 주는 현대적 여유로움을 나타냅니다."
+},
+{
+    name: "에어컨 바람 블루",
+    gradient: "linear-gradient(180deg, #0288D1, #4FC3F7, #B3E5FC)",
+    description: "더운 여름날 시원한 에어컨 바람처럼 일상의 스트레스를 날려주는 상쾌하고 시원한 해방감을 전달합니다."
+},
+{
+    name: "전광판 뉴스 옐로우",
+    gradient: "linear-gradient(45deg, #FFA000, #FFD54F, #FFF59D)",
+    description: "빠르게 지나가는 전광판 뉴스처럼 정보화 시대의 속도감과 눈부신 발전을 상징하는 현대 사회의 역동성입니다."
+}
+,
+{
+    name: "무인카페 머신 화이트",
+    gradient: "linear-gradient(90deg, #FAFAFA, #F5F5F5, #EEEEEE)",
+    description: "24시간 운영되는 무인카페처럼 언제나 접근 가능한 편리함과 깔끔하고 효율적인 현대적 서비스 정신을 표현합니다."
+},
+{
+    name: "틱톡 알고리즘 그라데이션",
+    gradient: "linear-gradient(45deg, #FF6B9D, #C44569, #F8B500, #4ECDC4)",
+    description: "예측 불가능한 알고리즘처럼 다채롭고 역동적인 MZ세대의 창의성과 무한한 콘텐츠 가능성을 상징하는 무지개빛 에너지입니다."
+}
+,
+
+// === 신비로운 이름의 그라데이션들 ===
+{
+    name: "아스트랄 게이트웨이",
+    gradient: "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483)",
+    description: "영혼이 차원을 넘나드는 관문처럼 물질계를 초월한 신비로운 여행으로 이끄는 우주적 통로의 빛입니다."
+},
+{
+    name: "룬스톤의 속삭임",
+    gradient: "linear-gradient(90deg, #2c1810, #8b5a3c, #daa520, #f4e4bc)",
+    description: "고대 마법사들이 새긴 신성한 문자처럼 잊혀진 지혜와 예언의 힘을 간직한 신비로운 돌의 기운입니다."
+},
+{
+    name: "크리스탈 드림웨이버",
+    gradient: "linear-gradient(45deg, #e8f5e8, #b8e6b8, #88d8c0, #58cae4)",
+    description: "꿈을 직조하는 수정 같은 투명함으로 현실과 환상의 경계를 넘나드는 신비로운 꿈결의 실을 엮어냅니다."
+},
+{
+    name: "페어리 미스트 발레",
+    gradient: "linear-gradient(180deg, #ffeef8, #f8c2ff, #d896ff, #be69ff)",
+    description: "요정들이 춤추는 안개 속에서 펼쳐지는 신비로운 발레처럼 마법과 우아함이 어우러진 환상의 무대입니다."
+},
+{
+    name: "템플 오브 에코즈",
+    gradient: "linear-gradient(135deg, #0c0c0c, #434343, #8b8680, #d4af37)",
+    description: "고대 신전에 울려퍼지는 메아리처럼 시간을 초월한 신성한 기도와 깨달음의 울림이 담긴 영원의 공간입니다."
+},
+{
+    name: "천사의 눈물",
+    gradient: "linear-gradient(90deg, #E6F3FF, #B3D9FF, #80C5FF, #4DA6FF)",
+    description: "천상의 존재들이 흘리는 순수한 눈물처럼 맑고 투명한 슬픔과 희망이 뒤섞인 성스러운 감정을 표현합니다."
+},
+{
+    name: "드래곤 브레스 오로라",
+    gradient: "linear-gradient(45deg, #1a472a, #059669, #10b981, #6ee7b7, #fbbf24)",
+    description: "고대 용의 숨결이 만들어낸 오로라처럼 불과 얼음이 만나 탄생한 전설 속 빛의 마법을 간직하고 있습니다."
+},
+{
+    name: "미드나잇 엘릭서",
+    gradient: "linear-gradient(180deg, #1e1b4b, #312e81, #6366f1, #a78bfa, #c084fc)",
+    description: "한밤중에 끓여내는 신비한 영약처럼 달빛과 별빛이 우러난 마법의 물약이 발산하는 신비로운 기운입니다."
+},
+{
+    name: "포가튼 킹덤 아이리스",
+    gradient: "linear-gradient(135deg, #4c1d95, #7c3aed, #a855f7, #c084fc, #ddd6fe)",
+    description: "잊혀진 왕국의 아이리스 꽃처럼 사라진 문명의 기억과 영광이 꽃잎 사이로 스며드는 애잔한 보라빛 전설입니다."
+},
+{
+    name: "이터널 보이드 리플렉션",
+    gradient: "linear-gradient(90deg, #000000, #1a1a1a, #374151, #6b7280, #d1d5db)",
+    description: "영원한 공허 속에 비친 반영처럼 무한과 무의 경계에서 피어나는 고요하고 깊이 있는 철학적 사색의 그림자입니다."
+}
+,
+
+// === 몽환적이고 신화적인 그라데이션들 ===
+{
+    name: "페가수스의 날개짓",
+    gradient: "linear-gradient(45deg, #D5E8D4, #85C1E9, #F8C471, #D5A6BD)",
+    description: "하늘을 나는 천마의 날개짓처럼 구름과 바람, 햇살이 만들어내는 자유로운 영혼의 무지개빛 여행입니다."
+},
+{
+    name: "불사조의 재탄생",
+    gradient: "linear-gradient(135deg, #2C3E50, #E74C3C, #F39C12, #F7DC6F)",
+    description: "화염 속에서 다시 태어나는 불사조처럼 절망에서 희망으로, 어둠에서 빛으로 승화하는 영원한 부활의 불꽃입니다."
+},
+{
+    name: "메두사의 저주받은 시선",
+    gradient: "linear-gradient(90deg, #1B4F72, #76448A, #A569BD, #85929E)",
+    description: "돌로 변하게 하는 메두사의 눈빛처럼 아름답지만 위험한 마력이 담긴 신화 속 저주의 보라빛 시선입니다."
+},
+{
+    name: "이카루스의 밀랍 날개",
+    gradient: "linear-gradient(180deg, #F7DC6F, #F8C471, #E67E22, #A04000)",
+    description: "태양에 너무 가까이 날아간 이카루스의 날개처럼 꿈과 현실, 야망과 추락이 만들어내는 황금빛 교훈입니다."
+},
+{
+    name: "오로라 공주의 저주",
+    gradient: "linear-gradient(45deg, #E8DAEF, #D2B4DE, #BB8FCE, #8E44AD)",
+    description: "가시에 찔려 영원한 잠에 빠진 공주처럼 아름답지만 슬픈 운명이 스며든 보라빛 마법의 잠꼬대입니다."
+},
+{
+    name: "인어의 거품 속삭임",
+    gradient: "linear-gradient(135deg, #AED6F1, #85C1E9, #5DADE2, #3498DB)",
+    description: "바다 위로 올라온 인어가 거품이 되어 사라지듯 덧없는 사랑과 희생이 만들어내는 푸른 파도의 노래입니다."
+},
+{
+    name: "잭과 콩나무의 구름계단",
+    gradient: "linear-gradient(90deg, #D5F4E6, #A9DFBF, #7DCEA0, #52BE80)",
+    description: "하늘까지 뻗은 마법의 콩나무처럼 불가능을 가능하게 만드는 초록빛 모험과 용기의 계단을 오르는 여행입니다."
+},
+{
+    name: "백설공주의 독사과",
+    gradient: "linear-gradient(180deg, #F1948A, #EC7063, #E74C3C, #922B21)",
+    description: "아름다운 겉모습 뒤에 숨겨진 독처럼 유혹적이지만 위험한 붉은빛 질투와 미움이 만들어낸 금단의 열매입니다."
+},
+{
+    name: "피노키오의 거짓말 코",
+    gradient: "linear-gradient(45deg, #F4D03F, #F7DC6F, #F8C471, #E67E22)",
+    description: "거짓말을 할 때마다 길어지는 나무 코처럼 진실과 거짓 사이에서 흔들리는 황금빛 성장통과 깨달음의 과정입니다."
+},
+{
+    name: "이상한 나라의 티파티",
+    gradient: "linear-gradient(135deg, #FAD7A0, #F8C471, #BB8FCE, #85C1E9)",
+    description: "매드해터의 끝나지 않는 다과회처럼 시간이 멈춘 듯한 기묘하고 환상적인 무지개빛 광기와 순수함의 향연입니다."
+}
+,
+
+
+
       {
         name: "NFP 시그니쳐 오로라",
         gradient: "linear-gradient(45deg, #01FF75, #00FFCC, #01FF75)",
@@ -599,63 +958,7 @@ function generatePalette() {
 
 // ==================== 수정된 컬러 생성기 기능 ====================
 
-function initColorGenerator() {
-    // DOM 요소들
-    const cardElement = document.getElementById('single-card-element');
-    const cardQuestion = document.getElementById('card-question');
-    const cardResult = document.getElementById('card-result');
-    const colorDisplay = document.getElementById('color-display');
-    const colorHex = document.getElementById('color-hex');
-    const colorName = document.getElementById('color-name');
-    const colorDescription = document.getElementById('color-description');
-    const pickBtn = document.getElementById('single-pick-btn');
-    const cardActions = document.getElementById('single-card-actions');
-    const copyBtn = document.getElementById('single-copy-btn');
-    const newBtn = document.getElementById('single-new-btn');
-
-    function drawCard() {
-    if (isAnimating) return;
-    
-    isAnimating = true;
-    pickBtn.disabled = true;
-    pickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
-    
-    // 카드 뒤집기 애니메이션
-    cardElement.classList.add('card-flip');
-    
-    setTimeout(() => {
-        // 랜덤 색상 선택
-        const randomIndex = Math.floor(Math.random() * colorCards.length);
-        currentColor = colorCards[randomIndex];
-        
-        // 카드 내용 업데이트
-        colorDisplay.style.backgroundColor = currentColor.hex;
-        colorHex.textContent = currentColor.hex;
-        colorName.textContent = currentColor.name;
-        colorDescription.textContent = currentColor.description;
-        
-        // NFP 특별 색상인지 확인하고 특별 효과 적용
-        if (currentColor.isSpecial) {
-            triggerSpecialEffect();
-        }
-        
-        // 카드 상태 변경
-        cardQuestion.style.display = 'none';
-        cardResult.style.display = 'flex';
-        
-        // 버튼 상태 변경
-        pickBtn.style.display = 'none';
-        cardActions.style.display = 'flex';
-        
-        isFlipped = true;
-        isAnimating = false;
-        
-        cardElement.classList.remove('card-flip');
-    }, 800);
-}
-
-// 특별 효과 함수 추가
-// 수정된 특별 효과 함수 (글로우 + 번쩍임 + 사운드만)
+// ==================== 특별 효과 함수 (전역으로 이동) ====================
 function triggerSpecialEffect() {
     // 1. 화면 번쩍임 효과
     const flashOverlay = document.createElement('div');
@@ -697,12 +1000,20 @@ function triggerSpecialEffect() {
     
     document.body.appendChild(flashOverlay);
     
-    // 2. 카드에 글로우 효과만 추가 (테두리와 스케일업 제거)
-    cardElement.classList.add('nfp-special-card');
+    // 2. 카드에 글로우 효과 추가 (단색 카드용)
+    const cardElement = document.getElementById('single-card-element');
+    if (cardElement) {
+        cardElement.classList.add('nfp-special-card');
+    }
+    
+    // 그라데이션 카드에도 글로우 효과 추가
+    const gradientCardElement = document.getElementById('gradient-card-element');
+    if (gradientCardElement) {
+        gradientCardElement.classList.add('nfp-special-card');
+    }
     
     // 3. 특별 축하 사운드 효과
     try {
-        // Web Audio API를 사용한 간단한 축하 사운드
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
@@ -723,13 +1034,18 @@ function triggerSpecialEffect() {
         // 사운드 재생 실패 시 무시
     }
     
-    // 4. 3초 후 특별 효과 제거
+    // 4. 2초 후 특별 효과 제거
     setTimeout(() => {
         if (flashOverlay.parentNode) {
             flashOverlay.remove();
         }
-        cardElement.classList.remove('nfp-special-card');
-    }, 3000);
+        if (cardElement) {
+            cardElement.classList.remove('nfp-special-card');
+        }
+        if (gradientCardElement) {
+            gradientCardElement.classList.remove('nfp-special-card');
+        }
+    }, 2000);
     
     // 0.5초 후 플래시 오버레이 제거
     setTimeout(() => {
@@ -738,6 +1054,62 @@ function triggerSpecialEffect() {
         }
     }, 500);
 }
+
+// ==================== 컬러 생성기 초기화 ====================
+function initColorGenerator() {
+    // DOM 요소들
+    const cardElement = document.getElementById('single-card-element');
+    const cardQuestion = document.getElementById('card-question');
+    const cardResult = document.getElementById('card-result');
+    const colorDisplay = document.getElementById('color-display');
+    const colorHex = document.getElementById('color-hex');
+    const colorName = document.getElementById('color-name');
+    const colorDescription = document.getElementById('color-description');
+    const pickBtn = document.getElementById('single-pick-btn');
+    const cardActions = document.getElementById('single-card-actions');
+    const copyBtn = document.getElementById('single-copy-btn');
+    const newBtn = document.getElementById('single-new-btn');
+
+    function drawCard() {
+        if (isAnimating) return;
+        
+        isAnimating = true;
+        pickBtn.disabled = true;
+        pickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
+        
+        // 카드 뒤집기 애니메이션
+        cardElement.classList.add('card-flip');
+        
+        setTimeout(() => {
+            // 랜덤 색상 선택
+            const randomIndex = Math.floor(Math.random() * colorCards.length);
+            currentColor = colorCards[randomIndex];
+            
+            // 카드 내용 업데이트
+            colorDisplay.style.backgroundColor = currentColor.hex;
+            colorHex.textContent = currentColor.hex;
+            colorName.textContent = currentColor.name;
+            colorDescription.textContent = currentColor.description;
+            
+            // NFP 특별 색상인지 확인하고 특별 효과 적용
+            if (currentColor.isSpecial) {
+                triggerSpecialEffect();
+            }
+            
+            // 카드 상태 변경
+            cardQuestion.style.display = 'none';
+            cardResult.style.display = 'flex';
+            
+            // 버튼 상태 변경
+            pickBtn.style.display = 'none';
+            cardActions.style.display = 'flex';
+            
+            isFlipped = true;
+            isAnimating = false;
+            
+            cardElement.classList.remove('card-flip');
+        }, 800);
+    }
 
     // 카드 리셋 함수
     function resetCard() {
@@ -820,17 +1192,15 @@ function triggerSpecialEffect() {
     if (gradientNewBtn) gradientNewBtn.addEventListener('click', resetGradientCard);
     if (gradientCopyBtn) gradientCopyBtn.addEventListener('click', copyGradientCode);
     
-    // 5색 팔레트 이벤트 (기존 코드 그대로 유지)
+    // 5색 팔레트 이벤트
     const palette5Btn = document.getElementById('palette-5-btn');
     if (palette5Btn) palette5Btn.addEventListener('click', generate5ColorPalette);
     
-    // 그라디언트 이벤트 (기존 코드 그대로 유지)
+    // 그라디언트 이벤트
     const gradient2Btn = document.getElementById('gradient-2-btn');
     const gradient3Btn = document.getElementById('gradient-3-btn');
     if (gradient2Btn) gradient2Btn.addEventListener('click', () => generateGradient(2));
     if (gradient3Btn) gradient3Btn.addEventListener('click', () => generateGradient(3));
-    
-    // 초기 상태에서 결과 숨기기
 }
 
 // ==================== 그라데이션 카드 기능 ====================
@@ -863,6 +1233,11 @@ function drawGradientCard() {
         gradientColorHex.textContent = "GRADIENT";
         gradientColorName.textContent = gradientCurrentColor.name;
         gradientColorDescription.textContent = gradientCurrentColor.description;
+        
+        // NFP 특별 그라데이션인지 확인하고 특별 효과 적용
+        if (gradientCurrentColor.isSpecial) {
+            triggerSpecialEffect();
+        }
         
         // 카드 상태 변경
         const gradientCardQuestion = document.getElementById('gradient-card-question');
@@ -912,6 +1287,29 @@ function resetGradientCard() {
         
         gradientCardElement.classList.remove('card-fade');
     }, 300);
+}
+
+// 그라데이션 코드 복사 함수
+function copyGradientCode() {
+    if (!gradientCurrentColor) return;
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(gradientCurrentColor.gradient).then(() => {
+            // 토스트 메시지 표시
+            showCopyToast();
+            
+            // 버튼 피드백
+            const gradientCopyBtn = document.getElementById('gradient-copy-btn');
+            const originalText = gradientCopyBtn.innerHTML;
+            gradientCopyBtn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
+            gradientCopyBtn.style.borderColor = '#01FF75';
+            
+            setTimeout(() => {
+                gradientCopyBtn.innerHTML = originalText;
+                gradientCopyBtn.style.borderColor = 'rgba(1, 255, 117, 0.3)';
+            }, 1500);
+        });
+    }
 }
 
 // 그라데이션 코드 복사 함수
