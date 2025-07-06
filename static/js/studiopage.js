@@ -785,6 +785,8 @@ function initStudio() {
         });
     });
 
+    
+
     // 서브 탭 전환 기능
     const subTabs = document.querySelectorAll('.studio-sub-tab');
     
@@ -811,6 +813,24 @@ function initStudio() {
     initColorGenerator();
     initImageExtractor();
     initDesignCalculator();
+
+    setTimeout(() => {
+        const targetTab = window.location.hash.substring(1);
+        
+        if (targetTab) {
+            tabs.forEach(t => t.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
+            
+            const targetTabElement = document.querySelector(`[data-tab="${targetTab}"]`);
+            const targetPanel = document.getElementById(targetTab);
+            
+            if (targetTabElement && targetPanel) {
+                targetTabElement.classList.add('active');
+                targetPanel.classList.add('active');
+            }
+        }
+    }, 200);
+
 }
 
 // ==================== QR 생성기 기능 ====================

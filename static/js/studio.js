@@ -13,9 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.transform = '';
             }, 150);
             
-            // 스튜디오 통합 페이지로 이동
+            // 해당 탭으로 스튜디오 페이지 이동
+            const targetTab = this.dataset.app;
+            
             setTimeout(() => {
-                window.location.href = '/studio/';
+                window.location.href = `/studio/#${targetTab}`;
             }, 200);
         });
         
@@ -34,30 +36,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 앱 다운로드 버튼 클릭 이벤트
-    if (appDownloadBtn) {
-        appDownloadBtn.addEventListener('click', function() {
-            // 클릭 효과
-            this.style.transform = 'translateY(-5px) scale(0.98)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
-            
-            // 앱 스토어 또는 다운로드 페이지로 이동
-            setTimeout(() => {
-                // iOS/Android 감지 후 해당 스토어로 이동
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                
-                if (/iPad|iPhone|iPod/.test(userAgent)) {
-                    // iOS - App Store로 이동
-                    window.open('https://apps.apple.com/app/nfp-studio', '_blank');
-                } else if (/android/i.test(userAgent)) {
-                    // Android - Google Play Store로 이동
-                    window.open('https://play.google.com/store/apps/details?id=com.nfpstudio', '_blank');
-                } else {
-                    // PC - 앱 소개 페이지로 이동
-                    window.location.href = '/app-download/';
-                }
-            }, 300);
-        });
+    // 앱 다운로드 버튼 클릭 이벤트 (수정된 버전)
+if (appDownloadBtn) {
+    appDownloadBtn.addEventListener('click', function() {
+        // 클릭 효과
+        this.style.transform = 'translateY(-5px) scale(0.98)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 200);
+        
+        // 개발 중 알림창 표시
+        setTimeout(() => {
+            alert('NFP 디자인 어시스턴트 앱이 개발 중입니다.\n곧 만나보실 수 있어요!');
+        }, 300);
+    });
     }
 });
