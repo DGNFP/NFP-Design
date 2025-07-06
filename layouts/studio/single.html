@@ -166,7 +166,7 @@
             <div class="studio-tab-panel" id="color-generator">
                 <div class="tab-header">
                     <h2>컬러 팔레트</h2>
-                    <p>오늘은 무슨 컬러가 좋을까요? 카드 뽑기와 랜덤 팔레트로 색상 영감을 찾아보세요.</p>
+                    <p>오늘은 무슨 컬러가 좋을까요?<br>카드 뽑기와 랜덤 팔레트로 색상 영감을 찾아보세요.</p>
                 </div>
 
                 <div class="studio-sub-tabs">
@@ -198,7 +198,7 @@
                 </div>
                 <div class="question-text">
                     <h3>컬러 카드 뽑기</h3>
-                    <p>클릭하여 새로운 컬러를 발견해보세요</p>
+                    <p>클릭하여 오늘의 컬러를 확인해보세요&#33;</p>
                 </div>
             </div>
             
@@ -301,7 +301,7 @@
                             <div class="studio-input-col">
                                 <label>최대 너비</label>
                                 <div class="studio-input-with-unit">
-                                    <input type="number" id="calc-max-width" value="800" min="320" max="3840">
+                                    <input type="number" id="calc-max-width" value="1280" min="320" max="3840">
                                     <span>px</span>
                                 </div>
                             </div>
@@ -317,14 +317,14 @@
                             <div class="studio-input-col">
                                 <label>간격</label>
                                 <div class="studio-input-with-unit">
-                                    <input type="number" id="calc-gutter" value="20" min="0" max="100">
+                                    <input type="number" id="calc-gutter" value="0" min="0" max="100">
                                     <span>px</span>
                                 </div>
                             </div>
                             <div class="studio-input-col">
-                                <label>마진</label>
+                                <label>좌우 마진</label>
                                 <div class="studio-input-with-unit">
-                                    <input type="number" id="calc-margin" value="20" min="0" max="200">
+                                    <input type="number" id="calc-margin" value="0" min="0" max="200">
                                     <span>px</span>
                                 </div>
                             </div>
@@ -332,15 +332,23 @@
                     </div>
                     
                     <div class="studio-grid-result-info">
-                        <div class="studio-result-item">
-                            <span>페이지 너비:</span>
-                            <span id="calc-page-width">800px</span>
-                        </div>
-                        <div class="studio-result-item">
-                            <span>컬럼 너비:</span>
-                            <span id="calc-column-width">175px</span>
-                        </div>
+                          <div class="studio-result-item">
+                        <span>페이지 너비</span>
+                        <span id="calc-page-width">800px</span>
                     </div>
+                    <div class="studio-result-item">
+                        <span>컬럼 너비</span>
+                        <span id="calc-column-width">175px</span>
+                    </div>
+                    <div class="studio-result-item">
+                        <span>간격</span>
+                        <span id="calc-gutter-display">20px</span>
+                    </div>
+                    <div class="studio-result-item">
+                        <span>좌우 마진</span>
+                        <span id="calc-margin-display">20px</span>
+                    </div>
+                </div>
                     
                     <div class="studio-grid-preview-wrapper">
                         <div class="studio-grid-preview" id="calc-grid-preview"></div>
@@ -349,12 +357,7 @@
 
                 <div class="studio-sub-panel" id="font-calculator">
                     <div class="studio-font-calc-container">
-                        <div class="studio-font-preview">
-                            <h4>미리보기</h4>
-                            <div class="studio-preview-text" id="font-preview-text">
-                                이 텍스트는 16px(12pt) 크기입니다
-                            </div>
-                        </div>
+                       
                         
                         <div class="studio-font-converter">
                             <div class="studio-converter-item">
@@ -374,6 +377,13 @@
                             </div>
                         </div>
                         
+                         <div class="studio-font-preview">
+                            <h4>미리보기</h4>
+                            <div class="studio-preview-text" id="font-preview-text">
+                                이 텍스트는 16px(12pt) 크기입니다
+                            </div>
+                        </div>    
+
                         <div class="studio-responsive-sizes">
                             <h4>반응형 사이즈</h4>
                             <div class="studio-device-sizes">

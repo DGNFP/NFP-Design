@@ -1045,10 +1045,10 @@ function initDesignCalculator() {
 }
 
 function calculateAndVisualizeGrid() {
-    const maxWidth = parseInt(document.getElementById('calc-max-width')?.value) || 800;
+    const maxWidth = parseInt(document.getElementById('calc-max-width')?.value) || 1280;
     const columns = parseInt(document.getElementById('calc-columns')?.value) || 4;
-    const gutter = parseInt(document.getElementById('calc-gutter')?.value) || 20;
-    const margin = parseInt(document.getElementById('calc-margin')?.value) || 20;
+    const gutter = parseInt(document.getElementById('calc-gutter')?.value) || 0;
+    const margin = parseInt(document.getElementById('calc-margin')?.value) || 0;
     
     const totalGutters = (columns - 1) * gutter;
     const totalMargins = margin * 2;
@@ -1058,37 +1058,31 @@ function calculateAndVisualizeGrid() {
     
     const pageWidthEl = document.getElementById('calc-page-width');
     const columnWidthEl = document.getElementById('calc-column-width');
+    const gutterDisplayEl = document.getElementById('calc-gutter-display');
+    const marginDisplayEl = document.getElementById('calc-margin-display');
     
     if (pageWidthEl) pageWidthEl.textContent = `${actualPageWidth}px`;
     if (columnWidthEl) columnWidthEl.textContent = `${columnWidth}px`;
+    if (gutterDisplayEl) gutterDisplayEl.textContent = `${gutter}px`;
+    if (marginDisplayEl) marginDisplayEl.textContent = `${margin}px`;
     
     visualizeGrid(actualPageWidth, columnWidth, columns, gutter, margin);
 }
 
 function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
     const preview = document.getElementById('calc-grid-preview');
-    
     if (!preview) return;
     
     preview.innerHTML = '';
     
-    // 컨테이너 여백을 최소화하고 더 넓은 프리뷰 제공
-    const containerPadding = 10;
+    // 부모 컨테이너의 실제 너비 활용
     const previewRect = preview.getBoundingClientRect();
-    const availableWidth = Math.max(previewRect.width - containerPadding, 320);
+    const availableWidth = previewRect.width - 40; // 여백 최소화
     
-    // 더 넓은 최대 너비 설정
-    let maxWidth;
-    if (window.innerWidth <= 480) {
-        maxWidth = Math.min(availableWidth, 300);
-    } else if (window.innerWidth <= 768) {
-        maxWidth = Math.min(availableWidth, 500);
-    } else {
-        maxWidth = Math.min(availableWidth, 800);
-    }
+    // 스케일 계산을 더 관대하게
+    const scale = Math.min(availableWidth / pageWidth, 2); // 최대 2배까지 확대
+    const scaledWidth = Math.min(pageWidth * scale, availableWidth); // 사용 가능한 너비 최대 활용
     
-    const scale = Math.min(maxWidth / pageWidth, 1);
-    const scaledWidth = pageWidth * scale;
     const scaledColumnWidth = columnWidth * scale;
     const scaledGutter = gutter * scale;
     const scaledMargin = margin * scale;
@@ -1100,10 +1094,10 @@ function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
     container.style.height = `${baseHeight}px`;
     container.style.width = `${scaledWidth}px`;
     container.style.position = 'relative';
-    container.style.margin = '0 auto';
+    container.style.margin = '0 auto'; // ← 세미콜론 추가
     
-    // 마진 표시 (마진이 0보다 클 때만)
-    if (margin > 0 && scaledMargin >= 1) {
+    // 마진이 0 이하일 때는 표시하지 않음
+    if (margin > 0) {
         const leftMargin = document.createElement('div');
         leftMargin.className = 'studio-grid-margin left';
         leftMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
@@ -1136,7 +1130,23 @@ function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
         
         container.appendChild(column);
     }
-    
+
+    // 간격 시각화 추가
+    for (let i = 0; i < columns - 1; i++) {
+        if (gutter > 0 && scaledGutter >= 1) {
+            const gutterElement = document.createElement('div');
+            gutterElement.className = 'studio-grid-gutter';
+            
+            // 간격 위치를 더 정확하게 계산
+            const gutterLeft = scaledMargin + ((i + 1) * scaledColumnWidth) + (i * scaledGutter);
+            gutterElement.style.left = `${gutterLeft}px`;
+            gutterElement.style.width = `${Math.max(scaledGutter, 8)}px`;
+            gutterElement.textContent = gutter;
+            
+            container.appendChild(gutterElement);
+        }
+    }
+
     preview.appendChild(container);
 }
 
