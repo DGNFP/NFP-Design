@@ -105,8 +105,9 @@ window.generatePalette = function() {
 
 // ==================== 전역 변수 및 설정 ====================
 
-// 컬러 카드 데이터
+// 확장된 컬러 카드 데이터 (기존 10개 + 신규 20개)
 const colorCards = [
+    // === 기존 데이터 ===
     {
         name: "미드나이트 블루",
         hex: "#191970",
@@ -156,6 +157,192 @@ const colorCards = [
         name: "인디고 블루",
         hex: "#4B0082",
         description: "깊이 있는 지혜의 색상으로, 통찰력과 직관을 개발시킵니다."
+    },
+    
+    // === 신규 색다른 명칭 ===
+    {
+        name: "네온사인 핑크",
+        hex: "#FF1493",
+        description: "도시의 밤을 밝히는 네온사인처럼 강렬하고 역동적인 에너지를 발산합니다."
+    },
+    {
+        name: "우주먼지 퍼플",
+        hex: "#6A0DAD",
+        description: "은하수 너머 우주의 신비로운 먼지 같은 색상으로, 무한한 상상력을 자극합니다."
+    },
+    {
+        name: "카페라떼 브라운",
+        hex: "#D2B48C",
+        description: "향긋한 아침 커피처럼 따뜻하고 포근한 기운으로 하루를 시작하게 합니다."
+    },
+    {
+        name: "형광등 화이트",
+        hex: "#F8F8FF",
+        description: "깔끔한 사무실 조명처럼 명확하고 집중력을 높여주는 순수한 빛입니다."
+    },
+    {
+        name: "전기뱀장어 옐로우",
+        hex: "#FFFF00",
+        description: "강력한 전기 에너지처럼 눈부시고 강렬한 임팩트를 전달하는 색상입니다."
+    },
+    {
+        name: "용암폭발 레드",
+        hex: "#DC143C",
+        description: "화산의 뜨거운 용암처럼 폭발적인 열정과 강인한 의지를 보여줍니다."
+    },
+    {
+        name: "구름속 실버",
+        hex: "#C0C0C0",
+        description: "높은 하늘 구름 사이로 스며드는 은빛처럼 몽환적이고 세련된 분위기입니다."
+    },
+    {
+        name: "심해어 블랙",
+        hex: "#2F4F4F",
+        description: "깊은 바닷속 미지의 세계처럼 신비롭고 깊이 있는 사색을 불러일으킵니다."
+    },
+    {
+        name: "샐러드믹스 그린",
+        hex: "#90EE90",
+        description: "신선한 채소처럼 생기발랄하고 건강한 에너지로 활력을 불어넣어줍니다."
+    },
+    {
+        name: "로켓연료 블루",
+        hex: "#4169E1",
+        description: "우주로 향하는 로켓처럼 미래지향적이고 도전적인 정신을 상징합니다."
+    },
+    {
+        name: "벚꽃눈보라 핑크",
+        hex: "#FFB6C1",
+        description: "봄날 흩날리는 벚꽃잎처럼 로맨틱하고 꿈같은 순간을 연출합니다."
+    },
+    {
+        name: "사이버펑크 시안",
+        hex: "#00FFFF",
+        description: "미래도시 홀로그램처럼 디지털하고 첨단 기술의 세련됨을 표현합니다."
+    },
+    {
+        name: "마카롱상자 민트",
+        hex: "#98FB98",
+        description: "달콤한 디저트처럼 부드럽고 상큼한 기분으로 일상에 소소한 즐거움을 더합니다."
+    },
+    {
+        name: "번개칠 옐로우",
+        hex: "#FFEA00",
+        description: "천둥번개처럼 순간적이고 강력한 영감과 아이디어의 번뜩임을 나타냅니다."
+    },
+    {
+        name: "갤럭시 바이올렛",
+        hex: "#8A2BE2",
+        description: "광활한 은하계처럼 무한한 가능성과 창조적 상상력의 경계를 넘나듭니다."
+    },
+    {
+        name: "콘크리트 정글 그레이",
+        hex: "#696969",
+        description: "도시의 건축물처럼 견고하고 현실적인 실용성과 모던함을 대표합니다."
+    },
+    {
+        name: "열대과일 오렌지",
+        hex: "#FF8C00",
+        description: "태양 가득한 남국의 과일처럼 에너지 넘치고 즐거운 휴가 기분을 선사합니다."
+    },
+    {
+        name: "홀로그램 무지개",
+        hex: "#9370DB",
+        description: "빛이 만들어내는 스펙트럼처럼 다채롭고 신비로운 변화의 가능성을 품고 있습니다."
+    },
+    {
+        name: "스모키바베큐 브라운",
+        hex: "#A0522D",
+        description: "향긋한 훈제 향처럼 깊이 있고 진중한 맛과 여유로운 시간을 의미합니다."
+    },
+    {
+        name: "오로라 스카이",
+        hex: "#87CEEB",
+        description: "북극의 신비로운 오로라처럼 환상적이고 경이로운 자연의 아름다움을 담았습니다."
+    }
+    ,
+
+      // === NFP 특별 색상들 ===
+    {
+        name: "NFP 시그니쳐 그린",
+        hex: "#01FF75",
+        description: "창의적 혁신과 무한한 가능성을 상징하는 NFP의 시그니쳐 컬러입니다. 새로운 아이디어와 도전 정신을 불러일으킵니다.",
+        isSpecial: true
+    },
+    {
+        name: "NFP 에메랄드 에디션",
+        hex: "#00CC5E",
+        description: "깊이 있는 성장과 지속가능한 성공을 의미하는 NFP 에메랄드 에디션입니다. 신뢰와 안정성 위에 구축된 혁신을 나타냅니다.",
+        isSpecial: true
+    }
+
+];
+
+// 그라데이션 카드 데이터
+const gradientColorCards = [
+    {
+        name: "일몰 스카이라인",
+        gradient: "linear-gradient(45deg, #FF6B6B, #FFE66D, #FF8E53)",
+        description: "하루의 끝을 알리는 황금빛 노을처럼 따뜻하고 로맨틱한 감성을 불러일으킵니다."
+    },
+    {
+        name: "은하수 터널",
+        gradient: "linear-gradient(135deg, #667eea, #764ba2, #f093fb)",
+        description: "우주를 관통하는 신비로운 통로처럼 무한한 상상력과 모험심을 자극합니다."
+    },
+    {
+        name: "네온시티 나이트",
+        gradient: "linear-gradient(90deg, #ff0080, #00ffff, #8000ff)",
+        description: "사이버펑크 도시의 밤처럼 미래적이고 역동적인 디지털 에너지를 발산합니다."
+    },
+    {
+        name: "열대우림 미스트",
+        gradient: "linear-gradient(180deg, #11998e, #38ef7d, #a8e6cf)",
+        description: "신비로운 정글 안개처럼 생명력 넘치고 치유의 기운을 전달하는 자연의 힘입니다."
+    },
+    {
+        name: "오로라 윈터",
+        gradient: "linear-gradient(45deg, #4facfe, #00f2fe, #43e97b)",
+        description: "극지방의 오로라처럼 환상적이고 순수한 겨울 밤의 마법을 담고 있습니다."
+    },
+    {
+        name: "화산폭발 마그마",
+        gradient: "linear-gradient(135deg, #ff9a9e, #fad0c4, #ff6b6b)",
+        description: "뜨거운 용암의 분출처럼 폭발적인 열정과 강인한 생명력을 상징합니다."
+    },
+    {
+        name: "심해 바이오",
+        gradient: "linear-gradient(90deg, #0f0c29, #302b63, #24243e)",
+        description: "깊은 바다의 신비로운 생명체처럼 고요하면서도 강렬한 내면의 힘을 보여줍니다."
+    },
+    {
+        name: "캔디팝 드림",
+        gradient: "linear-gradient(45deg, #a8edea, #fed6e3, #ffecd2)",
+        description: "달콤한 솜사탕처럼 포근하고 꿈같은 행복감으로 마음을 어루만져줍니다."
+    },
+    {
+        name: "전광석화 썬더",
+        gradient: "linear-gradient(180deg, #fdbb2d, #22c1c3, #4facfe)",
+        description: "번개의 순간적 번쩍임처럼 강력한 영감과 번뜩이는 아이디어를 선사합니다."
+    },
+    {
+        name: "로켓발사 플레임",
+        gradient: "linear-gradient(135deg, #fa709a, #fee140, #ff6b6b)",
+        description: "우주로 향하는 로켓 추진체처럼 미래를 향한 강력한 추진력과 도전정신을 나타냅니다."
+    }
+    ,
+      {
+        name: "NFP 시그니쳐 오로라",
+        gradient: "linear-gradient(45deg, #01FF75, #00FFCC, #01FF75)",
+        description: "NFP만의 독창적인 오로라 그라데이션입니다. 끝없는 창의성과 혁신의 여정을 상징하는 특별한 색채입니다.",
+        isSpecial: true
+    }
+    ,
+    {
+        name: "NFP 에메랄드 심포니",
+        gradient: "linear-gradient(135deg, #00CC5E, #01FF75, #4FFFB0)",
+        description: "NFP 에메랄드 심포니 그라데이션을 발견하셨습니다. 조화로운 성장과 지속가능한 혁신을 표현하는 프리미엄 컬렉션입니다.",
+        isSpecial: true
     }
 ];
 
@@ -163,7 +350,12 @@ const colorCards = [
 let isFlipped = false;
 let currentColor = null;
 let isAnimating = false;
-// 전역 변수
+
+// 그라데이션 카드 관련 변수들
+let gradientIsFlipped = false;
+let gradientCurrentColor = null;
+let gradientIsAnimating = false;
+
 // ==================== QR 라이브러리 로드 ====================
 
 function loadQRLibrary() {
@@ -408,11 +600,6 @@ function generatePalette() {
 // ==================== 수정된 컬러 생성기 기능 ====================
 
 function initColorGenerator() {
-    // 단색 카드 변수들
-    let isFlipped = false;
-    let currentColor = null;
-    let isAnimating = false;
-
     // DOM 요소들
     const cardElement = document.getElementById('single-card-element');
     const cardQuestion = document.getElementById('card-question');
@@ -426,42 +613,131 @@ function initColorGenerator() {
     const copyBtn = document.getElementById('single-copy-btn');
     const newBtn = document.getElementById('single-new-btn');
 
-    // 카드 뽑기 함수
     function drawCard() {
-        if (isAnimating) return;
+    if (isAnimating) return;
+    
+    isAnimating = true;
+    pickBtn.disabled = true;
+    pickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
+    
+    // 카드 뒤집기 애니메이션
+    cardElement.classList.add('card-flip');
+    
+    setTimeout(() => {
+        // 랜덤 색상 선택
+        const randomIndex = Math.floor(Math.random() * colorCards.length);
+        currentColor = colorCards[randomIndex];
         
-        isAnimating = true;
-        pickBtn.disabled = true;
-        pickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
+        // 카드 내용 업데이트
+        colorDisplay.style.backgroundColor = currentColor.hex;
+        colorHex.textContent = currentColor.hex;
+        colorName.textContent = currentColor.name;
+        colorDescription.textContent = currentColor.description;
         
-        // 카드 뒤집기 애니메이션
-        cardElement.classList.add('card-flip');
+        // NFP 특별 색상인지 확인하고 특별 효과 적용
+        if (currentColor.isSpecial) {
+            triggerSpecialEffect();
+        }
         
-        setTimeout(() => {
-            // 랜덤 색상 선택
-            const randomIndex = Math.floor(Math.random() * colorCards.length);
-            currentColor = colorCards[randomIndex];
+        // 카드 상태 변경
+        cardQuestion.style.display = 'none';
+        cardResult.style.display = 'flex';
+        
+        // 버튼 상태 변경
+        pickBtn.style.display = 'none';
+        cardActions.style.display = 'flex';
+        
+        isFlipped = true;
+        isAnimating = false;
+        
+        cardElement.classList.remove('card-flip');
+    }, 800);
+}
+
+// 특별 효과 함수 추가
+// 수정된 특별 효과 함수 (글로우 + 번쩍임 + 사운드만)
+function triggerSpecialEffect() {
+    // 1. 화면 번쩍임 효과
+    const flashOverlay = document.createElement('div');
+    flashOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(45deg, #01FF75, #00FFCC);
+        opacity: 0.3;
+        z-index: 9999;
+        pointer-events: none;
+        animation: nfpFlash 0.5s ease-out;
+    `;
+    
+    // CSS 애니메이션 정의 (글로우만 포함, 스케일업과 테두리 제거)
+    if (!document.querySelector('#nfp-special-style')) {
+        const style = document.createElement('style');
+        style.id = 'nfp-special-style';
+        style.textContent = `
+            @keyframes nfpFlash {
+                0% { opacity: 0; }
+                50% { opacity: 0.3; }
+                100% { opacity: 0; }
+            }
             
-            // 카드 내용 업데이트
-            colorDisplay.style.backgroundColor = currentColor.hex;
-            colorHex.textContent = currentColor.hex;
-            colorName.textContent = currentColor.name;
-            colorDescription.textContent = currentColor.description;
+            @keyframes nfpGlow {
+                0%, 100% { box-shadow: 0 0 20px rgba(1, 255, 117, 0.5); }
+                50% { box-shadow: 0 0 40px rgba(1, 255, 117, 0.8), 0 0 60px rgba(1, 255, 117, 0.4); }
+            }
             
-            // 카드 상태 변경
-            cardQuestion.style.display = 'none';
-            cardResult.style.display = 'flex';
-            
-            // 버튼 상태 변경
-            pickBtn.style.display = 'none';
-            cardActions.style.display = 'flex';
-            
-            isFlipped = true;
-            isAnimating = false;
-            
-            cardElement.classList.remove('card-flip');
-        }, 800);
+            .nfp-special-card {
+                animation: nfpGlow 2s ease-in-out infinite;
+            }
+        `;
+        document.head.appendChild(style);
     }
+    
+    document.body.appendChild(flashOverlay);
+    
+    // 2. 카드에 글로우 효과만 추가 (테두리와 스케일업 제거)
+    cardElement.classList.add('nfp-special-card');
+    
+    // 3. 특별 축하 사운드 효과
+    try {
+        // Web Audio API를 사용한 간단한 축하 사운드
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.1);
+        oscillator.frequency.setValueAtTime(1200, audioContext.currentTime + 0.2);
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+        
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + 0.3);
+    } catch (e) {
+        // 사운드 재생 실패 시 무시
+    }
+    
+    // 4. 3초 후 특별 효과 제거
+    setTimeout(() => {
+        if (flashOverlay.parentNode) {
+            flashOverlay.remove();
+        }
+        cardElement.classList.remove('nfp-special-card');
+    }, 3000);
+    
+    // 0.5초 후 플래시 오버레이 제거
+    setTimeout(() => {
+        if (flashOverlay.parentNode) {
+            flashOverlay.remove();
+        }
+    }, 500);
+}
 
     // 카드 리셋 함수
     function resetCard() {
@@ -526,6 +802,24 @@ function initColorGenerator() {
     if (newBtn) newBtn.addEventListener('click', resetCard);
     if (copyBtn) copyBtn.addEventListener('click', copyColorCode);
     
+    // 그라데이션 카드 이벤트 리스너
+    const gradientCardElement = document.getElementById('gradient-card-element');
+    const gradientPickBtn = document.getElementById('gradient-pick-btn');
+    const gradientCopyBtn = document.getElementById('gradient-copy-btn');
+    const gradientNewBtn = document.getElementById('gradient-new-btn');
+
+    if (gradientCardElement) {
+        gradientCardElement.addEventListener('click', () => {
+            if (!gradientIsFlipped && !gradientIsAnimating) {
+                drawGradientCard();
+            }
+        });
+    }
+
+    if (gradientPickBtn) gradientPickBtn.addEventListener('click', drawGradientCard);
+    if (gradientNewBtn) gradientNewBtn.addEventListener('click', resetGradientCard);
+    if (gradientCopyBtn) gradientCopyBtn.addEventListener('click', copyGradientCode);
+    
     // 5색 팔레트 이벤트 (기존 코드 그대로 유지)
     const palette5Btn = document.getElementById('palette-5-btn');
     if (palette5Btn) palette5Btn.addEventListener('click', generate5ColorPalette);
@@ -539,129 +833,108 @@ function initColorGenerator() {
     // 초기 상태에서 결과 숨기기
 }
 
-function pickSingleCard() {
-    const card = document.getElementById('single-card-element');
-    const button = document.getElementById('single-pick-btn');
-    const actions = document.getElementById('single-card-actions');
+// ==================== 그라데이션 카드 기능 ====================
+
+// 그라데이션 카드 뽑기 함수
+function drawGradientCard() {
+    if (gradientIsAnimating) return;
     
-    if (!card || currentCard) return;
+    gradientIsAnimating = true;
+    const gradientPickBtn = document.getElementById('gradient-pick-btn');
+    gradientPickBtn.disabled = true;
+    gradientPickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
     
-    currentCard = colorCards[Math.floor(Math.random() * colorCards.length)];
-    
-    button.disabled = true;
-    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 생성 중...';
-    
-    card.classList.add('flipping');
-    
-    setTimeout(() => {
-        card.innerHTML = `
-            <div class="card-color">
-                <div class="color-display-area" style="background-color: ${currentCard.hex}"></div>
-                <div class="color-info-area">
-                    <div class="color-brand-name">MIKADO</div>
-                    <div class="color-hex-code">${currentCard.hex}</div>
-                    <div class="color-korean-name">${currentCard.name}</div>
-                    <div class="color-description">${currentCard.description}</div>
-                </div>
-            </div>
-        `;
-    }, 600);
+    // 카드 뒤집기 애니메이션
+    const gradientCardElement = document.getElementById('gradient-card-element');
+    gradientCardElement.classList.add('card-flip');
     
     setTimeout(() => {
-        card.classList.remove('flipping');
-        button.style.display = 'none';
-        actions.style.display = 'flex';
-    }, 1200);
+        // 랜덤 그라데이션 색상 선택
+        const randomIndex = Math.floor(Math.random() * gradientColorCards.length);
+        gradientCurrentColor = gradientColorCards[randomIndex];
+        
+        // 카드 내용 업데이트
+        const gradientColorDisplay = document.getElementById('gradient-color-display');
+        const gradientColorHex = document.getElementById('gradient-color-hex');
+        const gradientColorName = document.getElementById('gradient-color-name');
+        const gradientColorDescription = document.getElementById('gradient-color-description');
+        
+        gradientColorDisplay.style.background = gradientCurrentColor.gradient;
+        gradientColorHex.textContent = "GRADIENT";
+        gradientColorName.textContent = gradientCurrentColor.name;
+        gradientColorDescription.textContent = gradientCurrentColor.description;
+        
+        // 카드 상태 변경
+        const gradientCardQuestion = document.getElementById('gradient-card-question');
+        const gradientCardResult = document.getElementById('gradient-card-result');
+        gradientCardQuestion.style.display = 'none';
+        gradientCardResult.style.display = 'flex';
+        
+        // 버튼 상태 변경
+        gradientPickBtn.style.display = 'none';
+        const gradientCardActions = document.getElementById('gradient-card-actions');
+        gradientCardActions.style.display = 'flex';
+        
+        gradientIsFlipped = true;
+        gradientIsAnimating = false;
+        
+        gradientCardElement.classList.remove('card-flip');
+    }, 800);
 }
 
-function pickSingleCard() {
-    const card = document.getElementById('single-card-element');
-    const button = document.getElementById('single-pick-btn');
-    const actions = document.getElementById('single-card-actions');
+// 그라데이션 카드 리셋 함수
+function resetGradientCard() {
+    if (gradientIsAnimating) return;
     
-    if (!card || currentCard) return;
+    gradientIsAnimating = true;
     
-    currentCard = colorCards[Math.floor(Math.random() * colorCards.length)];
-    
-    button.disabled = true;
-    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 생성 중...';
-    
-    card.classList.add('flipping');
+    const gradientCardElement = document.getElementById('gradient-card-element');
+    gradientCardElement.classList.add('card-fade');
     
     setTimeout(() => {
-        card.innerHTML = `
-            <div class="card-color">
-                <div class="color-display-area" style="background-color: ${currentCard.hex}"></div>
-                <div class="color-info-area">
-                    <div class="color-brand-name">MIKADO</div>
-                    <div class="color-hex-code">${currentCard.hex}</div>
-                    <div class="color-korean-name">${currentCard.name}</div>
-                    <div class="color-description">${currentCard.description}</div>
-                </div>
-            </div>
-        `;
-    }, 600);
-    
-    setTimeout(() => {
-        card.classList.remove('flipping');
-        button.style.display = 'none';
-        actions.style.display = 'flex';
-    }, 1200);
+        // 카드 상태 리셋
+        const gradientCardResult = document.getElementById('gradient-card-result');
+        const gradientCardQuestion = document.getElementById('gradient-card-question');
+        gradientCardResult.style.display = 'none';
+        gradientCardQuestion.style.display = 'flex';
+        
+        // 버튼 상태 리셋
+        const gradientCardActions = document.getElementById('gradient-card-actions');
+        const gradientPickBtn = document.getElementById('gradient-pick-btn');
+        gradientCardActions.style.display = 'none';
+        gradientPickBtn.style.display = 'inline-block';
+        gradientPickBtn.disabled = false;
+        gradientPickBtn.innerHTML = '<i class="fas fa-magic"></i> 그라데이션 카드 뽑기';
+        
+        gradientIsFlipped = false;
+        gradientCurrentColor = null;
+        gradientIsAnimating = false;
+        
+        gradientCardElement.classList.remove('card-fade');
+    }, 300);
 }
 
-function resetSingleCard() {
-    const card = document.getElementById('single-card-element');
-    
-    if (!currentCard) return;
-    
-    const newCard = colorCards[Math.floor(Math.random() * colorCards.length)];
-    
-    let attempts = 0;
-    while (newCard.hex === currentCard.hex && attempts < 10) {
-        newCard = colorCards[Math.floor(Math.random() * colorCards.length)];
-        attempts++;
-    }
-    
-    currentCard = newCard;
-    
-    card.classList.add('flipping');
-    
-    setTimeout(() => {
-        card.innerHTML = `
-            <div class="card-color">
-                <div class="color-display-area" style="background-color: ${currentCard.hex}"></div>
-                <div class="color-info-area">
-                    <div class="color-brand-name">MIKADO</div>
-                    <div class="color-hex-code">${currentCard.hex}</div>
-                    <div class="color-korean-name">${currentCard.name}</div>
-                    <div class="color-description">${currentCard.description}</div>
-                </div>
-            </div>
-        `;
-    }, 600);
-    
-    setTimeout(() => {
-        card.classList.remove('flipping');
-    }, 1200);
-}
-
-function copySingleColor() {
-    if (!currentCard) return;
+// 그라데이션 코드 복사 함수
+function copyGradientCode() {
+    if (!gradientCurrentColor) return;
     
     if (navigator.clipboard) {
-        navigator.clipboard.writeText(currentCard.hex);
+        navigator.clipboard.writeText(gradientCurrentColor.gradient).then(() => {
+            // 토스트 메시지 표시
+            showCopyToast();
+            
+            // 버튼 피드백
+            const gradientCopyBtn = document.getElementById('gradient-copy-btn');
+            const originalText = gradientCopyBtn.innerHTML;
+            gradientCopyBtn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
+            gradientCopyBtn.style.borderColor = '#01FF75';
+            
+            setTimeout(() => {
+                gradientCopyBtn.innerHTML = originalText;
+                gradientCopyBtn.style.borderColor = 'rgba(1, 255, 117, 0.3)';
+            }, 1500);
+        });
     }
-    
-    const btn = document.getElementById('single-copy-btn');
-    if (!btn) return;
-    
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
-    btn.style.background = '#00e066';
-    setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.background = '';
-    }, 2000);
 }
 
 function resetSingleCard() {
@@ -704,6 +977,25 @@ function resetSingleCard() {
         
         currentCard = null;
     }, 800);
+}
+
+function copySingleColor() {
+    if (!currentCard) return;
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(currentCard.hex);
+    }
+    
+    const btn = document.getElementById('single-copy-btn');
+    if (!btn) return;
+    
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
+    btn.style.background = '#00e066';
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+    }, 2000);
 }
 
 function generate5ColorPalette() {
