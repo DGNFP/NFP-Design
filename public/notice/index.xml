@@ -6,8 +6,15 @@
     <description>Recent content in Notices on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 13 Jun 2025 10:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Jul 2025 21:37:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>25.07.06 업데이트 내역 - 스튜디오 NFP 페이지 추가</title>
+      <link>http://localhost:1313/notice/2025-07-06-25-07-06-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%B6%94%EA%B0%80/</link>
+      <pubDate>Sun, 06 Jul 2025 21:37:00 +0000</pubDate>
+      <guid>http://localhost:1313/notice/2025-07-06-25-07-06-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%B6%94%EA%B0%80/</guid>
+      <description>&lt;p&gt;업데이트 내역&lt;/p&gt;&#xA;&lt;p&gt;=== 스튜디오 NFP 페이지 신규 추가 ===&lt;/p&gt;&#xA;&lt;p&gt;새로운 디자인 도구 통합 페이지로 6개 주요 탭 구성&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;QR 생성기 탭&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;- QR 코드 생성 및 다운로드 기능&lt;/p&gt;&#xA;&lt;p&gt;- 사이즈 조절 가능 (최소 128px ~ 최대 512px)&lt;/p&gt;&#xA;&lt;p&gt;- PNG 형식 다운로드 지원&lt;/p&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;컬러 팔레트 탭&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;- 베이스 컬러 선택 (컬러 피커, RGB 슬라이더, HEX 코드 입력)&lt;/p&gt;&#xA;&lt;p&gt;- 4가지 팔레트 타입 생성: 단조색, 유사색, 보색, 삼각색&lt;/p&gt;&#xA;&lt;p&gt;- 실시간 팔레트 미리보기 및 색상 코드 복사&lt;/p&gt;</description>
+    </item>
     <item>
       <title>NFP 디자인 웹사이트 오픈 안내</title>
       <link>http://localhost:1313/notice/test/</link>

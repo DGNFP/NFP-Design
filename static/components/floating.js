@@ -338,12 +338,6 @@ async function generateChartHTML() {
 
     // 카운터 표시 업데이트
     function updateCounterDisplay() {
-        // 심플 스타일 업데이트 (모바일)
-        const todayElement = document.getElementById('today-count');
-        const totalElement = document.getElementById('total-count');
-        if (todayElement) todayElement.textContent = visitorCount.today;
-        if (totalElement) totalElement.textContent = visitorCount.total;
-        
         // 그래프 스타일 업데이트 (PC)
         const todayElementLg = document.getElementById('today-count-lg');
         const totalElementLg = document.getElementById('total-count-lg');
@@ -399,30 +393,25 @@ async function generateChartHTML() {
     // 방문자 카운터 HTML 생성 (초기값으로 생성, 나중에 업데이트)
     const visitorCounterHtml = showVisitorCounter ? `
         <div class="visitor-counter">
-            <div class="visitor-stats-simple">
-                <div class="stat-item">
-                    <span class="stat-label">Today</span>
-                    <span class="stat-count" id="today-count">${visitorCount.today}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Total</span>
-                    <span class="stat-count" id="total-count">${visitorCount.total.toLocaleString()}</span>
-                </div>
-            </div>
-            
             <div class="visitor-stats-graph">
                 <div class="chart-container">
                     <div class="chart-loading">로딩 중...</div>
                 </div>
                 <div class="stats-summary">
+
+                    <div class="stat-total">
+                            <span class="stat-label-lg">Total</span>
+                            <span class="stat-count-lg" id="total-count-lg">${visitorCount.total.toLocaleString()}</span>
+                        </div>
+
                     <div class="stat-today">
                         <span class="stat-label-lg">Today</span>
                         <span class="stat-count-lg" id="today-count-lg">${visitorCount.today}</span>
                     </div>
-                    <div class="stat-total">
-                        <span class="stat-label-lg">Total</span>
-                        <span class="stat-count-lg" id="total-count-lg">${visitorCount.total.toLocaleString()}</span>
-                    </div>
+
+                    
+
+
                 </div>
             </div>
         </div>
@@ -527,35 +516,7 @@ async function generateChartHTML() {
         box-shadow: 0 6px 20px rgba(1, 255, 117, 0.5);
     }
 
-    .visitor-stats-simple {
-        display: none;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .visitor-stats-simple .stat-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 16px;
-        background-color: rgba(0, 0, 0, 0.9);
-        border: 2px solid var(--accent-color);
-        border-radius: 50px;
-        min-width: 120px;
-        backdrop-filter: blur(10px);
-    }
-
-    .visitor-stats-simple .stat-label {
-        font-size: 12px;
-        color: var(--accent-color);
-        font-weight: 600;
-    }
-
-    .visitor-stats-simple .stat-count {
-        font-size: 14px;
-        font-weight: 900;
-        color: #ffffff;
-    }
+    
 
     .visitor-stats-graph {
         display: block;
