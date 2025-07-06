@@ -214,7 +214,7 @@
             </div>
             <div class="studio-page-tab" data-tab="size-guide">
                 <i class="fas fa-ruler-combined"></i>
-                <span class="tab-text">사이즈 가이드</span>
+                <span class="tab-text">디자인 가이드</span>
             </div>
         </div>
 
@@ -634,19 +634,19 @@
             
             <div class="studio-grid-result-info" id="ratio-results">
                 <div class="studio-result-item">
-                    <span>4K</span>
+                    <span>초고화질(4K)</span>
                     <span id="ratio-4k">3840×2160</span>
                 </div>
                 <div class="studio-result-item">
-                    <span>Full HD</span>
+                    <span>고화질(Full HD)</span>
                     <span id="ratio-fhd">1920×1080</span>
                 </div>
                 <div class="studio-result-item">
-                    <span>HD</span>
+                    <span>표준화질(HD)</span>
                     <span id="ratio-hd">1280×720</span>
                 </div>
                 <div class="studio-result-item">
-                    <span>SD</span>
+                    <span>일반화질(SD)</span>
                     <span id="ratio-sd">854×480</span>
                 </div>
             </div>
@@ -787,89 +787,545 @@
 </div>
   
 
-            
-            <div class="studio-tab-panel" id="size-guide">
-                <div class="tab-header">
-                    <h2>디자인 사이즈 가이드</h2>
-                    <p>다양한 플랫폼과 매체의 표준 사이즈를 확인하세요.</p>
+          
+<div class="studio-tab-panel" id="size-guide">
+    <div class="tab-header">
+        <h2>디자인 가이드</h2>
+        <p>디자인 작업에 필요한 모든 표준 사이즈와 가이드라인을 한 곳에서 확인하세요.</p>
+    </div>
+
+    
+    <div class="studio-sub-tabs">
+        <div class="studio-sub-tab active" data-subtab="platform-sizes">
+            <i class="fas fa-mobile-alt"></i>
+            플랫폼 사이즈
+        </div>
+        <div class="studio-sub-tab" data-subtab="color-guide">
+            <i class="fas fa-palette"></i>
+            컬러 가이드
+        </div>
+        <div class="studio-sub-tab" data-subtab="typography-guide">
+            <i class="fas fa-font"></i>
+            타이포그래피
+        </div>
+        <div class="studio-sub-tab" data-subtab="layout-grid">
+            <i class="fas fa-th-large"></i>
+            레이아웃 & 그리드
+        </div>
+        <div class="studio-sub-tab" data-subtab="ui-elements">
+            <i class="fas fa-mouse-pointer"></i>
+            UI 요소
+        </div>
+        <div class="studio-sub-tab" data-subtab="brand-guide">
+            <i class="fas fa-award"></i>
+            브랜딩
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel active" id="platform-sizes">
+        <div class="studio-size-categories">
+            <div class="studio-size-category">
+                <h3>소셜 미디어</h3>
+                <div class="studio-size-item">
+                    <span>인스타그램 포스트</span>
+                    <span>1080 x 1080px</span>
+                    <small>1:1 비율</small>
                 </div>
-                
-                <div class="studio-size-categories">
-                    <div class="studio-size-category">
-                        <h3>소셜 미디어</h3>
-                        <div class="studio-size-item">
-                            <span>인스타그램 포스트</span>
-                            <span>1080 x 1080px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>인스타그램 스토리</span>
-                            <span>1080 x 1920px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>페이스북 커버</span>
-                            <span>820 x 312px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>유튜브 썸네일</span>
-                            <span>1280 x 720px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>카카오톡 채널 커버</span>
-                            <span>960 x 320px</span>
-                        </div>
-                    </div>
-                    
-                    <div class="studio-size-category">
-                        <h3>웹사이트</h3>
-                        <div class="studio-size-item">
-                            <span>데스크톱 헤더</span>
-                            <span>1920 x 500px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>모바일 배너</span>
-                            <span>375 x 200px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>블로그 포스트</span>
-                            <span>1200 x 630px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>파비콘</span>
-                            <span>32 x 32px</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>OG 이미지</span>
-                            <span>1200 x 630px</span>
-                        </div>
-                    </div>
-                    
-                    <div class="studio-size-category">
-                        <h3>인쇄물</h3>
-                        <div class="studio-size-item">
-                            <span>A4 용지</span>
-                            <span>210 x 297mm</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>명함</span>
-                            <span>90 x 54mm</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>포스터 A3</span>
-                            <span>297 x 420mm</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>현수막</span>
-                            <span>1000 x 700mm</span>
-                        </div>
-                        <div class="studio-size-item">
-                            <span>엽서</span>
-                            <span>152 x 102mm</span>
-                        </div>
-                    </div>
+                <div class="studio-size-item">
+                    <span>인스타그램 스토리</span>
+                    <span>1080 x 1920px</span>
+                    <small>9:16 비율</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>인스타그램 세로형</span>
+                    <span>1080 x 1350px</span>
+                    <small>4:5 비율</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>페이스북 커버</span>
+                    <span>820 x 312px</span>
+                    <small>페이지 커버</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>페이스북 포스트</span>
+                    <span>1200 x 630px</span>
+                    <small>링크 미리보기</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>유튜브 썸네일</span>
+                    <span>1280 x 720px</span>
+                    <small>16:9 비율</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>틱톡 동영상</span>
+                    <span>1080 x 1920px</span>
+                    <small>9:16 비율</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>링크드인 커버</span>
+                    <span>1584 x 396px</span>
+                    <small>4:1 비율</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>웹사이트</h3>
+                <div class="studio-size-item">
+                    <span>데스크톱</span>
+                    <span>1920 x 1080px</span>
+                    <small>Full HD</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>모바일 배너</span>
+                    <span>375 x 200px</span>
+                    <small>iPhone 기준</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>OG(소셜공유) 이미지</span>
+                    <span>1200 x 630px</span>
+                    <small>소셜 공유</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>파비콘</span>
+                    <span>32 x 32px</span>
+                    <small>브라우저 탭</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>PWA(웹 앱) 아이콘</span>
+                    <span>512 x 512px</span>
+                    <small>앱 아이콘</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>배너 광고</span>
+                    <span>728 x 90px</span>
+                    <small>리더보드</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>인쇄물</h3>
+                <div class="studio-size-item">
+                    <span>A4 용지</span>
+                    <span>210 x 297mm</span>
+                    <small>국제 표준</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>명함</span>
+                    <span>90 x 54mm</span>
+                    <small>한국 표준</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>A3 포스터</span>
+                    <span>297 x 420mm</span>
+                    <small>중형 포스터</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>현수막</span>
+                    <span>1000 x 700mm</span>
+                    <small>표준 현수막</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>엽서 (A6)</span>
+                    <span>105 x 148mm</span>
+                    <small>A6 크기</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>브로셔</span>
+                    <span>84 x 119mm</span>
+                    <small>접이식</small>
+                </div>
+
+                <div class="studio-size-item">
+                    <span>엑스배너</span>
+                    <span>600 x 1800mm</span>
+                    <small>스탠드 배너</small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel" id="color-guide">
+        <div class="studio-size-categories">
+            <div class="studio-size-category">
+                <h3>브랜드 컬러 시스템</h3>
+                <div class="studio-size-item">
+                    <span>메인 컬러</span>
+                    <span>60% 비중</span>
+                    <small>브랜드 주색상</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>서브 컬러</span>
+                    <span>30% 비중</span>
+                    <small>보조 색상</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>액센트 컬러</span>
+                    <span>10% 비중</span>
+                    <small>강조 색상</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>색상 대비 기준</h3>
+                <div class="studio-size-item">
+                    <span>일반 텍스트</span>
+                    <span>4.5:1 이상</span>
+                    <small>웹 접근성 표준</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>대형 텍스트</span>
+                    <span>3:1 이상</span>
+                    <small>18pt 이상</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>AAA 등급</span>
+                    <span>7:1 이상</span>
+                    <small>최고 접근성</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>컬러 심리학</h3>
+                <div class="studio-size-item">
+                    <span>빨강 (#FF0000)</span>
+                    <span>열정, 에너지</span>
+                    <small>액션, 긴급성</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>파랑 (#0066FF)</span>
+                    <span>신뢰, 안정</span>
+                    <small>비즈니스, 의료</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>녹색 (#00CC66)</span>
+                    <span>자연, 성장</span>
+                    <small>환경, 건강</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>주황 (#FF6600)</span>
+                    <span>창의, 친근</span>
+                    <small>엔터테인먼트</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>보라 (#9966FF)</span>
+                    <span>고급, 신비</span>
+                    <small>럭셔리, 뷰티</small>
                 </div>
             </div>
         </div>
     </div>
+
+    
+    <div class="studio-sub-panel" id="typography-guide">
+        <div class="studio-size-categories">
+            <div class="studio-size-category">
+                <h3>폰트 크기 시스템</h3>
+                <div class="studio-size-item">
+                    <span>캡션</span>
+                    <span>12px</span>
+                    <small>작은 설명</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>작은 텍스트</span>
+                    <span>14px</span>
+                    <small>부가 정보</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>본문</span>
+                    <span>16px</span>
+                    <small>기본 텍스트</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>큰 본문</span>
+                    <span>18px</span>
+                    <small>읽기 편한 크기</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>소제목</span>
+                    <span>24px</span>
+                    <small>섹션 제목</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>제목</span>
+                    <span>32px</span>
+                    <small>페이지 제목</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>대제목</span>
+                    <span>48px</span>
+                    <small>히어로 타이틀</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>행간 (Line Height)</h3>
+                <div class="studio-size-item">
+                    <span>제목용</span>
+                    <span>1.2배</span>
+                    <small>헤딩 텍스트</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>일반용</span>
+                    <span>1.4배</span>
+                    <small>UI 텍스트</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>본문용</span>
+                    <span>1.6배</span>
+                    <small>긴 글 읽기</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>폰트 조합 추천</h3>
+                <div class="studio-size-item">
+                    <span>Pretendard + Noto Serif</span>
+                    <span>한글 최적화</span>
+                    <small>Sans + Serif</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>Inter + Playfair</span>
+                    <span>모던 & 클래식</span>
+                    <small>영문 조합</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>Roboto + Lora</span>
+                    <span>구글 폰트</span>
+                    <small>무료 조합</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel" id="layout-grid">
+        <div class="studio-size-categories">
+            <div class="studio-size-category">
+                <h3>여백 시스템 (8px 배수)</h3>
+                <div class="studio-size-item clickable" data-copy="8px">
+                    <span>최소 여백</span>
+                    <span>8px</span>
+                    <small>요소 간 최소 간격</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="16px">
+                    <span>기본 여백</span>
+                    <span>16px</span>
+                    <small>일반적인 간격</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="24px">
+                    <span>중간 여백</span>
+                    <span>24px</span>
+                    <small>섹션 내 간격</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="32px">
+                    <span>큰 여백</span>
+                    <span>32px</span>
+                    <small>컴포넌트 간격</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="48px">
+                    <span>섹션 여백</span>
+                    <span>48px</span>
+                    <small>섹션 간 간격</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="64px">
+                    <span>페이지 여백</span>
+                    <span>64px</span>
+                    <small>페이지 상하 간격</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>그리드 시스템</h3>
+                <div class="studio-size-item">
+                    <span>12 컬럼</span>
+                    <span>Bootstrap 표준</span>
+                    <small>웹 기본</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>16 컬럼</span>
+                    <span>Material Design</span>
+                    <small>구글 표준</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>24 컬럼</span>
+                    <span>복잡한 레이아웃</span>
+                    <small>세밀한 조정</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>황금비율 & 비율</h3>
+                <div class="studio-size-item clickable" data-copy="1:1.618">
+                    <span>황금비율</span>
+                    <span>1:1.618</span>
+                    <small>완벽한 조화</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="16:9">
+                    <span>와이드 스크린</span>
+                    <span>16:9</span>
+                    <small>동영상, 모니터</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="4:3">
+                    <span>클래식</span>
+                    <span>4:3</span>
+                    <small>전통적 비율</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="1:1">
+                    <span>정사각형</span>
+                    <span>1:1</span>
+                    <small>SNS 포스트</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel" id="ui-elements">
+        <div class="studio-size-categories">
+            <div class="studio-size-category">
+                <h3>아이콘 크기</h3>
+                <div class="studio-size-item clickable" data-copy="16px">
+                    <span>작은 아이콘</span>
+                    <span>16px</span>
+                    <small>인라인, 텍스트 옆</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="24px">
+                    <span>기본 아이콘</span>
+                    <span>24px</span>
+                    <small>버튼, 메뉴</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="32px">
+                    <span>큰 아이콘</span>
+                    <span>32px</span>
+                    <small>헤더, 중요 액션</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="48px">
+                    <span>초대형 아이콘</span>
+                    <span>48px</span>
+                    <small>히어로, 피처</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>버튼 크기</h3>
+                <div class="studio-size-item clickable" data-copy="32px">
+                    <span>작은 버튼</span>
+                    <span>32px 높이</span>
+                    <small>보조 액션</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="40px">
+                    <span>기본 버튼</span>
+                    <span>40px 높이</span>
+                    <small>일반 액션</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="48px">
+                    <span>큰 버튼</span>
+                    <span>48px 높이</span>
+                    <small>주요 액션</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="56px">
+                    <span>초대형 버튼</span>
+                    <span>56px 높이</span>
+                    <small>CTA 버튼</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>터치 영역 (모바일)</h3>
+                <div class="studio-size-item clickable" data-copy="44px">
+                    <span>최소 터치 영역</span>
+                    <span>44px × 44px</span>
+                    <small>Apple 권장</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="48px">
+                    <span>구글 권장 가이드</span>
+                    <span>48px × 48px</span>
+                    <small>Material Design</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="8px">
+                    <span>터치 간격</span>
+                    <span>8px 이상</span>
+                    <small>요소 간 최소 간격</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="studio-sub-panel" id="brand-guide">
+        <div class="studio-size-categories">
+            <div class="studio-size-category">
+                <h3>로고 가이드라인</h3>
+                <div class="studio-size-item">
+                    <span>최소 크기</span>
+                    <span>24px 높이</span>
+                    <small>가독성 확보</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>세이프 존</span>
+                    <span>로고 높이의 1/2</span>
+                    <small>주변 여백</small>
+                </div>
+                <div class="studio-size-item">
+                    <span>명함 로고</span>
+                    <span>15-20mm</span>
+                    <small>인쇄물 최적</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>브랜드 컬러 형식</h3>
+                <div class="studio-size-item clickable" data-copy="#01FF75">
+                    <span>웹 색상 코드(HEX)</span>
+                    <span>#01FF75</span>
+                    <small>웹 디자인</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="rgb(1, 255, 117)">
+                    <span>RGB 값</span>
+                    <span>rgb(1, 255, 117)</span>
+                    <small>디지털 화면</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="CMYK(60, 0, 54, 0)">
+                    <span>CMYK 값</span>
+                    <span>CMYK(60, 0, 54, 0)</span>
+                    <small>인쇄물</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="PMS 354 C">
+                    <span>팬톤 색상</span>
+                    <span>PMS 354 C</span>
+                    <small>특색(별색) 인쇄</small>
+                </div>
+            </div>
+            
+            <div class="studio-size-category">
+                <h3>앱 아이콘 크기</h3>
+                <div class="studio-size-item clickable" data-copy="1024x1024">
+                    <span>iOS 앱스토어</span>
+                    <span>1024×1024px</span>
+                    <small>앱스토어 등록</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="512x512">
+                    <span>구글 플레이</span>
+                    <span>512×512px</span>
+                    <small>플레이스토어</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="180x180">
+                    <span>iOS 디바이스</span>
+                    <span>180×180px</span>
+                    <small>iPhone</small>
+                </div>
+                <div class="studio-size-item clickable" data-copy="192x192">
+                    <span>안드로이드</span>
+                    <span>192×192px</span>
+                    <small>기본 크기</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
 
 <script src="/js/studiopage.js"></script>
