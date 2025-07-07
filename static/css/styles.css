@@ -2135,6 +2135,13 @@ nav {
         font-size: 18px;
     }
 
+     .banner .mobile_img {
+        display: block;
+    }
+    
+    .banner .pc_img {
+        display: none;
+    }
 
 }
 
