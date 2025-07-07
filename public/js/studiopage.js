@@ -755,7 +755,7 @@ isDarkSpecial: true
 {
 name: "Studio NFP 네온 트리니티",
 gradient: "linear-gradient(135deg, #FFF200, #01FF75, #00F0FF)",
-description: "디자인, 게임, 프로그래밍 세 영역의 완벽한 조화로 Studio NFP의 시그니쳐 입니다. 창조와 기술, 혁신이 하나로 융합된 삼위일체의 우주를 담고 있습니다.",
+description: "디자인, 게임, 프로그래밍 세 영역의 완벽한 조화인 Studio NFP의 시그니쳐 입니다. 창조와 기술, 혁신이 하나로 융합된 삼위일체를 담고 있습니다.",
 isSpecial: true,
 isDarkSpecial: true
 }
@@ -1310,6 +1310,10 @@ function initColorGenerator() {
     // 5색 팔레트 이벤트
     const palette5Btn = document.getElementById('palette-5-btn');
     if (palette5Btn) palette5Btn.addEventListener('click', generate5ColorPalette);
+
+    // 5색 랜덤 팔레트 이벤트
+    const paletteRandomBtn = document.getElementById('palette-random-btn');
+   if (paletteRandomBtn) paletteRandomBtn.addEventListener('click', generateCompletelyRandomPalette);
     
     // 그라디언트 이벤트
     const gradient2Btn = document.getElementById('gradient-2-btn');
@@ -1552,9 +1556,51 @@ function generate5ColorPalette() {
         result.style.display = 'block';
         
         button.disabled = false;
-        button.innerHTML = '<i class="fas fa-magic"></i> 5색 팔레트 생성';
+        button.innerHTML = '<i class="fas fa-cubes"></i> 조합 팔레트 생성';
     }, 1000);
 }
+
+function generateCompletelyRandomPalette() {
+    const button = document.getElementById('palette-random-btn');
+    const result = document.getElementById('palette-random-result');
+    
+    if (!button || !result) return;
+    
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 생성 중...';
+    
+    setTimeout(() => {
+        // 완전히 관계없는 5개의 랜덤 컬러 생성
+        const colors = [];
+        
+        for (let i = 0; i < 5; i++) {
+            const hue = Math.floor(Math.random() * 360);        // 0-360도 전체 범위
+            const saturation = 40 + Math.floor(Math.random() * 60);  // 40-100% (너무 흐리지 않게)
+            const lightness = 30 + Math.floor(Math.random() * 50);   // 30-80% (너무 어둡거나 밝지 않게)
+            
+            const hex = hslToHex(hue, saturation, lightness);
+            colors.push(hex);
+        }
+        
+        // 랜덤 팔레트 표시
+        result.innerHTML = `
+            <div class="palette-5-colors">
+                ${colors.map(color => `
+                    <div class="palette-5-item">
+                        <div class="palette-5-color" style="background-color: ${color}" onclick="copyColorWithFeedback('${color}')"></div>
+                        <div class="palette-5-color-code">${color}</div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        
+        result.style.display = 'block';
+        
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-dice"></i> 랜덤 팔레트 생성';
+    }, 1000);
+}
+
 
 function generateGradient(colorCount) {
     const button = document.getElementById(`gradient-${colorCount}-btn`);

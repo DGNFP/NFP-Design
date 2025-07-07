@@ -179,9 +179,15 @@
                 그라데이션 카드
             </div>
             <div class="studio-sub-tab" data-subtab="palette-5">
-                <i class="fas fa-th"></i>
-                5색 팔레트
+                <i class="fas fa-cubes"></i>
+                5색 조합 팔레트
             </div>
+
+            <div class="studio-sub-tab" data-subtab="palette-random">
+            <i class="fas fa-dice"></i>
+            5색 랜덤 팔레트
+            </div>
+
             <div class="studio-sub-tab" data-subtab="gradient-2">
                 <i class="fas fa-arrows-alt-h"></i>
                 2색 그라디언트
@@ -223,12 +229,15 @@
             </button>
             
             <div class="studio-card-actions" id="single-card-actions" style="display: none;">
+
                 <button class="studio-action-btn" id="single-copy-btn">
-                    <i class="fas fa-copy"></i> 색상 코드 복사
+                    <i class="fas fa-copy"></i> 코드 복사
                 </button>
-                <button class="studio-action-btn" id="single-new-btn">
+
+                 <button class="studio-action-btn" id="single-new-btn">
                     <i class="fas fa-redo"></i> 다시 뽑기
                 </button>
+               
                 <button class="studio-action-btn" id="single-save-btn">
                 <i class="fas fa-download"></i> 카드 저장
             </button>
@@ -268,14 +277,15 @@
             </button>
             
             <div class="studio-card-actions" id="gradient-card-actions" style="display: none;">
-                <button class="studio-action-btn" id="gradient-copy-btn">
-                    <i class="fas fa-copy"></i> 그라데이션 복사
-                </button>
                 
-                <button class="studio-action-btn" id="gradient-new-btn">
-                    <i class="fas fa-redo"></i> 다시 뽑기
+                   <button class="studio-action-btn" id="gradient-copy-btn">
+                    <i class="fas fa-copy"></i> 코드 복사
                 </button>
 
+                   <button class="studio-action-btn" id="gradient-new-btn">
+                    <i class="fas fa-redo"></i> 다시 뽑기
+                </button>
+                
                 <button class="studio-action-btn" id="gradient-save-btn">
                 <i class="fas fa-download"></i> 카드 저장
             </button>
@@ -289,9 +299,18 @@
                 <div class="studio-sub-panel" id="palette-5">
                     <div class="palette-generator-container">
                         <button class="studio-pick-btn" id="palette-5-btn">
-                            <i class="fas fa-magic"></i> 5색 팔레트 생성
+                            <i class="fas fa-cubes"></i> 조합 팔레트 생성
                         </button>
                         <div class="palette-5-result" id="palette-5-result" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="studio-sub-panel" id="palette-random">
+                    <div class="palette-generator-container">
+                        <button class="studio-pick-btn" id="palette-random-btn">
+                            <i class="fas fa-dice"></i> 랜덤 팔레트 생성
+                        </button>
+                        <div class="palette-5-result" id="palette-random-result" style="display: none;"></div>
                     </div>
                 </div>
 
