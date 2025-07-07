@@ -289,11 +289,7 @@ const colorCards = [
     hex: "#FAFAFA",
     description: "버블티 속 쫄깃한 타피오카처럼 젊은 세대의 달콤하고 유쾌한 일상의 소확행을 담았습니다."
 },
-{
-    name: "인스타그램 핑크",
-    hex: "#E91E63",
-    description: "SNS 속 감성적인 순간들처럼 현대인의 소통과 공감, 그리고 개성 표현의 매개체가 되는 색상입니다."
-},
+
 {
     name: "택배박스 카키",
     hex: "#8D6E63",
@@ -473,6 +469,29 @@ const colorCards = [
     hex: "#00CC5E",
     description: "깊이 있는 성장과 지속가능한 성공을 의미하는 NFP 에메랄드 에디션입니다. 신뢰와 안정성 위에 구축된 혁신을 나타냅니다.",
     isSpecial: true
+}
+,
+// 다크 테마 스페셜 카드
+{
+    name: "NFP 디자인 네온 그린",
+    hex: "#01FF75",
+    description: "창의적 디자인의 정수를 담은 시그니쳐 네온 그린으로, 무한한 상상력과 혁신적 아이디어가 발광하는 프리미엄 에디션입니다.",
+    isSpecial: true,
+    isDarkSpecial: true
+},
+{
+    name: "NFP 게임 네온 옐로우",
+    hex: "#FFF200",
+    description: "게임 개발의 열정과 승부욕을 상징하는 강렬한 네온 옐로우로, 플레이어의 아드레날린과 창조적 코딩이 만나는 특별한 컬렉션입니다.",
+    isSpecial: true,
+    isDarkSpecial: true
+},
+{
+    name: "NFP 프로그래밍 네온 블루",
+    hex: "#00F0FF",
+    description: "순수한 코드의 논리와 알고리즘의 아름다움을 담은 사이버틱 네온 블루로, 디지털 세계를 구축하는 개발자의 영혼이 깃든 마스터피스입니다.",
+    isSpecial: true,
+    isDarkSpecial: true
 }
 
 ];
@@ -688,21 +707,59 @@ const gradientColorCards = [
 }
 ,
 
+// NFP 스페셜카드
+{
+    name: "NFP 시그니쳐 오로라",
+    gradient: "linear-gradient(45deg, #01FF75, #00FFCC, #01FF75)",
+    description: "NFP만의 독창적인 오로라 그라데이션입니다. 끝없는 창의성과 혁신의 여정을 상징하는 특별한 색채입니다.",
+    isSpecial: true
+}
+,
+{
+    name: "NFP 에메랄드 심포니",
+    gradient: "linear-gradient(135deg, #00CC5E, #01FF75, #4FFFB0)",
+    description: "NFP 에메랄드 심포니 그라데이션을 발견하셨습니다. 조화로운 성장과 지속가능한 혁신을 표현하는 프리미엄 컬렉션입니다.",
+    isSpecial: true
+}
+,
+// NFP 다크 스페셜 카드
+{
+name: "NFP 디자인 네온 오로라",
+gradient: "linear-gradient(45deg, #01FF75, #4DFFAA, #01FF75, #00FF88)",
+description: "디자인 스튜디오의 창조적 에너지가 만들어내는 네온 오로라로, 예술적 영감이 끊임없이 순환하는 무한 크리에이티브 스펙트럼입니다.",
+isSpecial: true,
+isDarkSpecial: true
+},
+{
+name: "NFP 게임 네온 스파클",
+gradient: "linear-gradient(135deg, #FFF200,rgb(208, 255, 0))",
+description: "게임 개발의 번개같은 아이디어와 폭발적인 재미가 응축된 네온 썬더볼트로, 플레이어의 심장을 뛰게 만드는 황금빛 전율의 시그니쳐입니다.",
+isSpecial: true,
+isDarkSpecial: true
+},
+{
+name: "NFP 프로그래밍 네온 스트림",
+gradient: "linear-gradient(90deg, #00F0FF, #0099FF, #00F0FF, #66FFFF)",
+description: "끝없이 흐르는 데이터의 강처럼 연결되는 네온 데이터스트림으로, 코드와 컴퓨테이션이 만들어내는 디지털 우주의 신비로운 흐름입니다.",
+isSpecial: true,
+isDarkSpecial: true
+},
+{
+name: "NFP 게임즈 네온 퓨전",
+gradient: "linear-gradient(180deg, #FFF200, #00F0FF)",
+description: "게임과 프로그래밍이 완벽하게 융합된 NFP 게임즈의 시그니쳐 네온 퓨전으로, 창조와 기술이 만나 탄생한 미래형 엔터테인먼트의 궁극체입니다.",
+isSpecial: true,
+isDarkSpecial: true
+}
+,
+{
+name: "Studio NFP 네온 트리니티",
+gradient: "linear-gradient(135deg, #FFF200, #01FF75, #00F0FF)",
+description: "디자인, 게임, 프로그래밍 세 영역의 완벽한 조화로 Studio NFP의 시그니쳐 입니다. 창조와 기술, 혁신이 하나로 융합된 삼위일체의 우주를 담고 있습니다.",
+isSpecial: true,
+isDarkSpecial: true
+}
 
-
-      {
-        name: "NFP 시그니쳐 오로라",
-        gradient: "linear-gradient(45deg, #01FF75, #00FFCC, #01FF75)",
-        description: "NFP만의 독창적인 오로라 그라데이션입니다. 끝없는 창의성과 혁신의 여정을 상징하는 특별한 색채입니다.",
-        isSpecial: true
-    }
-    ,
-    {
-        name: "NFP 에메랄드 심포니",
-        gradient: "linear-gradient(135deg, #00CC5E, #01FF75, #4FFFB0)",
-        description: "NFP 에메랄드 심포니 그라데이션을 발견하셨습니다. 조화로운 성장과 지속가능한 혁신을 표현하는 프리미엄 컬렉션입니다.",
-        isSpecial: true
-    }
 ];
 
 // 상태 변수들
@@ -1077,6 +1134,27 @@ function triggerSpecialEffect() {
     }, 500);
 }
 
+// 다크 스페셜 카드 스타일 적용 함수
+function applyDarkSpecialStyle(cardElement) {
+    // 다크 테마 클래스 추가
+    cardElement.classList.add('dark-special-card');
+    
+    // 카드 내부 요소들 스타일 조정
+    const brandName = cardElement.querySelector('.color-brand-name');
+    const hexCode = cardElement.querySelector('.color-hex-code');
+    const colorName = cardElement.querySelector('.color-korean-name');
+    const description = cardElement.querySelector('.color-description');
+    
+    if (brandName) {
+        brandName.innerHTML = '<span class="studio-text">STUDIO</span> <span class="nfp-text">NFP</span>';
+    }
+    
+    // 텍스트 색상 클래스 추가
+    if (hexCode) hexCode.classList.add('dark-hex-code');
+    if (colorName) colorName.classList.add('dark-color-name');
+    if (description) description.classList.add('dark-description');
+}
+
 // ==================== 컬러 생성기 초기화 ====================
 function initColorGenerator() {
     // DOM 요소들
@@ -1092,46 +1170,61 @@ function initColorGenerator() {
     const copyBtn = document.getElementById('single-copy-btn');
     const newBtn = document.getElementById('single-new-btn');
 
+
+
+// 카드뽑기
     function drawCard() {
-        if (isAnimating) return;
+    if (isAnimating) return;
+    
+    isAnimating = true;
+    pickBtn.disabled = true;
+    pickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
+    
+    cardElement.classList.add('card-flip');
+    
+    setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * colorCards.length);
+        currentColor = colorCards[randomIndex];
         
-        isAnimating = true;
-        pickBtn.disabled = true;
-        pickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
+        // 카드 내용 업데이트
+        colorDisplay.style.backgroundColor = currentColor.hex;
+        colorHex.textContent = currentColor.hex;
+        colorName.textContent = currentColor.name;
+        colorDescription.textContent = currentColor.description;
         
-        // 카드 뒤집기 애니메이션
-        cardElement.classList.add('card-flip');
-        
-        setTimeout(() => {
-            // 랜덤 색상 선택
-            const randomIndex = Math.floor(Math.random() * colorCards.length);
-            currentColor = colorCards[randomIndex];
-            
-            // 카드 내용 업데이트
-            colorDisplay.style.backgroundColor = currentColor.hex;
-            colorHex.textContent = currentColor.hex;
-            colorName.textContent = currentColor.name;
-            colorDescription.textContent = currentColor.description;
-            
-            // NFP 특별 색상인지 확인하고 특별 효과 적용
-            if (currentColor.isSpecial) {
-                triggerSpecialEffect();
+        // 다크 스페셜 카드인지 확인하고 스타일 적용
+        if (currentColor.isDarkSpecial) {
+            applyDarkSpecialStyle(cardElement);
+        } else {
+            // 일반 카드로 리셋
+            cardElement.classList.remove('dark-special-card');
+            const brandName = cardElement.querySelector('.color-brand-name');
+            if (brandName) {
+                brandName.innerHTML = 'STUDIO NFP';
             }
-            
-            // 카드 상태 변경
-            cardQuestion.style.display = 'none';
-            cardResult.style.display = 'flex';
-            
-            // 버튼 상태 변경
-            pickBtn.style.display = 'none';
-            cardActions.style.display = 'flex';
-            
-            isFlipped = true;
-            isAnimating = false;
-            
-            cardElement.classList.remove('card-flip');
-        }, 800);
-    }
+        }
+        
+        // 특별 효과 (기존 스페셜과 동일)
+        if (currentColor.isSpecial) {
+            triggerSpecialEffect();
+        }
+        
+        // 카드 상태 변경
+        cardQuestion.style.display = 'none';
+        cardResult.style.display = 'flex';
+        
+        // 버튼 상태 변경
+        pickBtn.style.display = 'none';
+        cardActions.style.display = 'flex';
+        
+        isFlipped = true;
+        isAnimating = false;
+        
+        cardElement.classList.remove('card-flip');
+    }, 800);
+}
+
+
 
     // 카드 리셋 함수
     function resetCard() {
@@ -1236,12 +1329,10 @@ function drawGradientCard() {
     gradientPickBtn.disabled = true;
     gradientPickBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 뽑는 중...';
     
-    // 카드 뒤집기 애니메이션
     const gradientCardElement = document.getElementById('gradient-card-element');
     gradientCardElement.classList.add('card-flip');
     
     setTimeout(() => {
-        // 랜덤 그라데이션 색상 선택
         const randomIndex = Math.floor(Math.random() * gradientColorCards.length);
         gradientCurrentColor = gradientColorCards[randomIndex];
         
@@ -1256,7 +1347,19 @@ function drawGradientCard() {
         gradientColorName.textContent = gradientCurrentColor.name;
         gradientColorDescription.textContent = gradientCurrentColor.description;
         
-        // NFP 특별 그라데이션인지 확인하고 특별 효과 적용
+        // 다크 스페셜 카드인지 확인하고 스타일 적용
+        if (gradientCurrentColor.isDarkSpecial) {
+            applyDarkSpecialStyle(gradientCardElement);
+        } else {
+            // 일반 카드로 리셋
+            gradientCardElement.classList.remove('dark-special-card');
+            const brandName = gradientCardElement.querySelector('.color-brand-name');
+            if (brandName) {
+                brandName.innerHTML = 'STUDIO NFP';
+            }
+        }
+        
+        // 특별 효과
         if (gradientCurrentColor.isSpecial) {
             triggerSpecialEffect();
         }
@@ -1267,7 +1370,6 @@ function drawGradientCard() {
         gradientCardQuestion.style.display = 'none';
         gradientCardResult.style.display = 'flex';
         
-        // 버튼 상태 변경
         gradientPickBtn.style.display = 'none';
         const gradientCardActions = document.getElementById('gradient-card-actions');
         gradientCardActions.style.display = 'flex';

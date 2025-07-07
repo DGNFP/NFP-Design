@@ -1767,6 +1767,72 @@ select.studio-form-input option {
     text-align: center;
 }
 
+/* ==================== 다크 스페셜 카드 CSS ==================== */
+
+/* 다크 스페셜 카드 전체 스타일 */
+.dark-special-card .card-result {
+    background: #111111 !important; /* 사이트 배경보다 연한 검은색 */
+    border: 15px solid #111111 !important; /* 어두운 보더 */
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.3) !important; /* 네온 글로우 */
+}
+
+/* 브랜드명 스타일링 */
+.dark-special-card .color-brand-name {
+    color: #333 !important; /* 기존 스타일 유지를 위한 fallback */
+}
+
+.dark-special-card .color-brand-name .studio-text {
+    color: #ffffff !important; /* STUDIO는 흰색 */
+}
+
+.dark-special-card .color-brand-name .nfp-text {
+    color: #01FF75 !important; /* NFP는 강조색 */
+}
+
+/* 색상 코드 - 밝은 흰색 */
+.dark-special-card .dark-hex-code {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 컬러 이름 - 중간 톤 흰색 */
+.dark-special-card .dark-color-name {
+    color: #e0e0e0 !important;
+    font-weight: 700 !important;
+}
+
+/* 설명 텍스트 - 연한 흰색 */
+.dark-special-card .dark-description {
+    color: #b0b0b0 !important;
+    line-height: 1.4 !important;
+}
+
+/* 다크 스페셜 카드 호버 효과 */
+.dark-special-card:hover {
+    box-shadow: 0 0 30px rgba(1, 255, 117, 0.5) !important;
+    transform: translateY(-8px) !important;
+}
+
+/* 다크 스페셜 카드 글로우 애니메이션 강화 */
+.dark-special-card.nfp-special-card {
+    animation: darkNfpGlow 2s ease-in-out infinite !important;
+}
+
+@keyframes darkNfpGlow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(1, 255, 117, 0.5), 
+                   0 0 40px rgba(1, 255, 117, 0.2) !important; 
+    }
+    50% { 
+        box-shadow: 0 0 30px rgba(1, 255, 117, 0.8), 
+                   0 0 60px rgba(1, 255, 117, 0.4),
+                   0 0 80px rgba(1, 255, 117, 0.2) !important; 
+    }
+}
+
+
+
 /* ==================== 반응형 디자인 ==================== */
 
 /* 태블릿 */
@@ -2509,5 +2575,56 @@ border-radius: 8px;
     color: #666;
     line-height: 1.4;
 }
+
+ .single-card-container {
+        padding: 20px;
+        min-height: auto; /* 고정 높이 해제 */
+    }
     
+ .card-controls {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 12px;
+        height: auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    /* 뽑기 후에만 세로 배치 적용 */
+    .studio-card-actions[style*="display: flex"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        height: auto;
+    }
+    
+    .studio-action-btn {
+        width: 180px !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    .studio-pick-btn {
+        width: 180px !important;
+    }
+
+
+       .dark-special-card .card-result {
+        border-width: 10px !important; /* 모바일에서 보더 두께 조정 */
+    }
+    
+    .dark-special-card .color-brand-name {
+        font-size: 22px !important; /* 모바일에서 브랜드명 크기 조정 */
+    }
+    
+    .dark-special-card .dark-color-name {
+        font-size: 16px !important; /* 모바일에서 컬러명 크기 조정 */
+    }
+    
+    .dark-special-card .dark-description {
+        font-size: 13px !important; /* 모바일에서 설명 크기 조정 */
+    }
 }
