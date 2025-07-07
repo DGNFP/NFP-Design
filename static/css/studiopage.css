@@ -1823,6 +1823,7 @@ select.studio-form-input option {
         flex-direction: column;
         gap: 6px;
         font-size: 12px;
+        border-radius: 10px;
     }
 
     .studio-page-tab i {
@@ -1848,6 +1849,7 @@ select.studio-form-input option {
         padding: 8px 12px;
         font-size: 12px;
         gap: 5px;
+        border-radius: 8px;
     }
 
     .studio-sub-tab i {

@@ -763,6 +763,7 @@ function initStudio() {
     const tabs = document.querySelectorAll('.studio-page-tab');
     const panels = document.querySelectorAll('.studio-tab-panel');
     
+    
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
             tabs.forEach(t => t.classList.remove('active'));
@@ -783,9 +784,10 @@ function initStudio() {
                 }
             }
         });
+        
     });
 
-    
+    initCardSaveFeature();
 
     // 서브 탭 전환 기능
     const subTabs = document.querySelectorAll('.studio-sub-tab');
@@ -2361,6 +2363,303 @@ function displayColors(colors, container) {
     
     container.appendChild(colorItemsContainer);
 }
+
+// ==================== 카드 이미지 저장 기능 ====================
+
+// html2canvas 라이브러리 동적 로딩
+function loadHtml2Canvas() {
+    return new Promise((resolve, reject) => {
+        if (typeof html2canvas !== 'undefined') {
+            resolve();
+            return;
+        }
+        
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+        script.onload = () => resolve();
+        script.onerror = () => reject();
+        document.head.appendChild(script);
+    });
+}
+
+// 일별 카운트 관리
+function getTodayCount() {
+    const today = new Date();
+    const dateKey = `${today.getFullYear().toString().slice(-2)}${String(today.getMonth() + 1).padStart(2, '0')}${String(today.getDate()).padStart(2, '0')}`;
+    
+    const savedData = localStorage.getItem('nfp-card-count');
+    let countData = {};
+    
+    if (savedData) {
+        countData = JSON.parse(savedData);
+    }
+    
+    // 오늘 날짜의 카운트가 없으면 1부터 시작
+    if (!countData[dateKey]) {
+        countData[dateKey] = 0;
+    }
+    
+    // 카운트 증가
+    countData[dateKey]++;
+    
+    // 30일 이전 데이터는 정리 (저장소 용량 관리)
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    const cleanupDate = `${thirtyDaysAgo.getFullYear().toString().slice(-2)}${String(thirtyDaysAgo.getMonth() + 1).padStart(2, '0')}${String(thirtyDaysAgo.getDate()).padStart(2, '0')}`;
+    
+    Object.keys(countData).forEach(date => {
+        if (date < cleanupDate) {
+            delete countData[date];
+        }
+    });
+    
+    // 저장
+    localStorage.setItem('nfp-card-count', JSON.stringify(countData));
+    
+    return {
+        date: dateKey,
+        count: countData[dateKey]
+    };
+}
+
+// 캔버스에 NFP DESIGN 로고 그리기 (상단 중앙 배치)
+function drawLogo(canvas, ctx) {
+    // 로고를 상단 중앙에 배치
+    const logoY = 80;  // 상단에서 80px 아래
+    
+    // 텍스트 설정
+    ctx.font = '900 48px Pretendard, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    
+    // 텍스트 너비 측정
+    const nfpText = 'NFP';
+    const designText = ' DESIGN';
+    const nfpWidth = ctx.measureText(nfpText).width;
+    const designWidth = ctx.measureText(designText).width;
+    const totalWidth = nfpWidth + designWidth;
+    
+    // 전체 텍스트를 화면 중앙에 배치
+    const logoX = (canvas.width - totalWidth) / 2;
+    
+    
+    // NFP 부분 (녹색)
+    ctx.fillStyle = '#01FF75';
+    ctx.fillText(nfpText, logoX, logoY);
+    
+    // DESIGN 부분 (흰색)
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText(designText, logoX + nfpWidth, logoY);
+}
+
+// 색상 코드에서 # 제거
+function cleanColorCode(colorCode) {
+    return colorCode.replace('#', '');
+}
+
+// 단색 카드 저장
+async function saveSingleCard() {
+    if (!currentColor) {
+        alert('저장할 카드가 없습니다. 먼저 카드를 뽑아주세요.');
+        return;
+    }
+    
+    try {
+        // html2canvas 로드
+        await loadHtml2Canvas();
+        
+        // 카드 요소 캡처
+        const cardElement = document.getElementById('single-card-element');
+        const cardCanvas = await html2canvas(cardElement, {
+            scale: 2,  // 2배 해상도
+            backgroundColor: null,  // 투명 배경
+            useCORS: true
+        });
+        
+        // 최종 캔버스 생성 (640×1000) - 높이 다시 줄임
+        const finalCanvas = document.createElement('canvas');
+        const ctx = finalCanvas.getContext('2d');
+        finalCanvas.width = 640;
+        finalCanvas.height = 1000;
+        
+        // 검은 배경
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 640, 1000);
+        
+        // NFP DESIGN 로고 그리기 (상단 중앙)
+        drawLogo(finalCanvas, ctx);
+        
+        // 카드 75% 크기로 축소하여 중앙 배치
+        const scaledWidth = cardCanvas.width * 0.75;
+        const scaledHeight = cardCanvas.height * 0.75;
+        const cardX = (640 - scaledWidth) / 2;  // 중앙 정렬
+        const cardY = 150;  // 로고 아래 여백
+        
+        // 카드 그리기
+        ctx.drawImage(cardCanvas, 0, 0, cardCanvas.width, cardCanvas.height, 
+                     cardX, cardY, scaledWidth, scaledHeight);
+        
+        // 파일명 생성
+        const countInfo = getTodayCount();
+        const colorCode = cleanColorCode(currentColor.hex);
+        const fileName = `nfpdesign_${colorCode}_${countInfo.date}_${countInfo.count}.jpg`;
+        
+        // JPG로 변환 및 다운로드
+        finalCanvas.toBlob((blob) => {
+            const link = document.createElement('a');
+            link.download = fileName;
+            link.href = URL.createObjectURL(blob);
+            link.click();
+            URL.revokeObjectURL(link.href);
+            
+            // 성공 피드백
+            showSaveSuccessToast(fileName);
+        }, 'image/jpeg', 0.9);
+        
+    } catch (error) {
+        console.error('카드 저장 실패:', error);
+        alert('카드 저장 중 오류가 발생했습니다.');
+    }
+}
+
+// 그라데이션 카드 저장
+async function saveGradientCard() {
+    if (!gradientCurrentColor) {
+        alert('저장할 카드가 없습니다. 먼저 카드를 뽑아주세요.');
+        return;
+    }
+    
+    try {
+        // html2canvas 로드
+        await loadHtml2Canvas();
+        
+        // 카드 요소 캡처
+        const cardElement = document.getElementById('gradient-card-element');
+        const cardCanvas = await html2canvas(cardElement, {
+            scale: 2,  // 2배 해상도
+            backgroundColor: null,  // 투명 배경
+            useCORS: true
+        });
+        
+        // 최종 캔버스 생성 (640×1000) - 높이 다시 줄임
+        const finalCanvas = document.createElement('canvas');
+        const ctx = finalCanvas.getContext('2d');
+        finalCanvas.width = 640;
+        finalCanvas.height = 1000;
+        
+        // 검은 배경
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 640, 1000);
+        
+        // NFP DESIGN 로고 그리기 (상단 중앙) - 파라미터 제거
+        drawLogo(finalCanvas, ctx);
+
+        
+        
+        // 카드 75% 크기로 축소하여 중앙 배치
+        const scaledWidth = cardCanvas.width * 0.75;
+        const scaledHeight = cardCanvas.height * 0.75;
+        const cardX = (640 - scaledWidth) / 2;  // 중앙 정렬
+        const cardY = 150;  // 로고 아래 여백
+        ctx.drawImage(cardCanvas, 0, 0, cardCanvas.width, cardCanvas.height, 
+                     cardX, cardY, scaledWidth, scaledHeight);
+        
+        // 파일명 생성 (그라데이션은 GRADIENT로 표시)
+        const countInfo = getTodayCount();
+        const fileName = `nfpdesign_GRADIENT_${countInfo.date}_${countInfo.count}.jpg`;
+        
+        // JPG로 변환 및 다운로드
+        finalCanvas.toBlob((blob) => {
+            const link = document.createElement('a');
+            link.download = fileName;
+            link.href = URL.createObjectURL(blob);
+            link.click();
+            URL.revokeObjectURL(link.href);
+            
+            // 성공 피드백
+            showSaveSuccessToast(fileName);
+        }, 'image/jpeg', 0.9);
+        
+    } catch (error) {
+        console.error('카드 저장 실패:', error);
+        alert('카드 저장 중 오류가 발생했습니다.');
+    }
+}
+
+// 저장 성공 토스트 메시지
+function showSaveSuccessToast(fileName) {
+    // 기존 토스트 제거
+    const existingToast = document.querySelector('.save-success-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    // 새 토스트 생성
+    const toast = document.createElement('div');
+    toast.className = 'save-success-toast';
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> 카드가 저장되었습니다!<br><small>${fileName}</small>`;
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(45deg, #01ff75, #00e066);
+        color: black;
+        padding: 15px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 10000;
+        animation: saveToastShow 0.3s ease;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(1, 255, 117, 0.4);
+    `;
+    
+    // CSS 애니메이션 추가
+    if (!document.querySelector('#save-toast-style')) {
+        const style = document.createElement('style');
+        style.id = 'save-toast-style';
+        style.textContent = `
+            @keyframes saveToastShow {
+                from { opacity: 0; transform: translateX(-50%) translateY(-30px) scale(0.8); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+            }
+            .save-success-toast small {
+                opacity: 0.8;
+                font-size: 12px;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    // 3초 후 제거
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'saveToastShow 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 3000);
+}
+
+// 기존 initColorGenerator 함수에 이벤트 리스너 추가
+function initCardSaveFeature() {
+    // 단색 카드 저장 버튼
+    const singleSaveBtn = document.getElementById('single-save-btn');
+    if (singleSaveBtn) {
+        singleSaveBtn.addEventListener('click', saveSingleCard);
+    }
+    
+    // 그라데이션 카드 저장 버튼
+    const gradientSaveBtn = document.getElementById('gradient-save-btn');
+    if (gradientSaveBtn) {
+        gradientSaveBtn.addEventListener('click', saveGradientCard);
+    }
+}
+
+// 전역 함수로 등록 (HTML onclick용)
+window.saveSingleCard = saveSingleCard;
+window.saveGradientCard = saveGradientCard;
 
 // ==================== 메인 초기화 ====================
 
