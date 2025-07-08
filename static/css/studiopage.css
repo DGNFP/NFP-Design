@@ -357,7 +357,7 @@
     min-height: 600px;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
     border: 2px solid rgba(1, 255, 117, 0.2);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 40px;
     backdrop-filter: blur(10px);
     position: relative;

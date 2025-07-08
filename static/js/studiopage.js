@@ -1229,7 +1229,7 @@ function initColorGenerator() {
 
          // 🆕 여기에 추가 (setTimeout 안쪽)
         if (typeof onCardDrawn === 'function') {
-            onCardDrawn('single');
+            onCardDrawn('single', currentColor);  // currentColor 객체 전달
         }
 
     }, 800);
@@ -1396,7 +1396,7 @@ function drawGradientCard() {
         gradientCardElement.classList.remove('card-flip');
         // 🆕 여기에 추가 (setTimeout 안쪽)
 if (typeof onCardDrawn === 'function') {
-    onCardDrawn('gradient');
+     onCardDrawn('gradient', gradientCurrentColor);  // gradientCurrentColor 객체 전달
 }
         
     }, 800);
