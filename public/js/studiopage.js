@@ -873,6 +873,9 @@ function initStudio() {
     initImageExtractor();
     initDesignCalculator();
 
+    // 카드 카운터 초기화 및 UI 생성 추가
+    initializeAndDisplayCardCounter();
+
     setTimeout(() => {
         const targetTab = window.location.hash.substring(1);
         
@@ -1172,6 +1175,8 @@ function initColorGenerator() {
 
 
 
+
+
 // 카드뽑기
     function drawCard() {
     if (isAnimating) return;
@@ -1221,7 +1226,14 @@ function initColorGenerator() {
         isAnimating = false;
         
         cardElement.classList.remove('card-flip');
+
+         // 🆕 여기에 추가 (setTimeout 안쪽)
+        if (typeof onCardDrawn === 'function') {
+            onCardDrawn('single');
+        }
+
     }, 800);
+    
 }
 
 
@@ -1382,6 +1394,11 @@ function drawGradientCard() {
         gradientIsAnimating = false;
         
         gradientCardElement.classList.remove('card-flip');
+        // 🆕 여기에 추가 (setTimeout 안쪽)
+if (typeof onCardDrawn === 'function') {
+    onCardDrawn('gradient');
+}
+        
     }, 800);
 }
 
@@ -1599,6 +1616,41 @@ function generateCompletelyRandomPalette() {
         button.disabled = false;
         button.innerHTML = '<i class="fas fa-dice"></i> 랜덤 팔레트 생성';
     }, 1000);
+}
+
+// ==================== 카드 카운터 초기화 ==================== 
+// 여기에 새 함수 추가!
+async function initializeAndDisplayCardCounter() {
+    try {
+        // Firebase 카드 카운터 초기화
+        if (typeof initializeCardCounter === 'function') {
+            await initializeCardCounter();
+        }
+        
+        // UI 생성
+        const { singleCard, gradientCard } = createCardCounterDisplay();
+        
+            // 단색 카드 컨테이너에 추가 (더 자연스러운 위치)
+        const singleCardContainer = document.querySelector('#single-card .single-card-container');
+        if (singleCardContainer) {
+            singleCardContainer.insertAdjacentHTML('afterend', singleCard);
+        }
+
+        // 그라데이션 카드 컨테이너에 추가
+        const gradientCardContainer = document.querySelector('#gradient-card .single-card-container');
+        if (gradientCardContainer) {
+            gradientCardContainer.insertAdjacentHTML('afterend', gradientCard);
+        }
+        
+        // 초기 카운트 표시
+        if (window.cardCounter) {
+            const counts = await window.cardCounter.getCurrentCount();
+            updateCardCounterDisplay(counts);
+        }
+        
+    } catch (error) {
+        console.error('카드 카운터 초기화 실패:', error);
+    }
 }
 
 
