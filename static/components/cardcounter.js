@@ -1,70 +1,94 @@
-// 최종 Firebase 카드 카운터 클래스
+// 안전한 Firebase 카드 카운터 클래스 (조건부 초기화)
 class FirebaseCardCounter {
     constructor() {
-        this.db = window.firebaseDB;
-        this.firestoreUtils = window.firestoreUtils;
-        this.waitForFirebase();
-    }
-
-    async waitForFirebase() {
-        let attempts = 0;
-        while (!this.db && attempts < 50) {
-            await new Promise(resolve => setTimeout(resolve, 100));
-            this.db = window.firebaseDB;
-            this.firestoreUtils = window.firestoreUtils;
-            attempts++;
+        // 서버사이드 렌더링 환경에서는 아무것도 하지 않음
+        if (typeof window === 'undefined' || typeof document === 'undefined') {
+            this.isServerSide = true;
+            return;
         }
         
+        this.isServerSide = false;
+        this.db = null;
+        this.firestoreUtils = null;
+        this.isReady = false;
+    }
+
+    // 실제 초기화는 브라우저에서만
+    async initialize() {
+        if (this.isServerSide) return false;
+        
+        // 이미 초기화되었으면 바로 반환
+        if (this.isReady) return true;
+        
+        this.db = window.firebaseDB;
+        this.firestoreUtils = window.firestoreUtils;
+        
+        // Firebase가 아직 로드되지 않았다면 잠시 대기
         if (!this.db) {
-            console.error('Firebase가 로드되지 않았습니다.');
-            return false;
+            let attempts = 0;
+            while (!this.db && attempts < 10) { // 최대 2초 대기
+                await new Promise(resolve => setTimeout(resolve, 200));
+                this.db = window.firebaseDB;
+                this.firestoreUtils = window.firestoreUtils;
+                attempts++;
+            }
         }
-        return true;
+        
+        this.isReady = !!this.db;
+        return this.isReady;
+    }
+
+    // 기본 카운트 반환
+    getDefaultCounts() {
+        return {
+            single: 0,
+            gradient: 0,
+            single_special: 0,
+            gradient_special: 0,
+            single_dark: 0,
+            gradient_dark: 0,
+            total: 0
+        };
     }
 
     // 카운터 문서 참조
     getCardCounterRef(type) {
+        if (!this.isReady || !this.firestoreUtils) return null;
+        
         const { doc } = this.firestoreUtils;
         return doc(this.db, 'card_draws', type);
     }
 
     // Firebase에서 현재 카운트 조회
     async getCurrentCountFromFirebase() {
+        if (!this.isReady) return this.getDefaultCounts();
+        
         try {
             const { getDoc } = this.firestoreUtils;
             
-            const counters = {
-                single: 0,           // 단색 카드
-                gradient: 0,         // 그라데이션 카드
-                single_special: 0,   // 단색 스페셜
-                gradient_special: 0, // 그라데이션 스페셜
-                single_dark: 0,      // 단색 다크 스페셜
-                gradient_dark: 0,    // 그라데이션 다크 스페셜
-                total: 0             // 전체
-            };
+            const counters = this.getDefaultCounts();
 
             // 모든 카운터 조회
             for (const type of Object.keys(counters)) {
                 const ref = this.getCardCounterRef(type);
-                const snap = await getDoc(ref);
-                counters[type] = snap.exists() ? snap.data().count || 0 : 0;
+                if (ref) {
+                    const snap = await getDoc(ref);
+                    counters[type] = snap.exists() ? snap.data().count || 0 : 0;
+                }
             }
             
             return counters;
         } catch (error) {
             console.error('Firebase에서 카드 카운터 조회 실패:', error);
-            return {
-                single: 0, gradient: 0, single_special: 0, 
-                gradient_special: 0, single_dark: 0, gradient_dark: 0, total: 0
-            };
+            return this.getDefaultCounts();
         }
     }
 
     // Firebase에 카드 카운트 업데이트
     async updateCardCountInFirebase(cardType, cardData) {
+        if (!this.isReady) return this.getDefaultCounts();
+        
         try {
-            const { getDoc, setDoc, updateDoc, increment } = this.firestoreUtils;
-            
             // 기본 카드 타입 카운터 업데이트
             await this.incrementCounter(cardType);
             
@@ -97,64 +121,89 @@ class FirebaseCardCounter {
             
         } catch (error) {
             console.error('Firebase 카드 카운터 업데이트 실패:', error);
-            return {
-                single: 0, gradient: 0, single_special: 0, 
-                gradient_special: 0, single_dark: 0, gradient_dark: 0, total: 0
-            };
+            return this.getDefaultCounts();
         }
     }
 
     // 카운터 증가 헬퍼 함수
     async incrementCounter(type) {
-        const { getDoc, setDoc, updateDoc, increment } = this.firestoreUtils;
-        const ref = this.getCardCounterRef(type);
-        const snap = await getDoc(ref);
+        if (!this.isReady || !this.firestoreUtils) return;
         
-        if (snap.exists()) {
-            await updateDoc(ref, {
-                count: increment(1),
-                lastUpdated: new Date()
-            });
-        } else {
-            await setDoc(ref, {
-                count: 1,
-                type: type,
-                lastUpdated: new Date()
-            });
+        try {
+            const { getDoc, setDoc, updateDoc, increment } = this.firestoreUtils;
+            const ref = this.getCardCounterRef(type);
+            
+            if (!ref) return;
+            
+            const snap = await getDoc(ref);
+            
+            if (snap.exists()) {
+                await updateDoc(ref, {
+                    count: increment(1),
+                    lastUpdated: new Date()
+                });
+            } else {
+                await setDoc(ref, {
+                    count: 1,
+                    type: type,
+                    lastUpdated: new Date()
+                });
+            }
+        } catch (error) {
+            console.error(`카운터 증가 실패 (${type}):`, error);
         }
     }
 
     // 메인 카드 카운트 업데이트 메서드
     async drawCard(cardType, cardData = null) {
-        const firebaseReady = await this.waitForFirebase();
-        
-        if (firebaseReady) {
-            return await this.updateCardCountInFirebase(cardType, cardData);
-        } else {
-            return {
-                single: 0, gradient: 0, single_special: 0, 
-                gradient_special: 0, single_dark: 0, gradient_dark: 0, total: 0
-            };
+        // 서버사이드에서는 기본값 반환
+        if (this.isServerSide) {
+            return this.getDefaultCounts();
         }
+        
+        // 초기화되지 않았다면 초기화 시도
+        if (!this.isReady) {
+            await this.initialize();
+        }
+        
+        // 초기화 실패시 기본값 반환
+        if (!this.isReady) {
+            console.warn('Firebase 초기화 실패, 기본값 사용');
+            return this.getDefaultCounts();
+        }
+        
+        return await this.updateCardCountInFirebase(cardType, cardData);
     }
 
     // 현재 카운트 조회
     async getCurrentCount() {
-        const firebaseReady = await this.waitForFirebase();
-        
-        if (firebaseReady) {
-            return await this.getCurrentCountFromFirebase();
-        } else {
-            return {
-                single: 0, gradient: 0, single_special: 0, 
-                gradient_special: 0, single_dark: 0, gradient_dark: 0, total: 0
-            };
+        // 서버사이드에서는 기본값 반환
+        if (this.isServerSide) {
+            return this.getDefaultCounts();
         }
+        
+        // 초기화되지 않았다면 초기화 시도
+        if (!this.isReady) {
+            await this.initialize();
+        }
+        
+        // 초기화 실패시 기본값 반환
+        if (!this.isReady) {
+            console.warn('Firebase 초기화 실패, 기본값 사용');
+            return this.getDefaultCounts();
+        }
+        
+        return await this.getCurrentCountFromFirebase();
     }
 }
 
 // 카드 카운터 표시 UI (FontAwesome 아이콘)
 function createCardCounterDisplay() {
+    // 서버사이드에서는 빈 문자열 반환
+    if (typeof window === 'undefined') {
+        return { singleCard: '', gradientCard: '' };
+    }
+    
     const counterHTML = `
         <div class="card-counter-display">
             <div class="card-counter-header">
@@ -416,46 +465,60 @@ function createCardCounterDisplay() {
 
 // 카드 카운터 표시 업데이트
 function updateCardCounterDisplay(counts) {
-    // 각 타입별 총 뽑기 횟수 계산
-    const singleTotalDraws = counts.single + counts.single_special + counts.single_dark;
-    const gradientTotalDraws = counts.gradient + counts.gradient_special + counts.gradient_dark;
+    // 서버사이드에서는 아무것도 하지 않음
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+        return;
+    }
     
-    // 단색 페이지에서는 실제로는 그라데이션 카드 개수를 표시 (스크린샷 기준)
-    const singleCountEl = document.getElementById('single-card-count');
-    const gradientCountEl = document.getElementById('gradient-card-count');
-    
-    // 그라데이션 카드 카운터들
-    if (gradientCountEl) gradientCountEl.textContent = counts.gradient.toLocaleString();
-    
-    // 스페셜 카드 카운터들
-    const singleSpecialEl = document.getElementById('single-special-count');
-    const gradientSpecialEl = document.getElementById('gradient-special-count');
-    
-    if (singleSpecialEl) singleSpecialEl.textContent = counts.single_special.toLocaleString();
-    if (gradientSpecialEl) gradientSpecialEl.textContent = counts.gradient_special.toLocaleString();
-    
-    // 다크 스페셜 카드 카운터들
-    const singleDarkEl = document.getElementById('single-dark-count');
-    const gradientDarkEl = document.getElementById('gradient-dark-count');
-    
-    if (singleDarkEl) singleDarkEl.textContent = counts.single_dark.toLocaleString();
-    if (gradientDarkEl) gradientDarkEl.textContent = counts.gradient_dark.toLocaleString();
-    
-    // 누적 통계 (전체 합계)
-    const totalCountEl1 = document.getElementById('total-card-count');
-    const totalCountEl2 = document.getElementById('total-card-count-gradient');
-    if (totalCountEl1) totalCountEl1.textContent = counts.total.toLocaleString();
-    if (totalCountEl2) totalCountEl2.textContent = counts.total.toLocaleString();
-    
-    // 각 타입별 총 뽑기 횟수
-    const drawCountEl1 = document.getElementById('draw-count');
-    const drawCountEl2 = document.getElementById('draw-count-gradient');
-    if (drawCountEl1) drawCountEl1.textContent = singleTotalDraws.toLocaleString();
-    if (drawCountEl2) drawCountEl2.textContent = gradientTotalDraws.toLocaleString();
+    try {
+        // 각 타입별 총 뽑기 횟수 계산
+        const singleTotalDraws = counts.single + counts.single_special + counts.single_dark;
+        const gradientTotalDraws = counts.gradient + counts.gradient_special + counts.gradient_dark;
+        
+        // 단색 페이지에서는 실제로는 그라데이션 카드 개수를 표시 (스크린샷 기준)
+        const singleCountEl = document.getElementById('single-card-count');
+        const gradientCountEl = document.getElementById('gradient-card-count');
+        
+        // 그라데이션 카드 카운터들
+        if (gradientCountEl) gradientCountEl.textContent = counts.gradient.toLocaleString();
+        
+        // 스페셜 카드 카운터들
+        const singleSpecialEl = document.getElementById('single-special-count');
+        const gradientSpecialEl = document.getElementById('gradient-special-count');
+        
+        if (singleSpecialEl) singleSpecialEl.textContent = counts.single_special.toLocaleString();
+        if (gradientSpecialEl) gradientSpecialEl.textContent = counts.gradient_special.toLocaleString();
+        
+        // 다크 스페셜 카드 카운터들
+        const singleDarkEl = document.getElementById('single-dark-count');
+        const gradientDarkEl = document.getElementById('gradient-dark-count');
+        
+        if (singleDarkEl) singleDarkEl.textContent = counts.single_dark.toLocaleString();
+        if (gradientDarkEl) gradientDarkEl.textContent = counts.gradient_dark.toLocaleString();
+        
+        // 누적 통계 (전체 합계)
+        const totalCountEl1 = document.getElementById('total-card-count');
+        const totalCountEl2 = document.getElementById('total-card-count-gradient');
+        if (totalCountEl1) totalCountEl1.textContent = counts.total.toLocaleString();
+        if (totalCountEl2) totalCountEl2.textContent = counts.total.toLocaleString();
+        
+        // 각 타입별 총 뽑기 횟수
+        const drawCountEl1 = document.getElementById('draw-count');
+        const drawCountEl2 = document.getElementById('draw-count-gradient');
+        if (drawCountEl1) drawCountEl1.textContent = singleTotalDraws.toLocaleString();
+        if (drawCountEl2) drawCountEl2.textContent = gradientTotalDraws.toLocaleString();
+    } catch (error) {
+        console.error('카드 카운터 표시 업데이트 실패:', error);
+    }
 }
 
 // 카드 뽑기 시 호출 함수
 async function onCardDrawn(cardType, cardData = null) {
+    // 서버사이드에서는 아무것도 하지 않음
+    if (typeof window === 'undefined') {
+        return;
+    }
+    
     if (!window.cardCounter) {
         console.error('window.cardCounter가 없습니다.');
         return;
@@ -471,17 +534,28 @@ async function onCardDrawn(cardType, cardData = null) {
 
 // 카드 카운터 초기화
 async function initializeCardCounter() {
-    window.cardCounter = new FirebaseCardCounter();
+    // 서버사이드에서는 아무것도 하지 않음
+    if (typeof window === 'undefined') {
+        return;
+    }
     
     try {
-        const counts = await window.cardCounter.getCurrentCount();
-        updateCardCounterDisplay(counts);
+        window.cardCounter = new FirebaseCardCounter();
+        
+        // 브라우저 환경에서만 초기화 시도
+        if (!window.cardCounter.isServerSide) {
+            await window.cardCounter.initialize();
+            const counts = await window.cardCounter.getCurrentCount();
+            updateCardCounterDisplay(counts);
+        }
     } catch (error) {
         console.error('카드 카운터 초기화 실패:', error);
     }
 }
 
-// 전역으로 내보내기
-window.initializeCardCounter = initializeCardCounter;
-window.createCardCounterDisplay = createCardCounterDisplay;
-window.onCardDrawn = onCardDrawn;
+// 전역으로 내보내기 (브라우저에서만)
+if (typeof window !== 'undefined') {
+    window.initializeCardCounter = initializeCardCounter;
+    window.createCardCounterDisplay = createCardCounterDisplay;
+    window.onCardDrawn = onCardDrawn;
+}
