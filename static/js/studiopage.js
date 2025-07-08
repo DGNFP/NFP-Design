@@ -661,9 +661,9 @@ const gradientColorCards = [
     description: "하늘을 나는 천마의 날개짓처럼 구름과 바람, 햇살이 만들어내는 자유로운 영혼의 무지개빛 여행입니다."
 },
 {
-    name: "불사조의 재탄생",
+    name: "대구의 노을",
     gradient: "linear-gradient(135deg, #2C3E50, #E74C3C, #F39C12, #F7DC6F)",
-    description: "화염 속에서 다시 태어나는 불사조처럼 절망에서 희망으로, 어둠에서 빛으로 승화하는 영원한 부활의 불꽃입니다."
+    description: "화염 속에서 타오르는 대구의 하늘이 어둠에서 빛으로 승화하는 영원한 불꽃입니다."
 },
 {
     name: "메두사의 저주받은 시선",
@@ -2514,6 +2514,56 @@ function displayColors(colors, container) {
 
 // ==================== 카드 이미지 저장 기능 ====================
 
+// 카드 하단에 푸터 크레딧을 그리는 함수
+// 위치를 지정할 수 있는 크레딧 그리기 함수
+function drawFooterCreditAtPosition(canvas, ctx, startY) {
+    const canvasWidth = canvas.width;
+    
+    // 크레딧 위치
+    const copyrightY = startY;
+    const creditY = startY + 30;  // 저작권 아래 30px
+    
+    // 텍스트 설정
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    
+    // 저작권 텍스트
+    ctx.font = '500 18px Pretendard, sans-serif';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('© 2025 NFP DESIGN. All rights reserved.', canvasWidth / 2, copyrightY);
+    
+    // Creative by Studio NFP 텍스트
+    ctx.font = '500 16px Pretendard, sans-serif';
+    ctx.fillStyle = '#01FF75';
+    ctx.fillText('Creative by Studio NFP', canvasWidth / 2, creditY);
+}
+
+// 위치를 지정할 수 있는 로고 그리기 함수
+function drawLogoAtPosition(canvas, ctx, logoY) {
+    // 텍스트 설정
+    ctx.font = '900 48px Pretendard, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    
+    // 텍스트 너비 측정
+    const nfpText = 'NFP';
+    const designText = ' DESIGN';
+    const nfpWidth = ctx.measureText(nfpText).width;
+    const designWidth = ctx.measureText(designText).width;
+    const totalWidth = nfpWidth + designWidth;
+    
+    // 전체 텍스트를 화면 중앙에 배치
+    const logoX = (canvas.width - totalWidth) / 2;
+    
+    // NFP 부분 (녹색)
+    ctx.fillStyle = '#01FF75';
+    ctx.fillText(nfpText, logoX, logoY);
+    
+    // DESIGN 부분 (흰색)
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText(designText, logoX + nfpWidth, logoY);
+}
+
 // html2canvas 라이브러리 동적 로딩
 function loadHtml2Canvas() {
     return new Promise((resolve, reject) => {
@@ -2606,6 +2656,7 @@ function cleanColorCode(colorCode) {
 }
 
 // 단색 카드 저장
+// 수정된 단색 카드 저장 함수 (중앙 배치)
 async function saveSingleCard() {
     if (!currentColor) {
         alert('저장할 카드가 없습니다. 먼저 카드를 뽑아주세요.');
@@ -2624,7 +2675,7 @@ async function saveSingleCard() {
             useCORS: true
         });
         
-        // 최종 캔버스 생성 (640×1000) - 높이 다시 줄임
+        // 최종 캔버스 생성 (640×1000)
         const finalCanvas = document.createElement('canvas');
         const ctx = finalCanvas.getContext('2d');
         finalCanvas.width = 640;
@@ -2634,18 +2685,25 @@ async function saveSingleCard() {
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, 640, 1000);
         
-        // NFP DESIGN 로고 그리기 (상단 중앙)
-        drawLogo(finalCanvas, ctx);
-        
-        // 카드 75% 크기로 축소하여 중앙 배치
+        // 카드 크기 계산 (75% 축소)
         const scaledWidth = cardCanvas.width * 0.75;
         const scaledHeight = cardCanvas.height * 0.75;
-        const cardX = (640 - scaledWidth) / 2;  // 중앙 정렬
-        const cardY = 150;  // 로고 아래 여백
+        
+        // 카드를 진짜 중앙에 배치
+        const cardX = (640 - scaledWidth) / 2;  // 가로 중앙
+        const cardY = (1000 - scaledHeight) / 2;  // 세로 중앙
         
         // 카드 그리기
         ctx.drawImage(cardCanvas, 0, 0, cardCanvas.width, cardCanvas.height, 
                      cardX, cardY, scaledWidth, scaledHeight);
+        
+        // 로고를 카드 위쪽에 배치 (단색카드용)
+        const logoY = cardY - 55;  // 조금 더 위로
+        drawLogoAtPosition(finalCanvas, ctx, logoY);
+        
+        // 크레딧을 카드 아래쪽에 배치 (50px 간격)
+        const creditY = cardY + scaledHeight + 50;
+        drawFooterCreditAtPosition(finalCanvas, ctx, creditY);
         
         // 파일명 생성
         const countInfo = getTodayCount();
@@ -2670,7 +2728,8 @@ async function saveSingleCard() {
     }
 }
 
-// 그라데이션 카드 저장
+// 수정된 그라데이션 카드 저장 함수 (중앙 배치)
+// 수정된 그라데이션 카드 저장 함수 (단색 카드와 동일한 간격)
 async function saveGradientCard() {
     if (!gradientCurrentColor) {
         alert('저장할 카드가 없습니다. 먼저 카드를 뽑아주세요.');
@@ -2689,7 +2748,7 @@ async function saveGradientCard() {
             useCORS: true
         });
         
-        // 최종 캔버스 생성 (640×1000) - 높이 다시 줄임
+        // 최종 캔버스 생성 (640×1000)
         const finalCanvas = document.createElement('canvas');
         const ctx = finalCanvas.getContext('2d');
         finalCanvas.width = 640;
@@ -2699,18 +2758,25 @@ async function saveGradientCard() {
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, 640, 1000);
         
-        // NFP DESIGN 로고 그리기 (상단 중앙) - 파라미터 제거
-        drawLogo(finalCanvas, ctx);
-
-        
-        
-        // 카드 75% 크기로 축소하여 중앙 배치
+        // 카드 크기 계산 (75% 축소)
         const scaledWidth = cardCanvas.width * 0.75;
         const scaledHeight = cardCanvas.height * 0.75;
-        const cardX = (640 - scaledWidth) / 2;  // 중앙 정렬
-        const cardY = 150;  // 로고 아래 여백
+        
+        // 카드를 진짜 중앙에 배치
+        const cardX = (640 - scaledWidth) / 2;  // 가로 중앙
+        const cardY = (1000 - scaledHeight) / 2;  // 세로 중앙
+        
+        // 카드 그리기
         ctx.drawImage(cardCanvas, 0, 0, cardCanvas.width, cardCanvas.height, 
                      cardX, cardY, scaledWidth, scaledHeight);
+        
+        // 로고를 카드 위쪽에 배치 (단색카드와 동일한 55px)
+        const logoY = cardY - 55;
+        drawLogoAtPosition(finalCanvas, ctx, logoY);
+        
+        // 크레딧을 카드 아래쪽에 배치 (단색카드와 동일한 50px)
+        const creditY = cardY + scaledHeight + 50;
+        drawFooterCreditAtPosition(finalCanvas, ctx, creditY);
         
         // 파일명 생성 (그라데이션은 GRADIENT로 표시)
         const countInfo = getTodayCount();
