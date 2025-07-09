@@ -164,7 +164,7 @@ function createCardCounterDisplay() {
             <div class="card-counter-grid">
                 <div class="card-counter-item">
                     <span class="counter-icon"><i class="fas fa-square"></i></span>
-                    <span class="counter-text">그라데이션 카드: <span id="gradient-card-count">-</span>회</span>
+                    <span class="counter-text">단색 카드: <span id="single-card-count">-</span>회</span>
                 </div>
                 <div class="card-counter-item">
                     <span class="counter-icon"><i class="fas fa-dice"></i></span>
@@ -423,7 +423,9 @@ function updateCardCounterDisplay(counts) {
     // 단색 페이지에서는 실제로는 그라데이션 카드 개수를 표시 (스크린샷 기준)
     const singleCountEl = document.getElementById('single-card-count');
     const gradientCountEl = document.getElementById('gradient-card-count');
-    
+
+    // 단색 카드 카운터
+    if (singleCountEl) singleCountEl.textContent = counts.single.toLocaleString();
     // 그라데이션 카드 카운터들
     if (gradientCountEl) gradientCountEl.textContent = counts.gradient.toLocaleString();
     
