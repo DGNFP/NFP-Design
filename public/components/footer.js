@@ -25,7 +25,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
                 <a href="https://www.youtube.com/@Studio-NFP" target="_blank" class="social-link social-link-youtube">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <a href="https://www.instagram.com/nfp_dg" target="_blank" class="social-link social-link-instagram">
+                <a href="https://www.instagram.com/studio_nfp" target="_blank" class="social-link social-link-instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="https://open.kakao.com/me/nfp" target="_blank" class="social-link social-link-kakao">

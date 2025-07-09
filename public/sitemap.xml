@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/notice/2025-07-08-250709-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%B9%B4%EB%93%9C-%EB%BD%91%EA%B8%B0-%EC%B9%B4%EB%93%9C-%EC%A0%80%EC%9E%A5-%EA%B8%B0%EB%8A%A5/</loc>
+    <lastmod>2025-07-09T00:20:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-07-09T00:20:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/notice/</loc>
+    <lastmod>2025-07-09T00:20:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-07-07T23:14:00+00:00</lastmod>
   </url><url>
@@ -12,9 +21,6 @@
     <lastmod>2025-07-07T23:14:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-07-07T23:14:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2025-07-07T23:14:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
@@ -30,9 +36,6 @@
     <lastmod>2025-07-07T23:14:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/notice/2025-07-06-25-07-06-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%B6%94%EA%B0%80/</loc>
-    <lastmod>2025-07-06T21:37:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/notice/</loc>
     <lastmod>2025-07-06T21:37:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/css3/</loc>
