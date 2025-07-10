@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function startSlideInterval() {
         // 기존 타이머가 있다면 정리
         stopSlideInterval();
-        slideInterval = setInterval(nextSlide, 5000);
+        slideInterval = setInterval(nextSlide, 10000);
     }
     
     // 자동 슬라이드 정지

@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // NFP 자동 슬라이드 설정
     function startSlideInterval() {
         clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000); // 10초마다 슬라이드 변경 (팝업과 동일)
+        slideInterval = setInterval(nextSlide, 10000); // 10초마다 슬라이드 변경 (팝업과 동일)
     }
     
     // NFP 자동 슬라이드 정지

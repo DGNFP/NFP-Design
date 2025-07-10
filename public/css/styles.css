@@ -846,10 +846,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;     /* absolute → relative */
+    margin-top: 25px;       /* bottom: 25px 대신 margin-top */
+    /* left, transform 제거 */
     z-index: 100;
 }
 
@@ -2006,7 +2005,8 @@ nav {
     }
 
     .banner-dots {
-        bottom: 20px;
+        /* bottom: 20px; */
+        margin-bottom: 0px;
     }
 
     .banner-dots .banner-dot {

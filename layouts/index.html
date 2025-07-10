@@ -291,6 +291,7 @@
     </div>
 </section>
 
+
 <!-- 소식 섹션 -->
 <section id="news" class="news">
     <div class="container">
@@ -299,32 +300,39 @@
             <a href="/news/" class="btn btn-more">더보기</a>
         </div>
         <div class="news-content">
-           <div class="banner-container">
-                <div class="banner-slider">
-                    <!-- 고정 배너 이미지 5개 -->
-                    <div class="banner">  <!-- active 클래스 제거! -->
-                        <img src="/img/banner/bn1.jpg" class="pc_img" alt="메인 배너 1">
-                        <img src="/img/banner/bnm1.jpg" class="mobile_img" alt="모바일 배너1">
-                    </div>
-                    <div class="banner">
-                        <img src="/img/banner/bn2.jpg" class="pc_img" alt="메인 배너 2">
-                        <img src="/img/banner/bnm2.jpg" class="mobile_img" alt="모바일 배너2">
-                    </div>
-                    <div class="banner">
-                        <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 3">
-                        <img src="/img/banner/banner1.png" class="mobile_img" alt="모바일 배너3">
-                    </div>
-                    <div class="banner">
-                        <img src="img/banner/banner2.png" class="pc_img" alt="소식 배너 4">
-                        <img src="/img/banner/banner1.png" class="mobile_img" alt="모바일 배너4">
-                    </div>
-                    <div class="banner">
-                        <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 5">
-                        <img src="/img/banner/banner1.png" class="mobile_img" alt="모바일 배너5">
+            <!-- 배너 영역 전체를 감싸는 래퍼 -->
+            <div class="banner-wrapper">
+                <div class="banner-container">
+                    <div class="banner-slider">
+                        <!-- 고정 배너 이미지 5개 -->
+                        <div class="banner">  <!-- active 클래스 제거! -->
+                            <img src="/img/banner/bn1.jpg" class="pc_img" alt="메인 배너 1">
+                            <img src="/img/banner/bnm1.jpg" class="mobile_img" alt="모바일 배너1">
+                        </div>
+                        <div class="banner">
+                            <img src="/img/banner/bn2.jpg" class="pc_img" alt="메인 배너 2">
+                            <img src="/img/banner/bnm2.jpg" class="mobile_img" alt="모바일 배너2">
+                        </div>
+                        <div class="banner">
+                            <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 3">
+                            <img src="/img/banner/banner1.png" class="mobile_img" alt="모바일 배너3">
+                        </div>
+                        <div class="banner">
+                            <img src="img/banner/banner2.png" class="pc_img" alt="소식 배너 4">
+                            <img src="/img/banner/banner1.png" class="mobile_img" alt="모바일 배너4">
+                        </div>
+                        <div class="banner">
+                            <img src="img/banner/banner1.png" class="pc_img" alt="소식 배너 5">
+                            <img src="/img/banner/banner1.png" class="mobile_img" alt="모바일 배너5">
+                        </div>
                     </div>
                 </div>
-                
-                <!-- 고정 도트 5개 -->
+
+                <!-- 이전/다음 버튼을 배너 컨테이너 밖으로 이동 -->
+                <button class="banner-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="banner-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+
+                <!-- 배너 도트를 배너 래퍼 안에 배치 -->
                 <div class="banner-dots">
                     <span class="banner-dot"></span>
                     <span class="banner-dot"></span>
@@ -334,45 +342,43 @@
                 </div>
             </div>
 
-            <button class="banner-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="banner-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            <div class="news-list">
+                <!-- 공지사항 최신 1개 (맨 위에 표시) -->
+                {{ $noticePosts := where site.RegularPages "Section" "notice" }}
+                {{ range first 1 $noticePosts.ByDate.Reverse }}
+                <div class="news-item">
+                    <a href="{{ .Permalink }}" class="news-link">
+                        <span class="news-title">
+                            <span class="notice-badge">[공지]</span> {{ .Title }}
+                        </span>
+                        <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
+                    </a>
+                </div>
+                {{ end }}
+                
+                <!-- 일반 소식 최신 4개 -->
+                {{ $newsPosts := where site.RegularPages "Section" "news" }}
+                {{ range first 4 $newsPosts.ByDate.Reverse }}
+                <div class="news-item">
+                    <a href="{{ .Permalink }}" class="news-link">
+                        <span class="news-title">{{ .Title }}</span>
+                        <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
+                    </a>
+                </div>
+                {{ end }}
+                
+                <!-- 게시글이 전혀 없을 때 -->
+                {{ if and (not $noticePosts) (not $newsPosts) }}
+                <div class="news-item">
+                    <div class="news-link">
+                        <span class="news-title">소식이 없습니다</span>
+                        <span class="news-date">2025.05.24</span>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
 
-               <div class="news-list">
-    <!-- 공지사항 최신 1개 (맨 위에 표시) -->
-    {{ $noticePosts := where site.RegularPages "Section" "notice" }}
-    {{ range first 1 $noticePosts.ByDate.Reverse }}
-    <div class="news-item">
-        <a href="{{ .Permalink }}" class="news-link">
-            <span class="news-title">
-                <span class="notice-badge">[공지]</span> {{ .Title }}
-            </span>
-            <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
-        </a>
-    </div>
-    {{ end }}
-    
-    <!-- 일반 소식 최신 4개 -->
-    {{ $newsPosts := where site.RegularPages "Section" "news" }}
-    {{ range first 4 $newsPosts.ByDate.Reverse }}
-    <div class="news-item">
-        <a href="{{ .Permalink }}" class="news-link">
-            <span class="news-title">{{ .Title }}</span>
-            <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
-        </a>
-    </div>
-    {{ end }}
-    
-    <!-- 게시글이 전혀 없을 때 -->
-    {{ if and (not $noticePosts) (not $newsPosts) }}
-    <div class="news-item">
-        <div class="news-link">
-            <span class="news-title">소식이 없습니다</span>
-            <span class="news-date">2025.05.24</span>
         </div>
-    </div>
-    {{ end }}
-</div>
-
     </div>
 </section>
 
