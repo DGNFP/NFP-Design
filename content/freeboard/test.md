@@ -1,10 +1,15 @@
 ---
-title: "요즘 관심있게 보고 있는 디자인 트렌드"
+title: 요즘 관심있게 보고 있는 디자인 트렌드
 date: 2025-06-13T14:30:00+09:00
+subCategory: 일상
+tags:
+  - 일상
+  - NFP Design
+  - NFP 디자인
 custom_tags:
-  - tag: "디자인 트렌드"
-  - tag: "일상"
-  - tag: "개인적인 생각"
+  - tag: 디자인 트렌드
+  - tag: 일상
+  - tag: 개인적인 생각
 ---
 
 
