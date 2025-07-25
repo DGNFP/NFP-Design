@@ -4,6 +4,7 @@ title: 'NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다'
 
 buildFuture: true
 buildExpired: true
+cleanDestinationDir: true
 timezone: "Asia/Seoul"
 googleAnalyticsID: "G-HG6N24RD49"
 
