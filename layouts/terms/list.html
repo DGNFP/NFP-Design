@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="board-section">
+    <div class="container">
+        <h2 class="board-section-title">정책 및 약관</h2>
+        <p class="board-intro">서비스 이용을 위한 정책 및 약관 안내</p>
+        
+        <!-- 탭 메뉴 -->
+        <div class="all-view-all-wrapper">
+            <a href="/notice/" class="all-view-all-button">공지사항</a>
+            <a href="/news/" class="all-view-all-button">소식</a>
+            <a href="/freeboard/" class="all-view-all-button">자유게시판</a>
+            <a href="/games/" class="all-view-all-button">게임게시판</a>
+            <a href="/terms/" class="all-view-all-button active">정책 및 약관</a>
+        </div>
+        
+        <!-- 정책 및 약관 게시글 -->
+        <div class="news-list">
+            {{ $termsPosts := where .Site.RegularPages "Section" "terms" }}
+            {{ if $termsPosts }}
+                {{ range $termsPosts.ByDate.Reverse }}
+                <div class="news-item">
+                    <a href="{{ .Permalink }}" class="news-link">
+                        <span class="news-title">{{ .Title }}</span>
+                        <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
+                    </a>
+                </div>
+                {{ end }}
+            {{ else }}
+                <!-- 기본 정책 항목들 (파일이 없을 때 표시) -->
+                <div class="news-item">
+                    <a href="/terms/privacy-policy/" class="news-link">
+                        <span class="news-title">개인정보처리방침</span>
+                        <span class="news-date">2025.07.30</span>
+                    </a>
+                </div>
+                <div class="news-item">
+                    <a href="/terms/service-terms/" class="news-link">
+                        <span class="news-title">서비스 이용약관</span>
+                        <span class="news-date">2025.07.30</span>
+                    </a>
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

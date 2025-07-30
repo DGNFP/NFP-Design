@@ -1,0 +1,151 @@
+{{ define "main" }}
+<section class="post-section">
+    <div class="container">
+        <div class="post-container">
+            <!-- 게시글 헤더 -->
+            <div class="post-header">
+                <h1 class="post-title">{{ .Title }}</h1>
+                <div class="post-meta">
+                    <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
+                    <span class="post-category">정책 및 약관</span>
+                </div>
+            </div>
+
+            <!-- 개인정보처리방침 스타일 적용 -->
+            <div class="post-content">
+                <div class="privacy-section">
+                    <div class="content-box">
+                        <div class="privacy-content">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 페이지 네비게이션 -->
+            <div class="post-navigation">
+                {{ $posts := slice }}
+                {{ $listUrl := "" }}
+                
+                {{ if eq .Section "terms" }}
+                    {{ $posts = where .Site.RegularPages "Section" "terms" }}
+                    {{ $listUrl = "/terms/" }}
+                {{ end }}
+                
+                {{ $posts = $posts.ByDate.Reverse }}
+                {{ $currentIndex := 0 }}
+                {{ range $index, $post := $posts }}
+                    {{ if eq $post.Permalink $.Permalink }}
+                        {{ $currentIndex = $index }}
+                    {{ end }}
+                {{ end }}
+                
+                <!-- 이전 게시글 -->
+                {{ $prevIndex := add $currentIndex 1 }}
+                {{ if lt $prevIndex (len $posts) }}
+                    {{ $prevPost := index $posts $prevIndex }}
+                    <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
+                        <i class="fas fa-chevron-left"></i> 이전
+                    </a>
+                {{ else }}
+                    <span></span>
+                {{ end }}
+                
+                <!-- 목록으로 -->
+                <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
+
+                <!-- 다음 게시글 -->
+                {{ $nextIndex := sub $currentIndex 1 }}
+                {{ if ge $nextIndex 0 }}
+                    {{ $nextPost := index $posts $nextIndex }}
+                    <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
+                        다음 <i class="fas fa-chevron-right"></i>
+                    </a>
+                {{ else }}
+                    <span></span>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 개인정보처리방침 전용 스타일 -->
+<style>
+.privacy-section {
+    max-width: 100%;
+}
+
+.content-box {
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+    padding: 30px;
+    max-height: none; /* 스크롤 제거 */
+    overflow: visible;
+}
+
+.privacy-content h2 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    border-left: 4px solid #00ff88;
+    padding-left: 10px;
+}
+
+.privacy-content h2:first-child {
+    margin-top: 0;
+}
+
+.privacy-content p {
+    margin-bottom: 12px;
+    color: #e0e0e0;
+    line-height: 1.7;
+}
+
+.privacy-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.privacy-content li {
+    margin-bottom: 8px;
+    color: #e0e0e0;
+}
+
+.highlight {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.content-text {
+    color: #888888;
+}
+
+.contact-info {
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.date-info {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888888;
+}
+
+.date-info p {
+    margin: 2px 0;
+}
+
+.date-info strong {
+    color: #ffffff;
+}
+</style>
+{{ end }}

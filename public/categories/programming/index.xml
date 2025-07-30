@@ -6,8 +6,15 @@
     <description>Recent content in Programming on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Mon, 07 Jul 2025 23:14:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jul 2025 01:14:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>모바일 앱 스플래시 화면 웹데모</title>
+      <link>http://localhost:1313/posts/programming/2025-07-27-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EC%8A%A4%ED%94%8C%EB%9E%98%EC%8B%9C-%ED%99%94%EB%A9%B4-%EC%9B%B9%EB%8D%B0%EB%AA%A8/</link>
+      <pubDate>Mon, 28 Jul 2025 01:14:00 +0900</pubDate>
+      <guid>http://localhost:1313/posts/programming/2025-07-27-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EC%8A%A4%ED%94%8C%EB%9E%98%EC%8B%9C-%ED%99%94%EB%A9%B4-%EC%9B%B9%EB%8D%B0%EB%AA%A8/</guid>
+      <description>&lt;p&gt;정상적으로 구현이 잘 되면 좋겠네요.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>CSS 버튼 아이콘 스타일 및 인터렉션</title>
       <link>http://localhost:1313/posts/programming/2025-07-07-css-%EB%B2%84%ED%8A%BC-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%B0%8F-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98/</link>

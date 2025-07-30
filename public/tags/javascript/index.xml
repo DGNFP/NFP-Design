@@ -72,13 +72,6 @@
       <description>&lt;p&gt;프로젝트 진행 일정을 도와주는 로드맵 플래너 웹 데모 입니다.&lt;br&gt;&#xA;테마는 템플릿으로 스타일링한 &amp;ldquo;NFP 다크모드&amp;rdquo; 테마를 적용하였습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>프로젝트 게시판 테스트</title>
-      <link>http://localhost:1313/posts/project/test-copy-3/</link>
-      <pubDate>Sat, 07 Jun 2025 23:50:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/project/test-copy-3/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=G-InoBsm_I4&#34;&gt;https://www.youtube.com/watch?v=G-InoBsm_I4&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;테스트를 위해 잠시 영상을 빌려 쓰겠습니다.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>랜딩페이지 클론</title>
       <link>http://localhost:1313/posts/programming/2025-05-29-%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%81%B4%EB%A1%A0/</link>
       <pubDate>Thu, 29 May 2025 23:00:00 +0000</pubDate>
