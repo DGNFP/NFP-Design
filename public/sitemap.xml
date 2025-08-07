@@ -2,8 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/video/2025-08-06-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-%EB%AA%A8%EB%A8%BC%ED%8A%B8-%EB%8D%B0%EC%9D%B4%EB%B9%84%EB%93%9C-%EB%B2%A0%EC%BB%B4-5%EC%B9%B4/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/after-effects/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nfp-design/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-30T00:00:00+09:00</lastmod>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/video/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EB%AA%A8%EC%85%98-%EA%B7%B8%EB%9E%98%ED%94%BD/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EC%98%81%EC%83%81-%ED%8E%B8%EC%A7%91/</loc>
+    <lastmod>2025-08-06T22:40:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/video/2025-08-06-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-6%EC%9B%94-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-%ED%8C%A8%EC%8A%A4/</loc>
+    <lastmod>2025-08-06T22:33:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/video/2025-08-06-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-6%EC%9B%94-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%ED%8C%A8%EC%8A%A4/</loc>
+    <lastmod>2025-08-06T22:32:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC/</loc>
+    <lastmod>2025-08-06T22:32:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/terms/privacy-policy/</loc>
     <lastmod>2025-07-30T00:00:00+09:00</lastmod>
@@ -17,22 +59,13 @@
     <loc>http://localhost:1313/tags/android-studio/</loc>
     <lastmod>2025-07-28T01:14:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-07-28T01:14:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/node.js/</loc>
-    <lastmod>2025-07-28T01:14:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-07-28T01:14:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/programming/</loc>
     <lastmod>2025-07-28T01:14:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/react-native/</loc>
-    <lastmod>2025-07-28T01:14:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-07-28T01:14:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/visual-studio-code/</loc>
@@ -43,12 +76,6 @@
   </url><url>
     <loc>http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</loc>
     <lastmod>2025-07-28T01:14:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/nfp-design/</loc>
-    <lastmod>2025-07-24T00:54:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-07-24T00:54:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/web/</loc>
     <lastmod>2025-07-24T00:54:00+09:00</lastmod>
@@ -65,28 +92,10 @@
     <loc>http://localhost:1313/posts/video/2025-07-16-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91-%EC%A0%95%EA%B8%B0-%EB%B0%9C%ED%96%89%EB%AC%BC-%EC%87%BC%EC%B8%A0-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91/</loc>
     <lastmod>2025-07-16T23:48:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/video/</loc>
-    <lastmod>2025-07-16T23:48:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%EB%AA%A8%EC%85%98-%EA%B7%B8%EB%9E%98%ED%94%BD/</loc>
-    <lastmod>2025-07-16T23:48:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91/</loc>
-    <lastmod>2025-07-16T23:48:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%EC%98%81%EC%83%81-%ED%8E%B8%EC%A7%91/</loc>
-    <lastmod>2025-07-16T23:48:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/video/2025-07-16-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91-%ED%9A%8C%EC%82%AC-%EC%86%8C%EA%B0%9C-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-07-16T21:46:00+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/after-effects/</loc>
-    <lastmod>2025-07-16T21:46:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/premiere-pro/</loc>
-    <lastmod>2025-07-16T21:46:00+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC/</loc>
     <lastmod>2025-07-16T21:46:00+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/freeboard/</loc>
@@ -287,9 +296,6 @@
     <loc>http://localhost:1313/tags/%EC%9D%B8%EB%94%94%EA%B2%8C%EC%9E%84/</loc>
     <lastmod>2025-06-19T22:46:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/notice/test/</loc>
-    <lastmod>2025-06-13T10:00:00+09:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</loc>
     <lastmod>2025-06-01T15:30:00+09:00</lastmod>
   </url><url>
@@ -307,6 +313,10 @@
   </url><url>
     <loc>http://localhost:1313/news/2025-05-24-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B0%80%EC%98%A4%ED%94%88/</loc>
     <lastmod>2025-05-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/blog/</loc>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
   </url><url>
     <loc>http://localhost:1313/studio/</loc>
   </url>

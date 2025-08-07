@@ -355,27 +355,39 @@ async function generateChartHTML() {
         document.head.appendChild(link);
     }
 
-    // 기본 버튼 설정
-    const defaultButtons = [
-          {
+// 기본 버튼 설정
+const defaultButtons = [
+    {
+        id: 'news-btn',
+        href: '/news',
+        icon: '<i class="fas fa-bullhorn"></i>',
+        text: '소식'
+    },
+    {
+        id: 'blog-btn',
+        href: '/freeboard/',
+        icon: '<i class="fas fa-pen-nib"></i>',
+        text: '블로그'
+    },
+    {
         id: 'studio-btn',
-        href: '/studio/',  // 스튜디오 페이지 경로로 수정하세요
-        icon: '<i class="fas fa-paint-brush"></i>',  // 또는 원하는 아이콘으로
+        href: '/studio/',  
+        icon: '<i class="fas fa-paint-brush"></i>',  
         text: '스튜디오'
-        },
-        {
-            id: 'work-btn',
-            href: '/posts/',
-            icon: '<i class="fas fa-clipboard-list"></i>',
-            text: '작업 보기'
-        },
-        {
-            id: 'contact-btn',
-            href: '/index.html#contact',
-            icon: '<i class="fas fa-comment"></i>',
-            text: '연락하기'
-        }
-    ];
+    },
+    {
+        id: 'work-btn',
+        href: '/posts/',
+        icon: '<i class="fas fa-clipboard-list"></i>',
+        text: '작업 보기'
+    },
+    {
+        id: 'contact-btn',
+        href: '/index.html#contact',
+        icon: '<i class="fas fa-comment"></i>',
+        text: '연락하기'
+    }
+];
     
     const buttonList = buttons || defaultButtons;
     
@@ -431,7 +443,7 @@ async function generateChartHTML() {
     .floating-buttons {
         position: fixed;
         right: 30px;
-        top: 50%;
+        top: 40%;
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;
