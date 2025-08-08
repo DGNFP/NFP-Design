@@ -284,7 +284,7 @@
 <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 웹 디자인·퍼블리싱·로고·영상·광고·인쇄물 디자인 전문 | NFP 디자인{{ else if eq .Section "posts" }}{{ .Summary | truncate 140 }} | NFP 디자인 포트폴리오{{ else if eq .Section "games" }}{{ .Summary | truncate 140 }} | {{ .Params.subCategory }} 게임 정보{{ else if eq .Section "freeboard" }}{{ .Summary | truncate 140 }} | NFP 디자인 블로그{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
 
 <!-- 핵심 키워드만 선별 -->
-<meta name="keywords" content="NFP 디자인, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너, 디자인 전문">
+<meta name="keywords" content="NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너">
 
 <!-- SEO 추가 메타 태그 (기존 유지) -->
 <meta name="robots" content="index, follow">
@@ -292,7 +292,7 @@
 <meta name="author" content="{{ .Site.Params.author }}">
     
     <!-- Open Graph 태그 - 수정된 이미지 경로 -->
-    <meta property="og:title" content="{{ if .IsHome }}NFP 디자인 | 니즈를 채우는 프레시하고 팝한 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}NFP 디자인 | 웹 디자인·퍼블리싱·로고·영상·광고·인쇄물 디자인 전문{{ else if eq .Section "posts" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "브랜딩 프로젝트" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "콘텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
     <meta property="og:image" content="{{ "img/nfp-main.png" | absURL }}">
     <meta property="og:image:width" content="1200">
@@ -314,7 +314,7 @@
     
     <!-- Twitter 태그 - 수정된 이미지 경로 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ if .IsHome }}NFP 디자인 | 니즈를 채우는 프레시하고 팝한 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta name="twitter:title" content="{{ if .IsHome }}NFP 디자인 | 웹 디자인·퍼블리싱·로고·영상·광고·인쇄물 디자인 전문{{ else if eq .Section "posts" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "브랜딩 프로젝트" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "콘텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
     <meta property="twitter:image" content="{{ "img/nfp-main.png" | absURL }}">
     <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
@@ -336,8 +336,8 @@
         "availableLanguage": "Korean"
       },
       "areaServed": "KR",
-      "knowsAbout": [
-        "웹디자인", "홈페이지디자인", "디지털배너디자인", "상세페이지디자인", "UXUI디자인", "컨텐츠디자인", "카드뉴스디자인", "포스터디자인", "SNS광고디자인", "크리에이티브디자인", "로고디자인", "브랜딩", "게임광고디자인", "인터넷방송디자인", "영상디자인", "영상제작", "영상편집", "모션그래픽", "유튜브썸네일", "프로그래밍", "프론트엔드", "웹퍼블리싱", "모바일앱", "게임개발", "광고디자인", "인쇄디자인", "현수막디자인", "엑스배너디자인", "명함디자인", "브로슈어디자인", "카탈로그디자인", "광고매체디자인", "패키지디자인"
+     "knowsAbout": [
+      "웹디자인", "홈페이지디자인", "디지털배너디자인", "상세페이지디자인", "UXUI디자인", "컨텐츠디자인", "카드뉴스디자인", "포스터디자인", "SNS광고디자인", "크리에이티브디자인", "로고디자인", "브랜딩", "게임광고디자인", "인터넷방송디자인", "영상디자인", "영상제작", "영상편집", "모션그래픽", "유튜브썸네일", "프로그래밍", "프론트엔드", "웹퍼블리싱", "모바일앱", "게임개발", "광고디자인", "인쇄디자인", "현수막디자인", "엑스배너디자인", "명함디자인", "브로슈어디자인", "카탈로그디자인", "광고매체디자인", "패키지디자인", "NFP디자인", "StudioNFP", "디자인외주", "디자인전문"
       ],
       "slogan": "니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다"
       {{ else }}
