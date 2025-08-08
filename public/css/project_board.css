@@ -102,10 +102,11 @@
     white-space: nowrap;
     backdrop-filter: blur(4px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
     align-items: center;
     justify-content: center;
     line-height: 1; /* 추가 - 텍스트 높이 정규화 */
+
+    transition: all 0.3s ease;
     
 }
 

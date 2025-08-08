@@ -54,7 +54,7 @@
     aspect-ratio: 1;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
     border: 2px solid rgba(1, 255, 117, 0.2);
-    border-radius: 20px;
+    border-radius: 4px;
     text-align: center;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

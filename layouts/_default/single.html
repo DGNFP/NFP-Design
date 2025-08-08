@@ -225,7 +225,7 @@
                     {{ $content | safeHTML }}
                 </div>
 
-                <!-- 태그 표시 (본문 최하단) - 타입 안전 처리 -->
+<!-- 태그 표시 (본문 최하단) - 타입 안전 처리 -->
                 {{ if or .Params.tags .Params.custom_tags }}
                 <div class="tags-container">
                     <!-- 기본 태그 우선 표시 -->
@@ -243,67 +243,202 @@
                 </div>
                 {{ end }}
             </div>
+        </div> <!-- post-container 닫기 -->
 
-        <!-- 페이지 네비게이션 -->
-        <div class="post-navigation">
-            {{ $posts := slice }}
-            {{ $listUrl := "" }}
-            
-            {{ $from := .Params.from | default "" }}
-            
-            {{ if eq .Section "games" }}
-                {{ $posts = where .Site.RegularPages "Section" "games" }}
-                {{ $listUrl = "/games/" }}
-            {{ else if eq .Section "freeboard" }}
-                {{ $posts = where .Site.RegularPages "Section" "freeboard" }}
-                {{ $listUrl = "/freeboard/" }}
-            {{ else if eq .Section "news" }}
-                {{ $posts = where .Site.RegularPages "Section" "news" }}
-                {{ $listUrl = "/news/" }}
-            {{ else if eq .Section "notice" }}
-                {{ $posts = where .Site.RegularPages "Section" "notice" }}
-                {{ $listUrl = "/notice/" }}
-            {{ else if eq .Section "posts" }}
+<!-- 페이지 네비게이션 -->
+<div class="post-navigation">
+    <!-- 제목 (맨 위) -->
+    <div class="related-posts-header">
+        <h3>
+            {{ if eq .Section "posts" }}
                 {{ $currentCategory := index .Params.categories 0 }}
-                {{ $posts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
-                {{ $listUrl = "/posts/" }}
-            {{ end }}
-            
-            {{ $posts = $posts.ByDate.Reverse }}
-            {{ $currentIndex := 0 }}
-            {{ range $index, $post := $posts }}
-                {{ if eq $post.Permalink $.Permalink }}
-                    {{ $currentIndex = $index }}
-                {{ end }}
-            {{ end }}
-            
-            <!-- 이전 게시글 -->
-            {{ $prevIndex := add $currentIndex 1 }}
-            {{ if lt $prevIndex (len $posts) }}
-                {{ $prevPost := index $posts $prevIndex }}
-                <a href="{{ $prevPost.RelPermalink }}" class="nav-previous">
-                    <i class="fas fa-chevron-left"></i> 이전
-                </a>
+                {{ if eq $currentCategory "web" }}웹 디자인{{ else if eq $currentCategory "video" }}영상 디자인{{ else if eq $currentCategory "creative" }}크리에이티브 디자인{{ else if eq $currentCategory "programming" }}프로그래밍{{ else if eq $currentCategory "content" }}콘텐츠 디자인{{ else if eq $currentCategory "ad" }}광고 디자인{{ else if eq $currentCategory "project" }}프로젝트{{ end }} 카테고리의 다른 작업물
+            {{ else if eq .Section "games" }}
+                {{ .Params.subCategory }}의 다른 게시글
+            {{ else if eq .Section "freeboard" }}
+                {{ .Params.subCategory }}의 다른 게시글
             {{ else }}
-                <span></span>
+                관련 게시글
             {{ end }}
-            
-            <!-- 목록으로 -->
-            <a href="{{ $listUrl | relURL }}" class="nav-list">목록으로</a>
-
-            <!-- 다음 게시글 -->
-            {{ $nextIndex := sub $currentIndex 1 }}
-            {{ if ge $nextIndex 0 }}
-                {{ $nextPost := index $posts $nextIndex }}
-                <a href="{{ $nextPost.RelPermalink }}" class="nav-next">
-                    다음 <i class="fas fa-chevron-right"></i>
-                </a>
-            {{ else }}
-                <span></span>
-            {{ end }}
-        </div>
-        </div>
+        </h3>
     </div>
+    
+    <!-- 그리드 (제목 아래) -->
+    <div class="related-posts-container">
+        {{ $relatedPosts := slice }}
+        {{ if eq .Section "posts" }}
+            {{ $currentCategory := index .Params.categories 0 }}
+            {{ $relatedPosts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
+        {{ else if eq .Section "games" }}
+            {{ $relatedPosts = where (where .Site.RegularPages "Section" "games") "Params.subCategory" .Params.subCategory }}
+        {{ else if eq .Section "freeboard" }}
+            {{ $relatedPosts = where (where .Site.RegularPages "Section" "freeboard") "Params.subCategory" .Params.subCategory }}
+        {{ else if eq .Section "news" }}
+            {{ $relatedPosts = where .Site.RegularPages "Section" "news" }}
+        {{ else if eq .Section "notice" }}
+            {{ $relatedPosts = where .Site.RegularPages "Section" "notice" }}
+        {{ end }}
+        
+        <!-- 안전한 정렬 처리 -->
+        {{ if $relatedPosts }}
+            {{ $relatedPosts = $relatedPosts.ByDate.Reverse }}
+            {{ $count := 0 }}
+            
+            <!-- 텍스트형 섹션 (notice, news, terms) -->
+            {{ if or (eq .Section "notice") (eq .Section "news") (eq .Section "terms") }}
+                <div class="text-list">
+                    {{ range $relatedPosts }}
+                        {{ if and (ne .Permalink $.Permalink) (lt $count 10) }}
+                            <a href="{{ .RelPermalink }}" class="text-list-item">
+                                <span class="text-title">{{ .Title }}</span>
+                                <span class="text-date">{{ .Date.Format "2006.01.02" }}</span>
+                            </a>
+                            {{ $count = add $count 1 }}
+                        {{ end }}
+                    {{ end }}
+                </div>
+            
+            <!-- 카드형 섹션 (posts, games, freeboard) -->
+            {{ else }}
+                <div class="related-posts-grid">
+                    {{ range $relatedPosts }}
+                        {{ if and (ne .Permalink $.Permalink) (lt $count 8) }}
+                            <a href="{{ .RelPermalink }}" class="related-post-card">
+                                <!-- 썸네일 영역 -->
+                                <div class="card-thumbnail">
+                                    {{ $content := .Content }}
+                                    {{ $mainCat := index .Params.categories 0 }}
+                                    {{ $hasVideo := false }}
+                                    {{ $hasImage := false }}
+                                    {{ $videoId := "" }}
+                                    {{ $firstImageSrc := "" }}
+                                    {{ $showPlaceholder := false }}
+                                    
+                                    <!-- 이미지 찾기 -->
+                                    {{ $imageMatches := findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                                    {{ if $imageMatches }}
+                                        {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                                        {{ $hasImage = true }}
+                                    {{ else }}
+                                        <!-- YouTube 찾기 -->
+                                        {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+                                        {{ if $youtubeMatches }}
+                                            {{ $fullMatch := index $youtubeMatches 0 }}
+                                            {{ if findRE "/shorts/" $fullMatch 1 }}
+                                                {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
+                                            {{ else }}
+                                                {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+                                            {{ end }}
+                                            {{ $hasVideo = true }}
+                                        {{ else }}
+                                            {{ $showPlaceholder = true }}
+                                        {{ end }}
+                                    {{ end }}
+                                    
+<!-- 썸네일 표시 -->
+{{ if $showPlaceholder }}
+    {{ if eq $mainCat "programming" }}
+        <!-- 프로그래밍 카테고리는 기존 스타일 사용 -->
+        <div class="demo-placeholder-grid" data-subcategory="{{ .Params.subCategory }}">
+            <div class="demo-icon">
+                {{ if eq .Params.subCategory "프론트엔드" }}
+                    <i class="fab fa-react"></i>
+                {{ else if eq .Params.subCategory "백엔드" }}
+                    <i class="fas fa-server"></i>
+                {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
+                    <i class="fab fa-html5"></i>
+                {{ else if eq .Params.subCategory "모바일 앱" }}
+                    <i class="fas fa-mobile-alt"></i>
+                {{ else if eq .Params.subCategory "게임 개발" }}
+                    <i class="fas fa-gamepad"></i>
+                {{ else }}
+                    <i class="fas fa-code"></i>
+                {{ end }}
+            </div>
+            <div class="demo-label">
+                <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
+                {{ if .Params.demoCode }}
+                    <span class="demo-tech">WEB DEMO</span>
+                {{ end }}
+            </div>
+        </div>
+    {{ else }}
+        <!-- 다른 카테고리는 간단한 플레이스홀더 -->
+        <div class="simple-placeholder-thumbnail" data-category="{{ $mainCat }}">
+            {{ if eq .Section "freeboard" }}
+                <i class="fas fa-edit"></i>
+                <span>{{ .Params.subCategory | default "자유게시판" }}</span>
+            {{ else if eq $mainCat "web" }}
+                <i class="fas fa-desktop"></i>
+                <span>웹 디자인</span>
+            {{ else if eq $mainCat "creative" }}
+                <i class="fas fa-palette"></i>
+                <span>크리에이티브</span>
+            {{ else if eq $mainCat "video" }}
+                <i class="fas fa-video"></i>
+                <span>영상 디자인</span>
+            {{ else if eq $mainCat "content" }}
+                <i class="fas fa-image"></i>
+                <span>콘텐츠 디자인</span>
+            {{ else if eq $mainCat "ad" }}
+                <i class="fas fa-bullhorn"></i>
+                <span>광고 디자인</span>
+            {{ else if eq $mainCat "project" }}
+                <i class="fas fa-project-diagram"></i>
+                <span>프로젝트</span>
+            {{ else }}
+                <i class="fas fa-image"></i>
+                <span>{{ $mainCat | default "게시글" }}</span>
+            {{ end }}
+        </div>
+    {{ end }}
+{{ else if $hasVideo }}
+    <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+         alt="{{ .Title }}" loading="lazy"
+         onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+    <div class="video-overlay">
+        <i class="fas fa-play"></i>
+    </div>
+{{ else if $hasImage }}
+    <img src="{{ $firstImageSrc }}" alt="{{ .Title }}" loading="lazy">
+{{ end }}
+
+<!-- 카테고리 오버레이 -->
+{{ if .Params.subCategory }}
+    <div class="category-overlay">{{ .Params.subCategory }}</div>
+{{ end }}
+</div>
+                                
+                                <!-- 텍스트 영역 -->
+                                <div class="card-content">
+                                    <h4>{{ .Title }}</h4>
+                                    <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
+                                </div>
+                            </a>
+                            {{ $count = add $count 1 }}
+                        {{ end }}
+                    {{ end }}
+                </div>
+            {{ end }}
+            
+            {{ if eq $count 0 }}
+                <p class="no-related">관련 게시글이 없습니다.</p>
+            {{ end }}
+        {{ else }}
+            <p class="no-related">관련 게시글이 없습니다.</p>
+        {{ end }}
+    </div>
+
+    <!-- 버튼 (맨 아래로 이동) -->
+    <div class="back-to-list">
+        <a href="{{ if eq .Section "games" }}/games/{{ else if eq .Section "freeboard" }}/freeboard/{{ else if eq .Section "news" }}/news/{{ else if eq .Section "notice" }}/notice/{{ else if eq .Section "posts" }}/posts/{{ else }}/{{ end }}" class="btn-back">
+            {{ if eq .Section "posts" }}전체 작업물{{ else if eq .Section "games" }}게임{{ else if eq .Section "freeboard" }}자유게시판{{ else if eq .Section "news" }}소식{{ else if eq .Section "notice" }}공지사항{{ else }}목록{{ end }} 보기
+        </a>
+    </div>
+</div>
+
+        </div>
+    </div> <!-- container 닫기 -->
     
     <!-- JavaScript 파일들 - 올바른 위치 -->
     <script src="/js/lightbox.js" defer></script>

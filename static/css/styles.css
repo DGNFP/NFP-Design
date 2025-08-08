@@ -337,7 +337,7 @@ nav {
 
 .design-item {
     position: relative;
-    border-radius: 10px;
+    border-radius: 4px;
     overflow: hidden;
     height: 300px;
     cursor: pointer;
@@ -399,7 +399,7 @@ nav {
     text-align: center;
     backdrop-filter: blur(10px);
     border: 2px solid transparent;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 /* 호버 시 오버레이 효과 */
