@@ -2635,11 +2635,10 @@ font-size: 12px;
     
     .related-posts-header h3 {
         font-size: 18px;
-        margin-bottom: 25px;
     }
     
     .related-posts-grid {
-        grid-template-columns: repeat(auto-fit, minmax(174px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
         gap: 10px;
     }
     
