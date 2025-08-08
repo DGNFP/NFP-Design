@@ -302,7 +302,7 @@
             {{ else }}
                 <div class="related-posts-grid">
                     {{ range $relatedPosts }}
-                        {{ if and (ne .Permalink $.Permalink) (lt $count 8) }}
+                        {{ if and (ne .Permalink $.Permalink) (lt $count 12) }}
                             <a href="{{ .RelPermalink }}" class="related-post-card">
                                 <!-- 썸네일 영역 -->
                                 <div class="card-thumbnail">
