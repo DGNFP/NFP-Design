@@ -1117,6 +1117,21 @@ margin-bottom: 0px !important;
     margin-top: 40px;
 }
 
+  .board-game-grid .board-all-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .board-game-grid .board-all-item a {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100%;
+    align-items: flex-start !important;
+  }
+
 /* 게임게시판용 본문 내용 표기 */
 .board-all-item-excerpt{
     font-size: 15px;
@@ -1128,12 +1143,15 @@ margin-bottom: 0px !important;
     -webkit-line-clamp: 2; /* 2줄로 제한 */
     -webkit-box-orient: vertical;
 
-    color: rgba(255, 255, 255, 0.8);
+    color: #8b8b8b;
     font-weight: 500;
     line-height: 1.2;
 
     margin-bottom: 20px !important;
 }
+
+
+
 
 .board-game-grid .board-all-item-desc{
     margin-bottom: 10px;
@@ -1924,7 +1942,6 @@ line-height: 1.2; /* 1.25 → 1.2 */
 
 
 
-
 /* ==============================
    반응형 스타일
    ============================== */
@@ -1964,37 +1981,23 @@ line-height: 1.2; /* 1.25 → 1.2 */
 /* 태블릿 */
 @media (max-width: 768px) {
      .board-game-grid {
-        gap: 10px;
+          display: flex;
+    flex-direction: column;
+    gap: 12px;
     }
 
-     .board-game-grid .board-all-item {
-        flex-direction: column; /* 세로 배치로 변경 */
-        max-width: 100%;
-        align-items: stretch; /* 전체 너비 사용 */
-    }
+  .board-game-grid .board-all-item {
+    margin-bottom: 0;
+  }
 
-   /* 게임게시판 썸네일 와이드 비율 추가 */
-     .board-game-grid .board-thumbnail {
-        width: 100% !important;
-        aspect-ratio: 16/9 !important;
-        height: auto !important;
-        margin-right: 0 !important;
-    }
 
-    .board-game-grid .board-thumbnail img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center !important;
-    }
-
-    /* 웹디자인,프로그래밍 게시판 반응형 이미지처리 */
-    .board-item-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.3s ease;
+/* 웹디자인,프로그래밍 게시판 반응형 이미지처리 */
+.board-item-img img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
+transition: transform 0.3s ease;
 }
 
 
@@ -2011,13 +2014,13 @@ line-height: 1.2; /* 1.25 → 1.2 */
     .board-game-grid .board-all-item-title {
         font-size: 17px;
         margin-bottom: 8px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     
-    .board-game-grid .board-all-item-excerpt {
-        margin-bottom: 12px !important;
-        font-size: 14px;
-        height: 32px; /* 모바일에서 약간 줄임 */
-    }
+
     
     .board-game-grid .board-all-item-desc {
         margin-bottom: 8px;
@@ -2248,7 +2251,6 @@ line-height: 1.2; /* 1.25 → 1.2 */
     -webkit-line-clamp: 2; /* 2줄로 제한 */
     -webkit-box-orient: vertical;
 
-    color: rgba(255, 255, 255, 0.8);
     font-weight: 500;
     line-height: 1.2;
 
@@ -2469,32 +2471,51 @@ font-size: 12px;
         object-position: center !important;
     }
     
-        /* 전체 게시판만 정사각형 - 더 구체적인 선택자 사용 */
+/* 게임게시판도 전체게시판 처럼 레이아웃 수정 */
     .board-all-grid .board-thumbnail {
         width: 120px !important;  
         height: 120px !important; 
         margin-right: 12px;
     }
+
+      /* 이 부분을 추가! */
+  .board-game-grid .board-all-item {
+    min-height: 140px;
+    align-items: center;
+padding: 0px;
+  }
+  
+  .board-game-grid .board-all-item a {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+  
+  .board-all-item-content {
+    flex: 1;
+    min-width: 0; /* 텍스트 잘림 방지 */
+  }
     
       /* 게임게시판은 와이드 비율 유지 */
-    .board-game-grid .board-thumbnail {
-        width: 100% !important;
-        aspect-ratio: 16/9 !important; /* 고정 높이 대신 비율 사용 */
-        height: auto !important; /* height auto로 변경 */
-        margin-right: 0 !important;
-    }
+  .board-game-grid .board-thumbnail {
+    width: 120px !important;      /* 100% → 120px */
+    height: 120px !important;     /* auto → 120px */
+    margin-right: 12px !important; /* 0 → 12px */
+    /* aspect-ratio 제거 */
+  }
     
-    .board-game-grid .board-thumbnail img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center !important;
-    }
+.board-game-grid .board-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
 
     .board-all-item {
         min-height: 140px; /* 정사각형 이미지에 맞춰 높이 조정 */
         align-items: center; /* 가운데 정렬 복원 */
-        padding: 5px;
+        padding: 0px;
     }
     
     .board-all-item-content {
@@ -2590,7 +2611,7 @@ font-size: 12px;
     }
 
     .board-game-grid .board-all-item-content {
-        padding: 15px !important;
+        padding: 0px !important;
         justify-content: flex-start !important;
         text-align: left !important;
         width: 100% !important; /* 전체 너비 사용 */
@@ -2599,7 +2620,7 @@ font-size: 12px;
     }
     
     .board-game-grid .board-all-item-title {
-        font-size: 17px;
+        font-size: 14px;
         margin-bottom: 0px;
         text-align: left; /* 제목 왼쪽 정렬 */
     }
@@ -2610,19 +2631,24 @@ font-size: 12px;
         text-align: left; /* 카테고리 왼쪽 정렬 */
     }
     
-    .board-game-grid .board-all-item-excerpt {
-        margin-bottom: 6px !important;
-        font-size: 14px;
-        height: 32px;
-        text-align: left; /* 본문 왼쪽 정렬 */
-    }
+.board-game-grid .board-all-item-excerpt {
+margin-bottom: 4px !important;
+font-size: 12px;
+height: auto;
+text-align: left; /* 본문 왼쪽 정렬 */
+
+/* 1줄 말줄임 처리 */
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
     
-    .board-game-grid .board-all-item-date {
-        font-size: 12px;
-        margin-bottom: 0px;
-        text-align: left; /* 날짜 왼쪽 정렬 */
-    }
-    
+.board-game-grid .board-all-item-date {
+    font-size: 10px;
+    margin-bottom: 4px;
+    text-align: left; /* 날짜 왼쪽 정렬 */
+}
+
     .board-game-grid .board-tags {
         margin: 6px 0 0 0;
         justify-content: flex-start; /* 태그 왼쪽 정렬 */
