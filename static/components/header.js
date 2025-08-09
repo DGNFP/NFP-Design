@@ -18,11 +18,10 @@ function createHeader(targetElementId = 'header-container', activeMenu = '') {
             <ul class="menu">
                 <li><a href="/#home">홈</a></li>
                 <li><a href="/#design">프로젝트</a></li>
-                <li><a href="/#news">소식</a></li>
                 <li><a href="/#contact">연락하기</a></li>
-                <li><a href="/studio">Studio NFP</a></li>
                 <li><a href="/posts/">작업 보기</a></li>
-                <li><a href="/freeboard/">블로그</a></li>
+                <li><a href="/games/">블로그</a></li>
+                <li><a href="/studio">Studio NFP</a></li>
                 
             </ul>
             <div class="menu-btn"><i class="fas fa-bars"></i></div>

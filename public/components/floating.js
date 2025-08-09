@@ -365,7 +365,7 @@ const defaultButtons = [
     },
     {
         id: 'blog-btn',
-        href: '/freeboard/',
+        href: '/games/',
         icon: '<i class="fas fa-pen-nib"></i>',
         text: '블로그'
     },
