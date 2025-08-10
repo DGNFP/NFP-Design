@@ -516,7 +516,7 @@ const defaultButtons = [
         bottom: 70px;
         background-color: rgba(0, 0, 0, 0.9);
         border: 2px solid var(--accent-color);
-        border-radius: 16px;
+        border-radius: 4px;
         backdrop-filter: blur(10px);
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(1, 255, 117, 0.2);
@@ -594,7 +594,7 @@ const defaultButtons = [
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
-        border-radius: 2px 2px 0 0;
+        border-radius: 1px 1px 0 0;
         transition: all 0.3s ease;
         display: flex;
         align-items: flex-end;
@@ -607,7 +607,7 @@ const defaultButtons = [
         width: 100%;
         height: 100%;
         background: linear-gradient(180deg, #01FF75 0%, #00cc5e 100%);
-        border-radius: 2px 2px 0 0;
+        border-radius: 1px 1px 0 0;
         animation: growUp 1.5s ease-out;
         min-height: 3px;
     }

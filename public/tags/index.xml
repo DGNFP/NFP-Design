@@ -51,13 +51,6 @@
       <description></description>
     </item>
     <item>
-      <title>유튜브 썸네일</title>
-      <link>http://localhost:1313/tags/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC/</link>
-      <pubDate>Wed, 06 Aug 2025 22:32:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Android</title>
       <link>http://localhost:1313/tags/android/</link>
       <pubDate>Mon, 28 Jul 2025 01:14:00 +0900</pubDate>
@@ -118,6 +111,13 @@
       <link>http://localhost:1313/tags/premiere-pro/</link>
       <pubDate>Wed, 16 Jul 2025 21:46:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/premiere-pro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>유튜브 썸네일</title>
+      <link>http://localhost:1313/tags/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC/</link>
+      <pubDate>Wed, 16 Jul 2025 21:46:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC/</guid>
       <description></description>
     </item>
     <item>

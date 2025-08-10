@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 06 Aug 2025 22:40:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Video</title>
-      <link>http://localhost:1313/categories/video/</link>
+      <title>Games</title>
+      <link>http://localhost:1313/categories/games/</link>
       <pubDate>Wed, 06 Aug 2025 22:40:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/video/</guid>
+      <guid>http://localhost:1313/categories/games/</guid>
       <description></description>
     </item>
     <item>
@@ -27,6 +27,13 @@
       <link>http://localhost:1313/categories/web/</link>
       <pubDate>Thu, 24 Jul 2025 00:54:00 +0900</pubDate>
       <guid>http://localhost:1313/categories/web/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Video</title>
+      <link>http://localhost:1313/categories/video/</link>
+      <pubDate>Wed, 16 Jul 2025 23:48:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/video/</guid>
       <description></description>
     </item>
     <item>
@@ -62,13 +69,6 @@
       <link>http://localhost:1313/categories/ad/</link>
       <pubDate>Sat, 28 Jun 2025 23:43:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/ad/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Games</title>
-      <link>http://localhost:1313/categories/games/</link>
-      <pubDate>Thu, 19 Jun 2025 22:46:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/games/</guid>
       <description></description>
     </item>
     <item>
