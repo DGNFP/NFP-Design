@@ -57,7 +57,7 @@
                     {{ $mainCat = index .Params.categories 0 }}
                 {{ end }}
                 <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
-                    <a href="{{ .Permalink }}?from=all">
+                    <a href="{{ .Permalink }}">
                        <!-- 새로운 통합 썸네일 처리 (WebP 지원) -->
 <div class="board-thumbnail">
     {{ $content := .Content }}
@@ -239,7 +239,7 @@
                            
                             
                             <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                            <a href="{{ .Permalink }}?from=all" class="board-all-item-link"></a>
+                            <a href="{{ .Permalink }}" class="board-all-item-link"></a>
                             
                              <!-- ✨ 태그 시스템 추가 (일관된 스타일) -->
 {{ $mainCategory := index .Params.categories 0 }}
