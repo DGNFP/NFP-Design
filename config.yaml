@@ -1,13 +1,18 @@
 baseURL: "https://nfpdesign.co.kr"
 languageCode: 'ko'
 title: 'NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다'
-
 buildFuture: true
 buildExpired: true
 cleanDestinationDir: true
 timezone: "Asia/Seoul"
-googleAnalyticsID: "G-HG6N24RD49"
 
+# 🎯 사이트맵 설정 추가
+sitemap:
+  changefreq: "daily"
+  priority: 0.8
+  filename: "sitemap.xml"
+
+googleAnalyticsID: "G-HG6N24RD49"
 images:
   - "img/nfp-main.png"
 
@@ -19,26 +24,23 @@ params:
 menu:
   main:
     - name: "홈"
-      url: "/"
+      url: "/#home"
       weight: 1
     - name: "프로젝트"
       url: "/#design"
       weight: 2
-    - name: "Studio NFP"
-      url: "/studio/"
-      weight: 3
-    - name: "소개"
-      url: "/#about"
-      weight: 4
     - name: "연락하기"
       url: "/#contact"
-      weight: 5
+      weight: 3
     - name: "작업 보기"
       url: "/categories/"
+      weight: 4
+    - name: "블로그"
+      url: "/games/"
+      weight: 5
+    - name: "Studio NFP"
+      url: "/studio/"
       weight: 6
-    - name: "자유게시판"
-      url: "/freeboard/"
-      weight: 7
 
 # CSS MIME 타입 설정 추가 (CSS 오류 해결)
 mediaTypes:
