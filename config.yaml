@@ -34,7 +34,7 @@ menu:
       url: "/#contact"
       weight: 5
     - name: "작업 보기"
-      url: "/posts/"
+      url: "/categories/"
       weight: 6
     - name: "자유게시판"
       url: "/freeboard/"
