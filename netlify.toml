@@ -79,7 +79,13 @@ HUGO_VERSION = "0.147.5"
   [headers.values]
     Cache-Control = "no-cache"
 
-# 폼 제출 처리 (새로 추가)
+# 🎯 /posts/ 리디렉션 추가 (새로 추가)
+[[redirects]]
+  from = "/posts/"
+  to = "/categories/"
+  status = 301
+
+# 폼 제출 처리 (기존)
 [[redirects]]
   from = "/newsletter-success"
   to = "/?newsletter=success"
@@ -90,7 +96,7 @@ HUGO_VERSION = "0.147.5"
   to = "/?newsletter=unsubscribe"
   status = 302
 
-# 404 에러 페이지 처리 (새로 추가)
+# 404 에러 페이지 처리 (기존)
 [[redirects]]
   from = "/*"
   to = "/404.html"
