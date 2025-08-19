@@ -34,7 +34,7 @@
                 {{ $gamesPosts := where .Site.RegularPages "Section" "games" }}
                 {{ range $gamesPosts.ByDate.Reverse }}
                 <div class="board-all-item" data-main="games" data-category="{{ .Params.subCategory }}">
-                    <a href="{{ .Permalink }}?from=games">
+                    <a href="{{ .Permalink }}">
                         <!-- 통합 썸네일 처리 -->
                         <div class="board-thumbnail">
                             {{ $content := .Content }}
