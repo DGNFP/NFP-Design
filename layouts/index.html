@@ -1345,7 +1345,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 프로젝트 카테고리와 웹데모 게시글을 제외한 데이터
     const highlightPosts = [
-        {{ range (where site.RegularPages "Section" "posts") }}
+        {{ range (where site.RegularPages "Section" "categoires") }}
         {{ if and (ne (index .Params.categories 0) "project") (not .Params.demoCode) }}
         {
             title: {{ .Title | jsonify }},
@@ -1525,7 +1525,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 프로젝트 데이터
     const projectPosts = [
-        {{ range (where site.RegularPages "Section" "posts") }}
+        {{ range (where site.RegularPages "Section" "categoires") }}
         {{ if eq (index .Params.categories 0) "project" }}
         {
             title: {{ .Title | jsonify }},
