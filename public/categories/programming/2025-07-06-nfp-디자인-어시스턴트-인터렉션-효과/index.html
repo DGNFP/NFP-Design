@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>NFP 디자인 어시스턴트 - 인터렉션 효과 - NFP 디자인</title>
+    
+   
+<meta name="description" content="버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.">
+
+
+<meta name="keywords" content="NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="NFP 디자인 어시스턴트 - 인터렉션 효과 - NFP 디자인">
+    <meta property="og:description" content="버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-07-06T20:52:00Z">
+        <meta property="article:modified_time" content="2025-07-06T20:52:00Z">
+        
+            
+                <meta property="article:section" content="programming">
+            
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NFP 디자인 어시스턴트 - 인터렉션 효과 - NFP 디자인">
+    <meta name="twitter:description" content="버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "NFP 디자인 어시스턴트 - 인터렉션 효과",
+      "description": "\u003cp\u003e버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.\u003c\/p\u003e",
+      "url": "http:\/\/localhost:1313\/categories\/programming\/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC\/",
+      
+      "datePublished": "2025-07-06T20:52:00Z",
+      "dateModified": "2025-07-06T20:52:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<section class="post-section">
+    <div class="container">
+        <div class="post-container">
+            
+            <div class="post-header">
+                <h1 class="post-title">NFP 디자인 어시스턴트 - 인터렉션 효과</h1>
+                <div class="post-meta">
+                    <span class="post-date">2025.07.06</span>
+                    
+                    
+                        <span class="post-category">
+                            
+                            
+                            
+                            
+                            
+                            프로그래밍
+                            
+                            
+                            
+                                > 프론트엔드
+                            
+                        </span>
+                    
+                </div>
+            </div>
+
+           
+            <div class="post-content">
+                
+                <div class="post-media">
+                    
+                    
+                        
+                        
+                        
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                                
+                            
+                            
+                            <div class="web-demo-container">
+                                <div class="demo-frame ">
+                                    <div class="demo-browser-bar">
+                                        <div class="demo-browser-buttons">
+                                            <span class="browser-btn red"></span>
+                                            <span class="browser-btn yellow"></span>
+                                            <span class="browser-btn green"></span>
+                                        </div>
+                                        <div class="demo-url-bar">NFP 디자인 어시스턴트 - 인터렉션 효과 - Live Demo</div>
+                                        
+                                        <div class="demo-actions">
+                                            <button class="demo-action-btn" onclick="openFullscreen()" title="전체화면으로 보기">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="demo-action-btn" onclick="openInNewTab()" title="새 탭에서 열기">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <iframe id="demo-iframe" 
+                                            class="demo-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;7J247YSw66CJ7IWYIOuNsOuqqDwvdGl0bGU&#43;CiAgICA8c3R5bGU&#43;CiAgICAgICAgYm9keSB7CiAgICAgICAgICAgIG1hcmdpbjogMDsKICAgICAgICAgICAgcGFkZGluZzogMjBweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzBhMGEwYTsKICAgICAgICAgICAgY29sb3I6IHdoaXRlOwogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgZGlzcGxheTogZmxleDsKICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgfQoKICAgICAgICAuZGVtby1jb250YWluZXIgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMWExYTFhOwogICAgICAgICAgICBib3JkZXItcmFkaXVzOiAxNXB4OwogICAgICAgICAgICBwYWRkaW5nOiAzMHB4OwogICAgICAgICAgICBtYXJnaW46IDIwcHg7CiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgIzMzMzsKICAgICAgICAgICAgd2lkdGg6IDMwMHB4OwogICAgICAgIH0KCiAgICAgICAgLmRlbW8tY2FyZCB7CiAgICAgICAgICAgIHdpZHRoOiAyMDBweDsKICAgICAgICAgICAgaGVpZ2h0OiAxMjBweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzJhMmEyYTsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMTBweDsKICAgICAgICAgICAgbWFyZ2luOiAyMHB4IGF1dG87CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgICAgICBmb250LXNpemU6IDE4cHg7CiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgICAgfQoKICAgICAgICAuZGVtby1idG4gewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoNDVkZWcsICMwMUZGNzUsICMwMEZGQ0MpOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDEycHggMjRweDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMjVweDsKICAgICAgICAgICAgY29sb3I6IGJsYWNrOwogICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICAgICAgICBtYXJnaW46IDEwcHg7CiAgICAgICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjJzOwogICAgICAgIH0KCiAgICAgICAgLmRlbW8tYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZSgxLjA1KTsKICAgICAgICB9CgogICAgICAgIC5kZW1vLWJ0bjphY3RpdmUgewogICAgICAgICAgICB0cmFuc2Zvcm06IHNjYWxlKDAuOTgpOwogICAgICAgIH0KCiAgICAgICAgLyog7YyM7Yuw7YG0IO2aqOqzvCAqLwogICAgICAgIC5wYXJ0aWNsZSB7CiAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgICAgICAgd2lkdGg6IDZweDsKICAgICAgICAgICAgaGVpZ2h0OiA2cHg7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgICAgICAgICAgcG9pbnRlci1ldmVudHM6IG5vbmU7CiAgICAgICAgICAgIHotaW5kZXg6IDEwMDA7CiAgICAgICAgfQoKICAgICAgICAvKiDrlqjslrTsp4DripQg7JWg64uI66mU7J207IWYICovCiAgICAgICAgQGtleWZyYW1lcyBmYWxsRG93biB7CiAgICAgICAgICAgIDAlIHsKICAgICAgICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTAwcHgpIHJvdGF0ZSgwZGVnKTsKICAgICAgICAgICAgICAgIG9wYWNpdHk6IDA7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgMTAlIHsKICAgICAgICAgICAgICAgIG9wYWNpdHk6IDE7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgMTAwJSB7CiAgICAgICAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCkgcm90YXRlKDM2MGRlZyk7CiAgICAgICAgICAgICAgICBvcGFjaXR5OiAxOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICAuZmFsbGluZy1jYXJkIHsKICAgICAgICAgICAgYW5pbWF0aW9uOiBmYWxsRG93biAxcyBlYXNlLW91dDsKICAgICAgICB9CgogICAgICAgIC8qIOyKrOuhr&#43;uouOyLoCDtmqjqs7wgKi8KICAgICAgICBAa2V5ZnJhbWVzIHNsb3RTcGluIHsKICAgICAgICAgICAgMCUsIDEwMCUgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY2YjZiOyB9CiAgICAgICAgICAgIDE2JSB7IGJhY2tncm91bmQtY29sb3I6ICM0ZWNkYzQ7IH0KICAgICAgICAgICAgMzIlIHsgYmFja2dyb3VuZC1jb2xvcjogIzQ1YjdkMTsgfQogICAgICAgICAgICA0OCUgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjOTZjZWI0OyB9CiAgICAgICAgICAgIDY0JSB7IGJhY2tncm91bmQtY29sb3I6ICNmZWNhNTc7IH0KICAgICAgICAgICAgODAlIHsgYmFja2dyb3VuZC1jb2xvcjogI2ZmOWZmMzsgfQogICAgICAgIH0KCiAgICAgICAgLnNsb3Qtc3Bpbm5pbmcgewogICAgICAgICAgICBhbmltYXRpb246IHNsb3RTcGluIDAuMXMgaW5maW5pdGU7CiAgICAgICAgfQoKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMDFGRjc1OwogICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDQwcHg7CiAgICAgICAgfQoKICAgICAgICBoMyB7CiAgICAgICAgICAgIGNvbG9yOiAjMDBGRkNDOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxNXB4OwogICAgICAgIH0KCiAgICAgICAgcCB7CiAgICAgICAgICAgIGNvbG9yOiAjY2NjOwogICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxLjQ7CiAgICAgICAgfQogICAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KICAgIDxoMT7su6zrn6wg7Zqo6rO8IOuNsOuqqDwvaDE&#43;CgogICAgPCEtLSDtjIzti7DtgbQg7Y&#43;t67CcIOuNsOuqqCAtLT4KICAgIDxkaXYgY2xhc3M9ImRlbW8tY29udGFpbmVyIj4KICAgICAgICA8aDM&#43;7IOJ7IOBIO2MjO2LsO2BtDwvaDM&#43;CiAgICAgICAgPHA&#43;67KE7Yq87J2EIO2BtOumre2VmOuptCDtlbTri7kg7IOJ7IOB7J2YIO2MjO2LsO2BtOydtCDsgqzrsKnsnLzroZwg7YSw7KeR64uI64ukLjwvcD4KICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWNhcmQiIGlkPSJwYXJ0aWNsZS1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogIzAxRkY3NTsiPgogICAgICAgICAgICAjMDFGRjc1CiAgICAgICAgPC9kaXY&#43;CiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJQYXJ0aWNsZXMoKSI&#43;7YyM7Yuw7YG0IO2PreuwnCE8L2J1dHRvbj4KICAgIDwvZGl2PgoKICAgIDwhLS0g7ZWY64qY7JeQ7IScIOuWqOyWtOyngOuKlCDslaDri4jrqZTsnbTshZgg642w66qoIC0tPgogICAgPGRpdiBjbGFzcz0iZGVtby1jb250YWluZXIiPgogICAgICAgIDxoMz7tlZjripjsl5DshJwg65ao7Ja07KeA64qUIO2aqOqzvDwvaDM&#43;CiAgICAgICAgPHA&#43;7Lm065Oc6rCAIO2VmOuKmOyXkOyEnCDrlqjslrTsp4DrqbAg7ZqM7KCE7ZWY64qUIOyVoOuLiOuplOydtOyFmOyeheuLiOuLpC48L3A&#43;CiAgICAgICAgPGRpdiBjbGFzcz0iZGVtby1jYXJkIiBpZD0iZmFsbGluZy1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogIzRFQ0RDNDsiPgogICAgICAgICAgICAjNEVDREM0CiAgICAgICAgPC9kaXY&#43;CiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJGYWxsaW5nKCkiPu2VmOuKmOyXkOyEnCDrlqjslrTrnKjrpqzquLA8L2J1dHRvbj4KICAgIDwvZGl2PgoKICAgIDwhLS0g7Iqs66Gv66i47IugIO2aqOqzvCDrjbDrqqggLS0&#43;CiAgICA8ZGl2IGNsYXNzPSJkZW1vLWNvbnRhaW5lciI&#43;CiAgICAgICAgPGgzPuyKrOuhr&#43;uouOyLoCDtmqjqs7w8L2gzPgogICAgICAgIDxwPuyXrOufrCDsg4nsg4HsnbQg67mg66W06rKMIOuyiOypjeydtOuLpOqwgCDstZzsooUg7IOJ7IOB7JeQ7IScIOupiOy2peuLiOuLpC48L3A&#43;CiAgICAgICAgPGRpdiBjbGFzcz0iZGVtby1jYXJkIiBpZD0ic2xvdC1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogI0ZGNkI2QjsiPgogICAgICAgICAgICAjRkY2QjZCCiAgICAgICAgPC9kaXY&#43;CiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJTbG90TWFjaGluZSgpIj7siqzroa/rqLjsi6Ag7Iuc7J6RPC9idXR0b24&#43;CiAgICA8L2Rpdj4KCiAgICA8c2NyaXB0PgogICAgICAgIC8vIDEuIO2MjO2LsO2BtCDtj63rsJwg7Zqo6rO8CiAgICAgICAgZnVuY3Rpb24gdHJpZ2dlclBhcnRpY2xlcygpIHsKICAgICAgICAgICAgY29uc3QgY2FyZCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwYXJ0aWNsZS1jYXJkJyk7CiAgICAgICAgICAgIGNvbnN0IHJlY3QgPSBjYXJkLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpOwogICAgICAgICAgICBjb25zdCBjZW50ZXJYID0gcmVjdC5sZWZ0ICsgcmVjdC53aWR0aCAvIDI7CiAgICAgICAgICAgIGNvbnN0IGNlbnRlclkgPSByZWN0LnRvcCArIHJlY3QuaGVpZ2h0IC8gMjsKICAgICAgICAgICAgY29uc3QgY2FyZENvbG9yID0gJyMwMUZGNzUnOwoKICAgICAgICAgICAgLy8gMjDqsJzsnZgg7YyM7Yuw7YG0IOyDneyEsQogICAgICAgICAgICBmb3IgKGxldCBpID0gMDsgaSA8IDIwOyBpKyspIHsKICAgICAgICAgICAgICAgIGNvbnN0IHBhcnRpY2xlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICAgICAgICAgICAgICBwYXJ0aWNsZS5jbGFzc05hbWUgPSAncGFydGljbGUnOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUuYmFja2dyb3VuZENvbG9yID0gY2FyZENvbG9yOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUubGVmdCA9IGNlbnRlclggKyAncHgnOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUudG9wID0gY2VudGVyWSArICdweCc7CiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQocGFydGljbGUpOwoKICAgICAgICAgICAgICAgIC8vIOuenOuNpO2VnCDrsKntlqXsnLzroZwg7YyM7Yuw7YG0IOydtOuPmQogICAgICAgICAgICAgICAgY29uc3QgYW5nbGUgPSAoTWF0aC5QSSAqIDIgKiBpKSAvIDIwOwogICAgICAgICAgICAgICAgY29uc3QgdmVsb2NpdHkgPSAxMDAgKyBNYXRoLnJhbmRvbSgpICogMTAwOwogICAgICAgICAgICAgICAgY29uc3QgZGVsdGFYID0gTWF0aC5jb3MoYW5nbGUpICogdmVsb2NpdHk7CiAgICAgICAgICAgICAgICBjb25zdCBkZWx0YVkgPSBNYXRoLnNpbihhbmdsZSkgKiB2ZWxvY2l0eTsKCiAgICAgICAgICAgICAgICAvLyDtjIzti7DtgbQg7JWg64uI66mU7J207IWYCiAgICAgICAgICAgICAgICBwYXJ0aWNsZS5hbmltYXRlKFsKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogJ3RyYW5zbGF0ZSgwLCAwKSBzY2FsZSgxKScsIG9wYWNpdHk6IDEgfSwKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogYHRyYW5zbGF0ZSgke2RlbHRhWH1weCwgJHtkZWx0YVl9cHgpIHNjYWxlKDApYCwgb3BhY2l0eTogMCB9CiAgICAgICAgICAgICAgICBdLCB7CiAgICAgICAgICAgICAgICAgICAgZHVyYXRpb246IDEwMDAsCiAgICAgICAgICAgICAgICAgICAgZWFzaW5nOiAnZWFzZS1vdXQnCiAgICAgICAgICAgICAgICB9KS5vbmZpbmlzaCA9ICgpID0&#43;IHBhcnRpY2xlLnJlbW92ZSgpOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICAvLyAyLiDtlZjripjsl5DshJwg65ao7Ja07KeA64qUIO2aqOqzvAogICAgICAgIGZ1bmN0aW9uIHRyaWdnZXJGYWxsaW5nKCkgewogICAgICAgICAgICBjb25zdCBjYXJkID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2ZhbGxpbmctY2FyZCcpOwogICAgICAgICAgICBjYXJkLmNsYXNzTGlzdC5yZW1vdmUoJ2ZhbGxpbmctY2FyZCcpOwogICAgICAgICAgICAKICAgICAgICAgICAgLy8g7JW96rCE7J2YIOyngOyXsCDtm4Qg7JWg64uI66mU7J207IWYIOyLnOyekQogICAgICAgICAgICBzZXRUaW1lb3V0KCgpID0&#43;IHsKICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LmFkZCgnZmFsbGluZy1jYXJkJyk7CiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIC8vIOyVoOuLiOuplOydtOyFmCDsmYTro4wg7ZuEIO2BtOuemOyKpCDsoJzqsbAKICAgICAgICAgICAgICAgIHNldFRpbWVvdXQoKCkgPT4gewogICAgICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LnJlbW92ZSgnZmFsbGluZy1jYXJkJyk7CiAgICAgICAgICAgICAgICB9LCAxMDAwKTsKICAgICAgICAgICAgfSwgNTApOwogICAgICAgIH0KCiAgICAgICAgLy8gMy4g7Iqs66Gv66i47IugIO2aqOqzvAogICAgICAgIGZ1bmN0aW9uIHRyaWdnZXJTbG90TWFjaGluZSgpIHsKICAgICAgICAgICAgY29uc3QgY2FyZCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzbG90LWNhcmQnKTsKICAgICAgICAgICAgY29uc3QgY29sb3JzID0gWycjRkY2QjZCJywgJyM0RUNEQzQnLCAnIzQ1QjdEMScsICcjOTZDRUI0JywgJyNGRUNBNTcnLCAnI0ZGOUZGMyddOwogICAgICAgICAgICAKICAgICAgICAgICAgLy8g7Iqs66Gv66i47IugIOyVoOuLiOuplOydtOyFmCDsi5zsnpEKICAgICAgICAgICAgY2FyZC5jbGFzc0xpc3QuYWRkKCdzbG90LXNwaW5uaW5nJyk7CiAgICAgICAgICAgIAogICAgICAgICAgICAvLyAz7LSIIO2bhCDrnpzrjaQg7IOJ7IOB7JeQ7IScIOupiOy2pAogICAgICAgICAgICBzZXRUaW1lb3V0KCgpID0&#43;IHsKICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LnJlbW92ZSgnc2xvdC1zcGlubmluZycpOwogICAgICAgICAgICAgICAgY29uc3QgZmluYWxDb2xvciA9IGNvbG9yc1tNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiBjb2xvcnMubGVuZ3RoKV07CiAgICAgICAgICAgICAgICBjYXJkLnN0eWxlLmJhY2tncm91bmRDb2xvciA9IGZpbmFsQ29sb3I7CiAgICAgICAgICAgICAgICBjYXJkLnRleHRDb250ZW50ID0gZmluYWxDb2xvcjsKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgLy8g7JW96rCE7J2YIO2OhOyKpCDtmqjqs7wKICAgICAgICAgICAgICAgIGNhcmQuYW5pbWF0ZShbCiAgICAgICAgICAgICAgICAgICAgeyB0cmFuc2Zvcm06ICdzY2FsZSgxKScgfSwKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogJ3NjYWxlKDEuMSknIH0sCiAgICAgICAgICAgICAgICAgICAgeyB0cmFuc2Zvcm06ICdzY2FsZSgxKScgfQogICAgICAgICAgICAgICAgXSwgewogICAgICAgICAgICAgICAgICAgIGR1cmF0aW9uOiAzMDAsCiAgICAgICAgICAgICAgICAgICAgZWFzaW5nOiAnZWFzZS1vdXQnCiAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgfSwgMzAwMCk7CiAgICAgICAgfQogICAgPC9zY3JpcHQ&#43;CjwvYm9keT4KPC9odG1sPg==" 
+                                            width="100%" 
+                                            height="600px" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            
+                            <div id="fullscreen-modal" class="fullscreen-modal">
+                                <div class="fullscreen-header">
+                                    <div class="fullscreen-title">
+                                        <h3>NFP 디자인 어시스턴트 - 인터렉션 효과 - 전체화면 데모</h3>
+                                    </div>
+                                    <div class="fullscreen-controls">
+                                        <button class="control-btn" onclick="refreshDemo()" title="새로고침">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="control-btn" onclick="openInNewTab()" title="새 탭에서 열기">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="control-btn close-btn" onclick="closeFullscreen()" title="닫기">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="fullscreen-content">
+                                    <iframe id="fullscreen-iframe" 
+                                            src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw&#43;CjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ&#43;CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI&#43;CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI&#43;CiAgICA8dGl0bGU&#43;7J247YSw66CJ7IWYIOuNsOuqqDwvdGl0bGU&#43;CiAgICA8c3R5bGU&#43;CiAgICAgICAgYm9keSB7CiAgICAgICAgICAgIG1hcmdpbjogMDsKICAgICAgICAgICAgcGFkZGluZzogMjBweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzBhMGEwYTsKICAgICAgICAgICAgY29sb3I6IHdoaXRlOwogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgZGlzcGxheTogZmxleDsKICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgfQoKICAgICAgICAuZGVtby1jb250YWluZXIgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMWExYTFhOwogICAgICAgICAgICBib3JkZXItcmFkaXVzOiAxNXB4OwogICAgICAgICAgICBwYWRkaW5nOiAzMHB4OwogICAgICAgICAgICBtYXJnaW46IDIwcHg7CiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgIzMzMzsKICAgICAgICAgICAgd2lkdGg6IDMwMHB4OwogICAgICAgIH0KCiAgICAgICAgLmRlbW8tY2FyZCB7CiAgICAgICAgICAgIHdpZHRoOiAyMDBweDsKICAgICAgICAgICAgaGVpZ2h0OiAxMjBweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzJhMmEyYTsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMTBweDsKICAgICAgICAgICAgbWFyZ2luOiAyMHB4IGF1dG87CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgICAgICBmb250LXNpemU6IDE4cHg7CiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgICAgfQoKICAgICAgICAuZGVtby1idG4gewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoNDVkZWcsICMwMUZGNzUsICMwMEZGQ0MpOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDEycHggMjRweDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMjVweDsKICAgICAgICAgICAgY29sb3I6IGJsYWNrOwogICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICAgICAgICBtYXJnaW46IDEwcHg7CiAgICAgICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjJzOwogICAgICAgIH0KCiAgICAgICAgLmRlbW8tYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZSgxLjA1KTsKICAgICAgICB9CgogICAgICAgIC5kZW1vLWJ0bjphY3RpdmUgewogICAgICAgICAgICB0cmFuc2Zvcm06IHNjYWxlKDAuOTgpOwogICAgICAgIH0KCiAgICAgICAgLyog7YyM7Yuw7YG0IO2aqOqzvCAqLwogICAgICAgIC5wYXJ0aWNsZSB7CiAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgICAgICAgd2lkdGg6IDZweDsKICAgICAgICAgICAgaGVpZ2h0OiA2cHg7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgICAgICAgICAgcG9pbnRlci1ldmVudHM6IG5vbmU7CiAgICAgICAgICAgIHotaW5kZXg6IDEwMDA7CiAgICAgICAgfQoKICAgICAgICAvKiDrlqjslrTsp4DripQg7JWg64uI66mU7J207IWYICovCiAgICAgICAgQGtleWZyYW1lcyBmYWxsRG93biB7CiAgICAgICAgICAgIDAlIHsKICAgICAgICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTAwcHgpIHJvdGF0ZSgwZGVnKTsKICAgICAgICAgICAgICAgIG9wYWNpdHk6IDA7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgMTAlIHsKICAgICAgICAgICAgICAgIG9wYWNpdHk6IDE7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgMTAwJSB7CiAgICAgICAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCkgcm90YXRlKDM2MGRlZyk7CiAgICAgICAgICAgICAgICBvcGFjaXR5OiAxOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICAuZmFsbGluZy1jYXJkIHsKICAgICAgICAgICAgYW5pbWF0aW9uOiBmYWxsRG93biAxcyBlYXNlLW91dDsKICAgICAgICB9CgogICAgICAgIC8qIOyKrOuhr&#43;uouOyLoCDtmqjqs7wgKi8KICAgICAgICBAa2V5ZnJhbWVzIHNsb3RTcGluIHsKICAgICAgICAgICAgMCUsIDEwMCUgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY2YjZiOyB9CiAgICAgICAgICAgIDE2JSB7IGJhY2tncm91bmQtY29sb3I6ICM0ZWNkYzQ7IH0KICAgICAgICAgICAgMzIlIHsgYmFja2dyb3VuZC1jb2xvcjogIzQ1YjdkMTsgfQogICAgICAgICAgICA0OCUgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjOTZjZWI0OyB9CiAgICAgICAgICAgIDY0JSB7IGJhY2tncm91bmQtY29sb3I6ICNmZWNhNTc7IH0KICAgICAgICAgICAgODAlIHsgYmFja2dyb3VuZC1jb2xvcjogI2ZmOWZmMzsgfQogICAgICAgIH0KCiAgICAgICAgLnNsb3Qtc3Bpbm5pbmcgewogICAgICAgICAgICBhbmltYXRpb246IHNsb3RTcGluIDAuMXMgaW5maW5pdGU7CiAgICAgICAgfQoKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMDFGRjc1OwogICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDQwcHg7CiAgICAgICAgfQoKICAgICAgICBoMyB7CiAgICAgICAgICAgIGNvbG9yOiAjMDBGRkNDOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxNXB4OwogICAgICAgIH0KCiAgICAgICAgcCB7CiAgICAgICAgICAgIGNvbG9yOiAjY2NjOwogICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxLjQ7CiAgICAgICAgfQogICAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KICAgIDxoMT7su6zrn6wg7Zqo6rO8IOuNsOuqqDwvaDE&#43;CgogICAgPCEtLSDtjIzti7DtgbQg7Y&#43;t67CcIOuNsOuqqCAtLT4KICAgIDxkaXYgY2xhc3M9ImRlbW8tY29udGFpbmVyIj4KICAgICAgICA8aDM&#43;7IOJ7IOBIO2MjO2LsO2BtDwvaDM&#43;CiAgICAgICAgPHA&#43;67KE7Yq87J2EIO2BtOumre2VmOuptCDtlbTri7kg7IOJ7IOB7J2YIO2MjO2LsO2BtOydtCDsgqzrsKnsnLzroZwg7YSw7KeR64uI64ukLjwvcD4KICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWNhcmQiIGlkPSJwYXJ0aWNsZS1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogIzAxRkY3NTsiPgogICAgICAgICAgICAjMDFGRjc1CiAgICAgICAgPC9kaXY&#43;CiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJQYXJ0aWNsZXMoKSI&#43;7YyM7Yuw7YG0IO2PreuwnCE8L2J1dHRvbj4KICAgIDwvZGl2PgoKICAgIDwhLS0g7ZWY64qY7JeQ7IScIOuWqOyWtOyngOuKlCDslaDri4jrqZTsnbTshZgg642w66qoIC0tPgogICAgPGRpdiBjbGFzcz0iZGVtby1jb250YWluZXIiPgogICAgICAgIDxoMz7tlZjripjsl5DshJwg65ao7Ja07KeA64qUIO2aqOqzvDwvaDM&#43;CiAgICAgICAgPHA&#43;7Lm065Oc6rCAIO2VmOuKmOyXkOyEnCDrlqjslrTsp4DrqbAg7ZqM7KCE7ZWY64qUIOyVoOuLiOuplOydtOyFmOyeheuLiOuLpC48L3A&#43;CiAgICAgICAgPGRpdiBjbGFzcz0iZGVtby1jYXJkIiBpZD0iZmFsbGluZy1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogIzRFQ0RDNDsiPgogICAgICAgICAgICAjNEVDREM0CiAgICAgICAgPC9kaXY&#43;CiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJGYWxsaW5nKCkiPu2VmOuKmOyXkOyEnCDrlqjslrTrnKjrpqzquLA8L2J1dHRvbj4KICAgIDwvZGl2PgoKICAgIDwhLS0g7Iqs66Gv66i47IugIO2aqOqzvCDrjbDrqqggLS0&#43;CiAgICA8ZGl2IGNsYXNzPSJkZW1vLWNvbnRhaW5lciI&#43;CiAgICAgICAgPGgzPuyKrOuhr&#43;uouOyLoCDtmqjqs7w8L2gzPgogICAgICAgIDxwPuyXrOufrCDsg4nsg4HsnbQg67mg66W06rKMIOuyiOypjeydtOuLpOqwgCDstZzsooUg7IOJ7IOB7JeQ7IScIOupiOy2peuLiOuLpC48L3A&#43;CiAgICAgICAgPGRpdiBjbGFzcz0iZGVtby1jYXJkIiBpZD0ic2xvdC1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogI0ZGNkI2QjsiPgogICAgICAgICAgICAjRkY2QjZCCiAgICAgICAgPC9kaXY&#43;CiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJTbG90TWFjaGluZSgpIj7siqzroa/rqLjsi6Ag7Iuc7J6RPC9idXR0b24&#43;CiAgICA8L2Rpdj4KCiAgICA8c2NyaXB0PgogICAgICAgIC8vIDEuIO2MjO2LsO2BtCDtj63rsJwg7Zqo6rO8CiAgICAgICAgZnVuY3Rpb24gdHJpZ2dlclBhcnRpY2xlcygpIHsKICAgICAgICAgICAgY29uc3QgY2FyZCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwYXJ0aWNsZS1jYXJkJyk7CiAgICAgICAgICAgIGNvbnN0IHJlY3QgPSBjYXJkLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpOwogICAgICAgICAgICBjb25zdCBjZW50ZXJYID0gcmVjdC5sZWZ0ICsgcmVjdC53aWR0aCAvIDI7CiAgICAgICAgICAgIGNvbnN0IGNlbnRlclkgPSByZWN0LnRvcCArIHJlY3QuaGVpZ2h0IC8gMjsKICAgICAgICAgICAgY29uc3QgY2FyZENvbG9yID0gJyMwMUZGNzUnOwoKICAgICAgICAgICAgLy8gMjDqsJzsnZgg7YyM7Yuw7YG0IOyDneyEsQogICAgICAgICAgICBmb3IgKGxldCBpID0gMDsgaSA8IDIwOyBpKyspIHsKICAgICAgICAgICAgICAgIGNvbnN0IHBhcnRpY2xlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICAgICAgICAgICAgICBwYXJ0aWNsZS5jbGFzc05hbWUgPSAncGFydGljbGUnOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUuYmFja2dyb3VuZENvbG9yID0gY2FyZENvbG9yOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUubGVmdCA9IGNlbnRlclggKyAncHgnOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUudG9wID0gY2VudGVyWSArICdweCc7CiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQocGFydGljbGUpOwoKICAgICAgICAgICAgICAgIC8vIOuenOuNpO2VnCDrsKntlqXsnLzroZwg7YyM7Yuw7YG0IOydtOuPmQogICAgICAgICAgICAgICAgY29uc3QgYW5nbGUgPSAoTWF0aC5QSSAqIDIgKiBpKSAvIDIwOwogICAgICAgICAgICAgICAgY29uc3QgdmVsb2NpdHkgPSAxMDAgKyBNYXRoLnJhbmRvbSgpICogMTAwOwogICAgICAgICAgICAgICAgY29uc3QgZGVsdGFYID0gTWF0aC5jb3MoYW5nbGUpICogdmVsb2NpdHk7CiAgICAgICAgICAgICAgICBjb25zdCBkZWx0YVkgPSBNYXRoLnNpbihhbmdsZSkgKiB2ZWxvY2l0eTsKCiAgICAgICAgICAgICAgICAvLyDtjIzti7DtgbQg7JWg64uI66mU7J207IWYCiAgICAgICAgICAgICAgICBwYXJ0aWNsZS5hbmltYXRlKFsKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogJ3RyYW5zbGF0ZSgwLCAwKSBzY2FsZSgxKScsIG9wYWNpdHk6IDEgfSwKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogYHRyYW5zbGF0ZSgke2RlbHRhWH1weCwgJHtkZWx0YVl9cHgpIHNjYWxlKDApYCwgb3BhY2l0eTogMCB9CiAgICAgICAgICAgICAgICBdLCB7CiAgICAgICAgICAgICAgICAgICAgZHVyYXRpb246IDEwMDAsCiAgICAgICAgICAgICAgICAgICAgZWFzaW5nOiAnZWFzZS1vdXQnCiAgICAgICAgICAgICAgICB9KS5vbmZpbmlzaCA9ICgpID0&#43;IHBhcnRpY2xlLnJlbW92ZSgpOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICAvLyAyLiDtlZjripjsl5DshJwg65ao7Ja07KeA64qUIO2aqOqzvAogICAgICAgIGZ1bmN0aW9uIHRyaWdnZXJGYWxsaW5nKCkgewogICAgICAgICAgICBjb25zdCBjYXJkID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2ZhbGxpbmctY2FyZCcpOwogICAgICAgICAgICBjYXJkLmNsYXNzTGlzdC5yZW1vdmUoJ2ZhbGxpbmctY2FyZCcpOwogICAgICAgICAgICAKICAgICAgICAgICAgLy8g7JW96rCE7J2YIOyngOyXsCDtm4Qg7JWg64uI66mU7J207IWYIOyLnOyekQogICAgICAgICAgICBzZXRUaW1lb3V0KCgpID0&#43;IHsKICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LmFkZCgnZmFsbGluZy1jYXJkJyk7CiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIC8vIOyVoOuLiOuplOydtOyFmCDsmYTro4wg7ZuEIO2BtOuemOyKpCDsoJzqsbAKICAgICAgICAgICAgICAgIHNldFRpbWVvdXQoKCkgPT4gewogICAgICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LnJlbW92ZSgnZmFsbGluZy1jYXJkJyk7CiAgICAgICAgICAgICAgICB9LCAxMDAwKTsKICAgICAgICAgICAgfSwgNTApOwogICAgICAgIH0KCiAgICAgICAgLy8gMy4g7Iqs66Gv66i47IugIO2aqOqzvAogICAgICAgIGZ1bmN0aW9uIHRyaWdnZXJTbG90TWFjaGluZSgpIHsKICAgICAgICAgICAgY29uc3QgY2FyZCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzbG90LWNhcmQnKTsKICAgICAgICAgICAgY29uc3QgY29sb3JzID0gWycjRkY2QjZCJywgJyM0RUNEQzQnLCAnIzQ1QjdEMScsICcjOTZDRUI0JywgJyNGRUNBNTcnLCAnI0ZGOUZGMyddOwogICAgICAgICAgICAKICAgICAgICAgICAgLy8g7Iqs66Gv66i47IugIOyVoOuLiOuplOydtOyFmCDsi5zsnpEKICAgICAgICAgICAgY2FyZC5jbGFzc0xpc3QuYWRkKCdzbG90LXNwaW5uaW5nJyk7CiAgICAgICAgICAgIAogICAgICAgICAgICAvLyAz7LSIIO2bhCDrnpzrjaQg7IOJ7IOB7JeQ7IScIOupiOy2pAogICAgICAgICAgICBzZXRUaW1lb3V0KCgpID0&#43;IHsKICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LnJlbW92ZSgnc2xvdC1zcGlubmluZycpOwogICAgICAgICAgICAgICAgY29uc3QgZmluYWxDb2xvciA9IGNvbG9yc1tNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiBjb2xvcnMubGVuZ3RoKV07CiAgICAgICAgICAgICAgICBjYXJkLnN0eWxlLmJhY2tncm91bmRDb2xvciA9IGZpbmFsQ29sb3I7CiAgICAgICAgICAgICAgICBjYXJkLnRleHRDb250ZW50ID0gZmluYWxDb2xvcjsKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgLy8g7JW96rCE7J2YIO2OhOyKpCDtmqjqs7wKICAgICAgICAgICAgICAgIGNhcmQuYW5pbWF0ZShbCiAgICAgICAgICAgICAgICAgICAgeyB0cmFuc2Zvcm06ICdzY2FsZSgxKScgfSwKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogJ3NjYWxlKDEuMSknIH0sCiAgICAgICAgICAgICAgICAgICAgeyB0cmFuc2Zvcm06ICdzY2FsZSgxKScgfQogICAgICAgICAgICAgICAgXSwgewogICAgICAgICAgICAgICAgICAgIGR1cmF0aW9uOiAzMDAsCiAgICAgICAgICAgICAgICAgICAgZWFzaW5nOiAnZWFzZS1vdXQnCiAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgfSwgMzAwMCk7CiAgICAgICAgfQogICAgPC9zY3JpcHQ&#43;CjwvYm9keT4KPC9odG1sPg==" 
+                                            width="100%" 
+                                            height="100%" 
+                                            frameborder="0"
+                                            sandbox="allow-scripts allow-same-origin">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            
+                            <script type="application/json" id="demo-data">
+                            {
+                                "title": "NFP 디자인 어시스턴트 - 인터렉션 효과",
+                                "code": "PCFET0NUWVBFIGh0bWw\u002bCjxodG1sIGxhbmc9ImtvIj4KPGhlYWQ\u002bCiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI\u002bCiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI\u002bCiAgICA8dGl0bGU\u002b7J247YSw66CJ7IWYIOuNsOuqqDwvdGl0bGU\u002bCiAgICA8c3R5bGU\u002bCiAgICAgICAgYm9keSB7CiAgICAgICAgICAgIG1hcmdpbjogMDsKICAgICAgICAgICAgcGFkZGluZzogMjBweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzBhMGEwYTsKICAgICAgICAgICAgY29sb3I6IHdoaXRlOwogICAgICAgICAgICBmb250LWZhbWlseTogJ0FyaWFsJywgc2Fucy1zZXJpZjsKICAgICAgICAgICAgZGlzcGxheTogZmxleDsKICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAgICAgICAgbWluLWhlaWdodDogMTAwdmg7CiAgICAgICAgfQoKICAgICAgICAuZGVtby1jb250YWluZXIgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMWExYTFhOwogICAgICAgICAgICBib3JkZXItcmFkaXVzOiAxNXB4OwogICAgICAgICAgICBwYWRkaW5nOiAzMHB4OwogICAgICAgICAgICBtYXJnaW46IDIwcHg7CiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgIzMzMzsKICAgICAgICAgICAgd2lkdGg6IDMwMHB4OwogICAgICAgIH0KCiAgICAgICAgLmRlbW8tY2FyZCB7CiAgICAgICAgICAgIHdpZHRoOiAyMDBweDsKICAgICAgICAgICAgaGVpZ2h0OiAxMjBweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzJhMmEyYTsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMTBweDsKICAgICAgICAgICAgbWFyZ2luOiAyMHB4IGF1dG87CiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyOwogICAgICAgICAgICBmb250LXNpemU6IDE4cHg7CiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICAgICAgfQoKICAgICAgICAuZGVtby1idG4gewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoNDVkZWcsICMwMUZGNzUsICMwMEZGQ0MpOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDEycHggMjRweDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMjVweDsKICAgICAgICAgICAgY29sb3I6IGJsYWNrOwogICAgICAgICAgICBmb250LXdlaWdodDogYm9sZDsKICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICAgICAgICBtYXJnaW46IDEwcHg7CiAgICAgICAgICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjJzOwogICAgICAgIH0KCiAgICAgICAgLmRlbW8tYnRuOmhvdmVyIHsKICAgICAgICAgICAgdHJhbnNmb3JtOiBzY2FsZSgxLjA1KTsKICAgICAgICB9CgogICAgICAgIC5kZW1vLWJ0bjphY3RpdmUgewogICAgICAgICAgICB0cmFuc2Zvcm06IHNjYWxlKDAuOTgpOwogICAgICAgIH0KCiAgICAgICAgLyog7YyM7Yuw7YG0IO2aqOqzvCAqLwogICAgICAgIC5wYXJ0aWNsZSB7CiAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgICAgICAgd2lkdGg6IDZweDsKICAgICAgICAgICAgaGVpZ2h0OiA2cHg7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgICAgICAgICAgcG9pbnRlci1ldmVudHM6IG5vbmU7CiAgICAgICAgICAgIHotaW5kZXg6IDEwMDA7CiAgICAgICAgfQoKICAgICAgICAvKiDrlqjslrTsp4DripQg7JWg64uI66mU7J207IWYICovCiAgICAgICAgQGtleWZyYW1lcyBmYWxsRG93biB7CiAgICAgICAgICAgIDAlIHsKICAgICAgICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtMTAwcHgpIHJvdGF0ZSgwZGVnKTsKICAgICAgICAgICAgICAgIG9wYWNpdHk6IDA7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgMTAlIHsKICAgICAgICAgICAgICAgIG9wYWNpdHk6IDE7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgMTAwJSB7CiAgICAgICAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCkgcm90YXRlKDM2MGRlZyk7CiAgICAgICAgICAgICAgICBvcGFjaXR5OiAxOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICAuZmFsbGluZy1jYXJkIHsKICAgICAgICAgICAgYW5pbWF0aW9uOiBmYWxsRG93biAxcyBlYXNlLW91dDsKICAgICAgICB9CgogICAgICAgIC8qIOyKrOuhr\u002buouOyLoCDtmqjqs7wgKi8KICAgICAgICBAa2V5ZnJhbWVzIHNsb3RTcGluIHsKICAgICAgICAgICAgMCUsIDEwMCUgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY2YjZiOyB9CiAgICAgICAgICAgIDE2JSB7IGJhY2tncm91bmQtY29sb3I6ICM0ZWNkYzQ7IH0KICAgICAgICAgICAgMzIlIHsgYmFja2dyb3VuZC1jb2xvcjogIzQ1YjdkMTsgfQogICAgICAgICAgICA0OCUgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjOTZjZWI0OyB9CiAgICAgICAgICAgIDY0JSB7IGJhY2tncm91bmQtY29sb3I6ICNmZWNhNTc7IH0KICAgICAgICAgICAgODAlIHsgYmFja2dyb3VuZC1jb2xvcjogI2ZmOWZmMzsgfQogICAgICAgIH0KCiAgICAgICAgLnNsb3Qtc3Bpbm5pbmcgewogICAgICAgICAgICBhbmltYXRpb246IHNsb3RTcGluIDAuMXMgaW5maW5pdGU7CiAgICAgICAgfQoKICAgICAgICBoMSB7CiAgICAgICAgICAgIGNvbG9yOiAjMDFGRjc1OwogICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDQwcHg7CiAgICAgICAgfQoKICAgICAgICBoMyB7CiAgICAgICAgICAgIGNvbG9yOiAjMDBGRkNDOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxNXB4OwogICAgICAgIH0KCiAgICAgICAgcCB7CiAgICAgICAgICAgIGNvbG9yOiAjY2NjOwogICAgICAgICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxLjQ7CiAgICAgICAgfQogICAgPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KICAgIDxoMT7su6zrn6wg7Zqo6rO8IOuNsOuqqDwvaDE\u002bCgogICAgPCEtLSDtjIzti7DtgbQg7Y\u002bt67CcIOuNsOuqqCAtLT4KICAgIDxkaXYgY2xhc3M9ImRlbW8tY29udGFpbmVyIj4KICAgICAgICA8aDM\u002b7IOJ7IOBIO2MjO2LsO2BtDwvaDM\u002bCiAgICAgICAgPHA\u002b67KE7Yq87J2EIO2BtOumre2VmOuptCDtlbTri7kg7IOJ7IOB7J2YIO2MjO2LsO2BtOydtCDsgqzrsKnsnLzroZwg7YSw7KeR64uI64ukLjwvcD4KICAgICAgICA8ZGl2IGNsYXNzPSJkZW1vLWNhcmQiIGlkPSJwYXJ0aWNsZS1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogIzAxRkY3NTsiPgogICAgICAgICAgICAjMDFGRjc1CiAgICAgICAgPC9kaXY\u002bCiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJQYXJ0aWNsZXMoKSI\u002b7YyM7Yuw7YG0IO2PreuwnCE8L2J1dHRvbj4KICAgIDwvZGl2PgoKICAgIDwhLS0g7ZWY64qY7JeQ7IScIOuWqOyWtOyngOuKlCDslaDri4jrqZTsnbTshZgg642w66qoIC0tPgogICAgPGRpdiBjbGFzcz0iZGVtby1jb250YWluZXIiPgogICAgICAgIDxoMz7tlZjripjsl5DshJwg65ao7Ja07KeA64qUIO2aqOqzvDwvaDM\u002bCiAgICAgICAgPHA\u002b7Lm065Oc6rCAIO2VmOuKmOyXkOyEnCDrlqjslrTsp4DrqbAg7ZqM7KCE7ZWY64qUIOyVoOuLiOuplOydtOyFmOyeheuLiOuLpC48L3A\u002bCiAgICAgICAgPGRpdiBjbGFzcz0iZGVtby1jYXJkIiBpZD0iZmFsbGluZy1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogIzRFQ0RDNDsiPgogICAgICAgICAgICAjNEVDREM0CiAgICAgICAgPC9kaXY\u002bCiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJGYWxsaW5nKCkiPu2VmOuKmOyXkOyEnCDrlqjslrTrnKjrpqzquLA8L2J1dHRvbj4KICAgIDwvZGl2PgoKICAgIDwhLS0g7Iqs66Gv66i47IugIO2aqOqzvCDrjbDrqqggLS0\u002bCiAgICA8ZGl2IGNsYXNzPSJkZW1vLWNvbnRhaW5lciI\u002bCiAgICAgICAgPGgzPuyKrOuhr\u002buouOyLoCDtmqjqs7w8L2gzPgogICAgICAgIDxwPuyXrOufrCDsg4nsg4HsnbQg67mg66W06rKMIOuyiOypjeydtOuLpOqwgCDstZzsooUg7IOJ7IOB7JeQ7IScIOupiOy2peuLiOuLpC48L3A\u002bCiAgICAgICAgPGRpdiBjbGFzcz0iZGVtby1jYXJkIiBpZD0ic2xvdC1jYXJkIiBzdHlsZT0iYmFja2dyb3VuZDogI0ZGNkI2QjsiPgogICAgICAgICAgICAjRkY2QjZCCiAgICAgICAgPC9kaXY\u002bCiAgICAgICAgPGJ1dHRvbiBjbGFzcz0iZGVtby1idG4iIG9uY2xpY2s9InRyaWdnZXJTbG90TWFjaGluZSgpIj7siqzroa\/rqLjsi6Ag7Iuc7J6RPC9idXR0b24\u002bCiAgICA8L2Rpdj4KCiAgICA8c2NyaXB0PgogICAgICAgIC8vIDEuIO2MjO2LsO2BtCDtj63rsJwg7Zqo6rO8CiAgICAgICAgZnVuY3Rpb24gdHJpZ2dlclBhcnRpY2xlcygpIHsKICAgICAgICAgICAgY29uc3QgY2FyZCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwYXJ0aWNsZS1jYXJkJyk7CiAgICAgICAgICAgIGNvbnN0IHJlY3QgPSBjYXJkLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpOwogICAgICAgICAgICBjb25zdCBjZW50ZXJYID0gcmVjdC5sZWZ0ICsgcmVjdC53aWR0aCAvIDI7CiAgICAgICAgICAgIGNvbnN0IGNlbnRlclkgPSByZWN0LnRvcCArIHJlY3QuaGVpZ2h0IC8gMjsKICAgICAgICAgICAgY29uc3QgY2FyZENvbG9yID0gJyMwMUZGNzUnOwoKICAgICAgICAgICAgLy8gMjDqsJzsnZgg7YyM7Yuw7YG0IOyDneyEsQogICAgICAgICAgICBmb3IgKGxldCBpID0gMDsgaSA8IDIwOyBpKyspIHsKICAgICAgICAgICAgICAgIGNvbnN0IHBhcnRpY2xlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICAgICAgICAgICAgICBwYXJ0aWNsZS5jbGFzc05hbWUgPSAncGFydGljbGUnOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUuYmFja2dyb3VuZENvbG9yID0gY2FyZENvbG9yOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUubGVmdCA9IGNlbnRlclggKyAncHgnOwogICAgICAgICAgICAgICAgcGFydGljbGUuc3R5bGUudG9wID0gY2VudGVyWSArICdweCc7CiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQocGFydGljbGUpOwoKICAgICAgICAgICAgICAgIC8vIOuenOuNpO2VnCDrsKntlqXsnLzroZwg7YyM7Yuw7YG0IOydtOuPmQogICAgICAgICAgICAgICAgY29uc3QgYW5nbGUgPSAoTWF0aC5QSSAqIDIgKiBpKSAvIDIwOwogICAgICAgICAgICAgICAgY29uc3QgdmVsb2NpdHkgPSAxMDAgKyBNYXRoLnJhbmRvbSgpICogMTAwOwogICAgICAgICAgICAgICAgY29uc3QgZGVsdGFYID0gTWF0aC5jb3MoYW5nbGUpICogdmVsb2NpdHk7CiAgICAgICAgICAgICAgICBjb25zdCBkZWx0YVkgPSBNYXRoLnNpbihhbmdsZSkgKiB2ZWxvY2l0eTsKCiAgICAgICAgICAgICAgICAvLyDtjIzti7DtgbQg7JWg64uI66mU7J207IWYCiAgICAgICAgICAgICAgICBwYXJ0aWNsZS5hbmltYXRlKFsKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogJ3RyYW5zbGF0ZSgwLCAwKSBzY2FsZSgxKScsIG9wYWNpdHk6IDEgfSwKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogYHRyYW5zbGF0ZSgke2RlbHRhWH1weCwgJHtkZWx0YVl9cHgpIHNjYWxlKDApYCwgb3BhY2l0eTogMCB9CiAgICAgICAgICAgICAgICBdLCB7CiAgICAgICAgICAgICAgICAgICAgZHVyYXRpb246IDEwMDAsCiAgICAgICAgICAgICAgICAgICAgZWFzaW5nOiAnZWFzZS1vdXQnCiAgICAgICAgICAgICAgICB9KS5vbmZpbmlzaCA9ICgpID0\u002bIHBhcnRpY2xlLnJlbW92ZSgpOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICAvLyAyLiDtlZjripjsl5DshJwg65ao7Ja07KeA64qUIO2aqOqzvAogICAgICAgIGZ1bmN0aW9uIHRyaWdnZXJGYWxsaW5nKCkgewogICAgICAgICAgICBjb25zdCBjYXJkID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2ZhbGxpbmctY2FyZCcpOwogICAgICAgICAgICBjYXJkLmNsYXNzTGlzdC5yZW1vdmUoJ2ZhbGxpbmctY2FyZCcpOwogICAgICAgICAgICAKICAgICAgICAgICAgLy8g7JW96rCE7J2YIOyngOyXsCDtm4Qg7JWg64uI66mU7J207IWYIOyLnOyekQogICAgICAgICAgICBzZXRUaW1lb3V0KCgpID0\u002bIHsKICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LmFkZCgnZmFsbGluZy1jYXJkJyk7CiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIC8vIOyVoOuLiOuplOydtOyFmCDsmYTro4wg7ZuEIO2BtOuemOyKpCDsoJzqsbAKICAgICAgICAgICAgICAgIHNldFRpbWVvdXQoKCkgPT4gewogICAgICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LnJlbW92ZSgnZmFsbGluZy1jYXJkJyk7CiAgICAgICAgICAgICAgICB9LCAxMDAwKTsKICAgICAgICAgICAgfSwgNTApOwogICAgICAgIH0KCiAgICAgICAgLy8gMy4g7Iqs66Gv66i47IugIO2aqOqzvAogICAgICAgIGZ1bmN0aW9uIHRyaWdnZXJTbG90TWFjaGluZSgpIHsKICAgICAgICAgICAgY29uc3QgY2FyZCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzbG90LWNhcmQnKTsKICAgICAgICAgICAgY29uc3QgY29sb3JzID0gWycjRkY2QjZCJywgJyM0RUNEQzQnLCAnIzQ1QjdEMScsICcjOTZDRUI0JywgJyNGRUNBNTcnLCAnI0ZGOUZGMyddOwogICAgICAgICAgICAKICAgICAgICAgICAgLy8g7Iqs66Gv66i47IugIOyVoOuLiOuplOydtOyFmCDsi5zsnpEKICAgICAgICAgICAgY2FyZC5jbGFzc0xpc3QuYWRkKCdzbG90LXNwaW5uaW5nJyk7CiAgICAgICAgICAgIAogICAgICAgICAgICAvLyAz7LSIIO2bhCDrnpzrjaQg7IOJ7IOB7JeQ7IScIOupiOy2pAogICAgICAgICAgICBzZXRUaW1lb3V0KCgpID0\u002bIHsKICAgICAgICAgICAgICAgIGNhcmQuY2xhc3NMaXN0LnJlbW92ZSgnc2xvdC1zcGlubmluZycpOwogICAgICAgICAgICAgICAgY29uc3QgZmluYWxDb2xvciA9IGNvbG9yc1tNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiBjb2xvcnMubGVuZ3RoKV07CiAgICAgICAgICAgICAgICBjYXJkLnN0eWxlLmJhY2tncm91bmRDb2xvciA9IGZpbmFsQ29sb3I7CiAgICAgICAgICAgICAgICBjYXJkLnRleHRDb250ZW50ID0gZmluYWxDb2xvcjsKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgLy8g7JW96rCE7J2YIO2OhOyKpCDtmqjqs7wKICAgICAgICAgICAgICAgIGNhcmQuYW5pbWF0ZShbCiAgICAgICAgICAgICAgICAgICAgeyB0cmFuc2Zvcm06ICdzY2FsZSgxKScgfSwKICAgICAgICAgICAgICAgICAgICB7IHRyYW5zZm9ybTogJ3NjYWxlKDEuMSknIH0sCiAgICAgICAgICAgICAgICAgICAgeyB0cmFuc2Zvcm06ICdzY2FsZSgxKScgfQogICAgICAgICAgICAgICAgXSwgewogICAgICAgICAgICAgICAgICAgIGR1cmF0aW9uOiAzMDAsCiAgICAgICAgICAgICAgICAgICAgZWFzaW5nOiAnZWFzZS1vdXQnCiAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgfSwgMzAwMCk7CiAgICAgICAgfQogICAgPC9zY3JpcHQ\u002bCjwvYm9keT4KPC9odG1sPg=="
+                            }
+                            </script>
+                        
+                    
+
+                    
+                </div>
+
+                <div class="post-body" data-category="programming">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <p>버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.</p>
+
+                </div>
+
+
+                
+                <div class="tags-container">
+                    
+                    
+                    <span class="project-scale-badge">프론트엔드</span>
+                    
+                    <span class="project-scale-badge">웹 퍼블리싱</span>
+                    
+                    <span class="project-scale-badge">HTML5</span>
+                    
+                    <span class="project-scale-badge">CSS3</span>
+                    
+                    <span class="project-scale-badge">JavaScript</span>
+                    
+                    <span class="project-scale-badge">NFP 디자인</span>
+                    
+                    <span class="project-scale-badge">NFP Design</span>
+                    
+                    
+                    
+                </div>
+                
+            </div>
+        </div> 
+
+
+<div class="post-navigation">
+    
+    <div class="related-posts-header">
+        <h3>
+            
+                관련 게시글
+            
+        </h3>
+    </div>
+    
+    
+    <div class="related-posts-container">
+        
+        
+        
+        
+        
+            <p class="no-related">관련 게시글이 없습니다.</p>
+        
+    </div>
+
+    
+    <div class="back-to-list">
+        <a href="/" class="btn-back">
+            목록 보기
+        </a>
+    </div>
+</div>
+
+        </div>
+    </div> 
+    
+    
+    <script src="/js/lightbox.js" defer></script>
+    <script src="/js/web-demo.js" defer></script>
+    <script src="/js/skeleton.js" defer></script>
+</section>
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>

@@ -18,7 +18,7 @@ locale: 'ko'
 collections:
   - name: "web-posts"
     label: "웹 작업물"
-    folder: "content/posts/web"
+    folder: "content/categories/web"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -39,7 +39,7 @@ collections:
 
   - name: "ad-posts"
     label: "광고 작업물"
-    folder: "content/posts/ad"
+    folder: "content/categories/ad"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -60,7 +60,7 @@ collections:
 
   - name: "content-posts"
     label: "콘텐츠 작업물"
-    folder: "content/posts/content"
+    folder: "content/categories/content"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -81,7 +81,7 @@ collections:
 
   - name: "creative-posts"
     label: "크리에이티브 작업물"
-    folder: "content/posts/creative"
+    folder: "content/categories/creative"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -102,7 +102,7 @@ collections:
 
   - name: "programming-posts"
     label: "프로그래밍 작업물"
-    folder: "content/posts/programming"
+    folder: "content/categories/programming"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -143,7 +143,7 @@ collections:
 
   - name: "video-posts"
     label: "영상 작업물"
-    folder: "content/posts/video"
+    folder: "content/categories/video"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -164,7 +164,7 @@ collections:
 
   - name: "project-posts"
     label: "프로젝트 작업물"
-    folder: "content/posts/project"
+    folder: "content/categories/project"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:

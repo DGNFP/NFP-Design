@@ -1,6 +1,6 @@
 baseURL: "https://nfpdesign.co.kr"
 languageCode: 'ko'
-title: 'NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다'
+title: 'NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.'
 buildFuture: true
 buildExpired: true
 cleanDestinationDir: true
@@ -55,6 +55,8 @@ outputFormats:
 taxonomies:
   category: "categories"
   tag: "tags"
+
+
 
 markup:
   goldmark:
