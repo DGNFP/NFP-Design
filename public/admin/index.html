@@ -4,8 +4,88 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>NFP Design 관리자 페이지</title>
+  <title>NFP DESIGN 관리자 페이지</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<style>
+/* 로그인 버튼 스타일링 */
+button[class*="LoginButton"] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  transition: all 0.3s ease;
+  border-radius: 2px !important;
+  line-height: 1.5 !important;
+
+/* 버튼 크기 늘리기 */
+  padding: 15px 30px !important;  /* 기본보다 크게 */
+  min-width: 200px !important;
+  height: 50px !important;
+
+  
+  /* 폰트 설정 */
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif !important;
+  font-weight: 600 !important;
+  
+
+  /* 기존 텍스트 숨기고 새 텍스트로 대체 */
+  font-size: 0 !important;
+}
+
+/* 로그인 버튼 */
+button[class*="LoginButton"]:after {
+  content: "NFP DESIGN 관리자 로그인" !important;
+  font-size: 15px !important;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif !important;
+  font-weight: 600 !important;
+
+}
+
+/* 호버 상태 */
+button[class*="LoginButton"]:hover,
+button[class*="LoginButton"]:focus {
+  background-color: #01FF75 !important;
+  color: black !important;
+}
+
+button[class*="LoginButton"]:hover:after {
+  color: black !important;
+}
+
+/* Decap 로고 숨기기 */
+[class*="DecapLogo"], 
+svg[class*="logo"],
+[class*="css-"] svg,
+span[class*="css-"] svg {
+  display: none !important;
+}
+
+/* 배경들 */
+body, #nc-root {
+  background-color: #000000 !important;
+}
+
+/* NFP 로고 추가 - 로그인 박스 위에 */
+[class*="AuthenticationPage"] {
+  background-color: #000000 !important;
+  padding-top: 220px !important;
+  position: relative !important;
+}
+
+[class*="AuthenticationPage"]:before {
+  content: "" !important;
+  position: absolute !important;
+  top: 100px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 400px !important;
+  height: 400px !important;
+  background-image: url('../img/NFP.png') !important;  /* 수정! */
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+</style>
+
+
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
@@ -20,5 +100,10 @@
       });
     }
   </script>
+
+
+
+
 </body>
 </html>
+
