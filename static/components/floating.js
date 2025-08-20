@@ -377,7 +377,7 @@ const defaultButtons = [
     },
     {
         id: 'work-btn',
-        href: '/posts/',
+        href: '/categories/',
         icon: '<i class="fas fa-clipboard-list"></i>',
         text: '작업 보기'
     },

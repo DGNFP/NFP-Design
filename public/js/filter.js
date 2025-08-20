@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // 전체게시판은 9개 유지 (기존 설정)
-        if (currentPath.includes('/posts/')) {
+        if (currentPath.includes('/categories/')) {
             return 10;
         }
         
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSearchTerm = '';
     
     // 현재 페이지가 어떤 게시판인지 확인
-    const isMainBoard = window.location.pathname.includes('/posts/');
+    const isMainBoard = window.location.pathname === '/categories/' || window.location.pathname === '/categories';
     const isFreeBoard = window.location.pathname.includes('/freeboard/');
     const isGamesBoard = window.location.pathname.includes('/games/');
     const isCreativeBoard = window.location.pathname.includes('/creative/');
@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const isProgrammingBoard = window.location.pathname.includes('/programming/');
     const isAdBoard = window.location.pathname.includes('/ad/');
     const isProjectBoard = window.location.pathname.includes('/project/');
+
+    
     
     // 게임게시판 전용 필터링 함수 (강화된 CSS 적용)
     function applyGamesBoardFilter(filterValue) {

@@ -148,7 +148,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 게시글 목록 페이지용 함수
     function renderPostList() {
-        fetch('/content/posts')
+        fetch('/content/categories')
             .then(response => response.json())
             .then(posts => {
                 const gridContainer = document.querySelector('.board-all-grid');
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 게시글 상세 페이지용 함수
     function renderPostDetail() {
         const slug = window.location.pathname.split('/').pop().replace('.html', '');
-        fetch(`/content/posts/${slug}.json`)
+        fetch(`/content/categories/${slug}.json`)
             .then(response => response.json())
             .then(post => {
                 document.getElementById('post-title').textContent = post.title;

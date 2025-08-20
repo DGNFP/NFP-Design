@@ -43,7 +43,7 @@
          <section class="board-all-container">
             <div class="board-all-grid">
                 <!-- 새로운: 모든 게시물 로드 -->
-                {{ $allPosts := where site.RegularPages "Section" "posts" }}
+                {{ $allPosts := where site.RegularPages "Section" "categories" }}
                 {{ $filteredPosts := slice }}
                 {{ range $allPosts }}
                 {{ if not (in .Params.categories "news") }}

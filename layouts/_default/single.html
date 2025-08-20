@@ -250,7 +250,7 @@
     <!-- 제목 (맨 위) -->
     <div class="related-posts-header">
         <h3>
-            {{ if eq .Section "posts" }}
+            {{ if eq .Section "categories" }}
                 {{ $currentCategory := index .Params.categories 0 }}
                 {{ if eq $currentCategory "web" }}웹 디자인{{ else if eq $currentCategory "video" }}영상 디자인{{ else if eq $currentCategory "creative" }}크리에이티브 디자인{{ else if eq $currentCategory "programming" }}프로그래밍{{ else if eq $currentCategory "content" }}콘텐츠 디자인{{ else if eq $currentCategory "ad" }}광고 디자인{{ else if eq $currentCategory "project" }}프로젝트{{ end }} 카테고리의 다른 작업물
             {{ else if eq .Section "games" }}
@@ -266,7 +266,7 @@
     <!-- 그리드 (제목 아래) -->
     <div class="related-posts-container">
         {{ $relatedPosts := slice }}
-        {{ if eq .Section "posts" }}
+        {{ if eq .Section "categories" }}
             {{ $currentCategory := index .Params.categories 0 }}
             {{ $relatedPosts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
         {{ else if eq .Section "games" }}
@@ -431,8 +431,8 @@
 
     <!-- 버튼 (맨 아래로 이동) -->
     <div class="back-to-list">
-        <a href="{{ if eq .Section "games" }}/games/{{ else if eq .Section "freeboard" }}/freeboard/{{ else if eq .Section "news" }}/news/{{ else if eq .Section "notice" }}/notice/{{ else if eq .Section "posts" }}/posts/{{ else }}/{{ end }}" class="btn-back">
-            {{ if eq .Section "posts" }}전체 작업물{{ else if eq .Section "games" }}게임{{ else if eq .Section "freeboard" }}자유게시판{{ else if eq .Section "news" }}소식{{ else if eq .Section "notice" }}공지사항{{ else }}목록{{ end }} 보기
+        <a href="{{ if eq .Section "games" }}/games/{{ else if eq .Section "freeboard" }}/freeboard/{{ else if eq .Section "news" }}/news/{{ else if eq .Section "notice" }}/notice/{{ else if eq .Section "categories" }}/categories/{{ else }}/{{ end }}" class="btn-back">
+            {{ if eq .Section "categories" }}전체 작업물{{ else if eq .Section "games" }}게임{{ else if eq .Section "freeboard" }}자유게시판{{ else if eq .Section "news" }}소식{{ else if eq .Section "notice" }}공지사항{{ else }}목록{{ end }} 보기
         </a>
     </div>
 </div>
