@@ -278,7 +278,86 @@
 </script>
 {{ end }}
 
-<title>{{ if .IsHome }}NFP 디자인 | 웹 디자인·퍼블리싱·로고·영상·광고·인쇄물 디자인 전문{{ else if or (eq .Title "Studio") (eq .Title "Studio NFP") (in .Permalink "/studio/") }}Studio NFP | 디자인 작업을 위한 전문 도구 모음 - NFP 디자인{{ else if eq .Section "categories" }}{{ if eq .Kind "page" }}{{ if .Params.subCategory }}{{ .Params.subCategory }} | {{ .Title }} - NFP 디자인{{ else }}{{ $categoryKorean := "전체 작업물" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "프로그래밍" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "디자인 프로젝트" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "콘텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} | {{ .Title }} - NFP 디자인{{ end }}{{ else }}{{ if eq .Title "Categories" }}전체 작업물 - NFP 디자인{{ else if eq .Title "Web" }}웹 디자인 - NFP 디자인{{ else if eq .Title "Content" }}컨텐츠 디자인 - NFP 디자인{{ else if eq .Title "Video" }}영상 디자인 - NFP 디자인{{ else if eq .Title "Creative" }}크리에이티브 디자인 - NFP 디자인{{ else if eq .Title "Programming" }}프로그래밍 - NFP 디자인{{ else if eq .Title "Project" }}디자인 프로젝트 - NFP 디자인{{ else if eq .Title "Ad" }}광고 디자인 - NFP 디자인{{ else if eq .Title "Studio" }}Studio NFP | 디자인 작업을 위한 전문 도구 모음 - NFP 디자인{{ else }}{{ .Title }} | 전체 작업물 - NFP 디자인{{ end }}{{ end }}{{ else if eq .Section "freeboard" }}{{ if eq .Title "Freeboards" }}블로그 - NFP 디자인{{ else if eq .Title "Studio" }}Studio NFP | 디자인 작업을 위한 전문 도구 모음 - NFP 디자인{{ else }}{{ .Title }} | 블로그 - NFP 디자인{{ end }}{{ else if eq .Section "games" }}{{ if eq .Title "Games" }}블로그 - NFP 디자인{{ else if eq .Title "Studio" }}Studio NFP | 디자인 작업을 위한 전문 도구 모음 - NFP 디자인{{ else }}{{ if .Params.subCategory }}{{ .Params.subCategory }} | {{ .Title }} - NFP 디자인{{ else }}블로그 | {{ .Title }} - NFP 디자인{{ end }}{{ end }}{{ else if eq .Section "tags" }}{{ .Title }} 태그 - NFP 디자인{{ else }}{{ if eq .Title "Studio" }}Studio NFP | 디자인 작업을 위한 전문 도구 모음 - NFP 디자인{{ else if eq .Title "Games" }}블로그 - NFP 디자인{{ else if eq .Title "Notice" }}공지사항 - NFP 디자인{{ else if eq .Title "Notices" }}공지사항 - NFP 디자인{{ else if eq .Title "News" }}소식 - NFP 디자인{{ else if eq .Title "Terms" }}정책 및 약관 - NFP 디자인{{ else if eq .Title "Freeboard" }}블로그 - NFP 디자인{{ else if in .Title "privacy" }}개인정보처리방침 - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}{{ end }}</title>
+<title>
+{{- if .IsHome -}}
+웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP
+{{- else if or (eq .Title "Studio") (eq .Title "Studio NFP") (in .Permalink "/studio/") -}}
+디자인 작업을 위한 전문 도구 모음 - Studio NFP | 스튜디오 NFP
+{{- else if eq .Section "categories" -}}
+  {{- if eq .Kind "page" -}}
+    {{- if .Params.subCategory -}}
+      {{- $parentCat := "" -}}
+      {{- with .Params.categories -}}
+        {{- $parentCat = index . 0 -}}
+      {{- end -}}
+      {{- if eq $parentCat "games" -}}
+[ {{ .Params.subCategory }} ] {{ .Title }} - Studio NFP | 스튜디오 NFP
+      {{- else -}}
+[ {{ .Params.subCategory }} ] {{ .Title }} - NFP 디자인 | 스튜디오 NFP
+      {{- end -}}
+    {{- else -}}
+      {{- $categoryKorean := "작업물" -}}
+      {{- with .Params.categories -}}
+        {{- $cat := index . 0 -}}
+        {{- if eq $cat "video" -}}{{ $categoryKorean = "영상 디자인" -}}
+        {{- else if eq $cat "creative" -}}{{ $categoryKorean = "크리에이티브 디자인" -}}
+        {{- else if eq $cat "web" -}}{{ $categoryKorean = "웹 디자인" -}}
+        {{- else if eq $cat "programming" -}}{{ $categoryKorean = "웹 퍼블리싱" -}}
+        {{- else if eq $cat "project" -}}{{ $categoryKorean = "브랜딩 프로젝트" -}}
+        {{- else if eq $cat "content" -}}{{ $categoryKorean = "컨텐츠 디자인" -}}
+        {{- else if eq $cat "ad" -}}{{ $categoryKorean = "광고 디자인" -}}
+        {{- else if eq $cat "games" -}}{{ $categoryKorean = "게임 컨텐츠" -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if eq .Params.categories "games" -}}
+{{ .Title }} - Studio NFP | 스튜디오 NFP
+      {{- else -}}
+{{ .Title }} - NFP 디자인 | 스튜디오 NFP
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- if eq .Title "Categories" -}}전체 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Web" -}}웹 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Content" -}}컨텐츠 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Video" -}}영상 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Creative" -}}크리에이티브 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Programming" -}}프로그래밍 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Project" -}}브랜딩 프로젝트 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Ad" -}}광고 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Games" -}}게임 컨텐츠 - Studio NFP | 스튜디오 NFP
+    {{- else -}}{{ .Title }} 작업물 - NFP 디자인 | 스튜디오 NFP{{ end -}}
+  {{- end -}}
+{{- else if eq .Section "freeboard" -}}
+  {{- if eq .Title "Freeboards" -}}블로그 - Studio NFP | 스튜디오 NFP
+  {{- else -}}
+    {{- if .Params.subCategory -}}
+[ {{ .Params.subCategory }} ] {{ .Title }} - NFP 디자인 | 스튜디오 NFP
+    {{- else -}}
+{{ .Title }} - NFP 디자인 | 스튜디오 NFP
+    {{- end -}}
+  {{- end -}}
+{{- else if eq .Section "games" -}}
+  {{- if eq .Title "Games" -}}게임 컨텐츠 - Studio NFP | 스튜디오 NFP
+  {{- else -}}
+    {{- if .Params.subCategory -}}
+[ {{ .Params.subCategory }} ] {{ .Title }} - Studio NFP | 스튜디오 NFP
+    {{- else -}}
+{{ .Title }} - Studio NFP | 스튜디오 NFP
+    {{- end -}}
+  {{- end -}}
+{{- else if eq .Section "tags" -}}
+{{ .Title }} 관련 작업물 - NFP 디자인 | 스튜디오 NFP
+{{- else -}}
+  {{- if eq .Title "Studio" -}}디자인 작업을 위한 전문 도구 모음 - Studio NFP | 스튜디오 NFP
+  {{- else if eq .Title "Games" -}}게임 컨텐츠 - Studio NFP | 스튜디오 NFP
+  {{- else if or (eq .Title "Notice") (eq .Title "Notices") -}}공지사항 - NFP 디자인 | 스튜디오 NFP
+  {{- else if eq .Title "News" -}}NFP 소식 - NFP 디자인 | 스튜디오 NFP
+  {{- else if eq .Title "Terms" -}}이용약관 - NFP 디자인 | 스튜디오 NFP
+  {{- else if eq .Title "Freeboard" -}}블로그 - NFP 디자인 | 스튜디오 NFP
+  {{- else if in .Title "privacy" -}}개인정보처리방침 - NFP 디자인 | 스튜디오 NFP
+  {{- else -}}{{ .Title }} - NFP 디자인 | 스튜디오 NFP{{ end -}}
+{{- end -}}
+</title>
 
 <!-- 핵심 키워드만 선별 -->
 <meta name="keywords" content="NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너">
@@ -289,7 +368,7 @@
 <meta name="author" content="{{ .Site.Params.author }}">
     
     <!-- Open Graph 태그 - 수정된 이미지 경로 -->
-    <meta property="og:title" content="{{ if .IsHome }}NFP 디자인 | 웹 디자인·퍼블리싱·로고·영상·광고·인쇄물 디자인 전문{{ else if eq .Section "categories" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "프로젝트 작업물" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "컨텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "프로젝트 작업물" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "컨텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
     <meta property="og:image" content="{{ "img/nfp-main.png" | absURL }}">
     <meta property="og:image:width" content="1200">
@@ -311,7 +390,7 @@
     
     <!-- Twitter 태그 - 수정된 이미지 경로 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ if .IsHome }}NFP 디자인 | 웹 디자인·퍼블리싱·로고·영상·광고·인쇄물 디자인 전문{{ else if eq .Section "posts" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "브랜딩 프로젝트" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "콘텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta name="twitter:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "posts" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "브랜딩 프로젝트" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "컨텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
     <meta property="twitter:image" content="{{ "img/nfp-main.png" | absURL }}">
     <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
