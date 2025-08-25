@@ -1007,6 +1007,9 @@ nav {
     width: 100%;
 }
 
+.post-title .title-text {
+    color: white;
+}
 
 /* 마크다운 에디터에서 업로드한 이미지만 타겟 */
 .post-body img[src^="/img/uploads/"] {

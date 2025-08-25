@@ -144,7 +144,13 @@
                             {{ end }}
                         {{ end }}
                         
-                        <h3 class="project-minimal-title">{{ .Title }}</h3>
+<h3 class="project-minimal-title">
+                            {{- if .Params.subCategory -}}
+                                <span class="category-text">[ {{ .Params.subCategory }} ]</span> {{ .Title }}
+                            {{- else -}}
+                                {{ .Title }}
+                            {{- end -}}
+                        </h3>
                         
                         <!-- 소제목 추가 -->
                         {{ if .Params.subtitle }}

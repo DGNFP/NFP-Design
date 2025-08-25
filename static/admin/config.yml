@@ -238,7 +238,7 @@ collections:
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "games"
-    label: "게임게시판"
+    label: "게임 컨텐츠"
     folder: "content/games"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"

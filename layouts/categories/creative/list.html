@@ -134,7 +134,13 @@
                     
                     <!-- 텍스트만 별도 영역 (이미지 아래 분리) -->
                     <div class="board-item-text-only">
-                        <h3 class="board-item-title">{{ .Title }}</h3>
+<h3 class="board-item-title">
+    {{- if .Params.subCategory -}}
+        <span class="category-text">[ {{ .Params.subCategory }} ]</span> {{ .Title }}
+    {{- else -}}
+        {{ .Title }}
+    {{- end -}}
+</h3>
                         
                         <!-- 소제목 추가 -->
                         {{ if .Params.subtitle }}

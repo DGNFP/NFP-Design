@@ -436,11 +436,7 @@
     justify-content: center;
 }
 
-.board-all-item-title {
-    font-size: 19px;
-    font-weight: 600;
-    margin-bottom: 0px;
-}
+
 
 .board-all-item-subtitle {
     font-size: 16px;
@@ -534,7 +530,25 @@
 }
 
 
+/* 게시글 제목 카테고리 강조 */
+.board-all-item-title {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    color: white;
+}
 
+/* 게시글 제목 흰색 영역 */
+.board-all-item-title .title-text,
+.board-item-title .title-text {
+    color: white; 
+}
+
+/* 카테고리 부분만 스타일 적용 */
+.category-text {
+    color: var(--accent-color);
+    font-weight: 700;
+}
 
 
 /*1. 웹디자인,프로그래밍 게시판 그리드 */
@@ -572,31 +586,26 @@
 }
 
 .board-item-content {
-    padding: 20px;
+    padding: 12px;
 }
+
 
 .board-item-title {
-    font-size: 16px;
-    margin-bottom: 2px;
-    color: var(--text-color);
-    font-weight: var(--font-bold);
-    transition: all 0.3s ease;
+font-size: 14px; /* 16px에서 15px로 축소 */
+height: 18px; 
+overflow: hidden;
+margin-bottom: 6px; /* 8px에서 6px로 축소 */
+color: white;
+font-weight: 500;
+line-height: 1.3; /* 1.25에서 1.2로 축소 */
+text-overflow: ellipsis;
 
-     /* 텍스트 생략 처리 */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 18px;
-    margin-bottom: 8px;
-}
+/* ellipsis가 작동하기 위한 필수 조건들 */
+white-space: nowrap; /* 1줄로 강제 */
+display: block; /* 또는 inline-block */
+width: 100%; /* 또는 고정 너비 */
 
-
-.board-item-desc {
-    font-size: 14px;
-    margin-bottom: 15px;
-    color: var(--text-color);
-    opacity: 0.8;
-    line-height: 1.4;
+transition: all 0.3s ease;
 }
 
 
@@ -611,7 +620,7 @@
 }
 
 .board-item .board-item-subtitle {
-   font-size: 14px;
+   font-size: 13px;
 }
 
 .board-item-link::after {
@@ -709,28 +718,29 @@
 }
 
 .board-item-square .board-item-content {
-    padding: 15px;
+    padding: 10px;
 }
 
 /* 컨텐츠 디자인 게시글 제목 */
 .board-item-square .board-item-title {
-font-size: 15px;
-height: 18px; /* min-height, max-height 대신 고정 height */
-overflow: hidden;
-white-space: nowrap; /* 1줄 강제 */
-text-overflow: ellipsis; /* 말줄임표 */
-margin-bottom: 6px; /* 6px → 4px */
-color: var(--text-colorr);
-font-weight: var(--font-bold);
-line-height: 1.2; /* 1.25 → 1.2 */
-margin-bottom: 8px;
+    font-size: 14px;
+    height: 36px; /* 18px → 36px (15px * 1.2 * 2줄 = 36px) */
+    overflow: hidden;
+    text-overflow: ellipsis; /* 말줄임표 */
+    margin-bottom: 6px; /* 6px → 4px */
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 1.3; /* 1.25 → 1.2 */
 
-/* 2줄 제한에서 1줄로 변경하며 제거한 속성들 */
-/* display: -webkit-box; */
-/* -webkit-line-clamp: 2; */
-/* -webkit-box-orient: vertical; */
-/* line-clamp: 2; */
-/* box-orient: vertical; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    box-orient: vertical;
+
+    /* 🔥 핵심 해결책: nowrap 덮어쓰기 */
+    white-space: normal !important;
+    word-break: break-word;
 }
 
 /* 컨텐츠 디자인 게시글 소제목 */
@@ -971,8 +981,7 @@ overflow: hidden;
 white-space: nowrap; /* 1줄 강제 */
 text-overflow: ellipsis; /* 말줄임표 */
 margin-bottom: 6px; /* 6px → 4px */
-color: var(--text-colorr);
-font-weight: var(--font-bold);
+font-weight: 500;
 line-height: 1.2; /* 1.25 → 1.2 */
 }
 
@@ -1079,23 +1088,31 @@ line-height: 1.2; /* 1.25 → 1.2 */
     transform: scale(1.05);
 }
 
-.board-item-ad:hover .board-item-title {
-    color: var(--accent-color);
-}
 
 .board-item-ad .board-item-content {
     padding: 15px; /* 15px에서 12px로 축소 */
 }
 
 .board-item-ad .board-item-title {
-    font-size: 14px; /* 16px에서 15px로 축소 */
-    height: 18px; 
-    overflow: hidden;
-    margin-bottom: 6px; /* 8px에서 6px로 축소 */
-    color: var(--text-color);
-    font-weight: var(--font-bold);
-    line-height: 1.2; /* 1.25에서 1.2로 축소 */
+font-size: 14px; /* 16px에서 15px로 축소 */
+height: 36px; 
+overflow: hidden;
+margin-bottom: 6px; /* 8px에서 6px로 축소 */
+color: white;
+font-weight: 500;
+line-height: 1.3; /* 1.25에서 1.2로 축소 */
+
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+
+/* 🔥 핵심 해결책: nowrap 덮어쓰기 */
+white-space: normal !important;
+word-break: break-word;
 }
+
+
 
 .board-item-subtitle{
 font-size: 13px;
@@ -1150,69 +1167,15 @@ margin-bottom: 0px !important;
     margin-bottom: 20px !important;
 }
 
-
-
-
 .board-game-grid .board-all-item-desc{
     margin-bottom: 10px;
 }
-
-
-
 
 .board-item-ad .board-item-date {
 font-size: 11px;
 color: var(--text-color);
 opacity: 0.3;
 }
-
-/* 게시글 이전,다음,목록으로 페이지 네비게이션 */
-/* .post-navigation {
-    margin-top: 60px;
-    padding: 40px;
-    background: rgba(1, 255, 117, 0.03);
-    border-radius: 8px;
-    border: 1px solid rgba(1, 255, 117, 0.15);
-}
-
-.post-navigation a {
-    padding: 10px 15px;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.05);
-    transition: var(--transition);
-}
-
-.post-navigation a:hover {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-}
-
-.nav-previous {
-    justify-self: start; 
-}
-
-.nav-next {
-    justify-self: end; 
-}
-
-.nav-list {
-    padding: 8px 16px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-    border: 1px solid var(--accent-color);
-    font-size: 14px;
-    font-family: inherit;
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: var(--transition);
-    white-space: nowrap;
-    justify-self: center; 
-}
-
-.nav-list:hover{
-    background-color: var(--accent-color) !important;
-    color: var(--background-color);
-} */
 
 /* * 게시글 페이지 스타일 */
 .post-section {
@@ -1222,7 +1185,7 @@ opacity: 0.3;
 
 .post-container {
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 40px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -1234,7 +1197,7 @@ opacity: 0.3;
 }
 
 .post-title {
-    font-size: 32px;
+    font-size: 26px;
     font-weight: var(--font-bold);
     margin-bottom: 15px;
     color: var(--accent-color);
@@ -1269,6 +1232,7 @@ opacity: 0.3;
 
 .post-body p {
     margin-bottom: 20px;
+    font-size: 16px;
 }
 
 /* 크리에이티브 디자인 게시판 - 5x3 완전 분리형 레이아웃 */
@@ -1286,10 +1250,6 @@ opacity: 0.3;
 
 .board-item-creative:hover {
     transform: translateY(-8px);
-}
-
-.board-item-creative:hover .board-item-title{
-color: var(--accent-color);
 }
 
 .board-item-creative:hover .category-overlay{
@@ -1338,20 +1298,30 @@ color: var(--accent-color);
 
 /* 텍스트만 별도 영역 - 이미지 아래 분리 배치 */
 .board-item-creative .board-item-text-only {
-    padding: 12px; /* 패딩 제거 - 완전 분리 */
+    padding: 8px; /* 패딩 제거 - 완전 분리 */
     background-color: transparent; /* 배경 제거 */
 }
 
 .board-item-creative .board-item-title {
-font-size: 15px;
-height: 18px; /* min-height, max-height 대신 고정 height */
-overflow: hidden;
-white-space: nowrap; /* 1줄 강제 */
-text-overflow: ellipsis; /* 말줄임표 */
-margin-bottom: 6px; /* 6px → 4px */
-color: var(--text-colorr);
-font-weight: var(--font-bold);
-line-height: 1.2; /* 1.25 → 1.2 */
+    font-size: 14px;
+    height: 36px; /* 18px → 36px (15px * 1.2 * 2줄 = 36px) */
+    overflow: hidden;
+    /* white-space: nowrap; 1줄 강제 제거 */
+    text-overflow: ellipsis; /* 말줄임표 */
+    margin-bottom: 6px; /* 6px → 4px */
+    color: var(--text-colorr);
+    font-weight: var(--font-bold);
+    line-height: 1.3; /* 1.25 → 1.2 */
+    
+    /* 2줄 표시를 위한 추가 속성 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    box-orient: vertical;
+
+white-space: normal !important;
+word-break: break-word;
 }
 
 .board-item-creative .board-item-desc {
@@ -2260,17 +2230,22 @@ transition: transform 0.3s ease;
 
 /* 모바일 */
 @media (max-width: 576px) {
-    .container{
-        padding: 0px 20px;
-    }
-
-
-    .board-all-container {
-    padding: 0px 0px;
+.container{
+padding: 0px 20px;
 }
-    .post-title{
-        font-size: 24px;
-    }
+
+
+.board-all-container {
+padding: 0px 0px;
+}
+
+.post-title{
+    font-size: 18px;
+}
+
+.post-body p{
+    font-size: 14px;
+}
 
 .post-navigation {
     margin-top: 40px;
@@ -2344,11 +2319,23 @@ font-size: 12px;
         margin-bottom: 8px;
     }
     
-    .board-item-creative .board-item-title {
-        font-size: 14px;
-        height: 18px;
-        margin-bottom: 4px;
-    }
+.board-item-creative .board-item-title {
+    font-size: 13px;
+    height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 6px;
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    
+    /* 🔥 핵심 해결책: nowrap 덮어쓰기 */
+    white-space: normal !important;
+    word-break: break-word;
+}
     
     .board-item-creative .board-item-desc {
         font-size: 11px;
@@ -2419,17 +2406,35 @@ font-size: 12px;
     }
     
     .board-item-content {
-        padding: 15px;
+        padding: 8px;
     }
     
     .board-item-title {
-        font-size: 14px;
+        font-size: 13px;
     }
     
     .board-item-square .board-item-title,
     .board-item-wide .board-item-title,
     .board-item-ad .board-item-title {
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+     .board-item-square .board-item-title {
+        font-size: 13px;
+        height: 36px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 6px;
+        color: var(--text-color);
+        font-weight: 500;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        
+        /* 🔥 핵심 해결책: nowrap 덮어쓰기 */
+        white-space: normal !important;
+        word-break: break-word;
     }
     
     .board-item-square .board-item-desc,
@@ -2590,13 +2595,25 @@ padding: 0px;
 
     /* 광고 게시판 모바일 반응형 */
     .board-item-ad .board-item-content {
-        padding: 15px; /* 모바일에서 최소 패딩 */
+        padding: 10px; /* 모바일에서 최소 패딩 */
     }
     
     .board-item-ad .board-item-title {
         font-size: 13px;
-        height: 18px;
-        margin-bottom: 3px;
+        height: 32px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 6px;
+        color: var(--text-color);
+        font-weight: 500;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        
+        /* 🔥 핵심 해결책: nowrap 덮어쓰기 */
+        white-space: normal !important;
+        word-break: break-word;
     }
     
     .board-item-ad .board-item-desc {

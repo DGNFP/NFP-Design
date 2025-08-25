@@ -6,8 +6,29 @@
     <description>Recent content in Tags on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 20 Aug 2025 00:11:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 25 Aug 2025 13:32:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NFP 디자인</title>
+      <link>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Mon, 25 Aug 2025 13:32:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>스튜디오 NFP</title>
+      <link>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</link>
+      <pubDate>Mon, 25 Aug 2025 13:32:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>프론트엔드</title>
+      <link>http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
+      <pubDate>Mon, 25 Aug 2025 13:32:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</guid>
+      <description></description>
+    </item>
     <item>
       <title>FC온라인</title>
       <link>http://localhost:1313/tags/fc%EC%98%A8%EB%9D%BC%EC%9D%B8/</link>
@@ -20,13 +41,6 @@
       <link>http://localhost:1313/tags/nfp-design/</link>
       <pubDate>Wed, 20 Aug 2025 00:11:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/nfp-design/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>NFP 디자인</title>
-      <link>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
-      <pubDate>Wed, 20 Aug 2025 00:11:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
       <description></description>
     </item>
     <item>
@@ -97,13 +111,6 @@
       <link>http://localhost:1313/tags/visual-studio-code/</link>
       <pubDate>Mon, 28 Jul 2025 01:14:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/visual-studio-code/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>프론트엔드</title>
-      <link>http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
-      <pubDate>Mon, 28 Jul 2025 01:14:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</guid>
       <description></description>
     </item>
     <item>

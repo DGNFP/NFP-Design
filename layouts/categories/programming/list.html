@@ -171,7 +171,13 @@
                     </div>
                     
                     <div class="board-item-content">
-                        <h3 class="board-item-title">{{ .Title }}</h3>
+                    <h3 class="board-item-title">
+                    {{- if .Params.subCategory -}}
+                    <span class="category-text">[ {{ .Params.subCategory }} ]</span> {{ .Title }}
+                    {{- else -}}
+                    {{ .Title }}
+                    {{- end -}}
+                    </h3>
                         
                         <!-- 소제목 추가 -->
                         {{ if .Params.subtitle }}
@@ -354,7 +360,7 @@
     }
 
     .board-item-content {
-        padding: 15px !important;  /* 패딩 조정 */
+        padding: 10px !important;  /* 패딩 조정 */
     }
 
    .board-item-title {
