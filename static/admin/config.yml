@@ -27,7 +27,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["web"]}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지 디자인", "디지털배너 디자인", "상세페이지 디자인", "UX/UI 디자인"], required: false}
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "XD", "Photoshop", "Illustrator", "HTML5", "CSS3", "JavaScript", "Figma"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design","스튜디오 NFP","Studio NFP", "홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "XD", "Photoshop", "Illustrator", "HTML5", "CSS3", "JavaScript", "Figma"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -48,7 +48,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["ad"]}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인"], required: false}
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -69,7 +69,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["content"]}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["카드뉴스 디자인", "포스터 디자인", "이벤트 페이지 디자인", "SNS 광고"], required: false}
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "카드뉴스 디자인", "포스터 디자인", "이벤트 페이지 디자인", "SNS광고 디자인", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","카드뉴스 디자인", "포스터 디자인", "이벤트 페이지 디자인", "SNS광고 디자인", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -90,7 +90,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["creative"]}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인"], required: false}
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -111,7 +111,7 @@ collections:
     - {label: "발행일", name: "date", widget: "datetime"}
     - {label: "카테고리", name: "categories", widget: "hidden", default: ["programming"]}
     - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발"], required: false}
-    - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "HTML5", "CSS3", "JavaScript", "Android", "iOS", "React Native", "Java", "Android Studio", "Visual Studio", "Visual Studio Code", "Node.js", "Git", "Google Play Console", "App Store Connect", "Figma", "Unity"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+    - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "HTML5", "CSS3", "JavaScript", "Android", "iOS", "React Native", "Java", "Android Studio", "Visual Studio", "Visual Studio Code", "Node.js", "Git", "Google Play Console", "App Store Connect", "Figma", "Unity"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
     - label: "커스텀 태그"
       name: "custom_tags"
       widget: "list"
@@ -152,7 +152,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["video"]}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["영상 제작", "영상 편집", "모션그래픽", "유튜브 썸네일"], required: false}
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "After Effects", "Premiere Pro", "Cinema 4D", "Photoshop"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "After Effects", "Premiere Pro", "Cinema 4D", "Photoshop"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -173,7 +173,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["project"]}
       - {label: "프로젝트 분류", name: "subCategory", widget: "select", options: ["소규모 프로젝트", "대규모 프로젝트", "장기 프로젝트", "브랜딩"] , required: false} 
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "브랜딩", "홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","브랜딩", "홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -227,7 +227,7 @@ collections:
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["freeboard"]}
       - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["작업", "취미", "일상", "기타"], required: false}
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "작업", "취미", "일상", "기타", "디자인", "개발", "영상", "게임"], hint: "게시글과 관련된 주제를 선택하세요", required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","작업", "취미", "일상", "기타", "디자인", "개발", "영상", "게임"], hint: "게시글과 관련된 주제를 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
