@@ -1,0 +1,97 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 폰트 계산기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="studio-font-calc-container">
+                    <div class="studio-font-converter">
+                        <div class="studio-converter-item">
+                            <div class="studio-size-input">
+                                <input type="number" id="calc-px-input" value="16" min="1" max="200">
+                                <span>픽셀</span>
+                            </div>
+                        </div>
+                        <div class="studio-converter-arrow">⇄</div>
+                        <div class="studio-converter-item">
+                            <div class="studio-size-input">
+                                <input type="number" id="calc-pt-input" value="12" min="1" max="150">
+                                <span>포인트</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="studio-font-preview">
+                        <h4>미리보기</h4>
+                        <div class="studio-preview-text" id="font-preview-text">
+                            이 텍스트는 16px(12pt) 크기입니다
+                        </div>
+                    </div>    
+
+                    <div class="studio-responsive-sizes">
+                        <h4>반응형 사이즈</h4>
+                        <div class="studio-device-sizes">
+                            <div class="studio-device-item">
+                                <div class="studio-device-info">
+                                    <span>모바일</span>
+                                    <span id="mobile-size">14.0px</span>
+                                </div>
+                            </div>
+                            <div class="studio-device-item">
+                                <div class="studio-device-info">
+                                    <span>태블릿</span>
+                                    <span id="tablet-size">16.0px</span>
+                                </div>
+                            </div>
+                            <div class="studio-device-item">
+                                <div class="studio-device-info">
+                                    <span>데스크톱</span>
+                                    <span id="desktop-size">18.0px</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="studio-size-guide">
+                        <h4>권장 사이즈</h4>
+                        <div class="studio-size-list">
+                            <div class="studio-size-guide-item">
+                                <span>본문</span>
+                                <span id="guide-body">웹: 16px 인쇄: 12pt</span>
+                            </div>
+                            <div class="studio-size-guide-item">
+                                <span>소제목</span>
+                                <span id="guide-subtitle">웹: 20px 인쇄: 15pt</span>
+                            </div>
+                            <div class="studio-size-guide-item">
+                                <span>제목</span>
+                                <span id="guide-title">웹: 24px 인쇄: 18pt</span>
+                            </div>
+                            <div class="studio-size-guide-item">
+                                <span>대제목</span>
+                                <span id="guide-heading">웹: 32px 인쇄: 24pt</span>
+                            </div>
+                            <div class="studio-size-guide-item">
+                                <span>캡션</span>
+                                <span id="guide-caption">웹: 14px 인쇄: 10pt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

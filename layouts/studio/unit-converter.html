@@ -1,0 +1,96 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 단위 변환기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="studio-calc-section">
+                    <!-- 단위 선택 -->
+                    <div class="studio-unit-selection">
+                        <div class="studio-unit-group">
+                            <label>기준 단위</label>
+                            <div class="studio-unit-radios">
+                                <label class="radio-option">
+                                    <input type="radio" name="base-unit" value="px" checked>
+                                    <span>픽셀 (px)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="base-unit" value="pt">
+                                    <span>포인트 (pt)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="base-unit" value="mm">
+                                    <span>밀리미터 (mm)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="base-unit" value="cm">
+                                    <span>센티미터 (cm)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="base-unit" value="inch">
+                                    <span>인치 (inch)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="studio-unit-group">
+                            <label>변환 단위</label>
+                            <div class="studio-unit-radios">
+                                <label class="radio-option">
+                                    <input type="radio" name="target-unit" value="px">
+                                    <span>픽셀 (px)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="target-unit" value="pt">
+                                    <span>포인트 (pt)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="target-unit" value="mm" checked>
+                                    <span>밀리미터 (mm)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="target-unit" value="cm">
+                                    <span>센티미터 (cm)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="target-unit" value="inch">
+                                    <span>인치 (inch)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 양방향 변환 입력 -->
+                    <div class="studio-font-converter">
+                        <div class="studio-converter-item">
+                            <div class="studio-size-input">
+                                <input type="number" id="base-unit-input" placeholder="100" step="0.01">
+                                <span id="base-unit-symbol">px</span>
+                            </div>
+                        </div>
+                        <div class="studio-converter-arrow">⇄</div>
+                        <div class="studio-converter-item">
+                            <div class="studio-size-input">
+                                <input type="number" id="target-unit-input" placeholder="26.46" step="0.01">
+                                <span id="target-unit-symbol">mm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

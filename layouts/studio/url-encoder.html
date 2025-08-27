@@ -1,0 +1,83 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- URL 인코딩/디코딩 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="url-encoder-container">
+                    <!-- 인코딩 섹션 -->
+                    <div class="studio-calc-section">
+                        <h3>URL 인코딩</h3>
+                        <p class="studio-calc-desc">특수문자가 포함된 텍스트를 URL-safe 형태로 변환합니다.</p>
+                        
+                        <div class="text-input-area">
+                            <label for="encode-input">원본 텍스트</label>
+                            <textarea id="encode-input" placeholder="인코딩할 텍스트를 입력하세요..." rows="4"></textarea>
+                        </div>
+                        
+                        <button class="studio-page-btn" id="encode-btn">인코딩</button>
+                        
+                        <div class="text-input-area" id="encode-result-area" style="display: none;">
+                            <div class="result-header">
+                                <label>인코딩 결과</label>
+                                <button class="studio-action-btn" id="copy-encoded-btn">
+                                    <i class="fas fa-copy"></i> 복사
+                                </button>
+                            </div>
+                            <textarea id="encode-output" readonly rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 디코딩 섹션 -->
+                    <div class="studio-calc-section">
+                        <h3>URL 디코딩</h3>
+                        <p class="studio-calc-desc">URL 인코딩된 텍스트를 원래 형태로 복원합니다.</p>
+                        
+                        <div class="text-input-area">
+                            <label for="decode-input">인코딩된 텍스트</label>
+                            <textarea id="decode-input" placeholder="디코딩할 URL 인코딩 텍스트를 입력하세요..." rows="4"></textarea>
+                        </div>
+                        
+                        <button class="studio-page-btn" id="decode-btn">디코딩</button>
+                        
+                        <div class="text-input-area" id="decode-result-area" style="display: none;">
+                            <div class="result-header">
+                                <label>디코딩 결과</label>
+                                <button class="studio-action-btn" id="copy-decoded-btn">
+                                    <i class="fas fa-copy"></i> 복사
+                                </button>
+                            </div>
+                            <textarea id="decode-output" readonly rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 예시 -->
+                    <div class="studio-calc-section">
+                        <h4>사용 예시</h4>
+                        <div class="example-grid">
+                            <div class="example-item">
+                                <strong>원본:</strong> 안녕하세요!
+                            </div>
+                            <div class="example-item">
+                                <strong>인코딩:</strong> %EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

@@ -1,0 +1,80 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 그리드 계산기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="studio-grid-inputs">
+                    <div class="studio-input-row">
+                        <div class="studio-input-col">
+                            <label>최대 너비</label>
+                            <div class="studio-input-with-unit">
+                                <input type="number" id="calc-max-width" value="1280" min="320" max="3840">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="studio-input-col">
+                            <label>컬럼 수</label>
+                            <div class="studio-input-with-unit">
+                                <input type="number" id="calc-columns" value="4" min="1" max="24">
+                                <span>개</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="studio-input-row">
+                        <div class="studio-input-col">
+                            <label>간격</label>
+                            <div class="studio-input-with-unit">
+                                <input type="number" id="calc-gutter" value="0" min="0" max="100">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="studio-input-col">
+                            <label>좌우 마진</label>
+                            <div class="studio-input-with-unit">
+                                <input type="number" id="calc-margin" value="0" min="0" max="200">
+                                <span>px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="studio-grid-result-info">
+                    <div class="studio-result-item">
+                        <span>페이지 너비</span>
+                        <span id="calc-page-width">800px</span>
+                    </div>
+                    <div class="studio-result-item">
+                        <span>컬럼 너비</span>
+                        <span id="calc-column-width">175px</span>
+                    </div>
+                    <div class="studio-result-item">
+                        <span>간격</span>
+                        <span id="calc-gutter-display">20px</span>
+                    </div>
+                    <div class="studio-result-item">
+                        <span>좌우 마진</span>
+                        <span id="calc-margin-display">20px</span>
+                    </div>
+                </div>
+                
+                <div class="studio-grid-preview-wrapper">
+                    <div class="studio-grid-preview" id="calc-grid-preview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

@@ -1,0 +1,83 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 컬러 조합기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="color-palette-layout">
+                    <!-- 왼쪽: 컬러 피커 + 색상 코드 -->
+                    <div class="color-picker-section">
+                        <div class="base-color-label">베이스 컬러</div>
+                        <input type="color" id="studio-base-color" class="large-color-picker" value="#01FF75">
+                        
+                        <div class="studio-input-group">
+                            <label for="studio-color-code-input">색상 코드 <span>( 직접 입력이 가능합니다. )</span></label>
+                            <div class="color-code-input">
+                                <input type="text" id="studio-color-code-input" class="studio-form-input" placeholder="#01FF75" maxlength="7">
+                                <button class="color-apply-btn" onclick="applyColorCode()">적용</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 오른쪽: 컨트롤들 -->
+                    <div class="color-controls-section">
+                        <div class="studio-input-group">
+                            <label>조합 생성 타입</label>
+                            <div class="palette-type-radios">
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="monochrome" checked>
+                                    <span>단색 조합</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="analogous">
+                                    <span>유사 색상</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="complementary">
+                                    <span>보색 조합</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="triadic">
+                                    <span>삼각 조합</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="rgb-controls">
+                            <div class="rgb-slider">
+                                <label for="red-slider">Red</label>
+                                <input type="range" id="red-slider" min="0" max="255" value="1" class="color-range">
+                                <span id="red-value">1</span>
+                            </div>
+                            <div class="rgb-slider">
+                                <label for="green-slider">Green</label>
+                                <input type="range" id="green-slider" min="0" max="255" value="255" class="color-range">
+                                <span id="green-value">255</span>
+                            </div>
+                            <div class="rgb-slider">
+                                <label for="blue-slider">Blue</label>
+                                <input type="range" id="blue-slider" min="0" max="255" value="117" class="color-range">
+                                <span id="blue-value">117</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="studio-color-grid" id="studio-palette-result"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

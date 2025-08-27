@@ -1,0 +1,96 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 텍스트 도구 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <!-- Lorem Ipsum 생성기 -->
+                <div class="studio-calc-section">
+                    <h3>Lorem Ipsum 생성기</h3>
+                    <p class="studio-calc-desc">디자인 작업용 더미 텍스트를 생성합니다.</p>
+                    
+                    <div class="studio-input-row">
+                        <div class="studio-input-col">
+                            <label for="lorem-type">텍스트 유형</label>
+                            <select id="lorem-type" class="studio-form-input">
+                                <option value="lorem">Lorem Ipsum (라틴어)</option>
+                                <option value="korean">한글 더미 텍스트</option>
+                                <option value="english">영어 더미 텍스트</option>
+                            </select>
+                        </div>
+                        <div class="studio-input-col">
+                            <label for="lorem-count">생성 개수</label>
+                            <div class="studio-input-with-unit">
+                                <input type="number" id="lorem-count" value="3" min="1" max="50">
+                                <span>문단</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="studio-page-btn" id="generate-lorem-btn">텍스트 생성</button>
+                    
+                    <div class="generated-text-result" id="lorem-result" style="display: none;">
+                        <div class="result-header">
+                            <h4>생성된 텍스트</h4>
+                            <button class="studio-action-btn" id="copy-lorem-btn">
+                                <i class="fas fa-copy"></i> 복사
+                            </button>
+                        </div>
+                        <textarea id="lorem-output" readonly></textarea>
+                    </div>
+                </div>
+
+                <!-- 텍스트 카운터 -->
+                <div class="studio-calc-section">
+                    <h3>텍스트 카운터</h3>
+                    <p class="studio-calc-desc">텍스트의 글자수, 단어수, 바이트를 계산합니다.</p>
+                    
+                    <div class="text-input-area">
+                        <label for="text-input">텍스트 입력</label>
+                        <textarea id="text-input" placeholder="분석할 텍스트를 입력하세요..." rows="8"></textarea>
+                    </div>
+                    
+                    <div class="text-stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">글자수</span>
+                            <span class="stat-value" id="char-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">글자수 (공백 제외)</span>
+                            <span class="stat-value" id="char-no-space-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">단어수</span>
+                            <span class="stat-value" id="word-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">문장수</span>
+                            <span class="stat-value" id="sentence-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">문단수</span>
+                            <span class="stat-value" id="paragraph-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">바이트</span>
+                            <span class="stat-value" id="byte-count">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}
