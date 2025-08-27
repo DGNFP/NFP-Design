@@ -281,8 +281,12 @@
 <title>
 {{- if .IsHome -}}
 웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP
-{{- else if or (eq .Title "Studio") (eq .Title "Studio NFP") (in .Permalink "/studio/") -}}
-디자인 작업을 위한 전문 도구 모음 - Studio NFP | 스튜디오 NFP
+{{- else if in .Permalink "/studio/" -}}
+  {{- if .Params.tool_type -}}
+    {{- .Title }} - Studio NFP | 무료 온라인 디자인 도구
+  {{- else -}}
+    디자인 작업을 위한 전문 도구 모음 - Studio NFP | 스튜디오 NFP
+  {{- end -}}
 {{- else if eq .Section "categories" -}}
   {{- if eq .Kind "page" -}}
     {{- if .Params.subCategory -}}
@@ -360,7 +364,7 @@
 </title>
 
 <!-- 핵심 키워드만 선별 -->
-<meta name="keywords" content="NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너">
+<meta name="keywords" content="{{- if and .Params.keywords (in .Permalink "/studio/") -}}{{ delimit .Params.keywords ", " }}{{- else -}}NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너, 디자인 도구, 온라인 도구, 무료 도구{{- end -}}">
 
 <!-- SEO 추가 메타 태그 (기존 유지) -->
 <meta name="robots" content="index, follow">

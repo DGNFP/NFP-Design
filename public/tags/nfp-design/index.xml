@@ -100,7 +100,7 @@
       <description>&lt;p&gt;버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[메디컬 힐링 의원] 병원 브랜딩</title>
+      <title>메디컬 힐링 의원 - 3명의 전문의가 상주하는 병원</title>
       <link>http://localhost:1313/categories/project/2025-07-03-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EB%B3%91%EC%9B%90-%EB%B8%8C%EB%9E%9C%EB%94%A9/</link>
       <pubDate>Thu, 03 Jul 2025 23:57:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/project/2025-07-03-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EB%B3%91%EC%9B%90-%EB%B8%8C%EB%9E%9C%EB%94%A9/</guid>
@@ -121,14 +121,14 @@
       <description>&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/bns.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/bns.jpg&#34; &#xD;&#xA;         alt=&#34;&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;중학생때 무척이나 재밌게 했던 게임, 블레이드앤 소울입니다.&lt;/p&gt;&#xA;&lt;p&gt;그때 당시만 해도 가장 높았던 최고 난이도의 던전 2개의 컨셉이 참 마음에 들고&lt;/p&gt;&#xA;&lt;p&gt;어렵사리 공략을 익혀가며 도전해보는 맛이 있었는데, 시간이 흘러 이제는 거들떠도 보지 않는 던전이 됐죠&lt;/p&gt;&#xA;&lt;p&gt;그때의 추억을 회상할 겸 유튜브 썸네일을 작업해보았습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[레더우드] 로고 디자인</title>
+      <title>레더우드- 로고 디자인</title>
       <link>http://localhost:1313/categories/creative/2025-07-01-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
       <pubDate>Tue, 01 Jul 2025 20:52:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/creative/2025-07-01-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
       <description>&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ed%99%94%ec%9d%b4%ed%8a%b8bg.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/%eb%a0%88%eb%8d%94%ec%9a%b0%eb%93%9c-%ed%99%94%ec%9d%b4%ed%8a%b8bg.jpg&#34; &#xD;&#xA;         alt=&#34;&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;최고급 원목과 가죽만 사용하는 가구 브랜드, 레더우드의 로고 디자인 입니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[레더우드] 가구 브랜딩</title>
+      <title>레더우드 - 최고급 원목과 가죽만 사용하는 가구 브랜드</title>
       <link>http://localhost:1313/categories/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/</link>
       <pubDate>Mon, 30 Jun 2025 23:49:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/</guid>
@@ -233,21 +233,21 @@
       <description>&lt;p&gt;컬러 생성과 애니메이션 효과를 적용한 웹 데모 프로젝트 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 시그니쳐&amp;rdquo; 테마를 활용하였습니다.&lt;/p&gt;&#xA;&lt;p&gt;오늘은 무슨 컬러를 사용할지 고민이라면, 컬러 생성기를 이용해보시는건 어떨까요?&lt;/p&gt;&#xA;&lt;p&gt;곧, 모바일 앱으로도 찾아뵙겠습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[웹데모] 미니 대시보드</title>
+      <title>미니 대시보드</title>
       <link>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C/</link>
       <pubDate>Sat, 21 Jun 2025 00:04:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C/</guid>
       <description>&lt;p&gt;카드 레이아웃과 통계표시를 구현한 웹 데모 프로젝트 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 클래식&amp;rdquo; 테마를 사용하였습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[웹데모] 인터렉티브 버튼 컬렉션</title>
+      <title>인터렉티브 버튼 컬렉션</title>
       <link>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</link>
       <pubDate>Fri, 20 Jun 2025 23:56:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</guid>
       <description>&lt;p&gt;다양한 버튼 스타일과 상호작용을 구현한, 웹데모 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 네온&amp;quot;테마를 사용하였습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>[웹데모] 미니멀 프로필 카드</title>
+      <title>미니멀 프로필 카드</title>
       <link>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88%EB%A9%80-%ED%94%84%EB%A1%9C%ED%95%84-%EC%B9%B4%EB%93%9C/</link>
       <pubDate>Fri, 20 Jun 2025 23:50:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88%EB%A9%80-%ED%94%84%EB%A1%9C%ED%95%84-%EC%B9%B4%EB%93%9C/</guid>
@@ -261,7 +261,7 @@
       <description>&lt;p&gt;프로젝트 진행 일정을 도와주는 로드맵 플래너 웹 데모 입니다.&lt;br&gt;&#xA;테마는 템플릿으로 스타일링한 &amp;ldquo;NFP 다크모드&amp;rdquo; 테마를 적용하였습니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>모던 카페 웹사이트 퍼블리싱</title>
+      <title>모던 카페 웹사이트</title>
       <link>http://localhost:1313/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</link>
       <pubDate>Sun, 01 Jun 2025 15:30:00 +0900</pubDate>
       <guid>http://localhost:1313/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</guid>

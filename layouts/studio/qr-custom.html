@@ -1,0 +1,76 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 커스텀 QR 생성기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="studio-qr-container">
+                    <div>
+                        <div class="studio-input-group">
+                            <label for="studio-qr-input">변환할 내용</label>
+                            <input type="text" id="studio-qr-input" class="studio-form-input" placeholder="URL 또는 텍스트를 입력하세요" value="https://nfpdesign.co.kr">
+                        </div>
+                        
+                        <div class="studio-input-group">
+                            <label for="studio-qr-size">QR 코드 크기</label>
+                            <select id="studio-qr-size" class="studio-form-input">
+                                <option value="200">200x200px</option>
+                                <option value="300" selected>300x300px</option>
+                                <option value="400">400x400px</option>
+                                <option value="500">500x500px</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 색상 커스터마이징 -->
+                        <div class="studio-input-group">
+                            <label for="studio-qr-color">QR 색상</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="studio-qr-color" value="#000000">
+                                <span>QR 코드 색상</span>
+                            </div>
+                        </div>
+                        
+                        <div class="studio-input-group">
+                            <label for="studio-qr-bg-color">배경 색상</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="studio-qr-bg-color" value="#FFFFFF">
+                                <span>배경 색상</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 로고 업로드 -->
+                        <div class="studio-input-group">
+                            <label for="studio-qr-logo">로고 삽입 (선택사항)</label>
+                            <input type="file" id="studio-qr-logo" class="studio-form-input" accept="image/*">
+                            <small>중앙에 삽입할 로고를 선택하세요. PNG, JPG 형식 지원</small>
+                        </div>
+                        
+                        <button class="studio-page-btn" onclick="generateCustomQR()">커스텀 QR 생성</button>
+                    </div>
+                    
+                    <div class="studio-qr-result">
+                        <h3>생성된 QR 코드</h3>
+                        <canvas id="studio-qr-canvas"></canvas>
+                        <div class="qr-preview-info">
+                            <p>미리보기: 스캔하여 정상 작동하는지 확인하세요</p>
+                        </div>
+                        <button class="studio-page-btn" onclick="downloadCustomQR()" id="studio-download-btn" style="display: none;">다운로드</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

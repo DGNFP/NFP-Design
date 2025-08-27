@@ -282,12 +282,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/project/2025-07-03-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EB%B3%91%EC%9B%90-%EB%B8%8C%EB%9E%9C%EB%94%A9/</loc>
+    <loc>http://localhost:1313/categories/project/</loc>
     <lastmod>2025-07-03T23:57:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/project/</loc>
+    <loc>http://localhost:1313/categories/project/2025-07-03-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EB%B3%91%EC%9B%90-%EB%B8%8C%EB%9E%9C%EB%94%A9/</loc>
     <lastmod>2025-07-03T23:57:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -327,12 +327,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/creative/2025-07-01-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <loc>http://localhost:1313/categories/creative/</loc>
     <lastmod>2025-07-01T20:52:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/creative/</loc>
+    <loc>http://localhost:1313/categories/creative/2025-07-01-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-07-01T20:52:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -342,12 +342,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/</loc>
+    <loc>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-06-30T23:49:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/sns%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <loc>http://localhost:1313/categories/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/</loc>
     <lastmod>2025-06-30T23:49:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -552,7 +552,95 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/color-palette/gradient-2/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/color-palette/gradient-3/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/color-palette/palette-5/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/image-tools/pdf-compressor/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/calculator/url-encoder/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/color-palette/gradient-card/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/calculator/grid/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/color-palette/single-card/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/calculator/unit/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/design-guide/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/color-palette/palette-random/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/qr/basic/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/calculator/size/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/image-tools/compressor/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/image-tools/cropper/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/image-tools/color-extractor/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/image-tools/resizer/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/image-tools/format-converter/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/qr/custom/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/color-mixer/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/calculator/text-tools/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/calculator/font/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

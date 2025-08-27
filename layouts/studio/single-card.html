@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 단색 카드 뽑기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="single-card-container">
+                    <div class="color-card" id="single-card-element">
+                        <div class="card-question" id="card-question">
+                            <div class="question-icon">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <div class="question-text">
+                                <h3>컬러 카드 뽑기</h3>
+                                <p>클릭하여 오늘의 컬러를 확인해보세요!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card-result" id="card-result" style="display: none;">
+                            <div class="color-display-area" id="color-display"></div>
+                            <div class="color-info-area">
+                                <h2 class="color-brand-name">STUDIO NFP</h2>
+                                <p class="color-hex-code" id="color-hex"></p>
+                                <h3 class="color-korean-name" id="color-name"></h3>
+                                <p class="color-description" id="color-description"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-controls">
+                        <button class="studio-pick-btn" id="single-pick-btn">
+                            <i class="fas fa-magic"></i> 컬러 카드 뽑기
+                        </button>
+                        
+                        <div class="studio-card-actions" id="single-card-actions" style="display: none;">
+                            <button class="studio-action-btn" id="single-copy-btn">
+                                <i class="fas fa-copy"></i> 코드 복사
+                            </button>
+                            <button class="studio-action-btn" id="single-new-btn">
+                                <i class="fas fa-redo"></i> 다시 뽑기
+                            </button>
+                            <button class="studio-action-btn" id="single-save-btn">
+                                <i class="fas fa-download"></i> 카드 저장
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "components/cardcounter.js" | relURL }}"></script>
+<script src="{{ "js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

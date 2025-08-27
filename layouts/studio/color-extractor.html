@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 이미지 컬러 추출기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="studio-upload-area" id="studio-image-upload" onclick="document.getElementById('studio-image-file').click()">
+                    <div class="studio-upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>이미지 업로드</h3>
+                    <p>클릭하거나 파일을 드래그하여 업로드하세요</p>
+                    <input type="file" id="studio-image-file" accept="image/*" style="display: none;">
+                </div>
+                
+                <canvas id="studio-extraction-canvas" style="display: none;"></canvas>
+                <div class="color-extraction-result" id="studio-extracted-colors" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

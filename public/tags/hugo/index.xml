@@ -16,7 +16,7 @@
       <description>&lt;p&gt;html과 css 조합으로, 이미지가 로드 되기 전 자리를 잡지 못하고 먼저 레이아웃이 로드 되고&lt;/p&gt;&#xA;&lt;p&gt;나중에 이미지가 레이아웃 영역을 침범하면서 생기는, 레이아웃 시프트 현상을 해결하기 위한&lt;/p&gt;&#xA;&lt;p&gt;스켈레톤 애니메이션 입니다.&lt;/p&gt;&#xA;&lt;p&gt;이미지가 삽입 될 영역에 로딩중이라는 효과를 시각적으로 표현하기 위해 많이 사용합니다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>모던 카페 웹사이트 퍼블리싱</title>
+      <title>모던 카페 웹사이트</title>
       <link>http://localhost:1313/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</link>
       <pubDate>Sun, 01 Jun 2025 15:30:00 +0900</pubDate>
       <guid>http://localhost:1313/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</guid>

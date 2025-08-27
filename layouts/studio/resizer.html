@@ -1,0 +1,73 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- 이미지 크기 조절기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="image-resizer-container">
+                    <div class="studio-upload-area" id="resize-image-upload" onclick="document.getElementById('resize-image-file').click()">
+                        <div class="studio-upload-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h3>이미지 선택</h3>
+                        <p>크기를 조절할 이미지를 선택하세요</p>
+                        <input type="file" id="resize-image-file" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div class="resize-options" id="resize-options" style="display: none;">
+                        <div class="current-size" id="current-size">
+                            <h4>현재 크기</h4>
+                            <p id="original-dimensions">-</p>
+                        </div>
+                        
+                        <div class="studio-input-row">
+                            <div class="studio-input-col">
+                                <label for="new-width">새 너비 (px)</label>
+                                <div class="studio-input-with-unit">
+                                    <input type="number" id="new-width" min="1">
+                                    <span>px</span>
+                                </div>
+                            </div>
+                            <div class="studio-input-col">
+                                <label for="new-height">새 높이 (px)</label>
+                                <div class="studio-input-with-unit">
+                                    <input type="number" id="new-height" min="1">
+                                    <span>px</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="studio-input-group">
+                            <label>
+                                <input type="checkbox" id="keep-aspect-ratio" checked> 비율 유지
+                            </label>
+                            <small>체크 시 가로세로 비율이 자동으로 유지됩니다</small>
+                        </div>
+                        
+                        <button class="studio-page-btn" id="resize-btn">크기 조절</button>
+                    </div>
+                    
+                    <div class="resize-result" id="resize-result" style="display: none;">
+                        <h3>크기 조절 완료</h3>
+                        <div class="size-comparison" id="size-comparison"></div>
+                        <div class="resized-preview" id="resized-preview"></div>
+                        <button class="studio-page-btn" id="download-resized">다운로드</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "/js/studiopage.js" | relURL }}"></script>
+
+{{ end }}

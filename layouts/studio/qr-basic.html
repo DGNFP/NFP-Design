@@ -1,0 +1,49 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "css/studiopage.css" | relURL }}">
+
+<section class="studio-page-section">
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="studio-page-header">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+        </div>
+
+        <!-- QR 생성기 컨텐츠 -->
+        <div class="studio-page-content">
+            <div class="studio-tab-panel active">
+                <div class="studio-qr-container">
+                    <div>
+                        <div class="studio-input-group">
+                            <label for="studio-qr-input">변환할 내용</label>
+                            <input type="text" id="studio-qr-input" class="studio-form-input" placeholder="URL 또는 텍스트를 입력하세요" value="https://nfpdesign.co.kr">
+                        </div>
+                        
+                        <div class="studio-input-group">
+                            <label for="studio-qr-size">QR 코드 크기</label>
+                            <select id="studio-qr-size" class="studio-form-input">
+                                <option value="200">200x200px</option>
+                                <option value="300" selected>300x300px</option>
+                                <option value="400">400x400px</option>
+                                <option value="500">500x500px</option>
+                            </select>
+                        </div>
+                        
+                        <button class="studio-page-btn" onclick="generateQR()">QR 코드 생성</button>
+                    </div>
+                    
+                    <div class="studio-qr-result">
+                        <h3>생성된 QR 코드</h3>
+                        <canvas id="studio-qr-canvas"></canvas>
+                        <button class="studio-page-btn" onclick="downloadQR()" id="studio-download-btn" style="display: none;">다운로드</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ "js/studiopage.js" | relURL }}"></script>
+
+{{ end }}
