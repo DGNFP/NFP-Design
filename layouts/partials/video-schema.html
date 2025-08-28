@@ -4,15 +4,16 @@
   "@context": "https://schema.org",
   "@type": "VideoObject",
   "name": "{{ .title }}",
-  "description": "{{ .title }} - NFP 디자인 작업물",
-  "thumbnailUrl": [
-    "https://img.youtube.com/vi/{{ .videoId }}/maxresdefault.jpg",
-    "https://img.youtube.com/vi/{{ .videoId }}/hqdefault.jpg"
-  ],
+  "description": "{{ .title }} - Studio NFP",
+  "thumbnailUrl": "https://img.youtube.com/vi/{{ .videoId }}/maxresdefault.jpg",
   "embedUrl": "https://www.youtube.com/embed/{{ .videoId }}",
   "contentUrl": "https://www.youtube.com/watch?v={{ .videoId }}",
   "uploadDate": "{{ .date.Format "2006-01-02" }}",
-  "duration": "PT0H0M0S",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Person",
+    "name": "NFP Design"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "NFP 디자인",
@@ -21,10 +22,6 @@
       "@type": "ImageObject",
       "url": "{{ .site.BaseURL }}img/nfp-main.png"
     }
-  },
-  "creator": {
-    "@type": "Person",
-    "name": "NFP Design"
   },
   "potentialAction": {
     "@type": "WatchAction",
@@ -38,10 +35,16 @@
   "@context": "https://schema.org",
   "@type": "VideoObject",
   "name": "{{ .title }}",
-  "description": "{{ .title }} - NFP 디자인 작업물",
+  "description": "{{ .title }} - Studio NFP",
+  "thumbnailUrl": "https://vumbnail.com/{{ .videoId }}.jpg",
   "embedUrl": "https://player.vimeo.com/video/{{ .videoId }}",
   "contentUrl": "https://vimeo.com/{{ .videoId }}",
   "uploadDate": "{{ .date.Format "2006-01-02" }}",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Person",
+    "name": "NFP Design"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "NFP 디자인",
@@ -50,10 +53,6 @@
       "@type": "ImageObject",
       "url": "{{ .site.BaseURL }}img/nfp-main.png"
     }
-  },
-  "creator": {
-    "@type": "Person",
-    "name": "NFP Design"
   },
   "potentialAction": {
     "@type": "WatchAction",
