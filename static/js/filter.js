@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 현재 페이지가 어떤 게시판인지 확인
     const isMainBoard = window.location.pathname === '/categories/' || window.location.pathname === '/categories';
-    const isFreeBoard = window.location.pathname.includes('/freeboard/');
+    const isblog = window.location.pathname.includes('/blog/');
     const isGamesBoard = window.location.pathname.includes('/games/');
     const isCreativeBoard = window.location.pathname.includes('/creative/');
     const isContentBoard = window.location.pathname.includes('/content/');
@@ -176,8 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (isMainBoard) {
             selector = '.board-all-item';
-        } else if (isFreeBoard) {
-            selector = '.board-all-item[data-main="freeboard"]';
+        } else if (isblog) {
+            selector = '.board-all-item[data-main="blog"]';
         } else {
             selector = '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
         }
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const categoryFromDesc = getCategoryFromDescription(item);
                     const actualCategory = mainCategory || categoryFromDesc;
                     matchesFilter = actualCategory === currentFilter;
-                } else if (isFreeBoard) {
+                } else if (isblog) {
                     const subCategory = item.getAttribute('data-category') || '';
                     matchesFilter = subCategory === currentFilter;
                 } else {
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentSearchTerm) {
                 let titleSelector, subtitleSelector, descSelector, tagSelector, categorySelector;
                 
-                if (isMainBoard || isFreeBoard) {
+                if (isMainBoard || isblog) {
                     titleSelector = '.board-all-item-title';
                     subtitleSelector = '.board-all-item-subtitle';
                     descSelector = '.board-all-item-desc, .board-all-item-excerpt';
@@ -272,8 +272,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (isMainBoard) {
             selector = '.board-all-item';
-        } else if (isFreeBoard) {
-            selector = '.board-all-item[data-main="freeboard"]';
+        } else if (isblog) {
+            selector = '.board-all-item[data-main="blog"]';
         } else {
             selector = '.board-item, .board-item-square, .board-item-wide, .board-item-creative, .board-item-ad, .board-item-project-minimal';
         }
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateOtherBoardNoResultsMessage() {
         let container;
         
-        if (isMainBoard || isFreeBoard) {
+        if (isMainBoard || isblog) {
             container = document.querySelector('.board-all-grid');
         } else {
             container = document.querySelector('.board-grid') || 
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (desc.includes('크리에이티브 디자인')) return 'creative';
         if (desc.includes('프로그래밍')) return 'programming';
         if (desc.includes('프로젝트')) return 'project';
-        if (desc.includes('자유게시판')) return 'freeboard';
+        if (desc.includes('자유게시판')) return 'blog';
         if (desc.includes('게임게시판')) return 'games';
         
         return '';

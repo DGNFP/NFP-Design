@@ -1,4 +1,1 @@
 User-agent: *
-Allow: /
-Sitemap: https://nfpdesign.co.kr/sitemap.xml
-Crawl-delay: 0

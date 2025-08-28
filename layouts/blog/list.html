@@ -6,8 +6,8 @@
         
         <!-- 탭메뉴 -->
         <div class="all-view-all-wrapper">
-            <a href="/freeboard/" class="all-view-all-button active">자유게시판</a>
-        <a href="/games/" class="all-view-all-button active">게임게시판</a>
+            <a href="/blog/" class="all-view-all-button active">블로그</a>
+        <a href="/games/" class="all-view-all-button active">게임 블로그</a>
 
         </div>
 
@@ -32,9 +32,9 @@
         <!-- 게시판 컨텐츠 (전체 게시판 스타일) -->
         <section class="board-all-container">
             <div class="board-all-grid">
-                {{ $freeboardPosts := where .Site.RegularPages "Section" "freeboard" }}
-                {{ range $freeboardPosts.ByDate.Reverse }}
-                <div class="board-all-item" data-main="freeboard" data-category="{{ .Params.subCategory }}">
+                {{ $blogPosts := where .Site.RegularPages "Section" "blog" }}
+                {{ range $blogPosts.ByDate.Reverse }}
+                <div class="board-all-item" data-main="blog" data-category="{{ .Params.subCategory }}">
                     <a href="{{ .Permalink }}">
                         <!-- 통합 썸네일 처리 -->
                         <div class="board-thumbnail">
@@ -119,7 +119,7 @@
 
                             {{ else }}
                                 <!-- 자유게시판 기본 플레이스홀더 -->
-                                <div class="category-placeholder-all" data-category="freeboard">
+                                <div class="category-placeholder-all" data-category="blog">
                                     <i class="fas fa-comments"></i>
                                     <span>자유게시판</span>
                                 </div>
@@ -149,13 +149,13 @@
                             <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
                             <!-- 커스텀 태그 표시 -->
                             {{ if .Params.custom_tags }}
-                            <div class="freeboard-tags">
+                            <div class="blog-tags">
                                 {{ range first 3 .Params.custom_tags }}
                                     {{ $tagValue := . }}
                                     {{ if reflect.IsMap . }}
                                         {{ $tagValue = .tag }}
                                     {{ end }}
-                                    <span class="freeboard-tag">{{ $tagValue }}</span>
+                                    <span class="blog-tag">{{ $tagValue }}</span>
                                 {{ end }}
                             </div>
                             {{ end }}

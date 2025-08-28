@@ -23,6 +23,13 @@
       <description></description>
     </item>
     <item>
+      <title>Youtube</title>
+      <link>http://localhost:1313/categories/youtube/</link>
+      <pubDate>Wed, 06 Aug 2025 22:33:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/youtube/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Web</title>
       <link>http://localhost:1313/categories/web/</link>
       <pubDate>Thu, 24 Jul 2025 00:54:00 +0900</pubDate>
@@ -37,10 +44,10 @@
       <description></description>
     </item>
     <item>
-      <title>Freeboard</title>
-      <link>http://localhost:1313/categories/freeboard/</link>
+      <title>Blog</title>
+      <link>http://localhost:1313/categories/blog/</link>
       <pubDate>Sun, 13 Jul 2025 21:25:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/freeboard/</guid>
+      <guid>http://localhost:1313/categories/blog/</guid>
       <description></description>
     </item>
     <item>

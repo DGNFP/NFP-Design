@@ -2,89 +2,6 @@
 
 <link rel="stylesheet" href="{{ "css/studiopage.css" | relURL }}">
 
-<style>
-/* 배경 애니메이션 */
-.bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    background: linear-gradient(-45deg, #000000, #001122, #000011, #112200);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-}
-
-.bg-particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #01FF75;
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: float 20s infinite linear;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(100vh) translateX(0px);
-        opacity: 0;
-    }
-    10% { opacity: 0.3; }
-    90% { opacity: 0.3; }
-    100% {
-        transform: translateY(-100px) translateX(100px);
-        opacity: 0;
-    }
-}
-
-/* 탭 스캔 효과 */
-.studio-page-tab::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(1, 255, 117, 0.15), transparent);
-    transition: left 0.5s ease;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.studio-page-tab:hover::before {
-    left: 100%;
-}
-
-.studio-page-tab {
-    position: relative;
-    overflow: hidden;
-}
-
-.studio-page-tab > * {
-    position: relative;
-    z-index: 1;
-}
-
-</style>
-
 <!-- 배경 애니메이션 -->
 <div class="bg-animation"></div>
 <div class="bg-particles" id="particles"></div>
@@ -97,22 +14,22 @@
             <p>스튜디오 NFP<br>디자인 작업을 위한 전문 도구 모음</p>
         </div>
 
-        <!-- 앱 다운로드 버튼 -->
-        <div class="studio-download-section">
-            <div class="app-download-btn" id="app-download-btn">
-                <div class="download-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                    <div class="download-pulse"></div>
-                </div>
-                <div class="download-content">
-                    <span class="download-title"><span>NFP</span> 디자인 어시스턴트</span>
-                    <span class="download-subtitle">모바일에서 더 편리하게</span>
-                </div>
-                <div class="download-arrow">
-                    <i class="fas fa-download"></i>
-                </div>
+    <!-- 앱 다운로드 버튼 -->
+    <div class="studio-download-section">
+        <div class="app-download-btn" id="app-download-btn">
+            <div class="download-icon">
+                <i class="fas fa-mobile-alt"></i>
+                <div class="download-pulse"></div>
+            </div>
+            <div class="download-content">
+                <span class="download-title"><span>NFP</span> 디자인 어시스턴트</span>
+                <span class="download-subtitle">모바일에서 더 편리하게</span>
+            </div>
+            <div class="download-arrow">
+                <i class="fas fa-download"></i>
             </div>
         </div>
+    </div>
 
         <!-- 메인 탭 네비게이션 -->
         <div class="studio-page-tabs">

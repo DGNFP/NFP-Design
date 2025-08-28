@@ -1465,14 +1465,14 @@ word-break: break-word;
 }
 
 /* 자유게시판 태그 스타일 */
-.freeboard-tags {
+.blog-tags {
     margin: 8px 0;
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
 }
 
-.freeboard-tag {
+.blog-tag {
     display: inline-block;
     background: rgba(1, 255, 117, 0.1);
     color: var(--accent-color);
@@ -1484,13 +1484,13 @@ word-break: break-word;
     transition: all 0.2s ease;
 }
 
-.freeboard-tag:hover {
+.blog-tag:hover {
     background: rgba(1, 255, 117, 0.2);
     border-color: var(--accent-color);
 }
 
 /* 자유게시판 플레이스홀더 색상 */
-.category-placeholder-all[data-category="freeboard"] {
+.category-placeholder-all[data-category="blog"] {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     display: flex;
@@ -1501,17 +1501,17 @@ word-break: break-word;
     transition: all 0.3s ease;
 }
 
-.category-placeholder-all[data-category="freeboard"]:hover {
+.category-placeholder-all[data-category="blog"]:hover {
     background: linear-gradient(135deg, #7c7ce6 0%, #8a5aa8 100%);
     transform: scale(1.02);
 }
 
-.category-placeholder-all[data-category="freeboard"] i {
+.category-placeholder-all[data-category="blog"] i {
     font-size: 24px;
     margin-bottom: 8px;
 }
 
-.category-placeholder-all[data-category="freeboard"] span {
+.category-placeholder-all[data-category="blog"] span {
     font-size: 14px;
     font-weight: 600;
 }
@@ -2023,12 +2023,12 @@ transition: transform 0.3s ease;
     line-height: 1.5;
     }
     
-    .freeboard-tags {
+    .blog-tags {
     margin: 6px 0;
     gap: 3px;
     }
 
-    .freeboard-tag {
+    .blog-tag {
         padding: 2px 6px;
         font-size: 10px;
         line-height: 1.5;
