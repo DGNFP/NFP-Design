@@ -238,8 +238,10 @@
             {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
             {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
             {{ if eq $mainCategory "project" }}프로젝트{{ end }}
+            {{ if eq $mainCategory "youtube" }}유튜브{{ end }}
+<!-- 카테고리명 -> 2차카테고리 표기 로직 -->
             {{ if .Params.subCategory }}
-                > {{ .Params.subCategory }}
+                · {{ .Params.subCategory }}
             {{ end }}
         </p>
     {{ end }}

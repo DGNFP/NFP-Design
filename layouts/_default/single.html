@@ -24,9 +24,10 @@
                             {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
                             {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
                             {{ if eq $mainCategory "project" }}프로젝트{{ end }}
+                            {{ if eq $mainCategory "youtube" }}유튜브{{ end }}
                             {{ if eq $mainCategory "games" }}게임{{ end }}
                             {{ if .Params.subCategory }}
-                                > {{ .Params.subCategory }}
+                                · {{ .Params.subCategory }}
                             {{ end }}
                         </span>
                     {{ else if eq .Section "news" }}
@@ -259,7 +260,16 @@
         <h3>
             {{ if eq .Section "categories" }}
                 {{ $currentCategory := index .Params.categories 0 }}
-                {{ if eq $currentCategory "web" }}웹 디자인{{ else if eq $currentCategory "video" }}영상 디자인{{ else if eq $currentCategory "creative" }}크리에이티브 디자인{{ else if eq $currentCategory "programming" }}프로그래밍{{ else if eq $currentCategory "content" }}콘텐츠 디자인{{ else if eq $currentCategory "ad" }}광고 디자인{{ else if eq $currentCategory "project" }}프로젝트{{ end }} 카테고리의 다른 작업물
+                {{ if eq $currentCategory "web" }}웹 디자인{{ else if eq $currentCategory "video" }}영상 디자인
+                {{ else if eq $currentCategory "creative" }}크리에이티브 디자인
+                {{ else if eq $currentCategory "programming" }}프로그래밍
+                {{ else if eq $currentCategory "content" }}콘텐츠 디자인
+                {{ else if eq $currentCategory "ad" }}광고 디자인
+                {{ else if eq $currentCategory "project" }}프로젝트
+                {{ else if eq $currentCategory "youtube" }}유튜브
+
+                {{ end }} 카테고리의 다른 작업물
+
             {{ else if eq .Section "games" }}
                 {{ .Params.subCategory }}의 다른 게시글
             {{ else if eq .Section "freeboard" }}
