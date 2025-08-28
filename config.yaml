@@ -6,6 +6,9 @@ buildExpired: true
 cleanDestinationDir: true
 timezone: "Asia/Seoul"
 
+# 🎯 SEO 관련 설정 추가
+enableRobotsTXT: true
+
 # 🎯 사이트맵 설정 추가
 sitemap:
   changefreq: "daily"
