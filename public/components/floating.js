@@ -364,12 +364,6 @@ const defaultButtons = [
         text: '소식'
     },
     {
-        id: 'blog-btn',
-        href: '/games/',
-        icon: '<i class="fas fa-pen-nib"></i>',
-        text: '블로그'
-    },
-    {
         id: 'studio-btn',
         href: '/studio/',  
         icon: '<i class="fas fa-paint-brush"></i>',  
