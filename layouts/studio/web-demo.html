@@ -2,10 +2,6 @@
 
 <link rel="stylesheet" href="{{ "css/studiopage.css" | relURL }}">
 
-<!-- 배경 애니메이션 -->
-<!-- <div class="bg-animation"></div>
-<div class="bg-particles" id="particles"></div> -->
-
 <section class="section">
 <div class="container">
     <!-- 헤더 -->
@@ -63,19 +59,21 @@
     </div>
 </body>
 </html></textarea>
-                        <textarea 
-                            class="demo-textarea" 
-                            id="css-editor" 
-                            style="display: none;"
-                            placeholder="CSS 코드를 입력하세요...">body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    margin: 0;
-    padding: 40px;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+<textarea 
+class="demo-textarea" 
+id="css-editor" 
+style="display: none;"
+placeholder="CSS 코드를 입력하세요...">
+
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+margin: 0;
+padding: 40px;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .container {
@@ -152,21 +150,6 @@ p {
 </section>
 
 <script>
-// 파티클 생성
-// function createParticles() {
-//     const particlesContainer = document.getElementById('particles');
-//     const particleCount = 30;
-
-//     for (let i = 0; i < particleCount; i++) {
-//         const particle = document.createElement('div');
-//         particle.className = 'particle';
-//         particle.style.left = Math.random() * 100 + '%';
-//         particle.style.animationDelay = Math.random() * 20 + 's';
-//         particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-//         particlesContainer.appendChild(particle);
-//     }
-// }
-
 // 에디터 탭 전환
 document.querySelectorAll('.demo-editor-tab').forEach(tab => {
     tab.addEventListener('click', function() {
@@ -362,7 +345,6 @@ ${fullCode}
 
 // 초기화
 document.addEventListener('DOMContentLoaded', function() {
-    createParticles();
     updatePreview();
 });
 </script>

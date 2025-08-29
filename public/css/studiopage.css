@@ -445,7 +445,7 @@ white-space: nowrap;
     padding: 8px 16px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s ease;
@@ -548,8 +548,11 @@ white-space: nowrap;
 }
 
 .demo-control-btn:hover {
-    background: #01FF75;
-    color: #000;
+    background: #4a5eb6 ;
+}
+
+.demo-control-btn:nth-of-type(2):hover {
+  background: #5e3883;
 }
 
 .demo-preview {
@@ -649,26 +652,29 @@ white-space: nowrap;
 }
 
 .studio-download-section .app-download-btn {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 50%, rgba(0, 0, 0, 0.9) 100%); */
-    border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 50px;
-    padding: 12px 25px 12px 15px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    max-width: 300px;
-    margin-top: 0px;
-    margin-bottom: 40px;
+display: flex;
+align-items: center;
+gap: 15px;
+/* background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 50%, rgba(0, 0, 0, 0.9) 100%); */
+border: 2px solid rgba(1, 255, 117, 0.3);
+border-radius: 50px;
+padding: 12px 25px 12px 15px;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+position: relative;
+overflow: hidden;
+backdrop-filter: blur(10px);
+max-width: 300px;
+margin-top: 0px;
+margin-bottom: 40px;
 }
 
-.studio-download-section .download-subtitle {
-    text-align: center;
+.studio-download-section .app-download-btn:hover {
+transform: translateY(-5px) scale(1.02);
+background: transparent;
+border-color: rgba(1, 255, 117, 0.7);
 }
+
 
 /* ==================== 개선된 탭 네비게이션 ==================== */
 .studio-page-tabs {
