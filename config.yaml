@@ -60,7 +60,12 @@ taxonomies:
   category: "categories"
   tag: "tags"
 
-
+security:
+  funcs:
+    getenv:
+      - '^HUGO_'
+      - '^CI$'
+      - '^HUGO_YOUTUBE_API_KEY$'
 
 markup:
   goldmark:

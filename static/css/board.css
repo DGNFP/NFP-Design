@@ -214,7 +214,7 @@
 .all-view-all-button {
     padding: 8px 16px;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
+    border-radius: 4px;
     border:1px solid var(--accent-color); /*테두리*/
     font-size: 14px;
     font-family: inherit;
@@ -1612,15 +1612,31 @@ word-break: break-word;
 /* 카테고리 오버레이 */
 .category-overlay {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(1, 255, 117, 0.9);
-    color: var(--background-color);
-    padding: 4px 8px;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 10px 14px;
     border-radius: 4px;
-    font-size: 11px;
-    font-weight: var(--font-bold);
+    font-size: 12px; /* 10px → 11px */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* 추가 - 텍스트 높이 정규화 */
+
     transition: all 0.3s ease;
+}
+
+.category-overlay:hover{
+
 }
 
 
@@ -1909,14 +1925,14 @@ word-break: break-word;
     background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 193, 7, 0.08));
     color: #ffc107;
 }
-
-/* 유튜브 게시판 스타일 */
-/* YouTube 게시판 스타일 */
+/* YouTube 게시판 스타일 유튜브 */
 .youtube-board-section {
     background: #0f0f0f;
     color: #fff;
-    min-height: 100vh;
-    padding: 2rem 0;
+
+    padding-top: 150px;
+    padding-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .youtube-board-title {
@@ -1937,10 +1953,10 @@ word-break: break-word;
 /* YouTube CTA 버튼 */
 .youtube-cta-wrapper {
     text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
+    margin-bottom: 40px;
+    padding: 30px;
     background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-    border-radius: 16px;
+    border-radius: 6px;
     position: relative;
     overflow: hidden;
 }
@@ -1996,43 +2012,21 @@ word-break: break-word;
     font-size: 0.95rem;
 }
 
-/* 구독 버튼 */
-.youtube-subscribe-wrapper {
-    padding: 12px 16px 16px;
-}
-.youtube-subscribe-btn {
-    width: 100%;
-    background: #ff0000;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
-
-.youtube-subscribe-btn:hover {
-    background: #cc0000;
-    transform: translateY(-1px);
-}
-
-.youtube-subscribe-btn i {
-    font-size: 0.8rem;
-}
-
 /* 네비게이션 */
 .youtube-nav {
     margin-bottom: 2rem;
 }
 
 .youtube-nav .active-youtube {
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+.youtube-nav .active-youtube:hover{
     background: #ff0000;
+    border: 1px solid #ff0000;
     color: white;
 }
 
@@ -2050,12 +2044,11 @@ word-break: break-word;
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
     background: #1f1f1f;
     border-radius: 50px;
-    padding: 6px;
+    padding: 6px 10px 6px 10px;
     box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
 }
 
@@ -2065,13 +2058,14 @@ word-break: break-word;
 
 .youtube-category-filter a {
     display: block;
-    padding: 12px 24px;
+    padding: 6px 14px;
     color: #aaa;
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
     font-weight: 500;
     white-space: nowrap;
+    font-size: 15px;
 }
 
 .youtube-category-filter a:hover {
@@ -2091,7 +2085,7 @@ word-break: break-word;
     background: #1f1f1f;
     border-radius: 50px;
     overflow: hidden;
-    border: 2px solid #3f3f3f;
+    border: 2px solid transparent;
     transition: border-color 0.3s ease;
     max-width: 400px;
 }
@@ -2140,13 +2134,28 @@ word-break: break-word;
     border-radius: 4px;
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px solid #3f3f3f;
+    /* border: 1px solid #3f3f3f; */
+    border: 1px solid transparent;
 }
 
 .youtube-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.4);
-    border-color: #5f5f5f;
+    /* border-color: #5f5f5f; */
+}
+
+.youtube-item:hover .category-overlay{
+    background: linear-gradient(135deg, var(--accent-color), rgba(1, 255, 117, 0.8));
+    color: var(--background-color);
+    border-color: var(--accent-color);
+    transform: translateX(-50%);
+    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.4);
+}
+
+/* 카드 구조 */
+.youtube-card-content {
+    display: block;
+    position: relative;
 }
 
 .youtube-link {
@@ -2194,8 +2203,8 @@ word-break: break-word;
 }
 
 .youtube-play-button {
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
     background: rgba(255,0,0,0.9);
     border-radius: 50%;
     display: flex;
@@ -2217,25 +2226,11 @@ word-break: break-word;
     margin-left: 2px;
 }
 
-/* 영상 시간 */
-.youtube-duration {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
 /* 타입 배지 */
 .youtube-type-badge {
     position: absolute;
     top: 8px;
     left: 8px;
-    background: rgba(0,0,0,0.8);
     color: white;
     padding: 6px 10px;
     border-radius: 6px;
@@ -2245,31 +2240,43 @@ word-break: break-word;
     gap: 4px;
 }
 
-.thumbnail-badge {
-    background: rgba(52, 152, 219, 0.9);
+.youtube-type-badge.api-badge {
+    background: #ff0000;
 }
 
-.channel-art-badge {
-    background: rgba(155, 89, 182, 0.9);
+.youtube-type-badge.thumbnail-badge {
+    background: #4caf50;
 }
 
-/* 콘텐츠 정보 */
+.youtube-type-badge.channel-art-badge {
+    background: #ff9800;
+}
+
+/* 컨텐츠 영역 */
 .youtube-content {
-    padding: 16px;
+    padding: 12px 12px 6px 12px;
     display: flex;
-    gap: 12px;
+    gap: 15px;
+    align-items: flex-start;
 }
+
 
 .youtube-avatar {
     flex-shrink: 0;
 }
 
+/* 유튜브 프로필 사진 */
 .youtube-channel-avatar {
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #3f3f3f;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.youtube-item:hover .youtube-channel-avatar{
+    border-color: var(--accent-color);
 }
 
 .youtube-info {
@@ -2278,11 +2285,12 @@ word-break: break-word;
 }
 
 .youtube-title {
-    color: #fff;
-    font-size: 1rem;
+    /* color: var(--accent-color); */
+    color: white;
+    font-size: 15px;
     font-weight: 600;
-    line-height: 1.3;
-    margin: 0 0 8px 0;
+    line-height: 1.5;
+    margin: 0 0 0px 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -2293,36 +2301,85 @@ word-break: break-word;
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin-bottom: 8px;
 }
 
 .youtube-channel {
-    color: #aaa;
-    font-size: 0.85rem;
+    color: #ffffff;
+    font-size: 14px;
     margin: 0;
     font-weight: 500;
 }
 
-.youtube-views,
+.youtube-channel span{
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
 .youtube-date {
     color: #666;
-    font-size: 0.8rem;
+    font-size: 13px;
     margin: 0;
 }
 
-.youtube-description {
-    color: #aaa;
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+/* 구독 버튼 */
+/* 인라인 구독 버튼 (새로 추가) */
+.youtube-subscribe-wrapper-inline {
+    flex-shrink: 0;
+    align-self: flex-end; /* 이 줄만 추가 */
+    position: absolute;
+    right: 12px;
+    bottom: 16px;
+}
+
+.youtube-subscribe-btn-inline {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 18px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    position: relative;
     overflow: hidden;
 }
 
+.youtube-subscribe-btn-inline:hover {
+   background: #850101;
+   transform: translateY(-1px);
+   box-shadow: 
+       0 0 5px #ff00004d,
+       0 0 10px #ff00004d,
+       0 0 15px #ff00004d,
+       inset 0 0 10px rgba(255,0,0,0.3);
+}
+
+.youtube-subscribe-btn-inline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transition: left 0.5s ease;
+}
+
+.youtube-subscribe-btn-inline:hover::before {
+    left: 100%;
+}
+
+.youtube-subscribe-btn-inline i {
+    font-size: 0.7rem;
+}
+
 /* 페이지네이션 */
-.youtube-pagination {
+/* .youtube-pagination {
     display: flex;
     justify-content: center;
     gap: 8px;
@@ -2337,9 +2394,9 @@ word-break: break-word;
     border-radius: 6px;
     text-decoration: none;
     transition: all 0.3s ease;
-}
+} */
 
-.youtube-pagination button:hover,
+/* .youtube-pagination button:hover,
 .youtube-pagination a:hover {
     background: #ff0000;
     color: white;
@@ -2350,8 +2407,55 @@ word-break: break-word;
     background: #ff0000;
     color: white;
     border-color: #ff0000;
+} */
+
+/* 반응형 */
+/* @media (max-width: 1200px) {
+    .youtube-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
 }
 
+@media (max-width: 768px) {
+    .youtube-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .youtube-category-filter {
+        overflow-x: auto;
+        padding: 6px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+    
+    .youtube-search {
+        max-width: none;
+        width: 100%;
+    }
+    
+    .youtube-search-input {
+        width: 100%;
+    }
+    
+    .youtube-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .youtube-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .youtube-category-filter a {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+} */
 
 
 

@@ -94,7 +94,7 @@
     border: 1px solid var(--accent-color);
     color: var(--accent-color);
     padding: 10px 14px;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 12px; /* 10px → 11px */
     font-weight: 700;
     text-transform: uppercase;
@@ -108,7 +108,6 @@
     line-height: 1; /* 추가 - 텍스트 높이 정규화 */
 
     transition: all 0.3s ease;
-    
 }
 
 

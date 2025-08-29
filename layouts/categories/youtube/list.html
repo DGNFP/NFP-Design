@@ -2,7 +2,7 @@
 <section class="youtube-board-section">
     <div class="container">
         <h2 class="youtube-board-title">YouTube 채널</h2>
-        <p class="youtube-intro">Studio NFP의 다양한 영상 콘텐츠를 만나보세요</p>
+        <p class="youtube-intro">Studio NFP의 다양한 영상 콘텐츠를 만나보세요.</p>
 
         <!-- YouTube 채널 CTA 버튼 -->
         <div class="youtube-cta-wrapper">
@@ -34,274 +34,328 @@
                 <ul class="youtube-category-filter">
                     <li><a class="active" data-filter="all">유튜브 전체</a></li>
                     <li><a data-filter="유튜브 영상">유튜브 영상</a></li>
-                    <li><a data-filter="유튜브 썸네일">유튜브 썸네일</a></li>
-                    <li><a data-filter="유튜브 채널아트">유튜브 채널아트</a></li>
+                    <li><a data-filter="유튜브 썸네일 디자인">유튜브 썸네일 디자인</a></li>
+                    <li><a data-filter="유튜브 채널아트 디자인">유튜브 채널아트 디자인</a></li>
                 </ul>
             </div>
                     
             <!-- 검색창 -->
             <div class="youtube-search">
-                <input type="text" id="youtubeSearchInput" placeholder="YouTube 콘텐츠 검색..." class="youtube-search-input">
-                <button class="youtube-search-btn" id="youtubeSearchBtn">
+                <input type="text" id="searchInput" placeholder="YouTube 콘텐츠 검색..." class="youtube-search-input">
+                <button class="youtube-search-btn" id="searchBtn">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </div>
         
         <div class="youtube-grid">
-            <!-- YouTube API 영상들 -->
-            {{ $apiKey := getenv "HUGO_YOUTUBE_API_KEY" }}
-            {{ $channelHandle := site.Params.youtube_channel_handle | default "Studio-NFP" }}
-            
-            {{ if $apiKey }}
-                {{ $channelUrl := printf "https://www.googleapis.com/youtube/v3/search?part=snippet&q=%s&type=channel&maxResults=1&key=%s" $channelHandle $apiKey }}
-                {{ $channelTry := try (resources.GetRemote $channelUrl | transform.Unmarshal) }}
-                {{ if $channelTry }}
-                    {{ $channelData := $channelTry.Value }}
-                    {{ if $channelData.items }}
-                        {{ $channelId := (index $channelData.items 0).snippet.channelId }}
-                        
-                        {{ $channelDetailUrl := printf "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=%s&key=%s" $channelId $apiKey }}
-                        {{ $channelDetailTry := try (resources.GetRemote $channelDetailUrl | transform.Unmarshal) }}
-                        {{ if $channelDetailTry }}
-                            {{ $channelDetailData := $channelDetailTry.Value }}
-                            {{ if $channelDetailData.items }}
-                                {{ $uploadsPlaylistId := (index $channelDetailData.items 0).contentDetails.relatedPlaylists.uploads }}
-                                
-                                {{ $videosUrl := printf "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=%s&maxResults=20&key=%s" $uploadsPlaylistId $apiKey }}
-                                {{ $videosTry := try (resources.GetRemote $videosUrl | transform.Unmarshal) }}
-                                {{ if $videosTry }}
-                                    {{ $videosData := $videosTry.Value }}
-                                    {{ range first 20 $videosData.items }}
-                                        {{ $videoId := .snippet.resourceId.videoId }}
-                                        <div class="youtube-item" data-category="유튜브 영상" data-title="{{ .snippet.title | lower }}">
-                                            <a href="https://www.youtube.com/watch?v={{ $videoId }}" target="_blank" class="youtube-link">
-                                                <div class="youtube-thumbnail">
-                                                    <img src="{{ .snippet.thumbnails.medium.url }}" 
-                                                         alt="{{ .snippet.title }}"
-                                                         class="youtube-thumb-img">
-                                                    <div class="youtube-play-overlay">
-                                                        <div class="youtube-play-button">
-                                                            <svg viewBox="0 0 24 24" class="youtube-play-icon">
-                                                                <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="youtube-type-badge api-badge">
-                                                        <i class="fab fa-youtube"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="youtube-content">
-                                                    <div class="youtube-avatar">
-                                                        <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
-                                                    </div>
-                                                    <div class="youtube-info">
-                                                        <h3 class="youtube-title">{{ .snippet.title }}</h3>
-                                                        <div class="youtube-meta">
-                                                            <p class="youtube-channel">Studio NFP</p>
-                                                            <p class="youtube-date">
-                                                                {{ dateFormat "2006-01-02" .snippet.publishedAt }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- 구독 버튼 -->
-                                            <div class="youtube-subscribe-wrapper">
-                                                <button class="youtube-subscribe-btn" onclick="window.open('https://www.youtube.com/@Studio-NFP?sub_confirmation=1', '_blank');">
-                                                    <i class="fas fa-bell"></i>
-                                                    구독하기
-                                                </button>
-                                            </div>
-                                        </div>
-                                    {{ end }}
-                                {{ else }}
-                                    <div class="error">영상 목록을 가져올 수 없습니다.</div>
-                                {{ end }}
-                            {{ else }}
-                                <div class="error">채널 업로드 목록을 찾을 수 없습니다.</div>
-                            {{ end }}
-                        {{ else }}
-                            <div class="error">채널 상세 정보를 가져올 수 없습니다.</div>
-                        {{ end }}
-                    {{ else }}
-                        <div class="error">채널을 찾을 수 없습니다.</div>
-                    {{ end }}
-                {{ else }}
-                    <div class="error">API 호출에 실패했습니다. API 키와 네트워크 연결을 확인해주세요.</div>
-                {{ end }}
-            {{ else }}
-                <p class="error">API 키가 설정되지 않았습니다.</p>
-            {{ end }}
+            <!-- 로딩 메시지 -->
+            <div id="youtube-loading" class="loading-message" style="grid-column: 1 / -1; background: #1f1f1f; padding: 20px; text-align: center; margin: 20px 0; border-radius: 8px; border: 1px solid #3f3f3f;">
+                <p><i class="fas fa-spinner fa-spin"></i> YouTube 영상을 불러오는 중...</p>
+            </div>
+
+            <!-- API 오류 메시지 -->
+            <div id="youtube-error" class="error-message" style="grid-column: 1 / -1; background: #2d1b1b; padding: 20px; text-align: center; margin: 20px 0; border-radius: 8px; border: 1px solid #5f3f3f; display: none; color: #ff6b6b;">
+                <p><strong>YouTube 영상을 불러올 수 없습니다.</strong></p>
+                <p>수동으로 추가된 콘텐츠는 아래에서 확인하실 수 있습니다.</p>
+            </div>
             
             <!-- 수동 게시물들 -->
             {{ range .Pages }}
             <div class="youtube-item" data-category="{{ .Params.subCategory }}" data-title="{{ .Title | lower }}">
-                <a href="{{ .Permalink }}" class="youtube-link">
-                    <div class="youtube-thumbnail">
-                        {{ $content := .Content }}
-                        {{ $firstImageSrc := "" }}
-                        {{ $videoId := "" }}
-                        {{ $firstContentType := "" }}
-                        
-                        <!-- YouTube URL 찾기 -->
-                        {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
-                        {{ if $youtubeMatches }}
-                            {{ $firstContentType = "youtube" }}
-                            {{ $fullMatch := index $youtubeMatches 0 }}
-                            {{ if findRE "/shorts/" $fullMatch 1 }}
-                                {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
+                <div class="youtube-card-content">
+                    <a href="{{ .Permalink }}" class="youtube-link">
+                        <div class="youtube-thumbnail">
+                            {{ $content := .Content }}
+                            {{ $firstImageSrc := "" }}
+                            {{ $videoId := "" }}
+                            {{ $firstContentType := "" }}
+                            
+                            <!-- YouTube URL 찾기 -->
+                            {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+                            {{ if $youtubeMatches }}
+                                {{ $firstContentType = "youtube" }}
+                                {{ $fullMatch := index $youtubeMatches 0 }}
+                                {{ if findRE "/shorts/" $fullMatch 1 }}
+                                    {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
+                                {{ else }}
+                                    {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+                                {{ end }}
                             {{ else }}
-                                {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+                                <!-- 이미지 찾기 -->
+                                {{ $imageMatches := findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                                {{ if $imageMatches }}
+                                    {{ $firstContentType = "image" }}
+                                    {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                                {{ end }}
                             {{ end }}
-                        {{ else }}
-                            <!-- 이미지 찾기 -->
-                            {{ $imageMatches := findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
-                            {{ if $imageMatches }}
-                                {{ $firstContentType = "image" }}
-                                {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                            
+                            <!-- 썸네일 표시 -->
+                            {{ if eq $firstContentType "youtube" }}
+                                <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+                                     alt="{{ .Title }}"
+                                     class="youtube-thumb-img"
+                                     loading="lazy"
+                                     onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+                                <div class="youtube-play-overlay">
+                                    <div class="youtube-play-button">
+                                        <svg viewBox="0 0 24 24" class="youtube-play-icon">
+                                            <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            {{ else if eq $firstContentType "image" }}
+                                {{ $originalSrc := $firstImageSrc }}
+                                {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+                                <picture>
+                                    <source srcset="{{ $withoutExt }}.webp" type="image/webp">
+                                    <img src="{{ $originalSrc }}" alt="{{ .Title }}" class="youtube-thumb-img" loading="lazy">
+                                </picture>
                             {{ end }}
+                            
+                           <!-- 카테고리 오버레이 (수동 게시물용) -->
+                        {{ if eq .Params.subCategory "유튜브 썸네일 디자인" }}
+                        <div class="category-overlay">
+                            유튜브 썸네일 디자인
+                        </div>
+                        {{ else if eq .Params.subCategory "유튜브 채널아트 디자인" }}
+                        <div class="category-overlay">
+                            유튜브 채널아트 디자인
+                        </div>
                         {{ end }}
+                        </div>
                         
-                        <!-- 썸네일 표시 -->
-                        {{ if eq $firstContentType "youtube" }}
-                            <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
-                                 alt="{{ .Title }}"
-                                 class="youtube-thumb-img"
-                                 loading="lazy"
-                                 onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
-                            <div class="youtube-play-overlay">
-                                <div class="youtube-play-button">
-                                    <svg viewBox="0 0 24 24" class="youtube-play-icon">
-                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
-                                    </svg>
+                        <div class="youtube-content">
+                            <div class="youtube-avatar">
+                                <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
+                            </div>
+                            <div class="youtube-info">
+                                <h3 class="youtube-title">{{ .Title }}</h3>
+                                <div class="youtube-meta">
+                                    <p class="youtube-channel">Studio <span>NFP</span></p>
+                                    <p class="youtube-date">{{ .Date.Format "2006-01-02" }}</p>
                                 </div>
                             </div>
-                        {{ else if eq $firstContentType "image" }}
-                            {{ $originalSrc := $firstImageSrc }}
-                            {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
-                            <picture>
-                                <source srcset="{{ $withoutExt }}.webp" type="image/webp">
-                                <img src="{{ $originalSrc }}" alt="{{ .Title }}" class="youtube-thumb-img" loading="lazy">
-                            </picture>
-                        {{ end }}
-                        
-                        <!-- 썸네일/채널아트 배지 -->
-                        {{ if eq .Params.subCategory "유튜브 썸네일" }}
-                        <div class="youtube-type-badge thumbnail-badge">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        {{ else if eq .Params.subCategory "유튜브 채널아트" }}
-                        <div class="youtube-type-badge channel-art-badge">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        {{ end }}
-                    </div>
-                    
-                    <div class="youtube-content">
-                        <div class="youtube-avatar">
-                            <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
-                        </div>
-                        <div class="youtube-info">
-                            <h3 class="youtube-title">{{ .Title }}</h3>
-                            <div class="youtube-meta">
-                                <p class="youtube-channel">Studio NFP</p>
-                                <p class="youtube-date">{{ .Date.Format "2006-01-02" }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!-- 구독 버튼 -->
-                <div class="youtube-subscribe-wrapper">
-                    <button class="youtube-subscribe-btn" onclick="window.open('https://www.youtube.com/@Studio-NFP?sub_confirmation=1', '_blank');">
+                            <!-- 구독 버튼을 컨텐츠 영역 안으로 이동 -->
+                        <div class="youtube-subscribe-wrapper-inline">
+                        <button class="youtube-subscribe-btn-inline" onclick="subscribeToChannel(event)">
                         <i class="fas fa-bell"></i>
-                        구독하기
-                    </button>
+                        채널 구독하기
+                        </button>
+                        </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             {{ end }}
         </div>
         
         <!-- 페이지네이션 -->
-        <div class="pagination youtube-pagination">
+        <div class="pagination youtube-pagination js-pagination">
             <!-- JavaScript로 동적 생성됨 -->
         </div>
     </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.youtube-category-filter a');
-    const videoItems = document.querySelectorAll('.youtube-item');
-    const searchInput = document.getElementById('youtubeSearchInput');
-    const searchBtn = document.getElementById('youtubeSearchBtn');
-    
-    // 필터 기능
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filter = this.dataset.filter;
-            
-            videoItems.forEach(item => {
-                const category = item.dataset.category;
-                let shouldShow = false;
-                
-                if (filter === 'all') {
-                    shouldShow = true;
-                } else {
-                    shouldShow = category === filter;
-                }
-                
-                item.style.display = shouldShow ? 'block' : 'none';
-            });
-        });
-    });
-    
-    // 검색 기능
-    function searchVideos() {
-        const query = searchInput.value.toLowerCase();
-        
-        videoItems.forEach(item => {
-            const title = item.dataset.title || '';
-            const shouldShow = title.includes(query);
-            item.style.display = shouldShow ? 'block' : 'none';
-        });
-        
-        // 검색 후에는 필터 버튼 상태 초기화
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-    }
-    
-    if (searchBtn) {
-        searchBtn.addEventListener('click', searchVideos);
-    }
-    
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchVideos();
-            }
-        });
-        
-        // 검색창 클리어 시 전체 보기
-        searchInput.addEventListener('input', function() {
-            if (this.value === '') {
-                videoItems.forEach(item => {
-                    item.style.display = 'block';
-                });
-                // "전체" 필터 활성화
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.filter === 'all') {
-                        btn.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-});
+// YouTube API 설정
+const YOUTUBE_API_KEY = '{{ getenv "HUGO_YOUTUBE_API_KEY" }}';
+const CHANNEL_ID = 'UCjB24gwQdmWQ7j4gQkZipHw';
+
+// 전역 변수로 채널 정보 저장
+let channelInfo = {
+   title: 'Studio NFP',
+   thumbnailUrl: '/img/studio-nfp-avatar.jpg'
+};
+
+// 구독 함수 - 이벤트 전파 방지
+function subscribeToChannel(event) {
+   if (event) {
+       event.preventDefault();
+       event.stopPropagation();
+   }
+   window.open('https://www.youtube.com/@Studio-NFP?sub_confirmation=1', '_blank');
+}
+
+// 날짜 파싱 함수
+function parseDate(dateString) {
+   // Hugo 날짜 형식 또는 ISO 형식 처리
+   if (dateString.includes('T')) {
+       return new Date(dateString);
+   } else {
+       return new Date(dateString + 'T00:00:00Z');
+   }
+}
+
+// YouTube API에서 비디오 가져오기
+async function loadYouTubeVideos() {
+   const loadingElement = document.getElementById('youtube-loading');
+   const errorElement = document.getElementById('youtube-error');
+   const videosContainer = document.querySelector('.youtube-grid');
+   
+   if (!YOUTUBE_API_KEY) {
+       loadingElement.style.display = 'none';
+       errorElement.innerHTML = '<p><strong>API 키가 설정되지 않았습니다.</strong></p>';
+       errorElement.style.display = 'block';
+       return;
+   }
+   
+   try {
+       // 1단계: 채널 정보 가져오기 (snippet도 함께 가져와서 프로필 사진 얻기)
+       const channelResponse = await fetch(
+           `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
+       );
+       
+       if (!channelResponse.ok) {
+           throw new Error(`채널 정보 오류: ${channelResponse.status}`);
+       }
+       
+       const channelData = await channelResponse.json();
+       
+       if (!channelData.items || channelData.items.length === 0) {
+           throw new Error('채널을 찾을 수 없습니다.');
+       }
+       
+       // 채널 정보 저장 (프로필 사진 포함)
+       const channel = channelData.items[0];
+       channelInfo = {
+           title: channel.snippet.title,
+           thumbnailUrl: channel.snippet.thumbnails.default.url
+       };
+       
+       const uploadsPlaylistId = channel.contentDetails.relatedPlaylists.uploads;
+       
+       // 2단계: 비디오 목록 가져오기
+       const videosResponse = await fetch(
+           `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`
+       );
+       
+       if (!videosResponse.ok) {
+           throw new Error(`비디오 목록 오류: ${videosResponse.status}`);
+       }
+       
+       const videosData = await videosResponse.json();
+       
+       // 로딩 메시지 제거
+       loadingElement.remove();
+       
+       // 기존 수동 게시물들의 날짜 정보 수집
+       const existingItems = Array.from(videosContainer.querySelectorAll('.youtube-item'));
+       const allItems = [];
+       
+       // 기존 수동 게시물들을 배열에 추가 (날짜 정보와 함께)
+       existingItems.forEach(item => {
+           const dateElement = item.querySelector('.youtube-date');
+           const dateText = dateElement ? dateElement.textContent.trim() : '';
+           const itemDate = dateText ? parseDate(dateText) : new Date(0);
+           
+           allItems.push({
+               element: item,
+               date: itemDate,
+               isManual: true
+           });
+           
+           // DOM에서 일시적으로 제거
+           item.remove();
+       });
+       
+       // API 비디오들을 배열에 추가
+       videosData.items.forEach(item => {
+           const videoId = item.snippet.resourceId.videoId;
+           const title = item.snippet.title;
+           const thumbnail = item.snippet.thumbnails.medium.url;
+           const publishDate = new Date(item.snippet.publishedAt);
+           const publishDateString = publishDate.toISOString().split('T')[0];
+           
+           const videoElement = document.createElement('div');
+           videoElement.className = 'youtube-item';
+           videoElement.setAttribute('data-category', '유튜브 영상');
+           videoElement.setAttribute('data-title', title.toLowerCase());
+           
+           videoElement.innerHTML = `
+               <div class="youtube-card-content">
+                   <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="youtube-link">
+                       <div class="youtube-thumbnail">
+                           <img src="${thumbnail}" alt="${title}" class="youtube-thumb-img" loading="lazy">
+                           <div class="youtube-play-overlay">
+                               <div class="youtube-play-button">
+                                   <svg viewBox="0 0 24 24" class="youtube-play-icon">
+                                       <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
+                                   </svg>
+                               </div>
+                           </div>
+                           <div class="youtube-type-badge api-badge">
+                               <i class="fab fa-youtube"></i>
+                           </div>
+                       </div>
+                       <div class="youtube-content">
+                       <div class="youtube-avatar">
+                       <img src="${channelInfo.thumbnailUrl}" alt="${channelInfo.title}" class="youtube-channel-avatar">
+                       </div>
+                       <div class="youtube-info">
+                       <h3 class="youtube-title">${title}</h3>
+                       <div class="youtube-meta">
+                           <p class="youtube-channel">Studio <span>NFP</span></p>
+                           <p class="youtube-date">${publishDateString}</p>
+                       </div>
+                       </div>
+                       <div class="youtube-subscribe-wrapper-inline">
+                       <button class="youtube-subscribe-btn-inline" onclick="subscribeToChannel(event)">
+                           <i class="fas fa-bell"></i>
+                           채널 구독하기
+                       </button>
+                       </div>
+                       </div>
+                   </a>
+               </div>
+           `;
+           
+           allItems.push({
+               element: videoElement,
+               date: publishDate,
+               isManual: false
+           });
+       });
+       
+       // 날짜 기준으로 내림차순 정렬 (최신순)
+       allItems.sort((a, b) => b.date - a.date);
+       
+       // 정렬된 순서대로 DOM에 추가
+       allItems.forEach(item => {
+           videosContainer.appendChild(item.element);
+       });
+
+       // 수동 게시물의 프로필 이미지도 API에서 가져온 이미지로 교체
+       document.querySelectorAll('.youtube-channel-avatar').forEach(img => {
+           if (img.src.includes('studio-nfp-avatar.jpg')) {
+               img.src = channelInfo.thumbnailUrl;
+               img.alt = channelInfo.title;
+           }
+       });
+
+       // API 로드 완료 후 필터링 시스템 업데이트
+       setTimeout(() => {
+           if (window.updateDisplay) window.updateDisplay();
+       }, 100);
+       
+       setTimeout(() => {
+           if (window.updateDisplay) window.updateDisplay();
+       }, 500);
+       
+   } catch (error) {
+       console.error('YouTube API 오류:', error);
+       loadingElement.style.display = 'none';
+       errorElement.innerHTML = `<p><strong>YouTube 영상을 불러올 수 없습니다.</strong></p><p>오류: ${error.message}</p>`;
+       errorElement.style.display = 'block';
+       
+       // 오류 발생시에도 필터링 시스템 업데이트 (수동 게시물만 표시)
+       setTimeout(() => {
+           if (window.updateDisplay) window.updateDisplay();
+       }, 100);
+   }
+}
+
+// YouTube API 로드
+loadYouTubeVideos();
 </script>
 {{ end }}

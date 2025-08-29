@@ -54,8 +54,8 @@
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
     
-        <meta property="article:published_time" content="2025-08-06T22:33:00&#43;09:00">
-        <meta property="article:modified_time" content="2025-08-06T22:33:00&#43;09:00">
+        <meta property="article:published_time" content="2025-07-01T22:07:00Z">
+        <meta property="article:modified_time" content="2025-07-01T22:07:00Z">
         
     
     
@@ -75,8 +75,8 @@
       "description": "Studio NFP의 최신 YouTube 영상들",
       "url": "http:\/\/localhost:1313\/categories\/youtube\/",
       
-      "datePublished": "2025-08-06T22:33:00\u002b09:00",
-      "dateModified": "2025-08-06T22:33:00\u002b09:00",
+      "datePublished": "2025-07-01T22:07:00Z",
+      "dateModified": "2025-07-01T22:07:00Z",
       "author": {
         "@type": "Person",
         "name": "NFP Design"
@@ -160,7 +160,7 @@
 <section class="youtube-board-section">
     <div class="container">
         <h2 class="youtube-board-title">YouTube 채널</h2>
-        <p class="youtube-intro">Studio NFP의 다양한 영상 콘텐츠를 만나보세요</p>
+        <p class="youtube-intro">Studio NFP의 다양한 영상 콘텐츠를 만나보세요.</p>
 
         
         <div class="youtube-cta-wrapper">
@@ -192,15 +192,15 @@
                 <ul class="youtube-category-filter">
                     <li><a class="active" data-filter="all">유튜브 전체</a></li>
                     <li><a data-filter="유튜브 영상">유튜브 영상</a></li>
-                    <li><a data-filter="유튜브 썸네일">유튜브 썸네일</a></li>
-                    <li><a data-filter="유튜브 채널아트">유튜브 채널아트</a></li>
+                    <li><a data-filter="유튜브 썸네일 디자인">유튜브 썸네일 디자인</a></li>
+                    <li><a data-filter="유튜브 채널아트 디자인">유튜브 채널아트 디자인</a></li>
                 </ul>
             </div>
                     
             
             <div class="youtube-search">
-                <input type="text" id="youtubeSearchInput" placeholder="YouTube 콘텐츠 검색..." class="youtube-search-input">
-                <button class="youtube-search-btn" id="youtubeSearchBtn">
+                <input type="text" id="searchInput" placeholder="YouTube 콘텐츠 검색..." class="youtube-search-input">
+                <button class="youtube-search-btn" id="searchBtn">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
@@ -208,218 +208,288 @@
         
         <div class="youtube-grid">
             
+            <div id="youtube-loading" class="loading-message" style="grid-column: 1 / -1; background: #1f1f1f; padding: 20px; text-align: center; margin: 20px 0; border-radius: 8px; border: 1px solid #3f3f3f;">
+                <p><i class="fas fa-spinner fa-spin"></i> YouTube 영상을 불러오는 중...</p>
+            </div>
+
             
-            
-            
-            
-                <p class="error">API 키가 설정되지 않았습니다.</p>
-            
-            
-            
-            
-            <div class="youtube-item" data-category="유튜브 영상" data-title="6월 프리미엄 패스">
-                <a href="http://localhost:1313/categories/youtube/2025-08-06-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-6%EC%9B%94-%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-%ED%8C%A8%EC%8A%A4/" class="youtube-link">
-                    <div class="youtube-thumbnail">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                                
-                            
-                        
-                        
-                        
-                        
-                            <img src="https://img.youtube.com/vi/DWrymkTsozk/maxresdefault.jpg" 
-                                 alt="6월 프리미엄 패스"
-                                 class="youtube-thumb-img"
-                                 loading="lazy"
-                                 onerror="this.src='https://img.youtube.com/vi/DWrymkTsozk/hqdefault.jpg'">
-                            <div class="youtube-play-overlay">
-                                <div class="youtube-play-button">
-                                    <svg viewBox="0 0 24 24" class="youtube-play-icon">
-                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        
-                        
-                        
-                        
-                    </div>
-                    
-                    <div class="youtube-content">
-                        <div class="youtube-avatar">
-                            <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
-                        </div>
-                        <div class="youtube-info">
-                            <h3 class="youtube-title">6월 프리미엄 패스</h3>
-                            <div class="youtube-meta">
-                                <p class="youtube-channel">Studio NFP</p>
-                                <p class="youtube-date">2025-08-06</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                
-                <div class="youtube-subscribe-wrapper">
-                    <button class="youtube-subscribe-btn" onclick="window.open('https://www.youtube.com/@Studio-NFP?sub_confirmation=1', '_blank');">
-                        <i class="fas fa-bell"></i>
-                        구독하기
-                    </button>
-                </div>
+            <div id="youtube-error" class="error-message" style="grid-column: 1 / -1; background: #2d1b1b; padding: 20px; text-align: center; margin: 20px 0; border-radius: 8px; border: 1px solid #5f3f3f; display: none; color: #ff6b6b;">
+                <p><strong>YouTube 영상을 불러올 수 없습니다.</strong></p>
+                <p>수동으로 추가된 콘텐츠는 아래에서 확인하실 수 있습니다.</p>
             </div>
             
-            <div class="youtube-item" data-category="유튜브 영상" data-title="6월 라이트 패스">
-                <a href="http://localhost:1313/categories/youtube/2025-08-06-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-6%EC%9B%94-%EB%9D%BC%EC%9D%B4%ED%8A%B8-%ED%8C%A8%EC%8A%A4/" class="youtube-link">
-                    <div class="youtube-thumbnail">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+            
+            
+            <div class="youtube-item" data-category="유튜브 썸네일 디자인" data-title="블레이드 앤 소울 유튜브 썸네일 디자인">
+                <div class="youtube-card-content">
+                    <a href="http://localhost:1313/categories/youtube/2025-07-01-%EB%B8%94%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%95%A4-%EC%86%8C%EC%9A%B8-%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EB%94%94%EC%9E%90%EC%9D%B8/" class="youtube-link">
+                        <div class="youtube-thumbnail">
+                            
+                            
+                            
+                            
+                            
                             
                             
                             
                                 
+                                
+                                
+                                    
+                                    
+                                
                             
+                            
+                            
+                            
+                                
+                                
+                                <picture>
+                                    <source srcset="/img/uploads/bns.webp" type="image/webp">
+                                    <img src="/img/uploads/bns.jpg" alt="블레이드 앤 소울 유튜브 썸네일 디자인" class="youtube-thumb-img" loading="lazy">
+                                </picture>
+                            
+                            
+                           
                         
+                        <div class="category-overlay">
+                            유튜브 썸네일 디자인
+                        </div>
                         
+                        </div>
                         
-                        
-                            <img src="https://img.youtube.com/vi/2givLTDLtD8/maxresdefault.jpg" 
-                                 alt="6월 라이트 패스"
-                                 class="youtube-thumb-img"
-                                 loading="lazy"
-                                 onerror="this.src='https://img.youtube.com/vi/2givLTDLtD8/hqdefault.jpg'">
-                            <div class="youtube-play-overlay">
-                                <div class="youtube-play-button">
-                                    <svg viewBox="0 0 24 24" class="youtube-play-icon">
-                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
-                                    </svg>
+                        <div class="youtube-content">
+                            <div class="youtube-avatar">
+                                <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
+                            </div>
+                            <div class="youtube-info">
+                                <h3 class="youtube-title">블레이드 앤 소울 유튜브 썸네일 디자인</h3>
+                                <div class="youtube-meta">
+                                    <p class="youtube-channel">Studio <span>NFP</span></p>
+                                    <p class="youtube-date">2025-07-01</p>
                                 </div>
                             </div>
-                        
-                        
-                        
-                        
-                    </div>
-                    
-                    <div class="youtube-content">
-                        <div class="youtube-avatar">
-                            <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
-                        </div>
-                        <div class="youtube-info">
-                            <h3 class="youtube-title">6월 라이트 패스</h3>
-                            <div class="youtube-meta">
-                                <p class="youtube-channel">Studio NFP</p>
-                                <p class="youtube-date">2025-08-06</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                
-                <div class="youtube-subscribe-wrapper">
-                    <button class="youtube-subscribe-btn" onclick="window.open('https://www.youtube.com/@Studio-NFP?sub_confirmation=1', '_blank');">
+                            
+                        <div class="youtube-subscribe-wrapper-inline">
+                        <button class="youtube-subscribe-btn-inline" onclick="subscribeToChannel(event)">
                         <i class="fas fa-bell"></i>
-                        구독하기
-                    </button>
+                        채널 구독하기
+                        </button>
+                        </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             
         </div>
         
         
-        <div class="pagination youtube-pagination">
+        <div class="pagination youtube-pagination js-pagination">
             
         </div>
     </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.youtube-category-filter a');
-    const videoItems = document.querySelectorAll('.youtube-item');
-    const searchInput = document.getElementById('youtubeSearchInput');
-    const searchBtn = document.getElementById('youtubeSearchBtn');
-    
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filter = this.dataset.filter;
-            
-            videoItems.forEach(item => {
-                const category = item.dataset.category;
-                let shouldShow = false;
-                
-                if (filter === 'all') {
-                    shouldShow = true;
-                } else {
-                    shouldShow = category === filter;
-                }
-                
-                item.style.display = shouldShow ? 'block' : 'none';
-            });
-        });
-    });
-    
-    
-    function searchVideos() {
-        const query = searchInput.value.toLowerCase();
-        
-        videoItems.forEach(item => {
-            const title = item.dataset.title || '';
-            const shouldShow = title.includes(query);
-            item.style.display = shouldShow ? 'block' : 'none';
-        });
-        
-        
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-    }
-    
-    if (searchBtn) {
-        searchBtn.addEventListener('click', searchVideos);
-    }
-    
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchVideos();
-            }
-        });
-        
-        
-        searchInput.addEventListener('input', function() {
-            if (this.value === '') {
-                videoItems.forEach(item => {
-                    item.style.display = 'block';
-                });
-                
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.filter === 'all') {
-                        btn.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-});
+
+const YOUTUBE_API_KEY = 'AIzaSyD29en30i6YKwonn6yGsVw6dQSUl0Liovg';
+const CHANNEL_ID = 'UCjB24gwQdmWQ7j4gQkZipHw';
+
+
+let channelInfo = {
+   title: 'Studio NFP',
+   thumbnailUrl: '/img/studio-nfp-avatar.jpg'
+};
+
+
+function subscribeToChannel(event) {
+   if (event) {
+       event.preventDefault();
+       event.stopPropagation();
+   }
+   window.open('https://www.youtube.com/@Studio-NFP?sub_confirmation=1', '_blank');
+}
+
+
+function parseDate(dateString) {
+   
+   if (dateString.includes('T')) {
+       return new Date(dateString);
+   } else {
+       return new Date(dateString + 'T00:00:00Z');
+   }
+}
+
+
+async function loadYouTubeVideos() {
+   const loadingElement = document.getElementById('youtube-loading');
+   const errorElement = document.getElementById('youtube-error');
+   const videosContainer = document.querySelector('.youtube-grid');
+   
+   if (!YOUTUBE_API_KEY) {
+       loadingElement.style.display = 'none';
+       errorElement.innerHTML = '<p><strong>API 키가 설정되지 않았습니다.</strong></p>';
+       errorElement.style.display = 'block';
+       return;
+   }
+   
+   try {
+       
+       const channelResponse = await fetch(
+           `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
+       );
+       
+       if (!channelResponse.ok) {
+           throw new Error(`채널 정보 오류: ${channelResponse.status}`);
+       }
+       
+       const channelData = await channelResponse.json();
+       
+       if (!channelData.items || channelData.items.length === 0) {
+           throw new Error('채널을 찾을 수 없습니다.');
+       }
+       
+       
+       const channel = channelData.items[0];
+       channelInfo = {
+           title: channel.snippet.title,
+           thumbnailUrl: channel.snippet.thumbnails.default.url
+       };
+       
+       const uploadsPlaylistId = channel.contentDetails.relatedPlaylists.uploads;
+       
+       
+       const videosResponse = await fetch(
+           `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`
+       );
+       
+       if (!videosResponse.ok) {
+           throw new Error(`비디오 목록 오류: ${videosResponse.status}`);
+       }
+       
+       const videosData = await videosResponse.json();
+       
+       
+       loadingElement.remove();
+       
+       
+       const existingItems = Array.from(videosContainer.querySelectorAll('.youtube-item'));
+       const allItems = [];
+       
+       
+       existingItems.forEach(item => {
+           const dateElement = item.querySelector('.youtube-date');
+           const dateText = dateElement ? dateElement.textContent.trim() : '';
+           const itemDate = dateText ? parseDate(dateText) : new Date(0);
+           
+           allItems.push({
+               element: item,
+               date: itemDate,
+               isManual: true
+           });
+           
+           
+           item.remove();
+       });
+       
+       
+       videosData.items.forEach(item => {
+           const videoId = item.snippet.resourceId.videoId;
+           const title = item.snippet.title;
+           const thumbnail = item.snippet.thumbnails.medium.url;
+           const publishDate = new Date(item.snippet.publishedAt);
+           const publishDateString = publishDate.toISOString().split('T')[0];
+           
+           const videoElement = document.createElement('div');
+           videoElement.className = 'youtube-item';
+           videoElement.setAttribute('data-category', '유튜브 영상');
+           videoElement.setAttribute('data-title', title.toLowerCase());
+           
+           videoElement.innerHTML = `
+               <div class="youtube-card-content">
+                   <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="youtube-link">
+                       <div class="youtube-thumbnail">
+                           <img src="${thumbnail}" alt="${title}" class="youtube-thumb-img" loading="lazy">
+                           <div class="youtube-play-overlay">
+                               <div class="youtube-play-button">
+                                   <svg viewBox="0 0 24 24" class="youtube-play-icon">
+                                       <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
+                                   </svg>
+                               </div>
+                           </div>
+                           <div class="youtube-type-badge api-badge">
+                               <i class="fab fa-youtube"></i>
+                           </div>
+                       </div>
+                       <div class="youtube-content">
+                       <div class="youtube-avatar">
+                       <img src="${channelInfo.thumbnailUrl}" alt="${channelInfo.title}" class="youtube-channel-avatar">
+                       </div>
+                       <div class="youtube-info">
+                       <h3 class="youtube-title">${title}</h3>
+                       <div class="youtube-meta">
+                           <p class="youtube-channel">Studio <span>NFP</span></p>
+                           <p class="youtube-date">${publishDateString}</p>
+                       </div>
+                       </div>
+                       <div class="youtube-subscribe-wrapper-inline">
+                       <button class="youtube-subscribe-btn-inline" onclick="subscribeToChannel(event)">
+                           <i class="fas fa-bell"></i>
+                           채널 구독하기
+                       </button>
+                       </div>
+                       </div>
+                   </a>
+               </div>
+           `;
+           
+           allItems.push({
+               element: videoElement,
+               date: publishDate,
+               isManual: false
+           });
+       });
+       
+       
+       allItems.sort((a, b) => b.date - a.date);
+       
+       
+       allItems.forEach(item => {
+           videosContainer.appendChild(item.element);
+       });
+
+       
+       document.querySelectorAll('.youtube-channel-avatar').forEach(img => {
+           if (img.src.includes('studio-nfp-avatar.jpg')) {
+               img.src = channelInfo.thumbnailUrl;
+               img.alt = channelInfo.title;
+           }
+       });
+
+       
+       setTimeout(() => {
+           if (window.updateDisplay) window.updateDisplay();
+       }, 100);
+       
+       setTimeout(() => {
+           if (window.updateDisplay) window.updateDisplay();
+       }, 500);
+       
+   } catch (error) {
+       console.error('YouTube API 오류:', error);
+       loadingElement.style.display = 'none';
+       errorElement.innerHTML = `<p><strong>YouTube 영상을 불러올 수 없습니다.</strong></p><p>오류: ${error.message}</p>`;
+       errorElement.style.display = 'block';
+       
+       
+       setTimeout(() => {
+           if (window.updateDisplay) window.updateDisplay();
+       }, 100);
+   }
+}
+
+
+loadYouTubeVideos();
 </script>
 
     
