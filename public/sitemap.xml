@@ -623,6 +623,10 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/web-demo/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/image-tools/compressor/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>

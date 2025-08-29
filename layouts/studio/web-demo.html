@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio NFP - 웹 데모</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+
+</head>
+<body>
+<!-- 배경 애니메이션 -->
+<div class="bg-animation"></div>
+<div class="bg-particles" id="particles"></div>
+
+<div class="container">
+<!-- 헤더 -->
+<div class="studio-page-header">
+<h1>Studio <span>NFP</span></h1>
+<p>스튜디오 NFP 웹 데모<br>HTML과 CSS를 실시간으로 테스트해보세요.</p>
+</div>
+
+
+<!-- 탭 컨텐츠 -->
+<div class="studio-page-content">
+<!-- 웹 데모 -->
+<div class="studio-tab-panel active" id="web-demo">
+<div class="web-demo-container">
+    <!-- 에디터 패널 -->
+    <div class="demo-editor-panel">
+        <div class="demo-panel-header">
+            <div class="demo-panel-title">
+                <i class="fas fa-edit"></i>
+                코드 에디터
+            </div>
+            <div class="demo-editor-tabs">
+                <div class="demo-editor-tab active" data-editor="html">HTML</div>
+                <div class="demo-editor-tab" data-editor="css">CSS</div>
+            </div>
+        </div>
+        <div class="demo-editor">
+            <textarea 
+                class="demo-textarea" 
+                id="html-editor" 
+                placeholder="HTML 코드를 입력하세요..."><!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>웹 데모</title>
+</head>
+<body>
+<div class="container">
+<h1>안녕하세요!</h1>
+<p>Studio NFP 웹 데모입니다.</p>
+<button class="btn">에디터에 입력해보세요!</button>
+</div>
+</body>
+</html></textarea>
+            <textarea 
+                class="demo-textarea" 
+                id="css-editor" 
+                style="display: none;"
+                placeholder="CSS 코드를 입력하세요...">body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+margin: 0;
+padding: 40px;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.container {
+background: white;padding: 40px;
+border-radius: 4px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+text-align: center;
+max-width: 400px;
+width: 100%;
+}
+
+h1 {
+color: #333;
+margin-bottom: 20px;
+font-size: 2.5rem;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+p {
+color: #666;
+font-size: 1.1rem;
+margin-bottom: 30px;
+line-height: 1.6;
+}
+
+.btn {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border: none;
+padding: 15px 30px;
+font-size: 1rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-weight: 600;
+}
+
+.btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}</textarea>
+        </div>
+    </div>
+
+    <!-- 미리보기 패널 -->
+    <div class="demo-preview-panel">
+        <div class="demo-preview-header">
+            <div class="demo-preview-title">
+                <i class="fas fa-eye"></i>
+                미리보기
+            </div>
+            <div class="demo-preview-controls">
+                <button class="demo-control-btn" onclick="refreshPreview()">
+                    <i class="fas fa-sync-alt"></i> 새로고침
+                </button>
+                <button class="demo-control-btn" onclick="openInNewTab()">
+                    <i class="fas fa-external-link-alt"></i> 새 탭
+                </button>
+            </div>
+        </div>
+        <div class="demo-preview">
+            <iframe id="preview-frame" src="about:blank"></iframe>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 플로팅 컨트롤 -->
+<!-- <div class="demo-controls">
+<button class="demo-floating-btn" onclick="resetCode()" title="코드 초기화">
+<i class="fas fa-undo"></i>
+</button>
+<button class="demo-floating-btn" onclick="downloadCode()" title="코드 다운로드">
+<i class="fas fa-download"></i>
+</button>
+</div> -->
+
+<script>
+// 파티클 생성
+function createParticles() {
+const particlesContainer = document.getElementById('particles');
+const particleCount = 30;
+
+for (let i = 0; i < particleCount; i++) {
+const particle = document.createElement('div');
+particle.className = 'particle';
+particle.style.left = Math.random() * 100 + '%';
+particle.style.animationDelay = Math.random() * 20 + 's';
+particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+particlesContainer.appendChild(particle);
+}
+}
+
+// 에디터 탭 전환
+document.querySelectorAll('.demo-editor-tab').forEach(tab => {
+tab.addEventListener('click', function() {
+const editorType = this.dataset.editor;
+
+// 탭 활성화
+document.querySelectorAll('.demo-editor-tab').forEach(t => t.classList.remove('active'));
+this.classList.add('active');
+
+// 에디터 전환
+document.getElementById('html-editor').style.display = editorType === 'html' ? 'block' : 'none';
+document.getElementById('css-editor').style.display = editorType === 'css' ? 'block' : 'none';
+});
+});
+
+// 실시간 미리보기 업데이트
+function updatePreview() {
+const htmlCode = document.getElementById('html-editor').value;
+const cssCode = document.getElementById('css-editor').value;
+const iframe = document.getElementById('preview-frame');
+
+// HTML에 CSS를 주입
+let fullCode = htmlCode;
+
+// head 태그가 있으면 그 안에 style 추가, 없으면 body 전에 추가
+if (fullCode.includes('<head>')) {
+fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
+} else if (fullCode.includes('<body>')) {
+fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
+} else {
+// html 구조가 없으면 감싸기
+fullCode = `<!DOCTYPE html>
+<html>
+<head><style>${cssCode}</style></head>
+<body>
+${fullCode}
+</body>
+</html>`;
+}
+
+// iframe에 코드 적용
+iframe.srcdoc = fullCode;
+}
+
+// 에디터 이벤트 리스너
+document.getElementById('html-editor').addEventListener('input', updatePreview);
+document.getElementById('css-editor').addEventListener('input', updatePreview);
+
+// 미리보기 새로고침
+function refreshPreview() {
+updatePreview();
+}
+
+// 새 탭에서 열기
+function openInNewTab() {
+const htmlCode = document.getElementById('html-editor').value;
+const cssCode = document.getElementById('css-editor').value;
+
+let fullCode = htmlCode;
+
+if (fullCode.includes('<head>')) {
+fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
+} else if (fullCode.includes('<body>')) {
+fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
+} else {
+fullCode = `<!DOCTYPE html>
+<html>
+<head><style>${cssCode}</style></head>
+<body>
+${fullCode}
+</body>
+</html>`;
+}
+
+const blob = new Blob([fullCode], { type: 'text/html' });
+const url = URL.createObjectURL(blob);
+window.open(url, '_blank');
+
+// 메모리 정리
+setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// 코드 초기화
+function resetCode() {
+if (confirm('코드를 초기화하시겠습니까?')) {
+document.getElementById('html-editor').value = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>웹 데모</title>
+</head>
+<body>
+<div class="container">
+<h1>안녕하세요!</h1>
+<p>Studio NFP 웹 데모입니다.</p>
+<button class="btn">에디터에 입력해보세요!</button>
+</div>
+</body>
+</html>`;
+
+document.getElementById('css-editor').value = `body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+margin: 0;
+padding: 40px;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.container {
+background: white;
+padding: 40px;
+border-radius: 4px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+text-align: center;
+max-width: 400px;
+width: 100%;
+}
+
+h1 {
+color: #333;
+margin-bottom: 20px;
+font-size: 2.5rem;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+p {
+color: #666;
+font-size: 1.1rem;
+margin-bottom: 30px;
+line-height: 1.6;
+}
+
+.btn {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border: none;
+padding: 15px 30px;
+font-size: 1rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-weight: 600;
+}
+
+.btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}`;
+updatePreview();
+}
+}
+
+// 코드 다운로드
+function downloadCode() {
+const htmlCode = document.getElementById('html-editor').value;
+const cssCode = document.getElementById('css-editor').value;
+
+let fullCode = htmlCode;
+
+if (fullCode.includes('<head>')) {
+fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
+} else if (fullCode.includes('<body>')) {
+fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
+} else {
+fullCode = `<!DOCTYPE html>
+<html>
+<head><style>${cssCode}</style></head>
+<body>
+${fullCode}
+</body>
+</html>`;
+}
+
+const blob = new Blob([fullCode], { type: 'text/html' });
+const url = URL.createObjectURL(blob);
+
+const a = document.createElement('a');
+a.href = url;
+a.download = 'web-demo.html';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+
+URL.revokeObjectURL(url);
+}
+
+// 초기화
+document.addEventListener('DOMContentLoaded', function() {
+createParticles();
+updatePreview();
+});
+</script>
+</body>
+</html>
