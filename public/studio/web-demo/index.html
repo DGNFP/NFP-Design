@@ -1,209 +1,373 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio NFP - 웹 데모</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="stylesheet" href="/css/studiopage.css">
-
-
-</head>
-<body>
-
-<div class="bg-animation"></div>
-<div class="bg-particles" id="particles"></div>
-
-<div class="container">
-
-<div class="studio-page-header">
-<h1>Studio <span>NFP</span></h1>
-<p>스튜디오 NFP 웹 데모<br>HTML과 CSS를 실시간으로 테스트해보세요.</p>
-</div>
-
-
-
-<div class="studio-page-content">
-
-<div class="studio-tab-panel active" id="web-demo">
-<div class="web-demo-container">
-    
-    <div class="demo-editor-panel">
-        <div class="demo-panel-header">
-            <div class="demo-panel-title">
-                <i class="fas fa-edit"></i>
-                코드 에디터
-            </div>
-            <div class="demo-editor-tabs">
-                <div class="demo-editor-tab active" data-editor="html">HTML</div>
-                <div class="demo-editor-tab" data-editor="css">CSS</div>
-            </div>
-        </div>
-        <div class="demo-editor">
-            <textarea 
-                class="demo-textarea" 
-                id="html-editor" 
-                placeholder="HTML 코드를 입력하세요..."><!DOCTYPE html>
-&lt;html lang="ko">
-&lt;head>
-&lt;meta charset="UTF-8">
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-&lt;title>웹 데모&lt;/title>
-&lt;/head>
-&lt;body>
-&lt;div class="container">
-&lt;h1>안녕하세요!&lt;/h1>
-&lt;p>Studio NFP 웹 데모입니다.&lt;/p>
-&lt;button class="btn">에디터에 입력해보세요!&lt;/button>
-&lt;/div>
-&lt;/body>
-&lt;/html></textarea>
-            <textarea 
-                class="demo-textarea" 
-                id="css-editor" 
-                style="display: none;"
-                placeholder="CSS 코드를 입력하세요...">body {
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-margin: 0;
-padding: 40px;
-min-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.container {
-background: white;padding: 40px;
-border-radius: 4px;
-box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-text-align: center;
-max-width: 400px;
-width: 100%;
-}
-
-h1 {
-color: #333;
-margin-bottom: 20px;
-font-size: 2.5rem;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-
-p {
-color: #666;
-font-size: 1.1rem;
-margin-bottom: 30px;
-line-height: 1.6;
-}
-
-.btn {
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-color: white;
-border: none;
-padding: 15px 30px;
-font-size: 1rem;
-border-radius: 50px;
-cursor: pointer;
-transition: all 0.3s ease;
-font-weight: 600;
-}
-
-.btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-}</textarea>
-        </div>
-    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    <div class="demo-preview-panel">
-        <div class="demo-preview-header">
-            <div class="demo-preview-title">
-                <i class="fas fa-eye"></i>
-                미리보기
-            </div>
-            <div class="demo-preview-controls">
-                <button class="demo-control-btn" onclick="refreshPreview()">
-                    <i class="fas fa-sync-alt"></i> 새로고침
-                </button>
-                <button class="demo-control-btn" onclick="openInNewTab()">
-                    <i class="fas fa-external-link-alt"></i> 새 탭
-                </button>
-            </div>
-        </div>
-        <div class="demo-preview">
-            <iframe id="preview-frame" src="about:blank"></iframe>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
 
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+  
 
 
 
 <script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
 
-function createParticles() {
-const particlesContainer = document.getElementById('particles');
-const particleCount = 30;
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
 
-for (let i = 0; i < particleCount; i++) {
-const particle = document.createElement('div');
-particle.className = 'particle';
-particle.style.left = Math.random() * 100 + '%';
-particle.style.animationDelay = Math.random() * 20 + 's';
-particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-particlesContainer.appendChild(particle);
+    
+
+
+<title>웹 데모 - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="웹 데모, html, css">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/web-demo/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="웹 데모 - NFP 디자인">
+    <meta property="og:description" content="html과 css를 입력하면 별도의 프로그램 없이 홈페이지를 볼 수 있습니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/web-demo/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="0001-01-01T00:00:00Z">
+        <meta property="article:modified_time" content="0001-01-01T00:00:00Z">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="웹 데모 - NFP 디자인">
+    <meta name="twitter:description" content="html과 css를 입력하면 별도의 프로그램 없이 홈페이지를 볼 수 있습니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "웹 데모",
+      "description": "html과 css를 입력하면 별도의 프로그램 없이 홈페이지를 볼 수 있습니다.",
+      "url": "http:\/\/localhost:1313\/studio\/web-demo\/",
+      
+      "datePublished": "0001-01-01T00:00:00Z",
+      "dateModified": "0001-01-01T00:00:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+
+<link rel="stylesheet" href="/css/studiopage.css">
+
+
+
+
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">웹 데모</span>
+        <p><br>HTML과 CSS를 실시간으로 테스트해보세요.</p>
+    </div>
+
+    
+<div class="page-btn-wrapper">
+<a href="/categories/" class="page-btn">전체 작업 보기</a>
+<a href="/studio/web-demo" class="page-btn">웹 데모</a>
+<a href="/categories/content/" class="page-btn">컨텐츠 디자인</a>
+<a href="/categories/creative/" class="page-btn">크리에이티브 디자인</a>
+<a href="/categories/video/" class="page-btn">영상 디자인</a>
+<a href="/categories/programming/" class="page-btn">프로그래밍</a>
+<a href="/categories/ad/" class="page-btn">광고/인쇄 디자인</a>
+<a href="/categories/project/" class="page-btn">프로젝트</a>
+</div>
+
+    
+    <div class="studio-page-content">
+        
+        <div class="studio-tab-panel active" id="web-demo">
+            <div class="web-demo-container">
+                
+                <div class="demo-editor-panel">
+                    <div class="demo-panel-header">
+                        <div class="demo-panel-title">
+                            <i class="fas fa-edit"></i>
+                            코드 에디터
+                        </div>
+                        <div class="demo-editor-tabs">
+                            <div class="demo-editor-tab active" data-editor="html">HTML</div>
+                            <div class="demo-editor-tab" data-editor="css">CSS</div>
+                        </div>
+                    </div>
+                    <div class="demo-editor">
+                        <textarea 
+                            class="demo-textarea" 
+                            id="html-editor" 
+                            placeholder="HTML 코드를 입력하세요..."><!DOCTYPE html>
+&lt;html lang="ko">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+    &lt;title>웹 데모&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;div class="container">
+        &lt;h1>안녕하세요!&lt;/h1>
+        &lt;p>Studio NFP 웹 데모입니다.&lt;/p>
+        &lt;button class="btn">에디터에 입력해보세요!&lt;/button>
+    &lt;/div>
+&lt;/body>
+&lt;/html></textarea>
+                        <textarea 
+                            class="demo-textarea" 
+                            id="css-editor" 
+                            style="display: none;"
+                            placeholder="CSS 코드를 입력하세요...">body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
 }
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}</textarea>
+                    </div>
+                </div>
+
+                
+                <div class="demo-preview-panel">
+                    <div class="demo-preview-header">
+                        <div class="demo-preview-title">
+                            <i class="fas fa-eye"></i>
+                            미리보기
+                        </div>
+                        <div class="demo-preview-controls">
+                            <button class="demo-control-btn" onclick="refreshPreview()">
+                                <i class="fas fa-sync-alt"></i> 새로고침
+                            </button>
+                            <button class="demo-control-btn" onclick="openInNewTab()">
+                                <i class="fas fa-external-link-alt"></i> 새 탭
+                            </button>
+                        </div>
+                    </div>
+                    <div class="demo-preview">
+                        <iframe id="preview-frame" src="about:blank"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 document.querySelectorAll('.demo-editor-tab').forEach(tab => {
-tab.addEventListener('click', function() {
-const editorType = this.dataset.editor;
-
-
-document.querySelectorAll('.demo-editor-tab').forEach(t => t.classList.remove('active'));
-this.classList.add('active');
-
-
-document.getElementById('html-editor').style.display = editorType === 'html' ? 'block' : 'none';
-document.getElementById('css-editor').style.display = editorType === 'css' ? 'block' : 'none';
-});
+    tab.addEventListener('click', function() {
+        const editorType = this.dataset.editor;
+        
+        
+        document.querySelectorAll('.demo-editor-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        
+        document.getElementById('html-editor').style.display = editorType === 'html' ? 'block' : 'none';
+        document.getElementById('css-editor').style.display = editorType === 'css' ? 'block' : 'none';
+    });
 });
 
 
 function updatePreview() {
-const htmlCode = document.getElementById('html-editor').value;
-const cssCode = document.getElementById('css-editor').value;
-const iframe = document.getElementById('preview-frame');
-
-
-let fullCode = htmlCode;
-
-
-if (fullCode.includes('<head>')) {
-fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
-} else if (fullCode.includes('<body>')) {
-fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
-} else {
-
-fullCode = `<!DOCTYPE html>
+    const htmlCode = document.getElementById('html-editor').value;
+    const cssCode = document.getElementById('css-editor').value;
+    const iframe = document.getElementById('preview-frame');
+    
+    
+    let fullCode = htmlCode;
+    
+    
+    if (fullCode.includes('<head>')) {
+        fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
+    } else if (fullCode.includes('<body>')) {
+        fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
+    } else {
+        
+        fullCode = `<!DOCTYPE html>
 <html>
 <head><style>${cssCode}</style></head>
 <body>
 ${fullCode}
 </body>
 </html>`;
-}
-
-
-iframe.srcdoc = fullCode;
+    }
+    
+    
+    iframe.srcdoc = fullCode;
 }
 
 
@@ -212,154 +376,223 @@ document.getElementById('css-editor').addEventListener('input', updatePreview);
 
 
 function refreshPreview() {
-updatePreview();
+    updatePreview();
 }
 
 
 function openInNewTab() {
-const htmlCode = document.getElementById('html-editor').value;
-const cssCode = document.getElementById('css-editor').value;
-
-let fullCode = htmlCode;
-
-if (fullCode.includes('<head>')) {
-fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
-} else if (fullCode.includes('<body>')) {
-fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
-} else {
-fullCode = `<!DOCTYPE html>
+    const htmlCode = document.getElementById('html-editor').value;
+    const cssCode = document.getElementById('css-editor').value;
+    
+    let fullCode = htmlCode;
+    
+    if (fullCode.includes('<head>')) {
+        fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
+    } else if (fullCode.includes('<body>')) {
+        fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
+    } else {
+        fullCode = `<!DOCTYPE html>
 <html>
 <head><style>${cssCode}</style></head>
 <body>
 ${fullCode}
 </body>
 </html>`;
-}
-
-const blob = new Blob([fullCode], { type: 'text/html' });
-const url = URL.createObjectURL(blob);
-window.open(url, '_blank');
-
-
-setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+    
+    const blob = new Blob([fullCode], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    window.open(url, '_blank');
+    
+    
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 
 function resetCode() {
-if (confirm('코드를 초기화하시겠습니까?')) {
-document.getElementById('html-editor').value = `<!DOCTYPE html>
+    if (confirm('코드를 초기화하시겠습니까?')) {
+        document.getElementById('html-editor').value = `<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>웹 데모</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 데모</title>
 </head>
 <body>
-<div class="container">
-<h1>안녕하세요!</h1>
-<p>Studio NFP 웹 데모입니다.</p>
-<button class="btn">에디터에 입력해보세요!</button>
-</div>
+    <div class="container">
+        <h1>안녕하세요!</h1>
+        <p>Studio NFP 웹 데모입니다.</p>
+        <button class="btn">에디터에 입력해보세요!</button>
+    </div>
 </body>
 </html>`;
 
-document.getElementById('css-editor').value = `body {
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-margin: 0;
-padding: 40px;
-min-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
+        document.getElementById('css-editor').value = `body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
-background: white;
-padding: 40px;
-border-radius: 4px;
-box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-text-align: center;
-max-width: 400px;
-width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
 }
 
 h1 {
-color: #333;
-margin-bottom: 20px;
-font-size: 2.5rem;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 p {
-color: #666;
-font-size: 1.1rem;
-margin-bottom: 30px;
-line-height: 1.6;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
 .btn {
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-color: white;
-border: none;
-padding: 15px 30px;
-font-size: 1rem;
-border-radius: 50px;
-cursor: pointer;
-transition: all 0.3s ease;
-font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }`;
-updatePreview();
-}
+        updatePreview();
+    }
 }
 
 
 function downloadCode() {
-const htmlCode = document.getElementById('html-editor').value;
-const cssCode = document.getElementById('css-editor').value;
-
-let fullCode = htmlCode;
-
-if (fullCode.includes('<head>')) {
-fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
-} else if (fullCode.includes('<body>')) {
-fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
-} else {
-fullCode = `<!DOCTYPE html>
+    const htmlCode = document.getElementById('html-editor').value;
+    const cssCode = document.getElementById('css-editor').value;
+    
+    let fullCode = htmlCode;
+    
+    if (fullCode.includes('<head>')) {
+        fullCode = fullCode.replace('</head>', `<style>${cssCode}</style>\n</head>`);
+    } else if (fullCode.includes('<body>')) {
+        fullCode = fullCode.replace('<body>', `<head><style>${cssCode}</style></head>\n<body>`);
+    } else {
+        fullCode = `<!DOCTYPE html>
 <html>
 <head><style>${cssCode}</style></head>
 <body>
 ${fullCode}
 </body>
 </html>`;
-}
-
-const blob = new Blob([fullCode], { type: 'text/html' });
-const url = URL.createObjectURL(blob);
-
-const a = document.createElement('a');
-a.href = url;
-a.download = 'web-demo.html';
-document.body.appendChild(a);
-a.click();
-document.body.removeChild(a);
-
-URL.revokeObjectURL(url);
+    }
+    
+    const blob = new Blob([fullCode], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'web-demo.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    
+    URL.revokeObjectURL(url);
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
-createParticles();
-updatePreview();
+    createParticles();
+    updatePreview();
 });
 </script>
+
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
 </body>
 </html>
