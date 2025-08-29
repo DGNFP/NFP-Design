@@ -91,3 +91,10 @@ HUGO_VERSION = "0.147.5"
   from = "/*"
   to = "/404.html"
   status = 404
+
+[context.production.environment]
+HUGO_VERSION = "0.147.5"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+HUGO_BASEURL = "https://nfpdesign.co.kr"
+HUGO_YOUTUBE_API_KEY = "AIzaSyCeQp5zN51LAJ81TGtMhWCk1CB-ZFtq6b8"

@@ -23,8 +23,9 @@ params:
   description: "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인"
   author: "NFP Design"
   timezone: "Asia/Seoul"
+  youtube_channel_handle: "Studio-NFP"  
 
-menu:
+menu: 
   main:
     - name: "홈"
       url: "/#home"
@@ -59,6 +60,12 @@ taxonomies:
   category: "categories"
   tag: "tags"
 
+security:
+  funcs:
+    getenv:
+      - '^HUGO_'
+      - '^CI$'
+      - '^HUGO_YOUTUBE_API_KEY$'
 
 
 markup:

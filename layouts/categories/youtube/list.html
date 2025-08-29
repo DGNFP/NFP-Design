@@ -1,5 +1,4 @@
 {{ define "main" }}
-<!-- 유튜브 게시판 섹션 -->
 <section class="youtube-board-section">
     <div class="container">
         <h2 class="youtube-board-title">YouTube 채널</h2>
@@ -29,6 +28,16 @@
             <a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button active-youtube">YouTube</a>
         </div>
         
+        <!-- API 연동 테스트 -->
+        {{ $apiKey := getenv "HUGO_YOUTUBE_API_KEY" }}
+        {{ $channelHandle := site.Params.youtube_channel_handle | default "Studio-NFP" }}
+        
+        <div class="debug-info">
+            <p>API 키: {{ if $apiKey }}✅ 설정됨{{ else }}❌ 설정안됨{{ end }}</p>
+            <p>채널: {{ $channelHandle }}</p>
+            <p>기존 게시물: {{ len .Pages }}개</p>
+        </div>
+
         <!-- 유튜브 카테고리 필터 -->
         <div class="youtube-filter">
             <div class="filter-group">
@@ -49,60 +58,115 @@
             </div>
         </div>
         
-        <!-- 유튜브 스타일 그리드 -->
         <div class="youtube-grid">
-            <!-- 모든 게시물 로드 -->
-            {{ $allPosts := .Pages }}
-            {{ range $allPosts }}
-            <div class="youtube-item" data-main="youtube" data-category="{{ .Params.subCategory }}">
+            <!-- YouTube API 영상들 -->
+            {{ if $apiKey }}
+                {{ $channelUrl := printf "https://www.googleapis.com/youtube/v3/search?part=snippet&q=%s&type=channel&maxResults=1&key=%s" $channelHandle $apiKey }}
+                {{ $channelTry := try (resources.GetRemote $channelUrl | transform.Unmarshal) }}
+                {{ if $channelTry }}
+                    {{ $channelData := $channelTry.Value }}
+                    {{ if $channelData.items }}
+                        {{ $channelId := (index $channelData.items 0).snippet.channelId }}
+                        
+                        {{ $channelDetailUrl := printf "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=%s&key=%s" $channelId $apiKey }}
+                        {{ $channelDetailTry := try (resources.GetRemote $channelDetailUrl | transform.Unmarshal) }}
+                        {{ if $channelDetailTry }}
+                            {{ $channelDetailData := $channelDetailTry.Value }}
+                            {{ if $channelDetailData.items }}
+                                {{ $uploadsPlaylistId := (index $channelDetailData.items 0).contentDetails.relatedPlaylists.uploads }}
+                                
+                                {{ $videosUrl := printf "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=%s&maxResults=20&key=%s" $uploadsPlaylistId $apiKey }}
+                                {{ $videosTry := try (resources.GetRemote $videosUrl | transform.Unmarshal) }}
+                                {{ if $videosTry }}
+                                    {{ $videosData := $videosTry.Value }}
+                                    {{ range first 20 $videosData.items }}
+                                        {{ $videoId := .snippet.resourceId.videoId }}
+                                        {{ $publishDate := .snippet.publishedAt }}
+                                        <div class="youtube-item" data-category="유튜브 영상" data-title="{{ .snippet.title | lower }}">
+                                            <a href="https://www.youtube.com/watch?v={{ $videoId }}" target="_blank" class="youtube-link">
+                                                <div class="youtube-thumbnail">
+                                                    <img src="{{ .snippet.thumbnails.medium.url }}" 
+                                                         alt="{{ .snippet.title }}"
+                                                         class="youtube-thumb-img">
+                                                    <div class="youtube-play-overlay">
+                                                        <div class="youtube-play-button">
+                                                            <svg viewBox="0 0 24 24" class="youtube-play-icon">
+                                                                <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 타입 배지 -->
+                                                    <div class="youtube-type-badge api-badge">
+                                                        <i class="fab fa-youtube"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="youtube-content">
+                                                    <div class="youtube-avatar">
+                                                        <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
+                                                    </div>
+                                                    <div class="youtube-info">
+                                                        <h3 class="youtube-title">{{ .snippet.title }}</h3>
+                                                        <div class="youtube-meta">
+                                                            <p class="youtube-channel">Studio NFP</p>
+                                                            <p class="youtube-date">
+                                                                {{ dateFormat "2006-01-02" .snippet.publishedAt }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {{ end }}
+                                {{ else }}
+                                    <div class="error">영상 목록을 가져올 수 없습니다.</div>
+                                {{ end }}
+                            {{ else }}
+                                <div class="error">채널 업로드 목록을 찾을 수 없습니다.</div>
+                            {{ end }}
+                        {{ else }}
+                            <div class="error">채널 상세 정보를 가져올 수 없습니다.</div>
+                        {{ end }}
+                    {{ else }}
+                        <div class="error">채널을 찾을 수 없습니다.</div>
+                    {{ end }}
+                {{ else }}
+                    <div class="error">API 호출에 실패했습니다. API 키와 네트워크 연결을 확인해주세요.</div>
+                {{ end }}
+            {{ else }}
+                <p class="error">API 키가 설정되지 않았습니다.</p>
+            {{ end }}
+            
+            <!-- 수동 게시물들 -->
+            {{ range .Pages }}
+            <div class="youtube-item" data-category="{{ .Params.subCategory }}" data-title="{{ .Title | lower }}">
                 <a href="{{ .Permalink }}" class="youtube-link">
                     <div class="youtube-thumbnail">
                         {{ $content := .Content }}
-                        {{ $hasVideo := false }}
-                        {{ $hasImage := false }}
-                        {{ $videoId := "" }}
-                        {{ $isVimeo := false }}
                         {{ $firstImageSrc := "" }}
+                        {{ $videoId := "" }}
                         {{ $firstContentType := "" }}
                         
-                        <!-- 1순위: 본문에서 YouTube URL 찾기 (Shorts 포함) -->
+                        <!-- YouTube URL 찾기 -->
                         {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
-                        {{ $vimeoMatches := "" }}
-                        {{ $imageMatches := "" }}
-                        
                         {{ if $youtubeMatches }}
                             {{ $firstContentType = "youtube" }}
                             {{ $fullMatch := index $youtubeMatches 0 }}
-                            <!-- YouTube Shorts, 일반 YouTube, youtu.be 모두 처리 -->
                             {{ if findRE "/shorts/" $fullMatch 1 }}
                                 {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
                             {{ else }}
                                 {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
                             {{ end }}
-                            {{ $hasVideo = true }}
                         {{ else }}
-                            <!-- 2순위: 본문에서 Vimeo URL 찾기 -->
-                            {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
-                            {{ if $vimeoMatches }}
-                                {{ $firstContentType = "vimeo" }}
-                                {{ $fullMatch := index $vimeoMatches 0 }}
-                                {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
-                                {{ $hasVideo = true }}
-                                {{ $isVimeo = true }}
-                            {{ else }}
-                                <!-- 3순위: 본문에서 첫 번째 이미지 찾기 -->
-                                {{ $imageMatches = findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
-                                {{ if $imageMatches }}
-                                    {{ $firstContentType = "image" }}
-                                    {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
-                                    {{ $hasImage = true }}
-                                {{ end }}
+                            <!-- 이미지 찾기 -->
+                            {{ $imageMatches := findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                            {{ if $imageMatches }}
+                                {{ $firstContentType = "image" }}
+                                {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
                             {{ end }}
                         {{ end }}
                         
                         <!-- 썸네일 표시 -->
                         {{ if eq $firstContentType "youtube" }}
-                            <!-- YouTube 썸네일 + 재생 아이콘 -->
                             <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
                                  alt="{{ .Title }}"
                                  class="youtube-thumb-img"
@@ -115,44 +179,24 @@
                                     </svg>
                                 </div>
                             </div>
-                            <!-- 영상 시간 표시 (예시) -->
-                            {{ if .Params.duration }}
-                            <div class="youtube-duration">{{ .Params.duration }}</div>
-                            {{ end }}
-                        {{ else if eq $firstContentType "vimeo" }}
-                            <!-- Vimeo 썸네일 -->
-                            <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
-                                 alt="{{ .Title }}"
-                                 class="youtube-thumb-img"
-                                 loading="lazy"
-                                 onerror="this.src='/img/vimeo-default.jpg'">
-                            <div class="youtube-play-overlay">
-                                <div class="youtube-play-button">
-                                    <svg viewBox="0 0 24 24" class="youtube-play-icon">
-                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
-                                    </svg>
-                                </div>
-                            </div>
                         {{ else if eq $firstContentType "image" }}
-                            <!-- 이미지 썸네일 (썸네일/채널아트용) -->
                             {{ $originalSrc := $firstImageSrc }}
                             {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
-                            
                             <picture>
                                 <source srcset="{{ $withoutExt }}.webp" type="image/webp">
                                 <img src="{{ $originalSrc }}" alt="{{ .Title }}" class="youtube-thumb-img" loading="lazy">
                             </picture>
-                            
-                            <!-- 썸네일/채널아트 표시 아이콘 -->
-                            {{ if eq .Params.subCategory "유튜브 썸네일" }}
-                            <div class="youtube-type-badge thumbnail-badge">
-                                <i class="fas fa-image"></i>
-                            </div>
-                            {{ else if eq .Params.subCategory "유튜브 채널아트" }}
-                            <div class="youtube-type-badge channel-art-badge">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            {{ end }}
+                        {{ end }}
+                        
+                        <!-- 썸네일/채널아트 배지 -->
+                        {{ if eq .Params.subCategory "유튜브 썸네일" }}
+                        <div class="youtube-type-badge thumbnail-badge">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        {{ else if eq .Params.subCategory "유튜브 채널아트" }}
+                        <div class="youtube-type-badge channel-art-badge">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
                         {{ end }}
                     </div>
                     
@@ -164,17 +208,18 @@
                             <h3 class="youtube-title">{{ .Title }}</h3>
                             <div class="youtube-meta">
                                 <p class="youtube-channel">Studio NFP</p>
-                                {{ if .Params.views }}
-                                <p class="youtube-views">조회수 {{ .Params.views }}회</p>
-                                {{ end }}
-                                <p class="youtube-date">{{ .Date.Format "2006년 1월 2일" }}</p>
+                                <p class="youtube-date">{{ .Date.Format "2006-01-02" }}</p>
                             </div>
-                            {{ if .Params.subtitle }}
-                            <p class="youtube-description">{{ .Params.subtitle }}</p>
-                            {{ end }}
                         </div>
                     </div>
                 </a>
+                <!-- 구독 버튼을 링크 밖으로 이동 -->
+                <div class="youtube-subscribe-wrapper">
+                    <button class="youtube-subscribe-btn" onclick="window.open('https://www.youtube.com/@Studio-NFP?sub_confirmation=1', '_blank');">
+                        <i class="fas fa-bell"></i>
+                        구독하기
+                    </button>
+                </div>
             </div>
             {{ end }}
         </div>
@@ -187,12 +232,280 @@
 </section>
 
 <style>
+.youtube-board-section {
+    background: #0f0f0f;
+    color: #fff;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.youtube-board-title {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.youtube-intro {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 2rem;
+}
+
+.debug-info {
+    background: #1f1f1f;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+.debug-info p {
+    margin: 0.5rem 0;
+}
+
+.youtube-filter {
+    margin-bottom: 2rem;
+}
+
+.youtube-category-filter {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #1f1f1f;
+    border-radius: 25px;
+    padding: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.youtube-category-filter li {
+    margin: 0;
+}
+
+.youtube-category-filter a {
+    display: block;
+    padding: 8px 16px;
+    color: #aaa;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.youtube-category-filter a:hover,
+.youtube-category-filter a.active {
+    background: #ff0000;
+    color: white;
+}
+
+.youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.youtube-item {
+    background: #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.youtube-item:hover {
+    transform: translateY(-4px);
+}
+
+.youtube-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.youtube-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.youtube-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.youtube-play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.youtube-item:hover .youtube-play-overlay {
+    opacity: 1;
+}
+
+.youtube-play-button {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,0,0,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+.youtube-content {
+    padding: 12px;
+}
+
+.youtube-title {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.youtube-date {
+    color: #aaa;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.manual-post {
+    padding: 20px;
+    text-align: center;
+}
+
+.manual-post h3 {
+    color: #fff;
+    margin: 0 0 10px 0;
+}
+
+.error {
+    color: #ff6b6b;
+    text-align: center;
+    padding: 2rem;
+    background: #2f1b1b;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .youtube-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .youtube-category-filter {
+        justify-content: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.youtube-category-filter a');
+    const videoItems = document.querySelectorAll('.youtube-item');
+    const searchInput = document.getElementById('youtubeSearchInput');
+    const searchBtn = document.getElementById('youtubeSearchBtn');
+    
+    // 필터 기능
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            
+            videoItems.forEach(item => {
+                const category = item.dataset.category;
+                let shouldShow = false;
+                
+                if (filter === 'all') {
+                    shouldShow = true;
+                } else {
+                    shouldShow = category === filter;
+                }
+                
+                item.style.display = shouldShow ? 'block' : 'none';
+            });
+        });
+    });
+    
+    // 검색 기능
+    function searchVideos() {
+        const query = searchInput.value.toLowerCase();
+        
+        videoItems.forEach(item => {
+            const title = item.dataset.title || '';
+            const shouldShow = title.includes(query);
+            item.style.display = shouldShow ? 'block' : 'none';
+        });
+        
+        // 검색 후에는 필터 버튼 상태 초기화
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+    }
+    
+    if (searchBtn) {
+        searchBtn.addEventListener('click', searchVideos);
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchVideos();
+            }
+        });
+        
+        // 검색창 클리어 시 전체 보기
+        searchInput.addEventListener('input', function() {
+            if (this.value === '') {
+                videoItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                // "전체" 필터 활성화
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.filter === 'all') {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+});
+</script>
+
+<style>
 /* YouTube 게시판 스타일 */
 .youtube-board-section {
     background: #0f0f0f;
     color: #fff;
     min-height: 100vh;
     padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .youtube-board-title {
@@ -280,6 +593,17 @@
 .youtube-nav .active-youtube {
     background: #ff0000;
     color: white;
+}
+
+.debug-info {
+    background: #1f1f1f;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+.debug-info p {
+    margin: 0.5rem 0;
 }
 
 /* 필터 */
@@ -463,19 +787,6 @@
     margin-left: 2px;
 }
 
-/* 영상 시간 */
-.youtube-duration {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
 /* 타입 배지 */
 .youtube-type-badge {
     position: absolute;
@@ -489,6 +800,10 @@
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+.api-badge {
+    background: rgba(255, 0, 0, 0.9);
 }
 
 .thumbnail-badge {
@@ -549,22 +864,51 @@
     font-weight: 500;
 }
 
-.youtube-views,
 .youtube-date {
     color: #666;
     font-size: 0.8rem;
     margin: 0;
 }
 
-.youtube-description {
-    color: #aaa;
+/* 구독 버튼 */
+.youtube-subscribe-wrapper {
+    padding: 12px 16px 16px;
+}
+
+.youtube-subscribe-btn {
+    width: 100%;
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
     font-size: 0.85rem;
-    line-height: 1.4;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.youtube-subscribe-btn:hover {
+    background: #cc0000;
+    transform: translateY(-1px);
+}
+
+.youtube-subscribe-btn i {
+    font-size: 0.8rem;
+}
+
+/* 에러 메시지 */
+.error {
+    color: #ff6b6b;
+    text-align: center;
+    padding: 2rem;
+    background: #2f1b1b;
+    border-radius: 8px;
+    grid-column: 1 / -1;
 }
 
 /* 페이지네이션 */
@@ -652,5 +996,4 @@
     }
 }
 </style>
-
 {{ end }}
