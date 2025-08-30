@@ -79,6 +79,20 @@ exports.handler = async (event, context) => {
     if (channel.brandingSettings && channel.brandingSettings.image) {
       bannerUrl = channel.brandingSettings.image.bannerExternalUrl || 
                  channel.brandingSettings.image.bannerImageUrl || '';
+      
+      // 고해상도 URL로 변경
+      if (bannerUrl) {
+        // YouTube 이미지 URL 패턴을 고해상도로 변경
+        bannerUrl = bannerUrl
+          .replace(/=w\d+-/g, '=w2560-')  // 폭을 2560으로 설정
+          .replace(/=h\d+-/g, '=h1440-')  // 높이를 1440으로 설정
+          .replace(/=s\d+-/g, '=s2560-'); // 정사각형 이미지의 경우
+        
+        // URL 끝에 고품질 옵션 추가
+        if (!bannerUrl.includes('-no-rj')) {
+          bannerUrl = bannerUrl.replace(/(-c-k-c0x00ffffff)?(\.jpg|\.png|\.webp)?$/, '-c-k-c0x00ffffff-no-rj');
+        }
+      }
     }
     
     // 2단계: 비디오 목록 가져오기
