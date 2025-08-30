@@ -74,25 +74,7 @@ exports.handler = async (event, context) => {
     const channel = channelData.items[0];
     const uploadsPlaylistId = channel.contentDetails.relatedPlaylists.uploads;
     
-    // 채널아트 URL 추출
-    let bannerUrl = '';
-    if (channel.brandingSettings && channel.brandingSettings.image) {
-      bannerUrl = channel.brandingSettings.image.bannerExternalUrl || 
-                 channel.brandingSettings.image.bannerImageUrl || '';
-      
-      // 원본 URL 로그 출력
-      console.log('Original banner URL:', bannerUrl);
-      
-      // 안전한 해상도 조정 - 기존 파라미터가 있을 때만 수정
-      if (bannerUrl && bannerUrl.includes('=')) {
-        // 더 보수적인 접근: 기존 해상도만 증가
-        bannerUrl = bannerUrl
-          .replace(/=w\d+/g, '=w1920')  // 폭을 1920으로 (2560은 너무 클 수 있음)
-          .replace(/=h\d+/g, '=h1080'); // 높이를 1080으로
-        
-        console.log('Modified banner URL:', bannerUrl);
-      }
-    }
+    // 채널아트는 화질 문제로 사용하지 않음
     
     // 2단계: 비디오 목록 가져오기
     const videosUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`;
@@ -108,8 +90,7 @@ exports.handler = async (event, context) => {
     const result = {
       channelInfo: {
         title: channel.snippet.title,
-        thumbnailUrl: channel.snippet.thumbnails.default.url,
-        bannerUrl: bannerUrl
+        thumbnailUrl: channel.snippet.thumbnails.default.url
       },
       videos: videosData.items.map(item => ({
         videoId: item.snippet.resourceId.videoId,
