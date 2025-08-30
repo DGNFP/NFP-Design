@@ -1954,7 +1954,7 @@ word-break: break-word;
     text-align: center;
     margin-bottom: 40px;
     padding: 60px;
-    /* background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); */
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
     border-radius: 6px;
     position: relative;
     overflow: hidden;
@@ -3033,7 +3033,7 @@ font-size: 12px;
   .board-game-grid .board-all-item {
     min-height: 140px;
     align-items: center;
-padding: 0px;
+    padding: 0px;
   }
   
   .board-game-grid .board-all-item a {
@@ -3284,9 +3284,40 @@ white-space: nowrap;
         padding-top: 20px;
     }
 
-.related-posts-grid:has(.related-post-card:nth-child(3):nth-last-child(1)) {
-grid-template-columns: repeat(2, 1fr);
+    .related-posts-grid:has(.related-post-card:nth-child(3):nth-last-child(1)) {
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+    .youtube-filter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    }
+
+    .youtube-category-filter {
+    margin: 0;
+    padding: 6px 4px 6px 4px;
+    gap: 4px;
 }
+
+    .youtube-category-filter a {
+    padding: 6px 8px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.youtube-grid {
+    display: grid
+;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 2fr));
+    gap: 16px;
+    margin-bottom: 3rem;
+}
+
+
 }
 
 /* 작은 모바일 */

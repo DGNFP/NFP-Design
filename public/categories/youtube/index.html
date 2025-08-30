@@ -163,9 +163,7 @@
         <p class="youtube-intro">Studio NFP의 다양한 영상 콘텐츠를 만나보세요.</p>
 
         
-        <div class="youtube-cta-wrapper" id="youtube-cta" style="
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        linear-gradient(45deg, #ff0000, #cc0000);
+        <div class="youtube-cta-wrapper" style="
             position: relative;
             overflow: hidden;
         ">
@@ -322,8 +320,7 @@
 
 let channelInfo = {
    title: 'Studio NFP',
-   thumbnailUrl: '',
-   bannerUrl: ''
+   thumbnailUrl: ''
 };
 
 
@@ -350,7 +347,6 @@ async function loadYouTubeVideos() {
    const loadingElement = document.getElementById('youtube-loading');
    const errorElement = document.getElementById('youtube-error');
    const videosContainer = document.querySelector('.youtube-grid');
-   const ctaWrapper = document.getElementById('youtube-cta');
    
    try {
        
@@ -368,14 +364,6 @@ async function loadYouTubeVideos() {
        
        
        channelInfo = data.channelInfo;
-       
-       
-       if (channelInfo.bannerUrl) {
-           ctaWrapper.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${channelInfo.bannerUrl})`;
-           ctaWrapper.style.backgroundSize = 'cover';
-           ctaWrapper.style.backgroundPosition = 'center';
-           ctaWrapper.style.backgroundRepeat = 'no-repeat';
-       }
        
        
        loadingElement.remove();
