@@ -557,6 +557,31 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/text-tools/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/unit-converter/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/text-counter/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/font-converter/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/color-palette/gradient-2/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -570,10 +595,6 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/image-tools/pdf-compressor/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/studio/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
@@ -594,10 +615,6 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/calculator/unit/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/studio/design-guide/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
@@ -642,14 +659,6 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/qr/custom/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/studio/color-mixer/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/studio/card/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>

@@ -19,9 +19,15 @@ html{
 
     --secondary-color: rgba(1, 255, 117, 0.1);
     --transition: all 0.3s ease;
+
+    /* 타이틀 */
+    --title-color:#080808; 
+
+    /* 타이틀 안의 요소 */
     --sub-bg-color: #141414;
     --sub-border-color: #272727;
 
+    /* 그보다 더 약한 요소 */
     --semi-black :rgba(255, 255, 255, 0.05);
     --semi-black-hover : #4d4c4c77;
 
@@ -412,6 +418,8 @@ white-space: nowrap;
     gap: 20px;
     height: calc(100vh - 200px);
     min-height: 600px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .demo-editor-panel {
@@ -2303,8 +2311,8 @@ select.studio-form-input option {
 .text-counter-wrapper {
     display: grid;
     grid-template-columns: 1fr 400px;
-    gap: 2rem;
-    margin-top: 20px;
+    align-items: start;       /* 상단 정렬 */
+    gap: 24px;
 }
 
 .text-counter-input-section {
@@ -2351,13 +2359,13 @@ select.studio-form-input option {
     font-size: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: white;
-    background:var(--semi-black);
+    color: var(--background-color);
+    background:var(--accent-color);
+    font-weight: 600;
 }
 
 .text-counter-actions button:hover{
-    background-color: var(--semi-black-hover);
-    color: white;
+    background-color: var(--accent-color-hover);
 }
 
 .text-counter-results {
@@ -2841,7 +2849,6 @@ select.studio-form-input option {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-top: 2rem;
 }
 
 /* 상단: 설정 영역 (3개 컬럼) */
@@ -2859,7 +2866,7 @@ select.studio-form-input option {
 }
 
 .unit-converter-section {
-    background: var(--sub-bg-color, #141414);
+    background: #080808;
     border: 1px solid var(--sub-border-color, #272727);
     border-radius: 4px;
     padding: 1.5rem;
@@ -2954,7 +2961,7 @@ select.studio-form-input option {
 }
 
 .unit-converter-calculator {
-    background: var(--sub-bg-color, #141414);
+    background: var(--title-color);
     border: 1px solid var(--sub-border-color, #272727);
     border-radius: 4px;
     padding: 1.5rem;
@@ -3032,7 +3039,7 @@ select.studio-form-input option {
 }
 
 .unit-converter-examples {
-    background: var(--sub-bg-color, #141414);
+    background: var(--title-color);
     border: 1px solid var(--sub-border-color, #272727);
     border-radius: 4px;
     padding: 1.5rem;
@@ -3115,14 +3122,13 @@ select.studio-form-input option {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin-top: 32px;
 }
 
 .font-converter-main {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    background: var(--sub-bg-color, #141414);
+    background: var(--title-color);
     border: 1px solid var(--sub-border-color, #272727);
     border-radius: 4px;
     padding: 24px;
@@ -3212,7 +3218,7 @@ select.studio-form-input option {
 
 .font-converter-responsive,
 .font-converter-size-guide {
-    background: var(--sub-bg-color, #141414);
+    background: var(--title-color);
     border: 1px solid var(--sub-border-color, #272727);
     border-radius: 4px;
     padding: 24px;
@@ -3278,14 +3284,14 @@ select.studio-form-input option {
 
 .font-converter-size-guide-item span:first-child {
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
 }
 
 .font-converter-size-guide-item span:last-child {
     color: white;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 /* 폰트 크기 변환기 반응형 */

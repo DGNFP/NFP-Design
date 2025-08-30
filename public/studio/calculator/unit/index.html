@@ -162,96 +162,260 @@
 
 <link rel="stylesheet" href="/css/studiopage.css">
 
-<section class="studio-page-section">
-    <div class="container">
-        
-        <div class="studio-page-header">
-            <h1>단위 변환기</h1>
-            <p>픽셀, 포인트, 밀리미터, 센티미터, 인치 등 디자인 단위 상호 변환 도구</p>
-        </div>
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">단위 변환기</span>
+        <p><br>px, pt, mm, cm, inch 단위를 빠르게 상호 변환하세요.</p>
+    </div>
 
-        
-        <div class="studio-page-content">
-            <div class="studio-tab-panel active">
-                <div class="studio-calc-section">
-                    
-                    <div class="studio-unit-selection">
-                        <div class="studio-unit-group">
-                            <label>기준 단위</label>
-                            <div class="studio-unit-radios">
-                                <label class="radio-option">
-                                    <input type="radio" name="base-unit" value="px" checked>
-                                    <span>픽셀 (px)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="base-unit" value="pt">
-                                    <span>포인트 (pt)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="base-unit" value="mm">
-                                    <span>밀리미터 (mm)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="base-unit" value="cm">
-                                    <span>센티미터 (cm)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="base-unit" value="inch">
-                                    <span>인치 (inch)</span>
-                                </label>
-                            </div>
+
+<div class="page-btn-wrapper">
+<a href="/studio" class="page-btn">스튜디오 메인</a>
+<a href="/studio/web-demo" class="page-btn">웹 데모</a>
+<a href="/studio/text-counter" class="page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="page-btn">더미 텍스트</a>
+<a href="/studio/unit-converter" class="page-btn">단위 변환기</a>
+<a href="/studio/font-converter" class="page-btn">폰트 변환기</a>
+<a href="/#" class="page-btn">#</a>
+<a href="/#" class="page-btn">#</a>
+</div>
+
+    
+    <div class="studio-page-content">
+        <div class="container">
+            <div class="unit-converter-wrapper">
+                
+                <div class="unit-converter-settings">
+                    <div class="unit-converter-section">
+                        <h3>기준 단위</h3>
+                        <div class="unit-converter-radios">
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="base-unit" value="px" checked>
+                                픽셀 (px)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="base-unit" value="pt">
+                                포인트 (pt)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="base-unit" value="mm">
+                                밀리미터 (mm)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="base-unit" value="cm">
+                                센티미터 (cm)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="base-unit" value="inch">
+                                인치 (inch)
+                            </label>
                         </div>
-                        
-                        <div class="studio-unit-group">
-                            <label>변환 단위</label>
-                            <div class="studio-unit-radios">
-                                <label class="radio-option">
-                                    <input type="radio" name="target-unit" value="px">
-                                    <span>픽셀 (px)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="target-unit" value="pt">
-                                    <span>포인트 (pt)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="target-unit" value="mm" checked>
-                                    <span>밀리미터 (mm)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="target-unit" value="cm">
-                                    <span>센티미터 (cm)</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="target-unit" value="inch">
-                                    <span>인치 (inch)</span>
-                                </label>
+                    </div>
+
+                    <div class="unit-converter-section">
+                        <h3>변환 단위</h3>
+                        <div class="unit-converter-radios">
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="target-unit" value="px">
+                                픽셀 (px)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="target-unit" value="pt">
+                                포인트 (pt)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="target-unit" value="mm" checked>
+                                밀리미터 (mm)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="target-unit" value="cm">
+                                센티미터 (cm)
+                            </label>
+                            <label class="unit-converter-radio-label">
+                                <input type="radio" name="target-unit" value="inch">
+                                인치 (inch)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="unit-converter-section">
+                        <h3>변환 기준</h3>
+                        <p>96 DPI 기준으로 변환됩니다.</p>
+                        <div class="unit-converter-reference">
+                            <h5>참고 값</h5>
+                            <ul>
+                                <li>1 inch = 96px = 72pt</li>
+                                <li>1 cm = 37.8px ≈ 28.3pt</li>
+                                <li>1 mm = 3.78px ≈ 2.83pt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="unit-converter-results">
+                    <div class="unit-converter-calculator">
+                        <h3>변환 결과</h3>
+                        <div class="unit-converter-inputs">
+                            <div class="unit-converter-input-group">
+                                <label id="base-unit-label">픽셀 (px)</label>
+                                <div class="unit-converter-input-wrapper">
+                                    <input type="number" id="base-unit-input" placeholder="100" step="0.01">
+                                    <span id="base-unit-symbol">px</span>
+                                </div>
+                            </div>
+
+                            <div class="unit-converter-arrow">⇄</div>
+
+                            <div class="unit-converter-input-group">
+                                <label id="target-unit-label">밀리미터 (mm)</label>
+                                <div class="unit-converter-input-wrapper">
+                                    <input type="number" id="target-unit-input" placeholder="26.46" step="0.01">
+                                    <span id="target-unit-symbol">mm</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    
-                    <div class="studio-font-converter">
-                        <div class="studio-converter-item">
-                            <div class="studio-size-input">
-                                <input type="number" id="base-unit-input" placeholder="100" step="0.01">
-                                <span id="base-unit-symbol">px</span>
-                            </div>
-                        </div>
-                        <div class="studio-converter-arrow">⇄</div>
-                        <div class="studio-converter-item">
-                            <div class="studio-size-input">
-                                <input type="number" id="target-unit-input" placeholder="26.46" step="0.01">
-                                <span id="target-unit-symbol">mm</span>
-                            </div>
+
+                    <div class="unit-converter-examples">
+                        <h3>빠른 변환</h3>
+                        <div class="unit-converter-example-grid">
+                            <button onclick="setQuickConversion(16, 'px')" class="unit-converter-example-btn">16px</button>
+                            <button onclick="setQuickConversion(24, 'px')" class="unit-converter-example-btn">24px</button>
+                            <button onclick="setQuickConversion(32, 'px')" class="unit-converter-example-btn">32px</button>
+                            <button onclick="setQuickConversion(1, 'inch')" class="unit-converter-example-btn">1 inch</button>
+                            <button onclick="setQuickConversion(10, 'mm')" class="unit-converter-example-btn">10mm</button>
+                            <button onclick="setQuickConversion(1, 'cm')" class="unit-converter-example-btn">1cm</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 </section>
 
-<script src="/js/studiopage.js"></script>
+<script>
+
+const CONVERSION_RATES = {
+    px: 1,
+    pt: 96 / 72,
+    mm: 96 / 25.4,
+    cm: 96 / 2.54,
+    inch: 96
+};
+
+function updateUnitLabels() {
+    const baseUnit = document.querySelector('input[name="base-unit"]:checked')?.value || 'px';
+    const targetUnit = document.querySelector('input[name="target-unit"]:checked')?.value || 'mm';
+    
+    const unitNames = {
+        px: '픽셀 (px)',
+        pt: '포인트 (pt)',
+        mm: '밀리미터 (mm)',
+        cm: '센티미터 (cm)',
+        inch: '인치 (inch)'
+    };
+    
+    
+    const baseLabel = document.getElementById('base-unit-label');
+    const targetLabel = document.getElementById('target-unit-label');
+    const baseSymbol = document.getElementById('base-unit-symbol');
+    const targetSymbol = document.getElementById('target-unit-symbol');
+    
+    if (baseLabel) baseLabel.textContent = unitNames[baseUnit];
+    if (targetLabel) targetLabel.textContent = unitNames[targetUnit];
+    if (baseSymbol) baseSymbol.textContent = baseUnit;
+    if (targetSymbol) targetSymbol.textContent = targetUnit;
+    
+    
+    const baseInput = document.getElementById('base-unit-input');
+    if (baseInput && baseInput.value) {
+        convertFromBase();
+    }
+}
+
+function convertFromBase() {
+    const baseUnit = document.querySelector('input[name="base-unit"]:checked')?.value || 'px';
+    const targetUnit = document.querySelector('input[name="target-unit"]:checked')?.value || 'mm';
+    const baseValue = parseFloat(document.getElementById('base-unit-input')?.value);
+    
+    if (isNaN(baseValue) || baseValue === '') {
+        document.getElementById('target-unit-input').value = '';
+        return;
+    }
+    
+    const convertedValue = convertUnits(baseValue, baseUnit, targetUnit);
+    document.getElementById('target-unit-input').value = formatConversionResult(convertedValue);
+}
+
+function convertFromTarget() {
+    const baseUnit = document.querySelector('input[name="base-unit"]:checked')?.value || 'px';
+    const targetUnit = document.querySelector('input[name="target-unit"]:checked')?.value || 'mm';
+    const targetValue = parseFloat(document.getElementById('target-unit-input')?.value);
+    
+    if (isNaN(targetValue) || targetValue === '') {
+        document.getElementById('base-unit-input').value = '';
+        return;
+    }
+    
+    const convertedValue = convertUnits(targetValue, targetUnit, baseUnit);
+    document.getElementById('base-unit-input').value = formatConversionResult(convertedValue);
+}
+
+function convertUnits(value, fromUnit, toUnit) {
+    
+    const pxValue = value * CONVERSION_RATES[fromUnit];
+    const result = pxValue / CONVERSION_RATES[toUnit];
+    return result;
+}
+
+function formatConversionResult(value) {
+    return parseFloat(value.toFixed(3)).toString();
+}
+
+function setQuickConversion(value, unit) {
+    
+    const baseRadio = document.querySelector(`input[name="base-unit"][value="${unit}"]`);
+    if (baseRadio) {
+        baseRadio.checked = true;
+        updateUnitLabels();
+    }
+    
+    document.getElementById('base-unit-input').value = value;
+    convertFromBase();
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateUnitLabels();
+    
+    
+    document.querySelectorAll('input[name="base-unit"]').forEach(radio => {
+        radio.addEventListener('change', updateUnitLabels);
+    });
+    
+    document.querySelectorAll('input[name="target-unit"]').forEach(radio => {
+        radio.addEventListener('change', updateUnitLabels);
+    });
+    
+    
+    const baseInput = document.getElementById('base-unit-input');
+    const targetInput = document.getElementById('target-unit-input');
+    
+    if (baseInput) {
+        baseInput.addEventListener('input', convertFromBase);
+    }
+    
+    if (targetInput) {
+        targetInput.addEventListener('input', convertFromTarget);
+    }
+});
+</script>
 
 
     
