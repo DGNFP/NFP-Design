@@ -292,10 +292,6 @@
 
 <script>
 
-const YOUTUBE_API_KEY = 'AIzaSyD29en30i6YKwonn6yGsVw6dQSUl0Liovg';
-const CHANNEL_ID = 'UCjB24gwQdmWQ7j4gQkZipHw';
-
-
 let channelInfo = {
    title: 'Studio NFP',
    thumbnailUrl: '/img/studio-nfp-avatar.jpg'
@@ -326,48 +322,22 @@ async function loadYouTubeVideos() {
    const errorElement = document.getElementById('youtube-error');
    const videosContainer = document.querySelector('.youtube-grid');
    
-   if (!YOUTUBE_API_KEY) {
-       loadingElement.style.display = 'none';
-       errorElement.innerHTML = '<p><strong>API 키가 설정되지 않았습니다.</strong></p>';
-       errorElement.style.display = 'block';
-       return;
-   }
-   
    try {
        
-       const channelResponse = await fetch(
-           `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
-       );
+       const response = await fetch('/.netlify/functions/youtube-api');
        
-       if (!channelResponse.ok) {
-           throw new Error(`채널 정보 오류: ${channelResponse.status}`);
+       if (!response.ok) {
+           throw new Error(`서버 오류: ${response.status}`);
        }
        
-       const channelData = await channelResponse.json();
+       const data = await response.json();
        
-       if (!channelData.items || channelData.items.length === 0) {
-           throw new Error('채널을 찾을 수 없습니다.');
+       if (data.error) {
+           throw new Error(data.error);
        }
        
        
-       const channel = channelData.items[0];
-       channelInfo = {
-           title: channel.snippet.title,
-           thumbnailUrl: channel.snippet.thumbnails.default.url
-       };
-       
-       const uploadsPlaylistId = channel.contentDetails.relatedPlaylists.uploads;
-       
-       
-       const videosResponse = await fetch(
-           `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`
-       );
-       
-       if (!videosResponse.ok) {
-           throw new Error(`비디오 목록 오류: ${videosResponse.status}`);
-       }
-       
-       const videosData = await videosResponse.json();
+       channelInfo = data.channelInfo;
        
        
        loadingElement.remove();
@@ -393,23 +363,20 @@ async function loadYouTubeVideos() {
        });
        
        
-       videosData.items.forEach(item => {
-           const videoId = item.snippet.resourceId.videoId;
-           const title = item.snippet.title;
-           const thumbnail = item.snippet.thumbnails.medium.url;
-           const publishDate = new Date(item.snippet.publishedAt);
+       data.videos.forEach(video => {
+           const publishDate = new Date(video.publishedAt);
            const publishDateString = publishDate.toISOString().split('T')[0];
            
            const videoElement = document.createElement('div');
            videoElement.className = 'youtube-item';
            videoElement.setAttribute('data-category', '유튜브 영상');
-           videoElement.setAttribute('data-title', title.toLowerCase());
+           videoElement.setAttribute('data-title', video.title.toLowerCase());
            
            videoElement.innerHTML = `
                <div class="youtube-card-content">
-                   <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="youtube-link">
+                   <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank" class="youtube-link">
                        <div class="youtube-thumbnail">
-                           <img src="${thumbnail}" alt="${title}" class="youtube-thumb-img" loading="lazy">
+                           <img src="${video.thumbnail}" alt="${video.title}" class="youtube-thumb-img" loading="lazy">
                            <div class="youtube-play-overlay">
                                <div class="youtube-play-button">
                                    <svg viewBox="0 0 24 24" class="youtube-play-icon">
@@ -426,7 +393,7 @@ async function loadYouTubeVideos() {
                        <img src="${channelInfo.thumbnailUrl}" alt="${channelInfo.title}" class="youtube-channel-avatar">
                        </div>
                        <div class="youtube-info">
-                       <h3 class="youtube-title">${title}</h3>
+                       <h3 class="youtube-title">${video.title}</h3>
                        <div class="youtube-meta">
                            <p class="youtube-channel">Studio <span>NFP</span></p>
                            <p class="youtube-date">${publishDateString}</p>
@@ -476,7 +443,7 @@ async function loadYouTubeVideos() {
        }, 500);
        
    } catch (error) {
-       console.error('YouTube API 오류:', error);
+       console.error('YouTube 데이터 로드 오류:', error);
        loadingElement.style.display = 'none';
        errorElement.innerHTML = `<p><strong>YouTube 영상을 불러올 수 없습니다.</strong></p><p>오류: ${error.message}</p>`;
        errorElement.style.display = 'block';
