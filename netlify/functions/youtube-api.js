@@ -57,8 +57,8 @@ exports.handler = async (event, context) => {
   }
   
   try {
-    // 1단계: 채널 정보 가져오기
-    const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`;
+    // 1단계: 채널 정보 가져오기 (brandingSettings 추가)
+    const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,brandingSettings&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`;
     const channelResponse = await makeRequest(channelUrl);
     
     if (!channelResponse.ok) {
@@ -74,6 +74,13 @@ exports.handler = async (event, context) => {
     const channel = channelData.items[0];
     const uploadsPlaylistId = channel.contentDetails.relatedPlaylists.uploads;
     
+    // 채널아트 URL 추출
+    let bannerUrl = '';
+    if (channel.brandingSettings && channel.brandingSettings.image) {
+      bannerUrl = channel.brandingSettings.image.bannerExternalUrl || 
+                 channel.brandingSettings.image.bannerImageUrl || '';
+    }
+    
     // 2단계: 비디오 목록 가져오기
     const videosUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`;
     const videosResponse = await makeRequest(videosUrl);
@@ -88,7 +95,8 @@ exports.handler = async (event, context) => {
     const result = {
       channelInfo: {
         title: channel.snippet.title,
-        thumbnailUrl: channel.snippet.thumbnails.default.url
+        thumbnailUrl: channel.snippet.thumbnails.default.url,
+        bannerUrl: bannerUrl
       },
       videos: videosData.items.map(item => ({
         videoId: item.snippet.resourceId.videoId,

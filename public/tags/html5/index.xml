@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTML5 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
-    <link>http://localhost:51687/tags/html5/</link>
+    <link>http://localhost:1313/tags/html5/</link>
     <description>Recent content in HTML5 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
     <lastBuildDate>Sun, 06 Jul 2025 20:52:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:51687/tags/html5/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/html5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NFP 디자인 어시스턴트 - 인터렉션 효과</title>
-      <link>http://localhost:51687/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</link>
+      <link>http://localhost:1313/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</link>
       <pubDate>Sun, 06 Jul 2025 20:52:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</guid>
       <description>&lt;p&gt;버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>스켈레톤 애니메이션으로 레이아웃 시프트 이슈 해결</title>
-      <link>http://localhost:51687/categories/programming/2025-06-27-%EC%8A%A4%EC%BC%88%EB%A0%88%ED%86%A4-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%8B%9C%ED%94%84%ED%8A%B8-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0/</link>
+      <link>http://localhost:1313/categories/programming/2025-06-27-%EC%8A%A4%EC%BC%88%EB%A0%88%ED%86%A4-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%8B%9C%ED%94%84%ED%8A%B8-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0/</link>
       <pubDate>Fri, 27 Jun 2025 22:29:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-06-27-%EC%8A%A4%EC%BC%88%EB%A0%88%ED%86%A4-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%8B%9C%ED%94%84%ED%8A%B8-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-06-27-%EC%8A%A4%EC%BC%88%EB%A0%88%ED%86%A4-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%8B%9C%ED%94%84%ED%8A%B8-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0/</guid>
       <description>&lt;p&gt;html과 css 조합으로, 이미지가 로드 되기 전 자리를 잡지 못하고 먼저 레이아웃이 로드 되고&lt;/p&gt;&#xA;&lt;p&gt;나중에 이미지가 레이아웃 영역을 침범하면서 생기는, 레이아웃 시프트 현상을 해결하기 위한&lt;/p&gt;&#xA;&lt;p&gt;스켈레톤 애니메이션 입니다.&lt;/p&gt;&#xA;&lt;p&gt;이미지가 삽입 될 영역에 로딩중이라는 효과를 시각적으로 표현하기 위해 많이 사용합니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Studio NFP - NFP Design 브랜딩</title>
-      <link>http://localhost:51687/categories/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</link>
+      <link>http://localhost:1313/categories/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</link>
       <pubDate>Tue, 24 Jun 2025 07:26:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-06-23-studio-nfp-nfp-design-%EB%B8%8C%EB%9E%9C%EB%94%A9/</guid>
       <description>&lt;p&gt;세개의 컬러가 상징하는 의미&lt;/p&gt;&#xA;&lt;p&gt;디자인 (네온그린 ) :  01ff75&lt;/p&gt;&#xA;&lt;p&gt;프로그래밍 ( 네온블루) :  00f0ff&lt;/p&gt;&#xA;&lt;p&gt;게임 ( 네온옐로) : fff200&lt;/p&gt;&#xA;&lt;p&gt;NFP 디자인의 네온그린과 NFP 게임즈의 네온블루~옐로 그라데이션&lt;/p&gt;&#xA;&lt;p&gt;세 컬러의 그라데이션이 어우러진 스튜디오 NFP의 브랜딩 기획입니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>컬러 팔레트 생성기</title>
-      <link>http://localhost:51687/categories/programming/2025-06-20-%EC%BB%AC%EB%9F%AC-%ED%8C%94%EB%A0%88%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B8%B0/</link>
+      <link>http://localhost:1313/categories/programming/2025-06-20-%EC%BB%AC%EB%9F%AC-%ED%8C%94%EB%A0%88%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B8%B0/</link>
       <pubDate>Sat, 21 Jun 2025 00:06:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-06-20-%EC%BB%AC%EB%9F%AC-%ED%8C%94%EB%A0%88%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-06-20-%EC%BB%AC%EB%9F%AC-%ED%8C%94%EB%A0%88%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B8%B0/</guid>
       <description>&lt;p&gt;컬러 생성과 애니메이션 효과를 적용한 웹 데모 프로젝트 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 시그니쳐&amp;rdquo; 테마를 활용하였습니다.&lt;/p&gt;&#xA;&lt;p&gt;오늘은 무슨 컬러를 사용할지 고민이라면, 컬러 생성기를 이용해보시는건 어떨까요?&lt;/p&gt;&#xA;&lt;p&gt;곧, 모바일 앱으로도 찾아뵙겠습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>미니 대시보드</title>
-      <link>http://localhost:51687/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C/</link>
+      <link>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C/</link>
       <pubDate>Sat, 21 Jun 2025 00:04:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C/</guid>
       <description>&lt;p&gt;카드 레이아웃과 통계표시를 구현한 웹 데모 프로젝트 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 클래식&amp;rdquo; 테마를 사용하였습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>인터렉티브 버튼 컬렉션</title>
-      <link>http://localhost:51687/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</link>
+      <link>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</link>
       <pubDate>Fri, 20 Jun 2025 23:56:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EC%9D%B8%ED%84%B0%EB%A0%89%ED%8B%B0%EB%B8%8C-%EB%B2%84%ED%8A%BC-%EC%BB%AC%EB%A0%89%EC%85%98/</guid>
       <description>&lt;p&gt;다양한 버튼 스타일과 상호작용을 구현한, 웹데모 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 네온&amp;quot;테마를 사용하였습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>미니멀 프로필 카드</title>
-      <link>http://localhost:51687/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88%EB%A9%80-%ED%94%84%EB%A1%9C%ED%95%84-%EC%B9%B4%EB%93%9C/</link>
+      <link>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88%EB%A9%80-%ED%94%84%EB%A1%9C%ED%95%84-%EC%B9%B4%EB%93%9C/</link>
       <pubDate>Fri, 20 Jun 2025 23:50:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88%EB%A9%80-%ED%94%84%EB%A1%9C%ED%95%84-%EC%B9%B4%EB%93%9C/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-06-20-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EB%AF%B8%EB%8B%88%EB%A9%80-%ED%94%84%EB%A1%9C%ED%95%84-%EC%B9%B4%EB%93%9C/</guid>
       <description>&lt;p&gt;글래스모피즘 효과와 호버 애니메이션을 적용한 퍼블리싱 작업물 입니다.&lt;/p&gt;&#xA;&lt;p&gt;테마는 &amp;ldquo;NFP 미니멀&amp;rdquo; 테마를 사용했습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>모던 카페 웹사이트</title>
-      <link>http://localhost:51687/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</link>
+      <link>http://localhost:1313/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</link>
       <pubDate>Sun, 01 Jun 2025 15:30:00 +0900</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-06-01-%EB%AA%A8%EB%8D%98%EC%B9%B4%ED%8E%98/</guid>
       <description>&lt;h2 id=&#34;프로젝트-개요&#34;&gt;프로젝트 개요&lt;/h2&gt;&#xA;&lt;p&gt;모던한 디자인의 카페 브랜드 웹사이트를 반응형으로 퍼블리싱했습니다.&lt;br&gt;&#xA;사용자 경험을 최우선으로 고려하여 직관적이고 세련된 인터페이스를 구현했습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>랜딩페이지 클론</title>
-      <link>http://localhost:51687/categories/programming/2025-05-29-%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%81%B4%EB%A1%A0/</link>
+      <link>http://localhost:1313/categories/programming/2025-05-29-%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%81%B4%EB%A1%A0/</link>
       <pubDate>Thu, 29 May 2025 23:00:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-05-29-%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%81%B4%EB%A1%A0/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-05-29-%EB%9E%9C%EB%94%A9%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%81%B4%EB%A1%A0/</guid>
       <description>&lt;p&gt;css와 html을 이용하여 작성한 코드를 사이트 내 게시글 작성폼에 입력하여&lt;/p&gt;&#xA;&lt;p&gt;웹 데모 기능을 확인하기 위한 테스트 게시글 입니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>웹데모 기능 구현</title>
-      <link>http://localhost:51687/categories/programming/2025-05-28-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/</link>
+      <link>http://localhost:1313/categories/programming/2025-05-28-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/</link>
       <pubDate>Mon, 26 May 2025 22:48:00 +0000</pubDate>
-      <guid>http://localhost:51687/categories/programming/2025-05-28-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/</guid>
+      <guid>http://localhost:1313/categories/programming/2025-05-28-%EC%9B%B9%EB%8D%B0%EB%AA%A8-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/</guid>
       <description>&lt;p&gt;기본적인 버튼 동작과 게시글에 html, css를 삽입하는 기능을 구현했습니다.&lt;/p&gt;</description>
     </item>
   </channel>
