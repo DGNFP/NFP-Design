@@ -1,0 +1,416 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">컬러 조합기</span>
+        <p><br>베이스 색상을 바탕으로 어울리는 색조합을 자동으로 생성하세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+<div class="page-btn-wrapper">
+<a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+<a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+<a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+<a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+<a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+<a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+<a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+<a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+<a href="{{ "#" | relURL }}" class="page-btn">#</a>
+
+
+
+
+</div>
+
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="container">
+            <div class="color-mixer-wrapper">
+                <!-- 컬러 조합기 -->
+                <div class="color-palette-layout">
+                    <!-- 왼쪽: 컬러 피커 + 색상 코드 -->
+                    <div class="color-picker-section">
+                        <div class="base-color-label">베이스 컬러</div>
+                        <input type="color" id="studio-base-color" class="large-color-picker" value="#01FF75">
+                        
+                        <!-- 색상 코드 입력 -->
+                        <div class="studio-input-group">
+                            <label for="studio-color-code-input">색상 코드 <span>( 직접 입력이 가능합니다. )</span></label>
+                            <div class="color-code-input">
+                                <input type="text" id="studio-color-code-input" class="studio-form-input" placeholder="#01FF75" maxlength="7">
+                                <button class="color-apply-btn" onclick="applyColorCode()">적용</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 오른쪽: 컨트롤들 -->
+                    <div class="color-controls-section">
+                        <div class="studio-input-group">
+                            <label>조합 생성 타입</label>
+                            <div class="palette-type-radios">
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="monochrome" checked>
+                                    <span>단색 조합</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="analogous">
+                                    <span>유사 색상</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="complementary">
+                                    <span>보색 조합</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="palette-type" value="triadic">
+                                    <span>삼각 조합</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="rgb-controls">
+                            <div class="rgb-slider">
+                                <label for="red-slider">Red</label>
+                                <input type="range" id="red-slider" min="0" max="255" value="1" class="color-range">
+                                <span id="red-value">1</span>
+                            </div>
+                            <div class="rgb-slider">
+                                <label for="green-slider">Green</label>
+                                <input type="range" id="green-slider" min="0" max="255" value="255" class="color-range">
+                                <span id="green-value">255</span>
+                            </div>
+                            <div class="rgb-slider">
+                                <label for="blue-slider">Blue</label>
+                                <input type="range" id="blue-slider" min="0" max="255" value="117" class="color-range">
+                                <span id="blue-value">117</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 팔레트 결과 표시 -->
+                <div class="studio-color-grid" id="studio-palette-result">
+                    <!-- 여기에 생성된 색상 팔레트가 표시됩니다 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<script>
+// 색상 변환 유틸리티 함수들
+function hexToHsl(hex) {
+    const r = parseInt(hex.slice(1, 3), 16) / 255;
+    const g = parseInt(hex.slice(3, 5), 16) / 255;
+    const b = parseInt(hex.slice(5, 7), 16) / 255;
+    
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+    
+    if (max === min) {
+        h = s = 0;
+    } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+    
+    return [h * 360, s * 100, l * 100];
+}
+
+function hslToHex(h, s, l) {
+    l /= 100;
+    const a = s * Math.min(l, 1 - l) / 100;
+    const f = n => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+function hexToRgb(hex) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `${r}, ${g}, ${b}`;
+}
+
+function hexToRgbValues(hex) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return { r, g, b };
+}
+
+function rgbToHex(r, g, b) {
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+}
+
+// 팔레트 생성 함수들
+function generateMonochrome(hsl) {
+    const colors = [];
+    for (let i = 0; i < 5; i++) {
+        const lightness = 20 + (i * 20);
+        colors.push(hslToHex(hsl[0], hsl[1], lightness));
+    }
+    return colors;
+}
+
+function generateAnalogous(hsl) {
+    const colors = [];
+    for (let i = -2; i <= 2; i++) {
+        const hue = (hsl[0] + i * 30) % 360;
+        colors.push(hslToHex(hue, hsl[1], hsl[2]));
+    }
+    return colors;
+}
+
+function generateComplementary(hsl) {
+    const colors = [];
+    colors.push(hslToHex(hsl[0], hsl[1], hsl[2]));
+    colors.push(hslToHex((hsl[0] + 180) % 360, hsl[1], hsl[2]));
+    colors.push(hslToHex(hsl[0], hsl[1] * 0.7, hsl[2] * 1.2));
+    colors.push(hslToHex((hsl[0] + 180) % 360, hsl[1] * 0.7, hsl[2] * 1.2));
+    colors.push(hslToHex(hsl[0], hsl[1] * 0.5, hsl[2] * 0.8));
+    return colors;
+}
+
+function generateTriadic(hsl) {
+    const colors = [];
+    colors.push(hslToHex(hsl[0], hsl[1], hsl[2]));
+    colors.push(hslToHex((hsl[0] + 120) % 360, hsl[1], hsl[2]));
+    colors.push(hslToHex((hsl[0] + 240) % 360, hsl[1], hsl[2]));
+    colors.push(hslToHex(hsl[0], hsl[1] * 0.6, hsl[2] * 1.1));
+    colors.push(hslToHex((hsl[0] + 120) % 360, hsl[1] * 0.6, hsl[2] * 1.1));
+    return colors;
+}
+
+function displayColors(colors, container) {
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    const colorItemsContainer = document.createElement('div');
+    colorItemsContainer.className = 'studio-color-items-row';
+    
+    colors.forEach(color => {
+        const item = document.createElement('div');
+        item.className = 'studio-color-item';
+        item.innerHTML = `
+            <div class="studio-color-preview" style="background-color: ${color}"></div>
+            <div class="studio-color-info">
+                <div class="studio-color-code">${color}</div>
+                <div class="studio-color-code">RGB: ${hexToRgb(color)}</div>
+            </div>
+        `;
+        item.addEventListener('click', () => {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(color);
+            }
+            showCopyToast();
+            
+            // 시각적 피드백
+            const originalBorder = item.style.borderColor;
+            item.style.borderColor = 'var(--accent-color)';
+            item.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                item.style.borderColor = originalBorder;
+                item.style.transform = 'translateY(-3px)';
+            }, 200);
+        });
+        colorItemsContainer.appendChild(item);
+    });
+    
+    container.appendChild(colorItemsContainer);
+}
+
+// 컬러 조합기 메인 함수들
+function syncColorFromPicker() {
+    const colorPicker = document.getElementById('studio-base-color');
+    const colorCodeInput = document.getElementById('studio-color-code-input');
+    
+    if (!colorPicker || !colorCodeInput) return;
+    
+    const hex = colorPicker.value;
+    colorCodeInput.value = hex;
+    updateRGBFromHex(hex);
+    generatePalette();
+}
+
+function syncColorFromRGB() {
+    const r = parseInt(document.getElementById('red-slider').value);
+    const g = parseInt(document.getElementById('green-slider').value);
+    const b = parseInt(document.getElementById('blue-slider').value);
+    
+    // 값 표시 업데이트
+    document.getElementById('red-value').textContent = r;
+    document.getElementById('green-value').textContent = g;
+    document.getElementById('blue-value').textContent = b;
+    
+    // HEX 변환
+    const hex = rgbToHex(r, g, b);
+    
+    // 컬러 피커와 입력 필드 업데이트
+    const colorPicker = document.getElementById('studio-base-color');
+    const colorCodeInput = document.getElementById('studio-color-code-input');
+    
+    if (colorPicker) colorPicker.value = hex;
+    if (colorCodeInput) colorCodeInput.value = hex;
+    
+    generatePalette();
+}
+
+function updateRGBFromHex(hex) {
+    const rgb = hexToRgbValues(hex);
+    
+    document.getElementById('red-slider').value = rgb.r;
+    document.getElementById('green-slider').value = rgb.g;
+    document.getElementById('blue-slider').value = rgb.b;
+    
+    document.getElementById('red-value').textContent = rgb.r;
+    document.getElementById('green-value').textContent = rgb.g;
+    document.getElementById('blue-value').textContent = rgb.b;
+}
+
+function applyColorCode() {
+    const colorCodeInput = document.getElementById('studio-color-code-input');
+    if (!colorCodeInput) return;
+    
+    let hex = colorCodeInput.value.trim();
+    
+    if (!hex.startsWith('#')) {
+        hex = '#' + hex;
+    }
+    
+    if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+        alert('올바른 색상 코드를 입력해주세요. (예: #01FF75)');
+        return;
+    }
+    
+    const colorPicker = document.getElementById('studio-base-color');
+    if (colorPicker) {
+        colorPicker.value = hex;
+    }
+    
+    updateRGBFromHex(hex);
+    colorCodeInput.value = hex;
+    generatePalette();
+}
+
+function generatePalette() {
+    const baseColor = document.getElementById('studio-base-color');
+    const type = document.querySelector('input[name="palette-type"]:checked');
+    const result = document.getElementById('studio-palette-result');
+    
+    if (!baseColor || !type || !result) return;
+    
+    let colors = [];
+    const hsl = hexToHsl(baseColor.value);
+    
+    switch(type.value) {
+        case 'monochrome':
+            colors = generateMonochrome(hsl);
+            break;
+        case 'analogous':
+            colors = generateAnalogous(hsl);
+            break;
+        case 'complementary':
+            colors = generateComplementary(hsl);
+            break;
+        case 'triadic':
+            colors = generateTriadic(hsl);
+            break;
+    }
+    
+    displayColors(colors, result);
+}
+
+function showCopyToast() {
+    const existingToast = document.querySelector('.copy-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'copy-toast';
+    toast.innerHTML = '<i class="fas fa-check"></i> 클립보드에 복사됨!';
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #01ff75;
+        color: black;
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-weight: 600;
+        z-index: 10000;
+        animation: toastShow 0.3s ease;
+    `;
+    
+    if (!document.querySelector('#toast-style')) {
+        const style = document.createElement('style');
+        style.id = 'toast-style';
+        style.textContent = `
+            @keyframes toastShow {
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'toastShow 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 2000);
+}
+
+// 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    // 컬러 피커 이벤트
+    const colorPicker = document.getElementById('studio-base-color');
+    if (colorPicker) {
+        colorPicker.addEventListener('input', syncColorFromPicker);
+    }
+    
+    // RGB 슬라이더 이벤트
+    ['red', 'green', 'blue'].forEach(color => {
+        const slider = document.getElementById(`${color}-slider`);
+        if (slider) {
+            slider.addEventListener('input', syncColorFromRGB);
+        }
+    });
+    
+    // 팔레트 타입 라디오 버튼 이벤트
+    const paletteRadios = document.querySelectorAll('input[name="palette-type"]');
+    paletteRadios.forEach(radio => {
+        radio.addEventListener('change', generatePalette);
+    });
+    
+    // 초기 팔레트 생성
+    generatePalette();
+});
+</script>
+
+{{ end }}

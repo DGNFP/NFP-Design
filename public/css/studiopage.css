@@ -152,9 +152,9 @@ animation: float 20s infinite linear;
 .base-color-label {
     text-align: center;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 22px;
     color: #01FF75;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .studio-input-group span{
@@ -165,7 +165,7 @@ animation: float 20s infinite linear;
 .large-color-picker::-webkit-color-swatch-wrapper {
     padding: 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
     outline: none;  /* 추가 */
 }
 
@@ -173,22 +173,21 @@ animation: float 20s infinite linear;
 
 .large-color-picker::-webkit-color-swatch {
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
     outline: none;  /* 추가 */
 }
 
 /* 파이어폭스 */
 .large-color-picker::-moz-color-swatch {
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
     outline: none;  /* 추가 */
 }
 
 .large-color-picker {
-    width: 345px;
-    height: 150px;
-    /* border: 3px solid rgba(1, 255, 117, 0.5); */
-    border-radius: 4px;
+    width: 400px;
+    height: 200px;
+    border-radius: 2px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: none;
@@ -1077,7 +1076,7 @@ select.studio-form-input option {
     color: var(--background-color);
     border: none;
     padding: 15px 20px;
-    border-radius: 6px;
+    border-radius: 4px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1174,7 +1173,7 @@ select.studio-form-input option {
     flex: 1;
     min-width: 0;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 15px;
     text-align: center;
     border: 2px solid rgba(1, 255, 117, 0.2);
@@ -1233,8 +1232,8 @@ select.studio-form-input option {
 
 
 .palette-5-color {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -1246,8 +1245,8 @@ select.studio-form-input option {
 }
 
 .palette-5-color-code {
-    margin-top: 8px;
-    font-size: 14px;
+    margin-top: 12px;
+    font-size: 18px;
     color: white;
     font-weight: 500;
     text-align: center;
@@ -2433,9 +2432,9 @@ select.studio-form-input option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0.75rem;
-    background: var(--sub-border-color);
-    border-radius: 4px;
+    /* padding: 0.5rem 0.75rem; */
+    /* background: var(--sub-border-color); */
+    /* border-radius: 4px; */
 }
 
 .text-counter-info-label {
@@ -3294,6 +3293,150 @@ select.studio-form-input option {
     font-weight: 400;
 }
 
+/* 사이즈 계산기 페이지 */
+/* 사이즈 계산기 전용 스타일 */
+.size-calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.size-calculator-section {
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.size-calculator-section h3 {
+    margin: 0 0 8px 0;
+    color: var(--accent-color, #01FF75);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.size-calculator-section p {
+    margin: 0 0 24px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.size-calculator-input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.size-calculator-input-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.size-calculator-input-col label {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.size-calculator-input-with-unit {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.size-calculator-input-with-unit input {
+    width: 100%;
+    padding: 12px 60px 12px 12px;
+    background: var(--sub-bg-color, #141414);
+    border: 2px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.size-calculator-input-with-unit input:focus {
+    outline: none;
+    border-color: var(--accent-color, #01FF75);
+    box-shadow: 0 0 0 3px rgba(1, 255, 117, 0.1);
+}
+
+.size-calculator-input-with-unit input::placeholder {
+    color: #666;
+}
+
+.size-calculator-input-with-unit span {
+    position: absolute;
+    right: 12px;
+    color: var(--accent-color, #01FF75);
+    font-size: 15px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.size-calculator-result-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.size-calculator-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.size-calculator-result-item:hover {
+    border-color: var(--accent-color, #01FF75);
+}
+
+.size-calculator-result-item span:first-child {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.size-calculator-result-item span:last-child {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* 사이즈 계산기 반응형 */
+@media (max-width: 768px) {
+    .size-calculator-input-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .size-calculator-result-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .size-calculator-input-with-unit input {
+        padding: 10px 50px 10px 10px;
+        font-size: 14px;
+    }
+    
+    .size-calculator-result-item {
+        padding: 10px 12px;
+    }
+    
+    .size-calculator-result-item span:first-child,
+    .size-calculator-result-item span:last-child {
+        font-size: 13px;
+    }
+}
+
 /* 폰트 크기 변환기 반응형 */
 @media (max-width: 768px) {
     .font-converter-inputs {
@@ -3319,6 +3462,609 @@ select.studio-form-input option {
         padding: 24px 16px;
     }
 }
+
+/* 그리드 계산기 페이지 */
+/* 그리드 계산기 전용 스타일 */
+.grid-calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.grid-calculator-inputs {
+    /* background: var(--semi-black); */
+    /* border: 1px solid var(--sub-border-color, #272727); */
+    /* border-radius: 4px; */
+    /* padding: 24px; */
+}
+
+.grid-calculator-input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.grid-calculator-input-row:last-child {
+    margin-bottom: 0;
+}
+
+.grid-calculator-input-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grid-calculator-input-col label {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.grid-calculator-input-with-unit {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.grid-calculator-input-with-unit input {
+    width: 100%;
+    padding: 12px 50px 12px 12px;
+    background: var(--sub-bg-color, #141414);
+    border: 2px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.grid-calculator-input-with-unit input:focus {
+    outline: none;
+    border-color: var(--accent-color, #01FF75);
+    box-shadow: 0 0 0 3px rgba(1, 255, 117, 0.1);
+}
+
+.grid-calculator-input-with-unit span {
+    position: absolute;
+    right: 12px;
+    color: var(--accent-color, #01FF75);
+    font-size: 12px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.grid-calculator-result-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    /* background: var(--sub-bg-color, #141414); */
+    /* border: 1px solid var(--sub-border-color, #272727); */
+    /* border-radius: 4px; */
+    /* padding: 24px; */
+}
+
+.grid-calculator-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.grid-calculator-result-item:hover {
+    border-color: var(--accent-color, #01FF75);
+}
+
+.grid-calculator-result-item span:first-child {
+    color: #888;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.grid-calculator-result-item span:last-child {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.grid-calculator-preview-wrapper {
+    /* background: var(--sub-bg-color, #141414); */
+    /* border: 1px solid var(--sub-border-color, #272727); */
+    /* border-radius: 4px; */
+    /* padding: 24px; */
+}
+
+.grid-calculator-preview-wrapper h3 {
+    margin: 0 0 16px 0;
+    color: var(--accent-color, #01FF75);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.grid-calculator-preview {
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    /* border-radius: 4px; */
+    /* padding: 2px; */
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-calculator-container {
+    background: rgba(1, 255, 117, 0.05);
+    /* border: 1px dashed var(--accent-color, #01FF75); */
+    border-radius: 0px;
+}
+
+.grid-calculator-column {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(1, 255, 117, 0.3);
+    border: 1px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+.grid-calculator-margin {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(255, 77, 77, 0.3);
+    border: 1px dashed #ff4d4d;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #ff4d4d;
+}
+
+.grid-calculator-margin.left {
+    left: 0;
+}
+
+.grid-calculator-margin.right {
+    right: 0;
+}
+
+.grid-calculator-gutter {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(14, 73, 40, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+}
+
+/* 그리드 계산기 반응형 */
+@media (max-width: 768px) {
+    .grid-calculator-input-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .grid-calculator-result-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-calculator-input-with-unit input {
+        padding: 10px 40px 10px 10px;
+        font-size: 14px;
+    }
+    
+    .grid-calculator-result-item {
+        padding: 10px 12px;
+    }
+    
+    .grid-calculator-result-item span {
+        font-size: 13px;
+    }
+    
+    .grid-calculator-preview {
+        min-height: 140px;
+        padding: 16px;
+    }
+}
+
+
+/* 컬러 조합기 페이지 */
+/* 컬러 조합기 전용 스타일 */
+
+/* 컬러 조합기 반응형 */
+@media (max-width: 768px) {
+    .color-palette-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .large-color-picker {
+        height: 100px;
+    }
+    
+    .color-code-input {
+        flex-direction: column;
+    }
+    
+    .studio-color-items-row {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
+    .studio-color-preview {
+        height: 60px;
+    }
+}
+
+/* 5컬러 팔레트 페이지 */
+/* 5색 팔레트 전용 스타일 */
+.palette-5-description {
+    text-align: center;
+    /* margin-bottom: 40px; */
+    /* background: #141414; */
+    /* border: 1px solid #272727; */
+    border-radius: 4px;
+    padding: 30px;
+    padding-top: 0px;
+}
+
+.palette-5-description h3 {
+    color: #01FF75;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.palette-5-description p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.palette-5-button-area {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.palette-5-btn {
+    background: linear-gradient(135deg, #01FF75, #00CC5E);
+    color: #000;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(1, 255, 117, 0.3);
+    min-width: 250px;
+}
+
+.palette-5-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 255, 117, 0.4);
+}
+
+.palette-5-btn:active {
+    transform: translateY(0);
+}
+
+.palette-5-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .palette-5-colors {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .palette-5-item {
+        max-width: none;
+    }
+    
+    .palette-5-color {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .palette-5-description {
+        padding: 20px;
+    }
+    
+    .palette-5-description h3 {
+        font-size: 20px;
+    }
+    
+    .palette-5-description p {
+        font-size: 14px;
+    }
+    
+    .palette-5-btn {
+        font-size: 16px;
+        padding: 14px 28px;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .palette-5-generator-container {
+        padding: 20px 10px;
+    }
+    
+    .palette-5-colors {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .palette-5-color {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .palette-5-result {
+        padding: 20px;
+    }
+    
+    .palette-5-description {
+        padding: 15px;
+    }
+    
+    .palette-5-btn {
+        font-size: 14px;
+        padding: 12px 24px;
+        min-width: 180px;
+    }
+}
+
+/* 로딩 애니메이션 */
+.palette-5-btn i.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 성공 피드백 애니메이션 */
+@keyframes colorPickSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.palette-5-item.picked {
+    animation: colorPickSuccess 0.3s ease;
+    border-color: #01FF75;
+    background: rgba(1, 255, 117, 0.1);
+}
+
+/* 랜덤 컬러팔레트 페이지 */
+/* 5색 랜덤 팔레트 전용 스타일 */
+.palette-random-description {
+    text-align: center;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.palette-random-description h3 {
+    color: #01FF75;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.palette-random-description p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.palette-random-button-area {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.palette-random-btn {
+    background: var(--accent-color);
+    color: var(--background-color);
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(1, 255, 86, 0.24);
+    min-width: 250px;
+}
+
+.palette-random-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(107, 255, 151, 0.4);
+}
+
+.palette-random-btn:active {
+    transform: translateY(0);
+}
+
+.palette-random-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.palette-random-result {
+    /* padding: 30px; */
+}
+
+.palette-random-colors {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.palette-random-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 4px;
+    background: rgba(39, 39, 39, 0.3);
+    border: 1px solid transparent;
+    width: 100%;
+    max-width: 200px;
+    position: relative;
+}
+
+.palette-random-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 25px rgba(107, 255, 139, 0.2);
+}
+
+.palette-random-color {
+    width: 170px;
+    height: 170px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.palette-random-color-code {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #272727;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+/* 랜덤 특별 효과 - 가끔 번쩍이는 애니메이션 */
+.palette-random-item.sparkle {
+    animation: randomSparkle 0.6s ease-in-out;
+}
+
+@keyframes randomSparkle {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.02) rotate(1deg); }
+    75% { transform: scale(0.98) rotate(-1deg); }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .palette-random-colors {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .palette-random-item {
+        max-width: none;
+    }
+    
+    .palette-random-color {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .palette-random-description {
+        padding: 20px;
+    }
+    
+    .palette-random-description h3 {
+        font-size: 20px;
+    }
+    
+    .palette-random-description p {
+        font-size: 14px;
+    }
+    
+    .palette-random-btn {
+        font-size: 16px;
+        padding: 14px 28px;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .palette-random-generator-container {
+        padding: 20px 10px;
+    }
+    
+    .palette-random-colors {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .palette-random-color {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .palette-random-result {
+        padding: 20px;
+    }
+    
+    .palette-random-description {
+        padding: 15px;
+    }
+    
+    .palette-random-btn {
+        font-size: 14px;
+        padding: 12px 24px;
+        min-width: 180px;
+    }
+}
+
+/* 로딩 애니메이션 */
+.palette-random-btn i.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 성공 피드백 애니메이션 */
+@keyframes randomColorPickSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95);}
+    100% { transform: scale(1); }
+}
+
+
+/* QR 기본 페이지 */
+/* 중복 이슈로 HTML에 인라인으로 삽입 */
 
 /* ==================== 반응형 디자인 ==================== */
 

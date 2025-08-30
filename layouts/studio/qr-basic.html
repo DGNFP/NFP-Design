@@ -1,0 +1,545 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">QR 코드 생성기</span>
+        <p><br>URL, 텍스트, 연락처 정보를 간편하게 QR코드로 변환해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">5색 조합</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 팔레트</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="qr-basic-generator-container">
+            <!-- 설명 -->
+            <div class="qr-basic-description">
+                <h3>QR 코드 생성기</h3>
+                <p>웹사이트 URL, 텍스트, 연락처 정보 등 다양한 내용을 QR 코드로 변환할 수 있습니다.<br>
+                생성된 QR 코드는 PNG 파일로 다운로드할 수 있습니다.</p>
+            </div>
+
+            <div class="qr-basic-content">
+                <!-- 입력 영역 -->
+                <div class="qr-basic-input-section">
+                    <div class="qr-input-group">
+                        <label for="studio-qr-input">변환할 내용</label>
+                        <textarea id="studio-qr-input" class="qr-form-textarea" placeholder="URL 또는 텍스트를 입력하세요&#10;&#10;예시:&#10;• https://nfpdesign.co.kr&#10;• 안녕하세요, NFP Design입니다.&#10;• BEGIN:VCARD&#10;  FN:홍길동&#10;  TEL:010-1234-5678&#10;  END:VCARD">https://nfpdesign.co.kr</textarea>
+                    </div>
+                    
+                    <div class="qr-input-group">
+                        <label for="studio-qr-size">QR 코드 크기</label>
+                        <select id="studio-qr-size" class="qr-form-select">
+                            <option value="200">200×200px (작은 크기)</option>
+                            <option value="300" selected>300×300px (표준 크기)</option>
+                            <option value="400">400×400px (큰 크기)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="qr-generate-button-area">
+                        <button class="qr-generate-btn" id="qr-generate-btn">
+                            <i class="fas fa-qrcode"></i> QR 코드 생성
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 결과 영역 -->
+                <div class="qr-basic-result-section">
+                    <div class="qr-result-header">
+                        <h4>생성된 QR 코드</h4>
+                    </div>
+                    <div class="qr-canvas-container">
+                        <canvas id="studio-qr-canvas"></canvas>
+                        <div class="qr-placeholder" id="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>왼쪽에서 내용을 입력하고<br>'QR 코드 생성' 버튼을 클릭하세요</p>
+                        </div>
+                    </div>
+                    <div class="qr-download-area">
+                        <button class="qr-download-btn" id="studio-download-btn" style="display: none;">
+                            <i class="fas fa-download"></i> PNG 파일로 다운로드
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+/* 기본 QR 생성기 전용 스타일 */
+.qr-basic-generator-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.qr-basic-description {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    padding-top: 0;
+}
+
+.qr-basic-description h3 {
+    color: #01FF75;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.qr-basic-description p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.qr-basic-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* 입력 영역 */
+.qr-basic-input-section {
+    background: #141414;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+.qr-input-group {
+    margin-bottom: 25px;
+}
+
+.qr-input-group:last-of-type {
+    margin-bottom: 30px;
+}
+
+.qr-input-group label {
+    display: block;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.qr-form-textarea {
+    width: 100%;
+    min-height: 120px;
+    background: #1a1a1a;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    resize: vertical;
+    box-sizing: border-box;
+
+    transition: all 0.3s ease;
+}
+
+.qr-form-textarea:focus {
+    outline: none;
+    border-color: #01FF75;
+    box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
+}
+
+.qr-form-select {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 12px 15px;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.qr-form-select:focus {
+    outline: none;
+    border-color: #01FF75;
+    box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
+}
+
+.qr-generate-button-area {
+    text-align: center;
+}
+
+.qr-generate-btn {
+    background: linear-gradient(135deg, #01FF75, #00CC5E);
+    color: #000;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(1, 255, 117, 0.3);
+    width: 100%;
+}
+
+.qr-generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 255, 117, 0.4);
+}
+
+.qr-generate-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 결과 영역 */
+.qr-basic-result-section {
+    background: #141414;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 30px;
+    text-align: center;
+}
+
+.qr-result-header h4 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 25px 0;
+}
+
+.qr-canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    margin-bottom: 25px;
+}
+
+#studio-qr-canvas {
+    border-radius: 4px;
+    display: none;
+}
+
+.qr-placeholder {
+    color: #666;
+    text-align: center;
+}
+
+.qr-placeholder i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.qr-placeholder p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.qr-download-area {
+    text-align: center;
+}
+
+.qr-download-btn {
+    background: linear-gradient(135deg, #01FF75, #00CC5E);
+    color: black;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.qr-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .qr-basic-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .qr-basic-description {
+        padding: 20px;
+    }
+    
+    .qr-basic-description h3 {
+        font-size: 20px;
+    }
+    
+    .qr-basic-description p {
+        font-size: 14px;
+    }
+    
+    .qr-basic-input-section,
+    .qr-basic-result-section {
+        padding: 20px;
+    }
+    
+    .qr-generate-btn {
+        font-size: 14px;
+        padding: 14px 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .qr-basic-generator-container {
+        padding: 20px 10px;
+    }
+    
+    .qr-form-textarea {
+        min-height: 100px;
+        font-size: 13px;
+    }
+    
+    .qr-canvas-container {
+        min-height: 250px;
+    }
+    
+    .qr-placeholder i {
+        font-size: 36px;
+    }
+    
+    .qr-placeholder p {
+        font-size: 14px;
+    }
+}
+
+/* 로딩 애니메이션 */
+.qr-generate-btn i.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+<script>
+// QR 코드 생성 함수
+function generateBasicQR() {
+    const input = document.getElementById('studio-qr-input');
+    const size = document.getElementById('studio-qr-size');
+    const canvas = document.getElementById('studio-qr-canvas');
+    const placeholder = document.getElementById('qr-placeholder');
+    const button = document.getElementById('qr-generate-btn');
+    const downloadBtn = document.getElementById('studio-download-btn');
+    
+    if (!input || !size || !canvas) return;
+    
+    const inputValue = input.value.trim();
+    const sizeValue = parseInt(size.value);
+    
+    if (!inputValue) {
+        alert('변환할 내용을 입력해주세요.');
+        return;
+    }
+    
+    // 버튼 상태 변경
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 생성 중...';
+    
+    try {
+        // QR 코드 생성
+        const qr = new QRious({
+            element: canvas,
+            value: inputValue,
+            size: sizeValue,
+            foreground: '#000000',
+            background: '#FFFFFF',
+            level: 'M' // 오류 보정 수준
+        });
+        
+        // 표시 상태 변경
+        placeholder.style.display = 'none';
+        canvas.style.display = 'block';
+        downloadBtn.style.display = 'inline-block';
+        
+        // 성공 토스트
+        showBasicQRSuccessToast();
+        
+    } catch (error) {
+        console.error('QR 코드 생성 오류:', error);
+        alert('QR 코드 생성 중 오류가 발생했습니다. 입력한 내용을 확인해주세요.');
+    } finally {
+        // 버튼 상태 복원
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-qrcode"></i> QR 코드 생성';
+    }
+}
+
+// QR 코드 다운로드 함수
+function downloadBasicQR() {
+    const canvas = document.getElementById('studio-qr-canvas');
+    if (!canvas) return;
+    
+    try {
+        const link = document.createElement('a');
+        link.download = `qrcode_${Date.now()}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        
+        // 다운로드 성공 토스트
+        showBasicDownloadSuccessToast();
+        
+    } catch (error) {
+        console.error('다운로드 오류:', error);
+        alert('다운로드 중 오류가 발생했습니다.');
+    }
+}
+
+// QR 생성 성공 토스트
+function showBasicQRSuccessToast() {
+    const existingToast = document.querySelector('.basic-qr-success-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'basic-qr-success-toast';
+    toast.innerHTML = '<i class="fas fa-check"></i> QR 코드가 생성되었습니다!';
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #01FF75, #00CC5E);
+        color: black;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 10000;
+        animation: basicQrToastShow 0.3s ease;
+    `;
+    
+    if (!document.querySelector('#basic-qr-toast-style')) {
+        const style = document.createElement('style');
+        style.id = 'basic-qr-toast-style';
+        style.textContent = `
+            @keyframes basicQrToastShow {
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'basicQrToastShow 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 2000);
+}
+
+// 다운로드 성공 토스트
+function showBasicDownloadSuccessToast() {
+    const existingToast = document.querySelector('.basic-download-success-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'basic-download-success-toast';
+    toast.innerHTML = '<i class="fas fa-download"></i> 다운로드 완료!';
+    toast.style.cssText = `
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #01FF75, #00CC5E);
+        color: black;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 10000;
+        animation: basicDownloadToastShow 0.3s ease;
+    `;
+    
+    if (!document.querySelector('#basic-download-toast-style')) {
+        const style = document.createElement('style');
+        style.id = 'basic-download-toast-style';
+        style.textContent = `
+            @keyframes basicDownloadToastShow {
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'basicDownloadToastShow 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 2000);
+}
+
+// 페이지 로드 시 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    const generateBtn = document.getElementById('qr-generate-btn');
+    const downloadBtn = document.getElementById('studio-download-btn');
+    const input = document.getElementById('studio-qr-input');
+    
+    if (generateBtn) {
+        generateBtn.addEventListener('click', generateBasicQR);
+    }
+    
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', downloadBasicQR);
+    }
+    
+    // 엔터키로 생성
+    if (input) {
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                generateBasicQR();
+            }
+        });
+    }
+});
+</script>
+
+{{ end }}

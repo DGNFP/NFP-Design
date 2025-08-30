@@ -1,0 +1,194 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">5색 조합 팔레트</span>
+        <p><br>조화로운 5색 컬러 팔레트를 생성해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="palette-5-generator-container">
+            <!-- 설명 -->
+            <div class="palette-5-description">
+                <h3>5색 조합 팔레트</h3>
+                <p>랜덤 베이스 색상을 기반으로 조화로운 5색 팔레트를 생성합니다.<br>
+                각 색상을 클릭하면 클립보드에 복사됩니다.</p>
+            </div>
+
+            <!-- 팔레트 생성 버튼 -->
+            <div class="palette-5-button-area">
+                <button class="palette-5-btn" id="palette-5-btn">
+                    <i class="fas fa-cubes"></i> 조합 팔레트 생성
+                </button>
+            </div>
+
+            <!-- 팔레트 결과 -->
+            <div class="palette-5-result" id="palette-5-result" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+// 누락된 generateRandomPalette 함수 추가
+function generateRandomPalette(baseHsl, count) {
+    const colors = [];
+    const [baseH, baseS, baseL] = baseHsl;
+    
+    for (let i = 0; i < count; i++) {
+        const hueShift = (Math.random() - 0.5) * 60; // ±30도 범위
+        const satShift = (Math.random() - 0.5) * 40; // ±20% 범위
+        const litShift = (Math.random() - 0.5) * 40; // ±20% 범위
+        
+        const h = (baseH + hueShift + 360) % 360;
+        const s = Math.max(20, Math.min(100, baseS + satShift));
+        const l = Math.max(20, Math.min(80, baseL + litShift));
+        
+        colors.push(hslToHex(h, s, l));
+    }
+    
+    return colors;
+}
+
+// HSL to HEX 변환 함수
+function hslToHex(h, s, l) {
+    l /= 100;
+    const a = s * Math.min(l, 1 - l) / 100;
+    const f = n => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+// 색상 복사 피드백 함수
+function copyColorWithFeedback(color) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(color);
+    }
+    
+    // 토스트 알림 생성
+    showCopyToast();
+}
+
+function showCopyToast() {
+    // 기존 토스트 제거
+    const existingToast = document.querySelector('.copy-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    // 새 토스트 생성
+    const toast = document.createElement('div');
+    toast.className = 'copy-toast';
+    toast.innerHTML = '<i class="fas fa-check"></i> 클립보드에 복사됨!';
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #01ff75;
+        color: black;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 10000;
+        animation: toastShow 0.3s ease;
+    `;
+    
+    // CSS 애니메이션 추가
+    if (!document.querySelector('#toast-style')) {
+        const style = document.createElement('style');
+        style.id = 'toast-style';
+        style.textContent = `
+            @keyframes toastShow {
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    // 2초 후 제거
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'toastShow 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 2000);
+}
+
+// 5색 팔레트 생성 함수
+function generate5ColorPalette() {
+    const button = document.getElementById('palette-5-btn');
+    const result = document.getElementById('palette-5-result');
+    
+    if (!button || !result) return;
+    
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 생성 중...';
+    
+    setTimeout(() => {
+        // 랜덤 베이스 컬러 생성
+        const baseHue = Math.floor(Math.random() * 360);
+        const baseSat = 50 + Math.floor(Math.random() * 50);
+        const baseLit = 40 + Math.floor(Math.random() * 40);
+        
+        const colors = generateRandomPalette([baseHue, baseSat, baseLit], 5);
+        
+        // 5색 팔레트 표시
+        result.innerHTML = `
+            <div class="palette-5-colors">
+                ${colors.map(color => `
+                    <div class="palette-5-item">
+                        <div class="palette-5-color" style="background-color: ${color}" onclick="copyColorWithFeedback('${color}')"></div>
+                        <div class="palette-5-color-code">${color}</div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        
+        result.style.display = 'block';
+        
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-cubes"></i> 조합 팔레트 생성';
+    }, 1000);
+}
+
+// 페이지 로드 시 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('palette-5-btn');
+    if (button) {
+        button.addEventListener('click', generate5ColorPalette);
+    }
+});
+</script>
+
+
+{{ end }}

@@ -1,0 +1,221 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">그리드 계산기</span>
+        <p><br>웹 레이아웃 그리드 시스템을 설계하고 시각화하세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+<div class="page-btn-wrapper">
+<a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+<a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+<a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+<a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+<a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+<a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+<a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+<a href="{{ "/studio/grid-calculator" | relURL }}" class="page-btn">그리드 계산기</a>
+</div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="container">
+            <div class="grid-calculator-wrapper">
+                <!-- 입력 섹션 -->
+                <div class="grid-calculator-inputs">
+                    <div class="grid-calculator-input-row">
+                        <div class="grid-calculator-input-col">
+                            <label>최대 너비</label>
+                            <div class="grid-calculator-input-with-unit">
+                                <input type="number" id="calc-max-width" value="1280" min="320" max="3840">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="grid-calculator-input-col">
+                            <label>컬럼 수</label>
+                            <div class="grid-calculator-input-with-unit">
+                                <input type="number" id="calc-columns" value="4" min="1" max="24">
+                                <span>개</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-calculator-input-row">
+                        <div class="grid-calculator-input-col">
+                            <label>간격</label>
+                            <div class="grid-calculator-input-with-unit">
+                                <input type="number" id="calc-gutter" value="0" min="0" max="100">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="grid-calculator-input-col">
+                            <label>좌우 마진</label>
+                            <div class="grid-calculator-input-with-unit">
+                                <input type="number" id="calc-margin" value="0" min="0" max="200">
+                                <span>px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 결과 섹션 -->
+                <div class="grid-calculator-result-info">
+                    <div class="grid-calculator-result-item">
+                        <span>페이지 너비</span>
+                        <span id="calc-page-width">1280px</span>
+                    </div>
+                    <div class="grid-calculator-result-item">
+                        <span>컬럼 너비</span>
+                        <span id="calc-column-width">320px</span>
+                    </div>
+                    <div class="grid-calculator-result-item">
+                        <span>간격</span>
+                        <span id="calc-gutter-display">0px</span>
+                    </div>
+                    <div class="grid-calculator-result-item">
+                        <span>좌우 마진</span>
+                        <span id="calc-margin-display">0px</span>
+                    </div>
+                </div>
+                
+                <!-- 미리보기 섹션 -->
+                <div class="grid-calculator-preview-wrapper">
+                    <h3>그리드 미리보기</h3>
+                    <div class="grid-calculator-preview" id="calc-grid-preview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<script>
+function calculateAndVisualizeGrid() {
+    const maxWidth = parseInt(document.getElementById('calc-max-width')?.value) || 1280;
+    const columns = parseInt(document.getElementById('calc-columns')?.value) || 4;
+    const gutter = parseInt(document.getElementById('calc-gutter')?.value) || 0;
+    const margin = parseInt(document.getElementById('calc-margin')?.value) || 0;
+    
+    const totalGutters = (columns - 1) * gutter;
+    const totalMargins = margin * 2;
+    const availableWidth = maxWidth - totalGutters - totalMargins;
+    const columnWidth = Math.floor(availableWidth / columns);
+    const actualPageWidth = (columnWidth * columns) + totalGutters + totalMargins;
+    
+    const pageWidthEl = document.getElementById('calc-page-width');
+    const columnWidthEl = document.getElementById('calc-column-width');
+    const gutterDisplayEl = document.getElementById('calc-gutter-display');
+    const marginDisplayEl = document.getElementById('calc-margin-display');
+    
+    if (pageWidthEl) pageWidthEl.textContent = `${actualPageWidth}px`;
+    if (columnWidthEl) columnWidthEl.textContent = `${columnWidth}px`;
+    if (gutterDisplayEl) gutterDisplayEl.textContent = `${gutter}px`;
+    if (marginDisplayEl) marginDisplayEl.textContent = `${margin}px`;
+    
+    visualizeGrid(actualPageWidth, columnWidth, columns, gutter, margin);
+}
+
+function visualizeGrid(pageWidth, columnWidth, columns, gutter, margin) {
+    const preview = document.getElementById('calc-grid-preview');
+    if (!preview) return;
+    
+    preview.innerHTML = '';
+    
+    // 부모 컨테이너의 실제 너비 활용
+    const previewRect = preview.getBoundingClientRect();
+    const availableWidth = previewRect.width - 40;
+    
+    // 스케일 계산
+    const scale = Math.min(availableWidth / pageWidth, 2);
+    const scaledWidth = Math.min(pageWidth * scale, availableWidth);
+    
+    const scaledColumnWidth = columnWidth * scale;
+    const scaledGutter = gutter * scale;
+    const scaledMargin = margin * scale;
+    
+    const container = document.createElement('div');
+    container.className = 'grid-calculator-container';
+    
+    const baseHeight = window.innerWidth <= 480 ? 100 : window.innerWidth <= 768 ? 120 : 140;
+    container.style.height = `${baseHeight}px`;
+    container.style.width = `${scaledWidth}px`;
+    container.style.position = 'relative';
+    container.style.margin = '0 auto';
+    
+    // 마진 표시
+    if (margin > 0) {
+        const leftMargin = document.createElement('div');
+        leftMargin.className = 'grid-calculator-margin left';
+        leftMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
+        leftMargin.textContent = margin;
+        container.appendChild(leftMargin);
+        
+        const rightMargin = document.createElement('div');
+        rightMargin.className = 'grid-calculator-margin right';
+        rightMargin.style.width = `${Math.max(scaledMargin, 2)}px`;
+        rightMargin.textContent = margin;
+        container.appendChild(rightMargin);
+    }
+    
+    // 컬럼 생성
+    for (let i = 0; i < columns; i++) {
+        const column = document.createElement('div');
+        column.className = 'grid-calculator-column';
+        
+        const left = scaledMargin + (i * (scaledColumnWidth + scaledGutter));
+        const finalColumnWidth = Math.max(scaledColumnWidth, 4);
+        
+        column.style.left = `${left}px`;
+        column.style.width = `${finalColumnWidth}px`;
+        column.textContent = columnWidth;
+        
+        if (finalColumnWidth < 8) {
+            column.style.opacity = '0.6';
+            column.style.fontSize = '10px';
+        }
+        
+        container.appendChild(column);
+    }
+
+    // 간격 시각화
+    for (let i = 0; i < columns - 1; i++) {
+        if (gutter > 0 && scaledGutter >= 1) {
+            const gutterElement = document.createElement('div');
+            gutterElement.className = 'grid-calculator-gutter';
+            
+            const gutterLeft = scaledMargin + ((i + 1) * scaledColumnWidth) + (i * scaledGutter);
+            gutterElement.style.left = `${gutterLeft}px`;
+            gutterElement.style.width = `${Math.max(scaledGutter, 8)}px`;
+            gutterElement.textContent = gutter;
+            
+            container.appendChild(gutterElement);
+        }
+    }
+
+    preview.appendChild(container);
+}
+
+// 초기 로드
+document.addEventListener('DOMContentLoaded', () => {
+    const gridInputs = ['calc-max-width', 'calc-columns', 'calc-gutter', 'calc-margin'];
+    gridInputs.forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.addEventListener('input', calculateAndVisualizeGrid);
+        }
+    });
+    
+    // 초기 계산 실행
+    setTimeout(() => {
+        calculateAndVisualizeGrid();
+    }, 200);
+});
+</script>
+
+{{ end }}

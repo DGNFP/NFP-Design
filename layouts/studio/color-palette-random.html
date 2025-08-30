@@ -1,0 +1,193 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">5색 랜덤 팔레트</span>
+        <p><br>서로 관계없는 완전히 랜덤한 5색 팔레트를 생성해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="palette-random-generator-container">
+            <!-- 설명 -->
+            <div class="palette-random-description">
+                <h3>5색 랜덤 팔레트</h3>
+                <p>서로 전혀 관계없는 완전히 랜덤한 5개의 색상을 생성합니다.<br>
+                예상하지 못한 창의적인 색상 조합을 발견해보세요.<br>
+                각 색상을 클릭하면 클립보드에 복사됩니다.</p>
+            </div>
+
+            <!-- 팔레트 생성 버튼 -->
+            <div class="palette-random-button-area">
+                <button class="palette-random-btn" id="palette-random-btn">
+                    <i class="fas fa-dice"></i> 랜덤 팔레트 생성
+                </button>
+            </div>
+
+            <!-- 팔레트 결과 -->
+            <div class="palette-random-result" id="palette-random-result" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<script>
+// HSL to HEX 변환 함수
+function hslToHex(h, s, l) {
+    l /= 100;
+    const a = s * Math.min(l, 1 - l) / 100;
+    const f = n => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+// 색상 복사 피드백 함수 (랜덤 전용)
+function copyRandomColorWithFeedback(color) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(color);
+    }
+    
+    // 토스트 알림 생성
+    showRandomCopyToast();
+}
+
+function showRandomCopyToast() {
+    // 기존 토스트 제거
+    const existingToast = document.querySelector('.random-copy-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    // 새 토스트 생성
+    const toast = document.createElement('div');
+    toast.className = 'random-copy-toast';
+    toast.innerHTML = '<i class="fas fa-check"></i> 랜덤 색상 복사됨!';
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #01FF75;;
+        color: black;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 10000;
+        animation: randomToastShow 0.3s ease;
+    `;
+    
+    // CSS 애니메이션 추가
+    if (!document.querySelector('#random-toast-style')) {
+        const style = document.createElement('style');
+        style.id = 'random-toast-style';
+        style.textContent = `
+            @keyframes randomToastShow {
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    // 2초 후 제거
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'randomToastShow 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 2000);
+}
+
+// 완전히 랜덤한 5색 팔레트 생성 함수
+function generateCompletelyRandomPalette() {
+    const button = document.getElementById('palette-random-btn');
+    const result = document.getElementById('palette-random-result');
+    
+    if (!button || !result) return;
+    
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 생성 중...';
+    
+    setTimeout(() => {
+        // 완전히 관계없는 5개의 랜덤 컬러 생성
+        const colors = [];
+        
+        for (let i = 0; i < 5; i++) {
+            const hue = Math.floor(Math.random() * 360);        // 0-360도 전체 범위
+            const saturation = 40 + Math.floor(Math.random() * 60);  // 40-100% (너무 흐리지 않게)
+            const lightness = 30 + Math.floor(Math.random() * 50);   // 30-80% (너무 어둡거나 밝지 않게)
+            
+            const hex = hslToHex(hue, saturation, lightness);
+            colors.push(hex);
+        }
+        
+        // 랜덤 팔레트 표시
+        result.innerHTML = `
+            <div class="palette-random-colors">
+                ${colors.map((color, index) => `
+                    <div class="palette-random-item" onclick="copyRandomColorWithFeedback('${color}')">
+                        <div class="palette-random-color" style="background-color: ${color}"></div>
+                        <div class="palette-random-color-code">${color}</div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        
+        // 가끔 랜덤하게 반짝이는 효과 추가
+        setTimeout(() => {
+            const items = document.querySelectorAll('.palette-random-item');
+            const randomIndex = Math.floor(Math.random() * items.length);
+            if (items[randomIndex]) {
+                items[randomIndex].classList.add('sparkle');
+                setTimeout(() => {
+                    items[randomIndex].classList.remove('sparkle');
+                }, 600);
+            }
+        }, 200);
+        
+        result.style.display = 'block';
+        
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-dice"></i> 랜덤 팔레트 생성';
+    }, 1000);
+}
+
+// 페이지 로드 시 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('palette-random-btn');
+    if (button) {
+        button.addEventListener('click', generateCompletelyRandomPalette);
+    }
+});
+</script>
+
+{{ end }}
