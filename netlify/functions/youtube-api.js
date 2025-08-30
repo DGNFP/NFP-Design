@@ -80,18 +80,17 @@ exports.handler = async (event, context) => {
       bannerUrl = channel.brandingSettings.image.bannerExternalUrl || 
                  channel.brandingSettings.image.bannerImageUrl || '';
       
-      // 고해상도 URL로 변경
-      if (bannerUrl) {
-        // YouTube 이미지 URL 패턴을 고해상도로 변경
+      // 원본 URL 로그 출력
+      console.log('Original banner URL:', bannerUrl);
+      
+      // 안전한 해상도 조정 - 기존 파라미터가 있을 때만 수정
+      if (bannerUrl && bannerUrl.includes('=')) {
+        // 더 보수적인 접근: 기존 해상도만 증가
         bannerUrl = bannerUrl
-          .replace(/=w\d+-/g, '=w2560-')  // 폭을 2560으로 설정
-          .replace(/=h\d+-/g, '=h1440-')  // 높이를 1440으로 설정
-          .replace(/=s\d+-/g, '=s2560-'); // 정사각형 이미지의 경우
+          .replace(/=w\d+/g, '=w1920')  // 폭을 1920으로 (2560은 너무 클 수 있음)
+          .replace(/=h\d+/g, '=h1080'); // 높이를 1080으로
         
-        // URL 끝에 고품질 옵션 추가
-        if (!bannerUrl.includes('-no-rj')) {
-          bannerUrl = bannerUrl.replace(/(-c-k-c0x00ffffff)?(\.jpg|\.png|\.webp)?$/, '-c-k-c0x00ffffff-no-rj');
-        }
+        console.log('Modified banner URL:', bannerUrl);
       }
     }
     
