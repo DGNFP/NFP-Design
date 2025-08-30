@@ -1,33 +1,193 @@
-{{ define "main" }}
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>단위 변환기 - Studio NFP - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="단위 변환, px pt 변환, mm cm inch, 디자인 단위, 길이 변환, DPI 변환, 픽셀 변환">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/unit-converter/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="단위 변환기 - Studio NFP - NFP 디자인">
+    <meta property="og:description" content="px, pt, mm, cm, inch 단위를 빠르게 상호 변환하는 도구입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/unit-converter/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="단위 변환기 - Studio NFP - NFP 디자인">
+    <meta name="twitter:description" content="px, pt, mm, cm, inch 단위를 빠르게 상호 변환하는 도구입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "단위 변환기 - Studio NFP",
+      "description": "px, pt, mm, cm, inch 단위를 빠르게 상호 변환하는 도구입니다.",
+      "url": "http:\/\/localhost:1313\/studio\/unit-converter\/",
+      
+      "datePublished": "2025-01-01T00:00:00\u002b09:00",
+      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+
+<link rel="stylesheet" href="/css/studiopage.css">
 
 <section class="section">
 <div class="container">
-    <!-- 헤더 -->
+    
     <div class="studio-page-header">
         <h1>Studio <span>NFP</span></h1>
         <span class="highlight">단위 변환기</span>
         <p><br>px, pt, mm, cm, inch 단위를 빠르게 상호 변환하세요.</p>
     </div>
 
-<!-- 다른 페이지로 이동 버튼 -->
+
 <div class="page-btn-wrapper">
-<a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
-<a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
-<a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
-<a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
-<a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
-<a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
-<a href="{{ "/#" | relURL }}" class="page-btn">#</a>
-<a href="{{ "/#" | relURL }}" class="page-btn">#</a>
+<a href="/studio" class="page-btn">스튜디오 메인</a>
+<a href="/studio/web-demo" class="page-btn">웹 데모</a>
+<a href="/studio/text-counter" class="page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="page-btn">더미 텍스트</a>
+<a href="/studio/unit-converter" class="page-btn">단위 변환기</a>
+<a href="/studio/font-converter" class="page-btn">폰트 변환기</a>
+<a href="/#" class="page-btn">#</a>
+<a href="/#" class="page-btn">#</a>
 </div>
 
-    <!-- 탭 컨텐츠 -->
+    
     <div class="studio-page-content">
         <div class="container">
             <div class="unit-converter-wrapper">
-                <!-- 상단: 설정 영역 (기준단위/변환단위/변환기준) -->
+                
                 <div class="unit-converter-settings">
                     <div class="unit-converter-section">
                         <h3>기준 단위</h3>
@@ -95,7 +255,7 @@
                     </div>
                 </div>
 
-                <!-- 하단: 결과 영역 (변환 결과/빠른 변환) -->
+                
                 <div class="unit-converter-results">
                     <div class="unit-converter-calculator">
                         <h3>변환 결과</h3>
@@ -140,7 +300,7 @@
 </section>
 
 <script>
-// 단위 변환 상수 (96 DPI 기준)
+
 const CONVERSION_RATES = {
     px: 1,
     pt: 96 / 72,
@@ -161,7 +321,7 @@ function updateUnitLabels() {
         inch: '인치 (inch)'
     };
     
-    // 라벨과 심볼 업데이트
+    
     const baseLabel = document.getElementById('base-unit-label');
     const targetLabel = document.getElementById('target-unit-label');
     const baseSymbol = document.getElementById('base-unit-symbol');
@@ -172,7 +332,7 @@ function updateUnitLabels() {
     if (baseSymbol) baseSymbol.textContent = baseUnit;
     if (targetSymbol) targetSymbol.textContent = targetUnit;
     
-    // 현재 값이 있으면 변환 실행
+    
     const baseInput = document.getElementById('base-unit-input');
     if (baseInput && baseInput.value) {
         convertFromBase();
@@ -208,7 +368,7 @@ function convertFromTarget() {
 }
 
 function convertUnits(value, fromUnit, toUnit) {
-    // px로 변환한 다음 목표 단위로 변환
+    
     const pxValue = value * CONVERSION_RATES[fromUnit];
     const result = pxValue / CONVERSION_RATES[toUnit];
     return result;
@@ -219,7 +379,7 @@ function formatConversionResult(value) {
 }
 
 function setQuickConversion(value, unit) {
-    // 빠른 변환 버튼 클릭시 기준 단위를 해당 단위로 설정
+    
     const baseRadio = document.querySelector(`input[name="base-unit"][value="${unit}"]`);
     if (baseRadio) {
         baseRadio.checked = true;
@@ -230,11 +390,11 @@ function setQuickConversion(value, unit) {
     convertFromBase();
 }
 
-// 초기 로드
+
 document.addEventListener('DOMContentLoaded', () => {
     updateUnitLabels();
     
-    // 라디오 버튼 이벤트 리스너
+    
     document.querySelectorAll('input[name="base-unit"]').forEach(radio => {
         radio.addEventListener('change', updateUnitLabels);
     });
@@ -243,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         radio.addEventListener('change', updateUnitLabels);
     });
     
-    // 입력 필드 이벤트 리스너
+    
     const baseInput = document.getElementById('base-unit-input');
     const targetInput = document.getElementById('target-unit-input');
     
@@ -257,4 +417,73 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-{{ end }}
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>

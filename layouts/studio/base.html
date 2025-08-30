@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">텍스트 카운터</span>
+        <p><br>글자 수를 편하게 세어보세요.</p>
+    </div>
+
+<!-- 다른 페이지로 이동 버튼 -->
+<div class="page-btn-wrapper">
+<a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+<a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+<a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+<a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+<a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+<a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+<a href="{{ "/#" | relURL }}" class="page-btn">#</a>
+<a href="{{ "/#" | relURL }}" class="page-btn">#</a>
+</div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+    
+            <div class="container">
+      
+
+        </div>
+    </div>
+</div>
+
+</section>
+
+{{ end }}

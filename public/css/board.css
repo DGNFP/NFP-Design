@@ -3309,15 +3309,6 @@ white-space: nowrap;
     font-size: 12px;
 }
 
-.youtube-grid {
-    display: grid
-;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 2fr));
-    gap: 16px;
-    margin-bottom: 3rem;
-}
-
-
 }
 
 /* 작은 모바일 */

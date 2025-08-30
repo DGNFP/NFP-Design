@@ -609,6 +609,10 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/base/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/calculator/size/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>

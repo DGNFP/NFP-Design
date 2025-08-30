@@ -6,7 +6,36 @@
     <description>Recent content in Studio NFP on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/studio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lorem Ipsum 생성기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/text-tools/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/text-tools/</guid>
+      <description>&lt;h1 id=&#34;lorem-ipsum-생성기&#34;&gt;Lorem Ipsum 생성기&lt;/h1&gt;&#xA;&lt;p&gt;디자인 및 개발 작업에 필요한 더미 텍스트를 빠르게 생성하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 생성 방식&lt;/strong&gt;: 문단, 단어, 문장 단위로 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개수 조절&lt;/strong&gt;: 1~50개까지 자유롭게 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;클래식 시작&lt;/strong&gt;: &amp;ldquo;Lorem ipsum dolor sit amet&amp;hellip;&amp;ldquo;으로 시작 옵션&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 통계&lt;/strong&gt;: 생성된 텍스트의 문단/단어/글자 수 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;원클릭 복사&lt;/strong&gt;: 생성된 텍스트를 한 번에 복사&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;생성 방식을 선택하세요 (문단/단어/문장)&lt;/li&gt;&#xA;&lt;li&gt;원하는 개수를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;필요시 클래식 시작 옵션을 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;Lorem Ipsum 생성&amp;rdquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;생성된 텍스트를 복사하여 사용하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;lorem-ipsum이란&#34;&gt;Lorem Ipsum이란?&lt;/h2&gt;&#xA;&lt;p&gt;Lorem Ipsum은 16세기부터 인쇄 및 타이포그래피 업계에서 사용되어 온 표준 더미 텍스트입니다. 의미 없는 라틴어로 구성되어 있어 내용에 방해받지 않고 디자인과 레이아웃에 집중할 수 있게 해줍니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>단위 변환기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/unit-converter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/unit-converter/</guid>
+      <description>&lt;h1 id=&#34;단위-변환기&#34;&gt;단위 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹 디자인과 인쇄물 작업에 필요한 다양한 길이 단위를 빠르게 상호 변환하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: 기준 단위 ↔ 변환 단위 실시간 상호변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;지원 단위&lt;/strong&gt;: px, pt, mm, cm, inch (96 DPI 기준)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 변환&lt;/strong&gt;: 자주 사용하는 값들을 원클릭으로 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 계산&lt;/strong&gt;: 소수점 3자리까지 정밀 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;96 DPI 기준&lt;/strong&gt;: 표준 웹 해상도 기준 변환&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;기준 단위와 변환 단위를 각각 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;기준 단위 입력란에 값을 입력하면 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;반대로 변환 단위에 값을 입력해도 역변환이 가능합니다&lt;/li&gt;&#xA;&lt;li&gt;빠른 변환 버튼으로 자주 사용하는 값들을 쉽게 확인할 수 있습니다&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;96 DPI 기준 참고 값:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>텍스트 카운터 - Studio NFP</title>
+      <link>http://localhost:1313/studio/text-counter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/text-counter/</guid>
+      <description>&lt;h1 id=&#34;텍스트-카운터&#34;&gt;텍스트 카운터&lt;/h1&gt;&#xA;&lt;p&gt;실시간으로 텍스트의 다양한 정보를 분석하고 카운팅하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;글자수 카운팅&lt;/strong&gt;: 전체 글자수와 공백 제외 글자수&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;단어 및 줄 수&lt;/strong&gt;: 단어 개수, 줄 수, 문단 수 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;바이트 계산&lt;/strong&gt;: UTF-8 인코딩 기준 바이트 수&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;텍스트 분석&lt;/strong&gt;: 평균 단어 길이, 읽기 예상 시간&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;편의 기능&lt;/strong&gt;: 복사, 붙여넣기, 전체 삭제&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;텍스트 입력창에 분석할 텍스트를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;실시간으로 우측에 카운팅 결과가 표시됩니다&lt;/li&gt;&#xA;&lt;li&gt;필요시 복사, 붙여넣기, 삭제 버튼을 활용하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;블로그 글 작성, 보고서 작성, SNS 글자수 제한 확인 등 다양한 용도로 활용할 수 있습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>폰트 크기 변환기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/font-converter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/font-converter/</guid>
+      <description>&lt;h1 id=&#34;폰트-크기-변환기&#34;&gt;폰트 크기 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹과 인쇄물에서 사용하는 폰트 크기를 빠르게 변환하고 반응형 사이즈를 확인하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: px ↔ pt 실시간 상호 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 입력한 폰트 크기로 텍스트 미리보기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 사이즈&lt;/strong&gt;: 모바일/태블릿/데스크톱별 권장 크기 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;권장 사이즈 가이드&lt;/strong&gt;: 본문, 제목, 캡션 등 용도별 권장 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 변환&lt;/strong&gt;: 0.75 비율 기준 정밀 계산&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;픽셀(px) 또는 포인트(pt) 입력란에 크기를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;반대 단위로 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;미리보기에서 실제 크기를 확인하세요&lt;/li&gt;&#xA;&lt;li&gt;반응형 사이즈와 권장 사이즈를 참고하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;변환 공식:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>2색 그라데이션 생성기</title>
       <link>http://localhost:1313/studio/color-palette/gradient-2/</link>
@@ -71,13 +100,6 @@
       <description></description>
     </item>
     <item>
-      <title>디자인 가이드</title>
-      <link>http://localhost:1313/studio/design-guide/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/design-guide/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>랜덤 5색 팔레트</title>
       <link>http://localhost:1313/studio/color-palette/palette-random/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -89,6 +111,13 @@
       <link>http://localhost:1313/studio/qr/basic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/studio/qr/basic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>베이스</title>
+      <link>http://localhost:1313/studio/base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/studio/base/</guid>
       <description></description>
     </item>
     <item>
@@ -145,20 +174,6 @@
       <link>http://localhost:1313/studio/qr/custom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/studio/qr/custom/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>컬러 조합기</title>
-      <link>http://localhost:1313/studio/color-mixer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/color-mixer/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>컬러 카드 뽑기</title>
-      <link>http://localhost:1313/studio/card/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/card/</guid>
       <description></description>
     </item>
     <item>
