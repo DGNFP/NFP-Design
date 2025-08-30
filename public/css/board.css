@@ -292,7 +292,6 @@
 
     /* 추가된 부분, 문제있으면 삭제할것 */
     contain: layout style; /* 추가: 레이아웃 격리 */
-    min-height: 220px; /* 추가: 최소 높이 설정 */
 }
 
 /* 기본 홀로그램 효과 (항상 보이는 스캔 라인) */
@@ -1954,8 +1953,8 @@ word-break: break-word;
 .youtube-cta-wrapper {
     text-align: center;
     margin-bottom: 40px;
-    padding: 30px;
-    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    padding: 60px;
+    /* background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); */
     border-radius: 6px;
     position: relative;
     overflow: hidden;
@@ -1968,7 +1967,7 @@ word-break: break-word;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
     transform: translateX(-100%);
     animation: shimmer 3s infinite;
 }
