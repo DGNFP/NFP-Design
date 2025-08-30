@@ -1,7 +1,35 @@
 // netlify/functions/youtube-api.js
+const https = require('https');
+
+function makeRequest(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      let data = '';
+      res.on('data', (chunk) => {
+        data += chunk;
+      });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          resolve({ ok: res.statusCode === 200, json: () => Promise.resolve(parsed), status: res.statusCode });
+        } catch (err) {
+          reject(err);
+        }
+      });
+    }).on('error', (err) => {
+      reject(err);
+    });
+  });
+}
+
 exports.handler = async (event, context) => {
   const YOUTUBE_API_KEY = process.env.HUGO_YOUTUBE_API_KEY;
   const CHANNEL_ID = 'UCjB24gwQdmWQ7j4gQkZipHw';
+  
+  console.log('Environment check:', {
+    hasApiKey: !!YOUTUBE_API_KEY,
+    apiKeyLength: YOUTUBE_API_KEY ? YOUTUBE_API_KEY.length : 0
+  });
   
   // CORS 헤더
   const headers = {
@@ -30,9 +58,8 @@ exports.handler = async (event, context) => {
   
   try {
     // 1단계: 채널 정보 가져오기
-    const channelResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
-    );
+    const channelUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`;
+    const channelResponse = await makeRequest(channelUrl);
     
     if (!channelResponse.ok) {
       throw new Error(`채널 정보 오류: ${channelResponse.status}`);
@@ -48,9 +75,8 @@ exports.handler = async (event, context) => {
     const uploadsPlaylistId = channel.contentDetails.relatedPlaylists.uploads;
     
     // 2단계: 비디오 목록 가져오기
-    const videosResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`
-    );
+    const videosUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`;
+    const videosResponse = await makeRequest(videosUrl);
     
     if (!videosResponse.ok) {
       throw new Error(`비디오 목록 오류: ${videosResponse.status}`);
