@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>http://localhost:51687/categories/</link>
     <description>Recent content in Categories on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
     <lastBuildDate>Mon, 25 Aug 2025 13:32:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:51687/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/categories/programming/</link>
+      <link>http://localhost:51687/categories/programming/</link>
       <pubDate>Mon, 25 Aug 2025 13:32:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/programming/</guid>
+      <guid>http://localhost:51687/categories/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Games</title>
-      <link>http://localhost:1313/categories/games/</link>
+      <link>http://localhost:51687/categories/games/</link>
       <pubDate>Wed, 20 Aug 2025 00:11:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/games/</guid>
+      <guid>http://localhost:51687/categories/games/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>http://localhost:1313/categories/web/</link>
+      <link>http://localhost:51687/categories/web/</link>
       <pubDate>Thu, 24 Jul 2025 00:54:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/web/</guid>
+      <guid>http://localhost:51687/categories/web/</guid>
       <description></description>
     </item>
     <item>
       <title>Video</title>
-      <link>http://localhost:1313/categories/video/</link>
+      <link>http://localhost:51687/categories/video/</link>
       <pubDate>Wed, 16 Jul 2025 23:48:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/video/</guid>
+      <guid>http://localhost:51687/categories/video/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>http://localhost:1313/categories/blog/</link>
+      <link>http://localhost:51687/categories/blog/</link>
       <pubDate>Sun, 13 Jul 2025 21:25:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/blog/</guid>
+      <guid>http://localhost:51687/categories/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Project</title>
-      <link>http://localhost:1313/categories/project/</link>
+      <link>http://localhost:51687/categories/project/</link>
       <pubDate>Thu, 03 Jul 2025 23:57:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/project/</guid>
+      <guid>http://localhost:51687/categories/project/</guid>
       <description></description>
     </item>
     <item>
       <title>Content</title>
-      <link>http://localhost:1313/categories/content/</link>
+      <link>http://localhost:51687/categories/content/</link>
       <pubDate>Tue, 01 Jul 2025 22:52:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/content/</guid>
+      <guid>http://localhost:51687/categories/content/</guid>
       <description></description>
     </item>
     <item>
       <title>Studio NFP YouTube</title>
-      <link>http://localhost:1313/categories/youtube/</link>
+      <link>http://localhost:51687/categories/youtube/</link>
       <pubDate>Tue, 01 Jul 2025 22:07:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/youtube/</guid>
+      <guid>http://localhost:51687/categories/youtube/</guid>
       <description>&lt;p&gt;Studio NFP YouTube 채널의 모든 영상을 만나보세요.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creative</title>
-      <link>http://localhost:1313/categories/creative/</link>
+      <link>http://localhost:51687/categories/creative/</link>
       <pubDate>Tue, 01 Jul 2025 20:52:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/creative/</guid>
+      <guid>http://localhost:51687/categories/creative/</guid>
       <description></description>
     </item>
     <item>
       <title>Ad</title>
-      <link>http://localhost:1313/categories/ad/</link>
+      <link>http://localhost:51687/categories/ad/</link>
       <pubDate>Sat, 28 Jun 2025 23:43:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/ad/</guid>
+      <guid>http://localhost:51687/categories/ad/</guid>
       <description></description>
     </item>
     <item>
       <title>News</title>
-      <link>http://localhost:1313/categories/news/</link>
+      <link>http://localhost:51687/categories/news/</link>
       <pubDate>Sat, 24 May 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/news/</guid>
+      <guid>http://localhost:51687/categories/news/</guid>
       <description></description>
     </item>
   </channel>

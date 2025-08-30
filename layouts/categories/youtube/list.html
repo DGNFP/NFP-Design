@@ -4,13 +4,30 @@
         <h2 class="youtube-board-title">YouTube 채널</h2>
         <p class="youtube-intro">Studio NFP의 다양한 영상 콘텐츠를 만나보세요.</p>
 
-        <!-- YouTube 채널 CTA 버튼 -->
-        <div class="youtube-cta-wrapper">
-            <a href="https://www.youtube.com/@Studio-NFP" target="_blank" class="youtube-cta-button">
+        <!-- YouTube 채널 CTA 버튼 (채널아트 배경 적용) -->
+        <div class="youtube-cta-wrapper" style="
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('/img/youtube-channel-art.jpg') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        ">
+            <!-- 스캔 효과 유지 -->
+            <div class="scan-effect" style="
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                animation: scan 3s linear infinite;
+                z-index: 1;
+            "></div>
+            
+            <a href="https://www.youtube.com/@Studio-NFP" target="_blank" class="youtube-cta-button" style="position: relative; z-index: 2;">
                 <i class="fab fa-youtube"></i>
                 Studio NFP 채널 방문하기
             </a>
-            <div class="youtube-stats">
+            <div class="youtube-stats" style="position: relative; z-index: 2;">
                 <span class="stat-item">구독자와 함께하는 크리에이티브 여정</span>
             </div>
         </div>
@@ -127,7 +144,7 @@
                         
                         <div class="youtube-content">
                             <div class="youtube-avatar">
-                                <img src="/img/studio-nfp-avatar.jpg" alt="Studio NFP" class="youtube-channel-avatar">
+                                <img src="" alt="Studio NFP" class="youtube-channel-avatar" style="display: none;">
                             </div>
                             <div class="youtube-info">
                                 <h3 class="youtube-title">{{ .Title }}</h3>
@@ -157,11 +174,22 @@
     </div>
 </section>
 
+<style>
+@keyframes scan {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+</style>
+
 <script>
 // 전역 변수로 채널 정보 저장
 let channelInfo = {
    title: 'Studio NFP',
-   thumbnailUrl: '/img/studio-nfp-avatar.jpg'
+   thumbnailUrl: ''
 };
 
 // 구독 함수 - 이벤트 전파 방지
@@ -294,9 +322,10 @@ async function loadYouTubeVideos() {
 
        // 수동 게시물의 프로필 이미지도 API에서 가져온 이미지로 교체
        document.querySelectorAll('.youtube-channel-avatar').forEach(img => {
-           if (img.src.includes('studio-nfp-avatar.jpg')) {
+           if (!img.src || img.src.includes('studio-nfp-avatar.jpg')) {
                img.src = channelInfo.thumbnailUrl;
                img.alt = channelInfo.title;
+               img.style.display = ''; // 이미지 표시
            }
        });
 

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>http://localhost:51687/blog/</link>
     <description>Recent content in Blogs on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
     <lastBuildDate>Sun, 13 Jul 2025 21:25:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:51687/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>어쩌다 프로그래밍</title>
-      <link>http://localhost:1313/blog/2025-07-13-%EC%96%B4%EC%A9%8C%EB%8B%A4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</link>
+      <link>http://localhost:51687/blog/2025-07-13-%EC%96%B4%EC%A9%8C%EB%8B%A4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</link>
       <pubDate>Sun, 13 Jul 2025 21:25:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2025-07-13-%EC%96%B4%EC%A9%8C%EB%8B%A4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</guid>
+      <guid>http://localhost:51687/blog/2025-07-13-%EC%96%B4%EC%A9%8C%EB%8B%A4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</guid>
       <description>&lt;p&gt;웹사이트 개발이 끝나지도 않았는데, 모바일 앱을 만드느랴 정신이 없네요.&lt;/p&gt;&#xA;&lt;p&gt;주소창에 N을 치면 네이버가 자동완성 됐었는데, 어느덧 넷리파이가 자동완성이 되고&lt;/p&gt;&#xA;&lt;p&gt;hugo server와 npx expo를 자주 타이핑하다보니 빠른 속도로 타이핑이 가능해졌고&lt;/p&gt;&#xA;&lt;p&gt;크롬 브라우저 시작탭에는 자주 가던 게임사이트, 게임 홈페이지는 전부 내려가고&lt;/p&gt;&#xA;&lt;p&gt;구글 애널리틱스, 넷리파이, 깃허브, 네이버 웹마스터, 파이어베이스 등등&lt;/p&gt;&#xA;&lt;p&gt;전에는 관심도 없고, 뭔지도 몰랐던 것들을 알게 되었습니다.&lt;/p&gt;&#xA;&lt;p&gt;지금도 사실 개발자 흉내만 내는거지, 디자이너 쪽에 가깝지만&lt;/p&gt;&#xA;&lt;p&gt;목표가 생기고 몰두하다 보니 빠른 속도로 지식을 습득하고 있는 것 같아 뿌듯합니다.&lt;/p&gt;</description>
     </item>
   </channel>
