@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>이미지 자르기/크롭 - Studio NFP - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="이미지 자르기, 크롭, 이미지 편집, 영역 선택, 비율 고정, 정확한 크기">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/image-cropper/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="이미지 자르기/크롭 - Studio NFP - NFP 디자인">
+    <meta property="og:description" content="이미지의 원하는 부분을 정확하게 자르고 편집하는 도구입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/image-cropper/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="이미지 자르기/크롭 - Studio NFP - NFP 디자인">
+    <meta name="twitter:description" content="이미지의 원하는 부분을 정확하게 자르고 편집하는 도구입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "이미지 자르기\/크롭 - Studio NFP",
+      "description": "이미지의 원하는 부분을 정확하게 자르고 편집하는 도구입니다.",
+      "url": "http:\/\/localhost:1313\/studio\/image-cropper\/",
+      
+      "datePublished": "2025-01-01T00:00:00\u002b09:00",
+      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+
+<link rel="stylesheet" href="/css/studiopage.css">
+
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">이미지 자르기/크롭</span>
+        <p><br>이미지의 원하는 부분을 자유롭게 자르고 편집하세요.</p>
+    </div>
+
+    
+    <div class="page-btn-wrapper">
+        <a href="/studio" class="page-btn">스튜디오 메인</a>
+        <a href="/studio/web-demo" class="page-btn">웹 데모</a>
+        <a href="/studio/text-counter" class="page-btn">텍스트 카운터</a>
+        <a href="/studio/text-tools" class="page-btn">더미 텍스트</a>
+        <a href="/studio/unit-converter" class="page-btn">단위 변환기</a>
+        <a href="/studio/font-converter" class="page-btn">폰트 변환기</a>
+        <a href="/studio/size-calculator" class="page-btn">사이즈 계산기</a>
+        <a href="/studio/color-mixer" class="page-btn">컬러 조합기</a>
+        <a href="/studio/color-palette-5" class="page-btn">조합 컬러 팔레트</a>
+        <a href="/studio/color-palette-random" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="/studio/qr-basic" class="page-btn">QR코드 생성기</a>
+        <a href="/studio/qr-custom" class="page-btn">커스텀 QR코드 생성기</a>
+        <a href="/studio/format-converter" class="page-btn">포맷 변환기</a>
+        <a href="/studio/image-compressor" class="page-btn">이미지 압축기</a>
+    </div>
+
+    
+    <div class="studio-page-content">
+        <div class="image-cropper-container">
+            
+            <div class="image-cropper-description">
+                <h3>이미지 자르기/크롭</h3>
+                <p>마우스로 드래그하여 원하는 영역을 선택하고 자를 수 있습니다.<br>
+                정확한 크기 지정이나 비율 고정 크롭도 가능합니다.</p>
+                <div class="supported-formats">
+                    <small>지원 형식: JPEG, PNG, GIF, WebP, BMP, TIFF, SVG, ICO</small>
+                </div>
+            </div>
+
+            <div class="image-cropper-content">
+                
+                <div class="cropper-upload-section">
+                    
+                    <div class="cropper-settings-group">
+                        <h4>이미지 선택</h4>
+                        <div class="cropper-input-group">
+                            <label for="crop-image-upload" class="single-upload-label">
+                                <span>이미지를 선택하거나 드래그해주세요</span><br>
+                                <small>자를 이미지를 업로드하세요</small>
+                            </label>
+                            <input type="file" id="crop-image-upload" accept=".jpg,.jpeg,.png,.gif,.webp,.bmp,.tiff,.tif,.svg,.ico" style="display: none;">
+                        </div>
+                    </div>
+
+                    
+                    <div class="cropper-settings-group" id="crop-settings" style="display: none;">
+                        
+                        
+                        <div class="cropper-input-group">
+                            <label for="aspect-ratio">비율 고정</label>
+                            <select id="aspect-ratio" class="cropper-form-select">
+                                <option value="free">자유 비율</option>
+                                <option value="1:1">1:1 (정사각형)</option>
+                                <option value="4:3">4:3 (표준)</option>
+                                <option value="16:9">16:9 (와이드)</option>
+                                <option value="3:2">3:2 (사진)</option>
+                                <option value="5:4">5:4 (인화)</option>
+                            </select>
+                        </div>
+
+                        
+                        <div class="cropper-input-group">
+                            <label>크롭 영역 정보</label>
+                            <div class="crop-info-container">
+                                <div class="crop-info-row">
+                                    <div class="crop-info-item">
+                                        <span class="label">X:</span>
+                                        <span class="value" id="crop-x">0</span>
+                                    </div>
+                                    <div class="crop-info-item">
+                                        <span class="label">Y:</span>
+                                        <span class="value" id="crop-y">0</span>
+                                    </div>
+                                </div>
+                                <div class="crop-info-row">
+                                    <div class="crop-info-item">
+                                        <span class="label">너비:</span>
+                                        <span class="value" id="crop-width">0</span>
+                                    </div>
+                                    <div class="crop-info-item">
+                                        <span class="label">높이:</span>
+                                        <span class="value" id="crop-height">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="cropper-input-group">
+                            <label>수동 크롭 영역 설정</label>
+                            <div class="manual-crop-container">
+                                <div class="manual-crop-row">
+                                    <div class="manual-crop-item">
+                                        <label for="manual-x">X</label>
+                                        <input type="number" id="manual-x" min="0" placeholder="0">
+                                    </div>
+                                    <div class="manual-crop-item">
+                                        <label for="manual-y">Y</label>
+                                        <input type="number" id="manual-y" min="0" placeholder="0">
+                                    </div>
+                                </div>
+                                <div class="manual-crop-row">
+                                    <div class="manual-crop-item">
+                                        <label for="manual-width">너비</label>
+                                        <input type="number" id="manual-width" min="1" placeholder="100">
+                                    </div>
+                                    <div class="manual-crop-item">
+                                        <label for="manual-height">높이</label>
+                                        <input type="number" id="manual-height" min="1" placeholder="100">
+                                    </div>
+                                </div>
+                                <button type="button" class="apply-manual-crop" id="apply-manual-crop">
+                                    적용
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="cropper-input-group">
+                            <label>빠른 크롭</label>
+                            <div class="quick-crop-buttons">
+                                <button type="button" class="quick-crop-btn" id="reset-crop">
+                                    <i class="fas fa-undo"></i> 전체 선택
+                                </button>
+                                <button type="button" class="quick-crop-btn" id="center-crop">
+                                    <i class="fas fa-crosshairs"></i> 중앙 크롭
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="cropper-input-group">
+                            <label for="crop-quality">출력 품질</label>
+                            <div class="quality-slider-container">
+                                <input type="range" id="crop-quality" min="50" max="100" value="95" class="quality-slider">
+                                <span class="quality-value" id="crop-quality-value">95%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cropper-button-area" id="crop-button-area" style="display: none;">
+                        <button class="cropper-btn" id="crop-btn" disabled>
+                            <i class="fas fa-crop"></i> 이미지 자르기
+                        </button>
+                    </div>
+                </div>
+                
+                
+                <div class="cropper-result-section">
+                    <div class="cropper-result-header">
+                        <h4>크롭 영역 선택</h4>
+                    </div>
+                    <div class="cropper-result-container">
+                        <div class="cropper-placeholder" id="cropper-placeholder">
+                            <i class="fas fa-crop"></i>
+                            <p>이미지를 업로드하고<br>크롭할 영역을 선택하세요</p>
+                        </div>
+                        
+                        
+                        <div class="crop-canvas-container" id="crop-canvas-container" style="display: none;">
+                            <div class="crop-canvas-wrapper">
+                                <canvas id="crop-canvas" class="crop-canvas"></canvas>
+                                <div class="crop-overlay" id="crop-overlay">
+                                    <div class="crop-selection" id="crop-selection">
+                                        <div class="crop-handle crop-handle-nw"></div>
+                                        <div class="crop-handle crop-handle-ne"></div>
+                                        <div class="crop-handle crop-handle-sw"></div>
+                                        <div class="crop-handle crop-handle-se"></div>
+                                        <div class="crop-handle crop-handle-n"></div>
+                                        <div class="crop-handle crop-handle-s"></div>
+                                        <div class="crop-handle crop-handle-w"></div>
+                                        <div class="crop-handle crop-handle-e"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crop-instructions">
+                                <small>마우스로 드래그하여 크롭 영역을 선택하거나 핸들을 드래그하여 조절하세요.</small>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="crop-progress" id="crop-progress" style="display: none;">
+                            <div class="progress-header">
+                                <h5>이미지 자르는 중...</h5>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="crop-results" id="crop-results" style="display: none;">
+                            <div class="results-header">
+                                <h5>크롭 완료</h5>
+                            </div>
+                            <div class="result-comparison">
+                                <div class="before-after">
+                                    <div class="comparison-item">
+                                        <h6>원본</h6>
+                                        <div class="comparison-info" id="original-info"></div>
+                                    </div>
+                                    <div class="comparison-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <h6>크롭 결과</h6>
+                                        <div class="comparison-info" id="cropped-info"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="result-image-container">
+                                <img id="result-image" alt="크롭된 이미지">
+                            </div>
+                            <div class="download-area">
+                                <button class="download-btn" id="download-btn">
+                                    <i class="fas fa-download"></i> 크롭된 이미지 다운로드
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+let selectedFile = null;
+let originalImage = null;
+let croppedImageData = null;
+let canvas = null;
+let ctx = null;
+let cropData = { x: 0, y: 0, width: 0, height: 0 };
+let isDragging = false;
+let isResizing = false;
+let startPoint = { x: 0, y: 0 };
+let currentHandle = null;
+let aspectRatioLocked = false;
+let lockedRatio = 1;
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const uploadInput = document.getElementById('crop-image-upload');
+    const uploadLabel = document.querySelector('.single-upload-label');
+    const cropBtn = document.getElementById('crop-btn');
+    const downloadBtn = document.getElementById('download-btn');
+    const aspectRatioSelect = document.getElementById('aspect-ratio');
+    const qualitySlider = document.getElementById('crop-quality');
+    const applyManualCropBtn = document.getElementById('apply-manual-crop');
+    const resetCropBtn = document.getElementById('reset-crop');
+    const centerCropBtn = document.getElementById('center-crop');
+
+    canvas = document.getElementById('crop-canvas');
+    ctx = canvas.getContext('2d');
+
+    
+    uploadInput.addEventListener('change', function(e) {
+        handleImageUpload(e.target.files[0]);
+    });
+
+    
+    uploadLabel.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#01FF75';
+        uploadLabel.style.background = '#1f1f1f';
+    });
+
+    uploadLabel.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+    });
+
+    uploadLabel.addEventListener('drop', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+        if (e.dataTransfer.files.length > 0) {
+            handleImageUpload(e.dataTransfer.files[0]);
+        }
+    });
+
+    
+    cropBtn.addEventListener('click', cropImage);
+
+    
+    downloadBtn.addEventListener('click', downloadCroppedImage);
+
+    
+    aspectRatioSelect.addEventListener('change', handleAspectRatioChange);
+
+    
+    qualitySlider.addEventListener('input', updateQualityDisplay);
+
+    
+    applyManualCropBtn.addEventListener('click', applyManualCrop);
+
+    
+    resetCropBtn.addEventListener('click', resetCropSelection);
+    centerCropBtn.addEventListener('click', centerCropSelection);
+
+    
+    document.getElementById('manual-x').addEventListener('input', updateManualCropPreview);
+    document.getElementById('manual-y').addEventListener('input', updateManualCropPreview);
+    document.getElementById('manual-width').addEventListener('input', updateManualCropPreview);
+    document.getElementById('manual-height').addEventListener('input', updateManualCropPreview);
+
+    
+    updateQualityDisplay();
+});
+
+function handleImageUpload(file) {
+    if (!file) return;
+    
+    const allowedTypes = [
+        'image/jpeg', 'image/jpg', 'image/png', 'image/gif',
+        'image/webp', 'image/bmp', 'image/tiff', 'image/tif',
+        'image/svg+xml', 'image/x-icon', 'image/vnd.microsoft.icon'
+    ];
+    
+    const allowedExtensions = [
+        'jpg', 'jpeg', 'png', 'gif', 'webp', 
+        'bmp', 'tiff', 'tif', 'svg', 'ico'
+    ];
+    
+    const isValidType = allowedTypes.includes(file.type.toLowerCase());
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+    const isValidExtension = allowedExtensions.includes(fileExtension);
+    
+    if (!isValidType && !isValidExtension) {
+        showToast('지원하지 않는 파일 형식입니다.');
+        return;
+    }
+    
+    
+    resetCropperState();
+    
+    selectedFile = file;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+            originalImage = img;
+            setupCropCanvas();
+            showCropSettings();
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function resetCropperState() {
+    
+    selectedFile = null;
+    originalImage = null;
+    croppedImageData = null;
+    cropData = { x: 0, y: 0, width: 0, height: 0 };
+    isDragging = false;
+    isResizing = false;
+    currentHandle = null;
+    
+    
+    document.getElementById('crop-canvas-container').style.display = 'none';
+    document.getElementById('crop-progress').style.display = 'none';
+    document.getElementById('crop-results').style.display = 'none';
+    document.getElementById('cropper-placeholder').style.display = 'flex';
+    document.getElementById('crop-settings').style.display = 'none';
+    document.getElementById('crop-button-area').style.display = 'none';
+    
+    
+    document.querySelector('.cropper-result-header h4').textContent = '크롭 영역 선택';
+}
+
+function setupCropCanvas() {
+    const container = document.getElementById('crop-canvas-container');
+    const placeholder = document.getElementById('cropper-placeholder');
+    
+    placeholder.style.display = 'none';
+    container.style.display = 'block';
+    
+    
+    const containerWidth = container.clientWidth - 40; 
+    const maxHeight = 400;
+    
+    let displayWidth = originalImage.naturalWidth;
+    let displayHeight = originalImage.naturalHeight;
+    
+    
+    if (displayWidth > containerWidth) {
+        const ratio = containerWidth / displayWidth;
+        displayWidth = containerWidth;
+        displayHeight = displayHeight * ratio;
+    }
+    
+    if (displayHeight > maxHeight) {
+        const ratio = maxHeight / displayHeight;
+        displayHeight = maxHeight;
+        displayWidth = displayWidth * ratio;
+    }
+    
+    canvas.width = displayWidth;
+    canvas.height = displayHeight;
+    canvas.style.width = displayWidth + 'px';
+    canvas.style.height = displayHeight + 'px';
+    
+    
+    ctx.drawImage(originalImage, 0, 0, displayWidth, displayHeight);
+    
+    
+    cropData = {
+        x: 0,
+        y: 0,
+        width: displayWidth,
+        height: displayHeight
+    };
+    
+    updateCropSelection();
+    setupCropInteraction();
+}
+
+function setupCropInteraction() {
+    const overlay = document.getElementById('crop-overlay');
+    const selection = document.getElementById('crop-selection');
+    
+    
+    overlay.removeEventListener('mousedown', handleMouseDown);
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+    
+    
+    overlay.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    
+    const handles = selection.querySelectorAll('.crop-handle');
+    handles.forEach(handle => {
+        
+        handle.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            isResizing = true;
+            isDragging = false;
+            currentHandle = handle.classList[1]; 
+            
+            const rect = canvas.getBoundingClientRect();
+            startPoint = { 
+                x: e.clientX - rect.left, 
+                y: e.clientY - rect.top 
+            };
+        });
+    });
+}
+
+function handleMouseDown(e) {
+    e.preventDefault();
+    
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    
+    if (x >= cropData.x && x <= cropData.x + cropData.width &&
+        y >= cropData.y && y <= cropData.y + cropData.height) {
+        isDragging = true;
+        isResizing = false;
+    } else {
+        
+        cropData.x = x;
+        cropData.y = y;
+        cropData.width = 0;
+        cropData.height = 0;
+        isDragging = true;
+        isResizing = false;
+    }
+    
+    startPoint = { x: x, y: y };
+}
+
+function handleMouseMove(e) {
+    if (!isDragging && !isResizing) return;
+    
+    e.preventDefault();
+    
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    if (isResizing && currentHandle) {
+        handleResize(x, y);
+    } else if (isDragging) {
+        if (cropData.width === 0 && cropData.height === 0) {
+            
+            cropData.width = x - startPoint.x;
+            cropData.height = y - startPoint.y;
+            
+            if (aspectRatioLocked) {
+                
+                if (Math.abs(cropData.width) > Math.abs(cropData.height)) {
+                    cropData.height = cropData.width / lockedRatio;
+                } else {
+                    cropData.width = cropData.height * lockedRatio;
+                }
+            }
+        } else {
+            
+            const deltaX = x - startPoint.x;
+            const deltaY = y - startPoint.y;
+            
+            cropData.x += deltaX;
+            cropData.y += deltaY;
+            
+            
+            cropData.x = Math.max(0, Math.min(canvas.width - cropData.width, cropData.x));
+            cropData.y = Math.max(0, Math.min(canvas.height - cropData.height, cropData.y));
+            
+            startPoint = { x: x, y: y };
+        }
+    }
+    
+    updateCropSelection();
+    updateCropInfo();
+}
+
+function handleMouseUp() {
+    if (cropData.width < 0) {
+        cropData.x += cropData.width;
+        cropData.width = Math.abs(cropData.width);
+    }
+    if (cropData.height < 0) {
+        cropData.y += cropData.height;
+        cropData.height = Math.abs(cropData.height);
+    }
+    
+    
+    cropData.width = Math.max(10, cropData.width);
+    cropData.height = Math.max(10, cropData.height);
+    
+    
+    cropData.x = Math.max(0, Math.min(canvas.width - cropData.width, cropData.x));
+    cropData.y = Math.max(0, Math.min(canvas.height - cropData.height, cropData.y));
+    
+    isDragging = false;
+    isResizing = false;
+    currentHandle = null;
+    
+    updateCropSelection();
+    updateCropInfo();
+    updateCropButtonState();
+}
+
+function handleResize(x, y) {
+    const deltaX = x - startPoint.x;
+    const deltaY = y - startPoint.y;
+    
+    let newX = cropData.x;
+    let newY = cropData.y;
+    let newWidth = cropData.width;
+    let newHeight = cropData.height;
+    
+    switch (currentHandle) {
+        case 'crop-handle-nw':
+            newX += deltaX;
+            newY += deltaY;
+            newWidth -= deltaX;
+            newHeight -= deltaY;
+            break;
+        case 'crop-handle-ne':
+            newY += deltaY;
+            newWidth += deltaX;
+            newHeight -= deltaY;
+            break;
+        case 'crop-handle-sw':
+            newX += deltaX;
+            newWidth -= deltaX;
+            newHeight += deltaY;
+            break;
+        case 'crop-handle-se':
+            newWidth += deltaX;
+            newHeight += deltaY;
+            break;
+        case 'crop-handle-n':
+            newY += deltaY;
+            newHeight -= deltaY;
+            break;
+        case 'crop-handle-s':
+            newHeight += deltaY;
+            break;
+        case 'crop-handle-w':
+            newX += deltaX;
+            newWidth -= deltaX;
+            break;
+        case 'crop-handle-e':
+            newWidth += deltaX;
+            break;
+    }
+    
+    if (aspectRatioLocked && lockedRatio) {
+        
+        const isCornerHandle = currentHandle.includes('nw') || currentHandle.includes('ne') || 
+                              currentHandle.includes('sw') || currentHandle.includes('se');
+        
+        if (isCornerHandle) {
+            
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                newHeight = newWidth / lockedRatio;
+                if (currentHandle.includes('n')) {
+                    newY = cropData.y + cropData.height - newHeight;
+                }
+            } else {
+                newWidth = newHeight * lockedRatio;
+                if (currentHandle.includes('w')) {
+                    newX = cropData.x + cropData.width - newWidth;
+                }
+            }
+        } else {
+            
+            if (currentHandle.includes('e') || currentHandle.includes('w')) {
+                newHeight = newWidth / lockedRatio;
+            } else {
+                newWidth = newHeight * lockedRatio;
+            }
+        }
+    }
+    
+    
+    if (newWidth >= 10 && newHeight >= 10 && 
+        newX >= 0 && newY >= 0 && 
+        newX + newWidth <= canvas.width && 
+        newY + newHeight <= canvas.height) {
+        
+        cropData.x = newX;
+        cropData.y = newY;
+        cropData.width = newWidth;
+        cropData.height = newHeight;
+        
+        
+        startPoint = { x: x, y: y };
+    }
+}
+
+function updateCropSelection() {
+    const selection = document.getElementById('crop-selection');
+    const overlay = document.getElementById('crop-overlay');
+    
+    selection.style.left = cropData.x + 'px';
+    selection.style.top = cropData.y + 'px';
+    selection.style.width = cropData.width + 'px';
+    selection.style.height = cropData.height + 'px';
+    
+    
+    overlay.style.background = `
+        linear-gradient(transparent ${cropData.y}px, 
+                       rgba(0,0,0,0.5) ${cropData.y}px, 
+                       rgba(0,0,0,0.5) ${cropData.y + cropData.height}px, 
+                       transparent ${cropData.y + cropData.height}px),
+        linear-gradient(90deg, 
+                       rgba(0,0,0,0.5) ${cropData.x}px, 
+                       transparent ${cropData.x}px, 
+                       transparent ${cropData.x + cropData.width}px, 
+                       rgba(0,0,0,0.5) ${cropData.x + cropData.width}px)
+    `;
+}
+
+function updateCropInfo() {
+    const scaleX = originalImage.naturalWidth / canvas.width;
+    const scaleY = originalImage.naturalHeight / canvas.height;
+    
+    const actualX = Math.round(cropData.x * scaleX);
+    const actualY = Math.round(cropData.y * scaleY);
+    const actualWidth = Math.round(cropData.width * scaleX);
+    const actualHeight = Math.round(cropData.height * scaleY);
+    
+    document.getElementById('crop-x').textContent = actualX;
+    document.getElementById('crop-y').textContent = actualY;
+    document.getElementById('crop-width').textContent = actualWidth;
+    document.getElementById('crop-height').textContent = actualHeight;
+}
+
+function handleAspectRatioChange() {
+    const value = document.getElementById('aspect-ratio').value;
+    
+    if (value === 'free') {
+        aspectRatioLocked = false;
+    } else {
+        aspectRatioLocked = true;
+        const [w, h] = value.split(':').map(Number);
+        lockedRatio = w / h;
+        
+        
+        const centerX = cropData.x + cropData.width / 2;
+        const centerY = cropData.y + cropData.height / 2;
+        
+        if (cropData.width / cropData.height > lockedRatio) {
+            
+            cropData.height = cropData.width / lockedRatio;
+        } else {
+            
+            cropData.width = cropData.height * lockedRatio;
+        }
+        
+        
+        cropData.x = centerX - cropData.width / 2;
+        cropData.y = centerY - cropData.height / 2;
+        
+        
+        cropData.x = Math.max(0, Math.min(canvas.width - cropData.width, cropData.x));
+        cropData.y = Math.max(0, Math.min(canvas.height - cropData.height, cropData.y));
+        
+        updateCropSelection();
+        updateCropInfo();
+    }
+}
+
+function applyManualCrop() {
+    const x = parseInt(document.getElementById('manual-x').value) || 0;
+    const y = parseInt(document.getElementById('manual-y').value) || 0;
+    const width = parseInt(document.getElementById('manual-width').value) || 100;
+    const height = parseInt(document.getElementById('manual-height').value) || 100;
+    
+    
+    const scaleX = canvas.width / originalImage.naturalWidth;
+    const scaleY = canvas.height / originalImage.naturalHeight;
+    
+    cropData.x = x * scaleX;
+    cropData.y = y * scaleY;
+    cropData.width = width * scaleX;
+    cropData.height = height * scaleY;
+    
+    
+    cropData.x = Math.max(0, Math.min(canvas.width - cropData.width, cropData.x));
+    cropData.y = Math.max(0, Math.min(canvas.height - cropData.height, cropData.y));
+    cropData.width = Math.max(10, Math.min(canvas.width - cropData.x, cropData.width));
+    cropData.height = Math.max(10, Math.min(canvas.height - cropData.y, cropData.height));
+    
+    updateCropSelection();
+    updateCropInfo();
+    updateCropButtonState();
+}
+
+function updateManualCropPreview() {
+    
+}
+
+function resetCropSelection() {
+    cropData = {
+        x: 0,
+        y: 0,
+        width: canvas.width,
+        height: canvas.height
+    };
+    
+    updateCropSelection();
+    updateCropInfo();
+    updateCropButtonState();
+}
+
+function centerCropSelection() {
+    const size = Math.min(canvas.width, canvas.height) * 0.8;
+    
+    cropData = {
+        x: (canvas.width - size) / 2,
+        y: (canvas.height - size) / 2,
+        width: size,
+        height: size
+    };
+    
+    updateCropSelection();
+    updateCropInfo();
+    updateCropButtonState();
+}
+
+function showCropSettings() {
+    document.getElementById('crop-settings').style.display = 'block';
+    document.getElementById('crop-button-area').style.display = 'block';
+    updateCropButtonState();
+}
+
+function updateCropButtonState() {
+    const cropBtn = document.getElementById('crop-btn');
+    cropBtn.disabled = cropData.width <= 0 || cropData.height <= 0;
+}
+
+function updateQualityDisplay() {
+    const slider = document.getElementById('crop-quality');
+    const valueDisplay = document.getElementById('crop-quality-value');
+    valueDisplay.textContent = slider.value + '%';
+}
+
+function cropImage() {
+    if (!originalImage || cropData.width <= 0 || cropData.height <= 0) {
+        alert('먼저 이미지를 업로드하고 크롭 영역을 선택해주세요.');
+        return;
+    }
+    
+    const button = document.getElementById('crop-btn');
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 처리 중...';
+    
+    
+    const canvasContainer = document.getElementById('crop-canvas-container');
+    const progressContainer = document.getElementById('crop-progress');
+    const resultsContainer = document.getElementById('crop-results');
+    
+    canvasContainer.style.display = 'none';
+    resultsContainer.style.display = 'none';
+    progressContainer.style.display = 'block';
+    
+    
+    const progressFill = document.getElementById('progress-fill');
+    progressFill.style.width = '0%';
+    
+    setTimeout(() => {
+        progressFill.style.width = '50%';
+    }, 200);
+    
+    setTimeout(() => {
+        processCrop().then(() => {
+            progressFill.style.width = '100%';
+            setTimeout(() => {
+                showCropResults();
+                button.disabled = false;
+                button.innerHTML = '<i class="fas fa-crop"></i> 이미지 자르기';
+                showToast('이미지 크롭이 완료되었습니다!');
+            }, 500);
+        });
+    }, 800);
+}
+
+function processCrop() {
+    return new Promise((resolve) => {
+        const cropCanvas = document.createElement('canvas');
+        const cropCtx = cropCanvas.getContext('2d');
+        const quality = parseInt(document.getElementById('crop-quality').value) / 100;
+        
+        
+        const scaleX = originalImage.naturalWidth / canvas.width;
+        const scaleY = originalImage.naturalHeight / canvas.height;
+        
+        const actualX = cropData.x * scaleX;
+        const actualY = cropData.y * scaleY;
+        const actualWidth = cropData.width * scaleX;
+        const actualHeight = cropData.height * scaleY;
+        
+        cropCanvas.width = actualWidth;
+        cropCanvas.height = actualHeight;
+        
+        
+        cropCtx.drawImage(
+            originalImage,
+            actualX, actualY, actualWidth, actualHeight,
+            0, 0, actualWidth, actualHeight
+        );
+        
+        
+        const outputFormat = selectedFile.type.startsWith('image/png') ? 'image/png' : 'image/jpeg';
+        const dataUrl = cropCanvas.toDataURL(outputFormat, quality);
+        
+        croppedImageData = {
+            dataUrl: dataUrl,
+            width: Math.round(actualWidth),
+            height: Math.round(actualHeight),
+            canvas: cropCanvas,
+            originalWidth: originalImage.naturalWidth,
+            originalHeight: originalImage.naturalHeight,
+            filename: 'Studio-NFP_cropped_' + selectedFile.name.split('.')[0] + '.' + (outputFormat === 'image/png' ? 'png' : 'jpg')
+        };
+        
+        resolve();
+    });
+}
+
+function showCropResults() {
+    const progressContainer = document.getElementById('crop-progress');
+    const resultsContainer = document.getElementById('crop-results');
+    const originalInfo = document.getElementById('original-info');
+    const croppedInfo = document.getElementById('cropped-info');
+    const resultImage = document.getElementById('result-image');
+    
+    originalInfo.innerHTML = `
+        <div class="info-line">${croppedImageData.originalWidth} x ${croppedImageData.originalHeight}</div>
+        <div class="info-line">${Math.round(selectedFile.size / 1024)}KB</div>
+    `;
+    
+    const newSize = Math.round((croppedImageData.dataUrl.length * 0.75) / 1024);
+    croppedInfo.innerHTML = `
+        <div class="info-line">${croppedImageData.width} x ${croppedImageData.height}</div>
+        <div class="info-line">${newSize}KB</div>
+    `;
+    
+    resultImage.src = croppedImageData.dataUrl;
+    
+    progressContainer.style.display = 'none';
+    resultsContainer.style.display = 'block';
+}
+
+function downloadCroppedImage() {
+    if (!croppedImageData) return;
+    
+    const link = document.createElement('a');
+    link.download = croppedImageData.filename;
+    link.href = croppedImageData.dataUrl;
+    link.click();
+    
+    showToast('이미지 다운로드를 시작합니다!');
+}
+
+function showToast(message) {
+    
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
+</script>
+
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>

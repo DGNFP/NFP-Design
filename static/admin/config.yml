@@ -39,7 +39,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["ad"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["현수막 디자인", "엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "메뉴판 디자인", "전단지 디자인", "시트지 디자인" , "패키지 디자인"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["현수막 디자인", "엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "메뉴판 디자인", "전단지 디자인", "시트지 디자인" , "기타 홍보물"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인", "XD", "Photoshop", "Illustrator", "InDesign"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"

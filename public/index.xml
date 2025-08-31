@@ -394,6 +394,20 @@
       <description>&lt;h1 id=&#34;이미지-압축기&#34;&gt;이미지 압축기&lt;/h1&gt;&#xA;&lt;p&gt;여러 이미지를 동시에 선택하여 효율적으로 압축하고 파일 크기를 줄이는 다중 파일 지원 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다중 파일 지원&lt;/strong&gt;: 여러 이미지를 한번에 선택하여 일괄 압축 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 진행률&lt;/strong&gt;: 압축 과정을 시각적으로 확인할 수 있는 진행률 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 조절&lt;/strong&gt;: 10~100% 범위에서 압축 품질을 세밀하게 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;포맷 선택&lt;/strong&gt;: 원본 포맷 유지 또는 JPEG/WebP로 변환 압축&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개별/일괄 다운로드&lt;/strong&gt;: 각 파일 개별 다운로드 또는 모든 파일 한번에 다운로드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;압축 통계&lt;/strong&gt;: 원본 대비 압축률과 절약된 용량을 실시간으로 확인&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 선택&lt;/strong&gt;: 압축할 이미지들을 드래그하거나 클릭해서 다중 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 설정&lt;/strong&gt;: 압축 품질을 10~100% 범위에서 조절하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;포맷 선택&lt;/strong&gt;: 원본 포맷 유지 또는 JPEG/WebP로 변환 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;압축 실행&lt;/strong&gt;: &amp;lsquo;이미지 압축하기&amp;rsquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다운로드&lt;/strong&gt;: 개별 다운로드 또는 모든 파일 한번에 다운로드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;압축-품질-가이드&#34;&gt;압축 품질 가이드&lt;/h2&gt;&#xA;&lt;h3 id=&#34;품질별-특성&#34;&gt;품질별 특성&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;품질 범위&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;          &lt;th&gt;용도&lt;/th&gt;&#xA;          &lt;th&gt;압축률&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;90-100%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;최고 품질, 낮은 압축&lt;/td&gt;&#xA;          &lt;td&gt;인쇄용, 아카이브&lt;/td&gt;&#xA;          &lt;td&gt;10-30%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;70-89%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;높은 품질, 적당한 압축&lt;/td&gt;&#xA;          &lt;td&gt;웹사이트, 포트폴리오&lt;/td&gt;&#xA;          &lt;td&gt;30-50%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;50-69%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;표준 품질, 좋은 압축&lt;/td&gt;&#xA;          &lt;td&gt;블로그, SNS&lt;/td&gt;&#xA;          &lt;td&gt;50-70%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;10-49%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;낮은 품질, 최대 압축&lt;/td&gt;&#xA;          &lt;td&gt;썸네일, 미리보기&lt;/td&gt;&#xA;          &lt;td&gt;70-90%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;권장-설정&#34;&gt;권장 설정&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;웹 사이트용&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>이미지 자르기/크롭 - Studio NFP</title>
+      <link>http://localhost:1313/studio/image-cropper/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-cropper/</guid>
+      <description>&lt;h1 id=&#34;이미지-자르기크롭&#34;&gt;이미지 자르기/크롭&lt;/h1&gt;&#xA;&lt;p&gt;마우스 드래그로 간편하게 원하는 영역을 선택하여 이미지를 자를 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;인터랙티브 크롭&lt;/strong&gt;: 마우스로 드래그하여 직관적인 영역 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 고정 크롭&lt;/strong&gt;: 1:1, 4:3, 16:9 등 다양한 비율 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 수치 입력&lt;/strong&gt;: 픽셀 단위 정확한 크롭 영역 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 크롭 영역을 실시간으로 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 크롭 기능&lt;/strong&gt;: 전체 선택, 중앙 크롭 등 편의 기능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;고품질 출력&lt;/strong&gt;: 50~100% 품질 조절 지원&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 업로드&lt;/strong&gt;: 자를 이미지를 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크롭 영역 선택&lt;/strong&gt;: 마우스로 드래그하여 영역 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 설정&lt;/strong&gt;: 필요시 고정 비율 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;세밀 조정&lt;/strong&gt;: 핸들을 드래그하여 크기 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 설정&lt;/strong&gt;: 출력 품질을 50~100% 범위에서 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크롭 실행&lt;/strong&gt;: &amp;lsquo;이미지 자르기&amp;rsquo; 버튼 클릭&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;결과 다운로드&lt;/strong&gt;: 크롭된 이미지를 다운로드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;크롭-방법&#34;&gt;크롭 방법&lt;/h2&gt;&#xA;&lt;h3 id=&#34;마우스-드래그-크롭&#34;&gt;마우스 드래그 크롭&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;새 영역 생성&lt;/strong&gt;: 빈 공간을 클릭하고 드래그&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;영역 이동&lt;/strong&gt;: 선택된 영역 내부를 클릭하고 드래그&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 조절&lt;/strong&gt;: 모서리 핸들을 드래그하여 크기 변경&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 유지&lt;/strong&gt;: 모서리 핸들 드래그 시 Shift 키로 비율 고정&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;핸들을-이용한-정밀-조절&#34;&gt;핸들을 이용한 정밀 조절&lt;/h3&gt;&#xA;&lt;p&gt;크롭 영역 주변의 8개 핸들로 정밀한 크기 조절이 가능합니다:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>이미지 크기 조절기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/image-resizer/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-resizer/</guid>
+      <description>&lt;h1 id=&#34;이미지-크기-조절기&#34;&gt;이미지 크기 조절기&lt;/h1&gt;&#xA;&lt;p&gt;이미지의 가로, 세로 크기를 픽셀 단위로 정확하게 조절할 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 크기 조절&lt;/strong&gt;: 픽셀 단위로 정확한 크기 지정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 유지 옵션&lt;/strong&gt;: 원본 비율을 유지하면서 크기 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 크기 선택&lt;/strong&gt;: 일반적인 해상도 사전 설정 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 조절 방법&lt;/strong&gt;: 늘이기, 맞추기, 채우기 옵션&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;고품질 출력&lt;/strong&gt;: 50~100% 품질 조절 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 조절 전후 비교 확인&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 업로드&lt;/strong&gt;: 크기를 조절할 이미지를 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 설정&lt;/strong&gt;: 빠른 선택 또는 사용자 정의 크기 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;조절 방법 선택&lt;/strong&gt;: 늘이기, 맞추기, 채우기 중 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 조절&lt;/strong&gt;: 출력 품질을 50~100% 범위에서 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 조절 실행&lt;/strong&gt;: &amp;lsquo;이미지 크기 조절하기&amp;rsquo; 버튼 클릭&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;결과 다운로드&lt;/strong&gt;: 조절된 이미지를 다운로드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;크기-조절-방법&#34;&gt;크기 조절 방법&lt;/h2&gt;&#xA;&lt;h3 id=&#34;늘이기줄이기-stretch&#34;&gt;늘이기/줄이기 (Stretch)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;원본 비율을 무시하고 지정된 크기에 강제로 맞춤&lt;/li&gt;&#xA;&lt;li&gt;이미지가 늘어나거나 압축될 수 있음&lt;/li&gt;&#xA;&lt;li&gt;정확한 크기가 필요한 경우 사용&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;맞추기-fit&#34;&gt;맞추기 (Fit)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;원본 비율을 유지하며 지정된 크기 안에 맞춤&lt;/li&gt;&#xA;&lt;li&gt;부족한 영역은 흰색 여백으로 채움&lt;/li&gt;&#xA;&lt;li&gt;전체 이미지를 보존하면서 크기 조절&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;채우기-fill---권장&#34;&gt;채우기 (Fill) - 권장&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;원본 비율을 유지하며 지정된 크기를 완전히 채움&lt;/li&gt;&#xA;&lt;li&gt;넘치는 부분은 자동으로 잘림&lt;/li&gt;&#xA;&lt;li&gt;가장 자연스러운 결과 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;빠른-크기-선택&#34;&gt;빠른 크기 선택&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;해상도&lt;/th&gt;&#xA;          &lt;th&gt;용도&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;1920×1080&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Full HD&lt;/td&gt;&#xA;          &lt;td&gt;고화질 디스플레이, 동영상 썸네일&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;1280×720&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;HD&lt;/td&gt;&#xA;          &lt;td&gt;웹사이트, 블로그 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;800×600&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;표준&lt;/td&gt;&#xA;          &lt;td&gt;이메일, 문서용 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;640×480&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;소형&lt;/td&gt;&#xA;          &lt;td&gt;프로필 이미지, 아이콘&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;사용자-정의-크기&#34;&gt;사용자 정의 크기&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;최소&lt;/strong&gt;: 1×1 픽셀&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;최대&lt;/strong&gt;: 5000×5000 픽셀&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 잠금&lt;/strong&gt;: 원본 비율 유지/해제 가능&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;품질-설정&#34;&gt;품질 설정&lt;/h2&gt;&#xA;&lt;h3 id=&#34;품질별-특성&#34;&gt;품질별 특성&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;품질 범위&lt;/th&gt;&#xA;          &lt;th&gt;특성&lt;/th&gt;&#xA;          &lt;th&gt;권장 용도&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;90-100%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;최고 품질&lt;/td&gt;&#xA;          &lt;td&gt;인쇄용, 아카이브&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;80-89%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;높은 품질&lt;/td&gt;&#xA;          &lt;td&gt;웹사이트 메인 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;70-79%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;표준 품질&lt;/td&gt;&#xA;          &lt;td&gt;일반적인 웹 사용&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;50-69%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;압축 우선&lt;/td&gt;&#xA;          &lt;td&gt;빠른 로딩이 중요한 경우&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;활용-사례&#34;&gt;활용 사례&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;웹사이트 최적화&lt;/strong&gt;: 다양한 디바이스에 맞는 크기로 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;소셜미디어&lt;/strong&gt;: 플랫폼별 최적 크기로 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;인쇄물 제작&lt;/strong&gt;: 인쇄에 필요한 해상도로 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;이메일 첨부&lt;/strong&gt;: 용량 제한에 맞는 크기로 축소&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;썸네일 생성&lt;/strong&gt;: 작은 미리보기 이미지 생성&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;기술적-특징&#34;&gt;기술적 특징&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Canvas API 활용&lt;/strong&gt;: 고품질 이미지 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 계산&lt;/strong&gt;: 자동 비율 유지 기능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;메모리 최적화&lt;/strong&gt;: 대용량 이미지 안정 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 처리&lt;/strong&gt;: 브라우저에서 즉시 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개인정보 보호&lt;/strong&gt;: 서버 업로드 없이 로컬 처리&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;지원-형식&#34;&gt;지원 형식&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;입력 형식&lt;/strong&gt;: JPEG, PNG, GIF, WebP, BMP, TIFF, SVG, ICO&#xA;&lt;strong&gt;출력 형식&lt;/strong&gt;: JPEG, PNG (투명도에 따라 자동 선택)&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>이미지 포맷 변환기 - Studio NFP</title>
       <link>http://localhost:1313/studio/format-converter/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
@@ -429,83 +443,6 @@
       <description>&lt;h1 id=&#34;폰트-크기-변환기&#34;&gt;폰트 크기 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹과 인쇄물에서 사용하는 폰트 크기를 빠르게 변환하고 반응형 사이즈를 확인하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: px ↔ pt 실시간 상호 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 입력한 폰트 크기로 텍스트 미리보기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 사이즈&lt;/strong&gt;: 모바일/태블릿/데스크톱별 권장 크기 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;권장 사이즈 가이드&lt;/strong&gt;: 본문, 제목, 캡션 등 용도별 권장 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 변환&lt;/strong&gt;: 0.75 비율 기준 정밀 계산&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;픽셀(px) 또는 포인트(pt) 입력란에 크기를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;반대 단위로 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;미리보기에서 실제 크기를 확인하세요&lt;/li&gt;&#xA;&lt;li&gt;반응형 사이즈와 권장 사이즈를 참고하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;변환 공식:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>2색 그라데이션 생성기</title>
-      <link>http://localhost:1313/studio/color-palette/gradient-2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/color-palette/gradient-2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>3색 그라데이션 생성기</title>
-      <link>http://localhost:1313/studio/color-palette/gradient-3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/color-palette/gradient-3/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>5색 조합 팔레트</title>
-      <link>http://localhost:1313/studio/color-palette/palette-5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/color-palette/palette-5/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PDF 압축기</title>
-      <link>http://localhost:1313/studio/image-tools/pdf-compressor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/image-tools/pdf-compressor/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>URL 인코딩 디코딩</title>
-      <link>http://localhost:1313/studio/calculator/url-encoder/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/calculator/url-encoder/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>그라데이션 카드 뽑기</title>
-      <link>http://localhost:1313/studio/color-palette/gradient-card/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/color-palette/gradient-card/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>그리드 계산기</title>
-      <link>http://localhost:1313/studio/calculator/grid/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/calculator/grid/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>단색 카드 뽑기</title>
-      <link>http://localhost:1313/studio/color-palette/single-card/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/color-palette/single-card/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>단위 변환기</title>
-      <link>http://localhost:1313/studio/calculator/unit/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/calculator/unit/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>랜덤 5색 팔레트</title>
-      <link>http://localhost:1313/studio/color-palette/palette-random/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/color-palette/palette-random/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>무료 QR 코드 생성기</title>
-      <link>http://localhost:1313/studio/qr/basic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/qr/basic/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>베이스</title>
       <link>http://localhost:1313/studio/base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -513,73 +450,10 @@
       <description></description>
     </item>
     <item>
-      <title>사이즈 계산기</title>
-      <link>http://localhost:1313/studio/calculator/size/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/calculator/size/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>웹 데모</title>
       <link>http://localhost:1313/studio/web-demo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/studio/web-demo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>이미지 압축기</title>
-      <link>http://localhost:1313/studio/image-tools/compressor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/image-tools/compressor/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>이미지 자르기</title>
-      <link>http://localhost:1313/studio/image-tools/cropper/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/image-tools/cropper/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>이미지 컬러 추출기</title>
-      <link>http://localhost:1313/studio/image-tools/color-extractor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/image-tools/color-extractor/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>이미지 크기 조절기</title>
-      <link>http://localhost:1313/studio/image-tools/resizer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/image-tools/resizer/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>이미지 포맷 변환기</title>
-      <link>http://localhost:1313/studio/image-tools/format-converter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/image-tools/format-converter/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>커스텀 QR 코드 생성기</title>
-      <link>http://localhost:1313/studio/qr/custom/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/qr/custom/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>텍스트 도구</title>
-      <link>http://localhost:1313/studio/calculator/text-tools/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/calculator/text-tools/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>폰트 계산기</title>
-      <link>http://localhost:1313/studio/calculator/font/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/studio/calculator/font/</guid>
       <description></description>
     </item>
   </channel>
