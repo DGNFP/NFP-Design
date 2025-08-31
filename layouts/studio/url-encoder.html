@@ -1,0 +1,380 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">URL 인코딩/디코딩</span>
+        <p><br>URL에 특수문자를 안전하게 사용하거나 인코딩된 URL을 해독하세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
+        <a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
+        <a href="{{ "/studio/format-converter" | relURL }}" class="page-btn">포맷 변환기</a>
+        <a href="{{ "/studio/image-compressor" | relURL }}" class="page-btn">이미지 압축기</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="url-encoder-container">
+            <!-- 설명 -->
+            <div class="url-encoder-description">
+                <h3>URL 인코딩/디코딩</h3>
+                <p>URL에 포함할 수 없는 특수문자를 안전한 형태로 변환하거나<br>
+                인코딩된 URL을 원래 형태로 복원할 수 있습니다.</p>
+            </div>
+
+            <div class="url-encoder-content">
+                <!-- 인코딩 섹션 -->
+                <div class="encoder-section">
+                    <div class="encoder-header">
+                        <h4>
+                            <i class="fas fa-lock"></i>
+                            URL 인코딩
+                        </h4>
+                        <p>특수문자를 포함한 텍스트를 URL에 안전한 형태로 변환합니다.</p>
+                    </div>
+                    
+                    <div class="encoder-input-section">
+                        <div class="input-header">
+                            <label for="encode-input">인코딩할 텍스트</label>
+                            <div class="input-actions">
+                                <button type="button" class="clear-btn" id="clear-encode-btn">
+                                    지우기
+                                </button>
+                                <button type="button" class="sample-btn" id="sample-encode-btn">
+                                     예제
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <textarea 
+                                id="encode-input" 
+                                class="url-textarea" 
+                                placeholder="인코딩할 텍스트를 입력하세요&#10;예: https://example.com/search?q=안녕하세요 세계!"
+                                rows="4"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="encoder-button-area">
+                        <button class="encoder-btn" id="encode-btn">
+                            <i class="fas fa-lock"></i> 인코딩하기
+                        </button>
+                    </div>
+
+                    <div class="encoder-output-section">
+                        <div class="output-header">
+                            <label for="encode-output">인코딩 결과</label>
+                            <button type="button" class="copy-btn" id="copy-encode-btn">
+                               </i> 복사
+                            </button>
+                        </div>
+                        <div class="output-container">
+                            <textarea 
+                                id="encode-output" 
+                                class="url-textarea output-textarea" 
+                                placeholder="인코딩 결과가 여기에 표시됩니다"
+                                rows="4"
+                                readonly
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 디코딩 섹션 -->
+                <div class="encoder-section">
+                    <div class="encoder-header">
+                        <h4>
+                            <i class="fas fa-unlock"></i>
+                            URL 디코딩
+                        </h4>
+                        <p>인코딩된 URL을 원래의 읽을 수 있는 형태로 복원합니다.</p>
+                    </div>
+                    
+                    <div class="encoder-input-section">
+                        <div class="input-header">
+                            <label for="decode-input">디코딩할 URL</label>
+                            <div class="input-actions">
+                                <button type="button" class="clear-btn" id="clear-decode-btn">
+                                     지우기
+                                </button>
+                                <button type="button" class="sample-btn" id="sample-decode-btn">
+                                    예제
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <textarea 
+                                id="decode-input" 
+                                class="url-textarea" 
+                                placeholder="디코딩할 인코딩된 URL을 입력하세요&#10;예: https://example.com/search?q=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%20%EC%84%B8%EA%B3%84!"
+                                rows="4"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="encoder-button-area">
+                        <button class="encoder-btn" id="decode-btn">
+                            <i class="fas fa-unlock"></i> 디코딩하기
+                        </button>
+                    </div>
+
+                    <div class="encoder-output-section">
+                        <div class="output-header">
+                            <label for="decode-output">디코딩 결과</label>
+                            <button type="button" class="copy-btn" id="copy-decode-btn">
+                                 복사
+                            </button>
+                        </div>
+                        <div class="output-container">
+                            <textarea 
+                                id="decode-output" 
+                                class="url-textarea output-textarea" 
+                                placeholder="디코딩 결과가 여기에 표시됩니다"
+                                rows="4"
+                                readonly
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 참고 정보 -->
+            <div class="url-reference">
+                <div class="reference-header">
+                    <h4>
+                        <i class="fas fa-info-circle"></i>
+                        URL 인코딩 참고표
+                    </h4>
+                </div>
+                <div class="reference-content">
+                    <div class="reference-table">
+                        <div class="table-header">
+                            <div class="col-char">문자</div>
+                            <div class="col-encoded">인코딩</div>
+                            <div class="col-desc">설명</div>
+                        </div>
+                        <div class="table-body">
+                            <div class="table-row">
+                                <div class="col-char">(공백)</div>
+                                <div class="col-encoded">%20</div>
+                                <div class="col-desc">공백 문자</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">!</div>
+                                <div class="col-encoded">%21</div>
+                                <div class="col-desc">느낌표</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">"</div>
+                                <div class="col-encoded">%22</div>
+                                <div class="col-desc">큰따옴표</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">#</div>
+                                <div class="col-encoded">%23</div>
+                                <div class="col-desc">해시/샵</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">%</div>
+                                <div class="col-encoded">%25</div>
+                                <div class="col-desc">퍼센트</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">&</div>
+                                <div class="col-encoded">%26</div>
+                                <div class="col-desc">앰퍼샌드</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">+</div>
+                                <div class="col-encoded">%2B</div>
+                                <div class="col-desc">플러스</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">=</div>
+                                <div class="col-encoded">%3D</div>
+                                <div class="col-desc">등호</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">?</div>
+                                <div class="col-encoded">%3F</div>
+                                <div class="col-desc">물음표</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="col-char">@</div>
+                                <div class="col-encoded">%40</div>
+                                <div class="col-desc">골뱅이</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+// 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    const encodeBtn = document.getElementById('encode-btn');
+    const decodeBtn = document.getElementById('decode-btn');
+
+    // 인코딩 버튼
+    encodeBtn.addEventListener('click', performUrlEncode);
+
+    // 디코딩 버튼
+    decodeBtn.addEventListener('click', performUrlDecode);
+
+    // 지우기 버튼들
+    document.getElementById('clear-encode-btn').addEventListener('click', function() {
+        document.getElementById('encode-input').value = '';
+        document.getElementById('encode-output').value = '';
+    });
+
+    document.getElementById('clear-decode-btn').addEventListener('click', function() {
+        document.getElementById('decode-input').value = '';
+        document.getElementById('decode-output').value = '';
+    });
+
+    // 예제 버튼들
+    document.getElementById('sample-encode-btn').addEventListener('click', function() {
+        document.getElementById('encode-input').value = 'https://example.com/search?q=안녕하세요 세계!&category=기술&date=2024-01-01';
+    });
+
+    document.getElementById('sample-decode-btn').addEventListener('click', function() {
+        document.getElementById('decode-input').value = 'https://example.com/search?q=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%20%EC%84%B8%EA%B3%84!&category=%EA%B8%B0%EC%88%A0&date=2024-01-01';
+    });
+
+    // 복사 버튼들
+    document.getElementById('copy-encode-btn').addEventListener('click', function() {
+        copyToClipboard('encode-output');
+    });
+
+    document.getElementById('copy-decode-btn').addEventListener('click', function() {
+        copyToClipboard('decode-output');
+    });
+
+    // 실시간 인코딩/디코딩
+    document.getElementById('encode-input').addEventListener('input', function() {
+        if (this.value.trim()) {
+            performUrlEncode();
+        } else {
+            document.getElementById('encode-output').value = '';
+        }
+    });
+
+    document.getElementById('decode-input').addEventListener('input', function() {
+        if (this.value.trim()) {
+            performUrlDecode();
+        } else {
+            document.getElementById('decode-output').value = '';
+        }
+    });
+});
+
+function performUrlEncode() {
+    const input = document.getElementById('encode-input').value;
+    const output = document.getElementById('encode-output');
+
+    if (!input.trim()) {
+        output.value = '';
+        return;
+    }
+
+    try {
+        const result = encodeURIComponent(input);
+        output.value = result;
+        showToast('URL 인코딩이 완료되었습니다.');
+    } catch (error) {
+        output.value = '인코딩 중 오류가 발생했습니다: ' + error.message;
+        showToast('인코딩 중 오류가 발생했습니다.');
+    }
+}
+
+function performUrlDecode() {
+    const input = document.getElementById('decode-input').value;
+    const output = document.getElementById('decode-output');
+
+    if (!input.trim()) {
+        output.value = '';
+        return;
+    }
+
+    try {
+        const result = decodeURIComponent(input);
+        output.value = result;
+        showToast('URL 디코딩이 완료되었습니다.');
+    } catch (error) {
+        output.value = '디코딩 중 오류가 발생했습니다: ' + error.message;
+        showToast('디코딩 중 오류가 발생했습니다.');
+    }
+}
+
+function copyToClipboard(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element.value.trim()) {
+        showToast('복사할 내용이 없습니다.');
+        return;
+    }
+
+    element.select();
+    element.setSelectionRange(0, 99999); // 모바일 지원
+
+    try {
+        document.execCommand('copy');
+        showToast('클립보드에 복사되었습니다.');
+    } catch (error) {
+        // 최신 브라우저 지원
+        navigator.clipboard.writeText(element.value).then(() => {
+            showToast('클립보드에 복사되었습니다.');
+        }).catch(() => {
+            showToast('복사 중 오류가 발생했습니다.');
+        });
+    }
+}
+
+function showToast(message) {
+    // 기존 토스트 제거
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 2000);
+}
+</script>
+
+{{ end }}
