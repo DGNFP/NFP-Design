@@ -1,0 +1,546 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">이미지 압축기</span>
+        <p><br>여러 이미지를 한번에 압축하여 파일 크기를 줄이세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
+        <a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
+        <a href="{{ "/studio/format-converter" | relURL }}" class="page-btn">포맷 변환기</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="image-compressor-container">
+            <!-- 설명 -->
+            <div class="image-compressor-description">
+                <h3>이미지 압축기</h3>
+                <p>여러 이미지를 동시에 압축하여 파일 크기를 줄일 수 있습니다.<br>
+                품질을 조절하면서 원하는 압축률을 설정해보세요.</p>
+                <div class="supported-formats">
+                    <small>지원 형식: JPEG, PNG, GIF, WebP, BMP, TIFF, SVG, ICO</small>
+                </div>
+            </div>
+
+            <div class="image-compressor-content">
+                <!-- 업로드 및 설정 영역 -->
+                <div class="compressor-upload-section">
+                    <!-- 다중 파일 업로드 -->
+                    <div class="compressor-settings-group">
+                        <h4>이미지 선택 (다중 선택 가능)</h4>
+                        <div class="compressor-input-group">
+                            <label for="compress-images-upload" class="multiple-upload-label">
+                                <span>이미지들을 선택하거나 드래그해주세요</span>
+                                <small>여러 파일을 동시에 선택할 수 있습니다</small>
+                            </label>
+                            <input type="file" id="compress-images-upload" accept=".jpg,.jpeg,.png,.gif,.webp,.bmp,.tiff,.tif,.svg,.ico" multiple style="display: none;">
+                        </div>
+                        
+                        <!-- 선택된 이미지 목록 -->
+                        <div class="selected-images-list" id="selected-images-list" style="display: none;">
+                            <div class="list-header">
+                                <h5>선택된 이미지 (<span id="image-count">0</span>개)</h5>
+                                <button type="button" class="clear-all-btn" id="clear-all-btn">
+                                    <i class="fas fa-trash"></i> 전체 삭제
+                                </button>
+                            </div>
+                            <div class="images-grid" id="images-grid"></div>
+                        </div>
+                    </div>
+
+                    <!-- 압축 설정 -->
+                    <div class="compressor-settings-group">
+                        <div class="compressor-input-group">
+                            <label for="compression-quality">압축 품질</label>
+                            <div class="compression-slider-container">
+                                <input type="range" id="compression-quality" min="10" max="100" value="80" class="compression-slider">
+                                <span class="compression-value" id="compression-value">80%</span>
+                            </div>
+                            <div class="quality-description" id="quality-description">
+                                높은 품질, 적당한 압축
+                            </div>
+                        </div>
+                        
+                        <div class="compressor-input-group">
+                            <label for="output-format">출력 포맷</label>
+                            <select id="output-format" class="compressor-form-select">
+                                <option value="original">원본 포맷 유지</option>
+                                <option value="jpeg">JPEG (최대 압축)</option>
+                                <option value="webp">WebP (고효율)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="compressor-button-area">
+                        <button class="compressor-btn" id="compress-btn" disabled>
+                            <i class="fas fa-compress"></i> 이미지 압축하기
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 결과 영역 -->
+                <div class="compressor-result-section">
+                    <div class="compressor-result-header">
+                        <h4>압축 결과</h4>
+                    </div>
+                    <div class="compressor-result-container">
+                        <div class="compressor-placeholder" id="compressor-placeholder">
+                            <i class="fas fa-compress-alt"></i>
+                            <p>이미지를 업로드하고<br>압축 설정을 완료해주세요</p>
+                        </div>
+                        
+                        <!-- 압축 진행 상황 -->
+                        <div class="compression-progress" id="compression-progress" style="display: none;">
+                            <div class="progress-header">
+                                <h5>압축 진행 중...</h5>
+                                <span class="progress-count" id="progress-count">0 / 0</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 압축 완료 결과 -->
+                        <div class="compression-results" id="compression-results" style="display: none;">
+                            <div class="results-header">
+                                <h5>압축 완료</h5>
+                                <div class="compression-stats" id="compression-stats"></div>
+                            </div>
+                            <div class="results-grid" id="results-grid"></div>
+                            <div class="bulk-download-area">
+                                <button class="bulk-download-btn" id="bulk-download-btn">
+                                    <i class="fas fa-download"></i> 모든 압축 이미지 다운로드
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<script>
+let selectedFiles = [];
+let compressedImages = [];
+
+// 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    const uploadInput = document.getElementById('compress-images-upload');
+    const uploadLabel = document.querySelector('.multiple-upload-label');
+    const clearAllBtn = document.getElementById('clear-all-btn');
+    const compressBtn = document.getElementById('compress-btn');
+    const qualitySlider = document.getElementById('compression-quality');
+    const bulkDownloadBtn = document.getElementById('bulk-download-btn');
+
+    // 파일 업로드 이벤트
+    uploadInput.addEventListener('change', function(e) {
+        handleMultipleImageUpload(e.target.files);
+    });
+
+    // 드래그 앤 드롭
+    uploadLabel.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#01FF75';
+        uploadLabel.style.background = '#1f1f1f';
+    });
+
+    uploadLabel.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+    });
+
+    uploadLabel.addEventListener('drop', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+        handleMultipleImageUpload(e.dataTransfer.files);
+    });
+
+    // 전체 삭제 버튼
+    clearAllBtn.addEventListener('click', clearAllImages);
+
+    // 압축 버튼
+    compressBtn.addEventListener('click', compressImages);
+
+    // 품질 슬라이더
+    qualitySlider.addEventListener('input', function() {
+        updateQualityDisplay();
+    });
+
+    // 일괄 다운로드 버튼
+    bulkDownloadBtn.addEventListener('click', downloadAllImages);
+
+    // 초기 품질 표시 업데이트
+    updateQualityDisplay();
+});
+
+function handleMultipleImageUpload(files) {
+    const allowedTypes = [
+        'image/jpeg',
+        'image/jpg', 
+        'image/png',
+        'image/gif',
+        'image/webp',
+        'image/bmp',
+        'image/tiff',
+        'image/tif',
+        'image/svg+xml',
+        'image/x-icon',
+        'image/vnd.microsoft.icon'
+    ];
+    
+    const allowedExtensions = [
+        'jpg', 'jpeg', 'png', 'gif', 'webp', 
+        'bmp', 'tiff', 'tif', 'svg', 'ico'
+    ];
+    
+    let rejectedFiles = [];
+    
+    const newFiles = Array.from(files).filter(file => {
+        // MIME 타입으로 1차 필터링
+        const isValidType = allowedTypes.includes(file.type.toLowerCase());
+        
+        // 확장자로 2차 필터링 (MIME 타입이 정확하지 않을 수 있으므로)
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        const isValidExtension = allowedExtensions.includes(fileExtension);
+        
+        if (!isValidType && !isValidExtension) {
+            rejectedFiles.push(file.name);
+            return false;
+        }
+        
+        // 중복 파일 체크
+        const isDuplicate = selectedFiles.some(existing => 
+            existing.name === file.name && existing.size === file.size
+        );
+        
+        return !isDuplicate;
+    });
+    
+    // 거부된 파일이 있으면 알림
+    if (rejectedFiles.length > 0) {
+        showToast(`지원하지 않는 파일 형식입니다: ${rejectedFiles.join(', ')}`);
+    }
+    
+    selectedFiles = [...selectedFiles, ...newFiles];
+    updateSelectedImagesList();
+    updateCompressButtonState();
+}
+
+function updateSelectedImagesList() {
+    const listContainer = document.getElementById('selected-images-list');
+    const imagesGrid = document.getElementById('images-grid');
+    const imageCount = document.getElementById('image-count');
+    
+    if (selectedFiles.length === 0) {
+        listContainer.style.display = 'none';
+        return;
+    }
+    
+    listContainer.style.display = 'block';
+    imageCount.textContent = selectedFiles.length;
+    
+    imagesGrid.innerHTML = '';
+    
+    selectedFiles.forEach((file, index) => {
+        const imageItem = document.createElement('div');
+        imageItem.className = 'image-item';
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imageItem.innerHTML = `
+                <img src="${e.target.result}" alt="${file.name}">
+                <button class="remove-btn" onclick="removeSelectedImage(${index})">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+        };
+        reader.readAsDataURL(file);
+        
+        imagesGrid.appendChild(imageItem);
+    });
+}
+
+function removeSelectedImage(index) {
+    selectedFiles.splice(index, 1);
+    updateSelectedImagesList();
+    updateCompressButtonState();
+}
+
+function clearAllImages() {
+    selectedFiles = [];
+    compressedImages = [];
+    updateSelectedImagesList();
+    updateCompressButtonState();
+    
+    document.getElementById('compression-progress').style.display = 'none';
+    document.getElementById('compression-results').style.display = 'none';
+    document.getElementById('compressor-placeholder').style.display = 'flex';
+}
+
+function updateCompressButtonState() {
+    const compressBtn = document.getElementById('compress-btn');
+    compressBtn.disabled = selectedFiles.length === 0;
+}
+
+function updateQualityDisplay() {
+    const slider = document.getElementById('compression-quality');
+    const valueDisplay = document.getElementById('compression-value');
+    const description = document.getElementById('quality-description');
+    
+    const value = parseInt(slider.value);
+    valueDisplay.textContent = value + '%';
+    
+    if (value >= 90) {
+        description.textContent = '최고 품질, 낮은 압축';
+    } else if (value >= 70) {
+        description.textContent = '높은 품질, 적당한 압축';
+    } else if (value >= 50) {
+        description.textContent = '표준 품질, 좋은 압축';
+    } else {
+        description.textContent = '낮은 품질, 최대 압축';
+    }
+}
+
+function compressImages() {
+    if (selectedFiles.length === 0) {
+        alert('압축할 이미지를 선택해주세요.');
+        return;
+    }
+    
+    const button = document.getElementById('compress-btn');
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 압축 중...';
+    
+    // 진행 상황 표시
+    const placeholder = document.getElementById('compressor-placeholder');
+    const progressContainer = document.getElementById('compression-progress');
+    const resultsContainer = document.getElementById('compression-results');
+    
+    placeholder.style.display = 'none';
+    resultsContainer.style.display = 'none';
+    progressContainer.style.display = 'block';
+    
+    compressedImages = [];
+    let completedCount = 0;
+    const totalCount = selectedFiles.length;
+    
+    updateProgress(0, totalCount);
+    
+    selectedFiles.forEach((file, index) => {
+        setTimeout(() => {
+            compressSingleImage(file).then(compressedData => {
+                compressedImages.push(compressedData);
+                completedCount++;
+                updateProgress(completedCount, totalCount);
+                
+                if (completedCount === totalCount) {
+                    setTimeout(() => {
+                        showCompressionResults();
+                        button.disabled = false;
+                        button.innerHTML = '<i class="fas fa-compress"></i> 이미지 압축하기';
+                        showCompressionSuccessToast();
+                    }, 500);
+                }
+            }).catch(error => {
+                console.error(`${file.name} 압축 실패:`, error);
+                completedCount++;
+                updateProgress(completedCount, totalCount);
+            });
+        }, index * 100);
+    });
+}
+
+function compressSingleImage(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                
+                const quality = parseInt(document.getElementById('compression-quality').value) / 100;
+                const outputFormat = document.getElementById('output-format').value;
+                
+                let mimeType = file.type;
+                let extension = file.name.split('.').pop();
+                
+                if (outputFormat !== 'original') {
+                    switch(outputFormat) {
+                        case 'jpeg':
+                            mimeType = 'image/jpeg';
+                            extension = 'jpg';
+                            ctx.fillStyle = '#FFFFFF';
+                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+                            break;
+                        case 'webp':
+                            mimeType = 'image/webp';
+                            extension = 'webp';
+                            break;
+                    }
+                }
+                
+                ctx.drawImage(img, 0, 0);
+                
+                const compressedDataUrl = canvas.toDataURL(mimeType, quality);
+                const compressedSize = Math.round((compressedDataUrl.length * 0.75) / 1024);
+                const originalSize = Math.round(file.size / 1024);
+                const compressionRatio = Math.round((1 - compressedSize / originalSize) * 100);
+                
+                resolve({
+                    originalFile: file,
+                    compressedDataUrl: compressedDataUrl,
+                    originalSize: originalSize,
+                    compressedSize: compressedSize,
+                    compressionRatio: compressionRatio,
+                    filename: 'Studio-NFP_compressed_' + file.name.split('.')[0] + '.' + extension,
+                    canvas: canvas
+                });
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+function updateProgress(completed, total) {
+    const progressFill = document.getElementById('progress-fill');
+    const progressCount = document.getElementById('progress-count');
+    
+    const percentage = (completed / total) * 100;
+    progressFill.style.width = percentage + '%';
+    progressCount.textContent = `${completed} / ${total}`;
+}
+
+function showCompressionResults() {
+    const progressContainer = document.getElementById('compression-progress');
+    const resultsContainer = document.getElementById('compression-results');
+    const statsContainer = document.getElementById('compression-stats');
+    const resultsGrid = document.getElementById('results-grid');
+    
+    // 통계 계산
+    const totalOriginalSize = compressedImages.reduce((sum, img) => sum + img.originalSize, 0);
+    const totalCompressedSize = compressedImages.reduce((sum, img) => sum + img.compressedSize, 0);
+    const averageCompression = Math.round((1 - totalCompressedSize / totalOriginalSize) * 100);
+    
+    statsContainer.innerHTML = `
+        원본 크기: ${totalOriginalSize}KB → 압축 후: ${totalCompressedSize}KB<br>
+        평균 압축률: ${averageCompression}% 절약
+    `;
+    
+    // 결과 그리드 생성
+    resultsGrid.innerHTML = '';
+    compressedImages.forEach((imgData, index) => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'result-item';
+        
+        resultItem.innerHTML = `
+            <img src="${imgData.compressedDataUrl}" alt="${imgData.filename}">
+            <div class="result-item-info">
+                <div class="size-info">
+                    <span>원본: ${imgData.originalSize}KB</span>
+                    <span>압축: ${imgData.compressedSize}KB</span>
+                </div>
+                <div class="compression-ratio">${imgData.compressionRatio}% 절약</div>
+            </div>
+            <button class="download-single-btn" onclick="downloadSingleImage(${index})">
+                <i class="fas fa-download"></i> 다운로드
+            </button>
+        `;
+        
+        resultsGrid.appendChild(resultItem);
+    });
+    
+    progressContainer.style.display = 'none';
+    resultsContainer.style.display = 'block';
+}
+
+function downloadSingleImage(index) {
+    const imgData = compressedImages[index];
+    const link = document.createElement('a');
+    link.download = imgData.filename;
+    link.href = imgData.compressedDataUrl;
+    link.click();
+}
+
+function downloadAllImages() {
+    if (compressedImages.length === 0) return;
+    
+    // JSZip을 사용할 수 없으므로 각각 다운로드
+    compressedImages.forEach((imgData, index) => {
+        setTimeout(() => {
+            downloadSingleImage(index);
+        }, index * 200); // 200ms 간격으로 다운로드
+    });
+    
+    showDownloadSuccessToast();
+}
+
+function showCompressionSuccessToast() {
+    showToast('이미지 압축이 완료되었습니다!');
+}
+
+function showDownloadSuccessToast() {
+    showToast('모든 이미지 다운로드를 시작합니다!');
+}
+
+function showToast(message) {
+    // 기존 토스트 제거
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// 전역 함수로 등록 (onclick에서 사용)
+window.removeSelectedImage = removeSelectedImage;
+window.downloadSingleImage = downloadSingleImage;
+</script>
+
+{{ end }}
