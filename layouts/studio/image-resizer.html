@@ -1,0 +1,575 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">이미지 크기 조절기</span>
+        <p><br>이미지의 해상도와 크기를 자유롭게 조절하세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
+        <a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
+        <a href="{{ "/studio/format-converter" | relURL }}" class="page-btn">포맷 변환기</a>
+        <a href="{{ "/studio/image-compressor" | relURL }}" class="page-btn">이미지 압축기</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="image-resizer-container">
+            <!-- 설명 -->
+            <div class="image-resizer-description">
+                <h3>이미지 크기 조절기</h3>
+                <p>이미지의 가로, 세로 크기를 픽셀 단위로 조절할 수 있습니다.<br>
+                비율 유지 옵션을 통해 원본 비율을 유지하면서 크기를 조절하세요.</p>
+                <div class="supported-formats">
+                    <small>지원 형식: JPEG, PNG, GIF, WebP, BMP, TIFF, SVG, ICO</small>
+                </div>
+            </div>
+
+            <div class="image-resizer-content">
+                <!-- 업로드 및 설정 영역 -->
+                <div class="resizer-upload-section">
+                    <!-- 이미지 업로드 -->
+                    <div class="resizer-settings-group">
+                        <h4>이미지 선택</h4>
+                        <div class="resizer-input-group">
+                            <label for="resize-image-upload" class="single-upload-label">
+                                <span>이미지를 선택하거나 드래그해주세요.</span><br>
+                                <small>하나의 이미지만 업로드할 수 있습니다.</small>
+                            </label>
+                            <input type="file" id="resize-image-upload" accept=".jpg,.jpeg,.png,.gif,.webp,.bmp,.tiff,.tif,.svg,.ico" style="display: none;">
+                        </div>
+                        
+                        <!-- 선택된 이미지 미리보기 -->
+                        <div class="selected-image-preview" id="selected-image-preview" style="display: none;">
+                            <div class="preview-header">
+                                <h5>업로드된 이미지</h5>
+                                <button type="button" class="remove-image-btn" id="remove-image-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            <div class="preview-container">
+                                <img id="preview-image" alt="미리보기">
+                                <div class="original-info" id="original-info">
+                                    <div class="info-item">
+                                        <span class="label">원본 크기</span>
+                                        <span class="value" id="original-size">0 x 0</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">파일 크기</span>
+                                        <span class="value" id="file-size">0KB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 크기 조절 설정 -->
+                    <div class="resizer-settings-group" id="resize-settings" style="display: none;">
+                        <!-- 사전 설정 크기 -->
+                        <div class="resizer-input-group">
+                            <label>빠른 크기 선택</label>
+                            <div class="preset-sizes">
+                                <button type="button" class="preset-btn" data-width="1920" data-height="1080">1920×1080 (FHD)</button>
+                                <button type="button" class="preset-btn" data-width="1280" data-height="720">1280×720 (HD)</button>
+                                <button type="button" class="preset-btn" data-width="800" data-height="600">800×600</button>
+                                <button type="button" class="preset-btn" data-width="640" data-height="480">640×480</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 사용자 정의 크기 -->
+                        <div class="resizer-input-group">
+                            <label>사용자 정의 크기</label>
+                            <div class="custom-size-container">
+                                <div class="size-input-row">
+                                    <div class="size-input-group">
+                                        <label for="target-width">가로 (px)</label>
+                                        <input type="number" id="target-width" min="1" max="5000" placeholder="가로">
+                                    </div>
+                                    <div class="ratio-lock">
+                                        <button type="button" id="ratio-lock-btn" class="ratio-lock-btn active">
+                                            <i class="fas fa-link"></i>
+                                        </button>
+                                    </div>
+                                    <div class="size-input-group">
+                                        <label for="target-height">세로 (px)</label>
+                                        <input type="number" id="target-height" min="1" max="5000" placeholder="세로">
+                                    </div>
+                                </div>
+                                <div class="aspect-ratio-info" id="aspect-ratio-info">
+                                    비율 유지 : 활성화
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 크기 조절 방법 -->
+                        <div class="resizer-input-group">
+                            <label for="resize-method">크기 조절 방법</label>
+                            <select id="resize-method" class="resizer-form-select">
+                                <option value="stretch">늘이기/줄이기 (비율 무시)</option>
+                                <option value="fit">맞추기 (비율 유지, 여백 추가)</option>
+                                <option value="fill" selected>채우기 (비율 유지, 자르기)</option>
+                            </select>
+                        </div>
+
+                        <!-- 출력 품질 -->
+                        <div class="resizer-input-group">
+                            <label for="output-quality">출력 품질</label>
+                            <div class="quality-slider-container">
+                                <input type="range" id="output-quality" min="50" max="100" value="95" class="quality-slider">
+                                <span class="quality-value" id="quality-value">95%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resizer-button-area" id="resize-button-area" style="display: none;">
+                        <button class="resizer-btn" id="resize-btn">
+                            <i class="fas fa-expand-arrows-alt"></i> 이미지 크기 조절하기
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 결과 영역 -->
+                <div class="resizer-result-section">
+                    <div class="resizer-result-header">
+                    </div>
+                    <div class="resizer-result-container">
+                        <div class="resizer-placeholder" id="resizer-placeholder">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <p>이미지를 업로드하고<br>크기 설정을 완료해주세요</p>
+                        </div>
+                        
+                        <!-- 처리 진행 상황 -->
+                        <div class="resize-progress" id="resize-progress" style="display: none;">
+                            <div class="progress-header">
+                                <h5>크기 조절 중...</h5>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 조절 완료 결과 -->
+                        <div class="resize-results" id="resize-results" style="display: none;">
+                            <div class="results-header">
+                                <h5>크기 조절 완료</h5>
+                            </div>
+                            <div class="result-comparison">
+                                <div class="before-after">
+                                    <div class="comparison-item">
+                                        <h6>조절 전</h6>
+                                        <div class="comparison-info" id="before-info"></div>
+                                    </div>
+                                    <div class="comparison-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <h6>조절 후</h6>
+                                        <div class="comparison-info" id="after-info"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="result-image-container">
+                                <img id="result-image" alt="조절된 이미지">
+                            </div>
+                            <div class="download-area">
+                                <button class="download-btn" id="download-btn">
+                                    <i class="fas fa-download"></i> 조절된 이미지 다운로드
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+let selectedFile = null;
+let originalImage = null;
+let resizedImageData = null;
+let aspectRatio = 1;
+let isRatioLocked = true;
+
+// 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    const uploadInput = document.getElementById('resize-image-upload');
+    const uploadLabel = document.querySelector('.single-upload-label');
+    const removeImageBtn = document.getElementById('remove-image-btn');
+    const resizeBtn = document.getElementById('resize-btn');
+    const downloadBtn = document.getElementById('download-btn');
+    const ratioLockBtn = document.getElementById('ratio-lock-btn');
+    const presetBtns = document.querySelectorAll('.preset-btn');
+    const targetWidth = document.getElementById('target-width');
+    const targetHeight = document.getElementById('target-height');
+    const qualitySlider = document.getElementById('output-quality');
+
+    // 파일 업로드 이벤트
+    uploadInput.addEventListener('change', function(e) {
+        handleImageUpload(e.target.files[0]);
+    });
+
+    // 드래그 앤 드롭
+    uploadLabel.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#01FF75';
+        uploadLabel.style.background = '#1f1f1f';
+    });
+
+    uploadLabel.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+    });
+
+    uploadLabel.addEventListener('drop', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+        if (e.dataTransfer.files.length > 0) {
+            handleImageUpload(e.dataTransfer.files[0]);
+        }
+    });
+
+    // 이미지 제거 버튼
+    removeImageBtn.addEventListener('click', removeImage);
+
+    // 크기 조절 버튼
+    resizeBtn.addEventListener('click', resizeImage);
+
+    // 다운로드 버튼
+    downloadBtn.addEventListener('click', downloadResizedImage);
+
+    // 비율 잠금 버튼
+    ratioLockBtn.addEventListener('click', toggleRatioLock);
+
+    // 사전 설정 버튼들
+    presetBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const width = parseInt(this.dataset.width);
+            const height = parseInt(this.dataset.height);
+            setCustomSize(width, height);
+        });
+    });
+
+    // 크기 입력 필드
+    targetWidth.addEventListener('input', function() {
+        if (isRatioLocked && originalImage && this.value) {
+            const newWidth = parseInt(this.value);
+            const newHeight = Math.round(newWidth / aspectRatio);
+            targetHeight.value = newHeight;
+        }
+    });
+
+    targetHeight.addEventListener('input', function() {
+        if (isRatioLocked && originalImage && this.value) {
+            const newHeight = parseInt(this.value);
+            const newWidth = Math.round(newHeight * aspectRatio);
+            targetWidth.value = newWidth;
+        }
+    });
+
+    // 품질 슬라이더
+    qualitySlider.addEventListener('input', updateQualityDisplay);
+
+    // 초기 품질 표시 업데이트
+    updateQualityDisplay();
+});
+
+function handleImageUpload(file) {
+    if (!file) return;
+    
+    const allowedTypes = [
+        'image/jpeg', 'image/jpg', 'image/png', 'image/gif',
+        'image/webp', 'image/bmp', 'image/tiff', 'image/tif',
+        'image/svg+xml', 'image/x-icon', 'image/vnd.microsoft.icon'
+    ];
+    
+    const allowedExtensions = [
+        'jpg', 'jpeg', 'png', 'gif', 'webp', 
+        'bmp', 'tiff', 'tif', 'svg', 'ico'
+    ];
+    
+    const isValidType = allowedTypes.includes(file.type.toLowerCase());
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+    const isValidExtension = allowedExtensions.includes(fileExtension);
+    
+    if (!isValidType && !isValidExtension) {
+        showToast('지원하지 않는 파일 형식입니다.');
+        return;
+    }
+    
+    selectedFile = file;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+            originalImage = img;
+            aspectRatio = img.naturalWidth / img.naturalHeight;
+            showImagePreview(e.target.result, img.naturalWidth, img.naturalHeight, file.size);
+            showResizeSettings();
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function showImagePreview(src, width, height, size) {
+    const previewContainer = document.getElementById('selected-image-preview');
+    const previewImage = document.getElementById('preview-image');
+    const originalSize = document.getElementById('original-size');
+    const fileSize = document.getElementById('file-size');
+    
+    previewImage.src = src;
+    originalSize.textContent = `${width} x ${height}`;
+    fileSize.textContent = `${Math.round(size / 1024)}KB`;
+    
+    previewContainer.style.display = 'block';
+    
+    // 초기 크기 설정 (원본 크기)
+    document.getElementById('target-width').value = width;
+    document.getElementById('target-height').value = height;
+}
+
+function showResizeSettings() {
+    document.getElementById('resize-settings').style.display = 'block';
+    document.getElementById('resize-button-area').style.display = 'block';
+}
+
+function removeImage() {
+    selectedFile = null;
+    originalImage = null;
+    resizedImageData = null;
+    
+    document.getElementById('selected-image-preview').style.display = 'none';
+    document.getElementById('resize-settings').style.display = 'none';
+    document.getElementById('resize-button-area').style.display = 'none';
+    document.getElementById('resize-progress').style.display = 'none';
+    document.getElementById('resize-results').style.display = 'none';
+    document.getElementById('resizer-placeholder').style.display = 'flex';
+    
+    // 입력 필드 초기화
+    document.getElementById('target-width').value = '';
+    document.getElementById('target-height').value = '';
+}
+
+function toggleRatioLock() {
+    isRatioLocked = !isRatioLocked;
+    const ratioLockBtn = document.getElementById('ratio-lock-btn');
+    const aspectRatioInfo = document.getElementById('aspect-ratio-info');
+    
+    if (isRatioLocked) {
+        ratioLockBtn.classList.add('active');
+        ratioLockBtn.innerHTML = '<i class="fas fa-link"></i>';
+        aspectRatioInfo.textContent = '비율 유지 : 활성화';
+    } else {
+        ratioLockBtn.classList.remove('active');
+        ratioLockBtn.innerHTML = '<i class="fas fa-unlink"></i>';
+        aspectRatioInfo.textContent = '비율 유지 : 비활성화';
+    }
+}
+
+function setCustomSize(width, height) {
+    document.getElementById('target-width').value = width;
+    document.getElementById('target-height').value = height;
+}
+
+function updateQualityDisplay() {
+    const slider = document.getElementById('output-quality');
+    const valueDisplay = document.getElementById('quality-value');
+    valueDisplay.textContent = slider.value + '%';
+}
+
+function resizeImage() {
+    if (!originalImage) {
+        alert('먼저 이미지를 업로드해주세요.');
+        return;
+    }
+    
+    const targetWidth = parseInt(document.getElementById('target-width').value);
+    const targetHeight = parseInt(document.getElementById('target-height').value);
+    
+    if (!targetWidth || !targetHeight || targetWidth <= 0 || targetHeight <= 0) {
+        alert('올바른 크기를 입력해주세요.');
+        return;
+    }
+    
+    const button = document.getElementById('resize-btn');
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 처리 중...';
+    
+    // 진행 상황 표시
+    const placeholder = document.getElementById('resizer-placeholder');
+    const progressContainer = document.getElementById('resize-progress');
+    const resultsContainer = document.getElementById('resize-results');
+    
+    placeholder.style.display = 'none';
+    resultsContainer.style.display = 'none';
+    progressContainer.style.display = 'block';
+    
+    // 진행바 애니메이션
+    const progressFill = document.getElementById('progress-fill');
+    progressFill.style.width = '0%';
+    
+    setTimeout(() => {
+        progressFill.style.width = '50%';
+    }, 200);
+    
+    setTimeout(() => {
+        processResize(targetWidth, targetHeight).then(() => {
+            progressFill.style.width = '100%';
+            setTimeout(() => {
+                showResizeResults();
+                button.disabled = false;
+                button.innerHTML = '<i class="fas fa-expand-arrows-alt"></i> 이미지 크기 조절하기';
+                showToast('이미지 크기 조절이 완료되었습니다!');
+            }, 500);
+        });
+    }, 800);
+}
+
+function processResize(targetWidth, targetHeight) {
+    return new Promise((resolve) => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const resizeMethod = document.getElementById('resize-method').value;
+        const quality = parseInt(document.getElementById('output-quality').value) / 100;
+        
+        let drawWidth, drawHeight, offsetX = 0, offsetY = 0;
+        
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        
+        switch (resizeMethod) {
+            case 'stretch':
+                // 늘이기/줄이기 - 비율 무시하고 강제로 맞춤
+                drawWidth = targetWidth;
+                drawHeight = targetHeight;
+                break;
+                
+            case 'fit':
+                // 맞추기 - 비율 유지하며 여백 추가
+                const fitRatio = Math.min(targetWidth / originalImage.naturalWidth, targetHeight / originalImage.naturalHeight);
+                drawWidth = originalImage.naturalWidth * fitRatio;
+                drawHeight = originalImage.naturalHeight * fitRatio;
+                offsetX = (targetWidth - drawWidth) / 2;
+                offsetY = (targetHeight - drawHeight) / 2;
+                
+                // 여백을 흰색으로 채우기
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(0, 0, targetWidth, targetHeight);
+                break;
+                
+            case 'fill':
+            default:
+                // 채우기 - 비율 유지하며 자르기
+                const fillRatio = Math.max(targetWidth / originalImage.naturalWidth, targetHeight / originalImage.naturalHeight);
+                drawWidth = originalImage.naturalWidth * fillRatio;
+                drawHeight = originalImage.naturalHeight * fillRatio;
+                offsetX = (targetWidth - drawWidth) / 2;
+                offsetY = (targetHeight - drawHeight) / 2;
+                break;
+        }
+        
+        ctx.drawImage(originalImage, offsetX, offsetY, drawWidth, drawHeight);
+        
+        // 결과 데이터 생성
+        const outputFormat = selectedFile.type.startsWith('image/png') ? 'image/png' : 'image/jpeg';
+        const dataUrl = canvas.toDataURL(outputFormat, quality);
+        
+        resizedImageData = {
+            dataUrl: dataUrl,
+            width: targetWidth,
+            height: targetHeight,
+            canvas: canvas,
+            originalWidth: originalImage.naturalWidth,
+            originalHeight: originalImage.naturalHeight,
+            filename: 'Studio-NFP_resized_' + selectedFile.name.split('.')[0] + '.' + (outputFormat === 'image/png' ? 'png' : 'jpg')
+        };
+        
+        resolve();
+    });
+}
+
+function showResizeResults() {
+    const progressContainer = document.getElementById('resize-progress');
+    const resultsContainer = document.getElementById('resize-results');
+    const beforeInfo = document.getElementById('before-info');
+    const afterInfo = document.getElementById('after-info');
+    const resultImage = document.getElementById('result-image');
+    
+    beforeInfo.innerHTML = `
+        <div class="info-line">${resizedImageData.originalWidth} x ${resizedImageData.originalHeight}</div>
+        <div class="info-line">${Math.round(selectedFile.size / 1024)}KB</div>
+    `;
+    
+    const newSize = Math.round((resizedImageData.dataUrl.length * 0.75) / 1024);
+    afterInfo.innerHTML = `
+        <div class="info-line">${resizedImageData.width} x ${resizedImageData.height}</div>
+        <div class="info-line">${newSize}KB</div>
+    `;
+    
+    resultImage.src = resizedImageData.dataUrl;
+    
+    progressContainer.style.display = 'none';
+    resultsContainer.style.display = 'block';
+}
+
+function downloadResizedImage() {
+    if (!resizedImageData) return;
+    
+    const link = document.createElement('a');
+    link.download = resizedImageData.filename;
+    link.href = resizedImageData.dataUrl;
+    link.click();
+    
+    showToast('이미지 다운로드를 시작합니다!');
+}
+
+function showToast(message) {
+    // 기존 토스트 제거
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
+</script>
+
+{{ end }}
