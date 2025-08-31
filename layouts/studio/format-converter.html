@@ -1,197 +1,37 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ define "main" }}
 
-    
-<style>
-.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
-</style>
-
-
-<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-
-
-
-  
-
-
-
-<script>
-  window.addEventListener('error', function(e) {
-    if (e.message && e.message.includes('message channel closed')) {
-        e.preventDefault();
-    }
-});
-</script>
-
-    
-    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
-
-    
-
-
-<title>이미지 포맷 변환기 - Studio NFP | 무료 온라인 디자인 도구</title>
-
-
-<meta name="keywords" content="이미지 변환, 포맷 변환, JPG PNG 변환, 이미지 포맷, 파일 변환">
-
-
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="http://localhost:1313/studio/image-tools/format-converter/">
-<meta name="author" content="NFP Design">
-    
-    
-    <meta property="og:title" content="이미지 포맷 변환기 - NFP 디자인">
-    <meta property="og:description" content="JPG, PNG, WebP, SVG 등 다양한 이미지 포맷을 서로 변환하는 무료 온라인 도구">
-    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="1200">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:url" content="http://localhost:1313/studio/image-tools/format-converter/">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="NFP 디자인">
-    <meta property="og:locale" content="ko_KR">
-    
-        <meta property="article:published_time" content="0001-01-01T00:00:00Z">
-        <meta property="article:modified_time" content="0001-01-01T00:00:00Z">
-        
-    
-    
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="이미지 포맷 변환기 - NFP 디자인">
-    <meta name="twitter:description" content="JPG, PNG, WebP, SVG 등 다양한 이미지 포맷을 서로 변환하는 무료 온라인 도구">
-    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
-    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
-    
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "name": "이미지 포맷 변환기",
-      "description": "JPG, PNG, WebP, SVG 등 다양한 이미지 포맷을 서로 변환하는 무료 온라인 도구",
-      "url": "http:\/\/localhost:1313\/studio\/image-tools\/format-converter\/",
-      
-      "datePublished": "0001-01-01T00:00:00Z",
-      "dateModified": "0001-01-01T00:00:00Z",
-      "author": {
-        "@type": "Person",
-        "name": "NFP Design"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "NFP 디자인",
-        "url": "http:\/\/localhost:1313\/",
-        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
-      }
-      
-    }
-    </script>
-    
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
-    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
-    
-    
-    
-    
-    
-    
-    <link rel="icon" type="image/png" href="/img/icon_180.png">
-    
-    
-    <link rel="apple-touch-icon" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
-    
-    
-    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
-    
-    
-    <link rel="manifest" href="/manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
-    
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-
-
-
-
-</head>
-<body>
-    <div id="header-container"></div>
-    
-    
-
-<link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
 
 <section class="section">
 <div class="container">
-    
+    <!-- 헤더 -->
     <div class="studio-page-header">
         <h1>Studio <span>NFP</span></h1>
         <span class="highlight">이미지 포맷 변환기</span>
         <p><br>JPG, PNG, WebP 등 다양한 이미지 포맷을 자유롭게 변환하세요.</p>
     </div>
 
-    
+    <!-- 다른 페이지로 이동 버튼 -->
     <div class="page-btn-wrapper">
-        <a href="/studio" class="page-btn">스튜디오 메인</a>
-        <a href="/studio/web-demo" class="page-btn">웹 데모</a>
-        <a href="/studio/text-counter" class="page-btn">텍스트 카운터</a>
-        <a href="/studio/text-tools" class="page-btn">더미 텍스트</a>
-        <a href="/studio/unit-converter" class="page-btn">단위 변환기</a>
-        <a href="/studio/font-converter" class="page-btn">폰트 변환기</a>
-        <a href="/studio/size-calculator" class="page-btn">사이즈 계산기</a>
-        <a href="/studio/color-mixer" class="page-btn">컬러 조합기</a>
-        <a href="/studio/color-palette-5" class="page-btn">조합 컬러 팔레트</a>
-        <a href="/studio/color-palette-random" class="page-btn">랜덤 컬러 팔레트</a>
-        <a href="/studio/qr-basic" class="page-btn">QR코드 생성기</a>
-        <a href="/studio/qr-custom" class="page-btn">커스텀 QR코드 생성기</a>
-        <a href="/#" class="page-btn">#</a>
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
+        <a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
     </div>
 
-    
+    <!-- 탭 컨텐츠 -->
     <div class="studio-page-content">
         <div class="format-converter-container">
-            
+            <!-- 설명 -->
             <div class="format-converter-description">
                 <h3>이미지 포맷 변환기</h3>
                 <p>JPG, PNG, WebP 등 다양한 이미지 포맷 간 변환이 가능합니다.<br>
@@ -199,21 +39,20 @@
             </div>
 
             <div class="format-converter-content">
-                
+                <!-- 업로드 및 설정 영역 -->
                 <div class="format-converter-upload-section">
-                    
+                    <!-- 파일 업로드 -->
                     <div class="converter-settings-group">
                         <h4>이미지 선택</h4>
                         <div class="converter-input-group">
                             <label for="format-image-upload" class="image-upload-label">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <span>이미지를 선택하거나 드래그해주세요</span>
+                                <span>이미지를 선택하거나 드래그해주세요.</span>
                                 <small>지원 포맷: JPG, PNG, WebP, BMP, GIF</small>
                             </label>
                             <input type="file" id="format-image-upload" accept="image/*" style="display: none;">
                         </div>
                         
-                        
+                        <!-- 원본 이미지 미리보기 -->
                         <div class="original-preview" id="original-preview" style="display: none;">
                             <div class="preview-header">
                                 <h5>원본 이미지</h5>
@@ -228,9 +67,8 @@
                         </div>
                     </div>
 
-                    
+                    <!-- 변환 설정 -->
                     <div class="converter-settings-group">
-                        <h4>변환 설정</h4>
                         <div class="converter-input-group">
                             <label for="target-format">변환할 포맷</label>
                             <select id="target-format" class="converter-form-select">
@@ -247,7 +85,7 @@
                                 <input type="range" id="image-quality" min="10" max="100" value="90" class="quality-slider">
                                 <span class="quality-value" id="quality-value">90%</span>
                             </div>
-                            <small>품질이 높을수록 파일 크기가 커집니다</small>
+                            <small>품질이 높을수록 파일 크기가 커집니다.</small>
                         </div>
                     </div>
                     
@@ -258,7 +96,7 @@
                     </div>
                 </div>
                 
-                
+                <!-- 결과 영역 -->
                 <div class="format-converter-result-section">
                     <div class="converter-result-header">
                         <h4>변환 결과</h4>
@@ -266,13 +104,12 @@
                     <div class="converter-result-container">
                         <div class="converter-placeholder" id="converter-placeholder">
                             <i class="fas fa-image"></i>
-                            <p>이미지를 업로드하고<br>변환 설정을 완료해주세요</p>
+                            <p>이미지를 업로드하고<br>변환 설정을 완료해주세요.</p>
                         </div>
                         
-                        
+                        <!-- 변환 결과 -->
                         <div class="converted-preview" id="converted-preview" style="display: none;">
                             <div class="preview-header">
-                                <h5>변환된 이미지</h5>
                             </div>
                             <div class="preview-image-container">
                                 <canvas id="converted-canvas"></canvas>
@@ -292,365 +129,6 @@
 </div>
 </section>
 
-<style>
-.format-converter-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.format-converter-description {
-    text-align: center;
-    margin-bottom: 40px;
-    background: #141414;
-    border: 1px solid #272727;
-    border-radius: 4px;
-    padding: 30px;
-}
-
-.format-converter-description h3 {
-    color: #01FF75;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0 0 15px 0;
-}
-
-.format-converter-description p {
-    color: #666;
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.format-converter-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: start;
-}
-
-.format-converter-upload-section {
-    background: #141414;
-    border: 1px solid #272727;
-    border-radius: 4px;
-    padding: 30px;
-}
-
-.converter-settings-group {
-    margin-bottom: 30px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #272727;
-}
-
-.converter-settings-group:last-of-type {
-    border-bottom: none;
-    margin-bottom: 25px;
-}
-
-.converter-settings-group h4 {
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 20px 0;
-}
-
-.converter-input-group {
-    margin-bottom: 20px;
-}
-
-.converter-input-group:last-child {
-    margin-bottom: 0;
-}
-
-.converter-input-group label {
-    display: block;
-    color: white;
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-.converter-input-group small {
-    color: #666;
-    font-size: 12px;
-    display: block;
-    margin-top: 5px;
-}
-
-.image-upload-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #1a1a1a;
-    border: 2px dashed #272727;
-    border-radius: 4px;
-    padding: 40px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.image-upload-label:hover {
-    border-color: #01FF75;
-    background: #1f1f1f;
-}
-
-.image-upload-label i {
-    font-size: 32px;
-    color: #01FF75;
-    margin-bottom: 15px;
-}
-
-.image-upload-label span {
-    color: white;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.image-upload-label small {
-    color: #666;
-    font-size: 12px;
-    margin: 0;
-}
-
-.original-preview,
-.converted-preview {
-    margin-top: 20px;
-    border: 1px solid #272727;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.preview-header {
-    background: #1a1a1a;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.preview-header h5 {
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.remove-image-btn {
-    background: #272727;
-    border: 1px solid #666;
-    border-radius: 4px;
-    color: white;
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-}
-
-.remove-image-btn:hover {
-    background: #333;
-    border-color: #01FF75;
-}
-
-.preview-image-container {
-    padding: 20px;
-    text-align: center;
-    background: #1a1a1a;
-}
-
-.preview-image-container img,
-.preview-image-container canvas {
-    max-width: 100%;
-    max-height: 200px;
-    border-radius: 4px;
-    border: 1px solid #272727;
-}
-
-.image-info {
-    padding: 15px;
-    background: #141414;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.converter-form-select {
-    width: 100%;
-    background: #1a1a1a;
-    border: 1px solid #272727;
-    border-radius: 4px;
-    padding: 12px;
-    color: white;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-.converter-form-select:focus {
-    outline: none;
-    border-color: #01FF75;
-    box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
-}
-
-.quality-slider-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.quality-slider {
-    flex: 1;
-    height: 6px;
-    background: #272727;
-    border-radius: 3px;
-    outline: none;
-}
-
-.quality-slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    background: #01FF75;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.quality-value {
-    color: #01FF75;
-    font-weight: 600;
-    min-width: 40px;
-    text-align: right;
-}
-
-.converter-button-area {
-    text-align: center;
-}
-
-.converter-btn {
-    background: linear-gradient(135deg, #01FF75, #00CC5E);
-    color: #000;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(1, 255, 117, 0.3);
-    width: 100%;
-}
-
-.converter-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(1, 255, 117, 0.4);
-}
-
-.converter-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.converter-download-btn {
-    background: linear-gradient(135deg, #01FF75, #00CC5E);
-    color: #000;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.converter-download-btn:hover {
-    transform: translateY(-2px);
-}
-
-.format-converter-result-section {
-    background: #141414;
-    border: 1px solid #272727;
-    border-radius: 4px;
-    padding: 30px;
-}
-
-.converter-result-header h4 {
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 25px 0;
-    text-align: center;
-}
-
-.converter-result-container {
-    position: relative;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.converter-placeholder {
-    color: #666;
-    text-align: center;
-}
-
-.converter-placeholder i {
-    font-size: 48px;
-    margin-bottom: 15px;
-    opacity: 0.5;
-}
-
-.converter-placeholder p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.converter-download-area {
-    padding: 20px 0 0 0;
-}
-
-@media (max-width: 1024px) {
-    .format-converter-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .format-converter-result-section {
-        order: -1;
-    }
-}
-
-@media (max-width: 768px) {
-    .format-converter-description {
-        padding: 20px;
-    }
-    
-    .format-converter-upload-section,
-    .format-converter-result-section {
-        padding: 20px;
-    }
-    
-    .image-upload-label {
-        padding: 30px 15px;
-    }
-}
-
-.converter-btn i.fa-spinner {
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-</style>
 
 <script>
 let originalImage = null;
@@ -748,7 +226,7 @@ function downloadConvertedImage() {
     if (targetFormat === 'jpeg') extension = 'jpg';
     
     const link = document.createElement('a');
-    link.download = `converted_image_${Date.now()}.${extension}`;
+    link.download = `Studio-NFP_converted_image_${Date.now()}.${extension}`;
     link.href = convertedImage;
     link.click();
     
@@ -982,73 +460,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
-    
-    <div id="footer-container"></div>
-    <div id="floating-buttons-container"></div>
-
-
-
-  
-
-
-
-
-
-    
-    
-    <script src="/components/header.js"></script>
-    <script src="/components/footer.js"></script>
-    <script src="/components/floating.js"></script>
-    <script src="/components/project.js"></script>
-    <script src="/js/studio.js"></script>
-    
-    
-    
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            createHeader('header-container');
-            createFooter('footer-container');
-            createFloatingButtons('floating-buttons-container');
-        });
-    </script>
-    
-    
-    
-    <script src="/js/filter.js"></script>
-    
-    
-    
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    
-<script type="module">
-  
-  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
-  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
-  const firebaseConfig = {
-    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
-    authDomain: "nfp-design.firebaseapp.com",
-    projectId: "nfp-design",
-    storageBucket: "nfp-design.firebasestorage.app",
-    messagingSenderId: "731666960352",
-    appId: "1:731666960352:web:5d28f1f68864c61c796585",
-    measurementId: "G-ZWL48L9Q4Z"
-  };
-  
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  
-  
-  
-  window.firebaseDB = db;
-  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
-</script>
-
-   
-
-</body>
-</html>
+{{ end }}

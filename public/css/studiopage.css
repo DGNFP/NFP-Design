@@ -4089,6 +4089,388 @@ select.studio-form-input option {
     }
 }
 
+/* 이미지 포맷 변환기 페이지 */
+.format-converter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.format-converter-description {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.format-converter-description h3 {
+    color: #01FF75;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.format-converter-description p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.format-converter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.format-converter-upload-section {
+    background: #141414;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+.converter-settings-group {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #272727;
+}
+
+.converter-settings-group:last-of-type {
+    border-bottom: none;
+    margin-bottom: 25px;
+}
+
+.converter-settings-group h4 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.converter-input-group {
+    margin-bottom: 20px;
+}
+
+.converter-input-group:last-child {
+    margin-bottom: 0;
+}
+
+.converter-input-group label {
+    display: block;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.converter-input-group small {
+    color: #666;
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
+}
+
+.image-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+    border: 2px dashed #272727;
+    border-radius: 4px;
+    padding: 40px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.image-upload-label:hover {
+    border-color: #01FF75;
+    background: #1f1f1f;
+}
+
+.image-upload-label i {
+    font-size: 32px;
+    color: #01FF75;
+    margin-bottom: 15px;
+}
+
+.image-upload-label span {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.image-upload-label small {
+    color: #666;
+    font-size: 15px;
+    margin: 0;
+}
+
+.original-preview,
+.converted-preview {
+    overflow: hidden;
+}
+
+.preview-header {
+    /* background: #1a1a1a; */
+    /* padding: 15px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-header h5 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.remove-image-btn {
+    background: #272727;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    color: white;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.remove-image-btn:hover {
+    background: #333;
+}
+
+.preview-image-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.preview-image-container img,
+.preview-image-container canvas {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 4px;
+}
+
+.image-info {
+    padding: 15px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.converter-form-select {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 12px;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    appearance: none;
+    transition: all 0.3s ease;
+}
+
+.converter-form-select:focus {
+    outline: none;
+    border-color: #01FF75;
+}
+
+.quality-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quality-slider {
+    flex: 1;
+    height: 6px;
+    background: #272727;
+    border-radius: 3px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.quality-slider::-webkit-slider-track {
+    background: #272727;
+    height: 6px;
+    border-radius: 3px;
+}
+
+.quality-slider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #01FF75;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.quality-slider::-moz-range-track {
+    background: #272727;
+    height: 6px;
+    border-radius: 3px;
+    border: none;
+}
+
+.quality-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #01FF75;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.quality-value {
+    color: #01FF75;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: right;
+}
+
+.converter-button-area {
+    text-align: center;
+}
+
+.converter-btn {
+    background: linear-gradient(135deg, #01FF75, #00CC5E);
+    color: #000;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(1, 255, 117, 0.3);
+    width: 100%;
+}
+
+.converter-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 255, 117, 0.4);
+}
+
+.converter-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.converter-download-btn {
+    background: linear-gradient(135deg, #01FF75, #00CC5E);
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.converter-download-btn:hover {
+    transform: translateY(-2px);
+}
+
+.format-converter-result-section {
+    background: #141414;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+.converter-result-header h4 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.converter-result-container {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.converter-placeholder {
+    color: #666;
+    text-align: center;
+}
+
+.converter-placeholder i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.converter-placeholder p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.converter-download-area {
+    padding: 20px 0 0 0;
+}
+
+@media (max-width: 1024px) {
+    .format-converter-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .format-converter-result-section {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .format-converter-description {
+        padding: 20px;
+    }
+    
+    .format-converter-upload-section,
+    .format-converter-result-section {
+        padding: 20px;
+    }
+    
+    .image-upload-label {
+        padding: 30px 15px;
+    }
+}
+
+.converter-btn i.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 /* 모바일 */
 /* 반응형 */
 @media (max-width: 768px) {

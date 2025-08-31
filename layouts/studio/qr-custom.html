@@ -11,28 +11,23 @@
         <p><br>색상, 로고, 스타일을 자유롭게 커스터마이징한 QR 코드를 만들어보세요.</p>
     </div>
 
-<!-- 다른 페이지로 이동 버튼 -->
-<div class="page-btn-wrapper">
-<a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
-<a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
-<a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
-<a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
-<a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
-<a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
-<a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
-<a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
-<a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
-<a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
-<a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
-<a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
-<a href="{{ "#" | relURL }}" class="page-btn">#</a>
-<a href="{{ "#" | relURL }}" class="page-btn">#</a>
-<a href="{{ "#" | relURL }}" class="page-btn">#</a>
-<a href="{{ "#" | relURL }}" class="page-btn">#</a>
-<a href="{{ "#" | relURL }}" class="page-btn">#</a>
-<a href="{{ "#" | relURL }}" class="page-btn">#</a>
-<a href="{{ "#" | relURL }}" class="page-btn">#</a>
-</div>
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">5색 조합</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 팔레트</a>
+        <a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">기본 QR</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+        <a href="{{ "#" | relURL }}" class="page-btn">#</a>
+    </div>
+
     <!-- 탭 컨텐츠 -->
     <div class="studio-page-content">
         <div class="qr-custom-generator-container">
@@ -57,8 +52,11 @@
                         <div class="custom-input-group">
                             <label for="custom-qr-size">QR 코드 크기</label>
                             <select id="custom-qr-size" class="custom-form-select">
-                                <option value="300">300×300px (표준)</option>
-                                <option value="400" selected>400×400px (권장)</option>
+                                <option value="50">50×50px</option>
+                                <option value="100">100×100px</option>
+                                <option value="150">150×150px</option>
+                                <option value="200">200×200px</option>
+                                <option value="300" selected>300×300px (표준)</option>
                             </select>
                         </div>
                     </div>
@@ -100,12 +98,6 @@
                                     <i class="fas fa-times"></i>
                                 </button>
                             </div>
-                        </div>
-                        
-                        <div class="custom-input-group">
-                            <label for="logo-size">로고 크기 (%)</label>
-                            <input type="range" id="logo-size" min="10" max="25" value="15" class="range-slider">
-                            <span class="range-value" id="logo-size-value">15%</span>
                         </div>
                     </div>
                     
@@ -227,6 +219,13 @@
     font-size: 15px;
     resize: vertical;
     box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.custom-form-textarea:focus {
+    outline: none;
+    border-color: #01FF75;
+    box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
 }
 
 .custom-form-select {
@@ -234,10 +233,23 @@
     background: #1a1a1a;
     border: 1px solid #272727;
     border-radius: 4px;
-    padding: 12px;
+    padding: 12px 35px 12px 12px;
     color: white;
     font-size: 16px;
     box-sizing: border-box;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-form-select:focus {
+    outline: none;
+    border-color: #01FF75;
+    box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
 }
 
 /* 색상 설정 */
@@ -380,7 +392,6 @@
 }
 
 #custom-qr-canvas {
-    border: 2px solid #272727;
     border-radius: 4px;
     display: none;
 }
@@ -403,8 +414,8 @@
 }
 
 .custom-download-btn {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
-    color: white;
+    background: linear-gradient(135deg, #01FF75, #00CC5E);
+    color: black;
     border: none;
     padding: 14px 28px;
     border-radius: 4px;
@@ -523,12 +534,12 @@ function generateCustomQR() {
     }
 }
 
-// 로고를 QR 코드에 추가하는 함수
+// 로고를 QR 코드에 추가하는 함수 (고정 크기로 수정)
 function addLogoToQR(canvas, qrSize) {
     if (!logoImage) return;
     
     const ctx = canvas.getContext('2d');
-    const logoSizePercent = parseInt(document.getElementById('logo-size').value);
+    const logoSizePercent = 15; // 고정 크기 15%
     const logoSize = (qrSize * logoSizePercent) / 100;
     const logoX = (qrSize - logoSize) / 2;
     const logoY = (qrSize - logoSize) / 2;
@@ -658,8 +669,8 @@ function showCustomDownloadSuccessToast() {
         top: 100px;
         left: 50%;
         transform: translateX(-50%);
-        background: linear-gradient(135deg, #4CAF50, #45a049);
-        color: white;
+        background: linear-gradient(135deg, #01FF75, #00CC5E);
+        color: black;
         padding: 12px 24px;
         border-radius: 25px;
         font-weight: 600;
@@ -694,9 +705,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const generateBtn = document.getElementById('custom-generate-btn');
     const downloadBtn = document.getElementById('custom-download-btn');
     const logoUpload = document.getElementById('qr-logo-upload');
-    const removeLogo = document.getElementById('remove-logo-btn');
-    const logoSizeSlider = document.getElementById('logo-size');
-    const logoSizeValue = document.getElementById('logo-size-value');
+    const removeLogoBtn = document.getElementById('remove-logo-btn');
     
     // 메인 기능 이벤트
     if (generateBtn) {
@@ -719,13 +728,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 로고 제거
     if (removeLogoBtn) {
         removeLogoBtn.addEventListener('click', removeLogo);
-    }
-    
-    // 로고 크기 슬라이더
-    if (logoSizeSlider && logoSizeValue) {
-        logoSizeSlider.addEventListener('input', function(e) {
-            logoSizeValue.textContent = e.target.value + '%';
-        });
     }
     
     // 색상 동기화
