@@ -1,0 +1,648 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">이미지 컬러 추출기</span>
+        <p><br>이미지에서 주요 컬러를 분석하여 컬러 팔레트를 생성하세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
+        <a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
+        <a href="{{ "/studio/base64-encoder" | relURL }}" class="page-btn">Base64 인코딩/디코딩</a>
+        <a href="{{ "/studio/url-encoder" | relURL }}" class="page-btn">URL 인코딩/디코딩</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="color-extractor-container">
+            <!-- 설명 -->
+            <div class="color-extractor-description">
+                <h3>이미지 컬러 추출기</h3>
+                <p>업로드한 이미지를 분석하여 주요 컬러 5개를 추출하고<br>
+                각 컬러의 비율을 백분율로 표시하는 컬러 팔레트를 생성합니다.</p>
+                <div class="supported-formats">
+                    <small>지원 형식: JPEG, PNG, GIF, WebP, BMP</small>
+                </div>
+            </div>
+
+            <div class="color-extractor-content">
+                <!-- 이미지 업로드 섹션 -->
+                <div class="extractor-upload-section">
+                    <div class="extractor-settings-group">
+                        <h4>이미지 업로드</h4>
+                        <div class="extractor-input-group">
+                            <label for="color-image-upload" class="image-upload-label">
+                                <i class="fas fa-image"></i>
+                                <span>이미지를 선택하거나 드래그해주세요</span>
+                                <small>최대 파일 크기: 10MB</small>
+                            </label>
+                            <input type="file" id="color-image-upload" accept=".jpg,.jpeg,.png,.gif,.webp,.bmp" style="display: none;">
+                        </div>
+                        
+                        <!-- 업로드된 이미지 미리보기 -->
+                        <div class="uploaded-image-preview" id="uploaded-image-preview" style="display: none;">
+                            <div class="preview-header">
+                                <h5>업로드된 이미지</h5>
+                                <button type="button" class="remove-image-btn" id="remove-image-btn">
+                                    <i class="fas fa-trash"></i> 제거
+                                </button>
+                            </div>
+                            <div class="preview-container">
+                                <img id="preview-image" alt="미리보기" style="max-width: 100%; max-height: 300px; object-fit: contain; border-radius: 4px;">
+                                <div class="image-info" id="image-info">
+                                    <div class="info-item">
+                                        <span class="label">파일명:</span>
+                                        <span class="value" id="image-filename">-</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">크기:</span>
+                                        <span class="value" id="image-dimensions">0 x 0</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">용량:</span>
+                                        <span class="value" id="image-filesize">0KB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 추출 설정 -->
+                    <div class="extractor-settings-group" id="extraction-settings" style="display: none;">
+                        <h4>추출 설정</h4>
+                        
+                        <div class="extractor-input-group">
+                            <label for="color-count">추출할 컬러 개수</label>
+                            <select id="color-count" class="extractor-form-select">
+                                <option value="3">3개</option>
+                                <option value="5" selected>5개 (권장)</option>
+                                <option value="7">7개</option>
+                                <option value="10">10개</option>
+                            </select>
+                        </div>
+
+                        <div class="extractor-input-group">
+                            <label for="analysis-quality">분석 품질</label>
+                            <select id="analysis-quality" class="extractor-form-select">
+                                <option value="fast">빠름 (저화질)</option>
+                                <option value="balanced" selected>균형 (권장)</option>
+                                <option value="high">높음 (고화질)</option>
+                            </select>
+                        </div>
+
+                        <div class="extractor-input-group">
+                            <label>추출 옵션</label>
+                            <div class="extraction-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="ignore-white" checked>
+                                    <span class="checkmark"></span>
+                                    흰색/회색 제외
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="vibrant-only">
+                                    <span class="checkmark"></span>
+                                    선명한 색상만
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="extractor-button-area" id="extract-button-area" style="display: none;">
+                        <button class="extractor-btn" id="extract-btn">
+                            <i class="fas fa-palette"></i> 컬러 추출하기
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 결과 섹션 -->
+                <div class="extractor-result-section">
+                    <div class="extractor-result-header">
+                        <h4>추출된 컬러 팔레트</h4>
+                    </div>
+                    <div class="extractor-result-container">
+                        <div class="extractor-placeholder" id="extractor-placeholder">
+                            <i class="fas fa-palette"></i>
+                            <p>이미지를 업로드하고<br>컬러 추출을 시작하세요</p>
+                        </div>
+                        
+                        <!-- 추출 진행 상황 -->
+                        <div class="extraction-progress" id="extraction-progress" style="display: none;">
+                            <div class="progress-header">
+                                <h5>컬러 분석 중...</h5>
+                                <div class="progress-status" id="progress-status">이미지 분석 준비 중...</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 추출 결과 -->
+                        <div class="extraction-results" id="extraction-results" style="display: none;">
+                            <div class="results-header">
+                                <h5>추출 완료</h5>
+                                <div class="results-info" id="results-info">5개의 주요 컬러가 추출되었습니다</div>
+                            </div>
+                            
+                            <!-- 컬러 팔레트 -->
+                            <div class="color-palette" id="color-palette"></div>
+                            
+                            <!-- 컬러 상세 정보 -->
+                            <div class="color-details" id="color-details"></div>
+                            
+                            <!-- 추출된 팔레트 활용 -->
+                            <div class="palette-actions">
+                                <button class="action-btn" id="copy-hex-btn">
+                                    <i class="fas fa-copy"></i> HEX 코드 복사
+                                </button>
+                                <button class="action-btn" id="copy-rgb-btn">
+                                    <i class="fas fa-copy"></i> RGB 값 복사
+                                </button>
+                                <button class="action-btn" id="export-palette-btn">
+                                    <i class="fas fa-download"></i> 팔레트 내보내기
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+let uploadedImage = null;
+let extractedColors = [];
+let canvas = null;
+let ctx = null;
+
+// 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    const uploadInput = document.getElementById('color-image-upload');
+    const uploadLabel = document.querySelector('.image-upload-label');
+    const removeImageBtn = document.getElementById('remove-image-btn');
+    const extractBtn = document.getElementById('extract-btn');
+
+    canvas = document.createElement('canvas');
+    ctx = canvas.getContext('2d');
+
+    // 파일 업로드 이벤트
+    uploadInput.addEventListener('change', function(e) {
+        handleImageUpload(e.target.files[0]);
+    });
+
+    // 드래그 앤 드롭
+    uploadLabel.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#01FF75';
+        uploadLabel.style.background = '#1f1f1f';
+    });
+
+    uploadLabel.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+    });
+
+    uploadLabel.addEventListener('drop', function(e) {
+        e.preventDefault();
+        uploadLabel.style.borderColor = '#272727';
+        uploadLabel.style.background = '#1a1a1a';
+        if (e.dataTransfer.files.length > 0) {
+            handleImageUpload(e.dataTransfer.files[0]);
+        }
+    });
+
+    // 이미지 제거 버튼
+    removeImageBtn.addEventListener('click', removeImage);
+
+    // 컬러 추출 버튼
+    extractBtn.addEventListener('click', extractColors);
+
+    // 액션 버튼들
+    document.getElementById('copy-hex-btn').addEventListener('click', function() {
+        copyColorCodes('hex');
+    });
+    
+    document.getElementById('copy-rgb-btn').addEventListener('click', function() {
+        copyColorCodes('rgb');
+    });
+    
+    document.getElementById('export-palette-btn').addEventListener('click', exportPalette);
+});
+
+function handleImageUpload(file) {
+    if (!file) return;
+    
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/bmp'];
+    const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp'];
+    
+    const isValidType = allowedTypes.includes(file.type.toLowerCase());
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+    const isValidExtension = allowedExtensions.includes(fileExtension);
+    
+    if (!isValidType && !isValidExtension) {
+        showToast('지원하지 않는 파일 형식입니다.');
+        return;
+    }
+    
+    // 파일 크기 제한 (10MB)
+    if (file.size > 10 * 1024 * 1024) {
+        showToast('파일 크기가 너무 큽니다. 10MB 이하의 이미지를 선택해주세요.');
+        return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+            uploadedImage = {
+                file: file,
+                element: img,
+                data: e.target.result
+            };
+            showImagePreview();
+            showExtractionSettings();
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+function showImagePreview() {
+    const previewContainer = document.getElementById('uploaded-image-preview');
+    const previewImage = document.getElementById('preview-image');
+    const filename = document.getElementById('image-filename');
+    const dimensions = document.getElementById('image-dimensions');
+    const filesize = document.getElementById('image-filesize');
+    
+    previewImage.src = uploadedImage.data;
+    filename.textContent = uploadedImage.file.name;
+    dimensions.textContent = `${uploadedImage.element.naturalWidth} x ${uploadedImage.element.naturalHeight}`;
+    filesize.textContent = formatFileSize(uploadedImage.file.size);
+    
+    previewContainer.style.display = 'block';
+}
+
+function showExtractionSettings() {
+    document.getElementById('extraction-settings').style.display = 'block';
+    document.getElementById('extract-button-area').style.display = 'block';
+}
+
+function removeImage() {
+    uploadedImage = null;
+    extractedColors = [];
+    
+    document.getElementById('uploaded-image-preview').style.display = 'none';
+    document.getElementById('extraction-settings').style.display = 'none';
+    document.getElementById('extract-button-area').style.display = 'none';
+    document.getElementById('extraction-progress').style.display = 'none';
+    document.getElementById('extraction-results').style.display = 'none';
+    document.getElementById('extractor-placeholder').style.display = 'flex';
+    
+    document.getElementById('color-image-upload').value = '';
+}
+
+function extractColors() {
+    if (!uploadedImage) {
+        alert('먼저 이미지를 업로드해주세요.');
+        return;
+    }
+    
+    const button = document.getElementById('extract-btn');
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 분석 중...';
+    
+    showProgress();
+    
+    // 실제 컬러 추출 처리
+    setTimeout(() => {
+        performColorExtraction();
+    }, 500);
+}
+
+function showProgress() {
+    document.getElementById('extractor-placeholder').style.display = 'none';
+    document.getElementById('extraction-results').style.display = 'none';
+    document.getElementById('extraction-progress').style.display = 'block';
+    
+    const progressFill = document.getElementById('progress-fill');
+    const progressStatus = document.getElementById('progress-status');
+    
+    progressFill.style.width = '0%';
+    progressStatus.textContent = '이미지 분석 준비 중...';
+}
+
+function performColorExtraction() {
+    const colorCount = parseInt(document.getElementById('color-count').value);
+    const quality = document.getElementById('analysis-quality').value;
+    const ignoreWhite = document.getElementById('ignore-white').checked;
+    const vibrantOnly = document.getElementById('vibrant-only').checked;
+    
+    const progressFill = document.getElementById('progress-fill');
+    const progressStatus = document.getElementById('progress-status');
+    
+    // 진행 상황 시뮬레이션
+    const steps = [
+        { progress: 20, status: '이미지 데이터 로딩 중...' },
+        { progress: 40, status: '픽셀 데이터 분석 중...' },
+        { progress: 60, status: '컬러 클러스터링 중...' },
+        { progress: 80, status: '주요 컬러 계산 중...' },
+        { progress: 100, status: '컬러 팔레트 생성 완료!' }
+    ];
+    
+    let stepIndex = 0;
+    
+    function updateProgress() {
+        if (stepIndex >= steps.length) {
+            // 실제 컬러 추출 수행
+            analyzeImageColors(colorCount, quality, ignoreWhite, vibrantOnly);
+            return;
+        }
+        
+        const step = steps[stepIndex];
+        progressFill.style.width = step.progress + '%';
+        progressStatus.textContent = step.status;
+        
+        stepIndex++;
+        setTimeout(updateProgress, 600);
+    }
+    
+    updateProgress();
+}
+
+function analyzeImageColors(colorCount, quality, ignoreWhite, vibrantOnly) {
+    // 캔버스에 이미지 그리기
+    let scale = 1;
+    if (quality === 'fast') scale = 0.25;
+    else if (quality === 'balanced') scale = 0.5;
+    else if (quality === 'high') scale = 1;
+    
+    const width = Math.floor(uploadedImage.element.naturalWidth * scale);
+    const height = Math.floor(uploadedImage.element.naturalHeight * scale);
+    
+    canvas.width = width;
+    canvas.height = height;
+    ctx.drawImage(uploadedImage.element, 0, 0, width, height);
+    
+    // 픽셀 데이터 추출
+    const imageData = ctx.getImageData(0, 0, width, height);
+    const pixels = imageData.data;
+    
+    // 컬러 빈도 계산
+    const colorMap = new Map();
+    const step = quality === 'fast' ? 16 : quality === 'balanced' ? 8 : 4;
+    
+    for (let i = 0; i < pixels.length; i += 4 * step) {
+        const r = pixels[i];
+        const g = pixels[i + 1];
+        const b = pixels[i + 2];
+        const a = pixels[i + 3];
+        
+        if (a < 128) continue; // 투명한 픽셀 제외
+        
+        // 흰색/회색 제외 옵션
+        if (ignoreWhite) {
+            const avg = (r + g + b) / 3;
+            const variance = Math.abs(r - avg) + Math.abs(g - avg) + Math.abs(b - avg);
+            if (avg > 200 || variance < 30) continue;
+        }
+        
+        // 선명한 색상만 옵션
+        if (vibrantOnly) {
+            const saturation = calculateSaturation(r, g, b);
+            if (saturation < 0.3) continue;
+        }
+        
+        const colorKey = `${Math.floor(r/10)*10},${Math.floor(g/10)*10},${Math.floor(b/10)*10}`;
+        colorMap.set(colorKey, (colorMap.get(colorKey) || 0) + 1);
+    }
+    
+    // 상위 컬러 선택
+    const sortedColors = Array.from(colorMap.entries())
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, colorCount);
+    
+    const totalPixels = sortedColors.reduce((sum, [, count]) => sum + count, 0);
+    
+    extractedColors = sortedColors.map(([color, count]) => {
+        const [r, g, b] = color.split(',').map(Number);
+        const percentage = Math.round((count / totalPixels) * 100);
+        return {
+            r, g, b,
+            hex: rgbToHex(r, g, b),
+            percentage,
+            count
+        };
+    });
+    
+    showExtractionResults();
+    
+    const button = document.getElementById('extract-btn');
+    button.disabled = false;
+    button.innerHTML = '<i class="fas fa-palette"></i> 컬러 추출하기';
+    
+    showToast('컬러 추출이 완료되었습니다!');
+}
+
+function calculateSaturation(r, g, b) {
+    const max = Math.max(r, g, b) / 255;
+    const min = Math.min(r, g, b) / 255;
+    return max === 0 ? 0 : (max - min) / max;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + [r, g, b].map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+    }).join("");
+}
+
+function showExtractionResults() {
+    document.getElementById('extraction-progress').style.display = 'none';
+    document.getElementById('extraction-results').style.display = 'block';
+    
+    const resultsInfo = document.getElementById('results-info');
+    resultsInfo.textContent = `${extractedColors.length}개의 주요 컬러가 추출되었습니다`;
+    
+    // 컬러 팔레트 생성
+    createColorPalette();
+    
+    // 컬러 상세 정보 생성
+    createColorDetails();
+}
+
+function createColorPalette() {
+    const paletteContainer = document.getElementById('color-palette');
+    paletteContainer.innerHTML = '';
+    
+    extractedColors.forEach((color, index) => {
+        const colorBlock = document.createElement('div');
+        colorBlock.className = 'color-block';
+        colorBlock.style.backgroundColor = color.hex;
+        colorBlock.style.flex = color.percentage;
+        
+        colorBlock.innerHTML = `
+            <div class="color-overlay">
+                <div class="color-percentage">${color.percentage}%</div>
+                <div class="color-hex">${color.hex}</div>
+            </div>
+        `;
+        
+        colorBlock.addEventListener('click', function() {
+            copyToClipboard(color.hex);
+            showToast(`${color.hex} 복사되었습니다!`);
+        });
+        
+        paletteContainer.appendChild(colorBlock);
+    });
+}
+
+function createColorDetails() {
+    const detailsContainer = document.getElementById('color-details');
+    detailsContainer.innerHTML = '';
+    
+    extractedColors.forEach((color, index) => {
+        const colorDetail = document.createElement('div');
+        colorDetail.className = 'color-detail-item';
+        
+        colorDetail.innerHTML = `
+            <div class="color-sample" style="background-color: ${color.hex};"></div>
+            <div class="color-info">
+                <div class="color-codes">
+                    <div class="code-item">
+                        <span class="code-label">HEX:</span>
+                        <span class="code-value">${color.hex}</span>
+                        <button class="copy-code-btn" onclick="copyToClipboard('${color.hex}')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="code-item">
+                        <span class="code-label">RGB:</span>
+                        <span class="code-value">rgb(${color.r}, ${color.g}, ${color.b})</span>
+                        <button class="copy-code-btn" onclick="copyToClipboard('rgb(${color.r}, ${color.g}, ${color.b})')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="color-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">비율:</span>
+                        <span class="stat-value">${color.percentage}%</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        detailsContainer.appendChild(colorDetail);
+    });
+}
+
+function copyColorCodes(format) {
+    if (extractedColors.length === 0) return;
+    
+    let codes;
+    if (format === 'hex') {
+        codes = extractedColors.map(color => color.hex).join('\n');
+    } else {
+        codes = extractedColors.map(color => `rgb(${color.r}, ${color.g}, ${color.b})`).join('\n');
+    }
+    
+    copyToClipboard(codes);
+    showToast(`${format.toUpperCase()} 코드가 복사되었습니다!`);
+}
+
+function exportPalette() {
+    if (extractedColors.length === 0) return;
+    
+    const paletteData = {
+        timestamp: new Date().toISOString(),
+        sourceImage: uploadedImage.file.name,
+        colors: extractedColors.map((color, index) => ({
+            position: index + 1,
+            hex: color.hex,
+            rgb: `rgb(${color.r}, ${color.g}, ${color.b})`,
+            percentage: color.percentage
+        }))
+    };
+    
+    const dataStr = JSON.stringify(paletteData, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    
+    const link = document.createElement('a');
+    link.download = `color-palette-${uploadedImage.file.name.split('.')[0]}.json`;
+    link.href = URL.createObjectURL(dataBlob);
+    link.click();
+    URL.revokeObjectURL(link.href);
+    
+    showToast('팔레트가 JSON 파일로 내보내졌습니다!');
+}
+
+function copyToClipboard(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+    } else {
+        // 폴백 방법
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+    }
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+function showToast(message) {
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 2000);
+}
+</script>
+
+{{ end }}
