@@ -89,7 +89,7 @@
 <style>
 /* 기본 QR 생성기 전용 스타일 */
 .qr-basic-generator-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -117,7 +117,7 @@
 .qr-basic-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 20px;
     align-items: start;
 }
 
@@ -411,7 +411,7 @@ function downloadBasicQR() {
     
     try {
         const link = document.createElement('a');
-        link.download = `qrcode_${Date.now()}.png`;
+        link.download = `Studio-NFP_qrcode_${Date.now()}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
         

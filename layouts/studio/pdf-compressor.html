@@ -1,0 +1,424 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">PDF 압축기</span>
+        <p><br>PDF 파일 크기를 줄여보세요.</p>
+    </div>
+
+<!-- 다른 페이지로 이동 버튼 -->
+<div class="page-btn-wrapper">
+<a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+<a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+<a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+<a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+<a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+<a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+<a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+<a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+<a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+<a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+<a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
+<a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
+<a href="{{ "/studio/format-converter" | relURL }}" class="page-btn">이미지 포맷 변환</a>
+<a href="{{ "/studio/image-compressor" | relURL }}" class="page-btn">이미지 압축기</a>
+<a href="{{ "/studio/image-resizer/" | relURL }}" class="page-btn">이미지 크기 조절기</a>
+<a href="{{ "/studio/image-cropper/" | relURL }}" class="page-btn">이미지 자르기</a>
+<a href="{{ "/studio/url-encoder" | relURL }}" class="page-btn">URL 인코딩/디코딩</a>
+<a href="{{ "/studio/base64" | relURL }}" class="page-btn">base64 인코딩/디코딩</a>
+<a href="{{ "/studio/color-extractor" | relURL }}" class="page-btn">이미지 컬러 추출기</a>
+<a href="{{ "/studio/gradient-2/" | relURL }}" class="page-btn">커스텀 그라데이션 2컬러 팔레트</a>
+<a href="{{ "/studio/gradient-3/" | relURL }}" class="page-btn">커스텀 그라데이션 3컬러 팔레트</a>
+<a href="{{ "/studio/watermark" | relURL }}" class="page-btn">워터마크 생성기</a>
+<a href="{{ "/studio/gradient-2/" | relURL }}" class="page-btn">2색 그라데이션 생성기</a>
+<a href="{{ "/studio/gradient-3/" | relURL }}" class="page-btn">3색 그라데이션 생성기</a>
+<a href="{{ "/studio/pdf-compressor/" | relURL }}" class="page-btn">PDF 압축기</a>
+<a href="{{ "/studio/single-card" | relURL }}" class="page-btn">워터마크 생성기</a>
+<a href="{{ "/studio/fortune-card" | relURL }}" class="page-btn">운세 컬러 카드</a>
+<a href="{{ "/studio/single-card" | relURL }}" class="page-btn">단색 컬러 카드</a>
+<a href="{{ "/studio/gradient-card/" | relURL }}" class="page-btn">그라데이션 컬러 카드</a>
+<a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+</div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+    
+        <div class="studio-container">
+      
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>PDF 압축기</h3>
+                <p>PDF 파일의 크기를 줄여 저장공간을 절약하고 업로드 속도를 개선하세요.<br>
+                브라우저에서 바로 압축되어 안전합니다.</p>
+                <div class="supported-formats">
+                    <small>지원 파일 : PDF / 브라우저 전용 압축 / 개인정보 보호</small>
+                </div>
+            </div>
+
+            <!-- PDF 압축기 메인 콘텐츠 (2개 패널) -->
+            <div class="pdf-compressor-content">
+                
+                <!-- 조작창 패널 -->
+                <div class="pdf-compressor-control-panel">
+                    
+                    <!-- 파일 업로드 섹션 -->
+                    <div class="pdf-compressor-upload-section">
+                        <h4>파일 업로드</h4>
+                        <div class="pdf-compressor-file-input">
+                            <input id="pdfFile" type="file" accept="application/pdf">
+                            <label for="pdfFile" class="pdf-compressor-file-label" id="fileLabel">
+                                <div class="pdf-compressor-file-text">
+                                    <strong id="fileText">PDF 파일을 선택하세요</strong>
+                                    <small id="fileSubtext">클릭하거나 파일을 드래그해서 업로드</small>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 압축 설정 섹션 -->
+                    <div class="pdf-compressor-settings-section">
+                        <h4>압축 설정</h4>
+                        
+                        <div class="pdf-compressor-settings-grid">
+                            <div class="pdf-compressor-setting-item">
+                                <label for="pdfDpi">DPI (해상도)</label>
+                                <div class="pdf-compressor-range-wrapper">
+                                    <input id="pdfDpi" type="range" min="72" max="200" step="4" value="144">
+                                    <span id="pdfDpiValue">144</span>
+                                </div>
+                                <small>낮을수록 파일 크기가 작아집니다.</small>
+                            </div>
+
+                            <div class="pdf-compressor-setting-item">
+                                <label for="pdfQuality">PDF 품질</label>
+                                <div class="pdf-compressor-range-wrapper">
+                                    <input id="pdfQuality" type="range" min="0.3" max="0.9" step="0.05" value="0.6">
+                                    <span id="pdfQualityValue">0.60</span>
+                                </div>
+                                <small>낮을수록 파일 크기가 작아집니다.</small>
+                            </div>
+
+                            <div class="pdf-compressor-setting-item">
+                                <label class="pdf-compressor-checkbox-wrapper">
+                                    <input id="pdfGrayscale" type="checkbox">
+                                    <span class="pdf-compressor-checkbox-text">회색조 변환</span>
+                                </label>
+                                <small>컬러를 흑백으로 변환하여 용량 절약</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 압축 실행 버튼 -->
+                    <div class="pdf-compressor-action-section">
+                        <button id="pdfCompressBtn" class="pdf-compressor-compress-btn" disabled>
+                            <span id="btnText">압축 시작</span>
+                            <span id="btnSpinner" class="pdf-compressor-spinner" style="display: none;">⟳</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- 결과창 패널 -->
+                <div class="pdf-compressor-result-panel">
+                    
+                    <!-- 대기 상태 -->
+                    <div class="pdf-compressor-result-waiting" id="resultWaiting">
+                        <div class="pdf-compressor-waiting-icon"><i class="fa fa-file-pdf"></i></div>
+                        <h4>압축 결과가 여기에 표시됩니다</h4>
+                        <p>PDF 파일을 업로드하고 압축을 시작해주세요.</p>
+                    </div>
+
+                    <!-- 진행 상태 -->
+                    <div class="pdf-compressor-result-progress" id="resultProgress" style="display: none;">
+                        <div class="pdf-compressor-progress-header">
+                            <h4>압축 진행 중...</h4>
+                        </div>
+                        <div class="pdf-compressor-progress-bar">
+                            <div class="pdf-compressor-progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="pdf-compressor-progress-text" id="progressText">0%</div>
+                    </div>
+
+                    <!-- 완료 상태 -->
+                    <div class="pdf-compressor-result-complete" id="resultComplete" style="display: none;">
+                        <div class="pdf-compressor-result-header">
+                            <h4>압축 완료!</h4>
+                        </div>
+                        
+                        <div class="pdf-compressor-comparison">
+                            <div class="pdf-compressor-before-after">
+                                <div class="pdf-compressor-comparison-item">
+                                    <h6>원본</h6>
+                                    <div class="pdf-compressor-file-info">
+                                        <div id="originalPages">- 페이지</div>
+                                        <div id="originalSize">-</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="pdf-compressor-comparison-arrow">→</div>
+                                
+                                <div class="pdf-compressor-comparison-item">
+                                    <h6>압축 결과</h6>
+                                    <div class="pdf-compressor-file-info">
+                                        <div id="compressedPages">- 페이지</div>
+                                        <div id="compressedSize">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pdf-compressor-download-section">
+                            <button id="downloadBtn" class="pdf-compressor-download-btn">
+                                ⬇ 압축된 PDF 다운로드
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- 토스트 메시지 -->
+<div id="toast" class="toast">
+    <span id="toast-text"></span>
+</div>
+
+<!-- PDF.js 라이브러리 -->
+<script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = "https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+</script>
+
+<!-- jsPDF 라이브러리 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 요소 선택
+    const fileInput = document.getElementById('pdfFile');
+    const fileLabel = document.getElementById('fileLabel');
+    const fileText = document.getElementById('fileText');
+    const fileSubtext = document.getElementById('fileSubtext');
+    const compressBtn = document.getElementById('pdfCompressBtn');
+    const btnText = document.getElementById('btnText');
+    const btnSpinner = document.getElementById('btnSpinner');
+    
+    // 결과 패널
+    const resultWaiting = document.getElementById('resultWaiting');
+    const resultProgress = document.getElementById('resultProgress');
+    const resultComplete = document.getElementById('resultComplete');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    
+    // 설정 요소
+    const dpiRange = document.getElementById('pdfDpi');
+    const dpiValue = document.getElementById('pdfDpiValue');
+    const qualityRange = document.getElementById('pdfQuality');
+    const qualityValue = document.getElementById('pdfQualityValue');
+    const grayscaleCheck = document.getElementById('pdfGrayscale');
+
+    // 결과 표시 요소
+    const originalPages = document.getElementById('originalPages');
+    const originalSize = document.getElementById('originalSize');
+    const compressedPages = document.getElementById('compressedPages');
+    const compressedSize = document.getElementById('compressedSize');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    let compressedPdfDoc = null;
+
+    // 범위 입력 값 업데이트
+    dpiRange.addEventListener('input', function() {
+        dpiValue.textContent = this.value;
+    });
+
+    qualityRange.addEventListener('input', function() {
+        qualityValue.textContent = parseFloat(this.value).toFixed(2);
+    });
+
+    // 파일 선택 시 UI 업데이트
+    fileInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            fileText.textContent = file.name;
+            fileSubtext.textContent = `파일 크기: ${formatFileSize(file.size)}`;
+            fileLabel.classList.add('file-selected');
+            compressBtn.disabled = false;
+        } else {
+            fileText.textContent = 'PDF 파일을 선택하세요';
+            fileSubtext.textContent = '클릭하거나 파일을 드래그해서 업로드';
+            fileLabel.classList.remove('file-selected');
+            compressBtn.disabled = true;
+        }
+    });
+
+    // 압축 실행
+    compressBtn.addEventListener('click', async function() {
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        // UI 상태 변경
+        compressBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnSpinner.style.display = 'inline-block';
+        
+        // 진행 상태 표시
+        resultWaiting.style.display = 'none';
+        resultProgress.style.display = 'flex';
+        resultComplete.style.display = 'none';
+        
+        // 진행바 시간차 애니메이션
+        progressFill.style.width = '0%';
+        progressText.textContent = '0%';
+        
+        setTimeout(() => {
+            progressFill.style.width = '30%';
+            progressText.textContent = '30%';
+        }, 200);
+        
+        setTimeout(() => {
+            progressFill.style.width = '60%';
+            progressText.textContent = '60%';
+        }, 600);
+        
+        setTimeout(() => {
+            // 실제 압축 처리
+            processPDFCompression(file).then(() => {
+                progressFill.style.width = '100%';
+                progressText.textContent = '100%';
+                
+                setTimeout(() => {
+                    // 완료 상태 표시
+                    resultProgress.style.display = 'none';
+                    resultComplete.style.display = 'flex';
+                    
+                    // 토스트 메시지 표시
+                    showToast('PDF 압축이 완료되었습니다!');
+                    
+                    // 버튼 상태 복원
+                    compressBtn.disabled = false;
+                    btnText.style.display = 'inline-block';
+                    btnSpinner.style.display = 'none';
+                }, 500);
+            }).catch(error => {
+                alert('압축 중 오류가 발생했습니다: ' + (error.message || error));
+                console.error('PDF 압축 오류:', error);
+                
+                // 대기 상태로 복원
+                resultProgress.style.display = 'none';
+                resultWaiting.style.display = 'flex';
+                
+                compressBtn.disabled = false;
+                btnText.style.display = 'inline-block';
+                btnSpinner.style.display = 'none';
+            });
+        }, 1000);
+    });
+
+    // 다운로드 버튼 클릭
+    downloadBtn.addEventListener('click', function() {
+        if (compressedPdfDoc) {
+            compressedPdfDoc.doc.save(compressedPdfDoc.outputName);
+        }
+    });
+
+    // 파일 크기 포맷팅 함수
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    // 실제 PDF 압축 처리 함수
+    async function processPDFCompression(file) {
+        const buffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
+
+        const dpi = parseInt(dpiRange.value, 10);
+        const quality = parseFloat(qualityRange.value);
+        const grayscale = grayscaleCheck.checked;
+
+        const { jsPDF } = window.jspdf;
+        let doc = null;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: grayscale });
+
+        // 원본 파일 정보 표시
+        originalPages.textContent = `${pdf.numPages} 페이지`;
+        originalSize.textContent = formatFileSize(file.size);
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const viewport1 = page.getViewport({ scale: 1 });
+            const ptW = viewport1.width;
+            const ptH = viewport1.height;
+            const viewport = page.getViewport({ scale: dpi / 72 });
+            
+            canvas.width = Math.max(1, Math.floor(viewport.width));
+            canvas.height = Math.max(1, Math.floor(viewport.height));
+
+            ctx.save();
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.restore();
+
+            await page.render({ canvasContext: ctx, viewport }).promise;
+
+            if (grayscale) {
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const data = imageData.data;
+                for (let p = 0; p < data.length; p += 4) {
+                    const gray = 0.2126 * data[p] + 0.7152 * data[p + 1] + 0.0722 * data[p + 2];
+                    data[p] = data[p + 1] = data[p + 2] = gray;
+                }
+                ctx.putImageData(imageData, 0, 0);
+            }
+
+            const jpegDataURL = canvas.toDataURL('image/jpeg', quality);
+
+            if (!doc) {
+                doc = new jsPDF({ unit: 'pt', format: [ptW, ptH], compress: true });
+            } else {
+                doc.addPage([ptW, ptH]);
+            }
+            
+            doc.addImage(jpegDataURL, 'JPEG', 0, 0, ptW, ptH, undefined, 'FAST');
+            await new Promise(resolve => setTimeout(resolve, 10));
+        }
+
+        // 압축된 PDF 정보
+        const pdfOutput = doc.output('blob');
+        const outputName = 'Studio-NFP-compressed_' + file.name.replace(/\.pdf$/i, '') + '.pdf';
+        
+        compressedPages.textContent = `${pdf.numPages} 페이지`;
+        compressedSize.textContent = formatFileSize(pdfOutput.size);
+        compressedPdfDoc = { doc, outputName };
+    }
+
+    // 토스트 메시지 표시 함수
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        const toastText = document.getElementById('toast-text');
+        
+        toastText.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+});
+</script>
+
+{{ end }}

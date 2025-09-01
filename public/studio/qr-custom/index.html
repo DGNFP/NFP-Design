@@ -325,7 +325,7 @@
 
 .qr-custom-content {
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 600px;
     gap: 30px;
     align-items: start;
 }
@@ -721,7 +721,7 @@ function downloadCustomQR() {
     
     try {
         const link = document.createElement('a');
-        link.download = `custom_qrcode_${Date.now()}.png`;
+        link.download = `Studio-NFP_custom_qrcode_${Date.now()}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
         

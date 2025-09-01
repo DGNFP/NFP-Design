@@ -51,6 +51,13 @@
       <description>&lt;h1 id=&#34;lorem-ipsum-생성기&#34;&gt;Lorem Ipsum 생성기&lt;/h1&gt;&#xA;&lt;p&gt;디자인 및 개발 작업에 필요한 더미 텍스트를 빠르게 생성하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 생성 방식&lt;/strong&gt;: 문단, 단어, 문장 단위로 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개수 조절&lt;/strong&gt;: 1~50개까지 자유롭게 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;클래식 시작&lt;/strong&gt;: &amp;ldquo;Lorem ipsum dolor sit amet&amp;hellip;&amp;ldquo;으로 시작 옵션&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 통계&lt;/strong&gt;: 생성된 텍스트의 문단/단어/글자 수 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;원클릭 복사&lt;/strong&gt;: 생성된 텍스트를 한 번에 복사&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;생성 방식을 선택하세요 (문단/단어/문장)&lt;/li&gt;&#xA;&lt;li&gt;원하는 개수를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;필요시 클래식 시작 옵션을 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;Lorem Ipsum 생성&amp;rdquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;생성된 텍스트를 복사하여 사용하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;lorem-ipsum이란&#34;&gt;Lorem Ipsum이란?&lt;/h2&gt;&#xA;&lt;p&gt;Lorem Ipsum은 16세기부터 인쇄 및 타이포그래피 업계에서 사용되어 온 표준 더미 텍스트입니다. 의미 없는 라틴어로 구성되어 있어 내용에 방해받지 않고 디자인과 레이아웃에 집중할 수 있게 해줍니다.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>PDF 압축기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/pdf-compressor/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/pdf-compressor/</guid>
+      <description>&lt;h1 id=&#34;pdf-압축기&#34;&gt;PDF 압축기&lt;/h1&gt;&#xA;&lt;p&gt;PDF 파일의 크기를 효과적으로 줄여 저장공간을 절약하고 업로드 속도를 개선합니다.&lt;/p&gt;&#xA;&lt;p&gt;브라우저에서 직접 처리되어 개인정보가 안전하며, DPI와 JPEG 품질을 조절하여 원하는 수준의 압축을 할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: DPI 조절(72-200), JPEG 품질 설정, 회색조 변환, 실시간 진행률 표시, 브라우저 전용 처리&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;지원 형식&lt;/strong&gt;: PDF 파일&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;압축 옵션&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;DPI 설정&lt;/strong&gt;: 72-200 범위에서 해상도 조절 (낮을수록 용량 감소)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;JPEG 품질&lt;/strong&gt;: 0.3-0.9 범위에서 이미지 품질 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;회색조 변환&lt;/strong&gt;: 컬러를 흑백으로 변환하여 추가 용량 절약&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;모든 처리는 브라우저에서 이루어지므로 파일이 외부로 전송되지 않아 안전합니다.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>URL 인코딩/디코딩 - Studio NFP</title>
       <link>http://localhost:1313/studio/url-encoder/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
@@ -87,9 +94,9 @@
     </item>
     <item>
       <title>워터마크 다중 삽입 - Studio NFP</title>
-      <link>http://localhost:1313/studio/watermark-multi/</link>
+      <link>http://localhost:1313/studio/watermark/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/studio/watermark-multi/</guid>
+      <guid>http://localhost:1313/studio/watermark/</guid>
       <description>&lt;h1 id=&#34;워터마크-다중-삽입&#34;&gt;워터마크 다중 삽입&lt;/h1&gt;&#xA;&lt;p&gt;여러 이미지에 한번에 워터마크를 삽입하는 브라우저 기반 도구입니다.&lt;/p&gt;&#xA;&lt;p&gt;텍스트 또는 이미지 워터마크를 선택하고, 위치와 투명도를 조절한 후 여러 이미지를 한번에 처리할 수 있습니다. 처리된 이미지는 ZIP 파일로 다운로드됩니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 일괄 처리, 실시간 미리보기, 드래그 위치 조정, 다양한 출력 형식 지원&lt;/p&gt;</description>
     </item>
     <item>
@@ -140,6 +147,13 @@
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/studio/color-mixer/</guid>
       <description>&lt;h1 id=&#34;컬러-조합기&#34;&gt;컬러 조합기&lt;/h1&gt;&#xA;&lt;p&gt;베이스 색상을 선택하면 어울리는 색조합을 자동으로 생성해주는 전문 컬러 팔레트 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;h3 id=&#34;색상-입력-방식&#34;&gt;색상 입력 방식&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 피커&lt;/strong&gt;: 직관적인 색상 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;HEX 코드 입력&lt;/strong&gt;: 정확한 색상 값 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;RGB 슬라이더&lt;/strong&gt;: 세밀한 색상 조정&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;4가지-조합-방식&#34;&gt;4가지 조합 방식&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;단색 조합 (Monochrome)&lt;/strong&gt;: 같은 색상의 명도 변화&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;유사 색상 (Analogous)&lt;/strong&gt;: 색상환에서 인접한 색상들&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;보색 조합 (Complementary)&lt;/strong&gt;: 대비되는 색상 조합&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;삼각 조합 (Triadic)&lt;/strong&gt;: 균등하게 분배된 3색 기반&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;베이스 색상 선택&lt;/strong&gt;: 컬러 피커 또는 HEX 코드 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;RGB 슬라이더 조정&lt;/strong&gt;: 세밀한 색상 미세 조정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;조합 타입 선택&lt;/strong&gt;: 원하는 색상 조합 방식 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;팔레트 확인&lt;/strong&gt;: 생성된 5색 조합 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 복사&lt;/strong&gt;: 원하는 색상 클릭으로 HEX 코드 복사&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;색상-이론-기반&#34;&gt;색상 이론 기반&lt;/h2&gt;&#xA;&lt;p&gt;각 조합 방식은 검증된 색상 이론을 기반으로 합니다:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컬러 카드 뽑기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/single-card/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/single-card/</guid>
+      <description>&lt;h1 id=&#34;컬러-카드-뽑기&#34;&gt;컬러 카드 뽑기&lt;/h1&gt;&#xA;&lt;p&gt;오늘은 어떤 컬러가 당신을 기다리고 있을까요? 랜덤으로 컬러 카드를 뽑아 창의적 영감을 얻어보세요.&lt;/p&gt;&#xA;&lt;p&gt;단색 카드와 그라데이션 카드 중에서 선택할 수 있으며, 각 카드는 색상 정보와 함께 특별한 의미를 담고 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 랜덤 컬러 생성, 카드 저장, 색상 코드 복사, 특별 카드 발견&lt;/p&gt;</description>
     </item>
     <item>
       <title>텍스트 카운터 - Studio NFP</title>

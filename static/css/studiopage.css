@@ -832,38 +832,6 @@ animation: studio-content-scan 8s infinite linear;
 pointer-events: none;
 }
 
-.studio-page-content {
-min-height: 600px;
-background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
-border: 2px solid rgba(1, 255, 117, 0.2);
-border-radius: 4px;
-padding: 40px;
-backdrop-filter: blur(10px);
-position: relative;
-overflow: hidden;
-}
-
-.studio-page-content::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: linear-gradient(
-45deg,
-transparent 30%,
-rgba(1, 255, 117, 0.02) 50%,
-transparent 70%
-);
-animation: studio-content-scan 8s infinite linear;
-pointer-events: none;
-}
-
-@keyframes studio-content-scan {
-    0% { transform: translateX(-100%) skewX(-15deg); }
-    100% { transform: translateX(200%) skewX(-15deg); }
-}
 
 .studio-tab-panel,
 .studio-sub-panel {
@@ -4217,8 +4185,8 @@ select.studio-form-input option {
 }
 
 .preview-header {
-    /* background: #1a1a1a; */
-    /* padding: 15px; */
+    background: #1a1a1a;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -4545,8 +4513,7 @@ select.studio-form-input option {
 
 .compressor-settings-group {
     margin-bottom: 30px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #272727;
+    /* padding-bottom: 25px; */
 }
 
 .compressor-settings-group:last-of-type {
@@ -5601,7 +5568,7 @@ select.studio-form-input option {
 
 .image-cropper-content {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 600px 1fr;
     gap: 30px;
     align-items: start;
 }
@@ -6281,7 +6248,7 @@ select.studio-form-input option {
 /* URL 인코더,디코더 페이지 */
 /* URL 인코더/디코더 스타일 */
 .url-encoder-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -6306,7 +6273,7 @@ select.studio-form-input option {
 
 .url-encoder-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 3개 열을 동일한 크기로 */
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -7573,9 +7540,10 @@ select.studio-form-input option {
     display: flex;
     height: 80px;
     border-radius: 4px;
+    border: 1px solid #303030;
     overflow: hidden;
     margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); */
 }
 
 .color-block {
@@ -8985,6 +8953,498 @@ select.studio-form-input option {
 #watermark-imageOpts {
     display: none;
 }
+
+/* PDF 압축기 페이지 스타일 */
+/* PDF 압축기 전용 스타일 */
+.pdf-compressor-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+/* 조작창 패널 */
+.pdf-compressor-control-panel {
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    padding: 24px;
+    height: fit-content;
+}
+
+.pdf-compressor-upload-section,
+.pdf-compressor-settings-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--sub-border-color, #272727);
+}
+
+.pdf-compressor-upload-section:last-of-type,
+.pdf-compressor-settings-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.pdf-compressor-upload-section h4,
+.pdf-compressor-settings-section h4 {
+    color: var(--accent-color, #01FF75);
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+/* 파일 업로드 */
+.pdf-compressor-file-input {
+    position: relative;
+}
+
+.pdf-compressor-file-input input[type="file"] {
+
+    display: none;
+}
+
+.pdf-compressor-file-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    border: 2px dashed var(--sub-border-color, #272727);
+    border-radius: 4px;
+    background: #0f0f0f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-compressor-file-label:hover {
+    border-color: var(--accent-color, #01FF75);
+    background: #111111;
+}
+
+.pdf-compressor-file-label.file-selected {
+    border-color: var(--accent-color, #01FF75);
+    background: #111111;
+}
+
+.pdf-compressor-file-icon {
+    font-size: 32px;
+    opacity: 0.7;
+}
+
+.pdf-compressor-file-text strong {
+    color: white;
+    display: block;
+    font-size: 16px;
+}
+
+.pdf-compressor-file-text small {
+    color: #666;
+    font-size: 14px;
+}
+
+/* 설정 컨트롤 */
+.pdf-compressor-settings-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pdf-compressor-setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pdf-compressor-setting-item > label {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.pdf-compressor-range-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pdf-compressor-range-wrapper input[type="range"] {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: #333;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.pdf-compressor-range-wrapper input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-color, #01FF75);
+    cursor: pointer;
+}
+
+.pdf-compressor-range-wrapper input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-color, #01FF75);
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.pdf-compressor-range-wrapper span {
+    color: var(--accent-color, #01FF75);
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 50px;
+    text-align: right;
+}
+
+.pdf-compressor-setting-item small {
+    color: #666;
+    font-size: 14px;
+}
+
+.pdf-compressor-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.pdf-compressor-checkbox-wrapper input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color, #01FF75);
+}
+
+.pdf-compressor-checkbox-text {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* 압축 버튼 */
+.pdf-compressor-action-section {
+    text-align: center;
+}
+
+.pdf-compressor-compress-btn {
+    background: var(--accent-color, #01FF75);
+    color: black;
+    border: none;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.pdf-compressor-compress-btn:hover:not(:disabled) {
+    background: #00e665;
+    transform: translateY(-1px);
+}
+
+.pdf-compressor-compress-btn:disabled {
+    background: #333;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pdf-compressor-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* 결과창 패널 */
+.pdf-compressor-result-panel {
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    padding: 24px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 대기 상태 */
+.pdf-compressor-result-waiting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    opacity: 0.7;
+}
+
+.pdf-compressor-waiting-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.pdf-compressor-result-waiting h4 {
+    color: white;
+    font-size: 18px;
+}
+
+.pdf-compressor-result-waiting p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* 진행 상태 */
+.pdf-compressor-result-progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.pdf-compressor-progress-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.pdf-compressor-progress-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.pdf-compressor-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #272727;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.pdf-compressor-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #01FF75, #00CC5E);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.pdf-compressor-progress-text {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* 완료 상태 */
+.pdf-compressor-result-complete {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pdf-compressor-result-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.pdf-compressor-result-header h4 {
+    color: var(--accent-color, #01FF75);
+    font-size: 20px;
+    margin: 0;
+}
+
+.pdf-compressor-comparison {
+    margin-bottom: 32px;
+}
+
+.pdf-compressor-before-after {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1a1a1a;
+    border-radius: 4px;
+    border: 1px solid #272727;
+    padding: 20px;
+}
+
+.pdf-compressor-comparison-item {
+    text-align: center;
+    flex: 1;
+}
+
+.pdf-compressor-comparison-item h6 {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.pdf-compressor-file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pdf-compressor-file-info div {
+    color: #666;
+    font-size: 15px;
+}
+
+.pdf-compressor-comparison-arrow {
+    color: var(--accent-color, #01FF75);
+    font-size: 20px;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+.pdf-compressor-download-section {
+    text-align: center;
+}
+
+.pdf-compressor-download-btn {
+    background: linear-gradient(135deg, #01FF75, #00CC5E);
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-compressor-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.3);
+}
+
+/* 애니메이션 */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+    .pdf-compressor-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pdf-compressor-control-panel,
+    .pdf-compressor-result-panel {
+        padding: 20px;
+    }
+    
+    .pdf-compressor-file-label {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .pdf-compressor-range-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    
+    .pdf-compressor-range-wrapper span {
+        text-align: center;
+        min-width: auto;
+    }
+    
+    .pdf-compressor-before-after {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .pdf-compressor-comparison-arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+}
+
+
+
+
+/* 스튜디오 페이지 기본 스타일 */
+.studio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.studio-page-content {
+min-height: 600px;
+background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(1, 1, 1, 0.95) 100%);
+border: 2px solid rgba(1, 255, 117, 0.2);
+border-radius: 4px;
+padding: 40px;
+backdrop-filter: blur(10px);
+position: relative;
+overflow: hidden;
+}
+
+.studio-page-content::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(
+45deg,
+transparent 30%,
+rgba(1, 255, 117, 0.02) 50%,
+transparent 70%
+);
+animation: studio-content-scan 8s infinite linear;
+pointer-events: none;
+}
+
+@keyframes studio-content-scan {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+
+.studio-description {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.studio-description h3 {
+    color: #01FF75;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.studio-description p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.supported-formats {
+    margin-top: 10px;
+}
+/* 스튜디오 페이지 기본 스타일 종료 */
 
 /* 반응형 */
 @media (max-width: 768px) {

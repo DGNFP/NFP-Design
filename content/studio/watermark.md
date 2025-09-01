@@ -1,7 +1,7 @@
 ---
 title: "워터마크 다중 삽입 - Studio NFP"
 description: "여러 이미지에 한번에 워터마크를 삽입하는 도구입니다."
-layout: "watermark-multi"
+layout: "watermark"
 tool_type: "image-editor"
 studio_category: "이미지·미디어"
 keywords: ["워터마크", "일괄 처리", "이미지 편집", "로고 삽입", "브랜딩", "배치 처리"]
