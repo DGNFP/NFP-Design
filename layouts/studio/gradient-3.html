@@ -1,0 +1,826 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">3색 그라데이션 팔레트</span>
+        <p><br>세 가지 컬러로 복잡하고 아름다운 그라데이션을 만들어보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/text-counter" | relURL }}" class="page-btn">텍스트 카운터</a>
+        <a href="{{ "/studio/text-tools" | relURL }}" class="page-btn">더미 텍스트</a>
+        <a href="{{ "/studio/unit-converter" | relURL }}" class="page-btn">단위 변환기</a>
+        <a href="{{ "/studio/font-converter" | relURL }}" class="page-btn">폰트 변환기</a>
+        <a href="{{ "/studio/size-calculator" | relURL }}" class="page-btn">사이즈 계산기</a>
+        <a href="{{ "/studio/color-mixer" | relURL }}" class="page-btn">컬러 조합기</a>
+        <a href="{{ "/studio/color-palette-5" | relURL }}" class="page-btn">조합 컬러 팔레트</a>
+        <a href="{{ "/studio/color-palette-random" | relURL }}" class="page-btn">랜덤 컬러 팔레트</a>
+        <a href="{{ "/studio/qr-basic" | relURL }}" class="page-btn">QR코드 생성기</a>
+        <a href="{{ "/studio/qr-custom" | relURL }}" class="page-btn">커스텀 QR코드 생성기</a>
+        <a href="{{ "/studio/format-converter" | relURL }}" class="page-btn">이미지 포맷 변환</a>
+        <a href="{{ "/studio/image-compressor" | relURL }}" class="page-btn">이미지 압축기</a>
+        <a href="{{ "/studio/image-resizer/" | relURL }}" class="page-btn">이미지 크기 조절기</a>
+        <a href="{{ "/studio/image-cropper/" | relURL }}" class="page-btn">이미지 자르기</a>
+        <a href="{{ "/studio/url-encoder" | relURL }}" class="page-btn">URL 인코딩/디코딩</a>
+        <a href="{{ "/studio/base64" | relURL }}" class="page-btn">base64 인코딩/디코딩</a>
+        <a href="{{ "/studio/color-extractor" | relURL }}" class="page-btn">이미지 컬러 추출기</a>
+        <a href="{{ "/studio/gradient-2/" | relURL }}" class="page-btn">2색 그라데이션 팔레트</a>
+        <a href="{{ "/studio/single-card" | relURL }}" class="page-btn">단색 컬러 카드</a>
+        <a href="{{ "/studio/gradient-card/" | relURL }}" class="page-btn">그라데이션 컬러 카드</a>
+        <a href="{{ "/studio/gradient-3/" | relURL }}" class="page-btn">3색 그라데이션 팔레트</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content">
+        <div class="gradient3-container">
+            <!-- 설명 -->
+            <div class="gradient3-description">
+                <h3>3색 그라데이션 팔레트</h3>
+                <p>세 가지 컬러와 각 컬러의 위치를 조절하여 복잡하고 세련된 그라데이션을 만들어보세요.<br>
+                고급 CSS 속성과 다양한 블렌딩 모드까지 지원합니다.</p>
+            </div>
+
+            <div class="gradient3-content">
+                <!-- 컬러 및 설정 섹션 -->
+                <div class="gradient3-controls-section">
+                    <!-- 컬러 선택 및 위치 조절 -->
+                    <div class="controls-group">
+                        <h4>컬러 및 위치 설정</h4>
+                        
+                        <!-- 첫 번째 컬러 -->
+                        <div class="color-stop-group">
+                            <div class="color-stop-header">
+                                <label>첫 번째 컬러 (시작)</label>
+                                <span class="position-display" id="position1-display">0%</span>
+                            </div>
+                            <div class="color-input-container">
+                                <input type="color" id="color1" class="color-picker" value="#FF6B6B">
+                                <input type="text" id="color1-hex" class="hex-input" value="#FF6B6B">
+                                <button type="button" class="random-color-btn" id="random-color1-btn">
+                                    <i class="fas fa-dice"></i>
+                                </button>
+                            </div>
+                            <div class="position-slider-container">
+                                <input type="range" id="position1" class="position-slider" min="0" max="100" value="0" disabled>
+                                <span class="position-label">위치</span>
+                            </div>
+                        </div>
+
+                        <!-- 두 번째 컬러 -->
+                        <div class="color-stop-group">
+                            <div class="color-stop-header">
+                                <label>두 번째 컬러 (중간)</label>
+                                <span class="position-display" id="position2-display">50%</span>
+                            </div>
+                            <div class="color-input-container">
+                                <input type="color" id="color2" class="color-picker" value="#FFEB3B">
+                                <input type="text" id="color2-hex" class="hex-input" value="#FFEB3B">
+                                <button type="button" class="random-color-btn" id="random-color2-btn">
+                                    <i class="fas fa-dice"></i>
+                                </button>
+                            </div>
+                            <div class="position-slider-container">
+                                <input type="range" id="position2" class="position-slider" min="5" max="95" value="50">
+                                <span class="position-label">위치</span>
+                            </div>
+                        </div>
+
+                        <!-- 세 번째 컬러 -->
+                        <div class="color-stop-group">
+                            <div class="color-stop-header">
+                                <label>세 번째 컬러 (끝)</label>
+                                <span class="position-display" id="position3-display">100%</span>
+                            </div>
+                            <div class="color-input-container">
+                                <input type="color" id="color3" class="color-picker" value="#4ECDC4">
+                                <input type="text" id="color3-hex" class="hex-input" value="#4ECDC4">
+                                <button type="button" class="random-color-btn" id="random-color3-btn">
+                                    <i class="fas fa-dice"></i>
+                                </button>
+                            </div>
+                            <div class="position-slider-container">
+                                <input type="range" id="position3" class="position-slider" min="0" max="100" value="100" disabled>
+                                <span class="position-label">위치</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 고급 설정 -->
+                    <div class="controls-group">
+                        
+                        <div class="gradient-input-group">
+                            <label for="gradient-type">그라데이션 타입</label>
+                            <select id="gradient-type" class="gradient-select">
+                                <option value="linear">선형 (Linear)</option>
+                                <option value="radial">원형 (Radial)</option>
+                                <option value="conic">원추형 (Conic)</option>
+                            </select>
+                        </div>
+
+                        <div class="gradient-input-group" id="linear-direction-group">
+                            <label for="linear-direction">선형 방향</label>
+                            <select id="linear-direction" class="gradient-select">
+                                <option value="to right">좌 → 우</option>
+                                <option value="to left">우 → 좌</option>
+                                <option value="to bottom" selected>상 → 하</option>
+                                <option value="to top">하 → 상</option>
+                                <option value="45deg">대각선 ↗</option>
+                                <option value="135deg">대각선 ↘</option>
+                                <option value="225deg">대각선 ↙</option>
+                                <option value="315deg">대각선 ↖</option>
+                            </select>
+                        </div>
+
+                        <div class="gradient-input-group" id="radial-shape-group" style="display: none;">
+                            <label for="radial-shape">원형 모양</label>
+                            <select id="radial-shape" class="gradient-select">
+                                <option value="circle">원형</option>
+                                <option value="ellipse">타원형</option>
+                            </select>
+                        </div>
+
+                        <div class="gradient-input-group" id="radial-size-group" style="display: none;">
+                            <label for="radial-size">크기</label>
+                            <select id="radial-size" class="gradient-select">
+                                <option value="closest-side">가까운 변</option>
+                                <option value="closest-corner">가까운 모서리</option>
+                                <option value="farthest-side" selected>먼 변</option>
+                                <option value="farthest-corner">먼 모서리</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 컬러 조화 템플릿 -->
+                    <div class="controls-group">
+                        <h4>컬러 조화 템플릿</h4>
+                        <div class="harmony-templates">
+                            <button type="button" class="template-btn" data-template="triadic">
+                                <div class="template-preview triadic-preview"></div>
+                                <span>삼각</span>
+                            </button>
+                            <button type="button" class="template-btn" data-template="analogous">
+                                <div class="template-preview analogous-preview"></div>
+                                <span>유사색</span>
+                            </button>
+                            <button type="button" class="template-btn" data-template="split-complementary">
+                                <div class="template-preview split-preview"></div>
+                                <span>보색</span>
+                            </button>
+                            <button type="button" class="template-btn" data-template="warm">
+                                <div class="template-preview warm-preview"></div>
+                                <span>따뜻한</span>
+                            </button>
+                            <button type="button" class="template-btn" data-template="cool">
+                                <div class="template-preview cool-preview"></div>
+                                <span>차가운</span>
+                            </button>
+                            <button type="button" class="template-btn" data-template="sunset">
+                                <div class="template-preview sunset-preview"></div>
+                                <span>일몰</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 액션 버튼 -->
+                    <div class="action-buttons">
+                        <button type="button" class="action-btn" id="random-harmony-btn">
+                            <i class="fas fa-magic"></i> 조화로운 랜덤
+                        </button>
+                        <button type="button" class="action-btn" id="shuffle-positions-btn">
+                            <i class="fas fa-random"></i> 위치 섞기
+                        </button>
+                        <button type="button" class="action-btn" id="reverse-gradient-btn">
+                            <i class="fas fa-exchange-alt"></i> 그라데이션 뒤집기
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 미리보기 섹션 -->
+                <div class="gradient3-preview-section">
+                    <div class="preview-header">
+                        <h4>실시간 미리보기</h4>
+                    </div>
+                    
+                    <!-- 메인 미리보기 -->
+                    <div class="main-preview">
+                        <div class="gradient-preview" id="gradient-preview"></div>
+                        
+                        <!-- 컬러 스톱 정보 -->
+                        <div class="color-stops-info">
+                            <div class="color-stop-item">
+                                <div class="color-dot" id="color1-dot"></div>
+                                <div class="color-details">
+                                    <span class="color-hex" id="color1-info">#FF6B6B</span>
+                                    <span class="color-position" id="color1-pos">0%</span>
+                                </div>
+                            </div>
+                            <div class="color-stop-item">
+                                <div class="color-dot" id="color2-dot"></div>
+                                <div class="color-details">
+                                    <span class="color-hex" id="color2-info">#FFEB3B</span>
+                                    <span class="color-position" id="color2-pos">50%</span>
+                                </div>
+                            </div>
+                            <div class="color-stop-item">
+                                <div class="color-dot" id="color3-dot"></div>
+                                <div class="color-details">
+                                    <span class="color-hex" id="color3-info">#4ECDC4</span>
+                                    <span class="color-position" id="color3-pos">100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 위치 조절 시각화 -->
+                    <div class="position-visualizer">
+                        <div class="visualizer-header">
+                            <h5>컬러 위치 조절</h5>
+                        </div>
+                        <div class="position-track">
+                            <div class="position-marker" id="marker1" style="left: 0%;">
+                                <div class="marker-dot" id="marker1-dot"></div>
+                                <!-- <span class="marker-label">1</span> -->
+                            </div>
+                            <div class="position-marker" id="marker2" style="left: 50%;">
+                                <div class="marker-dot" id="marker2-dot"></div>
+                                <!-- <span class="marker-label">2</span> -->
+                            </div>
+                            <div class="position-marker" id="marker3" style="left: 100%;">
+                                <div class="marker-dot" id="marker3-dot"></div>
+                                <!-- <span class="marker-label">3</span> -->
+                            </div>
+                        </div>
+                        <div class="track-labels">
+                            <span>시작</span>
+                            <span>끝</span>
+                        </div>
+                    </div>
+                    <!-- CSS 코드 -->
+                    <div class="css-code-section">
+                        <div class="code-header">
+                            <label>CSS 코드</label>
+                            <div class="code-actions">
+                                <button type="button" class="copy-css-btn" id="copy-css-btn">
+                                    <i class="fas fa-copy"></i> 복사
+                                </button>
+                                <button type="button" class="export-variations-btn" id="export-variations-btn">
+                                    <i class="fas fa-download"></i> 모든 스타일 내보내기
+                                </button>
+                            </div>
+                        </div>
+                        <div class="code-container">
+                            <pre class="css-code" id="css-code">background: linear-gradient(to bottom, #FF6B6B 0%, #FFEB3B 50%, #4ECDC4 100%);</pre>
+                        </div>
+                    </div>
+
+                    <!-- 컬러 분석 -->
+                    <div class="color-analysis-section">
+                        <div class="analysis-header">
+                            <h5>컬러 분석</h5>
+                        </div>
+                        <div class="analysis-content">
+                            <div class="analysis-item">
+                                <span class="analysis-label">색온도</span>
+                                <span class="analysis-value" id="temperature-analysis">혼합</span>
+                            </div>
+                            <div class="analysis-item">
+                                <span class="analysis-label">채도 균형</span>
+                                <span class="analysis-value" id="saturation-balance">균형</span>
+                            </div>
+                            <div class="analysis-item">
+                                <span class="analysis-label">명도 대비</span>
+                                <span class="analysis-value" id="brightness-contrast">중간</span>
+                            </div>
+                            <div class="analysis-item">
+                                <span class="analysis-label">추천 용도</span>
+                                <span class="analysis-value" id="recommended-use">웹 배경</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 그라데이션 갤러리 -->
+                    <div class="gradient-gallery">
+                        <div class="gallery-header">
+                            <h5>생성된 그라데이션 갤러리</h5>
+                            <button type="button" class="clear-gallery-btn" id="clear-gallery-btn">
+                                <i class="fas fa-trash"></i> 갤러리 지우기
+                            </button>
+                        </div>
+                        <div class="gallery-grid" id="gallery-grid">
+                            <div class="gallery-placeholder">
+                                <p>마음에 드는 그라데이션을<br>갤러리에 저장해보세요</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button type="button" class="gallery-action-btn" id="save-to-gallery-btn">
+                                <i class="fas fa-plus"></i> 현재 그라데이션 저장
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<script>
+let currentGradient = {
+    color1: '#FF6B6B',
+    color2: '#FFEB3B',
+    color3: '#4ECDC4',
+    position1: 0,
+    position2: 50,
+    position3: 100,
+    type: 'linear',
+    direction: 'to bottom',
+    shape: 'circle',
+    size: 'farthest-corner'
+};
+
+let savedGradients = [];
+
+// 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    setupColorInputs();
+    setupPositionControls();
+    setupGradientControls();
+    setupTemplateButtons();
+    setupActionButtons();
+    updateGradientPreview();
+});
+
+function setupColorInputs() {
+    // 각 컬러에 대한 이벤트 설정
+    for (let i = 1; i <= 3; i++) {
+        const colorPicker = document.getElementById(`color${i}`);
+        const hexInput = document.getElementById(`color${i}-hex`);
+        const randomBtn = document.getElementById(`random-color${i}-btn`);
+
+        colorPicker.addEventListener('input', function() {
+            currentGradient[`color${i}`] = this.value;
+            hexInput.value = this.value;
+            updateGradientPreview();
+        });
+
+        hexInput.addEventListener('input', function() {
+            if (isValidHex(this.value)) {
+                currentGradient[`color${i}`] = this.value;
+                colorPicker.value = this.value;
+                updateGradientPreview();
+            }
+        });
+
+        randomBtn.addEventListener('click', function() {
+            const randomColor = getRandomColor();
+            currentGradient[`color${i}`] = randomColor;
+            colorPicker.value = randomColor;
+            hexInput.value = randomColor;
+            updateGradientPreview();
+        });
+    }
+}
+
+function setupPositionControls() {
+    const position2 = document.getElementById('position2');
+
+    position2.addEventListener('input', function() {
+        currentGradient.position2 = parseInt(this.value);
+        document.getElementById('position2-display').textContent = this.value + '%';
+        updateGradientPreview();
+        updatePositionMarkers();
+    });
+}
+
+function setupGradientControls() {
+    const typeSelect = document.getElementById('gradient-type');
+    const linearDirection = document.getElementById('linear-direction');
+    const radialShape = document.getElementById('radial-shape');
+    const radialSize = document.getElementById('radial-size');
+
+    typeSelect.addEventListener('change', function() {
+        currentGradient.type = this.value;
+        toggleGradientOptions();
+        updateGradientPreview();
+    });
+
+    linearDirection.addEventListener('change', function() {
+        currentGradient.direction = this.value;
+        updateGradientPreview();
+    });
+
+    radialShape.addEventListener('change', function() {
+        currentGradient.shape = this.value;
+        updateGradientPreview();
+    });
+
+    radialSize.addEventListener('change', function() {
+        currentGradient.size = this.value;
+        updateGradientPreview();
+    });
+}
+
+function toggleGradientOptions() {
+    const type = currentGradient.type;
+    const linearGroup = document.getElementById('linear-direction-group');
+    const radialShapeGroup = document.getElementById('radial-shape-group');
+    const radialSizeGroup = document.getElementById('radial-size-group');
+
+    if (type === 'linear') {
+        linearGroup.style.display = 'block';
+        radialShapeGroup.style.display = 'none';
+        radialSizeGroup.style.display = 'none';
+    } else if (type === 'radial') {
+        linearGroup.style.display = 'none';
+        radialShapeGroup.style.display = 'block';
+        radialSizeGroup.style.display = 'block';
+    } else {
+        linearGroup.style.display = 'none';
+        radialShapeGroup.style.display = 'none';
+        radialSizeGroup.style.display = 'none';
+    }
+}
+
+function setupTemplateButtons() {
+    const templateButtons = document.querySelectorAll('.template-btn');
+    templateButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const template = this.dataset.template;
+            applyColorTemplate(template);
+        });
+    });
+}
+
+function applyColorTemplate(template) {
+    let colors;
+    
+    switch (template) {
+        case 'triadic':
+            colors = ['#FF6B6B', '#6BFF6B', '#6B6BFF'];
+            break;
+        case 'analogous':
+            colors = ['#FF6B6B', '#FF8E6B', '#FFB16B'];
+            break;
+        case 'split-complementary':
+            colors = ['#FF6B6B', '#6BFFB1', '#6BB1FF'];
+            break;
+        case 'warm':
+            colors = ['#FF4444', '#FF8800', '#FFBB00'];
+            break;
+        case 'cool':
+            colors = ['#4444FF', '#0088FF', '#00BBFF'];
+            break;
+        case 'sunset':
+            colors = ['#FF6B35', '#F7931E', '#FFD23F'];
+            break;
+    }
+    
+    for (let i = 0; i < 3; i++) {
+        currentGradient[`color${i + 1}`] = colors[i];
+        document.getElementById(`color${i + 1}`).value = colors[i];
+        document.getElementById(`color${i + 1}-hex`).value = colors[i];
+    }
+    
+    updateGradientPreview();
+    showToast(`${getTemplateName(template)} 템플릿이 적용되었습니다!`);
+}
+
+function getTemplateName(template) {
+    const names = {
+        'triadic': '삼각 조화',
+        'analogous': '유사색 조화',
+        'split-complementary': '분할 보색',
+        'warm': '따뜻한 색조',
+        'cool': '차가운 색조',
+        'sunset': '일몰 테마'
+    };
+    return names[template] || template;
+}
+
+function setupActionButtons() {
+    document.getElementById('random-harmony-btn').addEventListener('click', generateHarmoniousRandom);
+    document.getElementById('shuffle-positions-btn').addEventListener('click', shufflePositions);
+    document.getElementById('reverse-gradient-btn').addEventListener('click', reverseGradient);
+    document.getElementById('copy-css-btn').addEventListener('click', copyCSSCode);
+    document.getElementById('export-variations-btn').addEventListener('click', exportAllVariations);
+    document.getElementById('save-to-gallery-btn').addEventListener('click', saveToGallery);
+    document.getElementById('clear-gallery-btn').addEventListener('click', clearGallery);
+}
+
+function generateHarmoniousRandom() {
+    const baseHue = Math.floor(Math.random() * 360);
+    const colors = [
+        hslToHex(baseHue, 70 + Math.random() * 30, 50 + Math.random() * 30),
+        hslToHex((baseHue + 60) % 360, 70 + Math.random() * 30, 50 + Math.random() * 30),
+        hslToHex((baseHue + 120) % 360, 70 + Math.random() * 30, 50 + Math.random() * 30)
+    ];
+    
+    for (let i = 0; i < 3; i++) {
+        currentGradient[`color${i + 1}`] = colors[i];
+        document.getElementById(`color${i + 1}`).value = colors[i];
+        document.getElementById(`color${i + 1}-hex`).value = colors[i];
+    }
+    
+    updateGradientPreview();
+    showToast('조화로운 랜덤 컬러가 생성되었습니다!');
+}
+
+function shufflePositions() {
+    // 중간 컬러 위치만 랜덤화 (20-80% 범위)
+    const newPosition = 20 + Math.floor(Math.random() * 60);
+    currentGradient.position2 = newPosition;
+    document.getElementById('position2').value = newPosition;
+    document.getElementById('position2-display').textContent = newPosition + '%';
+    
+    updateGradientPreview();
+    updatePositionMarkers();
+    showToast('컬러 위치가 섞였습니다!');
+}
+
+function reverseGradient() {
+    // 컬러 순서 뒤집기
+    const temp1 = currentGradient.color1;
+    
+    currentGradient.color1 = currentGradient.color3;
+    currentGradient.color3 = temp1;
+    
+    document.getElementById('color1').value = currentGradient.color1;
+    document.getElementById('color1-hex').value = currentGradient.color1;
+    document.getElementById('color3').value = currentGradient.color3;
+    document.getElementById('color3-hex').value = currentGradient.color3;
+    
+    updateGradientPreview();
+    showToast('그라데이션이 뒤집어졌습니다!');
+}
+
+function updateGradientPreview() {
+    const { color1, color2, color3, position1, position2, position3, type, direction, shape, size } = currentGradient;
+    
+    // 메인 그라데이션 CSS 생성
+    let gradientCSS = generateGradientCSS(type, direction, shape, size, color1, position1, color2, position2, color3, position3);
+    
+    // 메인 미리보기 업데이트
+    document.getElementById('gradient-preview').style.background = gradientCSS;
+    
+    // 컬러 정보 업데이트
+    updateColorInfo();
+    updatePositionMarkers();
+    updateColorAnalysis();
+    updateCSSCode();
+}
+
+function generateGradientCSS(type, direction, shape, size, color1, pos1, color2, pos2, color3, pos3) {
+    let css = '';
+    
+    if (type === 'linear') {
+        css = `linear-gradient(${direction}, ${color1} ${pos1}%, ${color2} ${pos2}%, ${color3} ${pos3}%)`;
+    } else if (type === 'radial') {
+        css = `radial-gradient(${shape} ${size}, ${color1} ${pos1}%, ${color2} ${pos2}%, ${color3} ${pos3}%)`;
+    } else if (type === 'conic') {
+        // conic gradient에서는 위치를 각도로 변환 (0% = 0deg, 100% = 360deg)
+        const deg1 = Math.round((pos1 / 100) * 360);
+        const deg2 = Math.round((pos2 / 100) * 360);
+        const deg3 = Math.round((pos3 / 100) * 360);
+        css = `conic-gradient(${color1} ${deg1}deg, ${color2} ${deg2}deg, ${color3} ${deg3}deg)`;
+    }
+    
+    return css;
+}
+
+function updateColorInfo() {
+    // 컬러 닷 업데이트
+    document.getElementById('color1-dot').style.backgroundColor = currentGradient.color1;
+    document.getElementById('color2-dot').style.backgroundColor = currentGradient.color2;
+    document.getElementById('color3-dot').style.backgroundColor = currentGradient.color3;
+    
+    document.getElementById('marker1-dot').style.backgroundColor = currentGradient.color1;
+    document.getElementById('marker2-dot').style.backgroundColor = currentGradient.color2;
+    document.getElementById('marker3-dot').style.backgroundColor = currentGradient.color3;
+    
+    // 컬러 정보 텍스트 업데이트
+    document.getElementById('color1-info').textContent = currentGradient.color1;
+    document.getElementById('color2-info').textContent = currentGradient.color2;
+    document.getElementById('color3-info').textContent = currentGradient.color3;
+    
+    document.getElementById('color1-pos').textContent = currentGradient.position1 + '%';
+    document.getElementById('color2-pos').textContent = currentGradient.position2 + '%';
+    document.getElementById('color3-pos').textContent = currentGradient.position3 + '%';
+}
+
+function updatePositionMarkers() {
+    document.getElementById('marker2').style.left = currentGradient.position2 + '%';
+}
+
+function updateColorAnalysis() {
+    const colors = [currentGradient.color1, currentGradient.color2, currentGradient.color3];
+    
+    // HSL 값으로 변환하여 분석
+    const hslColors = colors.map(color => hexToHsl(color));
+    
+    // 색온도 분석
+    const warmColors = hslColors.filter(hsl => hsl.h >= 0 && hsl.h <= 60 || hsl.h >= 300 && hsl.h <= 360).length;
+    const coolColors = hslColors.filter(hsl => hsl.h > 180 && hsl.h < 300).length;
+    
+    let temperature;
+    if (warmColors > coolColors) temperature = '따뜻한';
+    else if (coolColors > warmColors) temperature = '차가운';
+    else temperature = '혼합';
+    
+    // 채도 균형 분석
+    const avgSaturation = hslColors.reduce((sum, hsl) => sum + hsl.s, 0) / 3;
+    let saturationBalance;
+    if (avgSaturation > 70) saturationBalance = '높음';
+    else if (avgSaturation > 40) saturationBalance = '균형';
+    else saturationBalance = '낮음';
+    
+    // 명도 대비 분석
+    const lightnesses = hslColors.map(hsl => hsl.l);
+    const maxLight = Math.max(...lightnesses);
+    const minLight = Math.min(...lightnesses);
+    const contrast = maxLight - minLight;
+    
+    let brightnessContrast;
+    if (contrast > 50) brightnessContrast = '높음';
+    else if (contrast > 25) brightnessContrast = '중간';
+    else brightnessContrast = '낮음';
+    
+    // 추천 용도
+    let recommendedUse;
+    if (temperature === '따뜻한' && saturationBalance === '높음') {
+        recommendedUse = '브랜드 로고, 버튼';
+    } else if (temperature === '차가운' && brightnessContrast === '낮음') {
+        recommendedUse = '웹 배경, 카드';
+    } else if (saturationBalance === '낮음') {
+        recommendedUse = '텍스트 배경';
+    } else {
+        recommendedUse = '헤더, 섹션';
+    }
+    
+    // UI 업데이트
+    document.getElementById('temperature-analysis').textContent = temperature;
+    document.getElementById('saturation-balance').textContent = saturationBalance;
+    document.getElementById('brightness-contrast').textContent = brightnessContrast;
+    document.getElementById('recommended-use').textContent = recommendedUse;
+}
+
+function updateCSSCode() {
+    const { color1, color2, color3, position1, position2, position3, type, direction, shape, size } = currentGradient;
+    const css = generateGradientCSS(type, direction, shape, size, color1, position1, color2, position2, color3, position3);
+    document.getElementById('css-code').textContent = `background: ${css};`;
+}
+
+function copyCSSCode() {
+    const cssCode = document.getElementById('css-code').textContent;
+    navigator.clipboard.writeText(cssCode).then(function() {
+        showToast('CSS 코드가 클립보드에 복사되었습니다!');
+    });
+}
+
+function exportAllVariations() {
+    const { color1, color2, color3 } = currentGradient;
+    const variations = [
+        `/* 선형 그라데이션 */\nbackground: linear-gradient(to right, ${color1} 0%, ${color2} 50%, ${color3} 100%);`,
+        `/* 원형 그라데이션 */\nbackground: radial-gradient(circle, ${color1} 0%, ${color2} 50%, ${color3} 100%);`,
+        `/* 원추형 그라데이션 */\nbackground: conic-gradient(${color1} 0deg, ${color2} 180deg, ${color3} 360deg);`,
+        `/* 대각선 그라데이션 */\nbackground: linear-gradient(45deg, ${color1} 0%, ${color2} 50%, ${color3} 100%);`
+    ];
+    
+    const allCSS = variations.join('\n\n');
+    navigator.clipboard.writeText(allCSS).then(function() {
+        showToast('모든 그라데이션 스타일이 클립보드에 복사되었습니다!');
+    });
+}
+
+function saveToGallery() {
+    const galleryGrid = document.getElementById('gallery-grid');
+    const placeholder = galleryGrid.querySelector('.gallery-placeholder');
+    
+    if (placeholder) {
+        placeholder.remove();
+    }
+    
+    const gradientItem = document.createElement('div');
+    gradientItem.className = 'gallery-item';
+    
+    const preview = document.createElement('div');
+    preview.className = 'gallery-item-preview';
+    const css = generateGradientCSS(
+        currentGradient.type, 
+        currentGradient.direction, 
+        currentGradient.shape, 
+        currentGradient.size,
+        currentGradient.color1, 
+        currentGradient.position1,
+        currentGradient.color2, 
+        currentGradient.position2,
+        currentGradient.color3, 
+        currentGradient.position3
+    );
+    preview.style.background = css;
+    
+    const info = document.createElement('div');
+    info.className = 'gallery-item-info';
+    info.textContent = `${currentGradient.type} / ${currentGradient.color1}, ${currentGradient.color2}, ${currentGradient.color3}`;
+    
+    gradientItem.appendChild(preview);
+    gradientItem.appendChild(info);
+    
+    gradientItem.addEventListener('click', function() {
+        navigator.clipboard.writeText(`background: ${css};`).then(function() {
+            showToast('선택한 그라데이션 CSS가 복사되었습니다!');
+        });
+    });
+    
+    galleryGrid.appendChild(gradientItem);
+    showToast('현재 그라데이션이 갤러리에 저장되었습니다!');
+}
+
+function clearGallery() {
+    const galleryGrid = document.getElementById('gallery-grid');
+    galleryGrid.innerHTML = '<div class="gallery-placeholder"><p>마음에 드는 그라데이션을<br>갤러리에 저장해보세요</p></div>';
+    showToast('갤러리가 초기화되었습니다!');
+}
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function isValidHex(hex) {
+    return /^#[0-9A-F]{6}$/i.test(hex);
+}
+
+function hexToHsl(hex) {
+    const r = parseInt(hex.slice(1, 3), 16) / 255;
+    const g = parseInt(hex.slice(3, 5), 16) / 255;
+    const b = parseInt(hex.slice(5, 7), 16) / 255;
+
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+
+    if (max === min) {
+        h = s = 0; // achromatic
+    } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+
+    return {
+        h: Math.round(h * 360),
+        s: Math.round(s * 100),
+        l: Math.round(l * 100)
+    };
+}
+
+function hslToHex(h, s, l) {
+    l /= 100;
+    const a = s * Math.min(l, 1 - l) / 100;
+    const f = n => {
+        const k = (n + h / 30) % 12;
+        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+        return Math.round(255 * color).toString(16).padStart(2, '0');
+    };
+    return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+function showToast(message) {
+    // 기존 토스트 제거
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+</script>
+
+{{ end }}

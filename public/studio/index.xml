@@ -9,6 +9,20 @@
     <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/studio/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>2색 그라데이션 팔레트 - Studio NFP</title>
+      <link>http://localhost:1313/studio/gradient-2/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/gradient-2/</guid>
+      <description>&lt;h1 id=&#34;2색-그라데이션-팔레트&#34;&gt;2색 그라데이션 팔레트&lt;/h1&gt;&#xA;&lt;p&gt;두 가지 컬러를 선택하여 다양한 방향과 스타일의 그라데이션을 만들고 CSS 코드를 생성합니다.&lt;/p&gt;&#xA;&lt;p&gt;컬러 피커나 HEX 코드로 색상을 선택하고, 8가지 방향(수평, 수직, 대각선, 원형)과 강도 조절로 원하는 그라데이션을 만들어보세요. 프리셋 조합으로 빠른 시작도 가능합니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 실시간 미리보기, CSS 코드 생성, 컬러 하모니 분석, 다양한 형태 미리보기&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>3색 그라데이션 팔레트 - Studio NFP</title>
+      <link>http://localhost:1313/studio/gradient-3/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/gradient-3/</guid>
+      <description>&lt;h1 id=&#34;3색-그라데이션-팔레트&#34;&gt;3색 그라데이션 팔레트&lt;/h1&gt;&#xA;&lt;p&gt;세 가지 컬러를 조합하여 복잡하고 세련된 그라데이션을 만들고 CSS 코드를 생성합니다.&lt;/p&gt;&#xA;&lt;p&gt;컬러 피커나 HEX 코드로 색상을 선택하고, 중간 컬러의 위치를 조절하여 독특한 그라데이션을 만들어보세요. 다양한 컬러 조화 템플릿과 선형/원형/원추형 스타일을 지원합니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 3색 조합, 위치 조절, 컬러 하모니 템플릿, 실시간 분석, 갤러리 저장&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>5색 랜덤 팔레트 - Studio NFP</title>
       <link>http://localhost:1313/studio/color-palette-random/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
