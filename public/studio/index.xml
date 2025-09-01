@@ -86,6 +86,13 @@
       <description>&lt;h1 id=&#34;사이즈-계산기&#34;&gt;사이즈 계산기&lt;/h1&gt;&#xA;&lt;p&gt;비율을 기반으로 한 해상도 계산과 이미지 사이즈 변환을 쉽게 할 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;h3 id=&#34;비율-계산기&#34;&gt;비율 계산기&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 입력&lt;/strong&gt;: 16:9, 4:3 등 원하는 비율 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;자동 해상도 생성&lt;/strong&gt;: 4K/FHD/HD/SD 해상도 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 업데이트&lt;/strong&gt;: 비율 변경 시 즉시 결과 반영&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;커스텀-사이즈-변환&#34;&gt;커스텀 사이즈 변환&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;원본 크기 입력&lt;/strong&gt;: 현재 이미지의 가로×세로 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;목표 비율 설정&lt;/strong&gt;: 변환하고 싶은 비율&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;두 가지 변환 방식&lt;/strong&gt;: 잘라내기(crop)와 늘리기(fit) 결과 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;h3 id=&#34;비율-계산기-1&#34;&gt;비율 계산기&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;가로 비율과 세로 비율을 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;자동으로 4가지 해상도가 계산됩니다&lt;/li&gt;&#xA;&lt;li&gt;각 해상도별 정확한 픽셀 크기를 확인하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;커스텀-사이즈-변환-1&#34;&gt;커스텀 사이즈 변환&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;원본 이미지의 너비와 높이를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;목표로 하는 가로:세로 비율을 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;잘라내기와 늘리기 방식의 결과를 확인하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-방식-설명&#34;&gt;변환 방식 설명&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;잘라내기 (Crop)&lt;/strong&gt;: 비율을 맞추기 위해 이미지의 일부를 자르는 방식&#xA;&lt;strong&gt;늘리기 (Fit)&lt;/strong&gt;: 비율을 맞추기 위해 이미지를 확대하는 방식&lt;/p&gt;</description>
     </item>
     <item>
+      <title>워터마크 다중 삽입 - Studio NFP</title>
+      <link>http://localhost:1313/studio/watermark-multi/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/watermark-multi/</guid>
+      <description>&lt;h1 id=&#34;워터마크-다중-삽입&#34;&gt;워터마크 다중 삽입&lt;/h1&gt;&#xA;&lt;p&gt;여러 이미지에 한번에 워터마크를 삽입하는 브라우저 기반 도구입니다.&lt;/p&gt;&#xA;&lt;p&gt;텍스트 또는 이미지 워터마크를 선택하고, 위치와 투명도를 조절한 후 여러 이미지를 한번에 처리할 수 있습니다. 처리된 이미지는 ZIP 파일로 다운로드됩니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 일괄 처리, 실시간 미리보기, 드래그 위치 조정, 다양한 출력 형식 지원&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>이미지 압축기 - Studio NFP</title>
       <link>http://localhost:1313/studio/image-compressor/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>

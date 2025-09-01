@@ -4780,7 +4780,6 @@ select.studio-form-input option {
 .compressor-form-select:focus {
     outline: none;
     border-color: #01FF75;
-    box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
 }
 
 .compressor-button-area {
@@ -8763,6 +8762,228 @@ select.studio-form-input option {
 
 .gallery-action-btn:hover {
     opacity: 0.8;
+}
+
+/* 다중 워터마크 (워터마크 멀티) 페이지 */
+.watermark-batch-grid {
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    gap: 20px;
+}
+
+.watermark-batch-controls {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.watermark-batch-preview {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.watermark-batch-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.watermark-batch-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.watermark-batch-section-title {
+    color: var(--accent-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.watermark-batch-label {
+    display: block;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.watermark-batch-label span{
+    color: #505050;
+}
+
+.watermark-batch-input,
+.watermark-batch-select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: #1a1a1a;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.watermark-batch-input:focus,
+.watermark-batch-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.watermark-batch-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.watermark-batch-hint {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 15px;
+    margin-top: -12px;
+}
+
+.watermark-batch-positions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.watermark-batch-position {
+    position: relative;
+}
+
+.watermark-batch-position input {
+    display: none;
+}
+
+.watermark-batch-position label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: #1a1a1a;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.watermark-batch-position input:checked + label {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.watermark-batch-canvas {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: #0a0a0a;
+    cursor: crosshair;
+}
+
+.watermark-batch-download {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.watermark-batch-download:hover {
+    background: #00e565;
+}
+
+.watermark-batch-download:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #333;
+    color: #666;
+}
+
+.watermark-batch-preview-info {
+    color: #666;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background: #1a1a1a;
+    border-radius: 4px;
+    border: 1px solid var(--sub-border-color);
+}
+
+.watermark-batch-input,
+.watermark-batch-select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: #1a1a1a;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 15px;
+
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    appearance: none;
+}
+
+.watermark-batch-input[type="file"] {
+    padding: 15px;
+    border: 2px dashed var(--sub-border-color);
+    background: #1a1a1a;
+    color: #666;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 20px;
+}
+
+.watermark-batch-input[type="file"]:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.05);
+}
+
+.watermark-batch-input[type="file"]::file-selector-button {
+    display: none;
+}
+
+
+.watermark-batch-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 12px;
+}
+
+#watermark-textOpts {
+    display: block;
+}
+
+#watermark-imageOpts {
+    display: none;
 }
 
 /* 반응형 */
