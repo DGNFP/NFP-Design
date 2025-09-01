@@ -49,8 +49,7 @@
                         <h4>이미지 업로드</h4>
                         <div class="extractor-input-group">
                             <label for="color-image-upload" class="image-upload-label">
-                                <i class="fas fa-image"></i>
-                                <span>이미지를 선택하거나 드래그해주세요</span>
+                                <span>이미지를 선택하거나 드래그해주세요.</span><br>
                                 <small>최대 파일 크기: 10MB</small>
                             </label>
                             <input type="file" id="color-image-upload" accept=".jpg,.jpeg,.png,.gif,.webp,.bmp" style="display: none;">
@@ -61,22 +60,22 @@
                             <div class="preview-header">
                                 <h5>업로드된 이미지</h5>
                                 <button type="button" class="remove-image-btn" id="remove-image-btn">
-                                    <i class="fas fa-trash"></i> 제거
+                                    <i class="fas fa-trash"></i>
                                 </button>
                             </div>
                             <div class="preview-container">
                                 <img id="preview-image" alt="미리보기" style="max-width: 100%; max-height: 300px; object-fit: contain; border-radius: 4px;">
                                 <div class="image-info" id="image-info">
                                     <div class="info-item">
-                                        <span class="label">파일명:</span>
+                                        <span class="label">파일명</span>
                                         <span class="value" id="image-filename">-</span>
                                     </div>
                                     <div class="info-item">
-                                        <span class="label">크기:</span>
+                                        <span class="label">크기</span>
                                         <span class="value" id="image-dimensions">0 x 0</span>
                                     </div>
                                     <div class="info-item">
-                                        <span class="label">용량:</span>
+                                        <span class="label">용량</span>
                                         <span class="value" id="image-filesize">0KB</span>
                                     </div>
                                 </div>
@@ -157,7 +156,7 @@
                         <div class="extraction-results" id="extraction-results" style="display: none;">
                             <div class="results-header">
                                 <h5>추출 완료</h5>
-                                <div class="results-info" id="results-info">5개의 주요 컬러가 추출되었습니다</div>
+                                <div class="results-info" id="results-info">5개의 주요 컬러가 추출되었습니다.</div>
                             </div>
                             
                             <!-- 컬러 팔레트 -->
@@ -587,7 +586,7 @@ function exportPalette() {
     const dataBlob = new Blob([dataStr], { type: 'application/json' });
     
     const link = document.createElement('a');
-    link.download = `color-palette-${uploadedImage.file.name.split('.')[0]}.json`;
+    link.download = `Studio-NFP_color-palette-${uploadedImage.file.name.split('.')[0]}.json`;
     link.href = URL.createObjectURL(dataBlob);
     link.click();
     URL.revokeObjectURL(link.href);
