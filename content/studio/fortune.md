@@ -1,5 +1,5 @@
 ---
-title: "운세 컬러 카드"
+title: "오늘의 운세"
 description: "오늘의 운세와 함께하는 특별한 색상을 만나보세요"
 layout: "fortune"
 tool_type: "fortune"

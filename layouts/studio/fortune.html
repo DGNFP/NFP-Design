@@ -1,24 +1,23 @@
 {{ define "main" }}
 
 <link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
-
-
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
 <section class="section">
 <div class="container">
     <!-- 헤더 -->
     <div class="studio-page-header">
         <h1>Studio <span>NFP</span></h1>
-        <span class="highlight">운세 컬러 카드</span>
+        <span class="highlight">오늘의 운세</span>
         <p><br>오늘의 운세와 함께하는 특별한 색상을 만나보세요.</p>
     </div>
 
-<!-- 다른 페이지로 이동 버튼 -->
-<div class="page-btn-wrapper">
-<a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
-<a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
-<a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
-</div>
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
 
     <!-- 탭 컨텐츠 -->
     <div class="studio-page-content">
@@ -35,79 +34,80 @@
             </div>
 
             <!-- 운세 컬러 카드 -->
-            <div class="fortune-card-container">
+            <div class="fortune-app">
                 <!-- 날짜 표시 -->
-                <div class="fortune-date" id="fortuneDate">오늘의 날짜</div>
+                <div class="date-display" id="dateDisplay">오늘의 날짜</div>
                 
-                <div class="fortune-card">
-                    <!-- 질문 섹션 -->
-                    <div class="fortune-question" id="fortuneQuestion">
-                        <div class="fortune-crystal" id="fortuneCrystal">
-                            <div class="crystal-particles" id="crystalParticles"></div>
+                <!-- 메인 영역 -->
+                <div class="main-area">
+                    <!-- 질문 화면 -->
+                    <div class="question-screen" id="questionScreen">
+                        <div class="crystal-ball" id="crystalBall">
                             <div class="crystal-shine"></div>
-                            <!-- <i class="fas fa-gem"></i> -->
+                            <div class="particle-container" id="particleContainer"></div>
                         </div>
                         <h3>오늘의 운세 확인하기</h3>
-                        <p>수정구를 터치하여 당신만의 운세와 색상을 확인해보세요</p>
-                        
-                        <div class="fortune-loading" id="fortuneLoading" style="display: none;">
-                            <div class="loading-text" id="loadingText">운세를 읽고 있습니다...</div>
-                            <div class="loading-dots">
-                                <div class="loading-dot"></div>
-                                <div class="loading-dot"></div>
-                                <div class="loading-dot"></div>
-                            </div>
-                        </div>
+                        <p>수정구를 터치하여 당신만의<br>운세와 색상을 확인해보세요</p>
                     </div>
                     
-                    <!-- 결과 섹션 -->
-                    <div class="fortune-result" id="fortuneResult" style="display: none;">
-                        <div class="fortune-color-section">
-                            <div class="fortune-color-display" id="fortuneColorDisplay" style="background-color: #01FF75;"></div>
-                            <div class="fortune-color-info">
-                                <div class="fortune-brand">STUDIO NFP</div>
-                                <div class="fortune-color-code" id="fortuneColorCode">#01FF75</div>
-                                <div class="fortune-color-name" id="fortuneColorName">성장 그린</div>
+                    <!-- 결과 화면 -->
+                    <div class="result-screen" id="resultScreen">
+                        <div class="color-section">
+                            <div class="color-box" id="colorBox"></div>
+                            <div class="ft-color-info">
+                                <div class="brand">STUDIO <span>NFP</span></div>
+                                <div class="hex-code" id="hexCode">#01FF75</div>
+                                <div class="color-name" id="colorNameDisplay">성장 그린</div>
                             </div>
                         </div>
                         
-                        <div class="fortune-content">
-                            <div class="fortune-type" id="fortuneType">대길</div>
-                            <div class="fortune-message" id="fortuneMessage">오늘은 새로운 가능성이 열리는 날입니다.</div>
+                        <div class="fortune-section">
+                            <div class="fortune-badge" id="fortuneBadge">대길</div>
                             
-                            <div class="fortune-details">
-                                <div class="fortune-detail-item">
-                                    <span class="detail-label">행운 지수</span>
+                            <div class="scroll-paper" id="scrollPaper">
+                                <div class="scroll-content" id="scrollContent">
+                                    운세 메시지가 여기에 표시됩니다.
+                                </div>
+                            </div>
+                            
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="label">행운 지수</span>
                                     <div class="luck-meter">
-                                        <div class="luck-fill" id="luckFill" style="width: 0%;"></div>
+                                        <div class="luck-bar" id="luckBar"></div>
                                     </div>
-                                    <span class="luck-score" id="luckScore">0점</span>
+                                    <span class="score" id="luckScore">0점</span>
                                 </div>
                                 
-                                <div class="fortune-detail-item">
-                                    <span class="detail-label">오늘의 키워드</span>
-                                    <span class="fortune-keyword" id="fortuneKeyword">발전</span>
+                                <div class="detail-item">
+                                    <span class="label">오늘의 키워드</span>
+                                    <span class="value" id="keywordValue">발전</span>
                                 </div>
                                 
-                                <div class="fortune-detail-item">
-                                    <span class="detail-label">추천 활동</span>
-                                    <span class="fortune-activity" id="fortuneActivity">목표 설정</span>
+                                <div class="detail-item">
+                                    <span class="label">추천 활동</span>
+                                    <span class="value" id="activityValue">목표 설정</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="fortune-actions" id="fortuneActions" style="display: none;">
-                    <button class="fortune-btn primary" id="fortuneNewBtn">
+                <!-- 버튼 영역 -->
+                <div class="button-area" id="buttonArea">
+                    <button class="btn-primary" id="newFortuneBtn">
                         <i class="fas fa-redo"></i> 새로운 운세
                     </button>
-                    <button class="fortune-btn secondary" id="fortuneCopyBtn">
+                    <button class="btn-secondary" id="copyBtn">
                         <i class="fas fa-copy"></i> 색상 복사
                     </button>
-                    <button class="fortune-btn secondary" id="fortuneSaveBtn">
-                        <i class="fas fa-download"></i> 카드 저장
-                    </button>
+                </div>
+            </div>
+
+            <!-- 오버레이 (클릭 시 나타나는 파란 구슬) -->
+            <div class="overlay" id="overlay">
+                <div class="blue-crystal">
+                    <div class="crystal-shine"></div>
                 </div>
             </div>
 
@@ -118,7 +118,7 @@
 
 <script>
 // 운세 데이터
-const fortuneData = {
+const data = {
     colors: [
         { hex: '#FF6B6B', name: '활력 레드', keyword: '열정', activity: '새로운 도전' },
         { hex: '#4ECDC4', name: '평온 터코이즈', keyword: '안정', activity: '명상이나 휴식' },
@@ -135,27 +135,76 @@ const fortuneData = {
     ],
     
     messages: [
-        '오늘은 새로운 가능성이 열리는 날입니다. 작은 변화가 큰 행복을 가져다 줄 것입니다.',
-        '차분한 마음으로 하루를 시작하세요. 평온함 속에서 진정한 답을 찾을 수 있습니다.',
-        '주변 사람들과의 소통이 특히 중요한 날입니다. 열린 마음으로 대화해보세요.',
-        '자신을 돌아보는 시간을 가져보세요. 내면의 목소리에 귀 기울이는 것이 중요합니다.',
-        '예상치 못한 좋은 소식이 있을 수 있습니다. 긍정적인 마음가짐을 유지하세요.',
-        '사랑하는 사람들에게 마음을 표현하기 좋은 날입니다. 따뜻한 말 한마디의 힘을 느껴보세요.'
+        '오늘은 새로운 가능성이 열리는 날입니다.<br>작은 변화가 큰 행복을 가져다 줄 것입니다.',
+        '차분한 마음으로 하루를 시작하세요.<br>평온함 속에서 진정한 답을 찾을 수 있습니다.',
+        '주변 사람들과의 소통이 특히 중요한 날입니다.<br>열린 마음으로 대화해보세요.',
+        '자신을 돌아보는 시간을 가져보세요.<br>내면의 목소리에 귀 기울이는 것이 중요합니다.',
+        '예상치 못한 좋은 소식이 있을 수 있습니다.<br>긍정적인 마음가짐을 유지하세요.',
+        '사랑하는 사람들에게 마음을 표현하기 좋은 날입니다.<br>따뜻한 말 한마디의 힘을 느껴보세요.'
     ],
     
     types: ['대길', '중길', '소길', '길', '평', '소흉']
 };
 
 let currentFortune = null;
+let idleParticleInterval = null;
 
-// DOM 로드 후 실행
+// DOM 요소들
+const elements = {
+    dateDisplay: null,
+    questionScreen: null,
+    resultScreen: null,
+    crystalBall: null,
+    particleContainer: null,
+    overlay: null,
+    colorBox: null,
+    hexCode: null,
+    colorNameDisplay: null,
+    fortuneBadge: null,
+    scrollPaper: null,
+    scrollContent: null,
+    luckBar: null,
+    luckScore: null,
+    keywordValue: null,
+    activityValue: null,
+    buttonArea: null,
+    newFortuneBtn: null,
+    copyBtn: null
+};
+
+// 초기화
 document.addEventListener('DOMContentLoaded', function() {
-    initApp();
+    initElements();
+    setupDate();
     setupEvents();
+    startIdleEffects();
 });
 
-// 앱 초기화
-function initApp() {
+function initElements() {
+    for (const key in elements) {
+        elements[key] = document.getElementById(key === 'dateDisplay' ? 'dateDisplay' :
+                                             key === 'questionScreen' ? 'questionScreen' :
+                                             key === 'resultScreen' ? 'resultScreen' :
+                                             key === 'crystalBall' ? 'crystalBall' :
+                                             key === 'particleContainer' ? 'particleContainer' :
+                                             key === 'overlay' ? 'overlay' :
+                                             key === 'colorBox' ? 'colorBox' :
+                                             key === 'hexCode' ? 'hexCode' :
+                                             key === 'colorNameDisplay' ? 'colorNameDisplay' :
+                                             key === 'fortuneBadge' ? 'fortuneBadge' :
+                                             key === 'scrollPaper' ? 'scrollPaper' :
+                                             key === 'scrollContent' ? 'scrollContent' :
+                                             key === 'luckBar' ? 'luckBar' :
+                                             key === 'luckScore' ? 'luckScore' :
+                                             key === 'keywordValue' ? 'keywordValue' :
+                                             key === 'activityValue' ? 'activityValue' :
+                                             key === 'buttonArea' ? 'buttonArea' :
+                                             key === 'newFortuneBtn' ? 'newFortuneBtn' :
+                                             key === 'copyBtn' ? 'copyBtn' : key);
+    }
+}
+
+function setupDate() {
     const today = new Date();
     const options = { 
         year: 'numeric', 
@@ -163,169 +212,198 @@ function initApp() {
         day: 'numeric',
         weekday: 'long'
     };
-    document.getElementById('fortuneDate').textContent = today.toLocaleDateString('ko-KR', options);
+    elements.dateDisplay.textContent = today.toLocaleDateString('ko-KR', options);
 }
 
-// 이벤트 설정
 function setupEvents() {
-    document.getElementById('fortuneCrystal').addEventListener('click', handleCrystalClick);
-    document.getElementById('fortuneNewBtn').addEventListener('click', resetFortune);
-    document.getElementById('fortuneCopyBtn').addEventListener('click', copyColor);
-    document.getElementById('fortuneSaveBtn').addEventListener('click', saveCard);
+    elements.crystalBall.addEventListener('click', handleCrystalClick);
+    elements.crystalBall.addEventListener('mouseenter', handleCrystalHover);
+    elements.newFortuneBtn.addEventListener('click', resetToQuestion);
+    elements.copyBtn.addEventListener('click', copyColor);
 }
 
-// 파티클 생성
-function createParticles() {
-    const container = document.getElementById('crystalParticles');
-    container.innerHTML = '';
+// 생동감 있는 idle 효과
+function startIdleEffects() {
+    // 주기적으로 작은 파티클 생성
+    idleParticleInterval = setInterval(() => {
+        if (elements.questionScreen.style.display !== 'none') {
+            createIdleParticles();
+        }
+    }, 3000);
+}
+
+function createIdleParticles() {
+    const container = elements.particleContainer;
     
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 3; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         
-        const angle = (i * 30) + Math.random() * 30;
+        const angle = Math.random() * 360;
+        const distance = 20 + Math.random() * 30;
+        const dx = Math.cos(angle * Math.PI / 180) * distance + 'px';
+        const dy = Math.sin(angle * Math.PI / 180) * distance + 'px';
+        
+        particle.style.setProperty('--dx', dx);
+        particle.style.setProperty('--dy', dy);
+        particle.style.animation = `particleBurst 1s ease-out ${i * 0.2}s forwards`;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 1200);
+    }
+}
+
+function handleCrystalHover() {
+    if (elements.questionScreen.style.display !== 'none') {
+        createHoverParticles();
+    }
+}
+
+function createHoverParticles() {
+    const container = elements.particleContainer;
+    
+    for (let i = 0; i < 15; i++) { // 8개 → 15개로 증가
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const angle = (i * 24) + Math.random() * 24;
+        const distance = 50 + Math.random() * 30; // 더 넓은 범위
+        const dx = Math.cos(angle * Math.PI / 180) * distance + 'px';
+        const dy = Math.sin(angle * Math.PI / 180) * distance + 'px';
+        
+        particle.style.setProperty('--dx', dx);
+        particle.style.setProperty('--dy', dy);
+        particle.style.animation = `particleBurst 1s ease-out ${i * 0.03}s forwards`;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 1200);
+    }
+}
+
+function handleCrystalClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // 클릭 파티클 대량 생성
+    createClickParticles();
+    
+    // 오버레이 표시
+    elements.overlay.classList.add('active');
+    
+    // 1.8초 후 결과 표시
+    setTimeout(() => {
+        elements.overlay.classList.remove('active');
+        showResult();
+    }, 1800);
+}
+
+function createClickParticles() {
+    const container = elements.particleContainer;
+    
+    for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const angle = (i * 14.4) + Math.random() * 14.4;
         const distance = 60 + Math.random() * 40;
         const dx = Math.cos(angle * Math.PI / 180) * distance + 'px';
         const dy = Math.sin(angle * Math.PI / 180) * distance + 'px';
         
         particle.style.setProperty('--dx', dx);
         particle.style.setProperty('--dy', dy);
-        particle.style.animation = 'particleExplode 0.8s ease-out ' + (i * 0.05) + 's forwards';
+        particle.style.animation = `particleBurst 1.2s ease-out ${i * 0.02}s forwards`;
         
         container.appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 1400);
     }
 }
 
-// 수정구 클릭
-function handleCrystalClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const crystal = document.getElementById('fortuneCrystal');
-    crystal.classList.add('clicked');
-    createParticles();
-    
-    setTimeout(() => {
-        crystal.classList.remove('clicked');
-        document.getElementById('crystalParticles').innerHTML = '';
-    }, 1500);
-    
-    setTimeout(showLoading, 500);
-    setTimeout(showFortune, 2500);
-}
-
-// 로딩 표시
-function showLoading() {
-    const question = document.getElementById('fortuneQuestion');
-    const loading = document.getElementById('fortuneLoading');
-    
-    question.style.opacity = '0.3';
-    loading.style.display = 'block';
-}
-
-// 운세 생성
 function generateFortune() {
-    const color = fortuneData.colors[Math.floor(Math.random() * fortuneData.colors.length)];
-    const message = fortuneData.messages[Math.floor(Math.random() * fortuneData.messages.length)];
-    const type = fortuneData.types[Math.floor(Math.random() * fortuneData.types.length)];
+    const color = data.colors[Math.floor(Math.random() * data.colors.length)];
+    const message = data.messages[Math.floor(Math.random() * data.messages.length)];
+    const type = data.types[Math.floor(Math.random() * data.types.length)];
     const luck = Math.floor(Math.random() * 100) + 1;
     
     return { color, message, type, luck };
 }
 
-// 운세 표시
-function showFortune() {
+function showResult() {
     currentFortune = generateFortune();
     
-    document.getElementById('fortuneLoading').style.display = 'none';
-    document.getElementById('fortuneQuestion').style.display = 'none';
+    // 화면 전환
+    elements.questionScreen.style.display = 'none';
+    elements.resultScreen.style.display = 'block';
     
-    const result = document.getElementById('fortuneResult');
-    result.style.display = 'block';
+    // 데이터 설정
+    elements.colorBox.style.backgroundColor = currentFortune.color.hex;
+    elements.hexCode.textContent = currentFortune.color.hex;
+    elements.colorNameDisplay.textContent = currentFortune.color.name;
+    elements.fortuneBadge.textContent = currentFortune.type;
+    elements.scrollContent.innerHTML = currentFortune.message;
+    elements.keywordValue.textContent = currentFortune.color.keyword;
+    elements.activityValue.textContent = currentFortune.color.activity;
     
-    document.getElementById('fortuneColorDisplay').style.backgroundColor = currentFortune.color.hex;
-    document.getElementById('fortuneColorCode').textContent = currentFortune.color.hex;
-    document.getElementById('fortuneColorName').textContent = currentFortune.color.name;
-    document.getElementById('fortuneType').textContent = currentFortune.type;
-    document.getElementById('fortuneMessage').textContent = currentFortune.message;
-    document.getElementById('fortuneKeyword').textContent = currentFortune.color.keyword;
-    document.getElementById('fortuneActivity').textContent = currentFortune.color.activity;
-    
+    // 애니메이션 시퀀스
     setTimeout(() => {
-        document.getElementById('luckFill').style.width = currentFortune.luck + '%';
-        document.getElementById('luckScore').textContent = currentFortune.luck + '점';
+        elements.resultScreen.classList.add('show');
+    }, 100);
+    
+    // 1단계: 두루마리 펼치기
+    setTimeout(() => {
+        elements.scrollPaper.classList.add('expand');
     }, 300);
     
+    // 2단계: 행운 지수 (두루마리 텍스트 나타난 후)
     setTimeout(() => {
-        result.classList.add('show');
-        document.getElementById('fortuneActions').style.display = 'flex';
-    }, 100);
+        elements.luckBar.style.width = currentFortune.luck + '%';
+        elements.luckScore.textContent = currentFortune.luck + '점';
+    }, 1800);
+    
+    // 3단계: 버튼 표시
+    setTimeout(() => {
+        elements.buttonArea.style.display = 'flex';
+    }, 2200);
 }
 
-// 리셋
-function resetFortune() {
-    const result = document.getElementById('fortuneResult');
-    const actions = document.getElementById('fortuneActions');
+function resetToQuestion() {
+    // idle 효과 다시 시작
+    if (idleParticleInterval) {
+        clearInterval(idleParticleInterval);
+    }
+    startIdleEffects();
     
-    result.classList.remove('show');
-    actions.style.display = 'none';
+    // 모든 애니메이션 클래스 제거
+    elements.resultScreen.classList.remove('show');
+    elements.scrollPaper.classList.remove('expand');
+    elements.buttonArea.style.display = 'none';
+    
+    // 행운 지수 리셋
+    elements.luckBar.style.width = '0%';
+    elements.luckScore.textContent = '0점';
     
     setTimeout(() => {
-        result.style.display = 'none';
-        document.getElementById('fortuneQuestion').style.display = 'block';
-        document.getElementById('fortuneQuestion').style.opacity = '1';
-        document.getElementById('luckFill').style.width = '0%';
-        document.getElementById('luckScore').textContent = '0점';
+        elements.resultScreen.style.display = 'none';
+        elements.questionScreen.style.display = 'flex';
         currentFortune = null;
     }, 300);
 }
 
-// 색상 복사
 function copyColor() {
     if (currentFortune) {
         navigator.clipboard.writeText(currentFortune.color.hex).then(() => {
-            const btn = document.getElementById('fortuneCopyBtn');
-            const original = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
-            btn.style.color = 'var(--accent-color)';
+            const originalText = elements.copyBtn.innerHTML;
+            elements.copyBtn.innerHTML = '<i class="fas fa-check"></i> 복사됨!';
+            elements.copyBtn.style.color = 'var(--accent-color)';
             
             setTimeout(() => {
-                btn.innerHTML = original;
-                btn.style.color = '#666';
+                elements.copyBtn.innerHTML = originalText;
+                elements.copyBtn.style.color = '#666';
             }, 2000);
         });
     }
-}
-
-// 카드 저장
-function saveCard() {
-    if (!currentFortune) return;
-    
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    canvas.width = 600;
-    canvas.height = 400;
-    
-    ctx.fillStyle = '#141414';
-    ctx.fillRect(0, 0, 600, 400);
-    
-    ctx.fillStyle = currentFortune.color.hex;
-    ctx.fillRect(40, 40, 120, 120);
-    
-    ctx.fillStyle = '#01FF75';
-    ctx.font = 'bold 16px Arial';
-    ctx.fillText('STUDIO NFP', 180, 60);
-    
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 20px Arial';
-    ctx.fillText(currentFortune.color.hex, 180, 90);
-    ctx.fillText(currentFortune.color.name, 180, 120);
-    
-    const link = document.createElement('a');
-    link.download = 'fortune-card.png';
-    link.href = canvas.toDataURL();
-    link.click();
 }
 </script>
 
