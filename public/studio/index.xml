@@ -177,6 +177,13 @@
       <description>&lt;h1 id=&#34;폰트-크기-변환기&#34;&gt;폰트 크기 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹과 인쇄물에서 사용하는 폰트 크기를 빠르게 변환하고 반응형 사이즈를 확인하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: px ↔ pt 실시간 상호 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 입력한 폰트 크기로 텍스트 미리보기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 사이즈&lt;/strong&gt;: 모바일/태블릿/데스크톱별 권장 크기 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;권장 사이즈 가이드&lt;/strong&gt;: 본문, 제목, 캡션 등 용도별 권장 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 변환&lt;/strong&gt;: 0.75 비율 기준 정밀 계산&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;픽셀(px) 또는 포인트(pt) 입력란에 크기를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;반대 단위로 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;미리보기에서 실제 크기를 확인하세요&lt;/li&gt;&#xA;&lt;li&gt;반응형 사이즈와 권장 사이즈를 참고하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;변환 공식:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>운세 컬러 카드</title>
+      <link>http://localhost:1313/studio/fortune/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/fortune/</guid>
+      <description>&lt;h1 id=&#34;운세-컬러-카드&#34;&gt;운세 컬러 카드&lt;/h1&gt;&#xA;&lt;p&gt;오늘의 운세와 함께 특별한 색상을 받아보는 재미있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;h3 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;수정구 터치&lt;/strong&gt;: 신비로운 수정구를 터치하여 운세 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;일일 운세&lt;/strong&gt;: 매일 다른 운세 메시지 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 매칭&lt;/strong&gt;: 운세에 맞는 특별한 색상 추천&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;행운 지수&lt;/strong&gt;: 1~100점으로 표시되는 오늘의 운세&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개인화&lt;/strong&gt;: 키워드와 추천 활동 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;운세-구성-요소&#34;&gt;운세 구성 요소&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;길흉 타입&lt;/strong&gt;: 대길, 중길, 소길, 길, 평, 소흉, 중흉, 대흉 (8단계)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;행운 지수&lt;/strong&gt;: 시각적 게이지로 표시 (1~100점)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;오늘의 키워드&lt;/strong&gt;: 하루를 대표하는 핵심 단어&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;추천 활동&lt;/strong&gt;: 운세에 맞는 구체적인 행동 가이드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 정보&lt;/strong&gt;: HEX 코드와 색상명 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;색상-데이터베이스&#34;&gt;색상 데이터베이스&lt;/h2&gt;&#xA;&lt;p&gt;총 12가지 특별한 색상과 의미를 제공합니다:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>베이스</title>
       <link>http://localhost:1313/studio/base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

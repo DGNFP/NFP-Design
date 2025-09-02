@@ -602,6 +602,11 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/gradient-card/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/grid/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -674,6 +679,11 @@
   </url><url>
     <loc>http://localhost:1313/studio/font-converter/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/fortune/</loc>
+    <lastmod>2024-12-21T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>

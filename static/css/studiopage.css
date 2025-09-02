@@ -11,6 +11,15 @@ html{
     overflow-x: hidden; 
 }
 
+@font-face {
+  font-family: 'EunSikDimiBang';
+  src: url('/fonts/YydimibangBold.woff2') format('woff2'),
+       url('/fonts/YydimibangBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
     --background-color: #000000;
     --text-color: #ffffff;
@@ -9469,6 +9478,473 @@ pointer-events: none;
 .color-card .color-display-area {
   position: relative; /* 또는 absolute라도 z-index를 낮게 */
   z-index: 1;
+}
+
+/* 오늘의 운세컬러 뽑기 */
+/* 운세 컬러 카드 페이지 전용 스타일 */
+.fortune-card-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.fortune-date {
+    text-align: center;
+    color: var(--accent-color, #01FF75);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    padding: 12px 24px;
+    background: rgba(1, 255, 117, 0.1);
+    border: 1px solid rgba(1, 255, 117, 0.2);
+    border-radius: 4px;
+}
+
+.fortune-card {
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fortune-question {
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, rgba(1, 255, 117, 0.05) 0%, rgba(1, 255, 117, 0.02) 100%);
+}
+
+.fortune-crystal {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--accent-color, #01FF75), rgba(1, 255, 117, 0.7));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.fortune-crystal:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(1, 255, 117, 0.4);
+}
+
+.fortune-crystal.clicked {
+    animation: crystalExplode 1.5s ease-out;
+}
+
+.crystal-shine {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: shine 2s ease-in-out infinite;
+}
+
+.crystal-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-color, #01FF75);
+    border-radius: 50%;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fortune-crystal i {
+    font-size: 36px;
+    color: #000;
+    z-index: 1;
+}
+
+.fortune-question h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.fortune-question p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.fortune-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.loading-text {
+    color: var(--accent-color, #01FF75);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.loading-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color, #01FF75);
+    border-radius: 50%;
+    animation: loadingBounce 1.4s ease-in-out infinite both;
+}
+
+.loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.loading-dot:nth-child(2) { animation-delay: -0.16s; }
+.loading-dot:nth-child(3) { animation-delay: 0s; }
+
+.fortune-result {
+    padding: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.fortune-result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fortune-color-section {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    align-items: center;
+}
+
+.fortune-color-display {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fortune-color-info {
+    flex: 1;
+}
+
+.fortune-brand {
+    color: var(--accent-color, #01FF75);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.fortune-color-code {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+}
+
+.fortune-color-name {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.fortune-content {
+    border-top: 1px solid var(--sub-border-color, #272727);
+    padding-top: 32px;
+}
+
+/* 대길,운수대통 등등 제목은 굵은 궁서체 */
+.fortune-type {
+    background: linear-gradient(135deg, var(--accent-color, #01FF75), rgba(1, 255, 117, 0.8));
+    color: #000;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    /* margin-bottom: 20px; */
+}
+
+/* 여기에 "운세" 따옴표 들어가고 궁서체 들어가면 이쁠듯 */
+.fortune-message {
+
+     /* background: rgba(255, 255, 255, 0.05); */
+    /* color: #fff; */
+
+    /* font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+   
+    background: white;
+    color: #202020;
+    padding: 24px;
+    border: 12px solid #007a37;
+    border-left: 12px solid var(--accent-color, #01FF75);
+    border-right: 12px solid var(--accent-color, #01FF75); */
+}
+
+/* 두루마기 효과 시작 */
+/* 0에서 좌우로 펼쳐지는 효과와 글씨는 페이드 인-아웃 되면서 아래에서 올라오는 효과 */
+/* 붓글씨 필기체 폰트 사용 */
+.fortune-message {
+    background: #f8f5f0;
+    color: #2c1810;
+    padding: 12px 20px;
+    border: 6px solid #8B4513;
+    position: relative;
+    font-family: 'EunSikDimiBang', serif;
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    letter-spacing: 0.1em; /* 자간 (기본 글자 폭의 5%) */
+}
+
+.fortune-message::before,
+.fortune-message::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 130%;
+    background: linear-gradient(45deg, #654321, #8B4513);
+    border-radius: 2px;
+    z-index: 2;
+}
+
+.fortune-message::before {
+    left: -8px; /* 음수로 바깥쪽으로 */
+}
+
+.fortune-message::after {
+    right: -8px; /* 음수로 바깥쪽으로 */
+}
+/* 끝 */
+
+.fortune-details {
+    display: grid;
+    gap: 20px;
+}
+
+.fortune-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 6px 0;
+}
+
+.fortune-detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: var(--accent-color, #01FF75);
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 80px;
+}
+
+.luck-meter {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 200px;
+}
+
+.luck-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color, #01FF75), rgba(1, 255, 117, 0.7));
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.luck-score {
+    color: #fff;
+    font-weight: 600;
+    min-width: 40px;
+}
+
+.fortune-keyword,
+.fortune-activity {
+    color: #fff;
+    font-weight: 500;
+}
+
+.fortune-actions {
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.fortune-btn {
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fortune-btn.primary {
+    background: linear-gradient(135deg, var(--accent-color, #01FF75), rgba(1, 255, 117, 0.8));
+    color: #000;
+}
+
+.fortune-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.3);
+}
+
+.fortune-btn.secondary {
+    background: var(--sub-bg-color, #141414);
+    border: 1px solid var(--sub-border-color, #272727);
+    color: #666;
+}
+
+.fortune-btn.secondary:hover {
+    border-color: var(--accent-color, #01FF75);
+    color: var(--accent-color, #01FF75);
+    transform: translateY(-1px);
+}
+
+/* 애니메이션 */
+@keyframes shine {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes crystalExplode {
+    0% { 
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    30% { 
+        transform: scale(1.3);
+        filter: brightness(2) saturate(2);
+        box-shadow: 0 0 50px rgba(1, 255, 117, 0.8);
+    }
+    60% {
+        transform: scale(0.9);
+        filter: brightness(1.5);
+    }
+    100% { 
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes particleExplode {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)));
+    }
+}
+
+@keyframes loadingPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+@keyframes loadingBounce {
+    0%, 80%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .fortune-card-container {
+        padding: 15px;
+    }
+    
+    .fortune-question {
+        padding: 40px 20px;
+    }
+    
+    .fortune-result {
+        padding: 30px 20px;
+    }
+    
+    .fortune-color-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .fortune-crystal {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 24px;
+    }
+    
+    .fortune-crystal i {
+        font-size: 28px;
+    }
+    
+    .fortune-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .fortune-btn {
+        min-width: 160px;
+        justify-content: center;
+    }
+    
+    .fortune-detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .luck-meter {
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 
