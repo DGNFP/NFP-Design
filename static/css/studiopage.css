@@ -777,7 +777,7 @@ border-color: rgba(1, 255, 117, 0.7);
 .studio-sub-tab {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(1, 255, 117, 0.3);
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 12px 20px;
     color: var(--text-color);
     cursor: pointer;
@@ -1836,7 +1836,7 @@ select.studio-form-input option {
 
 .studio-size-category {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 25px;
     border: 2px solid rgba(1, 255, 117, 0.2);
 }
@@ -1860,7 +1860,7 @@ select.studio-form-input option {
 
 /* ==================== 공통 액션 버튼 스타일 ==================== */
 .studio-pick-btn {
-      background: #01ff75;
+    background: #01ff75;
     color: black;
     border: none;
     padding: 15px 40px;
@@ -1871,7 +1871,7 @@ select.studio-form-input option {
     font-size: 16px;
     margin: 20px 0;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1895,7 +1895,7 @@ select.studio-form-input option {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.015), transparent);
     transition: left 0.5s ease;
 }
 
@@ -1927,7 +1927,7 @@ select.studio-form-input option {
     border: 2px solid rgba(1, 255, 117, 0.3);
     color: white;
     padding: 12px 16px;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 14px;
@@ -1947,9 +1947,9 @@ select.studio-form-input option {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 70vh;
+    /* min-height: 70vh; */
     justify-content: center;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .color-card {
@@ -9445,6 +9445,32 @@ pointer-events: none;
     margin-top: 10px;
 }
 /* 스튜디오 페이지 기본 스타일 종료 */
+/* 그라데이션/단색 프리뷰 레이어는 클릭 막지 않게 */
+#gradient-color-display,
+#color-display,
+#gradient-color-display::before,
+#gradient-color-display::after {
+  pointer-events: none;
+}
+
+/* 컨트롤이 항상 위에 오도록 */
+.single-card-container .card-controls {
+  position: relative;
+  z-index: 10;
+}
+
+/* 프리뷰 카드 자체는 클리핑 유지 (광고/그림자만 잘리면 감수 or 아래 대안 참고) */
+.color-card {
+  position: relative;
+  overflow: hidden; /* 유지 */
+}
+
+/* 만약 프리뷰를 절대배치로 깔았다면 확실히 아래로 */
+.color-card .color-display-area {
+  position: relative; /* 또는 absolute라도 z-index를 낮게 */
+  z-index: 1;
+}
+
 
 /* 반응형 */
 @media (max-width: 768px) {

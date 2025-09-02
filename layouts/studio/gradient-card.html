@@ -7,8 +7,8 @@
     <!-- 헤더 -->
     <div class="studio-page-header">
         <h1>Studio <span>NFP</span></h1>
-        <span class="highlight">컬러 카드 뽑기</span>
-        <p><br>오늘의 컬러를 한 장의 카드로 뽑아 저장하세요.</p>
+        <span class="highlight">그라데이션 카드 뽑기</span>
+        <p><br>오늘의 그라데이션을 한 장의 카드로 뽑아 저장하세요.</p>
     </div>
 
     <!-- 다른 페이지로 이동 버튼 -->
@@ -24,57 +24,57 @@
 
             <!-- 설명 -->
             <div class="studio-description">
-                <h3>단색 카드 뽑기</h3>
+                <h3>그라데이션 카드 뽑기</h3>
                 <p>오늘은 어떤 컬러가 당신을 기다리고 있을까요?<br>
                    랜덤으로 컬러 카드를 뽑아 창의적 영감을 얻어보세요.</p>
             </div>
 
-            <!-- 단색 카드 UI -->
+            <!-- 그라데이션 카드 UI (기존 ID 그대로 유지) -->
             <div class="single-card-container">
-                <div class="color-card" id="single-card-element">
+                <div class="color-card" id="gradient-card-element">
                     <!-- 처음 상태 -->
-                    <div class="card-question" id="card-question">
+                    <div class="card-question" id="gradient-card-question">
                         <div class="question-icon">
                             <i class="fas fa-question"></i>
                         </div>
                         <div class="question-text">
-                            <h3>컬러 카드 뽑기</h3>
-                            <p>클릭하여 오늘의 컬러를 확인해보세요&#33;</p>
+                            <h3>그라데이션 카드 뽑기</h3>
+                            <p>클릭하여 오늘의 그라데이션을 확인해보세요&#33;</p>
                         </div>
                     </div>
 
                     <!-- 결과 상태 -->
-                    <div class="card-result" id="card-result" style="display: none;">
-                        <div class="color-display-area" id="color-display"></div>
+                    <div class="card-result" id="gradient-card-result" style="display: none;">
+                        <div class="color-display-area" id="gradient-color-display"></div>
                         <div class="color-info-area">
                             <h2 class="color-brand-name">STUDIO NFP</h2>
-                            <p class="color-hex-code" id="color-hex"></p>
-                            <h3 class="color-korean-name" id="color-name"></h3>
-                            <p class="color-description" id="color-description"></p>
+                            <p class="color-hex-code" id="gradient-color-hex"></p>
+                            <h3 class="color-korean-name" id="gradient-color-name"></h3>
+                            <p class="color-description" id="gradient-color-description"></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 컨트롤 -->
                 <div class="card-controls">
-                    <button class="studio-pick-btn" id="single-pick-btn">
-                        <i class="fas fa-magic"></i> 컬러 카드 뽑기
+                    <button class="studio-pick-btn" id="gradient-pick-btn">
+                        <i class="fas fa-palette"></i> 그라데이션 카드 뽑기
                     </button>
 
-                    <div class="studio-card-actions" id="single-card-actions" style="display: none;">
-                        <button class="studio-action-btn" id="single-copy-btn">
+                    <div class="studio-card-actions" id="gradient-card-actions" style="display: none;">
+                        <button class="studio-action-btn" id="gradient-copy-btn">
                             <i class="fas fa-copy"></i> 코드 복사
                         </button>
-                        <button class="studio-action-btn" id="single-new-btn">
+                        <button class="studio-action-btn" id="gradient-new-btn">
                             <i class="fas fa-redo"></i> 다시 뽑기
                         </button>
-                        <button class="studio-action-btn" id="single-save-btn">
+                        <button class="studio-action-btn" id="gradient-save-btn">
                             <i class="fas fa-download"></i> 카드 저장
                         </button>
                     </div>
                 </div>
             </div>
-            <!-- /단색 카드 UI -->
+            <!-- /그라데이션 카드 UI -->
 
             <!-- ▼ 카운터 표시 영역(자동 삽입) -->
             <div id="counter-mount" style="margin-top:16px;"></div>
@@ -91,11 +91,11 @@
 <!-- 카운터 UI 삽입 + 초기화 + 버튼 연동 -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // 1) 카운터 UI 삽입
+  // 1) 카운터 UI 삽입 (그라데이션 전용)
   if (window.createCardCounterDisplay) {
-    const { singleCard } = window.createCardCounterDisplay();
+    const { gradientCard } = window.createCardCounterDisplay();
     const mount = document.getElementById('counter-mount');
-    if (mount) mount.innerHTML = singleCard;
+    if (mount) mount.innerHTML = gradientCard;
   }
 
   // 2) Firebase 카운터 초기화 & 현재 값 표시
@@ -103,51 +103,47 @@ document.addEventListener('DOMContentLoaded', function () {
     window.initializeCardCounter();
   }
 
-  // --- 도우미: 현재 카드의 스페셜/다크 여부를 추출(있으면 전달, 없으면 null) ---
-  function readCardMeta() {
-    const el = document.getElementById('single-card-element');
+  // --- 도우미: 현재 카드의 스페셜/다크 여부 추출 ---
+  function readGradientMeta() {
+    const el = document.getElementById('gradient-card-element');
     if (!el || !el.dataset) return null;
 
-    // 아래 키 중 데이터가 있으면 객체로 반환 (없으면 null)
     const meta = {};
     const raw = el.dataset;
 
-    // 가능한 키들: data-is-special, data-special-type, data-is-dark-special
     if (raw.isSpecial !== undefined) {
-      // 'true'/'false' 문자열을 boolean으로 정규화
       meta.isSpecial = (raw.isSpecial === 'true' || raw.isSpecial === 'special');
     }
-    if (raw.specialType) meta.specialType = raw.specialType; // 'special' | 'dark' 등
+    if (raw.specialType) meta.specialType = raw.specialType; // 'special' | 'dark'
     if (raw.isDarkSpecial !== undefined) {
       meta.isDarkSpecial = (raw.isDarkSpecial === 'true' || raw.isDarkSpecial === 'dark');
     }
 
-    // 값이 하나도 없으면 null
     return Object.keys(meta).length ? meta : null;
   }
 
   // 3) 뽑기/다시 뽑기 버튼 클릭 시 카운트 증가
-  function countSingleDraw() {
+  function countGradientDraw() {
     if (window.onCardDrawn) {
-      window.onCardDrawn('single', readCardMeta());
+      window.onCardDrawn('gradient', readGradientMeta());
     }
   }
 
-  const pickBtn = document.getElementById('single-pick-btn');
-  const newBtn  = document.getElementById('single-new-btn');
+  const pickBtn = document.getElementById('gradient-pick-btn');
+  const newBtn  = document.getElementById('gradient-new-btn');
 
   if (pickBtn) pickBtn.addEventListener('click', () => {
-    // 카드 생성 로직이 먼저 실행 → DOM 업데이트 직후 카운트
-    setTimeout(countSingleDraw, 0);
+    // 카드 생성 로직 → DOM 업데이트 이후 카운트
+    setTimeout(countGradientDraw, 0);
   });
   if (newBtn) newBtn.addEventListener('click', () => {
-    setTimeout(countSingleDraw, 0);
+    setTimeout(countGradientDraw, 0);
   });
 
-  // (선택) 기존 JS가 커스텀 이벤트를 쏜다면 그것도 수신
-  // window.dispatchEvent(new CustomEvent('single-card-drawn', { detail: { isSpecial:true, specialType:'dark' }}));
-  window.addEventListener('single-card-drawn', (e) => {
-    if (window.onCardDrawn) window.onCardDrawn('single', e.detail || null);
+  // (선택) 기존 JS가 커스텀 이벤트를 쏘면 수신
+  // window.dispatchEvent(new CustomEvent('gradient-card-drawn', { detail: { isSpecial:true, specialType:'dark' }}));
+  window.addEventListener('gradient-card-drawn', (e) => {
+    if (window.onCardDrawn) window.onCardDrawn('gradient', e.detail || null);
   });
 });
 </script>

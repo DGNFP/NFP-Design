@@ -587,6 +587,11 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/pdf-compressor/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -653,6 +658,11 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/color-mixer/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/single-card/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
