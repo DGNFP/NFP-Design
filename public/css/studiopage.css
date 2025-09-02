@@ -9192,7 +9192,67 @@ select.studio-form-input option {
 .pdf-compressor-spinner {
     animation: spin 1s linear infinite;
 }
+/* 드래그앤드롭 시각적 피드백을 위한 CSS */
+.pdf-compressor-file-label.drag-over {
+    border: 2px dashed var(--accent-color) ;
+    background-color: rgba(155, 255, 255, 0.1);
+}
 
+.pdf-compressor-file-label.drag-over .pdf-compressor-file-text strong {
+    color:var(--accent-color);
+}
+
+.pdf-compressor-file-label.drag-over .pdf-compressor-file-text small {
+    color: var(--accent-color);
+}
+
+.pdf-compressor-file-label {
+    transition: all 0.3s ease;
+}
+
+.pdf-compressor-file-label.file-selected.drag-over {
+    border-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.pdf-compressor-file-label.file-selected.drag-over .pdf-compressor-file-text strong,
+.pdf-compressor-file-label.file-selected.drag-over .pdf-compressor-file-text small {
+    color: #28a745;
+}
+
+/* 파일 업로드 헤더 스타일 */
+.pdf-compressor-upload-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.pdf-compressor-upload-header h4 {
+    margin: 0;
+}
+
+/* 파일 제거 버튼 스타일 */
+.pdf-compressor-remove-btn {
+    border: none;
+    color: #fff;
+    background: #111111;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    opacity: 0.7;
+}
+
+.pdf-compressor-remove-btn:hover {
+    background-color: rgba(220, 255, 255, 0.1);
+    opacity: 1;
+}
+
+.pdf-compressor-remove-btn:active {
+    transform: scale(0.95);
+}
 /* 결과창 패널 */
 .pdf-compressor-result-panel {
     background: var(--sub-bg-color, #141414);

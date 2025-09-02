@@ -242,23 +242,23 @@
                                 </div>
                             </div>
                         </div>
-                        
-         
                     </div>
 
                     
                     <div class="custom-settings-group">
-                        <h4>로고 설정 (선택사항)</h4>
+                        <div class="logo-upload-header">
+                            <h4>로고 설정 (선택사항)</h4>
+                            <button id="remove-logo-btn" class="remove-logo-btn-header" style="display: none;" title="로고 제거">
+                                🗑️
+                            </button>
+                        </div>
                         <div class="custom-input-group">
-                            <label for="qr-logo-upload" class="file-upload-label">
-                                <i class="fas fa-upload"></i> 로고 이미지 업로드 (PNG, JPG)
+                            <label for="qr-logo-upload" class="file-upload-label" id="logo-upload-label">
+                                로고 이미지 업로드 (PNG, JPG)
                             </label>
                             <input type="file" id="qr-logo-upload" accept="image/*" style="display: none;">
                             <div class="logo-preview" id="logo-preview" style="display: none;">
                                 <img id="logo-preview-img" src="" alt="로고 미리보기">
-                                <button type="button" class="remove-logo-btn" id="remove-logo-btn">
-                                    <i class="fas fa-times"></i>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -304,9 +304,6 @@
 .qr-custom-description {
     text-align: center;
     margin-bottom: 40px;
-     
-     
-     
     padding: 30px;
     padding-top: 0;
 }
@@ -327,7 +324,7 @@
 
 .qr-custom-content {
     display: grid;
-    grid-template-columns: 1fr 600px;
+    grid-template-columns: 600px 1fr;
     gap: 30px;
     align-items: start;
 }
@@ -387,7 +384,6 @@
 .custom-form-textarea:focus {
     outline: none;
     border-color: #01FF75;
-    box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
 }
 
 .custom-form-select {
@@ -410,7 +406,6 @@
 
 .custom-form-select:focus {
     outline: none;
-    border-color: #01FF75;
     box-shadow: 0 0 0 2px rgba(1, 255, 117, 0.2);
 }
 
@@ -448,10 +443,42 @@
 }
 
  
+.logo-upload-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-upload-header h4 {
+    margin: 0;
+}
+
+.remove-logo-btn-header {
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    opacity: 0.7;
+}
+
+.remove-logo-btn-header:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+    opacity: 1;
+}
+
+.remove-logo-btn-header:active {
+    transform: scale(0.95);
+}
+
+ 
 .file-upload-label {
     display: inline-block;
-    background: #272727;
-    border: 1px dashed #666;
+    background: #141414;
+    border: 1px dashed #303030;
     border-radius: 4px;
     padding: 12px 20px;
     cursor: pointer;
@@ -464,7 +491,19 @@
 }
 
 .file-upload-label:hover {
-    background: #333;
+    background: #181818;
+    border-color: #303030;
+}
+
+ 
+.file-upload-label.drag-over {
+    background-color: rgba(1, 255, 117, 0.1);
+    border-color: #00CC5E;
+}
+
+.file-upload-label.file-selected {
+    background: rgba(1, 255, 117, 0.1);
+    color: #01FF75;
     border-color: #01FF75;
 }
 
@@ -481,23 +520,6 @@
     max-width: 100px;
     max-height: 100px;
     display: block;
-}
-
-.remove-logo-btn {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    width: 20px;
-    height: 20px;
-    background: #ff4444;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .custom-generate-button-area {
@@ -737,16 +759,14 @@ function downloadCustomQR() {
 }
 
 
-function applyColorPreset(fgColor, bgColor) {
-    document.getElementById('qr-foreground-color').value = fgColor;
-    document.getElementById('qr-background-color').value = bgColor;
-    document.getElementById('foreground-hex').value = fgColor;
-    document.getElementById('background-hex').value = bgColor;
-}
-
-
 function handleLogoUpload(file) {
     if (!file) return;
+    
+    
+    if (!file.type.startsWith('image/')) {
+        showCustomErrorToast('이미지 파일만 업로드 가능합니다.');
+        return;
+    }
     
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -755,9 +775,14 @@ function handleLogoUpload(file) {
             logoImage = img;
             const preview = document.getElementById('logo-preview');
             const previewImg = document.getElementById('logo-preview-img');
+            const uploadLabel = document.getElementById('logo-upload-label');
+            const removeBtn = document.getElementById('remove-logo-btn');
             
             previewImg.src = e.target.result;
             preview.style.display = 'inline-block';
+            uploadLabel.classList.add('file-selected');
+            uploadLabel.innerHTML = '로고가 업로드되었습니다';
+            removeBtn.style.display = 'block';
         };
         img.src = e.target.result;
     };
@@ -767,8 +792,18 @@ function handleLogoUpload(file) {
 
 function removeLogo() {
     logoImage = null;
-    document.getElementById('logo-preview').style.display = 'none';
-    document.getElementById('qr-logo-upload').value = '';
+    const preview = document.getElementById('logo-preview');
+    const uploadLabel = document.getElementById('logo-upload-label');
+    const removeBtn = document.getElementById('remove-logo-btn');
+    const fileInput = document.getElementById('qr-logo-upload');
+    
+    preview.style.display = 'none';
+    uploadLabel.classList.remove('file-selected');
+    uploadLabel.innerHTML = '로고 이미지 업로드 (PNG, JPG)';
+    removeBtn.style.display = 'none';
+    fileInput.value = '';
+    
+    showCustomErrorToast('로고가 제거되었습니다.');
 }
 
 
@@ -862,11 +897,57 @@ function showCustomDownloadSuccessToast() {
     }, 2000);
 }
 
+function showCustomErrorToast(message) {
+    const existingToast = document.querySelector('.custom-error-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'custom-error-toast';
+    toast.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #ff4444, #cc0000);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 10000;
+        animation: customErrorToastShow 0.3s ease;
+    `;
+    
+    if (!document.querySelector('#custom-error-toast-style')) {
+        const style = document.createElement('style');
+        style.id = 'custom-error-toast-style';
+        style.textContent = `
+            @keyframes customErrorToastShow {
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.style.animation = 'customErrorToastShow 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }
+    }, 3000);
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const generateBtn = document.getElementById('custom-generate-btn');
     const downloadBtn = document.getElementById('custom-download-btn');
     const logoUpload = document.getElementById('qr-logo-upload');
+    const logoUploadLabel = document.getElementById('logo-upload-label');
     const removeLogoBtn = document.getElementById('remove-logo-btn');
     
     
@@ -891,6 +972,74 @@ document.addEventListener('DOMContentLoaded', function() {
     if (removeLogoBtn) {
         removeLogoBtn.addEventListener('click', removeLogo);
     }
+    
+    
+    let dragCounter = 0;
+    
+    if (logoUploadLabel) {
+        
+        logoUploadLabel.addEventListener('dragenter', function(e) {
+            e.preventDefault();
+            dragCounter++;
+            this.classList.add('drag-over');
+            if (!logoImage) {
+                this.innerHTML = '이미지를 여기에 놓아주세요';
+            }
+        });
+
+        
+        logoUploadLabel.addEventListener('dragover', function(e) {
+            e.preventDefault();
+        });
+
+        
+        logoUploadLabel.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            dragCounter--;
+            if (dragCounter === 0) {
+                this.classList.remove('drag-over');
+                if (!logoImage) {
+                    this.innerHTML = '로고 이미지 업로드 (PNG, JPG)';
+                } else {
+                    this.innerHTML = '로고가 업로드되었습니다';
+                }
+            }
+        });
+
+        
+        logoUploadLabel.addEventListener('drop', function(e) {
+            e.preventDefault();
+            dragCounter = 0;
+            this.classList.remove('drag-over');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const file = files[0];
+                
+                
+                if (file.type.startsWith('image/')) {
+                    logoUpload.files = files;
+                    handleLogoUpload(file);
+                } else {
+                    showCustomErrorToast('이미지 파일만 업로드 가능합니다.');
+                    if (!logoImage) {
+                        this.innerHTML = '로고 이미지 업로드 (PNG, JPG)';
+                    } else {
+                        this.innerHTML = '로고가 업로드되었습니다';
+                    }
+                }
+            }
+        });
+    }
+    
+    
+    document.addEventListener('dragover', function(e) {
+        e.preventDefault();
+    }, false);
+
+    document.addEventListener('drop', function(e) {
+        e.preventDefault();
+    }, false);
     
     
     const foregroundColorPicker = document.getElementById('qr-foreground-color');
@@ -921,18 +1070,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    
-    const presetBtns = document.querySelectorAll('.preset-color-btn');
-    presetBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const fg = this.dataset.fg;
-            const bg = this.dataset.bg;
-            if (fg && bg) {
-                applyColorPreset(fg, bg);
-            }
-        });
-    });
     
     
     const input = document.getElementById('custom-qr-input');

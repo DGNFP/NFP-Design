@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
 
+
 <section class="section">
 <div class="container">
     <!-- 헤더 -->
@@ -68,7 +69,12 @@
                     
                     <!-- 파일 업로드 섹션 -->
                     <div class="pdf-compressor-upload-section">
-                        <h4>파일 업로드</h4>
+                        <div class="pdf-compressor-upload-header">
+                            <h4>파일 업로드</h4>
+                            <button id="removeFileBtn" class="pdf-compressor-remove-btn" style="display: none;" title="파일 제거">
+                                삭제
+                            </button>
+                        </div>
                         <div class="pdf-compressor-file-input">
                             <input id="pdfFile" type="file" accept="application/pdf">
                             <label for="pdfFile" class="pdf-compressor-file-label" id="fileLabel">
@@ -212,6 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const compressBtn = document.getElementById('pdfCompressBtn');
     const btnText = document.getElementById('btnText');
     const btnSpinner = document.getElementById('btnSpinner');
+    const removeFileBtn = document.getElementById('removeFileBtn');
     
     // 결과 패널
     const resultWaiting = document.getElementById('resultWaiting');
@@ -253,13 +260,102 @@ document.addEventListener('DOMContentLoaded', function() {
             fileSubtext.textContent = `파일 크기: ${formatFileSize(file.size)}`;
             fileLabel.classList.add('file-selected');
             compressBtn.disabled = false;
+            removeFileBtn.style.display = 'block';
         } else {
-            fileText.textContent = 'PDF 파일을 선택하세요';
-            fileSubtext.textContent = '클릭하거나 파일을 드래그해서 업로드';
-            fileLabel.classList.remove('file-selected');
-            compressBtn.disabled = true;
+            resetFileUpload();
         }
     });
+
+    // 파일 제거 버튼 클릭
+    removeFileBtn.addEventListener('click', function() {
+        fileInput.value = '';
+        resetFileUpload();
+        showToast('파일이 제거되었습니다.');
+    });
+
+    // 파일 업로드 상태 초기화 함수
+    function resetFileUpload() {
+        fileText.textContent = 'PDF 파일을 선택하세요';
+        fileSubtext.textContent = '클릭하거나 파일을 드래그해서 업로드';
+        fileLabel.classList.remove('file-selected');
+        compressBtn.disabled = true;
+        removeFileBtn.style.display = 'none';
+        
+        // 결과 패널도 초기화
+        resultProgress.style.display = 'none';
+        resultComplete.style.display = 'none';
+        resultWaiting.style.display = 'flex';
+        compressedPdfDoc = null;
+    }
+
+    // 드래그앤드롭 이벤트 리스너 추가
+    let dragCounter = 0;
+
+    // 드래그 진입
+    fileLabel.addEventListener('dragenter', function(e) {
+        e.preventDefault();
+        dragCounter++;
+        this.classList.add('drag-over');
+        fileText.textContent = 'PDF 파일을 놓아주세요';
+        fileSubtext.textContent = '파일을 여기에 드롭하세요';
+    });
+
+    // 드래그 오버
+    fileLabel.addEventListener('dragover', function(e) {
+        e.preventDefault();
+    });
+
+    // 드래그 떠남
+    fileLabel.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        dragCounter--;
+        if (dragCounter === 0) {
+            this.classList.remove('drag-over');
+            const currentFile = fileInput.files[0];
+            if (!currentFile) {
+                fileText.textContent = 'PDF 파일을 선택하세요';
+                fileSubtext.textContent = '클릭하거나 파일을 드래그해서 업로드';
+            } else {
+                fileText.textContent = currentFile.name;
+                fileSubtext.textContent = `파일 크기: ${formatFileSize(currentFile.size)}`;
+            }
+        }
+    });
+
+    // 파일 드롭
+    fileLabel.addEventListener('drop', function(e) {
+        e.preventDefault();
+        dragCounter = 0;
+        this.classList.remove('drag-over');
+        
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            const file = files[0];
+            
+            // PDF 파일인지 확인
+            if (file.type === 'application/pdf') {
+                fileInput.files = files;
+                fileText.textContent = file.name;
+                fileSubtext.textContent = `파일 크기: ${formatFileSize(file.size)}`;
+                fileLabel.classList.add('file-selected');
+                compressBtn.disabled = false;
+                removeFileBtn.style.display = 'block';
+            } else {
+                showToast('PDF 파일만 업로드 가능합니다.');
+                fileText.textContent = 'PDF 파일을 선택하세요';
+                fileSubtext.textContent = '클릭하거나 파일을 드래그해서 업로드';
+            }
+        }
+    });
+
+    // 전체 페이지에서 드래그앤드롭 방지 (기본 브라우저 동작 방지)
+    document.addEventListener('dragover', function(e) {
+        e.preventDefault();
+    }, false);
+
+    document.addEventListener('drop', function(e) {
+        e.preventDefault();
+    }, false);
 
     // 압축 실행
     compressBtn.addEventListener('click', async function() {
