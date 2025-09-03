@@ -358,15 +358,15 @@ async function generateChartHTML() {
 // 기본 버튼 설정
 const defaultButtons = [
     {
-        id: 'news-btn',
-        href: '/news',
-        icon: '<i class="fas fa-bullhorn"></i>',
-        text: '소식'
+        id: 'blog-btn',
+        href: '/games',
+        icon: '<i class="fas fa-gamepad"></i>',
+        text: '게임 블로그'
     },
     {
         id: 'studio-btn',
         href: '/studio/',  
-        icon: '<i class="fas fa-paint-brush"></i>',  
+        icon: '<i class="fas fa-edit"></i>',  
         text: '스튜디오'
     },
     {
@@ -441,13 +441,13 @@ const defaultButtons = [
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         z-index: 999;
     }
 
     .floating-btn {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         background-color: transparent;
         border-radius: 50%;
         display: flex;

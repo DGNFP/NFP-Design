@@ -12,39 +12,59 @@
     </div>
 
 
-<!-- 버튼 컨테이너, 홈버튼 -->
-<div class="home-btn-wrapper">
-<a href="{{ "/studio" | relURL }}" class="sub-page-btn-home">스튜디오 홈</a>
+<!-- 스튜디오 홈 버튼 -->
+<div class="studio-home-section">
+    <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
+        <div class="home-icon">
+            <i class="fas fa-home"></i>
+            <div class="home-pulse"></div>
+        </div>
+        <div class="home-content">
+            <span class="home-title">스튜디오<span> NFP</span> 홈</span>
+            <span class="home-subtitle">작업을 위한 전문 도구 모음</span>
+        </div>
+        <div class="home-arrow">
+            <i class="fas fa-star"></i>
+        </div>
+    </div>
 </div>
+
 <!-- 서브 버튼들 -->
 <div class="sub-page-btn-wrapper">
-<a href="{{ "/studio/web-demo" | relURL }}" class="sub-page-btn-active">웹 데모 뷰어</a>
+<!-- 1행 (메인/인기 도구) -->
+<a href="{{ "/studio/web-demo" | relURL }}" class="sub-page-btn">웹 데모 뷰어</a>
 <a href="{{ "/studio/text-counter" | relURL }}" class="sub-page-btn">텍스트 카운터</a>
+<a href="{{ "/studio/color-mixer" | relURL }}" class="sub-page-btn">컬러 조합기</a>
+<a href="{{ "/studio/qr-basic" | relURL }}" class="sub-page-btn">QR코드 생성기</a>
+<a href="{{ "/studio/image-compressor" | relURL }}" class="sub-page-btn">이미지 압축기</a>
+<!-- 2행 (텍스트/변환 도구) -->
 <a href="{{ "/studio/text-tools" | relURL }}" class="sub-page-btn">더미 텍스트 생성기</a>
 <a href="{{ "/studio/unit-converter" | relURL }}" class="sub-page-btn">단위 변환기</a>
 <a href="{{ "/studio/font-converter" | relURL }}" class="sub-page-btn">폰트 변환기</a>
-<a href="{{ "/studio/size-calculator" | relURL }}" class="sub-page-btn">사이즈 계산기</a>
-<a href="{{ "/studio/color-mixer" | relURL }}" class="sub-page-btn">컬러 조합기</a>
-<a href="{{ "/studio/color-palette-5" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="{{ "/studio/color-palette-random" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
-<a href="{{ "/studio/qr-basic" | relURL }}" class="sub-page-btn">QR코드 생성기</a>
-<a href="{{ "/studio/qr-custom" | relURL }}" class="sub-page-btn">커스텀 QR코드 생성기</a>
-<a href="{{ "/studio/format-converter" | relURL }}" class="sub-page-btn">이미지 포맷 변환</a>
-<a href="{{ "/studio/image-compressor" | relURL }}" class="sub-page-btn">이미지 압축기</a>
-<a href="{{ "/studio/image-resizer" | relURL }}" class="sub-page-btn">이미지 크기 조절</a>
-<a href="{{ "/studio/image-cropper" | relURL }}" class="sub-page-btn">이미지 자르기</a>
 <a href="{{ "/studio/url-encoder" | relURL }}" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="{{ "/studio/base64" | relURL }}" class="sub-page-btn">base64 인코딩/디코딩</a>
+<!-- 3행 (컬러/팔레트 도구) -->
+<a href="{{ "/studio/color-palette-5" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
+<a href="{{ "/studio/color-palette-random" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
 <a href="{{ "/studio/color-extractor" | relURL }}" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="{{ "/studio/gradient-2" | relURL }}" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="{{ "/studio/gradient-3" | relURL }}" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
-<a href="{{ "/studio/watermark" | relURL }}" class="sub-page-btn">워터마크 생성기</a>
-<a href="{{ "/studio/pdf-compressor" | relURL }}" class="sub-page-btn">PDF 압축기</a>
 <a href="{{ "/studio/single-card" | relURL }}" class="sub-page-btn">단색 컬러 카드</a>
 <a href="{{ "/studio/gradient-card/" | relURL }}" class="sub-page-btn">그라데이션 컬러 카드</a>
+<!-- 4행 (이미지 처리) -->
+<a href="{{ "/studio/format-converter" | relURL }}" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="{{ "/studio/image-resizer" | relURL }}" class="sub-page-btn">이미지 크기 조절</a>
+<a href="{{ "/studio/image-cropper" | relURL }}" class="sub-page-btn">이미지 자르기</a>
+<a href="{{ "/studio/watermark" | relURL }}" class="sub-page-btn">워터마크 생성기</a>
+<a href="{{ "/studio/qr-custom" | relURL }}" class="sub-page-btn">커스텀 QR코드 생성기</a>
+<!-- 5행 (고급/기타) -->
+<a href="{{ "/studio/gradient-2" | relURL }}" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
+<a href="{{ "/studio/gradient-3" | relURL }}" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+<a href="{{ "/studio/size-calculator" | relURL }}" class="sub-page-btn">사이즈 계산기</a>
+<a href="{{ "/studio/pdf-compressor" | relURL }}" class="sub-page-btn">PDF 압축기</a>
 <a href="{{ "/studio/fortune" | relURL }}" class="sub-page-btn">오늘의 운세</a>
-<!-- 디자인 팁 게시판으로 이동 -->
-<!-- <a href="{{ "/studio/design-guide/" | relURL }}" class="sub-page-btn">디자인 가이드</a> -->
+<!-- 빼먹은거 -->
+ <a href="{{ "/studio/grid" | relURL }}" class="sub-page-btn">그리드 계산기</a>
+
+
 </div>
 <!-- 버튼 컨테이너 닫힘 -->
 
