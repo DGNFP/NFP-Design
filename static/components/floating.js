@@ -437,7 +437,7 @@ const defaultButtons = [
     .floating-buttons {
         position: fixed;
         right: 30px;
-        top: 40%;
+        top: 60%;
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;

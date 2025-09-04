@@ -1,7 +1,7 @@
 ---
 title: "그리드 계산기 - Studio NFP"
 description: "웹 레이아웃 그리드 시스템을 설계하고 시각화하는 도구입니다."
-layout: "grid"
+layout: "grid-calculator"
 tool_type: "grid"
 studio_category: "계산·변환기"
 keywords: ["그리드 계산", "웹 그리드", "레이아웃 그리드", "CSS 그리드", "컬럼 계산", "웹 디자인", "반응형 그리드"]

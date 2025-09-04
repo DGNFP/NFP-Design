@@ -1,0 +1,350 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">로또 번호 생성기</span>
+        <p><br>행운의 로또 번호를 생성하고 통계를 확인해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 컨텐츠 -->
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>로또 번호 생성기</h3>
+                <p>1부터 45까지 숫자 중에서 6개의 번호를 자동으로 생성합니다.<br>
+                다양한 생성 방식과 게임 수를 선택하여 행운의 번호를 찾아보세요.</p>
+                <div class="supported-formats">
+                    <small>1등 당첨 확률 •  1/8,145,060</small>
+                </div>
+            </div>
+
+            <!-- 로또 생성기 컨테이너 -->
+            <div class="lotto-container">
+                <!-- 생성 옵션 카드 -->
+                <div class="lotto-generator-card">
+                    <div class="lotto-card-title">번호 생성 옵션</div>
+                    
+                    <div class="lotto-options">
+                        <div class="lotto-option-group">
+                            <label class="lotto-label">생성 방식</label>
+                            <select class="lotto-select" id="generationType">
+                                <option value="random">완전 랜덤</option>
+                                <option value="balanced">균형잡힌 조합</option>
+                                <option value="hot">인기 번호 위주</option>
+                                <option value="cold">소외 번호 위주</option>
+                            </select>
+                        </div>
+                        
+                        <div class="lotto-option-group">
+                            <label class="lotto-label">게임 수</label>
+                            <select class="lotto-select" id="gameCount">
+                                <option value="1">1게임</option>
+                                <option value="3">3게임</option>
+                                <option value="5" selected>5게임</option>
+                                <option value="10">10게임</option>
+                            </select>
+                        </div>
+                        
+                        <div class="lotto-option-group">
+                            <label class="lotto-label">보너스 번호</label>
+                            <select class="lotto-select" id="bonusOption">
+                                <option value="true" selected>포함</option>
+                                <option value="false">제외</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="lotto-generate-btn" onclick="generateLotto()">
+                    행운의 번호 생성하기
+                    </button>
+                </div>
+
+                <!-- 결과 영역 -->
+                <div class="lotto-results-section" id="lottoResults">
+                    <!-- 생성된 결과들이 여기에 표시됩니다 -->
+                </div>
+
+                <!-- 통계 영역 -->
+                <div class="lotto-statistics" id="lottoStats" style="display: none;">
+                    <div class="lotto-stats-title">생성 통계</div>
+                    <div class="lotto-stats-grid">
+                        <div class="lotto-stat-item">
+                            <div class="lotto-stat-value" id="totalGames">0</div>
+                            <div class="lotto-stat-label">총 게임 수</div>
+                        </div>
+                        <div class="lotto-stat-item">
+                            <div class="lotto-stat-value" id="mostFrequent">-</div>
+                            <div class="lotto-stat-label">최다 출현 번호</div>
+                        </div>
+                        <div class="lotto-stat-item">
+                            <div class="lotto-stat-value" id="averageSum">0</div>
+                            <div class="lotto-stat-label">평균 번호 합</div>
+                        </div>
+                        <div class="lotto-stat-item">
+                            <div class="lotto-stat-value" id="evenOddRatio">0:0</div>
+                            <div class="lotto-stat-label">홀짝 비율</div>
+                        </div>
+                    </div>
+                    <button class="lotto-clear-btn" onclick="clearResults()">결과 지우기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+let allGeneratedNumbers = [];
+let numberFrequency = {};
+
+// 인기 번호와 소외 번호 (실제 로또 통계 기반)
+const hotNumbers = [1, 2, 3, 7, 17, 23, 29, 34, 40, 43, 44, 45];
+const coldNumbers = [4, 5, 11, 14, 18, 21, 25, 31, 35, 39, 41, 42];
+
+// 로또 번호 생성 함수
+function generateRandomNumbers(count = 6, min = 1, max = 45) {
+    const numbers = [];
+    while (numbers.length < count) {
+        const num = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (!numbers.includes(num)) {
+            numbers.push(num);
+        }
+    }
+    return numbers.sort((a, b) => a - b);
+}
+
+// 균형잡힌 조합 생성
+function generateBalancedNumbers() {
+    const numbers = [];
+    const ranges = [
+        { min: 1, max: 9, count: 1 },   // 1-9 범위에서 1개
+        { min: 10, max: 19, count: 1 }, // 10-19 범위에서 1개
+        { min: 20, max: 29, count: 2 }, // 20-29 범위에서 2개
+        { min: 30, max: 39, count: 1 }, // 30-39 범위에서 1개
+        { min: 40, max: 45, count: 1 }  // 40-45 범위에서 1개
+    ];
+    
+    ranges.forEach(range => {
+        const rangeNumbers = generateRandomNumbers(range.count, range.min, range.max);
+        numbers.push(...rangeNumbers);
+    });
+    
+    return numbers.sort((a, b) => a - b);
+}
+
+// 인기 번호 위주 생성
+function generateHotNumbers() {
+    const numbers = [];
+    // 70% 확률로 인기 번호에서 선택
+    for (let i = 0; i < 6; i++) {
+        let num;
+        if (Math.random() < 0.7 && hotNumbers.length > 0) {
+            // 인기 번호에서 선택
+            const availableHot = hotNumbers.filter(n => !numbers.includes(n));
+            if (availableHot.length > 0) {
+                num = availableHot[Math.floor(Math.random() * availableHot.length)];
+            } else {
+                num = generateRandomNumbers(1, 1, 45)[0];
+                while (numbers.includes(num)) {
+                    num = generateRandomNumbers(1, 1, 45)[0];
+                }
+            }
+        } else {
+            // 일반 랜덤
+            num = generateRandomNumbers(1, 1, 45)[0];
+            while (numbers.includes(num)) {
+                num = generateRandomNumbers(1, 1, 45)[0];
+            }
+        }
+        numbers.push(num);
+    }
+    return numbers.sort((a, b) => a - b);
+}
+
+// 소외 번호 위주 생성
+function generateColdNumbers() {
+    const numbers = [];
+    // 70% 확률로 소외 번호에서 선택
+    for (let i = 0; i < 6; i++) {
+        let num;
+        if (Math.random() < 0.7 && coldNumbers.length > 0) {
+            // 소외 번호에서 선택
+            const availableCold = coldNumbers.filter(n => !numbers.includes(n));
+            if (availableCold.length > 0) {
+                num = availableCold[Math.floor(Math.random() * availableCold.length)];
+            } else {
+                num = generateRandomNumbers(1, 1, 45)[0];
+                while (numbers.includes(num)) {
+                    num = generateRandomNumbers(1, 1, 45)[0];
+                }
+            }
+        } else {
+            // 일반 랜덤
+            num = generateRandomNumbers(1, 1, 45)[0];
+            while (numbers.includes(num)) {
+                num = generateRandomNumbers(1, 1, 45)[0];
+            }
+        }
+        numbers.push(num);
+    }
+    return numbers.sort((a, b) => a - b);
+}
+
+// 메인 생성 함수
+function generateLotto() {
+    const generateBtn = document.querySelector('.lotto-generate-btn');
+    const generationType = document.getElementById('generationType').value;
+    const gameCount = parseInt(document.getElementById('gameCount').value);
+    const includeBonusOption = document.getElementById('bonusOption').value === 'true';
+    
+    // 버튼 애니메이션
+    generateBtn.classList.add('generating');
+    setTimeout(() => {
+        generateBtn.classList.remove('generating');
+    }, 1000);
+    
+    const results = [];
+    
+    for (let i = 0; i < gameCount; i++) {
+        let numbers;
+        
+        switch (generationType) {
+            case 'balanced':
+                numbers = generateBalancedNumbers();
+                break;
+            case 'hot':
+                numbers = generateHotNumbers();
+                break;
+            case 'cold':
+                numbers = generateColdNumbers();
+                break;
+            default:
+                numbers = generateRandomNumbers(6, 1, 45);
+        }
+        
+        let bonusNumber = null;
+        if (includeBonusOption) {
+            do {
+                bonusNumber = Math.floor(Math.random() * 45) + 1;
+            } while (numbers.includes(bonusNumber));
+        }
+        
+        results.push({ numbers, bonus: bonusNumber });
+        
+        // 통계용 데이터 저장
+        allGeneratedNumbers.push(...numbers);
+        if (bonusNumber) allGeneratedNumbers.push(bonusNumber);
+        
+        numbers.forEach(num => {
+            numberFrequency[num] = (numberFrequency[num] || 0) + 1;
+        });
+        if (bonusNumber) {
+            numberFrequency[bonusNumber] = (numberFrequency[bonusNumber] || 0) + 1;
+        }
+    }
+    
+    displayResults(results, generationType);
+    updateStatistics();
+}
+
+// 결과 표시
+function displayResults(results, type) {
+    const resultsSection = document.getElementById('lottoResults');
+    
+    const typeNames = {
+        'random': '완전 랜덤',
+        'balanced': '균형잡힌 조합',
+        'hot': '인기 번호 위주',
+        'cold': '소외 번호 위주'
+    };
+    
+    const resultHTML = `
+        <div class="lotto-result-group new-result">
+            <div class="lotto-result-title">${typeNames[type]} - ${results.length}게임</div>
+            ${results.map((result, index) => `
+                <div style="margin-bottom: 20px;">
+                    <div class="lotto-numbers">
+                        ${result.numbers.map(num => `<div class="lotto-number">${num}</div>`).join('')}
+                        ${result.bonus ? `<div class="lotto-number bonus">${result.bonus}</div>` : ''}
+                    </div>
+                    <div class="lotto-info">
+                        게임 ${index + 1} | 합계: ${result.numbers.reduce((a, b) => a + b, 0)}
+                        ${result.bonus ? ` | 보너스: ${result.bonus}` : ''}
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    
+    resultsSection.insertAdjacentHTML('afterbegin', resultHTML);
+}
+
+// 통계 업데이트
+function updateStatistics() {
+    const statsDiv = document.getElementById('lottoStats');
+    const totalGames = Math.floor(allGeneratedNumbers.length / 6);
+    
+    if (totalGames > 0) {
+        statsDiv.style.display = 'block';
+        
+        // 최다 출현 번호
+        let mostFrequent = null;
+        let maxCount = 0;
+        for (const [num, count] of Object.entries(numberFrequency)) {
+            if (count > maxCount) {
+                maxCount = count;
+                mostFrequent = num;
+            }
+        }
+        
+        // 평균 합
+        const chunks = [];
+        for (let i = 0; i < allGeneratedNumbers.length; i += 6) {
+            chunks.push(allGeneratedNumbers.slice(i, i + 6));
+        }
+        const averageSum = Math.round(chunks.reduce((acc, chunk) => 
+            acc + chunk.reduce((a, b) => a + b, 0), 0) / chunks.length);
+        
+        // 홀짝 비율
+        const oddCount = allGeneratedNumbers.filter(n => n % 2 === 1).length;
+        const evenCount = allGeneratedNumbers.length - oddCount;
+        
+        document.getElementById('totalGames').textContent = totalGames;
+        document.getElementById('mostFrequent').textContent = mostFrequent || '-';
+        document.getElementById('averageSum').textContent = averageSum || 0;
+        document.getElementById('evenOddRatio').textContent = `${oddCount}:${evenCount}`;
+    }
+}
+
+// 결과 지우기
+function clearResults() {
+    document.getElementById('lottoResults').innerHTML = '';
+    document.getElementById('lottoStats').style.display = 'none';
+    allGeneratedNumbers = [];
+    numberFrequency = {};
+}
+
+// 페이지 로드 시 초기 설정
+document.addEventListener('DOMContentLoaded', function() {
+    // 기본값 설정만 하고 자동 생성은 하지 않음
+    document.getElementById('gameCount').value = '5';
+    document.getElementById('generationType').value = 'random';
+    document.getElementById('bonusOption').value = 'true';
+});
+</script>
+
+{{ end }}

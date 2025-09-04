@@ -1,0 +1,356 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">날짜 계산기</span>
+        <p><br>각종 날짜 계산을 쉽고 빠르게 해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>날짜 계산기</h3>
+                <p>두 날짜 사이의 기간 계산, D-day 계산, 날짜 더하기/빼기 등<br>
+                다양한 날짜 관련 계산을 한 번에 처리할 수 있습니다.</p>
+                <div class="supported-formats">
+                    <small>년, 월, 일, 시간 단위로 정확한 계산 결과 제공</small>
+                </div>
+            </div>
+
+            <!-- 날짜 계산기 컨테이너 -->
+            <div class="date-calc-container">
+                <div class="date-calc-grid">
+                    <!-- 기간 계산 카드 -->
+                    <div class="date-calc-card">
+                        <div class="date-calc-card-title">기간 계산</div>
+                        <div class="date-calc-row">
+                            <div class="date-calc-col">
+                                <div class="date-calc-input-group">
+                                    <label class="date-calc-label">시작 날짜</label>
+                                    <input type="date" class="date-calc-input" id="startDate">
+                                    <div class="date-calc-error" id="startDateError">올바른 날짜를 입력해주세요</div>
+                                </div>
+                            </div>
+                            <div class="date-calc-col">
+                                <div class="date-calc-input-group">
+                                    <label class="date-calc-label">종료 날짜</label>
+                                    <input type="date" class="date-calc-input" id="endDate">
+                                    <div class="date-calc-error" id="endDateError">올바른 날짜를 입력해주세요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="date-calc-button" onclick="calculatePeriod()">기간 계산하기</button>
+                        <div class="date-calc-result" id="periodResult">
+                            <div class="date-calc-result-text">날짜를 선택하고<br>계산 버튼을 눌러주세요</div>
+                        </div>
+                    </div>
+
+                    <!-- D-day 계산 카드 -->
+                    <div class="date-calc-card">
+                        <div class="date-calc-card-title">D-day 계산</div>
+                        <div class="date-calc-input-group">
+                            <label class="date-calc-label">목표 날짜</label>
+                            <input type="date" class="date-calc-input" id="targetDate">
+                            <div class="date-calc-error" id="targetDateError">올바른 날짜를 입력해주세요</div>
+                        </div>
+                        <button class="date-calc-button" onclick="calculateDday()">D-day 계산하기</button>
+                        <div class="date-calc-result" id="ddayResult">
+                            <div class="date-calc-result-text">목표 날짜를 선택하고<br>계산 버튼을 눌러주세요</div>
+                        </div>
+                    </div>
+
+                    <!-- 날짜 더하기/빼기 카드 -->
+                    <div class="date-calc-card">
+                        <div class="date-calc-card-title">
+                            날짜 더하기/빼기
+                        </div>
+                        <div class="date-calc-input-group">
+                            <label class="date-calc-label">기준 날짜</label>
+                            <input type="date" class="date-calc-input" id="baseDate">
+                            <div class="date-calc-error" id="baseDateError">올바른 날짜를 입력해주세요</div>
+                        </div>
+                        <div class="date-calc-add-controls">
+                            <input type="number" class="date-calc-number-input" id="addNumber" value="1" min="1" max="9999">
+                            <select class="date-calc-select" id="addUnit">
+                                <option value="days">일</option>
+                                <option value="weeks">주</option>
+                                <option value="months">개월</option>
+                                <option value="years">년</option>
+                            </select>
+
+                              <div style="display: flex; gap: 8px;">
+                            <button class="date-calc-small-button" onclick="addToDate()">+</button>
+                            <button class="date-calc-small-button" onclick="subtractFromDate()">-</button>
+                        </div>
+
+                        </div>
+                      
+                        <div class="date-calc-result" id="addResult">
+                            <div class="date-calc-result-text">기준 날짜를 선택하고<br>계산 버튼을 눌러주세요</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+// 날짜 유효성 검사 함수
+function isValidDate(dateString) {
+    if (!dateString) return false;
+    
+    const date = new Date(dateString);
+    const originalDate = dateString.split('-');
+    
+    // 날짜 객체가 유효하고, 입력한 날짜와 일치하는지 확인
+    return date instanceof Date && 
+           !isNaN(date) && 
+           date.getFullYear() == originalDate[0] &&
+           (date.getMonth() + 1) == originalDate[1] &&
+           date.getDate() == originalDate[2];
+}
+
+// 입력 필드 검증 및 스타일 적용
+function validateInput(inputId, errorId) {
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    const value = input.value;
+    
+    if (!value) {
+        input.classList.remove('valid', 'invalid');
+        error.style.display = 'none';
+        return true; // 빈 값은 에러로 처리하지 않음
+    }
+    
+    if (isValidDate(value)) {
+        input.classList.remove('invalid');
+        input.classList.add('valid');
+        error.style.display = 'none';
+        return true;
+    } else {
+        input.classList.remove('valid');
+        input.classList.add('invalid');
+        error.style.display = 'block';
+        return false;
+    }
+}
+
+// 결과 표시 애니메이션
+function showResult(resultId, content) {
+    const resultDiv = document.getElementById(resultId);
+    resultDiv.innerHTML = content;
+    resultDiv.classList.add('updated');
+    setTimeout(() => {
+        resultDiv.classList.remove('updated');
+    }, 500);
+}
+
+// 오늘 날짜로 기본값 설정
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('baseDate').value = today;
+    document.getElementById('targetDate').value = today;
+    
+    // 입력 필드에 실시간 검증 추가
+    const inputs = ['startDate', 'endDate', 'targetDate', 'baseDate'];
+    inputs.forEach(inputId => {
+        const input = document.getElementById(inputId);
+        const errorId = inputId + 'Error';
+        
+        input.addEventListener('input', () => validateInput(inputId, errorId));
+        input.addEventListener('blur', () => validateInput(inputId, errorId));
+    });
+});
+
+// 기간 계산
+function calculatePeriod() {
+    const startValid = validateInput('startDate', 'startDateError');
+    const endValid = validateInput('endDate', 'endDateError');
+    
+    if (!startValid || !endValid) {
+        showResult('periodResult', '<div class="date-calc-result-text">올바른 날짜를 입력해주세요</div>');
+        return;
+    }
+    
+    const startDate = new Date(document.getElementById('startDate').value);
+    const endDate = new Date(document.getElementById('endDate').value);
+    
+    if (!document.getElementById('startDate').value || !document.getElementById('endDate').value) {
+        showResult('periodResult', '<div class="date-calc-result-text">시작 날짜와 종료 날짜를 모두 선택해주세요</div>');
+        return;
+    }
+    
+    if (startDate > endDate) {
+        showResult('periodResult', '<div class="date-calc-result-text">시작 날짜가 종료 날짜보다 늦습니다</div>');
+        return;
+    }
+    
+    const diffTime = Math.abs(endDate - startDate);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const diffWeeks = Math.floor(diffDays / 7);
+    const diffMonths = Math.floor(diffDays / 30.44);
+    const diffYears = Math.floor(diffDays / 365.25);
+    
+    let result = `<div class="date-calc-result-text">`;
+    result += `<span class="date-calc-result-highlight">${diffDays}일</span><br>`;
+    if (diffWeeks > 0) result += `${diffWeeks}주 ${diffDays % 7}일<br>`;
+    if (diffMonths > 0) result += `약 ${diffMonths}개월<br>`;
+    if (diffYears > 0) result += `약 ${diffYears}년`;
+    result += `</div>`;
+    
+    showResult('periodResult', result);
+}
+
+// D-day 계산
+function calculateDday() {
+    const targetValid = validateInput('targetDate', 'targetDateError');
+    
+    if (!targetValid) {
+        showResult('ddayResult', '<div class="date-calc-result-text">올바른 날짜를 입력해주세요</div>');
+        return;
+    }
+    
+    const today = new Date();
+    const targetDate = new Date(document.getElementById('targetDate').value);
+    
+    if (!document.getElementById('targetDate').value) {
+        showResult('ddayResult', '<div class="date-calc-result-text">목표 날짜를 선택해주세요</div>');
+        return;
+    }
+    
+    today.setHours(0, 0, 0, 0);
+    targetDate.setHours(0, 0, 0, 0);
+    
+    const diffTime = targetDate - today;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    let result = `<div class="date-calc-result-text">`;
+    if (diffDays > 0) {
+        result += `<span class="date-calc-result-highlight">D-${diffDays}</span><br>${diffDays}일 남았습니다`;
+    } else if (diffDays < 0) {
+        result += `<span class="date-calc-result-highlight">D+${Math.abs(diffDays)}</span><br>${Math.abs(diffDays)}일 지났습니다`;
+    } else {
+        result += `<span class="date-calc-result-highlight">D-DAY</span><br>오늘이 그 날입니다!`;
+    }
+    result += `</div>`;
+    
+    showResult('ddayResult', result);
+}
+
+// 날짜 더하기
+function addToDate() {
+    const baseValid = validateInput('baseDate', 'baseDateError');
+    
+    if (!baseValid) {
+        showResult('addResult', '<div class="date-calc-result-text">올바른 날짜를 입력해주세요</div>');
+        return;
+    }
+    
+    const baseDate = new Date(document.getElementById('baseDate').value);
+    const number = parseInt(document.getElementById('addNumber').value);
+    const unit = document.getElementById('addUnit').value;
+    
+    if (!document.getElementById('baseDate').value) {
+        showResult('addResult', '<div class="date-calc-result-text">기준 날짜를 선택해주세요</div>');
+        return;
+    }
+    
+    if (number <= 0 || number > 9999) {
+        showResult('addResult', '<div class="date-calc-result-text">1~9999 사이의 숫자를 입력해주세요</div>');
+        return;
+    }
+    
+    const resultDate = new Date(baseDate);
+    
+    try {
+        switch(unit) {
+            case 'days':
+                resultDate.setDate(resultDate.getDate() + number);
+                break;
+            case 'weeks':
+                resultDate.setDate(resultDate.getDate() + (number * 7));
+                break;
+            case 'months':
+                resultDate.setMonth(resultDate.getMonth() + number);
+                break;
+            case 'years':
+                resultDate.setFullYear(resultDate.getFullYear() + number);
+                break;
+        }
+        
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        const formattedDate = resultDate.toLocaleDateString('ko-KR', options);
+        
+        showResult('addResult', `<div class="date-calc-result-text"><span class="date-calc-result-highlight">${formattedDate}</span></div>`);
+    } catch (error) {
+        showResult('addResult', '<div class="date-calc-result-text">계산 중 오류가 발생했습니다</div>');
+    }
+}
+
+// 날짜 빼기
+function subtractFromDate() {
+    const baseValid = validateInput('baseDate', 'baseDateError');
+    
+    if (!baseValid) {
+        showResult('addResult', '<div class="date-calc-result-text">올바른 날짜를 입력해주세요</div>');
+        return;
+    }
+    
+    const baseDate = new Date(document.getElementById('baseDate').value);
+    const number = parseInt(document.getElementById('addNumber').value);
+    const unit = document.getElementById('addUnit').value;
+    
+    if (!document.getElementById('baseDate').value) {
+        showResult('addResult', '<div class="date-calc-result-text">기준 날짜를 선택해주세요</div>');
+        return;
+    }
+    
+    if (number <= 0 || number > 9999) {
+        showResult('addResult', '<div class="date-calc-result-text">1~9999 사이의 숫자를 입력해주세요</div>');
+        return;
+    }
+    
+    const resultDate = new Date(baseDate);
+    
+    try {
+        switch(unit) {
+            case 'days':
+                resultDate.setDate(resultDate.getDate() - number);
+                break;
+            case 'weeks':
+                resultDate.setDate(resultDate.getDate() - (number * 7));
+                break;
+            case 'months':
+                resultDate.setMonth(resultDate.getMonth() - number);
+                break;
+            case 'years':
+                resultDate.setFullYear(resultDate.getFullYear() - number);
+                break;
+        }
+        
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        const formattedDate = resultDate.toLocaleDateString('ko-KR', options);
+        
+        showResult('addResult', `<div class="date-calc-result-text"><span class="date-calc-result-highlight">${formattedDate}</span></div>`);
+    } catch (error) {
+        showResult('addResult', '<div class="date-calc-result-text">계산 중 오류가 발생했습니다</div>');
+    }
+}
+</script>
+
+{{ end }}

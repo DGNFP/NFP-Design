@@ -1140,7 +1140,7 @@ function waitForFirebase() {
 }
 
 
-const postId = window.location.pathname
+const postId = decodeURIComponent(window.location.pathname)
     .replace(/\//g, '-')
     .replace(/^-|-$/g, '')
     .replace(/--+/g, '-');

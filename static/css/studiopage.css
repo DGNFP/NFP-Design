@@ -10248,6 +10248,513 @@ flex-direction: column;
     }
 }
 
+/* 날짜 계산기 페이지 */
+/* 날짜 계산기 전용 스타일 */
+.date-calc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.date-calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.date-calc-card {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 20px 30px;
+    transition: all 0.3s ease;
+}
+
+.date-calc-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.1);
+}
+
+.date-calc-card-title {
+    color: var(--accent-color);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.date-calc-input-group {
+    margin-bottom: 20px;
+}
+
+.date-calc-label {
+    display: block;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.date-calc-input {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.date-calc-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.date-calc-input:hover {
+    border-color: #444;
+}
+
+/* 달력 아이콘 스타일링 */
+.date-calc-input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 2px;
+}
+
+.date-calc-input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    background-color: var(--accent-color-hover);
+}
+
+/* Firefox용 달력 아이콘 */
+.date-calc-input[type="date"]::-moz-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.date-calc-button {
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.date-calc-button:hover {
+    background: #00e066;
+    transform: translateY(-2px);
+}
+
+.date-calc-result {
+    background: #1a1a1a;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.date-calc-result.updated {
+    animation: resultUpdate 0.5s ease;
+}
+
+@keyframes resultUpdate {
+    0% { transform: scale(0.95); opacity: 0.7; }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.date-calc-result-text {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.date-calc-result-highlight {
+    color: var(--accent-color);
+    font-size: 20px;
+}
+
+.date-calc-error {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.date-calc-row {
+    display: flex;
+    gap: 15px;
+    align-items: end;
+}
+
+.date-calc-col {
+    flex: 1;
+}
+
+.date-calc-add-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.date-calc-number-input {
+    width: 80px;
+    padding: 8px;
+    background: #1a1a1a;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.date-calc-number-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.date-calc-select {
+    padding: 8px;
+    background: #1a1a1a;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.date-calc-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.date-calc-small-button {
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    padding: 10px 26px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.date-calc-small-button:hover {
+    background: #00e066;
+}
+
+/* 로또 번호 생성기 페이지 */
+/* 로또 번호 생성기 전용 스타일 */
+.lotto-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lotto-generator-card {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 30px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.lotto-generator-card:hover {
+    border-color: var(--accent-color);
+}
+
+.lotto-card-title {
+    color: var(--accent-color);
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.lotto-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.lotto-option-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.lotto-label {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.lotto-select {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #272727;
+    border-radius: 4px;
+    padding: 12px;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    appearance: none;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.lotto-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.lotto-select:hover {
+    border-color: #444;
+}
+
+.lotto-generate-btn {
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lotto-generate-btn:hover {
+    background: #00e066;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(1, 255, 117, 0.3);
+}
+
+.lotto-results-section {
+    margin-top: 20px;
+}
+
+.lotto-result-group {
+    background: #1a1a1a;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 25px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.lotto-result-group.new-result {
+    animation: resultAppear 0.6s ease-out;
+}
+
+@keyframes resultAppear {
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 1; 
+    }
+}
+
+.lotto-result-title {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.lotto-number {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.lotto-number:nth-child(1) { background: #8b5cf6; }
+.lotto-number:nth-child(2) { background: #06b6d4; }
+.lotto-number:nth-child(3) { background: #10b981; }
+.lotto-number:nth-child(4) { background: #f59e0b; }
+.lotto-number:nth-child(5) { background: #ef4444; }
+.lotto-number:nth-child(6) { background: #ec4899; }
+
+.lotto-number.bonus {
+    background: var(--accent-color) !important;
+    color: #000 !important;
+    border-color: #00e066;
+    position: relative;
+}
+
+.lotto-number.bonus::before {
+    content: '+';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    font-size: 12px;
+    color: var(--accent-color);
+}
+
+.lotto-info {
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.lotto-statistics {
+    background: #1a1a1a;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.lotto-stats-title {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.lotto-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.lotto-stat-item {
+    text-align: center;
+}
+
+.lotto-stat-value {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.lotto-stat-label {
+    color: #666;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.lotto-clear-btn {
+    background: var(--accent-color);
+    color: var(--title-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 15px auto 0;
+}
+
+.lotto-clear-btn:hover {
+    background: var(--accent-color-hover);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .lotto-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .lotto-numbers {
+        gap: 6px;
+    }
+    
+    .lotto-number {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .lotto-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 1024px) {
+    .date-calc-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .date-calc-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .date-calc-add-controls {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .date-calc-card {
+        padding: 20px;
+    }
+}
+
+/* 입력 검증 스타일 */
+.date-calc-input.invalid {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+.date-calc-input.valid {
+    border-color: var(--accent-color);
+}
+
+
 /* 반응형 */
 @media (max-width: 768px) {
     .fortune-app {

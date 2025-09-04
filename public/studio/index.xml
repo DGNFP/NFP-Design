@@ -73,9 +73,9 @@
     </item>
     <item>
       <title>그리드 계산기 - Studio NFP</title>
-      <link>http://localhost:1313/studio/grid/</link>
+      <link>http://localhost:1313/studio/grid-calculator/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/studio/grid/</guid>
+      <guid>http://localhost:1313/studio/grid-calculator/</guid>
       <description>&lt;h1 id=&#34;그리드-계산기&#34;&gt;그리드 계산기&lt;/h1&gt;&#xA;&lt;p&gt;웹사이트와 앱의 레이아웃 그리드 시스템을 설계하고 시각적으로 확인할 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;그리드 입력&lt;/strong&gt;: 최대 너비, 컬럼 수, 간격, 좌우 마진 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 계산&lt;/strong&gt;: 페이지 너비와 컬럼 너비 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;시각적 미리보기&lt;/strong&gt;: 설계한 그리드를 실제로 시각화&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 스케일링&lt;/strong&gt;: 화면 크기에 맞게 미리보기 조정&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;최대 너비&lt;/strong&gt;: 전체 컨테이너의 최대 너비를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬럼 수&lt;/strong&gt;: 필요한 컬럼 개수를 설정하세요 (1-24개)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;간격&lt;/strong&gt;: 컬럼 사이의 간격을 설정하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;좌우 마진&lt;/strong&gt;: 컨테이너 양쪽의 마진을 설정하세요&lt;/li&gt;&#xA;&lt;li&gt;실시간으로 계산 결과와 시각적 미리보기를 확인하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;계산-공식&#34;&gt;계산 공식&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;사용 가능한 너비&lt;/strong&gt; = 최대 너비 - (간격 × (컬럼 수 - 1)) - (좌우 마진 × 2)&#xA;&lt;strong&gt;컬럼 너비&lt;/strong&gt; = 사용 가능한 너비 ÷ 컬럼 수&lt;/p&gt;</description>
     </item>
     <item>
@@ -86,11 +86,25 @@
       <description>&lt;h1 id=&#34;기본-qr-코드-생성&#34;&gt;기본 QR 코드 생성&lt;/h1&gt;&#xA;&lt;p&gt;URL, 텍스트, 연락처 정보 등 다양한 내용을 고품질 QR 코드로 변환하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 입력 지원&lt;/strong&gt;: 웹사이트 URL, 일반 텍스트, vCard 연락처 정보 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 선택&lt;/strong&gt;: 200×200px부터 500×500px까지 용도별 크기 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;고품질 출력&lt;/strong&gt;: PNG 형식의 선명한 QR 코드 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;즉시 다운로드&lt;/strong&gt;: 생성된 QR 코드를 바로 파일로 저장&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;내용 입력&lt;/strong&gt;: 변환할 URL 또는 텍스트를 입력창에 작성하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 선택&lt;/strong&gt;: 용도에 맞는 QR 코드 크기를 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;코드 생성&lt;/strong&gt;: &amp;lsquo;QR 코드 생성&amp;rsquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다운로드&lt;/strong&gt;: 생성된 QR 코드를 PNG 파일로 다운로드하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;지원하는-입력-형식&#34;&gt;지원하는 입력 형식&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;웹사이트 URL&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>날짜 계산기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/date-calculator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/date-calculator/</guid>
+      <description>&lt;h1 id=&#34;날짜-계산기&#34;&gt;날짜 계산기&lt;/h1&gt;&#xA;&lt;p&gt;기간 계산, D-day 계산, 날짜 더하기/빼기 등 다양한 날짜 관련 계산을 한 번에 처리합니다.&lt;/p&gt;&#xA;&lt;p&gt;두 날짜 사이의 정확한 기간을 계산하거나, 특정 날까지 남은 일수를 확인하고, 특정 날짜에서 원하는 기간을 더하거나 뺄 수 있습니다. 연, 월, 일, 주 단위로 다양한 형태의 결과를 제공합니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 기간 계산, D-day 계산, 날짜 더하기/빼기, 다양한 단위 지원, 한국어 요일 표시&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>단위 변환기 - Studio NFP</title>
       <link>http://localhost:1313/studio/unit-converter/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/studio/unit-converter/</guid>
       <description>&lt;h1 id=&#34;단위-변환기&#34;&gt;단위 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹 디자인과 인쇄물 작업에 필요한 다양한 길이 단위를 빠르게 상호 변환하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: 기준 단위 ↔ 변환 단위 실시간 상호변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;지원 단위&lt;/strong&gt;: px, pt, mm, cm, inch (96 DPI 기준)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 변환&lt;/strong&gt;: 자주 사용하는 값들을 원클릭으로 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 계산&lt;/strong&gt;: 소수점 3자리까지 정밀 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;96 DPI 기준&lt;/strong&gt;: 표준 웹 해상도 기준 변환&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;기준 단위와 변환 단위를 각각 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;기준 단위 입력란에 값을 입력하면 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;반대로 변환 단위에 값을 입력해도 역변환이 가능합니다&lt;/li&gt;&#xA;&lt;li&gt;빠른 변환 버튼으로 자주 사용하는 값들을 쉽게 확인할 수 있습니다&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;96 DPI 기준 참고 값:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>로또 번호 생성기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/lotto-generator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/lotto-generator/</guid>
+      <description>&lt;h1 id=&#34;로또-번호-생성기&#34;&gt;로또 번호 생성기&lt;/h1&gt;&#xA;&lt;p&gt;1부터 45까지 숫자 중에서 6개의 번호를 자동으로 생성하는 행운의 도구입니다.&lt;/p&gt;&#xA;&lt;p&gt;완전 랜덤, 균형잡힌 조합, 인기 번호 위주, 소외 번호 위주 등 다양한 생성 방식을 제공합니다. 1게임부터 10게임까지 한 번에 생성 가능하며, 보너스 번호 포함 옵션과 생성 통계 기능도 제공합니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 다양한 생성 방식, 여러 게임 동시 생성, 보너스 번호 옵션, 생성 통계, 번호 빈도 분석&lt;/p&gt;</description>
     </item>
     <item>
       <title>사이즈 계산기 - Studio NFP</title>
