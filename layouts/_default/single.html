@@ -33,6 +33,11 @@
                     {{ else if eq .Section "news" }}
                         <span class="post-category">소식</span>
                     {{ end }}
+<!-- 조회수 -->
+<span class="post-views">
+<i class="fas fa-eye"></i> <span id="view-count">-</span>
+</span>
+
                 </div>
             </div>
 
@@ -456,10 +461,74 @@
 
         </div>
     </div> <!-- container 닫기 -->
-    
-    <!-- JavaScript 파일들 - 올바른 위치 -->
-    <script src="/js/lightbox.js" defer></script>
-    <script src="/js/web-demo.js" defer></script>
-    <script src="/js/skeleton.js" defer></script>
+
+<!-- 게시글 조회수 스크립트 -->
+<script type="module">
+// 기존 Firebase 인스턴스 활용 (baseof.html에서 이미 초기화됨)
+function waitForFirebase() {
+    return new Promise((resolve) => {
+        const checkFirebase = () => {
+            if (window.firebaseDB && window.firestoreUtils) {
+                resolve();
+            } else {
+                setTimeout(checkFirebase, 100);
+            }
+        };
+        checkFirebase();
+    });
+}
+
+// 게시글 고유 ID 생성 (URL 경로 기반)
+const postId = window.location.pathname
+    .replace(/\//g, '-')
+    .replace(/^-|-$/g, '')
+    .replace(/--+/g, '-');
+
+// 조회수 증가 및 표시 함수
+async function updateViews() {
+    try {
+        await waitForFirebase();
+        
+        const { doc, getDoc, setDoc, updateDoc, increment } = window.firestoreUtils;
+        const db = window.firebaseDB;
+        
+        console.log('조회수 업데이트 시작:', postId);
+        
+        const docRef = doc(db, "post_views", postId);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            await updateDoc(docRef, {
+                count: increment(1)
+            });
+        } else {
+            await setDoc(docRef, {
+                count: 1
+            });
+        }
+
+        // 업데이트된 조회수 가져와서 표시
+        const updatedDoc = await getDoc(docRef);
+        if (updatedDoc.exists()) {
+            const count = updatedDoc.data().count;
+            console.log('조회수:', count);
+            document.getElementById('view-count').textContent = count;
+        }
+
+    } catch (error) {
+        console.error('조회수 업데이트 실패:', error);
+        document.getElementById('view-count').textContent = '0';
+    }
+}
+
+// 페이지 로드 시 조회수 업데이트
+document.addEventListener('DOMContentLoaded', updateViews);
+</script>
+
+<!-- JavaScript 파일들 - 올바른 위치 -->
+<script src="/js/lightbox.js" defer></script>
+<script src="/js/web-demo.js" defer></script>
+<script src="/js/skeleton.js" defer></script>
+
 </section>
 {{ end }}

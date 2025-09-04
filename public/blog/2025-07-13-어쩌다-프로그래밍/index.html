@@ -197,6 +197,11 @@ hugo server와 npx expo를 자주 타이핑하다보니 빠른 속도로 타이�
                             
                         </span>
                     
+
+<span class="post-views">
+<i class="fas fa-eye"></i> <span id="view-count">-</span>
+</span>
+
                 </div>
             </div>
 
@@ -325,11 +330,75 @@ hugo server와 npx expo를 자주 타이핑하다보니 빠른 속도로 타이�
 
         </div>
     </div> 
-    
-    
-    <script src="/js/lightbox.js" defer></script>
-    <script src="/js/web-demo.js" defer></script>
-    <script src="/js/skeleton.js" defer></script>
+
+
+<script type="module">
+
+function waitForFirebase() {
+    return new Promise((resolve) => {
+        const checkFirebase = () => {
+            if (window.firebaseDB && window.firestoreUtils) {
+                resolve();
+            } else {
+                setTimeout(checkFirebase, 100);
+            }
+        };
+        checkFirebase();
+    });
+}
+
+
+const postId = window.location.pathname
+    .replace(/\//g, '-')
+    .replace(/^-|-$/g, '')
+    .replace(/--+/g, '-');
+
+
+async function updateViews() {
+    try {
+        await waitForFirebase();
+        
+        const { doc, getDoc, setDoc, updateDoc, increment } = window.firestoreUtils;
+        const db = window.firebaseDB;
+        
+        console.log('조회수 업데이트 시작:', postId);
+        
+        const docRef = doc(db, "post_views", postId);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            await updateDoc(docRef, {
+                count: increment(1)
+            });
+        } else {
+            await setDoc(docRef, {
+                count: 1
+            });
+        }
+
+        
+        const updatedDoc = await getDoc(docRef);
+        if (updatedDoc.exists()) {
+            const count = updatedDoc.data().count;
+            console.log('조회수:', count);
+            document.getElementById('view-count').textContent = count;
+        }
+
+    } catch (error) {
+        console.error('조회수 업데이트 실패:', error);
+        document.getElementById('view-count').textContent = '0';
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', updateViews);
+</script>
+
+
+<script src="/js/lightbox.js" defer></script>
+<script src="/js/web-demo.js" defer></script>
+<script src="/js/skeleton.js" defer></script>
+
 </section>
 
     

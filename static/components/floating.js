@@ -456,7 +456,7 @@ const defaultButtons = [
         align-items: center;
         color: var(--accent-color);
         font-weight: var(--font-bold);
-        font-size: 14px;
+        font-size: 13px;
         text-align: center;
         box-shadow: 0 4px 15px rgba(1, 255, 117, 0.2);
         transition: all 0.3s ease;
