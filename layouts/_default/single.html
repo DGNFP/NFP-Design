@@ -479,7 +479,7 @@ function waitForFirebase() {
 }
 
 // 게시글 고유 ID 생성 (URL 경로 기반)
-const postId = window.location.pathname
+const postId = decodeURIComponent(window.location.pathname)
     .replace(/\//g, '-')
     .replace(/^-|-$/g, '')
     .replace(/--+/g, '-');
