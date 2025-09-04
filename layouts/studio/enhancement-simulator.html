@@ -1,0 +1,362 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">강화 시뮬레이터</span>
+        <p><br>확률과 운을 시험해보는 강화 시뮬레이션 게임입니다.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 컨텐츠 -->
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>강화 시뮬레이터</h3>
+                <p>게임에서 흔히 볼 수 있는 아이템 강화 시스템을 시뮬레이션합니다.<br>
+                성공 확률을 설정하고 강화에 도전해보세요! 실패 시 레벨 하락 옵션도 있습니다.</p>
+                <div class="supported-formats">
+                    <small>확률 설정 • 실패 시 하락 옵션 • 통계 추적</small>
+                </div>
+            </div>
+
+            <!-- 강화 시뮬레이터 컨테이너 -->
+            <div class="enhance-container">
+                <!-- 메인 영역 -->
+                <div class="enhance-main-area">
+                    <!-- 아이템 표시 영역 -->
+                    <div class="enhance-item-section" id="itemSection">
+                        <div class="enhance-item-title">강화 아이템</div>
+                        <div class="enhance-item-display" id="itemDisplay">
+                            <div class="enhance-particles" id="particles"></div>
+                            <div class="enhance-level" id="enhanceLevel">+0</div>
+                        </div>
+                        <div style="color: #666; font-size: 14px;">
+                            현재 강화 레벨: <span id="currentLevel" style="color: var(--accent-color); font-weight: bold;">0</span>
+                        </div>
+                    </div>
+
+                    <!-- 컨트롤 영역 -->
+                    <div class="enhance-controls">
+                        <div class="enhance-controls-title">강화 설정</div>
+                        
+                        <div class="enhance-setting-group">
+                            <label class="enhance-label">성공 확률 (%)</label>
+                            <input type="number" class="enhance-input" id="successRate" 
+                                   value="50" min="1" max="100" placeholder="1-100">
+                        </div>
+                        
+                        <div class="enhance-setting-group">
+                            <label class="enhance-label">실패 시 패널티</label>
+                            <div class="ehc-wapper">
+                                <div class="enhance-radio-group">
+                                    <input type="radio" id="penaltyDestroy" name="penaltyType" value="destroy" class="enhance-radio" checked>
+                                    <label for="penaltyDestroy" class="enhance-radio-label">아이템 파괴</label>
+                                </div>
+                                <div class="enhance-radio-group">
+                                    <input type="radio" id="penaltyDecrease" name="penaltyType" value="decrease" class="enhance-radio">
+                                    <label for="penaltyDecrease" class="enhance-radio-label">레벨 랜덤 하락</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="enhance-button" id="enhanceBtn">
+                            <i class="fas fa-hammer"></i>
+                            강화 시도
+                        </button>
+                        
+                        <button class="enhance-reset-btn" id="resetBtn">
+                            <i class="fas fa-undo"></i>
+                            초기화
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 통계 영역 -->
+                <div class="enhance-stats">
+                    <div class="enhance-stats-title">강화 통계</div>
+                    <div class="enhance-stats-grid">
+                        <div class="enhance-stat-item">
+                            <div class="enhance-stat-value" id="statTotal">0</div>
+                            <div class="enhance-stat-label">총 시도 횟수</div>
+                        </div>
+                        <div class="enhance-stat-item">
+                            <div class="enhance-stat-value" id="statSuccess">0</div>
+                            <div class="enhance-stat-label">성공 횟수</div>
+                        </div>
+                        <div class="enhance-stat-item">
+                            <div class="enhance-stat-value" id="statFail">0</div>
+                            <div class="enhance-stat-label">실패 횟수</div>
+                        </div>
+                        <div class="enhance-stat-item">
+                            <div class="enhance-stat-value" id="statRate">0%</div>
+                            <div class="enhance-stat-label">실제 성공률</div>
+                        </div>
+                        <div class="enhance-stat-item">
+                            <div class="enhance-stat-value" id="statMax">0</div>
+                            <div class="enhance-stat-label">최고 레벨</div>
+                        </div>
+                        <div class="enhance-stat-item">
+                            <div class="enhance-stat-value" id="statDestroy">0</div>
+                            <div class="enhance-stat-label">파괴 횟수</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 강화 기록 -->
+                <div class="enhance-history">
+                    <div class="enhance-history-title">강화 기록</div>
+                    <div id="historyList">
+                        <div class="enhance-history">
+                            아직 강화 기록이 없습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+// 매우 단순한 전역 변수들
+var currentEnhanceLevel = 0;
+var totalAttempts = 0;
+var successAttempts = 0;
+var failAttempts = 0;
+var maxEnhanceLevel = 0;
+var destroyAttempts = 0;
+var enhanceRecords = [];
+var isEnhancing = false;
+
+// 레벨 화면 업데이트
+function updateLevelDisplay() {
+    var levelEl = document.getElementById('enhanceLevel');
+    var currentLevelEl = document.getElementById('currentLevel');
+    
+    levelEl.textContent = '+' + currentEnhanceLevel;
+    currentLevelEl.textContent = currentEnhanceLevel;    
+}
+
+// 통계 화면 업데이트
+function updateStatsDisplay() {
+    document.getElementById('statTotal').textContent = totalAttempts;
+    document.getElementById('statSuccess').textContent = successAttempts;
+    document.getElementById('statFail').textContent = failAttempts;
+    document.getElementById('statMax').textContent = maxEnhanceLevel;
+    document.getElementById('statDestroy').textContent = destroyAttempts;
+    
+    var rate = totalAttempts > 0 ? Math.round((successAttempts / totalAttempts) * 100) : 0;
+    document.getElementById('statRate').textContent = rate + '%';
+}
+
+// 기록 화면 업데이트
+function updateHistoryDisplay() {
+    var listEl = document.getElementById('historyList');
+    
+    if (enhanceRecords.length === 0) {
+        listEl.innerHTML = '<div style="text-align: center; color: #666; font-size: 14px;">아직 강화 기록이 없습니다.</div>';
+        return;
+    }
+    
+    var html = '';
+    for (var i = 0; i < enhanceRecords.length; i++) {
+        var record = enhanceRecords[i];
+        var iconClass = record.isSuccess ? 'fas fa-check' : 'fas fa-times';
+        var textClass = record.isSuccess ? 'enhance-history-success' : 'enhance-history-fail';
+        
+        html += '<div class="enhance-history-item">';
+        html += '<span class="' + textClass + '">';
+        html += record.text + ' <i class="' + iconClass + '"></i>';
+        html += '</span>';
+        html += '<span style="color: #666; font-size: 15px;">';
+        html += record.rate + '% | ' + record.time;
+        html += '</span>';
+        html += '</div>';
+    }
+    
+    listEl.innerHTML = html;
+}
+
+// 기록 추가
+function addRecord(text, isSuccess, rate) {
+    var time = new Date().toLocaleTimeString();
+    var newRecord = {
+        text: text,
+        isSuccess: isSuccess,
+        rate: rate,
+        time: time
+    };
+    
+    enhanceRecords.unshift(newRecord);
+    
+    if (enhanceRecords.length > 20) {
+        enhanceRecords = enhanceRecords.slice(0, 20);
+    }
+    
+    updateHistoryDisplay();
+}
+
+// 파티클 생성
+function createParticles(isSuccess) {
+    var particlesEl = document.getElementById('particles');
+    
+    for (var i = 0; i < 15; i++) {
+        var particle = document.createElement('div');
+        particle.className = 'enhance-particle ' + (isSuccess ? 'success' : 'fail');
+        particle.style.left = '50%';
+        particle.style.top = '50%';
+        
+        var angle = (Math.PI * 2 * i) / 15;
+        var distance = 50 + Math.random() * 30;
+        var dx = Math.cos(angle) * distance + 'px';
+        var dy = Math.sin(angle) * distance + 'px';
+        
+        particle.style.setProperty('--dx', dx);
+        particle.style.setProperty('--dy', dy);
+        
+        particlesEl.appendChild(particle);
+        
+        setTimeout(function(p) {
+            return function() {
+                if (p.parentNode) {
+                    p.remove();
+                }
+            };
+        }(particle), 2000);
+    }
+}
+
+// 강화 실행
+function performEnhance() {
+    if (isEnhancing) return;
+    
+    var rate = parseInt(document.getElementById('successRate').value) || 50;
+    if (rate < 1 || rate > 100) {
+        alert('성공 확률은 1-100% 사이여야 합니다.');
+        return;
+    }
+    
+    isEnhancing = true;
+    var btn = document.getElementById('enhanceBtn');
+    var section = document.getElementById('itemSection');
+    var display = document.getElementById('itemDisplay');
+    var levelEl = document.getElementById('enhanceLevel');
+    
+    btn.disabled = true;
+    section.classList.add('enhancing');
+    
+    setTimeout(function() {
+        var random = Math.random() * 100;
+        var success = random < rate;
+        
+        totalAttempts++;
+        var oldLevel = currentEnhanceLevel;
+        
+        if (success) {
+            // 성공!
+            currentEnhanceLevel++;
+            successAttempts++;
+            maxEnhanceLevel = Math.max(maxEnhanceLevel, currentEnhanceLevel);
+            
+            display.classList.add('success');
+            createParticles(true);
+            addRecord('+' + oldLevel + ' → +' + currentEnhanceLevel, true, rate);
+            
+            setTimeout(function() {
+                display.classList.remove('success');
+            }, 1000);
+            
+        } else {
+            // 실패!
+            failAttempts++;
+            var penaltyType = document.querySelector('input[name="penaltyType"]:checked').value;
+            
+            if (penaltyType === 'destroy') {
+                if (currentEnhanceLevel > 0) {
+                    currentEnhanceLevel = 0;
+                    destroyAttempts++;
+                    addRecord('+' + oldLevel + ' → 파괴됨', false, rate);
+                } else {
+                    addRecord('+' + oldLevel + ' (변화없음)', false, rate);
+                }
+            } else {
+                if (currentEnhanceLevel > 0) {
+                    var decrease = Math.floor(Math.random() * currentEnhanceLevel) + 1;
+                    currentEnhanceLevel = Math.max(0, currentEnhanceLevel - decrease);
+                    addRecord('+' + oldLevel + ' → +' + currentEnhanceLevel + ' (-' + decrease + ')', false, rate);
+                } else {
+                    addRecord('+' + oldLevel + ' (변화없음)', false, rate);
+                }
+            }
+            
+            display.classList.add('fail');
+            levelEl.classList.add('fail-effect');
+            createParticles(false);
+            
+            setTimeout(function() {
+                display.classList.remove('fail');
+                levelEl.classList.remove('fail-effect');
+            }, 800);
+        }
+        
+        updateLevelDisplay();
+        updateStatsDisplay();
+        
+        setTimeout(function() {
+            isEnhancing = false;
+            btn.disabled = false;
+            section.classList.remove('enhancing');
+        }, 1000);
+        
+    }, 2000);
+}
+
+// 초기화
+function resetGame() {
+    if (totalAttempts > 0 && !confirm('모든 데이터가 초기화됩니다. 계속하시겠습니까?')) {
+        return;
+    }
+    
+    currentEnhanceLevel = 0;
+    totalAttempts = 0;
+    successAttempts = 0;
+    failAttempts = 0;
+    maxEnhanceLevel = 0;
+    destroyAttempts = 0;
+    enhanceRecords = [];
+    isEnhancing = false;
+    
+    updateLevelDisplay();
+    updateStatsDisplay();
+    updateHistoryDisplay();
+}
+
+// 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    // 강화 버튼
+    document.getElementById('enhanceBtn').addEventListener('click', performEnhance);
+    
+    // 초기화 버튼
+    document.getElementById('resetBtn').addEventListener('click', resetGame);
+    
+    // 초기 화면 업데이트
+    updateLevelDisplay();
+    updateStatsDisplay();
+    updateHistoryDisplay();
+});
+</script>
+
+{{ end }}
