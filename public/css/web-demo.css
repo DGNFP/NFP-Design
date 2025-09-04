@@ -370,7 +370,7 @@
     border: none;
     width: 100%;
     /* 🎯 iframe 모서리 처리 */
-    border-radius: 0 0 4px 4px;
+    border-radius: 0px;
     position: relative;
     z-index: 1;
 }

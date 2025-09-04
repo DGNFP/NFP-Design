@@ -32,7 +32,7 @@
 
 /* 🎯 라이트박스가 추가하는 인라인 스타일을 무력화 */
 .post-body img[src^="/img/uploads/"][data-lightbox][style] {
-    max-width: 35% !important;
+    max-width: 70% !important;
     width: auto !important;
 }
 

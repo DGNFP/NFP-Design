@@ -492,7 +492,6 @@ async function updateViews() {
         const { doc, getDoc, setDoc, updateDoc, increment } = window.firestoreUtils;
         const db = window.firebaseDB;
         
-        console.log('조회수 업데이트 시작:', postId);
         
         const docRef = doc(db, "post_views", postId);
         const docSnap = await getDoc(docRef);
@@ -511,12 +510,10 @@ async function updateViews() {
         const updatedDoc = await getDoc(docRef);
         if (updatedDoc.exists()) {
             const count = updatedDoc.data().count;
-            console.log('조회수:', count);
             document.getElementById('view-count').textContent = count;
         }
 
     } catch (error) {
-        console.error('조회수 업데이트 실패:', error);
         document.getElementById('view-count').textContent = '0';
     }
 }
