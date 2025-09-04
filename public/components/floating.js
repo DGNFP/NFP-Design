@@ -441,13 +441,13 @@ const defaultButtons = [
         transform: translateY(-50%);
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
         z-index: 999;
     }
 
     .floating-btn {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         background-color: transparent;
         border-radius: 50%;
         display: flex;
@@ -478,7 +478,6 @@ const defaultButtons = [
 
     .floating-btn-icon {
         font-size: 18px;
-        margin-bottom: 4px;
         transition: all 0.3s ease;
         color: var(--accent-color);
     }
