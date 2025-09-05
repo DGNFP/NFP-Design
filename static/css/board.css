@@ -119,7 +119,7 @@
 .all-view-all-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     justify-content: center; /* 가운데 정렬로 변경 */
     margin-bottom: 40px; /* 아래 카테고리와의 간격 추가 */
     flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈 되도록 설정 */
