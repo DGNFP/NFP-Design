@@ -61,7 +61,7 @@
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 120px;
     height: 4px;
     background-color: var(--accent-color);
 }
@@ -117,32 +117,54 @@
 
 /*  가운데 정렬 및 간격 수정 */
 .all-view-all-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    justify-content: center; /* 가운데 정렬로 변경 */
-    margin-bottom: 40px; /* 아래 카테고리와의 간격 추가 */
-    flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈 되도록 설정 */
+display: flex;
+align-items: center;
+gap: 6px;
+justify-content: center; /* 가운데 정렬로 변경 */
+margin-bottom: 40px; /* 아래 카테고리와의 간격 추가 */
+flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈 되도록 설정 */
 }
 
-.view-all-button {
-    padding: 8px 16px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-    border:1px solid var(--accent-color); /*테두리*/
-    font-size: 14px;
-    font-family: inherit;
-    color: var(--accent-color);
-    background-color: var(--background-color);
-    text-decoration: none;
-    transition: var(--transition);
-    white-space: nowrap;
+.all-view-all-button {
+padding: 8px 16px;
+border-radius: 5px;
+border:1px solid var(--accent-color); /*테두리*/
+font-size: 14px;
+font-family: inherit;
+color: var(--accent-color);
+background-color: var(--background-color);
+text-decoration: none;
+transition: var(--transition);
+white-space: nowrap;
 }
 
+.all-view-all-button:hover {
+background-color: var(--accent-color);
+color: var(--background-color);
+}
 
-.view-all-button:hover {
-    background-color: var(--accent-color);
-    color: var(--background-color);
+.all-view-all-button-active{
+padding: 8px 16px;
+border-radius: 5px;
+border: 1px solid var(--accent-color);
+font-size: 14px;
+font-family: inherit;
+font-weight: 700;
+color: #000000;
+background: linear-gradient(135deg, #00FF75 0%, #00FF88 100%);
+text-decoration: none;
+transition: var(--transition);
+white-space: nowrap;
+text-align: center;
+box-shadow: 0 0 10px rgba(1, 255, 117, 0.6), 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+.all-view-all-button-active:hover {
+background: linear-gradient(135deg, #00FF88 0%, #00FF9A 100%);
+color: #000000;
+box-shadow: 
+0 0 20px rgba(1, 255, 117, 0.8),
+0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* 검색창 */
@@ -210,26 +232,6 @@
     color: var(--background-color);
 }
 
-
-.all-view-all-button {
-    padding: 8px 16px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    border:1px solid var(--accent-color); /*테두리*/
-    font-size: 14px;
-    font-family: inherit;
-    color: var(--accent-color);
-    background-color: var(--background-color);
-    text-decoration: none;
-    transition: var(--transition);
-    white-space: nowrap;
-}
-
-
-.all-view-all-button:hover {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-}
 
 /* 검색창 */
 .board-all-search {
@@ -585,8 +587,7 @@
 
 
 .board-item-title {
-font-size: 14px; /* 16px에서 15px로 축소 */
-height: 40x; 
+font-size: 15px; /* 16px에서 15px로 축소 */
 overflow: hidden;
 margin-bottom: 6px; /* 8px에서 6px로 축소 */
 color: white;
@@ -2028,18 +2029,81 @@ word-break: break-word;
     margin-bottom: 2rem;
 }
 
-.youtube-nav .active-youtube {
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    background-color: var(--background-color);
-    transition: all 0.3s ease;
+.all-view-all-button-youtube {
+padding: 8px 16px;
+border-radius: 4px;
+font-size: 14px;
+font-family: inherit;
+white-space: nowrap;
+border: 1px solid var(--accent-color);
+color: var(--accent-color);
+background-color: var(--background-color);
+transition: all 0.3s ease;
 }
 
-.youtube-nav .active-youtube:hover{
-    background: #ff0000;
-    border: 1px solid #ff0000;
-    color: white;
+.all-view-all-button-youtube:hover{
+background: #ff0000;
+border: 1px solid #ff0000;
+color: white;
 }
+
+.all-view-all-button-youtube-active {
+padding: 8px 16px;
+border-radius: 4px;
+font-size: 14px;
+font-family: inherit;
+white-space: nowrap;
+border: 1px solid #ff0000;;
+color: white;
+background-color: #ff0000;;
+transition: all 0.3s ease;
+}
+
+.all-view-all-button-youtube-active:hover{
+background: #a70000; /* 더 어두운 빨간색 */
+border: 1px solid #a70000;
+color: white;
+box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3); /* 빨간색 글로우 */
+}
+
+
+.all-view-all-button-blog {
+padding: 8px 16px;
+border-radius: 4px;
+font-size: 14px;
+font-family: inherit;
+white-space: nowrap;
+border: 1px solid var(--accent-color);
+color: var(--accent-color);
+background-color: var(--background-color);
+transition: all 0.3s ease;
+}
+
+.all-view-all-button-blog:hover{
+background: #6200ff;
+border: 1px solid #6200ff;
+color: white;
+}
+
+.all-view-all-button-blog-active {
+padding: 8px 16px;
+border-radius: 4px;
+font-size: 14px;
+font-family: inherit;
+color: white;
+white-space: nowrap;
+border: 1px solid #6200ff;
+background-color: #6200ff;
+transition: all 0.3s ease;
+}
+
+.all-view-all-button-blog-active:hover{
+background: #3e01a8;
+border: 1px solid #3e01a8;
+color: white;
+box-shadow: 0 4px 12px rgba(98, 0, 255, 0.3); /* 보라색 글로우 */
+}
+
 
 /* 필터 */
 .youtube-filter {

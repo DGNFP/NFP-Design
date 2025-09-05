@@ -81,7 +81,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["creative"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "게임 광고 디자인"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "앨범 커버/음반 디자인" , "게임 이미지 광고 디자인", "게임 영상 광고 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
@@ -155,7 +155,7 @@ collections:
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "youtube-posts"
-    label: "YouTube"
+    label: "youtube"
     folder: "content/categories/youtube"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -177,7 +177,7 @@ collections:
 
   - name: "streaming-posts"
     label: "인터넷 방송 디자인"
-    folder: "content/categories/streaming"
+    folder: "content/categories/streaming" 
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -185,7 +185,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["youtube"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["방송 로고 디자인", "방송 스케줄표 디자인", "채널아트 디자인" ,"패널 디자인"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["방송 로고 디자인", "방송 스케줄표 디자인", "채널아트 디자인" ,"패널 디자인" , "OAP 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","YouTube", "유튜브", "영상 제작", "영상 편집", "썸네일 디자인", "채널아트", "After Effects", "Premiere Pro", "Photoshop", "Illustrator", "브랜딩"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
@@ -206,7 +206,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["project"]}
-      - {label: "프로젝트 분류", name: "subCategory", widget: "select", options: ["소규모 프로젝트", "대규모 프로젝트", "장기 프로젝트", "브랜딩"] , required: false} 
+      - {label: "프로젝트 분류", name: "subCategory", widget: "select", options: ["브랜딩", "기획 디자인", "장기 프로젝트"] , required: false} 
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","브랜딩", "홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"

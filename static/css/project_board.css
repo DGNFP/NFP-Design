@@ -62,7 +62,7 @@
 
 
 .project-minimal-title {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--text-color);
     margin-bottom: 6px;
@@ -74,10 +74,10 @@
 }
 
 .project-minimal-subtitle {
-    font-size: 12px;
+    font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.3;
-    font-weight: 500;
+    font-weight: 400;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

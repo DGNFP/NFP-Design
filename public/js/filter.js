@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
               color: #666 !important;
               font-size: 16px !important;
               background: rgba(108, 117, 125, 0.05) !important;
-              border-radius: 12px !important;
+              border-radius: 4px !important;
               border: 2px dashed rgba(108, 117, 125, 0.2) !important;
               margin: 20px 0 !important;
               position: relative !important;
@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   color: #666;
                   font-size: 16px;
                   background: rgba(108, 117, 125, 0.05);
-                  border-radius: 12px;
+                  border-radius: 4px;
                   border: 2px dashed rgba(108, 117, 125, 0.2);
                   margin: 20px 0;
               `;

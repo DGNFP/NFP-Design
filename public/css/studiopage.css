@@ -532,16 +532,11 @@ color: var(--background-color);
 }
 
 .sub-page-btn-active:hover {
-    background: linear-gradient(135deg, #00FF88 0%, #00FF9A 100%);
-    color: #000000;
-    box-shadow: 
-        0 0 20px rgba(1, 255, 117, 0.8),
-        0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-@keyframes active-glow {
-    0% { opacity: 0.8; }
-    100% { opacity: 1; }
+background: linear-gradient(135deg, #00FF88 0%, #00FF9A 100%);
+color: #000000;
+box-shadow: 
+0 0 20px rgba(1, 255, 117, 0.8),
+0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* 스튜디오 서브페이지 각 타이틀 스타일 */

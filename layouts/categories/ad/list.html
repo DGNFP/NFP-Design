@@ -2,31 +2,35 @@
 <!-- 게시판 섹션 -->
 <section class="board-section">
     <div class="container">
-        <h2 class="board-section-title">광고/인쇄 디자인 게시판</h2>
-        <p class="board-intro">현수막, 엑스배너, 명함, 옥외광고 등 다양한 광고/오프라인 매체 디자인</p>
+        <h2 class="board-section-title">광고 · 인쇄 디자인</h2>
+        <p class="board-intro">홍보용 배너부터 명함, 메뉴판까지 다양한 오프라인 매체 디자인</p>
         
-        <div class="all-view-all-wrapper">
-            <a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업 보기</a>
-            <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
-            <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-            <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
-            <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
-            <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
-            <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고/인쇄 디자인</a>
-            <a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-            
-        </div>
+<div class="all-view-all-wrapper">
+<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
+<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
+<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
+<a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
+<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button">인터넷 방송 디자인</a>
+<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
+<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
+<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button-active">광고 디자인</a>
+<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
+<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
+<a href="{{ "/blog/" | relURL }}" class="all-view-all-button-blog">블로그</a>
+</div>
 
         <!-- 카테고리 필터 -->
         <div class="board-filter">
             <div class="filter-group">
                <ul class="category-filter">
-                    <li><a class="active" data-filter="all">광고 디자인 전체</a></li>
-                    <li><a data-filter="현수막/엑스배너 디자인">현수막/엑스배너 디자인</a></li>
-                    <li><a data-filter="명함 디자인">명함 디자인</a></li>
-                    <li><a data-filter="브로슈어/카탈로그 디자인">브로슈어/카탈로그 디자인</a></li>
-                    <li><a data-filter="홍보물 디자인">홍보물 디자인</a></li>
-                    <li><a data-filter="패키지 디자인">패키지 디자인</a></li>
+                    <li><a class="active" data-filter="all">전체</a></li>
+                    <li><a data-filter="현수막 디자인">현수막</a></li>
+                    <li><a data-filter="엑스배너 디자인">엑스배너</a></li>
+                    <li><a data-filter="명함 디자인">명함</a></li>
+                    <li><a data-filter="브로슈어/카탈로그 디자인">브로슈어/카탈로그</a></li>
+                    <li><a data-filter="전단지 디자인">전단지</a></li>
+                    <li><a data-filter="메뉴판 디자인">메뉴판</a></li>
+                    <li><a data-filter="시트지 디자인">시트지</a></li>
                 </ul>
             </div>
             
