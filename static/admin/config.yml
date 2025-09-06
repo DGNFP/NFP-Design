@@ -81,7 +81,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["creative"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "앨범 커버/음반 디자인" , "게임 이미지 광고 디자인", "게임 영상 광고 디자인"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["로고 디자인", "굿즈 디자인", "앨범 커버/음반 디자인" , "게임 이미지 광고 디자인", "게임 영상 광고 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
