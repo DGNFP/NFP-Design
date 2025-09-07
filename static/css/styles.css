@@ -1086,7 +1086,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    margin-top: 30px; /* 본문과의 간격 */
+    margin-top: 20px; /* 본문과의 간격 */
 }
 
 
@@ -1822,10 +1822,8 @@ nav {
     }
 
     .tags-container .project-scale-badge{
-    font-size: 9px;
+    font-size: 12px;
     padding: 6px 10px;
-    margin-bottom: 0px;
-    margin-right: 0px;
     }
 
 

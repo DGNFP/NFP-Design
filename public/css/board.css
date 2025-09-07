@@ -2994,15 +2994,51 @@ font-size: 12px;
     
     .all-view-all-wrapper {
         padding: 0 10px;
+        gap: 6px;
     }
     
     .all-view-all-button {
         font-size: 12px;
-        padding: 5px 10px;
+        padding: 8px 10px;
         flex-grow: 1;
         text-align: center;
     }
     
+    .all-view-all-button-active {
+        font-size: 12px;
+        padding: 8px 10px;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .all-view-all-button-youtube{
+        font-size: 12px;
+        padding: 8px 10px;
+        flex-grow: 1;
+        text-align: center; 
+    }
+
+    .all-view-all-button-blog{
+        font-size: 12px;
+        padding: 8px 10px;
+        flex-grow: 1;
+        text-align: center;  
+    }
+
+    .all-view-all-button-youtube-active {
+        font-size: 12px;
+        padding: 8px 10px;
+        flex-grow: 1;
+        text-align: center;    
+    }
+    
+    .all-view-all-button-blog-active {
+        font-size: 12px;
+        padding: 8px 10px;
+        flex-grow: 1;
+        text-align: center;  
+    }
+
     .board-search {
         margin-top: 15px;
     }
@@ -3293,6 +3329,18 @@ white-space: nowrap;
         justify-content: flex-start; /* 태그 왼쪽 정렬 */
     }
 
+
+.post-meta {
+    font-size: 15px;
+    gap: 10px;
+    justify-content: space-between;
+}    
+
+.post-views{
+    gap: 6px;
+    margin: 0 0;
+}
+
 /* 모바일 목록으로 반응형 */
     .post-navigation {
         padding: 20px 15px;
@@ -3390,14 +3438,18 @@ gap: 1rem;
 
 .youtube-category-filter {
 margin: 0;
-padding: 6px 4px 6px 4px;
-gap: 4px;
+margin-top: -10px;
+flex-direction: column;
+padding: 12px;
+border-radius: 12px;
+gap: 10px;
 }
 
 .youtube-category-filter a {
 padding: 6px 8px;
 font-weight: 500;
-font-size: 12px;
+font-size: 14px;
+text-align: center;
 }
 
 }
