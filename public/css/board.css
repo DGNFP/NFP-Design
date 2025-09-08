@@ -1224,7 +1224,8 @@ opacity: 0.3;
 }
 
 .post-content {
-    margin-bottom: 40px;
+    /* 내부 패딩이 40이니까 0줘도 됨 */
+    margin-bottom: 0px;
 }
 
 .post-image {
@@ -1671,7 +1672,7 @@ word-break: break-word;
     display: -webkit-box;
     -webkit-line-clamp: 2;      /* 2줄까지만 */
     -webkit-box-orient: vertical;
-    overflow: hidden;           /* 반드시 필요! */
+    /* overflow: hidden;           반드시 필요! */
     
     /* 추가 개선 */
     word-break: keep-all;       /* 한글 단어 단위로 줄바꿈 */
@@ -3450,6 +3451,37 @@ padding: 6px 8px;
 font-weight: 500;
 font-size: 14px;
 text-align: center;
+}
+
+.youtube-cta-wrapper {
+text-align: center;
+margin-bottom: 20px;
+padding: 20px;
+background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+border-radius: 6px;
+position: relative;
+overflow: hidden;
+}
+
+
+.youtube-cta-button {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+background: rgba(255,255,255,0.15);
+color: white;
+text-decoration: none;
+padding: 8px 16px;
+border-radius: 50px;
+font-weight: 600;
+font-size: 16px;
+transition: all 0.3s ease;
+backdrop-filter: blur(10px);
+border: 2px solid rgba(255,255,255,0.2);
+}
+
+.youtube-stats{
+    margin-top: 6px;
 }
 
 }

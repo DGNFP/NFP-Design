@@ -208,35 +208,35 @@
                         {{ end }}
                     {{ end }}
                     
-                    <!-- 기존 URL → iframe 변환 처리 -->
-                    <!-- a 태그로 감싸진 YouTube URL 처리 -->
-                    {{ $content = $content | replaceRE "<p><a href=\"https://www\\.youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)[^\"]*\">https://www\\.youtube\\.com/watch\\?v=[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/watch?v=$1\" target=\"_blank\">🔗 YouTube에서 보기</a></p>" }}
-                    
-                    <!-- 일반 p 태그로 감싸진 YouTube URL 처리 -->
-                    {{ $content = $content | replaceRE "<p>https://www\\.youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/watch?v=$1\" target=\"_blank\">🔗 YouTube에서 보기</a></p>" }}
-                    
-                    <!-- youtu.be 형태도 처리 -->
-                    {{ $content = $content | replaceRE "<p><a href=\"https://youtu\\.be/([a-zA-Z0-9_-]+)[^\"]*\">https://youtu\\.be/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://youtu.be/$1\" target=\"_blank\">🔗 YouTube에서 보기</a></p>" }}
-                    
-                    <!-- ✨ YouTube Shorts URL 처리 (새로 추가) -->
-                    <!-- a 태그로 감싸진 YouTube Shorts URL -->
-                    {{ $content = $content | replaceRE "<p><a href=\"https://www\\.youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^\"]*\">https://www\\.youtube\\.com/shorts/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/shorts/$1\" target=\"_blank\">🔗 YouTube Shorts에서 보기</a></p>" }}
-                    
-                    <!-- 일반 p 태그로 감싸진 YouTube Shorts URL -->
-                    {{ $content = $content | replaceRE "<p>https://www\\.youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/shorts/$1\" target=\"_blank\">🔗 YouTube Shorts에서 보기</a></p>" }}
-                    
-                    <!-- youtube.com/shorts (www 없는 버전) -->
-                    {{ $content = $content | replaceRE "<p><a href=\"https://youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^\"]*\">https://youtube\\.com/shorts/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://youtube.com/shorts/$1\" target=\"_blank\">🔗 YouTube Shorts에서 보기</a></p>" }}
-                    
-                    {{ $content = $content | replaceRE "<p>https://youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://youtube.com/shorts/$1\" target=\"_blank\">🔗 YouTube Shorts에서 보기</a></p>" }}
-                    
-                    <!-- Vimeo URL 처리 (인라인 스타일 제거) -->
-                    {{ $content = $content | replaceRE "<p><a href=\"https://vimeo\\.com/([0-9]+)[^\"]*\">https://vimeo\\.com/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://player.vimeo.com/video/$1?responsive=1&autopause=0&player_id=0&app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://vimeo.com/$1\" target=\"_blank\">🔗 Vimeo에서 보기</a></p>" }}
-                    
-                    {{ $content = $content | replaceRE "<p>https://vimeo\\.com/([0-9]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://player.vimeo.com/video/$1?responsive=1&autopause=0&player_id=0&app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://vimeo.com/$1\" target=\"_blank\">🔗 Vimeo에서 보기</a></p>" }}
-                    
-                    {{ $content | safeHTML }}
-                </div>
+<!-- 기존 URL → iframe 변환 처리 -->
+<!-- a 태그로 감싸진 YouTube URL 처리 -->
+{{ $content = $content | replaceRE "<p><a href=\"https://www\\.youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)[^\"]*\">https://www\\.youtube\\.com/watch\\?v=[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/watch?v=$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> YouTube에서 보기</a></p>" }}
+
+<!-- 일반 p 태그로 감싸진 YouTube URL 처리 -->
+{{ $content = $content | replaceRE "<p>https://www\\.youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/watch?v=$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> YouTube에서 보기</a></p>" }}
+
+<!-- youtu.be 형태도 처리 -->
+{{ $content = $content | replaceRE "<p><a href=\"https://youtu\\.be/([a-zA-Z0-9_-]+)[^\"]*\">https://youtu\\.be/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://youtu.be/$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> YouTube에서 보기</a></p>" }}
+
+<!-- ✨ YouTube Shorts URL 처리 (새로 추가) -->
+<!-- a 태그로 감싸진 YouTube Shorts URL -->
+{{ $content = $content | replaceRE "<p><a href=\"https://www\\.youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^\"]*\">https://www\\.youtube\\.com/shorts/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/shorts/$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> YouTube Shorts에서 보기</a></p>" }}
+
+<!-- 일반 p 태그로 감싸진 YouTube Shorts URL -->
+{{ $content = $content | replaceRE "<p>https://www\\.youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://www.youtube.com/shorts/$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> YouTube Shorts에서 보기</a></p>" }}
+
+<!-- youtube.com/shorts (www 없는 버전) -->
+{{ $content = $content | replaceRE "<p><a href=\"https://youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^\"]*\">https://youtube\\.com/shorts/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://youtube.com/shorts/$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> YouTube Shorts에서 보기</a></p>" }}
+
+{{ $content = $content | replaceRE "<p>https://youtube\\.com/shorts/([a-zA-Z0-9_-]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://www.youtube.com/embed/$1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://youtube.com/shorts/$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> YouTube Shorts에서 보기</a></p>" }}
+
+<!-- Vimeo URL 처리 (인라인 스타일 제거) -->
+{{ $content = $content | replaceRE "<p><a href=\"https://vimeo\\.com/([0-9]+)[^\"]*\">https://vimeo\\.com/[^<]+</a></p>" "<div class=\"video-container\"><iframe src=\"https://player.vimeo.com/video/$1?responsive=1&autopause=0&player_id=0&app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://vimeo.com/$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> Vimeo에서 보기</a></p>" }}
+
+{{ $content = $content | replaceRE "<p>https://vimeo\\.com/([0-9]+)[^<]*</p>" "<div class=\"video-container\"><iframe src=\"https://player.vimeo.com/video/$1?responsive=1&autopause=0&player_id=0&app_id=58479\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe></div><p class=\"video-link\"><a href=\"https://vimeo.com/$1\" target=\"_blank\"><span class=\"link-icon\">⧉</span> Vimeo에서 보기</a></p>" }}
+
+{{ $content | safeHTML }}
+</div>
 
 <!-- 태그 표시 (본문 최하단) - 타입 안전 처리 -->
                 {{ if or .Params.tags .Params.custom_tags }}
@@ -265,10 +265,12 @@
         <h3>
             {{ if eq .Section "categories" }}
                 {{ $currentCategory := index .Params.categories 0 }}
-                {{ if eq $currentCategory "web" }}웹 디자인{{ else if eq $currentCategory "video" }}영상 디자인
+                {{ if eq $currentCategory "web" }}웹 디자인
+                {{ else if eq $currentCategory "video" }}영상 디자인
                 {{ else if eq $currentCategory "creative" }}크리에이티브 디자인
                 {{ else if eq $currentCategory "programming" }}프로그래밍
-                {{ else if eq $currentCategory "content" }}콘텐츠 디자인
+                {{ else if eq $currentCategory "content" }}컨텐츠 디자인
+                {{ else if eq $currentCategory "streaming" }}인터넷 방송 디자인
                 {{ else if eq $currentCategory "ad" }}광고 디자인
                 {{ else if eq $currentCategory "project" }}프로젝트
                 {{ else if eq $currentCategory "youtube" }}유튜브

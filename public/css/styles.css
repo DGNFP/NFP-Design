@@ -1003,21 +1003,46 @@ nav {
 
 
 .post-body .video-link {
-    text-align: left;
-    margin-top: 10px;
-    font-size: 18px;
+    text-align: center; /* left → center */
+    margin: 12px 0; /* margin-top, margin-bottom 통합 */
+    font-size: 16px; /* 18px → 16px (버튼에 적합한 크기) */
     transition: all 0.3s ease;
-    margin-bottom: 20px;
+    background: var(--background-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px; /* 추가: 버튼 모서리 둥글게 */
+    padding: 12px 20px; /* 추가: 내부 여백 */
+    display: inline-block; /* 추가: 버튼 형태 */
+    width: fit-content; /* 추가: 콘텐츠에 맞는 너비 */
+    max-width: 100%; /* 추가: 반응형 대응 */
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .post-body .video-link a {
-    color: var(--text-color);
+    color: var(--accent-color);
     text-decoration: none;
+    display: block; /* width: auto → display: block */
+    font-weight: 500; /* 추가: 버튼 텍스트 강조 */
+    transition: all 0.3s ease;
 }
 
-.post-body .video-link a:hover {
+.video-link .link-icon {
     color: var(--accent-color);
+    margin-right: 6px; /* 추가: 아이콘과 텍스트 간격 */
+    transition: all 0.3s ease;
 }
+
+.video-link:hover{
+    background: var(--accent-color); /* 추가: 호버 시 배경 변경 */
+    transform: translateY(-2px); /* 추가: 호버 애니메이션 */
+    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.3); /* 추가: 글로우 효과 */
+}
+
+.video-link:hover a,
+.video-link:hover .link-icon {
+    color: var(--background-color);
+}
+
 
 /* 게시글 태그 섹션 스타일 */
 .post-tags-section {
@@ -2074,6 +2099,33 @@ nav {
     cursor: pointer;
 }
 
+.post-body .video-link {
+    text-align: center; /* left → center */
+    margin: 6px 0; /* margin-top, margin-bottom 통합 */
+    font-size: 13px; /* 18px → 16px (버튼에 적합한 크기) */
+    transition: all 0.3s ease;
+    background: var(--background-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px; /* 추가: 버튼 모서리 둥글게 */
+    padding: 4px 8px; /* 추가: 내부 여백 */
+    display: inline-block; /* 추가: 버튼 형태 */
+    width: fit-content; /* 추가: 콘텐츠에 맞는 너비 */
+    max-width: 100%; /* 추가: 반응형 대응 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.video-link:hover{
+    background: var(--accent-color); /* 추가: 호버 시 배경 변경 */
+    transform: translateY(-2px); /* 추가: 호버 애니메이션 */
+    box-shadow: 0 4px 12px rgba(1, 255, 117, 0.3); /* 추가: 글로우 효과 */
+}
+
+.video-link:hover a,
+.video-link:hover .link-icon {
+    color: var(--background-color);
+}
+
 /* 모바일에서 이미지 비율 */
 .post-body img[src^="/img/uploads/"] {
     /* 이미지 비율 처리 , 원본의 절반 크기로 줄여져서 게시글에 보여짐*/
@@ -2103,6 +2155,7 @@ nav {
     .banner .pc_img {
         display: none;
     }
+
 
 }
 
