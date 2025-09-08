@@ -51,13 +51,14 @@ button[class*="LoginButton"]:hover:after {
   color: black !important;
 }
 
-/* Decap 로고 숨기기 */
+/* 헤더 영역의 로고만 숨기기 */
 [class*="DecapLogo"], 
-svg[class*="logo"],
-[class*="css-"] svg,
-span[class*="css-"] svg {
+[class*="AppHeader"] [class*="css-"] svg:first-child,
+[role="banner"] svg,
+header > * svg {
   display: none !important;
 }
+
 
 /* 배경들 */
 body, #nc-root {
