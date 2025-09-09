@@ -226,23 +226,28 @@
 
 
 
-    
-    <div class="studio-page-content">
-        <div class="container">
 
+<div class="studio-page-content">
+    <div class="container">
 
-<div class="studio-description">
-<h3>그리드 시스템 계산기</h3>
-<p>웹사이트나 앱 디자인에 필요한 그리드 시스템을 쉽게 계산해보세요.<br>
-컨테이너 너비와 컬럼 수를 입력하면 각 요소의 정확한 크기를 자동으로 계산해드립니다.</p>
-<div class="supported-formats">
-<small>계산 결과: 페이지 너비, 컬럼 너비, 간격, 좌우 마진 등 레이아웃 설계에 필요한 모든 수치</small>
-</div>
-</div>
+        
+        <div class="studio-description">
+            <h3>그리드 시스템 계산기</h3>
+            <p>웹사이트나 앱 디자인에 필요한 그리드 시스템을 쉽게 계산해보세요.<br>
+            컨테이너 너비와 컬럼 수를 입력하면 각 요소의 정확한 크기를 자동으로 계산해드립니다.</p>
+            <div class="supported-formats">
+                <small>페이지 너비, 컬럼 너비, 간격, 좌우 마진 등 레이아웃 설계에 필요한 모든 수치 계산</small>
+            </div>
+        </div>
 
-            <div class="grid-calculator-wrapper">
+        <div class="grid-calculator-wrapper">
+            
+            <div class="grid-calculator-top-section">
                 
                 <div class="grid-calculator-inputs">
+
+                    <div class="grid-a">수치 입력</div>
+
                     <div class="grid-calculator-input-row">
                         <div class="grid-calculator-input-col">
                             <label>최대 너비</label>
@@ -277,31 +282,46 @@
                     </div>
                 </div>
                 
-                
-                <div class="grid-calculator-result-info">
-                    <div class="grid-calculator-result-item">
-                        <span>페이지 너비</span>
-                        <span id="calc-page-width">1280px</span>
-                    </div>
-                    <div class="grid-calculator-result-item">
-                        <span>컬럼 너비</span>
-                        <span id="calc-column-width">320px</span>
-                    </div>
-                    <div class="grid-calculator-result-item">
-                        <span>간격</span>
-                        <span id="calc-gutter-display">0px</span>
-                    </div>
-                    <div class="grid-calculator-result-item">
-                        <span>좌우 마진</span>
-                        <span id="calc-margin-display">0px</span>
-                    </div>
-                </div>
-                
-                
-                <div class="grid-calculator-preview-wrapper">
-                    <h3>그리드 미리보기</h3>
-                    <div class="grid-calculator-preview" id="calc-grid-preview"></div>
-                </div>
+
+<div class="grid-calculator-result-info">
+
+ <div class="grid-a">계산 결과</div>
+
+    <div class="grid-calculator-result-row">
+        <div class="grid-calculator-result-col">
+            <label>페이지 너비</label>
+            <div class="grid-calculator-result-value">
+                <span id="calc-page-width">1280px</span>
+            </div>
+        </div>
+        <div class="grid-calculator-result-col">
+            <label>간격</label>
+            <div class="grid-calculator-result-value">
+                <span id="calc-gutter-display">0px</span>
+            </div>
+        </div>
+    </div>
+    <div class="grid-calculator-result-row">
+        <div class="grid-calculator-result-col">
+            <label>컬럼 너비</label>
+            <div class="grid-calculator-result-value">
+                <span id="calc-column-width">320px</span>
+            </div>
+        </div>
+        <div class="grid-calculator-result-col">
+            <label>좌우 마진</label>
+            <div class="grid-calculator-result-value">
+                <span id="calc-margin-display">0px</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+            
+            
+            <div class="grid-calculator-preview-wrapper">
+                <h3>그리드 미리보기</h3>
+                <div class="grid-calculator-preview" id="calc-grid-preview"></div>
             </div>
         </div>
     </div>

@@ -110,7 +110,7 @@
                                     <!-- 이미지 정보 -->
                     <div class="image-info" id="imageInfo">
                         <div class="coord-label">이미지 정보</div>
-                        <div id="imageDimensions">크기: - x - px</div>
+                        <div id="imageDimensions">크기 : - x - px</div>
                     </div>
 
 
@@ -131,644 +131,649 @@
 <script>
 // 토스트 메시지 함수
 function showToast(message, type = 'info') {
-   const toast = document.createElement('div');
-   toast.className = `toast ${type}`;
-   toast.textContent = message;
-   
-   document.body.appendChild(toast);
-   
-   // 애니메이션을 위한 지연
-   setTimeout(() => toast.classList.add('show'), 100);
-   
-   // 3초 후 제거
-   setTimeout(() => {
-       toast.classList.remove('show');
-       setTimeout(() => document.body.removeChild(toast), 300);
-   }, 3000);
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  
+  document.body.appendChild(toast);
+  
+  // 애니메이션을 위한 지연
+  setTimeout(() => toast.classList.add('show'), 100);
+  
+  // 3초 후 제거
+  setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => document.body.removeChild(toast), 300);
+  }, 3000);
 }
 
 class ImageMapGenerator {
- constructor() {
-     this.canvas = null;
-     this.ctx = null;
-     this.image = null;
-     this.areas = [];
-     this.currentShape = 'rect';
-     this.isDrawing = false;
-     this.startX = 0;
-     this.startY = 0;
-     this.tempArea = null;
-     this.polygonPoints = [];
-     this.currentMouseX = 0;
-     this.currentMouseY = 0;
-     this.selectedArea = null;
-     this.isDragging = false;
-     this.dragHandle = null;
-     
-     this.init();
- }
+constructor() {
+    this.canvas = null;
+    this.ctx = null;
+    this.image = null;
+    this.areas = [];
+    this.currentShape = 'rect';
+    this.isDrawing = false;
+    this.startX = 0;
+    this.startY = 0;
+    this.tempArea = null;
+    this.polygonPoints = [];
+    this.currentMouseX = 0;
+    this.currentMouseY = 0;
+    this.selectedArea = null;
+    this.isDragging = false;
+    this.dragHandle = null;
+    
+    this.init();
+}
 
- init() {
-     this.setupEventListeners();
- }
+init() {
+    this.setupEventListeners();
+}
 
- setupEventListeners() {
-     // 파일 업로드
-     const uploadArea = document.getElementById('uploadArea');
-     const imageInput = document.getElementById('imageInput');
-     
-     uploadArea.addEventListener('click', () => imageInput.click());
-     uploadArea.addEventListener('dragover', this.handleDragOver.bind(this));
-     uploadArea.addEventListener('dragleave', this.handleDragLeave.bind(this));
-     uploadArea.addEventListener('drop', this.handleDrop.bind(this));
-     imageInput.addEventListener('change', this.handleFileSelect.bind(this));
-     
-     // URL 로드
-     const loadUrlBtn = document.getElementById('loadUrlBtn');
-     loadUrlBtn.addEventListener('click', this.loadImageFromUrl.bind(this));
-     
-     // 도형 선택
-     const shapeButtons = document.querySelectorAll('.shape-btn');
-     shapeButtons.forEach(btn => {
-         btn.addEventListener('click', () => {
-             shapeButtons.forEach(b => b.classList.remove('active'));
-             btn.classList.add('active');
-             this.currentShape = btn.dataset.shape;
-             this.polygonPoints = [];
-             this.clearTempArea();
-             this.updateActiveAreaDisplay();
-         });
-     });
-     
-     // 모두 지우기
-     document.getElementById('clearAll').addEventListener('click', this.clearAllAreas.bind(this));
-     
-     // 영역 추가
-     document.getElementById('addArea').addEventListener('click', this.addCurrentArea.bind(this));
-     
-     // 코드 복사
-     document.getElementById('copyCode').addEventListener('click', this.copyCode.bind(this));
- }
+setupEventListeners() {
+    // 파일 업로드
+    const uploadArea = document.getElementById('uploadArea');
+    const imageInput = document.getElementById('imageInput');
+    
+    uploadArea.addEventListener('click', () => imageInput.click());
+    uploadArea.addEventListener('dragover', this.handleDragOver.bind(this));
+    uploadArea.addEventListener('dragleave', this.handleDragLeave.bind(this));
+    uploadArea.addEventListener('drop', this.handleDrop.bind(this));
+    imageInput.addEventListener('change', this.handleFileSelect.bind(this));
+    
+    // URL 로드
+    const loadUrlBtn = document.getElementById('loadUrlBtn');
+    loadUrlBtn.addEventListener('click', this.loadImageFromUrl.bind(this));
+    
+    // 도형 선택
+    const shapeButtons = document.querySelectorAll('.shape-btn');
+    shapeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            shapeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            this.currentShape = btn.dataset.shape;
+            this.polygonPoints = [];
+            this.clearTempArea();
+            this.updateActiveAreaDisplay();
+        });
+    });
+    
+    // 모두 지우기
+    document.getElementById('clearAll').addEventListener('click', this.clearAllAreas.bind(this));
+    
+    // 영역 추가
+    document.getElementById('addArea').addEventListener('click', this.addCurrentArea.bind(this));
+    
+    // 코드 복사
+    document.getElementById('copyCode').addEventListener('click', this.copyCode.bind(this));
+}
 
- clearTempArea() {
-     this.tempArea = null;
-     this.selectedArea = null;
-     this.polygonPoints = [];
-     this.drawCanvas();
- }
+clearTempArea() {
+    this.tempArea = null;
+    this.selectedArea = null;
+    this.polygonPoints = [];
+    this.drawCanvas();
+}
 
- handleDragOver(e) {
-     e.preventDefault();
-     e.stopPropagation();
-     document.getElementById('uploadArea').classList.add('drag-over');
- }
+handleDragOver(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById('uploadArea').classList.add('drag-over');
+}
 
- handleDragLeave(e) {
-     e.preventDefault();
-     e.stopPropagation();
-     document.getElementById('uploadArea').classList.remove('drag-over');
- }
+handleDragLeave(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById('uploadArea').classList.remove('drag-over');
+}
 
- handleDrop(e) {
-     e.preventDefault();
-     e.stopPropagation();
-     document.getElementById('uploadArea').classList.remove('drag-over');
-     
-     const files = e.dataTransfer.files;
-     if (files.length > 0) {
-         if (files[0].type.startsWith('image/')) {
-             this.loadImage(files[0]);
-         } else {
-             showToast('지원하지 않는 파일 형식입니다. JPG, PNG, GIF, SVG 파일만 업로드 가능합니다.', 'error');
-         }
-     }
- }
+handleDrop(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    document.getElementById('uploadArea').classList.remove('drag-over');
+    
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        if (files[0].type.startsWith('image/')) {
+            this.loadImage(files[0]);
+        } else {
+            showToast('지원하지 않는 파일 형식입니다. JPG, PNG, GIF, SVG 파일만 업로드 가능합니다.', 'error');
+        }
+    }
+}
 
- handleFileSelect(e) {
-     const file = e.target.files[0];
-     if (file) {
-         if (file.type.startsWith('image/')) {
-             this.loadImage(file);
-         } else {
-             showToast('지원하지 않는 파일 형식입니다. JPG, PNG, GIF, SVG 파일만 업로드 가능합니다.', 'error');
-         }
-     }
- }
+handleFileSelect(e) {
+    const file = e.target.files[0];
+    if (file) {
+        if (file.type.startsWith('image/')) {
+            this.loadImage(file);
+        } else {
+            showToast('지원하지 않는 파일 형식입니다. JPG, PNG, GIF, SVG 파일만 업로드 가능합니다.', 'error');
+        }
+    }
+}
 
- loadImageFromUrl() {
-     const url = document.getElementById('imageUrl').value.trim();
-     if (!url) {
-         showToast('이미지 URL을 입력해주세요.', 'warning');
-         return;
-     }
-     
-     const img = new Image();
-     img.crossOrigin = 'anonymous';
-     img.onload = () => {
-         this.image = img;
-         this.setupCanvas();
-         showToast('이미지가 성공적으로 로드되었습니다.', 'success');
-     };
-     img.onerror = () => {
-         showToast('이미지를 불러올 수 없습니다. URL을 확인해주세요.', 'error');
-     };
-     img.src = url;
- }
+loadImageFromUrl() {
+    const url = document.getElementById('imageUrl').value.trim();
+    if (!url) {
+        showToast('이미지 URL을 입력해주세요.', 'warning');
+        return;
+    }
+    
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+        this.image = img;
+        this.setupCanvas();
+        showToast('이미지가 성공적으로 로드되었습니다.', 'success');
+    };
+    img.onerror = () => {
+        showToast('이미지를 불러올 수 없습니다. URL을 확인해주세요.', 'error');
+    };
+    img.src = url;
+}
 
- loadImage(file) {
-     const reader = new FileReader();
-     reader.onload = (e) => {
-         const img = new Image();
-         img.onload = () => {
-             this.image = img;
-             this.setupCanvas();
-             showToast('이미지가 성공적으로 업로드되었습니다.', 'success');
-         };
-         img.src = e.target.result;
-     };
-     reader.readAsDataURL(file);
- }
+loadImage(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+            this.image = img;
+            this.setupCanvas();
+            showToast('이미지가 성공적으로 업로드되었습니다.', 'success');
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
 
- setupCanvas() {
-     // UI 요소들 활성화
-     document.getElementById('canvasPlaceholder').style.display = 'none';
-     document.getElementById('imageCanvas').style.display = 'block';
-     document.getElementById('imageInfo').classList.add('active');
-     document.getElementById('coordinatesDisplay').classList.add('active');
-     document.getElementById('areaSettings').classList.add('active');
-     
-     const canvas = document.getElementById('imageCanvas');
-     const ctx = canvas.getContext('2d');
-     
-     const container = document.querySelector('.image-map-result-panel');
-     const maxWidth = container.clientWidth - 32;
-     let { width, height } = this.image;
-     
-     // 이미지 크기 정보 표시
-     document.getElementById('imageDimensions').textContent = `크기: ${this.image.width} x ${this.image.height} px`;
-     
-     const scale = Math.min(maxWidth / width, 1);
-     width = width * scale;
-     height = height * scale;
-     
-     canvas.width = width;
-     canvas.height = height;
-     
-     this.canvas = canvas;
-     this.ctx = ctx;
-     
-     this.drawCanvas();
-     this.setupCanvasEvents();
- }
+setupCanvas() {
+    // UI 요소들 활성화
+    document.getElementById('canvasPlaceholder').style.display = 'none';
+    document.getElementById('imageCanvas').style.display = 'block';
+    document.getElementById('imageInfo').classList.add('active');
+    document.getElementById('coordinatesDisplay').classList.add('active');
+    document.getElementById('areaSettings').classList.add('active');
+    
+    const canvas = document.getElementById('imageCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    const container = document.querySelector('.image-map-result-panel');
+    const maxWidth = container.clientWidth - 32;
+    let { width, height } = this.image;
+    
+    // 이미지 크기 정보 표시
+    document.getElementById('imageDimensions').textContent = `이미지 크기 : ${this.image.width} x ${this.image.height} px`;
+    
+    const scale = Math.min(maxWidth / width, 1);
+    width = width * scale;
+    height = height * scale;
+    
+    canvas.width = width;
+    canvas.height = height;
+    
+    this.canvas = canvas;
+    this.ctx = ctx;
+    
+    this.drawCanvas();
+    this.setupCanvasEvents();
+}
 
- setupCanvasEvents() {
-     this.canvas.addEventListener('mousedown', this.handleMouseDown.bind(this));
-     this.canvas.addEventListener('mousemove', this.handleMouseMove.bind(this));
-     this.canvas.addEventListener('mouseup', this.handleMouseUp.bind(this));
-     this.canvas.addEventListener('click', this.handleClick.bind(this));
-     this.canvas.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
- }
+setupCanvasEvents() {
+    this.canvas.addEventListener('mousedown', this.handleMouseDown.bind(this));
+    this.canvas.addEventListener('mousemove', this.handleMouseMove.bind(this));
+    this.canvas.addEventListener('mouseup', this.handleMouseUp.bind(this));
+    this.canvas.addEventListener('click', this.handleClick.bind(this));
+    this.canvas.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+}
 
- handleMouseDown(e) {
-     const rect = this.canvas.getBoundingClientRect();
-     const scaleX = this.canvas.width / rect.width;
-     const scaleY = this.canvas.height / rect.height;
-     
-     this.startX = (e.clientX - rect.left) * scaleX;
-     this.startY = (e.clientY - rect.top) * scaleY;
-     
-     if (this.currentShape === 'poly') return;
-     
-     this.clearTempArea(); // 기존 임시 영역 제거
-     this.isDrawing = true;
-     this.canvas.classList.add('drawing');
- }
+handleMouseDown(e) {
+    const rect = this.canvas.getBoundingClientRect();
+    const scaleX = this.canvas.width / rect.width;
+    const scaleY = this.canvas.height / rect.height;
+    
+    this.startX = (e.clientX - rect.left) * scaleX;
+    this.startY = (e.clientY - rect.top) * scaleY;
+    
+    if (this.currentShape === 'poly') return;
+    
+    this.clearTempArea(); // 기존 임시 영역 제거
+    this.isDrawing = true;
+    this.canvas.classList.add('drawing');
+}
 
- handleMouseMove(e) {
-     const rect = this.canvas.getBoundingClientRect();
-     const scaleX = this.canvas.width / rect.width;
-     const scaleY = this.canvas.height / rect.height;
-     
-     this.currentMouseX = (e.clientX - rect.left) * scaleX;
-     this.currentMouseY = (e.clientY - rect.top) * scaleY;
-     
-     this.updateCoordinatesDisplay();
-     
-     if (!this.isDrawing || this.currentShape === 'poly') return;
-     
-     this.drawCanvas();
-     this.drawTempArea(this.startX, this.startY, this.currentMouseX, this.currentMouseY);
-     this.updateActiveAreaDisplay();
- }
+handleMouseMove(e) {
+    const rect = this.canvas.getBoundingClientRect();
+    const scaleX = this.canvas.width / rect.width;
+    const scaleY = this.canvas.height / rect.height;
+    
+    this.currentMouseX = (e.clientX - rect.left) * scaleX;
+    this.currentMouseY = (e.clientY - rect.top) * scaleY;
+    
+    this.updateCoordinatesDisplay();
+    
+    if (!this.isDrawing || this.currentShape === 'poly') return;
+    
+    this.drawCanvas();
+    this.drawTempArea(this.startX, this.startY, this.currentMouseX, this.currentMouseY);
+    this.updateActiveAreaDisplay();
+}
 
- handleMouseUp(e) {
-     if (!this.isDrawing || this.currentShape === 'poly') return;
-     
-     const rect = this.canvas.getBoundingClientRect();
-     const scaleX = this.canvas.width / rect.width;
-     const scaleY = this.canvas.height / rect.height;
-     
-     const endX = (e.clientX - rect.left) * scaleX;
-     const endY = (e.clientY - rect.top) * scaleY;
-     
-     this.createTempArea(this.startX, this.startY, endX, endY);
-     this.isDrawing = false;
-     this.canvas.classList.remove('drawing');
-     this.updateActiveAreaDisplay();
- }
+handleMouseUp(e) {
+    if (!this.isDrawing || this.currentShape === 'poly') return;
+    
+    const rect = this.canvas.getBoundingClientRect();
+    const scaleX = this.canvas.width / rect.width;
+    const scaleY = this.canvas.height / rect.height;
+    
+    const endX = (e.clientX - rect.left) * scaleX;
+    const endY = (e.clientY - rect.top) * scaleY;
+    
+    this.createTempArea(this.startX, this.startY, endX, endY);
+    this.isDrawing = false;
+    this.canvas.classList.remove('drawing');
+    this.updateActiveAreaDisplay();
+}
 
- handleMouseLeave(e) {
-     document.getElementById('currentCoords').textContent = '마우스 : 캔버스 밖';
- }
+handleMouseLeave(e) {
+    document.getElementById('currentCoords').textContent = '마우스 : 캔버스 밖';
+}
 
- handleClick(e) {
-     if (this.currentShape !== 'poly') return;
-     
-     const rect = this.canvas.getBoundingClientRect();
-     const scaleX = this.canvas.width / rect.width;
-     const scaleY = this.canvas.height / rect.height;
-     
-     const x = (e.clientX - rect.left) * scaleX;
-     const y = (e.clientY - rect.top) * scaleY;
-     
-     // 더블클릭으로 다각형 완성
-     if (e.detail === 2 && this.polygonPoints.length >= 3) {
-         this.createPolygonArea();
-         showToast('다각형 영역이 생성되었습니다.', 'success');
-         return;
-     }
-     
-     // 새로운 다각형 시작 시 기존 임시 영역 제거
-     if (this.polygonPoints.length === 0) {
-         this.clearTempArea();
-     }
-     
-     this.polygonPoints.push({ x, y });
-     this.drawCanvas();
-     this.drawPolygonProgress();
-     this.updateActiveAreaDisplay();
- }
+handleClick(e) {
+    if (this.currentShape !== 'poly') return;
+    
+    const rect = this.canvas.getBoundingClientRect();
+    const scaleX = this.canvas.width / rect.width;
+    const scaleY = this.canvas.height / rect.height;
+    
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+    
+    // 더블클릭으로 다각형 완성
+    if (e.detail === 2 && this.polygonPoints.length >= 3) {
+        this.createPolygonArea();
+        showToast('다각형 영역이 생성되었습니다.', 'success');
+        return;
+    }
+    
+    // 새로운 다각형 시작 시 기존 임시 영역 제거
+    if (this.polygonPoints.length === 0) {
+        this.clearTempArea();
+    }
+    
+    this.polygonPoints.push({ x, y });
+    this.drawCanvas();
+    this.drawPolygonProgress();
+    this.updateActiveAreaDisplay();
+}
 
- updateCoordinatesDisplay() {
-     const originalX = Math.round(this.currentMouseX * (this.image.width / this.canvas.width));
-     const originalY = Math.round(this.currentMouseY * (this.image.height / this.canvas.height));
-     
-     document.getElementById('currentCoords').textContent = 
-         `마우스 : ${originalX}, ${originalY}`;
- }
+updateCoordinatesDisplay() {
+    const originalX = Math.round(this.currentMouseX * (this.image.width / this.canvas.width));
+    const originalY = Math.round(this.currentMouseY * (this.image.height / this.canvas.height));
+    
+    document.getElementById('currentCoords').textContent = 
+        `마우스 : ${originalX}, ${originalY}`;
+}
 
- updateActiveAreaDisplay() {
-     let activeAreaText = '활성 영역 : 없음';
-     
-     if (this.tempArea) {
-         const coords = this.tempArea.coords.map(coord => 
-             Math.round(coord * (this.image.width / this.canvas.width))
-         );
-         activeAreaText = `활성 영역 : ${this.tempArea.shape.toUpperCase()} (${coords.join(', ')})`;
-     } else if (this.currentShape === 'poly' && this.polygonPoints.length > 0) {
-         const coords = [];
-         this.polygonPoints.forEach(point => {
-             coords.push(
-                 Math.round(point.x * (this.image.width / this.canvas.width)),
-                 Math.round(point.y * (this.image.height / this.canvas.height))
-             );
-         });
-         activeAreaText = `다각형 진행중: ${coords.join(', ')} (더블클릭으로 완성)`;
-     }
-     
-     document.getElementById('activeAreaCoords').textContent = activeAreaText;
- }
+updateActiveAreaDisplay() {
+    let activeAreaText = '활성 영역 : 없음';
+    
+    if (this.tempArea) {
+        const coords = this.tempArea.coords.map(coord => 
+            Math.round(coord * (this.image.width / this.canvas.width))
+        );
+        activeAreaText = `활성 영역 : ${this.tempArea.shape.toUpperCase()} (${coords.join(', ')})`;
+    } else if (this.currentShape === 'poly' && this.polygonPoints.length > 0) {
+        const coords = [];
+        this.polygonPoints.forEach(point => {
+            coords.push(
+                Math.round(point.x * (this.image.width / this.canvas.width)),
+                Math.round(point.y * (this.image.height / this.canvas.height))
+            );
+        });
+        activeAreaText = `다각형 진행중: ${coords.join(', ')} (더블클릭으로 완성)`;
+    }
+    
+    document.getElementById('activeAreaCoords').textContent = activeAreaText;
+}
 
- drawTempArea(startX, startY, endX, endY) {
-     this.ctx.strokeStyle = '#01FF75';
-     this.ctx.lineWidth = 3;
-     this.ctx.setLineDash([8, 4]);
-     
-     if (this.currentShape === 'rect') {
-         // 배경색
-         this.ctx.fillStyle = 'rgba(1, 255, 117, 0.5)';
-         this.ctx.fillRect(startX, startY, endX - startX, endY - startY);
-         // 테두리
-         this.ctx.strokeRect(startX, startY, endX - startX, endY - startY);
-     } else if (this.currentShape === 'circle') {
-         const radius = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
-         this.ctx.beginPath();
-         this.ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
-         // 배경색
-         this.ctx.fillStyle = 'rgba(1, 255, 117, 0.5)';
-         this.ctx.fill();
-         // 테두리
-         this.ctx.stroke();
-     }
-     
-     this.ctx.setLineDash([]);
- }
+drawTempArea(startX, startY, endX, endY) {
+    this.ctx.strokeStyle = '#01FF75';
+    this.ctx.lineWidth = 3;
+    this.ctx.setLineDash([8, 4]);
+    
+    if (this.currentShape === 'rect') {
+        // 배경색
+        this.ctx.fillStyle = 'rgba(1, 255, 117, 0.5)';
+        this.ctx.fillRect(startX, startY, endX - startX, endY - startY);
+        // 테두리
+        this.ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+    } else if (this.currentShape === 'circle') {
+        const radius = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+        this.ctx.beginPath();
+        this.ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+        // 배경색
+        this.ctx.fillStyle = 'rgba(1, 255, 117, 0.5)';
+        this.ctx.fill();
+        // 테두리
+        this.ctx.stroke();
+    }
+    
+    this.ctx.setLineDash([]);
+}
 
- drawPolygonProgress() {
-     if (this.polygonPoints.length < 1) return;
-     
-     this.ctx.strokeStyle = '#01FF75';
-     this.ctx.lineWidth = 3;
-     this.ctx.setLineDash([8, 4]);
-     
-     if (this.polygonPoints.length >= 2) {
-         this.ctx.beginPath();
-         for (let i = 0; i < this.polygonPoints.length; i++) {
-             const point = this.polygonPoints[i];
-             if (i === 0) {
-                 this.ctx.moveTo(point.x, point.y);
-             } else {
-                 this.ctx.lineTo(point.x, point.y);
-             }
-         }
-         this.ctx.stroke();
-     }
-     
-     this.ctx.setLineDash([]);
-     
-     // 포인트 표시
-     this.polygonPoints.forEach((point, index) => {
-         this.ctx.fillStyle = '#01FF75';
-         this.ctx.beginPath();
-         this.ctx.arc(point.x, point.y, 4, 0, 2 * Math.PI);
-         this.ctx.fill();
-         
-         this.ctx.fillStyle = 'black';
-         this.ctx.font = '12px Arial';
-         this.ctx.textAlign = 'center';
-         this.ctx.fillText((index + 1).toString(), point.x, point.y + 4);
-     });
- }
+drawPolygonProgress() {
+    if (this.polygonPoints.length < 1) return;
+    
+    this.ctx.strokeStyle = '#01FF75';
+    this.ctx.lineWidth = 3;
+    this.ctx.setLineDash([8, 4]);
+    
+    if (this.polygonPoints.length >= 2) {
+        this.ctx.beginPath();
+        for (let i = 0; i < this.polygonPoints.length; i++) {
+            const point = this.polygonPoints[i];
+            if (i === 0) {
+                this.ctx.moveTo(point.x, point.y);
+            } else {
+                this.ctx.lineTo(point.x, point.y);
+            }
+        }
+        this.ctx.stroke();
+    }
+    
+    this.ctx.setLineDash([]);
+    
+    // 포인트 표시
+    this.polygonPoints.forEach((point, index) => {
+        this.ctx.fillStyle = '#01FF75';
+        this.ctx.beginPath();
+        this.ctx.arc(point.x, point.y, 4, 0, 2 * Math.PI);
+        this.ctx.fill();
+        
+        this.ctx.fillStyle = 'black';
+        this.ctx.font = '12px Arial';
+        this.ctx.textAlign = 'center';
+        this.ctx.fillText((index + 1).toString(), point.x, point.y + 4);
+    });
+}
 
- createTempArea(startX, startY, endX, endY) {
-     let coords = [];
-     
-     if (this.currentShape === 'rect') {
-         coords = [
-             Math.round(Math.min(startX, endX)),
-             Math.round(Math.min(startY, endY)),
-             Math.round(Math.max(startX, endX)),
-             Math.round(Math.max(startY, endY))
-         ];
-     } else if (this.currentShape === 'circle') {
-         const radius = Math.round(Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2));
-         coords = [Math.round(startX), Math.round(startY), radius];
-     }
-     
-     this.tempArea = {
-         shape: this.currentShape,
-         coords: coords
-     };
- }
+createTempArea(startX, startY, endX, endY) {
+    let coords = [];
+    
+    if (this.currentShape === 'rect') {
+        coords = [
+            Math.round(Math.min(startX, endX)),
+            Math.round(Math.min(startY, endY)),
+            Math.round(Math.max(startX, endX)),
+            Math.round(Math.max(startY, endY))
+        ];
+    } else if (this.currentShape === 'circle') {
+        const radius = Math.round(Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2));
+        coords = [Math.round(startX), Math.round(startY), radius];
+    }
+    
+    this.tempArea = {
+        shape: this.currentShape,
+        coords: coords
+    };
+}
 
- createPolygonArea() {
-     const coords = [];
-     this.polygonPoints.forEach(point => {
-         coords.push(Math.round(point.x), Math.round(point.y));
-     });
-     
-     this.tempArea = {
-         shape: 'poly',
-         coords: coords
-     };
-     
-     this.polygonPoints = [];
-     this.drawCanvas();
-     this.updateActiveAreaDisplay();
- }
+createPolygonArea() {
+    const coords = [];
+    this.polygonPoints.forEach(point => {
+        coords.push(Math.round(point.x), Math.round(point.y));
+    });
+    
+    this.tempArea = {
+        shape: 'poly',
+        coords: coords
+    };
+    
+    this.polygonPoints = [];
+    this.drawCanvas();
+    this.updateActiveAreaDisplay();
+}
 
- addCurrentArea() {
-     if (!this.tempArea) {
-         showToast('먼저 영역을 생성해주세요.', 'warning');
-         return;
-     }
-     
-     const url = document.getElementById('linkUrl').value.trim();
-     const title = document.getElementById('linkTitle').value.trim();
-     const target = document.getElementById('linkTarget').value;
-     
-     if (!url) {
-         showToast('링크 URL을 입력해주세요.', 'warning');
-         return;
-     }
-     
-     // 원본 이미지 좌표로 변환
-     const originalCoords = this.tempArea.coords.map(coord => 
-         Math.round(coord * (this.image.width / this.canvas.width))
-     );
-     
-     const area = {
-         shape: this.tempArea.shape,
-         coords: originalCoords,
-         url: url,
-         title: title || '',
-         target: target,
-         id: Date.now()
-     };
-     
-     this.areas.push(area);
-     this.tempArea = null;
-     
-     // 입력 필드 초기화
-     document.getElementById('linkUrl').value = '';
-     document.getElementById('linkTitle').value = '';
-     
-     this.updateAreasList();
-     this.generateHtmlCode();
-     this.drawCanvas();
-     this.updateActiveAreaDisplay();
-     
-     showToast('영역이 성공적으로 추가되었습니다.', 'success');
- }
+addCurrentArea() {
+    if (!this.tempArea) {
+        showToast('먼저 영역을 생성해주세요.', 'warning');
+        return;
+    }
+    
+    const url = document.getElementById('linkUrl').value.trim();
+    const title = document.getElementById('linkTitle').value.trim();
+    const target = document.getElementById('linkTarget').value;
+    
+    if (!url) {
+        showToast('링크 URL을 입력해주세요.', 'warning');
+        return;
+    }
+    
+    // 원본 이미지 좌표로 변환
+    const originalCoords = this.tempArea.coords.map(coord => 
+        Math.round(coord * (this.image.width / this.canvas.width))
+    );
+    
+    const area = {
+        shape: this.tempArea.shape,
+        coords: originalCoords,
+        url: url,
+        title: title || '',
+        target: target,
+        id: Date.now()
+    };
+    
+    this.areas.push(area);
+    this.tempArea = null;
+    
+    // 입력 필드 초기화
+    document.getElementById('linkUrl').value = '';
+    document.getElementById('linkTitle').value = '';
+    
+    this.updateAreasList();
+    this.generateHtmlCode();
+    this.drawCanvas();
+    this.updateActiveAreaDisplay();
+    
+    showToast('영역이 성공적으로 추가되었습니다.', 'success');
+}
 
- updateAreasList() {
-     const container = document.getElementById('areasContainer');
-     const areasList = document.getElementById('areasList');
-     
-     if (this.areas.length === 0) {
-         areasList.classList.remove('active');
-         return;
-     }
-     
-     areasList.classList.add('active');
-     container.innerHTML = '';
-     
-     this.areas.forEach(area => {
-         const div = document.createElement('div');
-         div.className = 'area-item';
-         const coordsText = area.coords.join(', ');
-         div.innerHTML = `
-             <div class="area-info">
-                 <strong>${area.shape.toUpperCase()}</strong><br>
-                 좌표: ${coordsText}<br>
-                 링크: ${area.url}
-                 ${area.title ? ` (${area.title})` : ''}
-             </div>
-             <button class="delete-area-btn" onclick="imageMapGen.deleteArea(${area.id})">삭제</button>
-         `;
-         container.appendChild(div);
-     });
- }
+updateAreasList() {
+    const container = document.getElementById('areasContainer');
+    const areasList = document.getElementById('areasList');
+    
+    if (this.areas.length === 0) {
+        areasList.classList.remove('active');
+        return;
+    }
+    
+    areasList.classList.add('active');
+    container.innerHTML = '';
+    
+    this.areas.forEach(area => {
+        const div = document.createElement('div');
+        div.className = 'area-item';
+        const coordsText = area.coords.join(', ');
+        div.innerHTML = `
+            <div class="area-info">
+                <strong>${area.shape.toUpperCase()}</strong><br>
+                좌표: ${coordsText}<br>
+                링크: ${area.url}
+                ${area.title ? ` (${area.title})` : ''}
+            </div>
+            <button class="delete-area-btn" onclick="imageMapGen.deleteArea(${area.id})">삭제</button>
+        `;
+        container.appendChild(div);
+    });
+}
 
- deleteArea(id) {
-     this.areas = this.areas.filter(area => area.id !== id);
-     this.updateAreasList();
-     this.generateHtmlCode();
-     this.drawCanvas();
-     
-     showToast('영역이 삭제되었습니다.', 'success');
- }
+deleteArea(id) {
+    this.areas = this.areas.filter(area => area.id !== id);
+    this.updateAreasList();
+    this.generateHtmlCode();
+    this.drawCanvas();
+    
+    showToast('영역이 삭제되었습니다.', 'success');
+}
 
- clearAllAreas() {
-     if (this.areas.length === 0 && !this.tempArea) {
-         showToast('지울 영역이 없습니다.', 'info');
-         return;
-     }
-     
-     this.areas = [];
-     this.clearTempArea();
-     this.updateAreasList();
-     this.generateHtmlCode();
-     this.drawCanvas();
-     this.updateActiveAreaDisplay();
-     
-     showToast('모든 영역이 삭제되었습니다.', 'success');
- }
+clearAllAreas() {
+    if (this.areas.length === 0 && !this.tempArea) {
+        showToast('지울 영역이 없습니다.', 'info');
+        return;
+    }
+    
+    this.areas = [];
+    this.clearTempArea();
+    this.updateAreasList();
+    this.generateHtmlCode();
+    this.drawCanvas();
+    this.updateActiveAreaDisplay();
+    
+    showToast('모든 영역이 삭제되었습니다.', 'success');
+}
 
- drawCanvas() {
-     if (!this.image || !this.ctx) return;
-     
-     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-     this.ctx.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
-     
-     // 기존 영역들 그리기
-     this.areas.forEach(area => {
-         const canvasCoords = area.coords.map(coord => 
-             coord * (this.canvas.width / this.image.width)
-         );
-         this.drawArea({ ...area, coords: canvasCoords });
-     });
-     
-     // 임시 영역 그리기
-     if (this.tempArea) {
-         this.drawArea(this.tempArea, true);
-     }
-     
-     // 다각형 진행 상황 그리기
-     if (this.currentShape === 'poly' && this.polygonPoints.length > 0) {
-         this.drawPolygonProgress();
-     }
- }
+drawCanvas() {
+    if (!this.image || !this.ctx) return;
+    
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    // 이미지만 어둡게 그리기
+    this.ctx.globalCompositeOperation = 'source-over';
+    this.ctx.filter = 'brightness(0.7)';
+    this.ctx.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.filter = 'none'; // 필터 초기화
+    
+    // 기존 영역들 그리기 (필터 적용 안됨)
+    this.areas.forEach(area => {
+        const canvasCoords = area.coords.map(coord => 
+            coord * (this.canvas.width / this.image.width)
+        );
+        this.drawArea({ ...area, coords: canvasCoords });
+    });
+    
+    // 임시 영역 그리기 (필터 적용 안됨)
+    if (this.tempArea) {
+        this.drawArea(this.tempArea, true);
+    }
+    
+    // 다각형 진행 상황 그리기 (필터 적용 안됨)
+    if (this.currentShape === 'poly' && this.polygonPoints.length > 0) {
+        this.drawPolygonProgress();
+    }
+}
 
- drawArea(area, isTemp = false) {
-     this.ctx.strokeStyle = isTemp ? '#01FF75' : '#ff6b6b';
-     this.ctx.lineWidth = isTemp ? 3 : 2;
-     this.ctx.setLineDash(isTemp ? [8, 4] : []);
-     
-     if (area.shape === 'rect') {
-         const [x1, y1, x2, y2] = area.coords;
-         // 배경색
-         this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
-         this.ctx.fillRect(x1, y1, x2 - x1, y2 - y1);
-         // 테두리
-         this.ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
-         
-         if (!isTemp) {
-             this.ctx.fillStyle = '#ff6b6b';
-             this.ctx.font = '14px Arial';
-             this.ctx.textAlign = 'center';
-             this.ctx.fillText('■', x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2 + 5);
-         }
-     } else if (area.shape === 'circle') {
-         const [x, y, radius] = area.coords;
-         this.ctx.beginPath();
-         this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
-         // 배경색
-         this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
-         this.ctx.fill();
-         // 테두리
-         this.ctx.stroke();
-         
-         if (!isTemp) {
-             this.ctx.fillStyle = '#ff6b6b';
-             this.ctx.beginPath();
-             this.ctx.arc(x, y, 3, 0, 2 * Math.PI);
-             this.ctx.fill();
-         }
-     } else if (area.shape === 'poly') {
-         this.ctx.beginPath();
-         for (let i = 0; i < area.coords.length; i += 2) {
-             const x = area.coords[i];
-             const y = area.coords[i + 1];
-             if (i === 0) {
-                 this.ctx.moveTo(x, y);
-             } else {
-                 this.ctx.lineTo(x, y);
-             }
-         }
-         this.ctx.closePath();
-         // 배경색
-         this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
-         this.ctx.fill();
-         // 테두리
-         this.ctx.stroke();
-         
-         if (!isTemp) {
-             for (let i = 0; i < area.coords.length; i += 2) {
-                 const x = area.coords[i];
-                 const y = area.coords[i + 1];
-                 this.ctx.fillStyle = '#ff6b6b';
-                 this.ctx.beginPath();
-                 this.ctx.arc(x, y, 3, 0, 2 * Math.PI);
-                 this.ctx.fill();
-             }
-         }
-     }
-     
-     this.ctx.setLineDash([]);
- }
+drawArea(area, isTemp = false) {
+    this.ctx.strokeStyle = isTemp ? '#01FF75' : '#ff6b6b';
+    this.ctx.lineWidth = isTemp ? 3 : 2;
+    this.ctx.setLineDash(isTemp ? [8, 4] : []);
+    
+    if (area.shape === 'rect') {
+        const [x1, y1, x2, y2] = area.coords;
+        // 배경색
+        this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
+        this.ctx.fillRect(x1, y1, x2 - x1, y2 - y1);
+        // 테두리
+        this.ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
+        
+        if (!isTemp) {
+            this.ctx.fillStyle = '#ff6b6b';
+            this.ctx.font = '14px Arial';
+            this.ctx.textAlign = 'center';
+            this.ctx.fillText('■', x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2 + 5);
+        }
+    } else if (area.shape === 'circle') {
+        const [x, y, radius] = area.coords;
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        // 배경색
+        this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
+        this.ctx.fill();
+        // 테두리
+        this.ctx.stroke();
+        
+        if (!isTemp) {
+            this.ctx.fillStyle = '#ff6b6b';
+            this.ctx.beginPath();
+            this.ctx.arc(x, y, 3, 0, 2 * Math.PI);
+            this.ctx.fill();
+        }
+    } else if (area.shape === 'poly') {
+        this.ctx.beginPath();
+        for (let i = 0; i < area.coords.length; i += 2) {
+            const x = area.coords[i];
+            const y = area.coords[i + 1];
+            if (i === 0) {
+                this.ctx.moveTo(x, y);
+            } else {
+                this.ctx.lineTo(x, y);
+            }
+        }
+        this.ctx.closePath();
+        // 배경색
+        this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
+        this.ctx.fill();
+        // 테두리
+        this.ctx.stroke();
+        
+        if (!isTemp) {
+            for (let i = 0; i < area.coords.length; i += 2) {
+                const x = area.coords[i];
+                const y = area.coords[i + 1];
+                this.ctx.fillStyle = '#ff6b6b';
+                this.ctx.beginPath();
+                this.ctx.arc(x, y, 3, 0, 2 * Math.PI);
+                this.ctx.fill();
+            }
+        }
+    }
+    
+    this.ctx.setLineDash([]);
+}
 
- generateHtmlCode() {
-     if (this.areas.length === 0) {
-         document.getElementById('codeOutput').classList.remove('active');
-         return;
-     }
-     
-     document.getElementById('codeOutput').classList.add('active');
-     
-     const mapName = 'imagemap_' + Date.now();
-     let html = `<img src="your-image.jpg" usemap="#${mapName}" alt="이미지 맵">\n`;
-     html += `<map name="${mapName}">\n`;
-     
-     this.areas.forEach(area => {
-         const coords = area.coords.join(',');
-         const title = area.title ? ` title="${area.title}"` : '';
-         html += `  <area shape="${area.shape}" coords="${coords}" href="${area.url}" target="${area.target}"${title}>\n`;
-     });
-     
-     html += `</map>`;
-     
-     document.getElementById('htmlCode').value = html;
- }
+generateHtmlCode() {
+    if (this.areas.length === 0) {
+        document.getElementById('codeOutput').classList.remove('active');
+        return;
+    }
+    
+    document.getElementById('codeOutput').classList.add('active');
+    
+    const mapName = 'imagemap_' + Date.now();
+    let html = `<img src="your-image.jpg" usemap="#${mapName}" alt="이미지 맵">\n`;
+    html += `<map name="${mapName}">\n`;
+    
+    this.areas.forEach(area => {
+        const coords = area.coords.join(',');
+        const title = area.title ? ` title="${area.title}"` : '';
+        html += `  <area shape="${area.shape}" coords="${coords}" href="${area.url}" target="${area.target}"${title}>\n`;
+    });
+    
+    html += `</map>`;
+    
+    document.getElementById('htmlCode').value = html;
+}
 
- copyCode() {
-     const textarea = document.getElementById('htmlCode');
-     if (!textarea.value.trim()) {
-         showToast('복사할 코드가 없습니다. 먼저 영역을 추가해주세요.', 'warning');
-         return;
-     }
-     
-     textarea.select();
-     document.execCommand('copy');
-     
-     showToast('HTML 코드가 클립보드에 복사되었습니다.', 'success');
- }
+copyCode() {
+    const textarea = document.getElementById('htmlCode');
+    if (!textarea.value.trim()) {
+        showToast('복사할 코드가 없습니다. 먼저 영역을 추가해주세요.', 'warning');
+        return;
+    }
+    
+    textarea.select();
+    document.execCommand('copy');
+    
+    showToast('HTML 코드가 클립보드에 복사되었습니다.', 'success');
+}
 }
 
 // 페이지 로드 후 초기화
 let imageMapGen;
 document.addEventListener('DOMContentLoaded', () => {
- imageMapGen = new ImageMapGenerator();
+imageMapGen = new ImageMapGenerator();
 });
 </script>
 

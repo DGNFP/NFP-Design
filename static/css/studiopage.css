@@ -3403,8 +3403,8 @@ select.studio-form-input option {
 /* 사이즈 계산기 페이지 */
 /* 사이즈 계산기 전용 스타일 */
 .size-calculator-wrapper {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
 }
 
@@ -3420,13 +3420,15 @@ select.studio-form-input option {
     color: var(--accent-color, #01FF75);
     font-size: 20px;
     font-weight: 600;
+    text-align: center;
 }
 
 .size-calculator-section p {
     margin: 0 0 24px 0;
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
+    text-align: center;
 }
 
 .size-calculator-input-row {
@@ -3444,8 +3446,9 @@ select.studio-form-input option {
 
 .size-calculator-input-col label {
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
+    text-align: center;
 }
 
 .size-calculator-input-with-unit {
@@ -3469,7 +3472,6 @@ select.studio-form-input option {
 .size-calculator-input-with-unit input:focus {
     outline: none;
     border-color: var(--accent-color, #01FF75);
-    box-shadow: 0 0 0 3px rgba(1, 255, 117, 0.1);
 }
 
 .size-calculator-input-with-unit input::placeholder {
@@ -3502,9 +3504,9 @@ select.studio-form-input option {
     transition: all 0.2s ease;
 }
 
-.size-calculator-result-item:hover {
+/* .size-calculator-result-item:hover {
     border-color: var(--accent-color, #01FF75);
-}
+} */
 
 .size-calculator-result-item span:first-child {
     color: #666;
@@ -3571,18 +3573,25 @@ select.studio-form-input option {
 }
 
 /* 그리드 계산기 페이지 */
-/* 그리드 계산기 전용 스타일 */
 .grid-calculator-wrapper {
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
 
+.grid-calculator-top-section {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
 .grid-calculator-inputs {
-    /* background: var(--semi-black); */
-    /* border: 1px solid var(--sub-border-color, #272727); */
-    /* border-radius: 4px; */
-    /* padding: 24px; */
+    background: var(--semi-black);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    padding: 24px;
+    flex: 1;
+    text-align: center;
 }
 
 .grid-calculator-input-row {
@@ -3602,10 +3611,24 @@ select.studio-form-input option {
     gap: 8px;
 }
 
+.grid-a{
+    display: inline-block;
+    padding: 6px 26px;
+    border: 2px solid var(--accent-color);
+    border-radius: 4px;
+    width: auto;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--accent-color);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
 .grid-calculator-input-col label {
     color: white;
     font-size: 18px;
     font-weight: 500;
+    text-align: center;
 }
 
 .grid-calculator-input-with-unit {
@@ -3616,9 +3639,9 @@ select.studio-form-input option {
 
 .grid-calculator-input-with-unit input {
     width: 100%;
-    padding: 12px 50px 12px 12px;
+    padding: 12px 16px;
     background: var(--sub-bg-color, #141414);
-    border: 2px solid var(--sub-border-color, #272727);
+    border: 1px solid var(--sub-border-color, #272727);
     border-radius: 4px;
     color: white;
     font-size: 16px;
@@ -3635,64 +3658,83 @@ select.studio-form-input option {
     position: absolute;
     right: 12px;
     color: var(--accent-color, #01FF75);
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     pointer-events: none;
 }
 
 .grid-calculator-result-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    /* background: var(--sub-bg-color, #141414); */
-    /* border: 1px solid var(--sub-border-color, #272727); */
-    /* border-radius: 4px; */
-    /* padding: 24px; */
+    flex: 1;
+    background: var(--semi-black);
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    padding: 24px;
+    text-align: center;
 }
 
-.grid-calculator-result-item {
+.grid-calculator-result-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.grid-calculator-result-row:last-child {
+    margin-bottom: 0;
+}
+
+.grid-calculator-result-col {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grid-calculator-result-col label {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.grid-calculator-result-value {
     background: var(--sub-bg-color, #141414);
     border: 1px solid var(--sub-border-color, #272727);
     border-radius: 4px;
+    padding: 12px 16px;
+    text-align: center;
     transition: all 0.2s ease;
 }
 
-.grid-calculator-result-item:hover {
-    border-color: var(--accent-color, #01FF75);
+.grid-calculator-input-with-unit input,
+.grid-calculator-result-value {
+    min-height: 48px; /* 동일한 최소 높이 지정 */
+    box-sizing: border-box; /* 박스 모델 통일 */
+    line-height: 1.2; /* 라인 높이 통일 */
 }
 
-.grid-calculator-result-item span:first-child {
-    color: #888;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.grid-calculator-result-item span:last-child {
+.grid-calculator-result-value span {
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .grid-calculator-preview-wrapper {
-    /* background: var(--sub-bg-color, #141414); */
-    /* border: 1px solid var(--sub-border-color, #272727); */
-    /* border-radius: 4px; */
-    /* padding: 24px; */
+    background: #0e0e0e;
+    border: 1px solid var(--sub-border-color, #272727);
+    border-radius: 4px;
+    padding: 24px;
 }
 
 .grid-calculator-preview-wrapper h3 {
     margin: 0 0 16px 0;
     color: var(--accent-color, #01FF75);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
+    text-align: center;
 }
 
 .grid-calculator-preview {
-    background: #01ff7307;
+    /* background: #01ff7307; */
     /* border: 1px solid var(--sub-border-color, #272727); */
     border-radius: 4px;
     padding: 0px;
@@ -3759,13 +3801,21 @@ select.studio-form-input option {
 
 /* 그리드 계산기 반응형 */
 @media (max-width: 768px) {
+    .grid-calculator-top-section {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: normal;
+    }
+    
     .grid-calculator-input-row {
         grid-template-columns: 1fr;
         gap: 12px;
     }
     
-    .grid-calculator-result-info {
+    .grid-calculator-result-row {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
     
     .grid-calculator-input-with-unit input {
@@ -3773,12 +3823,12 @@ select.studio-form-input option {
         font-size: 14px;
     }
     
-    .grid-calculator-result-item {
+    .grid-calculator-result-value {
         padding: 10px 12px;
     }
     
-    .grid-calculator-result-item span {
-        font-size: 13px;
+    .grid-calculator-result-value span {
+        font-size: 14px;
     }
     
     .grid-calculator-preview {
@@ -5701,7 +5751,7 @@ select.studio-form-input option {
 
 .image-cropper-content {
     display: grid;
-    grid-template-columns: 600px 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     align-items: start;
 }
@@ -5804,14 +5854,14 @@ select.studio-form-input option {
 
 .crop-info-item .label {
     color: #666;
-    font-size: 12px;
+    font-size: 15px;
     min-width: 30px;
 }
 
 .crop-info-item .value {
     color: #01FF75;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     min-width: 40px;
 }
 
@@ -5839,7 +5889,7 @@ select.studio-form-input option {
 
 .manual-crop-item label {
     margin-bottom: 5px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .manual-crop-item input {
@@ -5865,7 +5915,7 @@ select.studio-form-input option {
     color: white;
     padding: 8px 16px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
     transition: all 0.3s ease;
     width: 100%;
 }
@@ -5890,7 +5940,7 @@ select.studio-form-input option {
     color: white;
     padding: 8px 12px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
     transition: all 0.3s ease;
 }
 
@@ -6042,8 +6092,8 @@ select.studio-form-input option {
 
 .crop-canvas {
     display: block;
-    border: 1px solid #272727;
-    border-radius: 4px;
+    /* border: 1px solid #272727; */
+    /* border-radius: 4px; */
     cursor: crosshair;
 }
 
@@ -6068,8 +6118,8 @@ select.studio-form-input option {
 
 .crop-handle {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background: #01FF75;
     border: 1px solid #000;
     border-radius: 2px;
@@ -9960,10 +10010,10 @@ pointer-events: none;
 
 .color-section {
     display: flex;
-    gap: 32px;
-    margin-bottom: 20px;
-    align-items: flex-start;
-    flex-direction: row;
+    gap: 6px;
+    margin-bottom: 10px;
+    align-items: center;
+    flex-direction: column;
 }
 
 .color-box {
@@ -9977,9 +10027,10 @@ pointer-events: none;
 .ft-color-info {
 display: flex;
 flex: 1;
-gap: 8px;
+gap: 0px;
 justify-items: center;
 flex-direction: column;
+align-items: center;
 }
 
 .brand {
@@ -11140,7 +11191,7 @@ flex-direction: column;
 /* 전체 레이아웃 */
 .image-map-main-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 500px 1fr;
     gap: 24px;
     margin-top: 20px;
 }
@@ -11200,7 +11251,6 @@ flex-direction: column;
 .upload-area.drag-over {
     border-color: var(--accent-color);
     background: rgba(1, 255, 117, 0.1);
-    transform: scale(1.02);
 }
 
 .upload-text span {
@@ -11364,11 +11414,11 @@ font-weight: 600;
 .settings-form {
     display: flex;
     /* flex-direction: column; */
-    transition: all 0.3s ease;
 
     flex-direction: row;
     align-items: center;
     gap: 8px;
+    transition: all 0.3s ease;
 }
 
 .settings-input,
@@ -11376,17 +11426,24 @@ font-weight: 600;
     flex:1;
     padding: 12px;
     border: 1px solid var(--sub-border-color);
+    width: 50%;
     border-radius: 4px;
     background: var(--sub-bg-color);
     color: white;
     font-size: 14px;
     transition: all 0.3s ease;
+}
 
+.coord-label, #imageDimensions{
+    font-size: 16px;
+}
+#activeAreaCoords, #imageDimensions{
+    color: var(--accent-color);
 }
 
 .settings-select {
     flex: 1;
-    min-width: 150px;
+    /* min-width: 150px; */
     padding: 12px;
     border: 1px solid var(--sub-border-color);
     border-radius: 4px;
@@ -11397,6 +11454,7 @@ font-weight: 600;
     background-position: right 8px center;
     background-repeat: no-repeat;
     background-size: 20px 20px;
+    width: 50%;
     appearance: none;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -11538,6 +11596,8 @@ height: auto !important;
 #imageCanvas.drawing {
 border-color: var(--accent-color);
 }
+
+
 
 /* HTML 코드 출력 */
 .code-output {
@@ -12053,6 +12113,19 @@ border-color: var(--accent-color);
 
 /* 소형 모바일 */
 @media (max-width: 480px) {
+
+.container{
+width: 95%;
+}
+
+.sub-page-btn-wrapper {
+grid-template-columns: repeat(2, minmax(140px, 1fr)); /* 2열로 변경 */
+width: 100%; /* 고정 너비 대신 반응형 */
+padding: 0 20px; /* 양쪽 여백 */
+column-gap: 10px; /* 컬럼 간격 조정 */
+row-gap: 8px; /* 행 간격 조정 */
+}
+
     .studio-page-content {
         padding: 20px 25px;
     }
