@@ -60,7 +60,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["content"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["카드뉴스 디자인", "포스터 디자인", "이벤트 페이지 디자인", "SNS 광고"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["카드뉴스 디자인", "포스터 디자인", "이벤트 페이지 디자인", "블로그 스킨 디자인", "SNS 광고"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","카드뉴스 디자인", "포스터 디자인", "이벤트 페이지 디자인", "SNS광고 디자인", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"

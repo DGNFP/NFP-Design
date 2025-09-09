@@ -2,37 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <loc>http://localhost:1313/categories/ad/</loc>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/creative/</loc>
-    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/tags/nfp-design/</loc>
-    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/tags/studio-nfp/</loc>
-    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</loc>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/ad/2025-09-08-%EC%95%BD%EA%B5%AD-%EC%8B%9C%ED%8A%B8%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/%ED%99%8D%EB%B3%B4%EB%AC%BC-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2025-09-09T00:05:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/creative/</loc>
     <lastmod>2025-09-08T23:22:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -42,27 +62,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</loc>
-    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/categories/creative/2025-09-08-%EC%9C%A4-%EA%B8%B0%ED%83%80%EA%B3%B5%EB%B0%A9-%EB%A1%9C%EA%B3%A0/</loc>
     <lastmod>2025-09-08T23:22:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/ad/</loc>
-    <lastmod>2025-09-07T23:16:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/categories/ad/2025-09-07-%EC%9D%8C%EC%8B%9D%EC%A0%90-%EC%8B%9C%ED%8A%B8%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-09-07T23:16:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/%ED%99%8D%EB%B3%B4%EB%AC%BC-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-09-07T23:16:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -678,6 +683,11 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/watermark/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/image-map-generator/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>

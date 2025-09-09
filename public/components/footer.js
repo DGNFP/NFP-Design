@@ -22,21 +22,26 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://www.youtube.com/@Studio-NFP" target="_blank" class="social-link social-link-youtube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://www.instagram.com/studio_nfp" target="_blank" class="social-link social-link-instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://open.kakao.com/me/nfp" target="_blank" class="social-link social-link-kakao">
-                    <i class="fas fa-comment"></i>
-                </a>
-                <a href="#" target="_blank" class="social-link social-link-games">
-                    <i class="fas fa-gamepad"></i>
-                </a>
-               <a href="/admin/" class="social-link social-link-admin" target="_blank" rel="noopener">
-                    <i class="fas fa-cog"></i>
-                </a>
+            <a href="https://www.youtube.com/@Studio-NFP" target="_blank" class="social-link social-link-youtube">
+            <i class="fab fa-youtube"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@studio_nfp" target="_blank" class="social-link social-link-tiktok">
+            <i class="fab fa-tiktok"></i>
+            </a>
+
+            <a href="https://open.kakao.com/me/nfp" target="_blank" class="social-link social-link-kakao">
+            <i class="fas fa-comment"></i>
+            </a>
+
+
+            <a href="https://www.instagram.com/studio_nfp" target="_blank" class="social-link social-link-instagram">
+            <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="/admin/" class="social-link social-link-admin" target="_blank" rel="noopener">
+            <i class="fas fa-cog"></i>
+            </a>
             </div>
             <div class="footer-credits">
                 <p class="copyright">© ${year} ${companyName}. All rights reserved.</p>
@@ -147,25 +152,61 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
         }
         
         .social-link-games::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #00F0FF 0%, #FFF200 100%);
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #00F0FF 0%, #FFF200 100%);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
         }
-        
+
         .social-link-games:hover::before {
-            opacity: 1;
+        opacity: 1;
         }
-        
+
         .social-link-games:hover {
-            color: #000000;
+        color: #000000;
+        }
+
+        /* TikTok 호버 효과 (글리치 효과) */
+        .social-link-tiktok {
+        position: relative;
+        overflow: hidden;
+        }
+
+        .social-link-tiktok::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+        }
+
+        .social-link-tiktok:hover::before {
+        opacity: 1;
+        }
+
+        .social-link-tiktok:hover {
+        color: #ffffff;
+        text-shadow: 
+        -2px -2px 0 #25F4EE,
+        2px 2px 0 #FE2C55;
+        }
+
+        .social-link-tiktok i {
+        position: relative;
+        z-index: 1;
         }
         
         /* 관리자 호버 효과 (NFP 강조색) */

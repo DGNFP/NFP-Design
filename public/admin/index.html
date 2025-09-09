@@ -28,12 +28,12 @@ button[class*="LoginButton"] {
   
 
   /* 기존 텍스트 숨기고 새 텍스트로 대체 */
-  /* font-size: 0 !important; */
+  font-size: 0 !important;
 }
 
 /* 로그인 버튼 */
 button[class*="LoginButton"]:after {
-  /* content: "NFP DESIGN 관리자 로그인" !important; */
+  content: "NFP DESIGN 관리자 로그인" !important;
   font-size: 15px !important;
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif !important;
   font-weight: 600 !important;
@@ -51,13 +51,14 @@ button[class*="LoginButton"]:hover:after {
   color: black !important;
 }
 
-/* Decap 로고 숨기기 */
+/* 헤더 영역의 로고만 숨기기 */
 [class*="DecapLogo"], 
-svg[class*="logo"],
-[class*="css-"] svg,
-span[class*="css-"] svg {
+[class*="AppHeader"] [class*="css-"] svg:first-child,
+[role="banner"] svg,
+header > * svg {
   display: none !important;
 }
+
 
 /* 배경들 */
 body, #nc-root {

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>이미지 맵 생성기 - Studio NFP - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="이미지 맵, HTML 맵, 핫스팟, 인터랙티브 이미지, 웹 개발, 클릭 영역, 이미지 링크">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/image-map-generator/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="이미지 맵 생성기 - Studio NFP - NFP 디자인">
+    <meta property="og:description" content="이미지에 클릭 가능한 핫스팟 영역을 만들어 인터랙티브한 웹 콘텐츠를 제작하는 도구입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/image-map-generator/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="이미지 맵 생성기 - Studio NFP - NFP 디자인">
+    <meta name="twitter:description" content="이미지에 클릭 가능한 핫스팟 영역을 만들어 인터랙티브한 웹 콘텐츠를 제작하는 도구입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "이미지 맵 생성기 - Studio NFP",
+      "description": "이미지에 클릭 가능한 핫스팟 영역을 만들어 인터랙티브한 웹 콘텐츠를 제작하는 도구입니다.",
+      "url": "http:\/\/localhost:1313\/studio\/image-map-generator\/",
+      
+      "datePublished": "2025-01-01T00:00:00\u002b09:00",
+      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<link rel="stylesheet" href="/css/studiopage.css">
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">이미지 맵 생성기</span>
+        <p><br>이미지에 클릭 가능한 영역을 만들어보세요.</p>
+    </div>
+
+
+<div class="page-btn-wrapper">
+<a href="/studio" class="page-btn">스튜디오 메인</a>
+<a href="/studio/web-demo" class="page-btn">웹 데모</a>
+<a href="/studio/design-guide/" class="page-btn">디자인 가이드</a>
+</div>
+
+    
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            
+            <div class="studio-description">
+                <h3>HTML 이미지 맵 생성기</h3>
+                <p>이미지에 클릭 가능한 영역을 만들어 다른 링크로 연결할 수 있습니다.<br>
+                #이미지 좌표 계산 #이미지맵 생성</p>
+                <div class="supported-formats">
+                    <small>지원 형식: JPG, PNG, GIF, SVG</small>
+                </div>
+            </div>
+
+            
+            <div class="image-map-main-container">
+                
+                
+                <div class="image-map-settings-panel">
+                    <h4>이미지 선택</h4>
+                    
+                    
+                    <div class="image-upload-section">
+                        <div class="upload-area" id="uploadArea">
+                            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                            <div class="upload-text">
+                                <span>이미지를 선택하거나 드래그해주세요.</span>
+                                <small>지원 포맷: JPG, PNG, WebP, BMP, GIF</small>
+                            </div>
+                        </div>
+                        <div class="url-input-section">
+                            <input type="text" id="imageUrl" placeholder="또는 이미지 URL을 입력하세요" class="url-input">
+                            <button id="loadUrlBtn" class="load-url-btn">→ 포맷 변환하기</button>
+                        </div>
+                    </div>
+
+                                 
+                    <div class="coordinates-display" id="coordinatesDisplay">
+                        <div class="coord-label">실시간 좌표</div>
+                        <div id="currentCoords">마우스 : -, -</div>
+                        <div id="activeAreaCoords" style="margin-top: 4px;">활성 영역 : 없음</div>
+                    </div>
+
+
+                    
+                    <div class="shape-controls">
+                        <h4>변환할 포맷</h4>
+                        <div class="shape-selector">
+                            <button class="shape-btn active" data-shape="rect">사각형</button>
+                            <button class="shape-btn" data-shape="circle">원형</button>
+                            <button class="shape-btn" data-shape="poly">다각형</button>
+                        <button id="clearAll" class="shape-clear-btn">모두 지우기</button>
+                        </div>
+                    </div>
+
+           
+
+                    
+                    <div class="area-settings" id="areaSettings">
+                        <h4>링크 설정</h4>
+                        <div class="settings-form">
+                            <input type="text" id="linkUrl" placeholder="링크 URL" class="settings-input">
+                            <input type="text" id="linkTitle" placeholder="제목 (선택)" class="settings-input">
+                            <select id="linkTarget" class="settings-select">
+                                <option value="_self">같은 창</option>
+                                <option value="_blank">새 창</option>
+                            </select>
+                            <button id="addArea" class="add-area-btn">영역 추가</button>
+                        </div>
+                    </div>
+
+                    
+                    <div class="areas-list" id="areasList">
+                        <h4>생성된 영역</h4>
+                        <div class="areas-container" id="areasContainer">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="image-map-result-panel">
+                    <h4>변환 결과</h4>
+                    
+                    
+                    <div class="image-canvas-container">
+                        <div class="canvas-placeholder" id="canvasPlaceholder">
+                            이미지를 업로드하고<br>변환 설정을 완료해주세요.
+                        </div>
+                        <canvas id="imageCanvas" style="display: none;"></canvas>
+                    </div>
+
+                                    
+                    <div class="image-info" id="imageInfo">
+                        <div class="coord-label">이미지 정보</div>
+                        <div id="imageDimensions">크기: - x - px</div>
+                    </div>
+
+
+                    
+                    <div class="code-output" id="codeOutput">
+                        <h4>HTML 코드</h4>
+                        <textarea id="htmlCode" class="code-textarea" readonly></textarea>
+                        <button id="copyCode" class="copy-code-btn">코드 복사</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+
+function showToast(message, type = 'info') {
+   const toast = document.createElement('div');
+   toast.className = `toast ${type}`;
+   toast.textContent = message;
+   
+   document.body.appendChild(toast);
+   
+   
+   setTimeout(() => toast.classList.add('show'), 100);
+   
+   
+   setTimeout(() => {
+       toast.classList.remove('show');
+       setTimeout(() => document.body.removeChild(toast), 300);
+   }, 3000);
+}
+
+class ImageMapGenerator {
+ constructor() {
+     this.canvas = null;
+     this.ctx = null;
+     this.image = null;
+     this.areas = [];
+     this.currentShape = 'rect';
+     this.isDrawing = false;
+     this.startX = 0;
+     this.startY = 0;
+     this.tempArea = null;
+     this.polygonPoints = [];
+     this.currentMouseX = 0;
+     this.currentMouseY = 0;
+     this.selectedArea = null;
+     this.isDragging = false;
+     this.dragHandle = null;
+     
+     this.init();
+ }
+
+ init() {
+     this.setupEventListeners();
+ }
+
+ setupEventListeners() {
+     
+     const uploadArea = document.getElementById('uploadArea');
+     const imageInput = document.getElementById('imageInput');
+     
+     uploadArea.addEventListener('click', () => imageInput.click());
+     uploadArea.addEventListener('dragover', this.handleDragOver.bind(this));
+     uploadArea.addEventListener('dragleave', this.handleDragLeave.bind(this));
+     uploadArea.addEventListener('drop', this.handleDrop.bind(this));
+     imageInput.addEventListener('change', this.handleFileSelect.bind(this));
+     
+     
+     const loadUrlBtn = document.getElementById('loadUrlBtn');
+     loadUrlBtn.addEventListener('click', this.loadImageFromUrl.bind(this));
+     
+     
+     const shapeButtons = document.querySelectorAll('.shape-btn');
+     shapeButtons.forEach(btn => {
+         btn.addEventListener('click', () => {
+             shapeButtons.forEach(b => b.classList.remove('active'));
+             btn.classList.add('active');
+             this.currentShape = btn.dataset.shape;
+             this.polygonPoints = [];
+             this.clearTempArea();
+             this.updateActiveAreaDisplay();
+         });
+     });
+     
+     
+     document.getElementById('clearAll').addEventListener('click', this.clearAllAreas.bind(this));
+     
+     
+     document.getElementById('addArea').addEventListener('click', this.addCurrentArea.bind(this));
+     
+     
+     document.getElementById('copyCode').addEventListener('click', this.copyCode.bind(this));
+ }
+
+ clearTempArea() {
+     this.tempArea = null;
+     this.selectedArea = null;
+     this.polygonPoints = [];
+     this.drawCanvas();
+ }
+
+ handleDragOver(e) {
+     e.preventDefault();
+     e.stopPropagation();
+     document.getElementById('uploadArea').classList.add('drag-over');
+ }
+
+ handleDragLeave(e) {
+     e.preventDefault();
+     e.stopPropagation();
+     document.getElementById('uploadArea').classList.remove('drag-over');
+ }
+
+ handleDrop(e) {
+     e.preventDefault();
+     e.stopPropagation();
+     document.getElementById('uploadArea').classList.remove('drag-over');
+     
+     const files = e.dataTransfer.files;
+     if (files.length > 0) {
+         if (files[0].type.startsWith('image/')) {
+             this.loadImage(files[0]);
+         } else {
+             showToast('지원하지 않는 파일 형식입니다. JPG, PNG, GIF, SVG 파일만 업로드 가능합니다.', 'error');
+         }
+     }
+ }
+
+ handleFileSelect(e) {
+     const file = e.target.files[0];
+     if (file) {
+         if (file.type.startsWith('image/')) {
+             this.loadImage(file);
+         } else {
+             showToast('지원하지 않는 파일 형식입니다. JPG, PNG, GIF, SVG 파일만 업로드 가능합니다.', 'error');
+         }
+     }
+ }
+
+ loadImageFromUrl() {
+     const url = document.getElementById('imageUrl').value.trim();
+     if (!url) {
+         showToast('이미지 URL을 입력해주세요.', 'warning');
+         return;
+     }
+     
+     const img = new Image();
+     img.crossOrigin = 'anonymous';
+     img.onload = () => {
+         this.image = img;
+         this.setupCanvas();
+         showToast('이미지가 성공적으로 로드되었습니다.', 'success');
+     };
+     img.onerror = () => {
+         showToast('이미지를 불러올 수 없습니다. URL을 확인해주세요.', 'error');
+     };
+     img.src = url;
+ }
+
+ loadImage(file) {
+     const reader = new FileReader();
+     reader.onload = (e) => {
+         const img = new Image();
+         img.onload = () => {
+             this.image = img;
+             this.setupCanvas();
+             showToast('이미지가 성공적으로 업로드되었습니다.', 'success');
+         };
+         img.src = e.target.result;
+     };
+     reader.readAsDataURL(file);
+ }
+
+ setupCanvas() {
+     
+     document.getElementById('canvasPlaceholder').style.display = 'none';
+     document.getElementById('imageCanvas').style.display = 'block';
+     document.getElementById('imageInfo').classList.add('active');
+     document.getElementById('coordinatesDisplay').classList.add('active');
+     document.getElementById('areaSettings').classList.add('active');
+     
+     const canvas = document.getElementById('imageCanvas');
+     const ctx = canvas.getContext('2d');
+     
+     const container = document.querySelector('.image-map-result-panel');
+     const maxWidth = container.clientWidth - 32;
+     let { width, height } = this.image;
+     
+     
+     document.getElementById('imageDimensions').textContent = `크기: ${this.image.width} x ${this.image.height} px`;
+     
+     const scale = Math.min(maxWidth / width, 1);
+     width = width * scale;
+     height = height * scale;
+     
+     canvas.width = width;
+     canvas.height = height;
+     
+     this.canvas = canvas;
+     this.ctx = ctx;
+     
+     this.drawCanvas();
+     this.setupCanvasEvents();
+ }
+
+ setupCanvasEvents() {
+     this.canvas.addEventListener('mousedown', this.handleMouseDown.bind(this));
+     this.canvas.addEventListener('mousemove', this.handleMouseMove.bind(this));
+     this.canvas.addEventListener('mouseup', this.handleMouseUp.bind(this));
+     this.canvas.addEventListener('click', this.handleClick.bind(this));
+     this.canvas.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+ }
+
+ handleMouseDown(e) {
+     const rect = this.canvas.getBoundingClientRect();
+     const scaleX = this.canvas.width / rect.width;
+     const scaleY = this.canvas.height / rect.height;
+     
+     this.startX = (e.clientX - rect.left) * scaleX;
+     this.startY = (e.clientY - rect.top) * scaleY;
+     
+     if (this.currentShape === 'poly') return;
+     
+     this.clearTempArea(); 
+     this.isDrawing = true;
+     this.canvas.classList.add('drawing');
+ }
+
+ handleMouseMove(e) {
+     const rect = this.canvas.getBoundingClientRect();
+     const scaleX = this.canvas.width / rect.width;
+     const scaleY = this.canvas.height / rect.height;
+     
+     this.currentMouseX = (e.clientX - rect.left) * scaleX;
+     this.currentMouseY = (e.clientY - rect.top) * scaleY;
+     
+     this.updateCoordinatesDisplay();
+     
+     if (!this.isDrawing || this.currentShape === 'poly') return;
+     
+     this.drawCanvas();
+     this.drawTempArea(this.startX, this.startY, this.currentMouseX, this.currentMouseY);
+     this.updateActiveAreaDisplay();
+ }
+
+ handleMouseUp(e) {
+     if (!this.isDrawing || this.currentShape === 'poly') return;
+     
+     const rect = this.canvas.getBoundingClientRect();
+     const scaleX = this.canvas.width / rect.width;
+     const scaleY = this.canvas.height / rect.height;
+     
+     const endX = (e.clientX - rect.left) * scaleX;
+     const endY = (e.clientY - rect.top) * scaleY;
+     
+     this.createTempArea(this.startX, this.startY, endX, endY);
+     this.isDrawing = false;
+     this.canvas.classList.remove('drawing');
+     this.updateActiveAreaDisplay();
+ }
+
+ handleMouseLeave(e) {
+     document.getElementById('currentCoords').textContent = '마우스 : 캔버스 밖';
+ }
+
+ handleClick(e) {
+     if (this.currentShape !== 'poly') return;
+     
+     const rect = this.canvas.getBoundingClientRect();
+     const scaleX = this.canvas.width / rect.width;
+     const scaleY = this.canvas.height / rect.height;
+     
+     const x = (e.clientX - rect.left) * scaleX;
+     const y = (e.clientY - rect.top) * scaleY;
+     
+     
+     if (e.detail === 2 && this.polygonPoints.length >= 3) {
+         this.createPolygonArea();
+         showToast('다각형 영역이 생성되었습니다.', 'success');
+         return;
+     }
+     
+     
+     if (this.polygonPoints.length === 0) {
+         this.clearTempArea();
+     }
+     
+     this.polygonPoints.push({ x, y });
+     this.drawCanvas();
+     this.drawPolygonProgress();
+     this.updateActiveAreaDisplay();
+ }
+
+ updateCoordinatesDisplay() {
+     const originalX = Math.round(this.currentMouseX * (this.image.width / this.canvas.width));
+     const originalY = Math.round(this.currentMouseY * (this.image.height / this.canvas.height));
+     
+     document.getElementById('currentCoords').textContent = 
+         `마우스 : ${originalX}, ${originalY}`;
+ }
+
+ updateActiveAreaDisplay() {
+     let activeAreaText = '활성 영역 : 없음';
+     
+     if (this.tempArea) {
+         const coords = this.tempArea.coords.map(coord => 
+             Math.round(coord * (this.image.width / this.canvas.width))
+         );
+         activeAreaText = `활성 영역 : ${this.tempArea.shape.toUpperCase()} (${coords.join(', ')})`;
+     } else if (this.currentShape === 'poly' && this.polygonPoints.length > 0) {
+         const coords = [];
+         this.polygonPoints.forEach(point => {
+             coords.push(
+                 Math.round(point.x * (this.image.width / this.canvas.width)),
+                 Math.round(point.y * (this.image.height / this.canvas.height))
+             );
+         });
+         activeAreaText = `다각형 진행중: ${coords.join(', ')} (더블클릭으로 완성)`;
+     }
+     
+     document.getElementById('activeAreaCoords').textContent = activeAreaText;
+ }
+
+ drawTempArea(startX, startY, endX, endY) {
+     this.ctx.strokeStyle = '#01FF75';
+     this.ctx.lineWidth = 3;
+     this.ctx.setLineDash([8, 4]);
+     
+     if (this.currentShape === 'rect') {
+         
+         this.ctx.fillStyle = 'rgba(1, 255, 117, 0.5)';
+         this.ctx.fillRect(startX, startY, endX - startX, endY - startY);
+         
+         this.ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+     } else if (this.currentShape === 'circle') {
+         const radius = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+         this.ctx.beginPath();
+         this.ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+         
+         this.ctx.fillStyle = 'rgba(1, 255, 117, 0.5)';
+         this.ctx.fill();
+         
+         this.ctx.stroke();
+     }
+     
+     this.ctx.setLineDash([]);
+ }
+
+ drawPolygonProgress() {
+     if (this.polygonPoints.length < 1) return;
+     
+     this.ctx.strokeStyle = '#01FF75';
+     this.ctx.lineWidth = 3;
+     this.ctx.setLineDash([8, 4]);
+     
+     if (this.polygonPoints.length >= 2) {
+         this.ctx.beginPath();
+         for (let i = 0; i < this.polygonPoints.length; i++) {
+             const point = this.polygonPoints[i];
+             if (i === 0) {
+                 this.ctx.moveTo(point.x, point.y);
+             } else {
+                 this.ctx.lineTo(point.x, point.y);
+             }
+         }
+         this.ctx.stroke();
+     }
+     
+     this.ctx.setLineDash([]);
+     
+     
+     this.polygonPoints.forEach((point, index) => {
+         this.ctx.fillStyle = '#01FF75';
+         this.ctx.beginPath();
+         this.ctx.arc(point.x, point.y, 4, 0, 2 * Math.PI);
+         this.ctx.fill();
+         
+         this.ctx.fillStyle = 'black';
+         this.ctx.font = '12px Arial';
+         this.ctx.textAlign = 'center';
+         this.ctx.fillText((index + 1).toString(), point.x, point.y + 4);
+     });
+ }
+
+ createTempArea(startX, startY, endX, endY) {
+     let coords = [];
+     
+     if (this.currentShape === 'rect') {
+         coords = [
+             Math.round(Math.min(startX, endX)),
+             Math.round(Math.min(startY, endY)),
+             Math.round(Math.max(startX, endX)),
+             Math.round(Math.max(startY, endY))
+         ];
+     } else if (this.currentShape === 'circle') {
+         const radius = Math.round(Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2));
+         coords = [Math.round(startX), Math.round(startY), radius];
+     }
+     
+     this.tempArea = {
+         shape: this.currentShape,
+         coords: coords
+     };
+ }
+
+ createPolygonArea() {
+     const coords = [];
+     this.polygonPoints.forEach(point => {
+         coords.push(Math.round(point.x), Math.round(point.y));
+     });
+     
+     this.tempArea = {
+         shape: 'poly',
+         coords: coords
+     };
+     
+     this.polygonPoints = [];
+     this.drawCanvas();
+     this.updateActiveAreaDisplay();
+ }
+
+ addCurrentArea() {
+     if (!this.tempArea) {
+         showToast('먼저 영역을 생성해주세요.', 'warning');
+         return;
+     }
+     
+     const url = document.getElementById('linkUrl').value.trim();
+     const title = document.getElementById('linkTitle').value.trim();
+     const target = document.getElementById('linkTarget').value;
+     
+     if (!url) {
+         showToast('링크 URL을 입력해주세요.', 'warning');
+         return;
+     }
+     
+     
+     const originalCoords = this.tempArea.coords.map(coord => 
+         Math.round(coord * (this.image.width / this.canvas.width))
+     );
+     
+     const area = {
+         shape: this.tempArea.shape,
+         coords: originalCoords,
+         url: url,
+         title: title || '',
+         target: target,
+         id: Date.now()
+     };
+     
+     this.areas.push(area);
+     this.tempArea = null;
+     
+     
+     document.getElementById('linkUrl').value = '';
+     document.getElementById('linkTitle').value = '';
+     
+     this.updateAreasList();
+     this.generateHtmlCode();
+     this.drawCanvas();
+     this.updateActiveAreaDisplay();
+     
+     showToast('영역이 성공적으로 추가되었습니다.', 'success');
+ }
+
+ updateAreasList() {
+     const container = document.getElementById('areasContainer');
+     const areasList = document.getElementById('areasList');
+     
+     if (this.areas.length === 0) {
+         areasList.classList.remove('active');
+         return;
+     }
+     
+     areasList.classList.add('active');
+     container.innerHTML = '';
+     
+     this.areas.forEach(area => {
+         const div = document.createElement('div');
+         div.className = 'area-item';
+         const coordsText = area.coords.join(', ');
+         div.innerHTML = `
+             <div class="area-info">
+                 <strong>${area.shape.toUpperCase()}</strong><br>
+                 좌표: ${coordsText}<br>
+                 링크: ${area.url}
+                 ${area.title ? ` (${area.title})` : ''}
+             </div>
+             <button class="delete-area-btn" onclick="imageMapGen.deleteArea(${area.id})">삭제</button>
+         `;
+         container.appendChild(div);
+     });
+ }
+
+ deleteArea(id) {
+     this.areas = this.areas.filter(area => area.id !== id);
+     this.updateAreasList();
+     this.generateHtmlCode();
+     this.drawCanvas();
+     
+     showToast('영역이 삭제되었습니다.', 'success');
+ }
+
+ clearAllAreas() {
+     if (this.areas.length === 0 && !this.tempArea) {
+         showToast('지울 영역이 없습니다.', 'info');
+         return;
+     }
+     
+     this.areas = [];
+     this.clearTempArea();
+     this.updateAreasList();
+     this.generateHtmlCode();
+     this.drawCanvas();
+     this.updateActiveAreaDisplay();
+     
+     showToast('모든 영역이 삭제되었습니다.', 'success');
+ }
+
+ drawCanvas() {
+     if (!this.image || !this.ctx) return;
+     
+     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+     this.ctx.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
+     
+     
+     this.areas.forEach(area => {
+         const canvasCoords = area.coords.map(coord => 
+             coord * (this.canvas.width / this.image.width)
+         );
+         this.drawArea({ ...area, coords: canvasCoords });
+     });
+     
+     
+     if (this.tempArea) {
+         this.drawArea(this.tempArea, true);
+     }
+     
+     
+     if (this.currentShape === 'poly' && this.polygonPoints.length > 0) {
+         this.drawPolygonProgress();
+     }
+ }
+
+ drawArea(area, isTemp = false) {
+     this.ctx.strokeStyle = isTemp ? '#01FF75' : '#ff6b6b';
+     this.ctx.lineWidth = isTemp ? 3 : 2;
+     this.ctx.setLineDash(isTemp ? [8, 4] : []);
+     
+     if (area.shape === 'rect') {
+         const [x1, y1, x2, y2] = area.coords;
+         
+         this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
+         this.ctx.fillRect(x1, y1, x2 - x1, y2 - y1);
+         
+         this.ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
+         
+         if (!isTemp) {
+             this.ctx.fillStyle = '#ff6b6b';
+             this.ctx.font = '14px Arial';
+             this.ctx.textAlign = 'center';
+             this.ctx.fillText('■', x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2 + 5);
+         }
+     } else if (area.shape === 'circle') {
+         const [x, y, radius] = area.coords;
+         this.ctx.beginPath();
+         this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+         
+         this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
+         this.ctx.fill();
+         
+         this.ctx.stroke();
+         
+         if (!isTemp) {
+             this.ctx.fillStyle = '#ff6b6b';
+             this.ctx.beginPath();
+             this.ctx.arc(x, y, 3, 0, 2 * Math.PI);
+             this.ctx.fill();
+         }
+     } else if (area.shape === 'poly') {
+         this.ctx.beginPath();
+         for (let i = 0; i < area.coords.length; i += 2) {
+             const x = area.coords[i];
+             const y = area.coords[i + 1];
+             if (i === 0) {
+                 this.ctx.moveTo(x, y);
+             } else {
+                 this.ctx.lineTo(x, y);
+             }
+         }
+         this.ctx.closePath();
+         
+         this.ctx.fillStyle = isTemp ? 'rgba(1, 255, 117, 0.2)' : 'rgba(255, 107, 107, 0.2)';
+         this.ctx.fill();
+         
+         this.ctx.stroke();
+         
+         if (!isTemp) {
+             for (let i = 0; i < area.coords.length; i += 2) {
+                 const x = area.coords[i];
+                 const y = area.coords[i + 1];
+                 this.ctx.fillStyle = '#ff6b6b';
+                 this.ctx.beginPath();
+                 this.ctx.arc(x, y, 3, 0, 2 * Math.PI);
+                 this.ctx.fill();
+             }
+         }
+     }
+     
+     this.ctx.setLineDash([]);
+ }
+
+ generateHtmlCode() {
+     if (this.areas.length === 0) {
+         document.getElementById('codeOutput').classList.remove('active');
+         return;
+     }
+     
+     document.getElementById('codeOutput').classList.add('active');
+     
+     const mapName = 'imagemap_' + Date.now();
+     let html = `<img src="your-image.jpg" usemap="#${mapName}" alt="이미지 맵">\n`;
+     html += `<map name="${mapName}">\n`;
+     
+     this.areas.forEach(area => {
+         const coords = area.coords.join(',');
+         const title = area.title ? ` title="${area.title}"` : '';
+         html += `  <area shape="${area.shape}" coords="${coords}" href="${area.url}" target="${area.target}"${title}>\n`;
+     });
+     
+     html += `</map>`;
+     
+     document.getElementById('htmlCode').value = html;
+ }
+
+ copyCode() {
+     const textarea = document.getElementById('htmlCode');
+     if (!textarea.value.trim()) {
+         showToast('복사할 코드가 없습니다. 먼저 영역을 추가해주세요.', 'warning');
+         return;
+     }
+     
+     textarea.select();
+     document.execCommand('copy');
+     
+     showToast('HTML 코드가 클립보드에 복사되었습니다.', 'success');
+ }
+}
+
+
+let imageMapGen;
+document.addEventListener('DOMContentLoaded', () => {
+ imageMapGen = new ImageMapGenerator();
+});
+</script>
+
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>
