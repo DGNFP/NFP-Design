@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>PDF 분할기 - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="PDF 분할, PDF 페이지 분리, PDF 나누기, 페이지 추출, PDF 도구, PDF 분리">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/pdf-splitter/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="PDF 분할기 - NFP 디자인">
+    <meta property="og:description" content="PDF 파일의 페이지를 개별적으로 분할하여 다운로드할 수 있는 도구입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/pdf-splitter/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PDF 분할기 - NFP 디자인">
+    <meta name="twitter:description" content="PDF 파일의 페이지를 개별적으로 분할하여 다운로드할 수 있는 도구입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "PDF 분할기",
+      "description": "PDF 파일의 페이지를 개별적으로 분할하여 다운로드할 수 있는 도구입니다.",
+      "url": "http:\/\/localhost:1313\/studio\/pdf-splitter\/",
+      
+      "datePublished": "2025-01-01T00:00:00\u002b09:00",
+      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="/css/pdf-splitter.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">PDF 분할</span>
+        <p><br>PDF 파일의 페이지를 개별적으로 분할하여 다운로드할 수 있습니다.</p>
+    </div>
+
+    
+    <div class="page-btn-wrapper">
+        <a href="/studio" class="page-btn">스튜디오 메인</a>
+        <a href="/studio/pdf-merger" class="page-btn">문서 합치기</a>
+        <a href="/studio/image-split" class="page-btn">이미지 분할</a>
+    </div>
+
+    
+    <div class="studio-page-content">
+        <div class="studio-container">
+            
+            <div class="studio-description">
+                <h3>PDF 분할</h3>
+                <p>PDF 파일을 업로드하여 각 페이지를 개별 파일로 분할할 수 있습니다.<br>
+                불필요한 페이지는 제거하고, 순서를 변경하여 원하는 페이지만 다운로드하세요.</p>
+                <div class="supported-formats">
+                    <small>지원 형식: PDF • 최대 파일 크기: 50MB</small>
+                </div>
+            </div>
+
+            
+            <div class="pdf-splitter-tool">
+                
+                <div class="pdf-splitter-upload-area" id="uploadArea">
+                    <div class="pdf-splitter-upload-content">
+                        <div class="pdf-splitter-upload-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h4>PDF 파일을 선택하세요</h4>
+                        <p>여기에 PDF 파일을 드래그하거나 클릭하여 선택하세요</p>
+                        <button class="pdf-splitter-select-btn" id="selectBtn">
+                            <i class="fas fa-folder-open"></i> PDF 선택
+                        </button>
+                        <input type="file" id="fileInput" accept=".pdf,application/pdf" style="display: none;">
+                    </div>
+                </div>
+
+                
+                <div class="pdf-splitter-preview-area" id="previewArea" style="display: none;">
+                    <div class="pdf-splitter-preview-header">
+                        <div class="pdf-splitter-file-info">
+                            <h4 id="fileName"></h4>
+                            <p id="fileDetails"></p>
+                        </div>
+                        <div class="pdf-splitter-actions">
+                            <button class="pdf-splitter-select-all" id="selectAllBtn">
+                                <i class="fas fa-check-square"></i> 전체 선택
+                            </button>
+                            <button class="pdf-splitter-deselect-all" id="deselectAllBtn">
+                                <i class="fas fa-square"></i> 전체 해제
+                            </button>
+                            <button class="pdf-splitter-new-file" id="newFileBtn">
+                                <i class="fas fa-upload"></i> 새 파일
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                    <div class="pdf-splitter-pages-grid" id="pagesGrid">
+                        
+                    </div>
+
+                    
+                    <div class="pdf-splitter-split-actions">
+                        <button class="pdf-splitter-split-btn" id="splitBtn">
+                            <i class="fas fa-cut"></i> 선택된 페이지 분할
+                        </button>
+                    </div>
+                </div>
+
+                
+                <div class="pdf-splitter-progress" id="progressSection" style="display: none;">
+                    <div class="pdf-splitter-progress-content">
+                        <div class="pdf-splitter-progress-icon">
+                            <i class="fas fa-cog fa-spin"></i>
+                        </div>
+                        <h4>PDF를 분할하는 중...</h4>
+                        <div class="pdf-splitter-progress-bar">
+                            <div class="pdf-splitter-progress-fill" id="progressFill"></div>
+                        </div>
+                        <p id="progressText">페이지를 처리하고 있습니다...</p>
+                    </div>
+                </div>
+
+                
+                <div class="pdf-splitter-complete" id="completeSection" style="display: none;">
+                    <div class="pdf-splitter-complete-content">
+                        <div class="pdf-splitter-complete-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>분할 완료!</h4>
+                        <p id="completeMessage">선택된 페이지가 성공적으로 분할되었습니다.</p>
+                        
+                        
+                        <div class="pdf-splitter-result-files" id="resultFiles">
+                            
+                        </div>
+
+                        <div class="pdf-splitter-complete-actions">
+                            <button class="pdf-splitter-download-all-btn" id="downloadAllBtn">
+                                <i class="fas fa-file-archive"></i> ZIP으로 모두 다운로드
+                            </button>
+                            <button class="pdf-splitter-new-btn" id="newBtn">
+                                <i class="fas fa-redo"></i> 새로 시작
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+class PDFSplitter {
+    constructor() {
+        this.selectedFile = null;
+        this.pdfDoc = null;
+        this.pageImages = [];
+        this.selectedPages = new Set();
+        this.splitResults = [];
+        this.draggedPageIndex = null;
+        this.init();
+    }
+
+    init() {
+        
+        this.uploadArea = document.getElementById('uploadArea');
+        this.fileInput = document.getElementById('fileInput');
+        this.selectBtn = document.getElementById('selectBtn');
+        this.previewArea = document.getElementById('previewArea');
+        this.fileName = document.getElementById('fileName');
+        this.fileDetails = document.getElementById('fileDetails');
+        this.pagesGrid = document.getElementById('pagesGrid');
+        this.selectAllBtn = document.getElementById('selectAllBtn');
+        this.deselectAllBtn = document.getElementById('deselectAllBtn');
+        this.newFileBtn = document.getElementById('newFileBtn');
+        this.splitBtn = document.getElementById('splitBtn');
+        this.progressSection = document.getElementById('progressSection');
+        this.completeSection = document.getElementById('completeSection');
+        this.progressFill = document.getElementById('progressFill');
+        this.progressText = document.getElementById('progressText');
+        this.completeMessage = document.getElementById('completeMessage');
+        this.resultFiles = document.getElementById('resultFiles');
+        this.downloadAllBtn = document.getElementById('downloadAllBtn');
+        this.newBtn = document.getElementById('newBtn');
+
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        
+        this.selectBtn.addEventListener('click', () => this.fileInput.click());
+        this.newFileBtn.addEventListener('click', () => this.fileInput.click());
+
+        
+        this.fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                this.handleFile(e.target.files[0]);
+            }
+        });
+
+        
+        this.setupDragDrop(this.uploadArea);
+
+        
+        this.selectAllBtn.addEventListener('click', () => this.selectAllPages());
+        this.deselectAllBtn.addEventListener('click', () => this.deselectAllPages());
+        this.splitBtn.addEventListener('click', () => this.startSplit());
+        this.downloadAllBtn.addEventListener('click', () => this.downloadAllAsZip());
+        this.newBtn.addEventListener('click', () => this.reset());
+    }
+
+    setupDragDrop(element) {
+        element.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            element.classList.add('pdf-splitter-drag-over');
+        });
+
+        element.addEventListener('dragleave', (e) => {
+            if (!element.contains(e.relatedTarget)) {
+                element.classList.remove('pdf-splitter-drag-over');
+            }
+        });
+
+        element.addEventListener('drop', (e) => {
+            e.preventDefault();
+            element.classList.remove('pdf-splitter-drag-over');
+            if (e.dataTransfer.files.length > 0) {
+                const file = e.dataTransfer.files[0];
+                if (file.type === 'application/pdf') {
+                    this.handleFile(file);
+                } else {
+                    this.showToast('PDF 파일만 업로드할 수 있습니다.', 'error');
+                }
+            }
+        });
+    }
+
+    showToast(message, type = 'info') {
+        
+        const existingToast = document.querySelector('.toast');
+        if (existingToast) {
+            existingToast.remove();
+        }
+
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        toast.innerHTML = `
+            <div class="toast-content">
+                <i class="fas ${type === 'error' ? 'fa-exclamation-circle' : type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+
+        
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.remove();
+            }
+        }, 3000);
+    }
+
+    async handleFile(file) {
+        if (file.size > 50 * 1024 * 1024) { 
+            this.showToast('파일 크기가 너무 큽니다. (최대 50MB)', 'error');
+            return;
+        }
+
+        this.selectedFile = file;
+        this.showToast('PDF를 분석하고 있습니다...', 'info');
+
+        try {
+            await this.loadPDF(file);
+            await this.generatePagePreviews();
+            this.showPreview();
+            this.showToast('PDF 로드 완료!', 'success');
+        } catch (error) {
+            console.error('PDF 로드 오류:', error);
+            this.showToast('PDF 파일을 읽을 수 없습니다.', 'error');
+        }
+    }
+
+    async loadPDF(file) {
+        const arrayBuffer = await file.arrayBuffer();
+        this.pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+    }
+
+    async generatePagePreviews() {
+        this.pageImages = [];
+        const pageCount = this.pdfDoc.getPageCount();
+        
+        for (let i = 0; i < pageCount; i++) {
+            try {
+                
+                const newPdf = await PDFLib.PDFDocument.create();
+                const [copiedPage] = await newPdf.copyPages(this.pdfDoc, [i]);
+                newPdf.addPage(copiedPage);
+                
+                
+                const pdfBytes = await newPdf.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                
+                this.pageImages.push({
+                    pageNumber: i + 1,
+                    url: url,
+                    pdfBytes: pdfBytes
+                });
+            } catch (error) {
+                console.warn(`페이지 ${i + 1} 처리 실패:`, error);
+            }
+        }
+    }
+
+    showPreview() {
+        this.fileName.textContent = this.selectedFile.name;
+        this.fileDetails.textContent = `${this.pageImages.length}페이지 • ${this.formatFileSize(this.selectedFile.size)}`;
+        
+        this.uploadArea.style.display = 'none';
+        this.previewArea.style.display = 'block';
+        
+        this.renderPages();
+        
+        
+        this.selectAllPages();
+    }
+
+    renderPages() {
+        this.pagesGrid.innerHTML = '';
+
+        this.pageImages.forEach((pageData, index) => {
+            const pageItem = document.createElement('div');
+            pageItem.className = `pdf-splitter-page-item ${this.selectedPages.has(index) ? 'selected' : ''}`;
+            pageItem.draggable = true;
+            pageItem.dataset.index = index;
+
+            pageItem.innerHTML = `
+                <div class="pdf-splitter-page-preview">
+                    <iframe src="${pageData.url}" frameborder="0"></iframe>
+                    <div class="pdf-splitter-page-overlay">
+                        <div class="pdf-splitter-page-checkbox">
+                            <i class="fas ${this.selectedPages.has(index) ? 'fa-check-square' : 'fa-square'}"></i>
+                        </div>
+                        <div class="pdf-splitter-page-actions">
+                            <button class="pdf-splitter-page-remove" data-index="${index}">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pdf-splitter-page-info">
+                    <span class="pdf-splitter-page-number">${pageData.pageNumber}</span>
+                </div>
+            `;
+
+            
+            pageItem.addEventListener('click', (e) => {
+                if (!e.target.closest('.pdf-splitter-page-remove')) {
+                    this.togglePageSelection(index);
+                }
+            });
+
+            
+            const removeBtn = pageItem.querySelector('.pdf-splitter-page-remove');
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.removePage(index);
+            });
+
+            
+            pageItem.addEventListener('dragstart', (e) => {
+                this.draggedPageIndex = index;
+                pageItem.classList.add('pdf-splitter-dragging');
+            });
+
+            pageItem.addEventListener('dragend', () => {
+                pageItem.classList.remove('pdf-splitter-dragging');
+                this.draggedPageIndex = null;
+            });
+
+            pageItem.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            pageItem.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (this.draggedPageIndex !== null && this.draggedPageIndex !== index) {
+                    this.movePage(this.draggedPageIndex, index);
+                }
+            });
+
+            this.pagesGrid.appendChild(pageItem);
+        });
+
+        this.updateSplitButton();
+    }
+
+    togglePageSelection(index) {
+        if (this.selectedPages.has(index)) {
+            this.selectedPages.delete(index);
+        } else {
+            this.selectedPages.add(index);
+        }
+        this.renderPages();
+    }
+
+    selectAllPages() {
+        this.selectedPages.clear();
+        this.pageImages.forEach((_, index) => {
+            this.selectedPages.add(index);
+        });
+        this.renderPages();
+    }
+
+    deselectAllPages() {
+        this.selectedPages.clear();
+        this.renderPages();
+    }
+
+    removePage(index) {
+        
+        URL.revokeObjectURL(this.pageImages[index].url);
+        
+        
+        this.pageImages.splice(index, 1);
+        
+        
+        const newSelectedPages = new Set();
+        this.selectedPages.forEach(selectedIndex => {
+            if (selectedIndex < index) {
+                newSelectedPages.add(selectedIndex);
+            } else if (selectedIndex > index) {
+                newSelectedPages.add(selectedIndex - 1);
+            }
+        });
+        this.selectedPages = newSelectedPages;
+
+        this.renderPages();
+        this.fileDetails.textContent = `${this.pageImages.length}페이지 • ${this.formatFileSize(this.selectedFile.size)}`;
+        this.showToast('페이지가 제거되었습니다.', 'info');
+    }
+
+    movePage(fromIndex, toIndex) {
+        const page = this.pageImages.splice(fromIndex, 1)[0];
+        this.pageImages.splice(toIndex, 0, page);
+        
+        
+        const newSelectedPages = new Set();
+        this.selectedPages.forEach(selectedIndex => {
+            if (selectedIndex === fromIndex) {
+                newSelectedPages.add(toIndex);
+            } else if (selectedIndex < fromIndex && selectedIndex >= toIndex) {
+                newSelectedPages.add(selectedIndex + 1);
+            } else if (selectedIndex > fromIndex && selectedIndex <= toIndex) {
+                newSelectedPages.add(selectedIndex - 1);
+            } else {
+                newSelectedPages.add(selectedIndex);
+            }
+        });
+        this.selectedPages = newSelectedPages;
+
+        
+        this.movePageInDOM(fromIndex, toIndex);
+        this.updatePageIndices();
+    }
+
+    movePageInDOM(fromIndex, toIndex) {
+        const pageItems = Array.from(this.pagesGrid.querySelectorAll('.pdf-splitter-page-item'));
+        const draggedElement = pageItems[fromIndex];
+        const targetElement = pageItems[toIndex];
+        
+        if (draggedElement && targetElement) {
+            if (fromIndex < toIndex) {
+                
+                targetElement.parentNode.insertBefore(draggedElement, targetElement.nextSibling);
+            } else {
+                
+                targetElement.parentNode.insertBefore(draggedElement, targetElement);
+            }
+        }
+    }
+
+    updateSplitButton() {
+        const selectedCount = this.selectedPages.size;
+        this.splitBtn.disabled = selectedCount === 0;
+        this.splitBtn.innerHTML = `
+            <i class="fas fa-cut"></i> 
+            ${selectedCount > 0 ? `선택된 ${selectedCount}개 페이지 분할` : '페이지를 선택하세요'}
+        `;
+    }
+
+    async startSplit() {
+        if (this.selectedPages.size === 0) {
+            this.showToast('분할할 페이지를 선택해주세요.', 'error');
+            return;
+        }
+
+        this.showProgress();
+        this.showToast('페이지를 분할하고 있습니다...', 'info');
+
+        try {
+            await this.splitPages();
+            this.showComplete();
+            this.showToast('페이지 분할이 완료되었습니다!', 'success');
+        } catch (error) {
+            console.error('분할 오류:', error);
+            this.showToast('페이지 분할 중 오류가 발생했습니다.', 'error');
+            this.reset();
+        }
+    }
+
+    showProgress() {
+        this.previewArea.style.display = 'none';
+        this.progressSection.style.display = 'block';
+    }
+
+    async splitPages() {
+        this.splitResults = [];
+        const selectedIndices = Array.from(this.selectedPages).sort((a, b) => a - b);
+        
+        for (let i = 0; i < selectedIndices.length; i++) {
+            const pageIndex = selectedIndices[i];
+            const pageData = this.pageImages[pageIndex];
+            
+            
+            const progress = Math.round(((i + 1) / selectedIndices.length) * 100);
+            this.progressFill.style.width = progress + '%';
+            this.progressText.textContent = `페이지 ${pageData.pageNumber} 처리 중... (${i + 1}/${selectedIndices.length})`;
+            
+            await new Promise(resolve => setTimeout(resolve, 200));
+            
+            const fileName = `${this.selectedFile.name.replace('.pdf', '')}_페이지${pageData.pageNumber}.pdf`;
+            
+            this.splitResults.push({
+                fileName: fileName,
+                pdfBytes: pageData.pdfBytes,
+                pageNumber: pageData.pageNumber
+            });
+        }
+    }
+
+    showComplete() {
+        this.progressSection.style.display = 'none';
+        this.completeSection.style.display = 'block';
+        
+        this.completeMessage.textContent = `${this.splitResults.length}개의 페이지가 성공적으로 분할되었습니다.`;
+        
+        this.renderResultFiles();
+    }
+
+    renderResultFiles() {
+        this.resultFiles.innerHTML = '';
+        
+        this.splitResults.forEach((result, index) => {
+            const fileItem = document.createElement('div');
+            fileItem.className = 'pdf-splitter-result-file';
+            
+            fileItem.innerHTML = `
+                <div class="pdf-splitter-result-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="pdf-splitter-result-info">
+                    <div class="pdf-splitter-result-name">${result.fileName}</div>
+                    <div class="pdf-splitter-result-details">페이지 ${result.pageNumber} • ${this.formatFileSize(result.pdfBytes.length)}</div>
+                </div>
+                <button class="pdf-splitter-result-download" data-index="${index}">
+                    <i class="fas fa-download"></i>
+                </button>
+            `;
+            
+            
+            const downloadBtn = fileItem.querySelector('.pdf-splitter-result-download');
+            downloadBtn.addEventListener('click', () => this.downloadSingleFile(index));
+            
+            this.resultFiles.appendChild(fileItem);
+        });
+    }
+
+    downloadSingleFile(index) {
+        const result = this.splitResults[index];
+        const blob = new Blob([result.pdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = result.fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        this.showToast(`${result.fileName} 다운로드가 시작되었습니다.`, 'success');
+    }
+
+    async downloadAllAsZip() {
+        if (this.splitResults.length === 0) {
+            this.showToast('다운로드할 파일이 없습니다.', 'error');
+            return;
+        }
+
+        this.showToast('ZIP 파일을 생성하고 있습니다...', 'info');
+
+        try {
+            const zip = new JSZip();
+            
+            this.splitResults.forEach(result => {
+                zip.file(result.fileName, result.pdfBytes);
+            });
+            
+            const zipBlob = await zip.generateAsync({ type: 'blob' });
+            const url = URL.createObjectURL(zipBlob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `StudioNFP-split_${this.selectedFile.name.replace('.pdf', '')}.zip`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            this.showToast('ZIP 파일 다운로드가 시작되었습니다.', 'success');
+        } catch (error) {
+            console.error('ZIP 생성 오류:', error);
+            this.showToast('ZIP 파일 생성 중 오류가 발생했습니다.', 'error');
+        }
+    }
+
+    formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    reset() {
+        
+        this.selectedFile = null;
+        this.pdfDoc = null;
+        this.pageImages = [];
+        this.selectedPages.clear();
+        this.splitResults = [];
+        this.draggedPageIndex = null;
+        
+        this.uploadArea.style.display = 'block';
+        this.previewArea.style.display = 'none';
+        this.progressSection.style.display = 'none';
+        this.completeSection.style.display = 'none';
+        this.fileInput.value = '';
+    }
+}
+
+
+const pdfSplitter = new PDFSplitter();
+</script>
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>

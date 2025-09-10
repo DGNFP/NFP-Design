@@ -12122,6 +12122,508 @@ border-color: var(--accent-color);
     }
 }
 
+/* pdf 분할기 페이지 */
+/* PDF 분할 페이지 전용 스타일 */
+.pdf-splitter-tool {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 업로드 영역 */
+.pdf-splitter-upload-area {
+    background: var(--sub-bg-color);
+    border: 2px dashed var(--sub-border-color);
+    border-radius: 4px;
+    padding: 60px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pdf-splitter-upload-area:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.05);
+}
+
+.pdf-splitter-upload-area.pdf-splitter-drag-over {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.pdf-splitter-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.pdf-splitter-upload-icon {
+    font-size: 48px;
+    opacity: 0.7;
+    color: var(--accent-color);
+}
+
+.pdf-splitter-upload-area h4 {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.pdf-splitter-upload-area p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+.pdf-splitter-select-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-splitter-select-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+/* 미리보기 영역 */
+.pdf-splitter-preview-area {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.pdf-splitter-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 20px;
+}
+
+.pdf-splitter-file-info h4 {
+    color: white;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pdf-splitter-file-info p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+.pdf-splitter-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.pdf-splitter-select-all,
+.pdf-splitter-deselect-all,
+.pdf-splitter-new-file {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-splitter-select-all:hover,
+.pdf-splitter-deselect-all:hover,
+.pdf-splitter-new-file:hover {
+    background: rgba(1, 255, 117, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 페이지 그리드 */
+.pdf-splitter-pages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.pdf-splitter-page-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pdf-splitter-page-item:hover {
+    border-color: rgba(1, 255, 117, 0.5);
+    transform: translateY(-2px);
+}
+
+.pdf-splitter-page-item.selected {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.pdf-splitter-page-item.pdf-splitter-dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.pdf-splitter-page-preview {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdf-splitter-page-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    background: white;
+    border-radius: 2px;
+    display: block;
+}
+
+.pdf-splitter-page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pdf-splitter-page-item:hover .pdf-splitter-page-overlay,
+.pdf-splitter-page-item.selected .pdf-splitter-page-overlay {
+    opacity: 1;
+}
+
+.pdf-splitter-page-checkbox {
+    color: var(--accent-color);
+    font-size: 20px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.pdf-splitter-page-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.pdf-splitter-page-remove {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.pdf-splitter-page-remove:hover {
+    background: #ff0000;
+    transform: scale(1.1);
+}
+
+.pdf-splitter-page-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.pdf-splitter-page-number {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* 분할 액션 */
+.pdf-splitter-split-actions {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--sub-border-color);
+}
+
+.pdf-splitter-split-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-splitter-split-btn:hover:not(:disabled) {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+.pdf-splitter-split-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* 진행 상황 */
+.pdf-splitter-progress {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.pdf-splitter-progress-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.pdf-splitter-progress-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.pdf-splitter-progress h4 {
+    color: white;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.pdf-splitter-progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.pdf-splitter-progress-fill {
+    background: var(--accent-color);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.pdf-splitter-progress p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* 완료 상태 */
+.pdf-splitter-complete {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.pdf-splitter-complete-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pdf-splitter-complete-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.pdf-splitter-complete h4 {
+    color: white;
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.pdf-splitter-complete p {
+    color: #666;
+    margin: 0 0 24px 0;
+    font-size: 14px;
+}
+
+/* 결과 파일 목록 */
+.pdf-splitter-result-files {
+    margin: 24px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.pdf-splitter-result-file {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--sub-border-color);
+    transition: background 0.3s ease;
+}
+
+.pdf-splitter-result-file:last-child {
+    border-bottom: none;
+}
+
+.pdf-splitter-result-file:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pdf-splitter-result-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.pdf-splitter-result-info {
+    flex: 1;
+    text-align: left;
+}
+
+.pdf-splitter-result-name {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.pdf-splitter-result-details {
+    color: #666;
+    font-size: 12px;
+}
+
+.pdf-splitter-result-download {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.pdf-splitter-result-download:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+.pdf-splitter-complete-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pdf-splitter-download-all-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-splitter-download-all-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+.pdf-splitter-new-btn {
+    background: transparent;
+    color: #666;
+    border: 1px solid var(--sub-border-color);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pdf-splitter-new-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .pdf-splitter-upload-area {
+        padding: 40px 16px;
+    }
+    
+    .pdf-splitter-preview-area {
+        padding: 16px;
+    }
+    
+    .pdf-splitter-preview-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    
+    .pdf-splitter-actions {
+        justify-content: center;
+    }
+    
+    .pdf-splitter-pages-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+    
+    .pdf-splitter-page-preview {
+        height: 200px;
+    }
+    
+    .pdf-splitter-complete-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 /* 반응형 */
 @media (max-width: 768px) {
