@@ -12590,6 +12590,957 @@ border-color: var(--accent-color);
     transform: translateY(-1px);
 }
 
+/* 이미지 분할 페이지 전용 스타일 */
+.image-splitter-tool {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-splitter-file-info h4 {
+    color: white;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.image-splitter-file-info p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+.image-splitter-tools {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.image-splitter-tool-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.image-splitter-tool-group label {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.image-splitter-select,
+.image-splitter-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 14px;
+    min-width: 60px;
+}
+
+.image-splitter-select:focus,
+.image-splitter-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.image-splitter-preview-btn,
+.image-splitter-new-file,
+.image-splitter-refresh-btn {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-preview-btn:hover,
+.image-splitter-new-file:hover,
+.image-splitter-refresh-btn:hover {
+    background: rgba(1, 255, 117, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 이미지 편집기 */
+.image-splitter-editor {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.image-splitter-canvas-container {
+    position: relative;
+    display: inline-block;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+}
+
+#imageCanvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.image-splitter-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.image-splitter-grid-line {
+    position: absolute;
+    background: var(--accent-color);
+    opacity: 0.7;
+}
+
+.image-splitter-grid-vertical {
+    width: 2px;
+    height: 100%;
+    top: 0;
+}
+
+.image-splitter-grid-horizontal {
+    height: 2px;
+    width: 100%;
+    left: 0;
+}
+
+/* 미리보기 그리드 */
+.image-splitter-preview-grid {
+    border-top: 1px solid var(--sub-border-color);
+    padding-top: 24px;
+    margin-top: 24px;
+}
+
+.image-splitter-preview-grid h4 {
+    color: white;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.image-splitter-preview-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.image-splitter-preview-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-preview-item:hover {
+    border-color: rgba(1, 255, 117, 0.5);
+    transform: translateY(-2px);
+}
+
+.image-splitter-preview-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-bottom: 8px;
+}
+
+.image-splitter-preview-label {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* 분할 액션 */
+.image-splitter-split-actions {
+    text-align: center;
+}
+
+.image-splitter-split-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-split-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+/* 진행 상황 */
+.image-splitter-progress {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.image-splitter-progress-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.image-splitter-progress-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.image-splitter-progress h4 {
+    color: white;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.image-splitter-progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.image-splitter-progress-fill {
+    background: var(--accent-color);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.image-splitter-progress p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* 완료 상태 */
+.image-splitter-complete {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.image-splitter-complete-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.image-splitter-complete-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.image-splitter-complete h4 {
+    color: white;
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.image-splitter-complete p {
+    color: #666;
+    margin: 0 0 24px 0;
+    font-size: 14px;
+}
+
+/* 결과 이미지 목록 */
+.image-splitter-result-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 16px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.image-splitter-result-image {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.image-splitter-result-image:hover {
+    border-color: rgba(1, 255, 117, 0.5);
+    transform: translateY(-2px);
+}
+
+.image-splitter-result-preview {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+}
+
+.image-splitter-result-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-splitter-result-info {
+    margin-bottom: 12px;
+}
+
+.image-splitter-result-name {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.image-splitter-result-details {
+    color: #666;
+    font-size: 11px;
+}
+
+.image-splitter-result-download {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    width: 100%;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-result-download:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+.image-splitter-complete-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-splitter-download-all-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-download-all-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+.image-splitter-new-btn {
+    background: transparent;
+    color: #666;
+    border: 1px solid var(--sub-border-color);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-new-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .image-splitter-upload-area {
+        padding: 40px 16px;
+    }
+    
+    .image-splitter-editor-area {
+        padding: 16px;
+    }
+    
+    .image-splitter-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    
+    .image-splitter-tools {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .image-splitter-preview-items {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 8px;
+    }
+    
+    .image-splitter-result-images {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+    
+    .image-splitter-complete-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 업로드 영역 */
+.image-splitter-upload-area {
+    background: var(--sub-bg-color);
+    border: 2px dashed var(--sub-border-color);
+    border-radius: 4px;
+    padding: 60px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.image-splitter-upload-area:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.05);
+}
+
+.image-splitter-upload-area.image-splitter-drag-over {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.image-splitter-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.image-splitter-upload-icon {
+    font-size: 48px;
+    opacity: 0.7;
+}
+
+.image-splitter-upload-area h4 {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.image-splitter-upload-area p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+.image-splitter-select-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-select-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+/* 편집기 영역 */
+.image-splitter-editor-area {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+/* 도구 모음 */
+.image-splitter-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.image-splitter-file-info h4 {
+    color: white;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.image-splitter-file-info p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+.image-splitter-tools {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.image-splitter-tool-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.image-splitter-tool-group label {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.image-splitter-select,
+.image-splitter-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 14px;
+    min-width: 60px;
+}
+
+.image-splitter-select:focus,
+.image-splitter-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.image-splitter-preview-btn,
+.image-splitter-new-file {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-preview-btn:hover,
+.image-splitter-new-file:hover {
+    background: rgba(1, 255, 117, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 이미지 편집기 */
+.image-splitter-editor {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.image-splitter-canvas-container {
+    position: relative;
+    display: inline-block;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+}
+
+#imageCanvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.image-splitter-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.image-splitter-grid-line {
+    position: absolute;
+    background: var(--accent-color);
+    opacity: 0.7;
+}
+
+.image-splitter-grid-vertical {
+    width: 2px;
+    height: 100%;
+    top: 0;
+}
+
+.image-splitter-grid-horizontal {
+    height: 2px;
+    width: 100%;
+    left: 0;
+}
+
+/* 미리보기 그리드 */
+.image-splitter-preview-grid {
+    border-top: 1px solid var(--sub-border-color);
+    padding-top: 24px;
+    margin-top: 24px;
+}
+
+.image-splitter-preview-grid h4 {
+    color: white;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.image-splitter-preview-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.image-splitter-preview-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-preview-item:hover {
+    border-color: rgba(1, 255, 117, 0.5);
+    transform: translateY(-2px);
+}
+
+.image-splitter-preview-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-bottom: 8px;
+}
+
+.image-splitter-preview-label {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* 분할 액션 */
+.image-splitter-split-actions {
+    text-align: center;
+}
+
+.image-splitter-split-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-split-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+/* 진행 상황 */
+.image-splitter-progress {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.image-splitter-progress-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.image-splitter-progress-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.image-splitter-progress h4 {
+    color: white;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.image-splitter-progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.image-splitter-progress-fill {
+    background: var(--accent-color);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.image-splitter-progress p {
+    color: #666;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* 완료 상태 */
+.image-splitter-complete {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.image-splitter-complete-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.image-splitter-complete-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.image-splitter-complete h4 {
+    color: white;
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.image-splitter-complete p {
+    color: #666;
+    margin: 0 0 24px 0;
+    font-size: 14px;
+}
+
+/* 결과 이미지 목록 */
+.image-splitter-result-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 16px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.image-splitter-result-image {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.image-splitter-result-image:hover {
+    border-color: rgba(1, 255, 117, 0.5);
+    transform: translateY(-2px);
+}
+
+.image-splitter-result-preview {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: white;
+}
+
+.image-splitter-result-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-splitter-result-info {
+    margin-bottom: 12px;
+}
+
+.image-splitter-result-name {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.image-splitter-result-details {
+    color: #666;
+    font-size: 11px;
+}
+
+.image-splitter-result-download {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    width: 100%;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-result-download:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+.image-splitter-complete-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.image-splitter-download-all-btn {
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-download-all-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+    transform: translateY(-1px);
+}
+
+.image-splitter-new-btn {
+    background: transparent;
+    color: #666;
+    border: 1px solid var(--sub-border-color);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-splitter-new-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .image-splitter-upload-area {
+        padding: 40px 16px;
+    }
+    
+    .image-splitter-editor-area {
+        padding: 16px;
+    }
+    
+    .image-splitter-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    
+    .image-splitter-tools {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .image-splitter-preview-items {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 8px;
+    }
+    
+    .image-splitter-result-images {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+    
+    .image-splitter-complete-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* 반응형 */
 @media (max-width: 768px) {
     .pdf-splitter-upload-area {
