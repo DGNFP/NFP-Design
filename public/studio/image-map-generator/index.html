@@ -161,6 +161,87 @@
     
     
 <link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+ 
+ 
+.image-map-toast {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    z-index: 9999 !important;
+    background: var(--sub-bg-color) !important;
+    border: 1px solid var(--sub-border-color) !important;
+    border-radius: 4px !important;
+    padding: 16px 20px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    transform: translateX(400px) !important;
+    transition: transform 0.3s ease !important;
+    max-width: 350px !important;
+    opacity: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+}
+
+.image-map-toast.show {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+}
+
+.image-map-toast-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.image-map-toast-content i {
+    font-size: 16px !important;
+    flex-shrink: 0 !important;
+}
+
+.image-map-toast-content span {
+    color: white !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+}
+
+.image-map-toast-success {
+    border-left: 4px solid var(--accent-color) !important;
+}
+
+.image-map-toast-success .image-map-toast-content i {
+    color: var(--accent-color) !important;
+}
+
+.image-map-toast-error {
+    border-left: 4px solid #ff4444 !important;
+}
+
+.image-map-toast-error .image-map-toast-content i {
+    color: #ff4444 !important;
+}
+
+.image-map-toast-warning {
+    border-left: 4px solid #ffa500 !important;
+}
+
+.image-map-toast-warning .image-map-toast-content i {
+    color: #ffa500 !important;
+}
+
+.image-map-toast-info {
+    border-left: 4px solid #4A9EFF !important;
+}
+
+.image-map-toast-info .image-map-toast-content i {
+    color: #4A9EFF !important;
+}
+</style>
+
 <section class="section">
 <div class="container">
     
@@ -293,18 +374,33 @@
 
 function showToast(message, type = 'info') {
   const toast = document.createElement('div');
-  toast.className = `toast ${type}`;
-  toast.textContent = message;
+  toast.className = `image-map-toast image-map-toast-${type}`;
+  
+  const icons = {
+    success: 'fas fa-check-circle',
+    error: 'fas fa-exclamation-circle', 
+    warning: 'fas fa-exclamation-triangle',
+    info: 'fas fa-info-circle'
+  };
+  
+  toast.innerHTML = `
+    <div class="image-map-toast-content">
+      <i class="${icons[type] || icons.info}"></i>
+      <span>${message}</span>
+    </div>
+  `;
   
   document.body.appendChild(toast);
   
-  
   setTimeout(() => toast.classList.add('show'), 100);
-  
   
   setTimeout(() => {
       toast.classList.remove('show');
-      setTimeout(() => document.body.removeChild(toast), 300);
+      setTimeout(() => {
+        if (document.body.contains(toast)) {
+          document.body.removeChild(toast);
+        }
+      }, 300);
   }, 3000);
 }
 

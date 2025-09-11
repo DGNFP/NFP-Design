@@ -506,6 +506,13 @@
       <description>&lt;h1 id=&#34;이미지-맵-생성기&#34;&gt;이미지 맵 생성기&lt;/h1&gt;&#xA;&lt;p&gt;이미지에 클릭 가능한 핫스팟 영역을 만들어 각각 다른 링크로 연결할 수 있는 HTML 코드를 생성합니다.&lt;/p&gt;&#xA;&lt;p&gt;사각형, 원형, 다각형 도형으로 영역을 설정하고 각 영역에 URL을 연결하여 인터랙티브한 이미지를 만들어보세요. 지도, 제품 이미지, 인포그래픽 등 다양한 용도로 활용할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 다양한 도형 지원, 드래그앤드롭 업로드, 실시간 미리보기, HTML 코드 생성&lt;/p&gt;</description>
     </item>
     <item>
+      <title>이미지 분할기</title>
+      <link>http://localhost:1313/studio/image-splitter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-splitter/</guid>
+      <description>&lt;h1 id=&#34;이미지-분할&#34;&gt;이미지 분할&lt;/h1&gt;&#xA;&lt;p&gt;이미지를 업로드하여 격자로 나누거나 원하는 영역을 선택하여 분할할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;격자 크기를 설정하여 균등하게 나누거나, 향후 업데이트에서는 수동으로 영역을 선택하여 자유롭게 분할할 수 있습니다. 분할된 각 조각을 개별 이미지 파일로 다운로드하세요.&lt;/p&gt;&#xA;&lt;p&gt;지원 형식: JPG, PNG, WebP, TIFF&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 격자 분할, 실시간 미리보기, 개별/ZIP 다운로드, 고해상도 유지&lt;/p&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+    <item>
       <title>이미지 압축기 - Studio NFP</title>
       <link>http://localhost:1313/studio/image-compressor/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
