@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>벽돌깨기 게임 - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="벽돌깨기, 브레이크아웃, 아케이드게임, 패들게임, 클래식게임, 레트로게임">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/breakout-game/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="벽돌깨기 게임 - NFP 디자인">
+    <meta property="og:description" content="클래식 브레이크아웃 스타일의 아케이드 게임으로 패들을 조작하여 모든 벽돌을 파괴하는 게임입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/breakout-game/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="벽돌깨기 게임 - NFP 디자인">
+    <meta name="twitter:description" content="클래식 브레이크아웃 스타일의 아케이드 게임으로 패들을 조작하여 모든 벽돌을 파괴하는 게임입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "벽돌깨기 게임",
+      "description": "클래식 브레이크아웃 스타일의 아케이드 게임으로 패들을 조작하여 모든 벽돌을 파괴하는 게임입니다.",
+      "url": "http:\/\/localhost:1313\/studio\/breakout-game\/",
+      
+      "datePublished": "2025-01-01T00:00:00\u002b09:00",
+      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">벽돌깨기 게임</span>
+        <p><br>패들로 공을 튕겨 모든 벽돌을 깨뜨리세요.</p>
+    </div>
+
+    
+    <div class="page-btn-wrapper">
+        <a href="/studio" class="page-btn">스튜디오 메인</a>
+        <a href="/studio/web-demo" class="page-btn">웹 데모</a>
+        <a href="/studio/design-guide/" class="page-btn">디자인 가이드</a>
+    </div>
+
+    
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            
+            <div class="studio-description">
+                <h3>클래식 벽돌깨기</h3>
+                <p>패들을 움직여 공을 튕기고 모든 벽돌을 파괴하세요!<br>
+                #벽돌깨기 #브레이크아웃 #아케이드게임</p>
+            </div>
+
+            
+            <div class="breakout-game-container">
+                
+                
+                <div class="game-header">
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span class="stat-label">점수</span>
+                            <span class="stat-value" id="scoreValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-heart"></i>
+                            <span class="stat-label">생명</span>
+                            <span class="stat-value" id="livesValue">3</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span class="stat-label">레벨</span>
+                            <span class="stat-value" id="levelValue">1</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-cubes"></i>
+                            <span class="stat-label">남은 벽돌</span>
+                            <span class="stat-value" id="bricksLeft">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <span class="stat-label">최고 점수</span>
+                            <span class="stat-value" id="bestScore">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="game-status" id="gameStatus">
+                    <div class="status-content">
+                        <i class="fas fa-play-circle"></i>
+                        <h3>게임 준비</h3>
+                        <p>시작 버튼을 눌러 게임을 시작하세요!</p>
+                        <div class="controls-info">
+                            <span><i class="fas fa-mouse"></i> 마우스로 패들 조작</span>
+                            <span><i class="fas fa-mouse-pointer"></i> 클릭으로 공 발사</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="game-canvas-container">
+                    <canvas id="gameCanvas" width="800" height="600"></canvas>
+                    <div class="game-overlay" id="gameOverlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-flag-checkered" id="overlayIcon"></i>
+                            <h3 id="overlayTitle">게임 종료</h3>
+                            <p id="overlayMessage">게임이 종료되었습니다.</p>
+                            <div class="overlay-stats" id="overlayStats">
+                                <div class="overlay-stat">
+                                    <span>최종 점수</span>
+                                    <span id="finalScore">0</span>
+                                </div>
+                                <div class="overlay-stat">
+                                    <span>도달 레벨</span>
+                                    <span id="finalLevel">1</span>
+                                </div>
+                            </div>
+                            <div class="overlay-actions">
+                                <button class="overlay-btn" id="playAgainBtn">
+                                    <i class="fas fa-play"></i>
+                                    <span>다시 하기</span>
+                                </button>
+                                <button class="overlay-btn secondary" id="nextLevelBtn" style="display: none;">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>다음 레벨</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="game-controls">
+                    <button class="control-btn start-btn" id="startBtn">
+                        <i class="fas fa-play"></i>
+                        <span>게임 시작</span>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn" style="display: none;">
+                        <i class="fas fa-pause"></i>
+                        <span>일시정지</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        <span>리셋</span>
+                    </button>
+                    <button class="control-btn settings-btn" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                        <span>설정</span>
+                    </button>
+                </div>
+
+                
+                <div class="settings-panel" id="settingsPanel">
+                    <div class="settings-header">
+                        <h4>게임 설정</h4>
+                        <button class="close-settings" id="closeSettings">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <label>난이도</label>
+                            <div class="setting-options">
+                                <button class="setting-option" data-difficulty="easy">쉬움</button>
+                                <button class="setting-option active" data-difficulty="normal">보통</button>
+                                <button class="setting-option" data-difficulty="hard">어려움</button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>패들 크기</label>
+                            <div class="setting-options">
+                                <button class="setting-option" data-paddle="small">작게</button>
+                                <button class="setting-option active" data-paddle="normal">보통</button>
+                                <button class="setting-option" data-paddle="large">크게</button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>공 속도</label>
+                            <div class="setting-slider">
+                                <input type="range" id="ballSpeedSlider" min="3" max="8" value="5">
+                                <span id="ballSpeedValue">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+ 
+.breakout-game-container {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+ 
+.game-header {
+    margin-bottom: 24px;
+}
+
+.game-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.stat-item {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-item i {
+    font-size: 18px;
+    color: var(--accent-color);
+    width: 20px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 14px;
+    flex: 1;
+}
+
+.stat-value {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+ 
+.game-status {
+    text-align: center;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.game-status.active {
+    display: block;
+}
+
+.status-content {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 32px;
+}
+
+.status-content i {
+    font-size: 48px;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+}
+
+.status-content h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.status-content p {
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.controls-info {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    color: var(--accent-color);
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.controls-info i {
+    margin-right: 4px;
+}
+
+ 
+.game-canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    background: #000;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    background: #000;
+    cursor: none;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-overlay.active {
+    display: flex;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    max-width: 400px;
+    padding: 32px;
+}
+
+.overlay-content i {
+    font-size: 64px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.overlay-content h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.overlay-content p {
+    color: #666;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.overlay-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+}
+
+.overlay-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.overlay-stat span:first-child {
+    color: #666;
+    font-size: 14px;
+}
+
+.overlay-stat span:last-child {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.overlay-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.overlay-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+}
+
+.overlay-btn.secondary {
+    background: var(--sub-bg-color);
+    color: white;
+    border: 1px solid var(--sub-border-color);
+}
+
+.overlay-btn.secondary:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+ 
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+.start-btn:hover {
+    color: var(--accent-color);
+}
+
+.pause-btn:hover {
+    color: #ffa500;
+    border-color: #ffa500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.reset-btn:hover {
+    color: #ff4757;
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+ 
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 400px;
+    display: none;
+}
+
+.settings-panel.active {
+    display: block;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.settings-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-settings {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.close-settings:hover {
+    color: white;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-group label {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.setting-options {
+    display: flex;
+    gap: 8px;
+}
+
+.setting-option {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-align: center;
+}
+
+.setting-option:hover,
+.setting-option.active {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+}
+
+.setting-slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.setting-slider input[type="range"] {
+    flex: 1;
+    height: 6px;
+    background: var(--sub-border-color);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.setting-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-slider input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.setting-slider span {
+    color: var(--accent-color);
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+ 
+@media (max-width: 768px) {
+    .game-canvas-container {
+        overflow-x: auto;
+    }
+    
+    #gameCanvas {
+        min-width: 600px;
+    }
+    
+    .game-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        min-width: 200px;
+        justify-content: center;
+    }
+    
+    .settings-panel {
+        min-width: 300px;
+        width: 90%;
+    }
+    
+    .overlay-actions {
+        flex-direction: column;
+    }
+}
+</style>
+
+<script>
+class BreakoutGame {
+    constructor() {
+        this.canvas = document.getElementById('gameCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        
+        
+        this.isPlaying = false;
+        this.isPaused = false;
+        this.waitingForLaunch = false;
+        this.animationId = null;
+        
+        
+        this.score = 0;
+        this.lives = 3;
+        this.level = 1;
+        this.bestScore = 0;
+        
+        
+        this.difficulty = 'normal';
+        this.paddleSize = 'normal';
+        this.ballSpeed = 5;
+        
+        
+        this.ball = {
+            x: this.canvas.width / 2,
+            y: this.canvas.height - 100,
+            radius: 8,
+            velocityX: 0,
+            velocityY: 0,
+            speed: this.ballSpeed,
+            attached: true
+        };
+        
+        this.paddle = {
+            x: this.canvas.width / 2 - 60,
+            y: this.canvas.height - 40,
+            width: 120,
+            height: 16
+        };
+        
+        this.bricks = [];
+        this.particles = [];
+        this.mouseX = this.canvas.width / 2;
+        
+        this.init();
+    }
+    
+    init() {
+        this.loadBestScore();
+        this.setupEventListeners();
+        this.createBricks();
+        this.updateDisplay();
+        this.showGameStatus();
+        this.draw();
+    }
+    
+    setupEventListeners() {
+        
+        this.canvas.addEventListener('mousemove', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            this.mouseX = e.clientX - rect.left;
+        });
+        
+        this.canvas.addEventListener('click', () => {
+            if (this.waitingForLaunch && this.ball.attached) {
+                this.launchBall();
+            }
+        });
+        
+        
+        document.getElementById('startBtn').addEventListener('click', () => this.startGame());
+        document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
+        document.getElementById('resetBtn').addEventListener('click', () => this.resetGame());
+        document.getElementById('settingsBtn').addEventListener('click', () => this.showSettings());
+        document.getElementById('closeSettings').addEventListener('click', () => this.hideSettings());
+        document.getElementById('playAgainBtn').addEventListener('click', () => this.playAgain());
+        document.getElementById('nextLevelBtn').addEventListener('click', () => this.nextLevel());
+        
+        
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.difficulty));
+        });
+        
+        document.querySelectorAll('[data-paddle]').forEach(btn => {
+            btn.addEventListener('click', (e) => this.setPaddleSize(e.target.dataset.paddle));
+        });
+        
+        document.getElementById('ballSpeedSlider').addEventListener('input', (e) => {
+            this.ballSpeed = parseInt(e.target.value);
+            this.ball.speed = this.ballSpeed;
+            document.getElementById('ballSpeedValue').textContent = this.ballSpeed;
+        });
+    }
+    
+    createBricks() {
+        this.bricks = [];
+        const rows = 5 + Math.floor(this.level / 3);
+        const cols = 10;
+        const brickWidth = 70;
+        const brickHeight = 20;
+        const padding = 5;
+        const offsetTop = 60;
+        const offsetLeft = (this.canvas.width - (cols * (brickWidth + padding) - padding)) / 2;
+        
+        const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
+        
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                this.bricks.push({
+                    x: offsetLeft + col * (brickWidth + padding),
+                    y: offsetTop + row * (brickHeight + padding),
+                    width: brickWidth,
+                    height: brickHeight,
+                    visible: true,
+                    color: colors[row % colors.length],
+                    points: (rows - row) * 10,
+                    hits: row < 2 ? 2 : 1
+                });
+            }
+        }
+        
+        this.updateBricksLeft();
+    }
+    
+    startGame() {
+        this.isPlaying = true;
+        this.isPaused = false;
+        this.waitingForLaunch = true;
+        this.ball.attached = true;
+        this.hideGameStatus();
+        this.showPauseButton();
+        this.gameLoop();
+    }
+    
+    launchBall() {
+        this.ball.attached = false;
+        this.waitingForLaunch = false;
+        
+        const angle = -Math.PI/2 + (Math.random() - 0.5) * Math.PI/3;
+        this.ball.velocityX = Math.cos(angle) * this.ball.speed;
+        this.ball.velocityY = Math.sin(angle) * this.ball.speed;
+    }
+    
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        
+        if (this.isPaused) {
+            this.showGameStatus('paused');
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-play"></i><span>계속하기</span>';
+            cancelAnimationFrame(this.animationId);
+        } else {
+            this.hideGameStatus();
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-pause"></i><span>일시정지</span>';
+            this.gameLoop();
+        }
+    }
+    
+    resetGame() {
+        this.stopGame();
+        this.score = 0;
+        this.lives = 3;
+        this.level = 1;
+        this.resetBall();
+        this.resetPaddle();
+        this.createBricks();
+        this.particles = [];
+        this.updateDisplay();
+        this.showGameStatus();
+        this.showStartButton();
+        this.draw();
+    }
+    
+    stopGame() {
+        this.isPlaying = false;
+        this.isPaused = false;
+        this.waitingForLaunch = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+        }
+    }
+    
+    gameLoop() {
+        if (!this.isPlaying || this.isPaused) return;
+        
+        this.update();
+        this.draw();
+        this.animationId = requestAnimationFrame(() => this.gameLoop());
+    }
+    
+    update() {
+        
+        const targetX = this.mouseX - this.paddle.width / 2;
+        this.paddle.x = Math.max(0, Math.min(this.canvas.width - this.paddle.width, targetX));
+        
+        
+        if (this.ball.attached) {
+            this.ball.x = this.paddle.x + this.paddle.width / 2;
+            return;
+        }
+        
+        
+        this.ball.x += this.ball.velocityX;
+        this.ball.y += this.ball.velocityY;
+        
+        
+        if (this.ball.x <= this.ball.radius || this.ball.x >= this.canvas.width - this.ball.radius) {
+            this.ball.velocityX = -this.ball.velocityX;
+        }
+        
+        if (this.ball.y <= this.ball.radius) {
+            this.ball.velocityY = -this.ball.velocityY;
+        }
+        
+        
+        if (this.ball.y >= this.canvas.height - this.ball.radius) {
+            this.loseLife();
+        }
+        
+        
+        this.checkPaddleCollision();
+        
+        
+        this.checkBrickCollision();
+        
+        
+        this.updateParticles();
+        
+        
+        this.checkLevelComplete();
+        
+        this.updateDisplay();
+    }
+    
+    checkPaddleCollision() {
+        if (this.ball.y + this.ball.radius >= this.paddle.y &&
+            this.ball.x >= this.paddle.x &&
+            this.ball.x <= this.paddle.x + this.paddle.width &&
+            this.ball.velocityY > 0) {
+            
+            const paddleCenter = this.paddle.x + this.paddle.width / 2;
+            const ballRelativeX = this.ball.x - paddleCenter;
+            const normalizedX = ballRelativeX / (this.paddle.width / 2);
+            
+            const angle = normalizedX * Math.PI / 3;
+            const speed = Math.sqrt(this.ball.velocityX ** 2 + this.ball.velocityY ** 2);
+            
+            this.ball.velocityX = Math.sin(angle) * speed;
+            this.ball.velocityY = -Math.abs(Math.cos(angle) * speed);
+            this.ball.y = this.paddle.y - this.ball.radius;
+        }
+    }
+    
+    checkBrickCollision() {
+        for (let i = 0; i < this.bricks.length; i++) {
+            const brick = this.bricks[i];
+            if (!brick.visible) continue;
+            
+            if (this.ball.x + this.ball.radius >= brick.x &&
+                this.ball.x - this.ball.radius <= brick.x + brick.width &&
+                this.ball.y + this.ball.radius >= brick.y &&
+                this.ball.y - this.ball.radius <= brick.y + brick.height) {
+                
+                this.hitBrick(brick);
+                break;
+            }
+        }
+    }
+    
+    hitBrick(brick) {
+        brick.hits--;
+        
+        if (brick.hits <= 0) {
+            brick.visible = false;
+            this.score += brick.points;
+            this.createParticles(brick.x + brick.width/2, brick.y + brick.height/2, brick.color);
+        }
+        
+        
+        const ballCenterX = this.ball.x;
+        const ballCenterY = this.ball.y;
+        const brickCenterX = brick.x + brick.width / 2;
+        const brickCenterY = brick.y + brick.height / 2;
+        
+        const deltaX = Math.abs(ballCenterX - brickCenterX);
+        const deltaY = Math.abs(ballCenterY - brickCenterY);
+        
+        if (deltaX / brick.width > deltaY / brick.height) {
+            this.ball.velocityX = -this.ball.velocityX;
+        } else {
+            this.ball.velocityY = -this.ball.velocityY;
+        }
+        
+        this.updateBricksLeft();
+    }
+    
+    createParticles(x, y, color) {
+        for (let i = 0; i < 6; i++) {
+            this.particles.push({
+                x: x,
+                y: y,
+                velocityX: (Math.random() - 0.5) * 6,
+                velocityY: (Math.random() - 0.5) * 6,
+                life: 20,
+                maxLife: 20,
+                color: color,
+                size: Math.random() * 3 + 2
+            });
+        }
+    }
+    
+    updateParticles() {
+        for (let i = this.particles.length - 1; i >= 0; i--) {
+            const particle = this.particles[i];
+            particle.x += particle.velocityX;
+            particle.y += particle.velocityY;
+            particle.velocityY += 0.2;
+            particle.life--;
+            
+            if (particle.life <= 0) {
+                this.particles.splice(i, 1);
+            }
+        }
+    }
+    
+    loseLife() {
+        this.lives--;
+        this.resetBall();
+        
+        if (this.lives <= 0) {
+            this.gameOver();
+        } else {
+            this.waitingForLaunch = true;
+            this.ball.attached = true;
+        }
+    }
+    
+    gameOver() {
+        this.stopGame();
+        
+        if (this.score > this.bestScore) {
+            this.bestScore = this.score;
+            this.saveBestScore();
+        }
+        
+        this.showGameResult('gameOver');
+    }
+    
+    checkLevelComplete() {
+        const visibleBricks = this.bricks.filter(brick => brick.visible);
+        if (visibleBricks.length === 0) {
+            this.levelComplete();
+        }
+    }
+    
+    levelComplete() {
+        this.stopGame();
+        
+        
+        this.score += this.lives * 100;
+        
+        if (this.score > this.bestScore) {
+            this.bestScore = this.score;
+            this.saveBestScore();
+        }
+        
+        this.showGameResult('levelComplete');
+    }
+    
+    nextLevel() {
+        this.level++;
+        this.lives = Math.min(this.lives + 1, 5);
+        this.resetBall();
+        this.resetPaddle();
+        this.createBricks();
+        this.particles = [];
+        this.updateDisplay();
+        document.getElementById('gameOverlay').classList.remove('active');
+        this.startGame();
+    }
+    
+    showGameResult(type) {
+        const overlay = document.getElementById('gameOverlay');
+        const icon = document.getElementById('overlayIcon');
+        const title = document.getElementById('overlayTitle');
+        const message = document.getElementById('overlayMessage');
+        const nextLevelBtn = document.getElementById('nextLevelBtn');
+        
+        document.getElementById('finalScore').textContent = this.score;
+        document.getElementById('finalLevel').textContent = this.level;
+        
+        if (type === 'levelComplete') {
+            icon.className = 'fas fa-trophy';
+            title.textContent = '레벨 클리어!';
+            message.textContent = `레벨 ${this.level}을 완료했습니다! 보너스 점수 ${this.lives * 100}점을 획득했습니다.`;
+            nextLevelBtn.style.display = 'flex';
+        } else {
+            icon.className = 'fas fa-skull-crossbones';
+            title.textContent = '게임 오버';
+            message.textContent = `레벨 ${this.level}에서 게임이 종료되었습니다.`;
+            nextLevelBtn.style.display = 'none';
+        }
+        
+        overlay.classList.add('active');
+    }
+    
+    playAgain() {
+        document.getElementById('gameOverlay').classList.remove('active');
+        this.resetGame();
+    }
+    
+    resetBall() {
+        this.ball.x = this.canvas.width / 2;
+        this.ball.y = this.canvas.height - 100;
+        this.ball.velocityX = 0;
+        this.ball.velocityY = 0;
+        this.ball.attached = true;
+    }
+    
+    resetPaddle() {
+        this.paddle.x = this.canvas.width / 2 - this.paddle.width / 2;
+    }
+    
+    draw() {
+        
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        
+        const gradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
+        gradient.addColorStop(0, '#0a0a0a');
+        gradient.addColorStop(1, '#1a1a1a');
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        
+        this.bricks.forEach(brick => {
+            if (brick.visible) {
+                this.ctx.fillStyle = brick.color;
+                this.ctx.fillRect(brick.x, brick.y, brick.width, brick.height);
+                
+                
+                this.ctx.strokeStyle = '#333';
+                this.ctx.lineWidth = 1;
+                this.ctx.strokeRect(brick.x, brick.y, brick.width, brick.height);
+                
+                
+                if (brick.hits > 1) {
+                    this.ctx.fillStyle = 'white';
+                    this.ctx.font = '12px Arial';
+                    this.ctx.textAlign = 'center';
+                    this.ctx.fillText(brick.hits.toString(), brick.x + brick.width/2, brick.y + brick.height/2 + 4);
+                }
+            }
+        });
+        
+        
+        this.ctx.fillStyle = '#01FF75';
+        this.ctx.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, this.paddle.height);
+        
+        
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+        this.ctx.fillRect(this.paddle.x, this.paddle.y, this.paddle.width, 4);
+        
+        
+        this.ctx.fillStyle = '#FFFFFF';
+        this.ctx.beginPath();
+        this.ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        
+        if (!this.ball.attached && this.isPlaying && !this.isPaused) {
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+            this.ctx.beginPath();
+            this.ctx.arc(this.ball.x - this.ball.velocityX, this.ball.y - this.ball.velocityY, this.ball.radius * 0.7, 0, Math.PI * 2);
+            this.ctx.fill();
+        }
+        
+        
+        this.particles.forEach(particle => {
+            const alpha = particle.life / particle.maxLife;
+            this.ctx.fillStyle = particle.color + Math.floor(alpha * 255).toString(16).padStart(2, '0');
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.size * alpha, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+        
+        
+        if (this.waitingForLaunch && this.ball.attached) {
+            this.ctx.strokeStyle = '#01FF75';
+            this.ctx.lineWidth = 2;
+            this.ctx.setLineDash([5, 5]);
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.ball.x, this.ball.y - 20);
+            this.ctx.lineTo(this.ball.x, this.ball.y - 50);
+            this.ctx.moveTo(this.ball.x - 5, this.ball.y - 45);
+            this.ctx.lineTo(this.ball.x, this.ball.y - 50);
+            this.ctx.lineTo(this.ball.x + 5, this.ball.y - 45);
+            this.ctx.stroke();
+            this.ctx.setLineDash([]);
+        }
+    }
+    
+    setDifficulty(difficulty) {
+        this.difficulty = difficulty;
+        
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-difficulty="${difficulty}"]`).classList.add('active');
+        
+        switch(difficulty) {
+            case 'easy':
+                this.ball.speed = Math.max(3, this.ballSpeed - 1);
+                this.paddle.width = 140;
+                break;
+            case 'normal':
+                this.ball.speed = this.ballSpeed;
+                this.paddle.width = 120;
+                break;
+            case 'hard':
+                this.ball.speed = this.ballSpeed + 1;
+                this.paddle.width = 100;
+                break;
+        }
+    }
+    
+    setPaddleSize(size) {
+        this.paddleSize = size;
+        
+        document.querySelectorAll('[data-paddle]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-paddle="${size}"]`).classList.add('active');
+        
+        switch(size) {
+            case 'small':
+                this.paddle.width = 80;
+                break;
+            case 'normal':
+                this.paddle.width = 120;
+                break;
+            case 'large':
+                this.paddle.width = 160;
+                break;
+        }
+    }
+    
+    showSettings() {
+        document.getElementById('settingsPanel').classList.add('active');
+    }
+    
+    hideSettings() {
+        document.getElementById('settingsPanel').classList.remove('active');
+    }
+    
+    showGameStatus(type = 'ready') {
+        const statusElement = document.getElementById('gameStatus');
+        const statusContent = statusElement.querySelector('.status-content');
+        
+        let icon, title, message;
+        
+        if (type === 'paused') {
+            icon = 'fas fa-pause-circle';
+            title = '일시정지';
+            message = '계속하기 버튼을 눌러 게임을 재개하세요.';
+        } else {
+            icon = 'fas fa-play-circle';
+            title = '게임 준비';
+            message = '시작 버튼을 눌러 게임을 시작하세요!';
+        }
+        
+        statusContent.innerHTML = `
+            <i class="${icon}"></i>
+            <h3>${title}</h3>
+            <p>${message}</p>
+            <div class="controls-info">
+                <span><i class="fas fa-mouse"></i> 마우스로 패들 조작</span>
+                <span><i class="fas fa-mouse-pointer"></i> 클릭으로 공 발사</span>
+            </div>
+        `;
+        
+        statusElement.classList.add('active');
+    }
+    
+    hideGameStatus() {
+        document.getElementById('gameStatus').classList.remove('active');
+    }
+    
+    showStartButton() {
+        document.getElementById('startBtn').style.display = 'flex';
+        document.getElementById('pauseBtn').style.display = 'none';
+    }
+    
+    showPauseButton() {
+        document.getElementById('startBtn').style.display = 'none';
+        document.getElementById('pauseBtn').style.display = 'flex';
+    }
+    
+    updateDisplay() {
+        document.getElementById('scoreValue').textContent = this.score;
+        document.getElementById('livesValue').textContent = this.lives;
+        document.getElementById('levelValue').textContent = this.level;
+        document.getElementById('bestScore').textContent = this.bestScore;
+    }
+    
+    updateBricksLeft() {
+        const visibleBricks = this.bricks.filter(brick => brick.visible).length;
+        document.getElementById('bricksLeft').textContent = visibleBricks;
+    }
+    
+    saveBestScore() {
+        localStorage.setItem('breakoutBestScore', this.bestScore.toString());
+    }
+    
+    loadBestScore() {
+        const saved = localStorage.getItem('breakoutBestScore');
+        this.bestScore = saved ? parseInt(saved) : 0;
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    new BreakoutGame();
+});
+</script>
+
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>

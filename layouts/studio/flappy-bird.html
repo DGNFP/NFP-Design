@@ -1,0 +1,1175 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">플래피버드 게임</span>
+        <p><br>클릭하여 새를 날리며 파이프를 피해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>플래피버드 어드벤처</h3>
+                <p>클릭하여 새를 날리며 파이프 사이를 통과하세요!<br>
+                #플래피버드 #비행게임 #아케이드게임</p>
+            </div>
+
+            <!-- 메인 게임 영역 -->
+            <div class="flappy-game-container">
+                
+                <!-- 게임 헤더 -->
+                <div class="game-header">
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span class="stat-label">점수</span>
+                            <span class="stat-value" id="scoreValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <span class="stat-label">최고 기록</span>
+                            <span class="stat-value" id="bestScore">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-angle-double-up"></i>
+                            <span class="stat-label">고도</span>
+                            <span class="stat-value" id="altitudeValue">0m</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="stat-label">속도</span>
+                            <span class="stat-value" id="speedValue">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 상태 -->
+                <div class="game-status" id="gameStatus">
+                    <div class="status-content">
+                        <i class="fas fa-dove"></i>
+                        <h3>비행 준비</h3>
+                        <p>시작 버튼을 눌러 새의 모험을 시작하세요!</p>
+                        <div class="controls-info">
+                            <span> 클릭하여 날개짓</span>
+                            <span> 스페이스바로도 조작</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 캔버스 -->
+                <div class="game-canvas-container">
+                    <canvas id="gameCanvas" width="800" height="600"></canvas>
+                    <div class="game-overlay" id="gameOverlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-feather" id="overlayIcon"></i>
+                            <h3 id="overlayTitle">비행 종료</h3>
+                            <p id="overlayMessage">새의 여행이 끝났습니다.</p>
+                            <div class="overlay-stats" id="overlayStats">
+                                <div class="overlay-stat">
+                                    <span>최종 점수</span>
+                                    <span id="finalScore">0</span>
+                                </div>
+                                <div class="overlay-stat">
+                                    <span>통과한 파이프</span>
+                                    <span id="pipesPassed">0</span>
+                                </div>
+                                <div class="overlay-stat">
+                                    <span>최대 고도</span>
+                                    <span id="maxAltitude">0m</span>
+                                </div>
+                                <div class="overlay-stat">
+                                    <span>비행 시간</span>
+                                    <span id="flightTime">0초</span>
+                                </div>
+                            </div>
+                            <div class="overlay-actions">
+                                <button class="overlay-btn" id="playAgainBtn">
+                                    <span>다시 비행</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 컨트롤 -->
+                <div class="game-controls">
+                    <button class="control-btn start-btn" id="startBtn">
+                        <i class="fas fa-play"></i>
+                        <span>비행 시작</span>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn" style="display: none;">
+                        <i class="fas fa-pause"></i>
+                        <span>일시정지</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        <span>리셋</span>
+                    </button>
+                    <button class="control-btn settings-btn" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                        <span>설정</span>
+                    </button>
+                </div>
+
+                <!-- 설정 패널 -->
+                <div class="settings-panel" id="settingsPanel">
+                    <div class="settings-header">
+                        <h4>게임 설정</h4>
+                        <button class="close-settings" id="closeSettings">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <label>난이도</label>
+                            <div class="setting-options">
+                                <button class="setting-option" data-difficulty="easy">쉬움</button>
+                                <button class="setting-option active" data-difficulty="normal">보통</button>
+                                <button class="setting-option" data-difficulty="hard">어려움</button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>중력 강도</label>
+                            <div class="setting-slider">
+                                <input type="range" id="gravitySlider" min="0.3" max="0.8" step="0.1" value="0.5">
+                                <span id="gravityValue">0.5</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>점프 파워</label>
+                            <div class="setting-slider">
+                                <input type="range" id="jumpSlider" min="8" max="12" value="10">
+                                <span id="jumpValue">10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+/* 플래피버드 게임 스타일 */
+.flappy-game-container {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+/* 게임 헤더 */
+.game-header {
+    margin-bottom: 24px;
+}
+
+.game-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.stat-item {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-item i {
+    font-size: 18px;
+    color: var(--accent-color);
+    width: 20px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 14px;
+    flex: 1;
+}
+
+.stat-value {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* 게임 상태 */
+.game-status {
+    text-align: center;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.game-status.active {
+    display: block;
+}
+
+.status-content {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 32px;
+}
+
+.status-content i {
+    font-size: 48px;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+}
+
+.status-content h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.status-content p {
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.controls-info {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    color: var(--accent-color);
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.controls-info i {
+    margin-right: 4px;
+}
+
+/* 게임 캔버스 */
+.game-canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    background: linear-gradient(to bottom, #87CEEB, #98FB98);
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    cursor: pointer;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-overlay.active {
+    display: flex;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    max-width: 500px;
+    padding: 32px;
+}
+
+.overlay-content i {
+    font-size: 64px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.overlay-content h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.overlay-content p {
+    color: #666;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.overlay-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+}
+
+.overlay-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.overlay-stat span:first-child {
+    color: #666;
+    font-size: 14px;
+}
+
+.overlay-stat span:last-child {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.overlay-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.overlay-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+}
+
+/* 게임 컨트롤 */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+.start-btn:hover {
+    color: var(--accent-color);
+}
+
+.pause-btn:hover {
+    color: #ffa500;
+    border-color: #ffa500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.reset-btn:hover {
+    color: #ff4757;
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+/* 설정 패널 */
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 400px;
+    display: none;
+}
+
+.settings-panel.active {
+    display: block;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.settings-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-settings {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.close-settings:hover {
+    color: white;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-group label {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.setting-options {
+    display: flex;
+    gap: 8px;
+}
+
+.setting-option {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-align: center;
+}
+
+.setting-option:hover,
+.setting-option.active {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+}
+
+.setting-slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.setting-slider input[type="range"] {
+    flex: 1;
+    height: 6px;
+    background: var(--sub-border-color);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.setting-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-slider input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.setting-slider span {
+    color: var(--accent-color);
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .game-canvas-container {
+        overflow-x: auto;
+    }
+    
+    #gameCanvas {
+        min-width: 600px;
+    }
+    
+    .game-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        min-width: 200px;
+        justify-content: center;
+    }
+    
+    .settings-panel {
+        min-width: 300px;
+        width: 90%;
+    }
+    
+    .overlay-stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+class FlappyBirdGame {
+    constructor() {
+        this.canvas = document.getElementById('gameCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        
+        // 게임 상태
+        this.isPlaying = false;
+        this.isPaused = false;
+        this.animationId = null;
+        this.startTime = 0;
+        this.gameTime = 0;
+        
+        // 점수 및 통계
+        this.score = 0;
+        this.bestScore = 0;
+        this.pipesPassed = 0;
+        this.maxAltitude = 0;
+        
+        // 설정
+        this.difficulty = 'normal';
+        this.gravity = 0.5;
+        this.jumpPower = 10;
+        this.gameSpeed = 2;
+        
+        // 새 객체
+        this.bird = {
+            x: 150,
+            y: this.canvas.height / 2,
+            radius: 20,
+            velocity: 0,
+            rotation: 0
+        };
+        
+        // 파이프 배열
+        this.pipes = [];
+        this.pipeWidth = 80;
+        this.pipeGap = 200;
+        this.pipeSpacing = 300;
+        
+        // 배경 요소
+        this.clouds = [];
+        this.ground = {
+            x: 0,
+            height: 80
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.loadBestScore();
+        this.setupEventListeners();
+        this.createClouds();
+        this.updateDisplay();
+        this.showGameStatus();
+        this.draw();
+    }
+    
+    setupEventListeners() {
+        // 마우스 클릭
+        this.canvas.addEventListener('click', () => {
+            if (!this.isPlaying) {
+                this.startGame();
+            } else if (!this.isPaused) {
+                this.jump();
+            }
+        });
+        
+        // 키보드 이벤트
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                if (!this.isPlaying) {
+                    this.startGame();
+                } else if (!this.isPaused) {
+                    this.jump();
+                }
+            }
+        });
+        
+        // 버튼 이벤트
+        document.getElementById('startBtn').addEventListener('click', () => this.startGame());
+        document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
+        document.getElementById('resetBtn').addEventListener('click', () => this.resetGame());
+        document.getElementById('settingsBtn').addEventListener('click', () => this.showSettings());
+        document.getElementById('closeSettings').addEventListener('click', () => this.hideSettings());
+        document.getElementById('playAgainBtn').addEventListener('click', () => this.playAgain());
+        
+        // 설정 이벤트
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.difficulty));
+        });
+        
+        document.getElementById('gravitySlider').addEventListener('input', (e) => {
+            this.gravity = parseFloat(e.target.value);
+            document.getElementById('gravityValue').textContent = this.gravity;
+        });
+        
+        document.getElementById('jumpSlider').addEventListener('input', (e) => {
+            this.jumpPower = parseInt(e.target.value);
+            document.getElementById('jumpValue').textContent = this.jumpPower;
+        });
+    }
+    
+    createClouds() {
+        this.clouds = [];
+        for (let i = 0; i < 5; i++) {
+            this.clouds.push({
+                x: Math.random() * this.canvas.width * 2,
+                y: Math.random() * 200 + 50,
+                size: Math.random() * 40 + 20,
+                speed: Math.random() * 0.5 + 0.2
+            });
+        }
+    }
+    
+    startGame() {
+        this.isPlaying = true;
+        this.isPaused = false;
+        this.startTime = Date.now();
+        this.score = 0;
+        this.pipesPassed = 0;
+        this.maxAltitude = 0;
+        this.bird.y = this.canvas.height / 2;
+        this.bird.velocity = 0;
+        this.bird.rotation = 0;
+        this.pipes = [];
+        this.ground.x = 0;
+        
+        this.hideGameStatus();
+        this.showPauseButton();
+        this.gameLoop();
+    }
+    
+    jump() {
+        this.bird.velocity = -this.jumpPower;
+    }
+    
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        
+        if (this.isPaused) {
+            this.showGameStatus('paused');
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-play"></i><span>계속하기</span>';
+            cancelAnimationFrame(this.animationId);
+        } else {
+            this.hideGameStatus();
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-pause"></i><span>일시정지</span>';
+            this.gameLoop();
+        }
+    }
+    
+    resetGame() {
+        this.stopGame();
+        this.score = 0;
+        this.pipesPassed = 0;
+        this.maxAltitude = 0;
+        this.gameTime = 0;
+        this.bird.y = this.canvas.height / 2;
+        this.bird.velocity = 0;
+        this.bird.rotation = 0;
+        this.pipes = [];
+        this.ground.x = 0;
+        this.updateDisplay();
+        this.showGameStatus();
+        this.showStartButton();
+        this.draw();
+    }
+    
+    stopGame() {
+        this.isPlaying = false;
+        this.isPaused = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+        }
+    }
+    
+    gameLoop() {
+        if (!this.isPlaying || this.isPaused) return;
+        
+        this.update();
+        this.draw();
+        this.animationId = requestAnimationFrame(() => this.gameLoop());
+    }
+    
+    update() {
+        // 게임 시간 업데이트
+        this.gameTime = Math.floor((Date.now() - this.startTime) / 1000);
+        
+        // 새 업데이트
+        this.bird.velocity += this.gravity;
+        this.bird.y += this.bird.velocity;
+        
+        // 새 회전 (속도에 따라)
+        this.bird.rotation = Math.max(-30, Math.min(30, this.bird.velocity * 3));
+        
+        // 고도 계산 (화면 상단에서의 거리)
+        const altitude = Math.max(0, Math.floor((this.canvas.height - this.bird.y - this.ground.height) / 10));
+        this.maxAltitude = Math.max(this.maxAltitude, altitude);
+        
+        // 바닥 및 천장 충돌
+        if (this.bird.y <= this.bird.radius || this.bird.y >= this.canvas.height - this.ground.height - this.bird.radius) {
+            this.gameOver();
+            return;
+        }
+        
+        // 파이프 생성
+        if (this.pipes.length === 0 || this.pipes[this.pipes.length - 1].x < this.canvas.width - this.pipeSpacing) {
+            this.createPipe();
+        }
+        
+        // 파이프 이동 및 충돌 검사
+        for (let i = this.pipes.length - 1; i >= 0; i--) {
+            const pipe = this.pipes[i];
+            pipe.x -= this.gameSpeed;
+            
+            // 파이프 충돌 검사
+            if (this.checkPipeCollision(pipe)) {
+                this.gameOver();
+                return;
+            }
+            
+            // 점수 증가 (파이프 통과)
+            if (!pipe.passed && pipe.x + this.pipeWidth < this.bird.x) {
+                pipe.passed = true;
+                this.score++;
+                this.pipesPassed++;
+            }
+            
+            // 화면에서 벗어난 파이프 제거
+            if (pipe.x + this.pipeWidth < 0) {
+                this.pipes.splice(i, 1);
+            }
+        }
+        
+        // 배경 요소 이동
+        this.updateBackground();
+        
+        this.updateDisplay();
+    }
+    
+    createPipe() {
+        const minHeight = 100;
+        const maxHeight = this.canvas.height - this.ground.height - this.pipeGap - minHeight;
+        const topHeight = Math.random() * (maxHeight - minHeight) + minHeight;
+        
+        this.pipes.push({
+            x: this.canvas.width,
+            topHeight: topHeight,
+            bottomY: topHeight + this.pipeGap,
+            passed: false
+        });
+    }
+    
+    checkPipeCollision(pipe) {
+        const birdLeft = this.bird.x - this.bird.radius;
+        const birdRight = this.bird.x + this.bird.radius;
+        const birdTop = this.bird.y - this.bird.radius;
+        const birdBottom = this.bird.y + this.bird.radius;
+        
+        const pipeLeft = pipe.x;
+        const pipeRight = pipe.x + this.pipeWidth;
+        
+        // 새가 파이프의 x 범위에 있는지 확인
+        if (birdRight > pipeLeft && birdLeft < pipeRight) {
+            // 상단 파이프 또는 하단 파이프와 충돌하는지 확인
+            if (birdTop < pipe.topHeight || birdBottom > pipe.bottomY) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    updateBackground() {
+        // 땅 이동
+        this.ground.x -= this.gameSpeed;
+        if (this.ground.x <= -50) {
+            this.ground.x = 0;
+        }
+        
+        // 구름 이동
+        this.clouds.forEach(cloud => {
+            cloud.x -= cloud.speed;
+            if (cloud.x + cloud.size < 0) {
+                cloud.x = this.canvas.width + Math.random() * 200;
+                cloud.y = Math.random() * 200 + 50;
+            }
+        });
+    }
+    
+    gameOver() {
+        this.stopGame();
+        
+        if (this.score > this.bestScore) {
+            this.bestScore = this.score;
+            this.saveBestScore();
+        }
+        
+        this.showGameResult();
+    }
+    
+    showGameResult() {
+        const overlay = document.getElementById('gameOverlay');
+        const icon = document.getElementById('overlayIcon');
+        const title = document.getElementById('overlayTitle');
+        const message = document.getElementById('overlayMessage');
+        
+        document.getElementById('finalScore').textContent = this.score;
+        document.getElementById('pipesPassed').textContent = this.pipesPassed;
+        document.getElementById('maxAltitude').textContent = this.maxAltitude + 'm';
+        document.getElementById('flightTime').textContent = this.gameTime + '초';
+        
+        icon.className = 'fas fa-feather-alt';
+        title.textContent = '비행 종료';
+        
+        if (this.score >= 20) {
+            message.textContent = '놀라운 비행 실력입니다! 전문 파일럿이 되셨네요!';
+        } else if (this.score >= 10) {
+            message.textContent = '훌륭한 비행이었습니다! 계속 연습하면 더 좋아질 거예요!';
+        } else if (this.score >= 5) {
+            message.textContent = '좋은 시작입니다! 날개짓 타이밍을 연습해보세요.';
+        } else {
+            message.textContent = '연습이 필요하지만 포기하지 마세요!';
+        }
+        
+        overlay.classList.add('active');
+    }
+    
+    playAgain() {
+        document.getElementById('gameOverlay').classList.remove('active');
+        this.resetGame();
+    }
+    
+    draw() {
+        // 캔버스 지우기
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // 배경 그라디언트
+        const skyGradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height - this.ground.height);
+        skyGradient.addColorStop(0, '#87CEEB');
+        skyGradient.addColorStop(1, '#98FB98');
+        this.ctx.fillStyle = skyGradient;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height - this.ground.height);
+        
+        // 구름 그리기
+        this.drawClouds();
+        
+        // 파이프 그리기
+        this.drawPipes();
+        
+        // 새 그리기
+        this.drawBird();
+        
+        // 땅 그리기
+        this.drawGround();
+        
+        // 점수 표시
+        if (this.isPlaying) {
+            this.drawScore();
+        }
+    }
+    
+    drawClouds() {
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        this.clouds.forEach(cloud => {
+            this.ctx.beginPath();
+            this.ctx.arc(cloud.x, cloud.y, cloud.size, 0, Math.PI * 2);
+            this.ctx.arc(cloud.x + cloud.size * 0.5, cloud.y, cloud.size * 0.7, 0, Math.PI * 2);
+            this.ctx.arc(cloud.x - cloud.size * 0.5, cloud.y, cloud.size * 0.7, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+    }
+    
+    drawPipes() {
+        this.ctx.fillStyle = '#228B22';
+        this.ctx.strokeStyle = '#006400';
+        this.ctx.lineWidth = 3;
+        
+        this.pipes.forEach(pipe => {
+            // 상단 파이프
+            this.ctx.fillRect(pipe.x, 0, this.pipeWidth, pipe.topHeight);
+            this.ctx.strokeRect(pipe.x, 0, this.pipeWidth, pipe.topHeight);
+            
+            // 상단 파이프 캡
+            this.ctx.fillRect(pipe.x - 5, pipe.topHeight - 30, this.pipeWidth + 10, 30);
+            this.ctx.strokeRect(pipe.x - 5, pipe.topHeight - 30, this.pipeWidth + 10, 30);
+            
+            // 하단 파이프
+            this.ctx.fillRect(pipe.x, pipe.bottomY, this.pipeWidth, this.canvas.height - this.ground.height - pipe.bottomY);
+            this.ctx.strokeRect(pipe.x, pipe.bottomY, this.pipeWidth, this.canvas.height - this.ground.height - pipe.bottomY);
+            
+            // 하단 파이프 캡
+            this.ctx.fillRect(pipe.x - 5, pipe.bottomY, this.pipeWidth + 10, 30);
+            this.ctx.strokeRect(pipe.x - 5, pipe.bottomY, this.pipeWidth + 10, 30);
+        });
+    }
+    
+    drawBird() {
+        this.ctx.save();
+        this.ctx.translate(this.bird.x, this.bird.y);
+        this.ctx.rotate(this.bird.rotation * Math.PI / 180);
+        
+        // 새 몸체
+        this.ctx.fillStyle = '#FFD700';
+        this.ctx.beginPath();
+        this.ctx.arc(0, 0, this.bird.radius, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // 새 부리
+        this.ctx.fillStyle = '#FF8C00';
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.bird.radius - 5, -5);
+        this.ctx.lineTo(this.bird.radius + 10, 0);
+        this.ctx.lineTo(this.bird.radius - 5, 5);
+        this.ctx.closePath();
+        this.ctx.fill();
+        
+        // 새 눈
+        this.ctx.fillStyle = 'white';
+        this.ctx.beginPath();
+        this.ctx.arc(5, -8, 6, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        this.ctx.fillStyle = 'black';
+        this.ctx.beginPath();
+        this.ctx.arc(7, -6, 3, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // 새 날개
+        this.ctx.fillStyle = '#FF6347';
+        this.ctx.beginPath();
+        this.ctx.ellipse(-8, 3, 12, 8, Math.sin(Date.now() * 0.01) * 0.3, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        this.ctx.restore();
+    }
+    
+    drawGround() {
+        // 땅 그리기
+        this.ctx.fillStyle = '#8B4513';
+        this.ctx.fillRect(0, this.canvas.height - this.ground.height, this.canvas.width, this.ground.height);
+        
+        // 땅 텍스처
+        this.ctx.fillStyle = '#A0522D';
+        for (let x = this.ground.x; x < this.canvas.width; x += 50) {
+            this.ctx.fillRect(x, this.canvas.height - this.ground.height, 25, this.ground.height);
+        }
+        
+        // 잔디
+        this.ctx.fillStyle = '#228B22';
+        this.ctx.fillRect(0, this.canvas.height - this.ground.height, this.canvas.width, 20);
+        
+        for (let x = this.ground.x; x < this.canvas.width; x += 10) {
+            this.ctx.fillStyle = '#32CD32';
+            this.ctx.fillRect(x, this.canvas.height - this.ground.height, 5, 15);
+        }
+    }
+    
+    drawScore() {
+        this.ctx.fillStyle = 'white';
+        this.ctx.strokeStyle = 'black';
+        this.ctx.lineWidth = 3;
+        this.ctx.font = 'bold 48px Arial';
+        this.ctx.textAlign = 'center';
+        
+        const scoreText = this.score.toString();
+        this.ctx.strokeText(scoreText, this.canvas.width / 2, 80);
+        this.ctx.fillText(scoreText, this.canvas.width / 2, 80);
+    }
+    
+    setDifficulty(difficulty) {
+        this.difficulty = difficulty;
+        
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-difficulty="${difficulty}"]`).classList.add('active');
+        
+        switch(difficulty) {
+            case 'easy':
+                this.gravity = 0.3;
+                this.jumpPower = 12;
+                this.gameSpeed = 1.5;
+                this.pipeGap = 250;
+                break;
+            case 'normal':
+                this.gravity = 0.5;
+                this.jumpPower = 10;
+                this.gameSpeed = 2;
+                this.pipeGap = 200;
+                break;
+            case 'hard':
+                this.gravity = 0.7;
+                this.jumpPower = 8;
+                this.gameSpeed = 2.5;
+                this.pipeGap = 150;
+                break;
+        }
+        
+        // 슬라이더 값 업데이트
+        document.getElementById('gravitySlider').value = this.gravity;
+        document.getElementById('gravityValue').textContent = this.gravity;
+        document.getElementById('jumpSlider').value = this.jumpPower;
+        document.getElementById('jumpValue').textContent = this.jumpPower;
+    }
+    
+    showSettings() {
+        document.getElementById('settingsPanel').classList.add('active');
+    }
+    
+    hideSettings() {
+        document.getElementById('settingsPanel').classList.remove('active');
+    }
+    
+    showGameStatus(type = 'ready') {
+        const statusElement = document.getElementById('gameStatus');
+        const statusContent = statusElement.querySelector('.status-content');
+        
+        let icon, title, message;
+        
+        if (type === 'paused') {
+            icon = 'fas fa-pause-circle';
+            title = '비행 일시정지';
+            message = '계속하기 버튼을 눌러 비행을 재개하세요.';
+        } else {
+            icon = 'fas fa-dove';
+            title = '비행 준비';
+            message = '시작 버튼을 눌러 새의 모험을 시작하세요!';
+        }
+        
+        statusContent.innerHTML = `
+            <i class="${icon}"></i>
+            <h3>${title}</h3>
+            <p>${message}</p>
+            <div class="controls-info">
+                <span>클릭하여 날개짓</span>
+                <span>스페이스바로도 조작</span>
+            </div>
+        `;
+        
+        statusElement.classList.add('active');
+    }
+    
+    hideGameStatus() {
+        document.getElementById('gameStatus').classList.remove('active');
+    }
+    
+    showStartButton() {
+        document.getElementById('startBtn').style.display = 'flex';
+        document.getElementById('pauseBtn').style.display = 'none';
+    }
+    
+    showPauseButton() {
+        document.getElementById('startBtn').style.display = 'none';
+        document.getElementById('pauseBtn').style.display = 'flex';
+    }
+    
+    updateDisplay() {
+        document.getElementById('scoreValue').textContent = this.score;
+        document.getElementById('bestScore').textContent = this.bestScore;
+        
+        const altitude = Math.max(0, Math.floor((this.canvas.height - this.bird.y - this.ground.height) / 10));
+        document.getElementById('altitudeValue').textContent = altitude + 'm';
+        
+        const speed = Math.abs(this.bird.velocity).toFixed(1);
+        document.getElementById('speedValue').textContent = speed;
+    }
+    
+    saveBestScore() {
+        localStorage.setItem('flappyBirdBestScore', this.bestScore.toString());
+    }
+    
+    loadBestScore() {
+        const saved = localStorage.getItem('flappyBirdBestScore');
+        this.bestScore = saved ? parseInt(saved) : 0;
+    }
+}
+
+// 게임 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    new FlappyBirdGame();
+});
+</script>
+
+{{ end }}

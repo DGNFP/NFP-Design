@@ -1,0 +1,1113 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">Pong 게임</span>
+        <p><br>클래식 탁구 게임을 컴퓨터와 대결해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>클래식 Pong 게임</h3>
+                <p>마우스로 패들을 조작하여 공을 튕겨내세요!<br>
+                #pong #탁구게임 #클래식아케이드</p>
+            </div>
+
+            <!-- 메인 게임 영역 -->
+            <div class="pong-game-container">
+                
+                <!-- 게임 헤더 -->
+                <div class="game-header">
+                    <div class="score-display">
+                        <div class="player-score-section">
+                            <div class="score-label">
+                                <i class="fas fa-user"></i>
+                                <span>플레이어</span>
+                            </div>
+                            <div class="score-value" id="playerScore">0</div>
+                        </div>
+                        <div class="score-divider">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="computer-score-section">
+                            <div class="score-label">
+                                <i class="fas fa-robot"></i>
+                                <span>컴퓨터</span>
+                            </div>
+                            <div class="score-value" id="computerScore">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 상태 -->
+                <div class="game-status" id="gameStatus">
+                    <div class="status-content">
+                        <i class="fas fa-play-circle"></i>
+                        <h3>게임 준비</h3>
+                        <p>시작 버튼을 눌러 게임을 시작하세요!</p>
+                        <div class="controls-info">
+                            <span><i class="fas fa-mouse"></i> 마우스로 패들 조작</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 캔버스 -->
+                <div class="game-canvas-container">
+                    <canvas id="gameCanvas" width="800" height="400"></canvas>
+                    <div class="game-overlay" id="gameOverlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-trophy"></i>
+                            <h3 id="gameResultTitle">게임 종료</h3>
+                            <p id="gameResultMessage">게임이 종료되었습니다.</p>
+                            <button class="overlay-btn" id="playAgainBtn">
+                                <i class="fas fa-play"></i>
+                                <span>다시 하기</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 정보 -->
+                <div class="game-info-panel">
+                    <div class="info-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="info-label">공 속도</span>
+                        <span class="info-value" id="ballSpeed">5</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span class="info-label">게임 시간</span>
+                        <span class="info-value" id="gameTime">00:00</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="info-label">랠리 수</span>
+                        <span class="info-value" id="rallyCount">0</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-star"></i>
+                        <span class="info-label">최고 점수</span>
+                        <span class="info-value" id="bestScore">0</span>
+                    </div>
+                </div>
+
+                <!-- 게임 컨트롤 -->
+                <div class="game-controls">
+                    <button class="control-btn start-btn" id="startBtn">
+                        <i class="fas fa-play"></i>
+                        <span>게임 시작</span>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn" style="display: none;">
+                        <i class="fas fa-pause"></i>
+                        <span>일시정지</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        <span>리셋</span>
+                    </button>
+                    <button class="control-btn settings-btn" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                        <span>설정</span>
+                    </button>
+                </div>
+
+                <!-- 설정 패널 -->
+                <div class="settings-panel" id="settingsPanel">
+                    <div class="settings-header">
+                        <h4>게임 설정</h4>
+                        <button class="close-settings" id="closeSettings">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <label>AI 난이도</label>
+                            <div class="setting-options">
+                                <button class="setting-option" data-difficulty="easy">쉬움</button>
+                                <button class="setting-option active" data-difficulty="normal">보통</button>
+                                <button class="setting-option" data-difficulty="hard">어려움</button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>게임 모드</label>
+                            <div class="setting-options">
+                                <button class="setting-option active" data-mode="first5">5점 먼저</button>
+                                <button class="setting-option" data-mode="first10">10점 먼저</button>
+                                <button class="setting-option" data-mode="endless">무한모드</button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>공 속도</label>
+                            <div class="setting-slider">
+                                <input type="range" id="speedSlider" min="3" max="10" value="5">
+                                <span id="speedValue">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+/* Pong 게임 스타일 */
+.pong-game-container {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+/* 게임 헤더 */
+.game-header {
+    margin-bottom: 24px;
+}
+
+.score-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.player-score-section,
+.computer-score-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.score-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.score-label i {
+    color: var(--accent-color);
+    font-size: 16px;
+}
+
+.score-value {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.score-divider {
+    color: var(--accent-color);
+    font-size: 12px;
+}
+
+/* 게임 상태 */
+.game-status {
+    text-align: center;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.game-status.active {
+    display: block;
+}
+
+.status-content {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 32px;
+}
+
+.status-content i {
+    font-size: 48px;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+}
+
+.status-content h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.status-content p {
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.controls-info {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    color: var(--accent-color);
+    font-size: 14px;
+}
+
+.controls-info i {
+    margin-right: 4px;
+}
+
+/* 게임 캔버스 */
+.game-canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    background: #000;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    background: #000;
+    cursor: none;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-overlay.active {
+    display: flex;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+}
+
+.overlay-content i {
+    font-size: 64px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.overlay-content h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.overlay-content p {
+    color: #666;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.overlay-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+}
+
+/* 게임 정보 패널 */
+.game-info-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.info-item {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-item i {
+    font-size: 18px;
+    color: var(--accent-color);
+    width: 20px;
+}
+
+.info-label {
+    color: #666;
+    font-size: 14px;
+    flex: 1;
+}
+
+.info-value {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* 게임 컨트롤 */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+.start-btn:hover {
+    color: var(--accent-color);
+}
+
+.pause-btn:hover {
+    color: #ffa500;
+    border-color: #ffa500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.reset-btn:hover {
+    color: #ff4757;
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+/* 설정 패널 */
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 400px;
+    display: none;
+}
+
+.settings-panel.active {
+    display: block;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.settings-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-settings {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.close-settings:hover {
+    color: white;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-group label {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.setting-options {
+    display: flex;
+    gap: 8px;
+}
+
+.setting-option {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-align: center;
+}
+
+.setting-option:hover,
+.setting-option.active {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+}
+
+.setting-slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.setting-slider input[type="range"] {
+    flex: 1;
+    height: 6px;
+    background: var(--sub-border-color);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.setting-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-slider input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.setting-slider span {
+    color: var(--accent-color);
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .game-canvas-container {
+        overflow-x: auto;
+    }
+    
+    #gameCanvas {
+        min-width: 600px;
+    }
+    
+    .score-display {
+        gap: 30px;
+        padding: 16px;
+    }
+    
+    .score-value {
+        font-size: 36px;
+    }
+    
+    .game-info-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        min-width: 200px;
+        justify-content: center;
+    }
+    
+    .settings-panel {
+        min-width: 300px;
+        width: 90%;
+    }
+}
+</style>
+
+<script>
+class PongGame {
+    constructor() {
+        this.canvas = document.getElementById('gameCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        
+        // 게임 상태
+        this.isPlaying = false;
+        this.isPaused = false;
+        this.gameStartTime = 0;
+        this.gameTime = 0;
+        this.animationId = null;
+        
+        // 점수
+        this.playerScore = 0;
+        this.computerScore = 0;
+        this.rallyCount = 0;
+        this.bestPlayerScore = 0;
+        
+        // 설정
+        this.difficulty = 'normal';
+        this.gameMode = 'first5';
+        this.ballSpeed = 5;
+        
+        // 게임 객체들
+        this.ball = {
+            x: this.canvas.width / 2,
+            y: this.canvas.height / 2,
+            radius: 8,
+            velocityX: 0,
+            velocityY: 0,
+            speed: this.ballSpeed
+        };
+        
+        this.playerPaddle = {
+            x: 20,
+            y: this.canvas.height / 2 - 50,
+            width: 12,
+            height: 100,
+            speed: 8
+        };
+        
+        this.computerPaddle = {
+            x: this.canvas.width - 32,
+            y: this.canvas.height / 2 - 50,
+            width: 12,
+            height: 100,
+            speed: 6
+        };
+        
+        this.mouseY = this.canvas.height / 2;
+        
+        this.init();
+    }
+    
+    init() {
+        this.loadBestScore();
+        this.setupEventListeners();
+        this.updateDisplay();
+        this.showGameStatus('ready');
+        this.draw();
+    }
+    
+    setupEventListeners() {
+        // 마우스 움직임
+        this.canvas.addEventListener('mousemove', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            this.mouseY = e.clientY - rect.top;
+        });
+        
+        // 컨트롤 버튼들
+        document.getElementById('startBtn').addEventListener('click', () => this.startGame());
+        document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
+        document.getElementById('resetBtn').addEventListener('click', () => this.resetGame());
+        document.getElementById('settingsBtn').addEventListener('click', () => this.showSettings());
+        
+        // 설정 패널
+        document.getElementById('closeSettings').addEventListener('click', () => this.hideSettings());
+        document.getElementById('playAgainBtn').addEventListener('click', () => this.playAgain());
+        
+        // 난이도 설정
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                this.setDifficulty(e.target.dataset.difficulty);
+            });
+        });
+        
+        // 게임 모드 설정
+        document.querySelectorAll('[data-mode]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                this.setGameMode(e.target.dataset.mode);
+            });
+        });
+        
+        // 속도 슬라이더
+        const speedSlider = document.getElementById('speedSlider');
+        speedSlider.addEventListener('input', (e) => {
+            this.ballSpeed = parseInt(e.target.value);
+            this.ball.speed = this.ballSpeed;
+            document.getElementById('speedValue').textContent = this.ballSpeed;
+            document.getElementById('ballSpeed').textContent = this.ballSpeed;
+        });
+    }
+    
+    startGame() {
+        this.isPlaying = true;
+        this.isPaused = false;
+        this.gameStartTime = Date.now();
+        this.resetBall();
+        this.hideGameStatus();
+        this.showPauseButton();
+        this.gameLoop();
+    }
+    
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        
+        if (this.isPaused) {
+            this.showGameStatus('paused');
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-play"></i><span>계속하기</span>';
+            cancelAnimationFrame(this.animationId);
+        } else {
+            this.hideGameStatus();
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-pause"></i><span>일시정지</span>';
+            this.gameLoop();
+        }
+    }
+    
+    resetGame() {
+        this.stopGame();
+        this.playerScore = 0;
+        this.computerScore = 0;
+        this.rallyCount = 0;
+        this.gameTime = 0;
+        this.resetBall();
+        this.resetPaddles();
+        this.updateDisplay();
+        this.showGameStatus('ready');
+        this.showStartButton();
+        this.draw();
+    }
+    
+    stopGame() {
+        this.isPlaying = false;
+        this.isPaused = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+        }
+        this.showStartButton();
+    }
+    
+    resetBall() {
+        this.ball.x = this.canvas.width / 2;
+        this.ball.y = this.canvas.height / 2;
+        
+        // 랜덤 방향으로 공 발사
+        const angle = (Math.random() - 0.5) * Math.PI / 3; // -30도 ~ 30도
+        const direction = Math.random() < 0.5 ? 1 : -1;
+        
+        this.ball.velocityX = Math.cos(angle) * this.ball.speed * direction;
+        this.ball.velocityY = Math.sin(angle) * this.ball.speed;
+    }
+    
+    resetPaddles() {
+        this.playerPaddle.y = this.canvas.height / 2 - this.playerPaddle.height / 2;
+        this.computerPaddle.y = this.canvas.height / 2 - this.computerPaddle.height / 2;
+    }
+    
+    gameLoop() {
+        if (!this.isPlaying || this.isPaused) return;
+        
+        this.update();
+        this.draw();
+        this.animationId = requestAnimationFrame(() => this.gameLoop());
+    }
+    
+    update() {
+        // 게임 시간 업데이트
+        this.gameTime = Math.floor((Date.now() - this.gameStartTime) / 1000);
+        
+        // 플레이어 패들 업데이트 (마우스 따라가기)
+        const targetY = this.mouseY - this.playerPaddle.height / 2;
+        const paddleSpeed = 0.15;
+        this.playerPaddle.y += (targetY - this.playerPaddle.y) * paddleSpeed;
+        
+        // 패들 경계 체크
+        this.playerPaddle.y = Math.max(0, Math.min(this.canvas.height - this.playerPaddle.height, this.playerPaddle.y));
+        
+        // 컴퓨터 AI 업데이트
+        this.updateComputerAI();
+        
+        // 공 업데이트
+        this.ball.x += this.ball.velocityX;
+        this.ball.y += this.ball.velocityY;
+        
+        // 상하 벽 충돌
+        if (this.ball.y <= this.ball.radius || this.ball.y >= this.canvas.height - this.ball.radius) {
+            this.ball.velocityY = -this.ball.velocityY;
+        }
+        
+        // 패들 충돌 체크
+        this.checkPaddleCollision();
+        
+        // 점수 체크
+        this.checkScore();
+        
+        this.updateDisplay();
+    }
+    
+    updateComputerAI() {
+        const ballCenterY = this.ball.y;
+        const paddleCenterY = this.computerPaddle.y + this.computerPaddle.height / 2;
+        
+        let aiSpeed = this.computerPaddle.speed;
+        
+        // 난이도별 AI 조정
+        switch(this.difficulty) {
+            case 'easy':
+                aiSpeed *= 0.6;
+                break;
+            case 'normal':
+                aiSpeed *= 0.8;
+                break;
+            case 'hard':
+                aiSpeed *= 1.0;
+                break;
+        }
+        
+        // 공이 컴퓨터 쪽으로 올 때만 적극적으로 움직임
+        if (this.ball.velocityX > 0) {
+            if (ballCenterY < paddleCenterY - 10) {
+                this.computerPaddle.y -= aiSpeed;
+            } else if (ballCenterY > paddleCenterY + 10) {
+                this.computerPaddle.y += aiSpeed;
+            }
+        } else {
+            // 공이 멀어지면 중앙으로 돌아감
+            const centerY = this.canvas.height / 2 - this.computerPaddle.height / 2;
+            if (paddleCenterY < centerY - 5) {
+                this.computerPaddle.y += aiSpeed * 0.3;
+            } else if (paddleCenterY > centerY + 5) {
+                this.computerPaddle.y -= aiSpeed * 0.3;
+            }
+        }
+        
+        // 컴퓨터 패들 경계 체크
+        this.computerPaddle.y = Math.max(0, Math.min(this.canvas.height - this.computerPaddle.height, this.computerPaddle.y));
+    }
+    
+    checkPaddleCollision() {
+        // 플레이어 패들 충돌
+        if (this.ball.x - this.ball.radius <= this.playerPaddle.x + this.playerPaddle.width &&
+            this.ball.y >= this.playerPaddle.y &&
+            this.ball.y <= this.playerPaddle.y + this.playerPaddle.height &&
+            this.ball.velocityX < 0) {
+            
+            this.handlePaddleHit(this.playerPaddle);
+        }
+        
+        // 컴퓨터 패들 충돌
+        if (this.ball.x + this.ball.radius >= this.computerPaddle.x &&
+            this.ball.y >= this.computerPaddle.y &&
+            this.ball.y <= this.computerPaddle.y + this.computerPaddle.height &&
+            this.ball.velocityX > 0) {
+            
+            this.handlePaddleHit(this.computerPaddle);
+        }
+    }
+    
+    handlePaddleHit(paddle) {
+        // 공 방향 반전
+        this.ball.velocityX = -this.ball.velocityX;
+        
+        // 패들의 어느 부분에 맞았는지에 따라 각도 조정
+        const paddleCenter = paddle.y + paddle.height / 2;
+        const ballRelativeY = this.ball.y - paddleCenter;
+        const normalizedY = ballRelativeY / (paddle.height / 2);
+        
+        // 공 속도 증가 (최대 1.5배까지)
+        const speedIncrease = Math.min(1.5, 1 + this.rallyCount * 0.02);
+        this.ball.velocityX *= speedIncrease;
+        this.ball.velocityY = normalizedY * this.ball.speed * speedIncrease;
+        
+        // 랠리 카운트 증가
+        this.rallyCount++;
+    }
+    
+    checkScore() {
+        // 플레이어 득점
+        if (this.ball.x >= this.canvas.width) {
+            this.playerScore++;
+            this.resetBall();
+            this.rallyCount = 0;
+        }
+        
+        // 컴퓨터 득점
+        if (this.ball.x <= 0) {
+            this.computerScore++;
+            this.resetBall();
+            this.rallyCount = 0;
+        }
+        
+        // 게임 종료 체크
+        this.checkGameEnd();
+    }
+    
+    checkGameEnd() {
+        let gameEnded = false;
+        let winner = '';
+        
+        switch(this.gameMode) {
+            case 'first5':
+                if (this.playerScore >= 5 || this.computerScore >= 5) {
+                    gameEnded = true;
+                    winner = this.playerScore >= 5 ? 'player' : 'computer';
+                }
+                break;
+            case 'first10':
+                if (this.playerScore >= 10 || this.computerScore >= 10) {
+                    gameEnded = true;
+                    winner = this.playerScore >= 10 ? 'player' : 'computer';
+                }
+                break;
+            case 'endless':
+                // 무한 모드는 게임이 끝나지 않음
+                break;
+        }
+        
+        if (gameEnded) {
+            this.endGame(winner);
+        }
+    }
+    
+    endGame(winner) {
+        this.stopGame();
+        
+        // 최고 점수 업데이트
+        if (this.playerScore > this.bestPlayerScore) {
+            this.bestPlayerScore = this.playerScore;
+            this.saveBestScore();
+        }
+        
+        this.showGameResult(winner);
+    }
+    
+    showGameResult(winner) {
+        const overlay = document.getElementById('gameOverlay');
+        const title = document.getElementById('gameResultTitle');
+        const message = document.getElementById('gameResultMessage');
+        
+        if (winner === 'player') {
+            title.textContent = '승리!';
+            message.textContent = `축하합니다! ${this.playerScore}:${this.computerScore}로 승리했습니다.`;
+        } else {
+            title.textContent = '패배';
+            message.textContent = `아쉽습니다. ${this.playerScore}:${this.computerScore}로 패배했습니다.`;
+        }
+        
+        overlay.classList.add('active');
+    }
+    
+    playAgain() {
+        document.getElementById('gameOverlay').classList.remove('active');
+        this.resetGame();
+    }
+    
+    draw() {
+        // 캔버스 지우기
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // 중앙선 그리기
+        this.ctx.strokeStyle = '#333';
+        this.ctx.lineWidth = 2;
+        this.ctx.setLineDash([10, 10]);
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.canvas.width / 2, 0);
+        this.ctx.lineTo(this.canvas.width / 2, this.canvas.height);
+        this.ctx.stroke();
+        this.ctx.setLineDash([]);
+        
+        // 플레이어 패들 그리기
+        this.ctx.fillStyle = '#01FF75';
+        this.ctx.fillRect(this.playerPaddle.x, this.playerPaddle.y, this.playerPaddle.width, this.playerPaddle.height);
+        
+        // 컴퓨터 패들 그리기
+        this.ctx.fillStyle = '#FF4757';
+        this.ctx.fillRect(this.computerPaddle.x, this.computerPaddle.y, this.computerPaddle.width, this.computerPaddle.height);
+        
+        // 공 그리기
+        this.ctx.fillStyle = '#FFFFFF';
+        this.ctx.beginPath();
+        this.ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // 공 궤적 효과
+        if (this.isPlaying && !this.isPaused) {
+            this.ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            this.ctx.beginPath();
+            this.ctx.arc(this.ball.x - this.ball.velocityX, this.ball.y - this.ball.velocityY, this.ball.radius * 0.7, 0, Math.PI * 2);
+            this.ctx.fill();
+        }
+    }
+    
+    setDifficulty(difficulty) {
+        this.difficulty = difficulty;
+        
+        // 활성 상태 업데이트
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-difficulty="${difficulty}"]`).classList.add('active');
+    }
+    
+    setGameMode(mode) {
+        this.gameMode = mode;
+        
+        // 활성 상태 업데이트
+        document.querySelectorAll('[data-mode]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+    }
+    
+    showSettings() {
+        document.getElementById('settingsPanel').classList.add('active');
+    }
+    
+    hideSettings() {
+        document.getElementById('settingsPanel').classList.remove('active');
+    }
+    
+    showGameStatus(type) {
+        const statusElement = document.getElementById('gameStatus');
+        const statusContent = statusElement.querySelector('.status-content');
+        
+        let icon, title, message;
+        
+        switch(type) {
+            case 'ready':
+                icon = 'fas fa-play-circle';
+                title = '게임 준비';
+                message = '시작 버튼을 눌러 게임을 시작하세요!';
+                break;
+            case 'paused':
+                icon = 'fas fa-pause-circle';
+                title = '일시정지';
+                message = '계속하기 버튼을 눌러 게임을 재개하세요.';
+                break;
+        }
+        
+        statusContent.innerHTML = `
+            <i class="${icon}"></i>
+            <h3>${title}</h3>
+            <p>${message}</p>
+            <div class="controls-info">
+                <span><i class="fas fa-mouse"></i> 마우스로 패들 조작</span>
+            </div>
+        `;
+        
+        statusElement.classList.add('active');
+    }
+    
+    hideGameStatus() {
+        document.getElementById('gameStatus').classList.remove('active');
+    }
+    
+    showStartButton() {
+        document.getElementById('startBtn').style.display = 'flex';
+        document.getElementById('pauseBtn').style.display = 'none';
+    }
+    
+    showPauseButton() {
+        document.getElementById('startBtn').style.display = 'none';
+        document.getElementById('pauseBtn').style.display = 'flex';
+    }
+    
+    updateDisplay() {
+        document.getElementById('playerScore').textContent = this.playerScore;
+        document.getElementById('computerScore').textContent = this.computerScore;
+        document.getElementById('ballSpeed').textContent = Math.round(this.ball.speed);
+        document.getElementById('rallyCount').textContent = this.rallyCount;
+        document.getElementById('bestScore').textContent = this.bestPlayerScore;
+        
+        // 게임 시간 표시
+        const minutes = Math.floor(this.gameTime / 60);
+        const seconds = this.gameTime % 60;
+        document.getElementById('gameTime').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    
+    saveBestScore() {
+        localStorage.setItem('pongBestScore', this.bestPlayerScore.toString());
+    }
+    
+    loadBestScore() {
+        const saved = localStorage.getItem('pongBestScore');
+        this.bestPlayerScore = saved ? parseInt(saved) : 0;
+    }
+}
+
+// 페이지 로드 후 게임 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    new PongGame();
+});
+</script>
+
+{{ end }}

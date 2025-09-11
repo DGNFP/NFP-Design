@@ -422,6 +422,13 @@
       <description>&lt;h1 id=&#34;문서-합치기&#34;&gt;문서 합치기&lt;/h1&gt;&#xA;&lt;p&gt;PDF, Word, PowerPoint, Excel, 이미지 파일을 선택하여 하나의 PDF로 간편하게 합칩니다.&lt;/p&gt;&#xA;&lt;p&gt;다양한 형식의 문서를 업로드하고, 파일 순서를 드래그로 조정하여 원하는 순서로 합쳐보세요. 최대 25MB까지의 파일을 지원합니다.&lt;/p&gt;&#xA;&lt;p&gt;지원 형식: PDF, Word (DOC, DOCX), PowerPoint (PPT, PPTX), Excel (XLS, XLSX), 이미지 (JPG, PNG, TIFF)&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 다양한 형식 지원, 드래그 앤 드롭 업로드, 파일 순서 조정, 실시간 진행률 표시, 즉시 다운로드&lt;/p&gt;&#xA;&lt;hr&gt;</description>
     </item>
     <item>
+      <title>Pong 게임</title>
+      <link>http://localhost:1313/studio/pong-game/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/pong-game/</guid>
+      <description>&lt;h1 id=&#34;pong-게임&#34;&gt;Pong 게임&lt;/h1&gt;&#xA;&lt;p&gt;클래식 아케이드 게임의 원조, Pong을 컴퓨터와 즐겨보세요.&lt;/p&gt;&#xA;&lt;p&gt;마우스로 패들을 조작하여 공을 튕겨내며 점수를 획득하는 클래식 탁구 게임입니다. 3단계 AI 난이도와 다양한 게임 모드로 자신만의 도전을 설정할 수 있습니다. 랠리가 지속될수록 공의 속도가 빨라집니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 마우스 패들 조작, AI 난이도 조절, 게임 모드 선택, 실시간 통계, 최고 기록 저장, 일시정지 기능&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>URL 인코딩/디코딩 - Studio NFP</title>
       <link>http://localhost:1313/studio/url-encoder/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
@@ -476,6 +483,13 @@
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/studio/unit-converter/</guid>
       <description>&lt;h1 id=&#34;단위-변환기&#34;&gt;단위 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹 디자인과 인쇄물 작업에 필요한 다양한 길이 단위를 빠르게 상호 변환하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: 기준 단위 ↔ 변환 단위 실시간 상호변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;지원 단위&lt;/strong&gt;: px, pt, mm, cm, inch (96 DPI 기준)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 변환&lt;/strong&gt;: 자주 사용하는 값들을 원클릭으로 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 계산&lt;/strong&gt;: 소수점 3자리까지 정밀 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;96 DPI 기준&lt;/strong&gt;: 표준 웹 해상도 기준 변환&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;기준 단위와 변환 단위를 각각 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;기준 단위 입력란에 값을 입력하면 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;반대로 변환 단위에 값을 입력해도 역변환이 가능합니다&lt;/li&gt;&#xA;&lt;li&gt;빠른 변환 버튼으로 자주 사용하는 값들을 쉽게 확인할 수 있습니다&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;96 DPI 기준 참고 값:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>두더지 잡기 게임</title>
+      <link>http://localhost:1313/studio/whack-a-mole/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/whack-a-mole/</guid>
+      <description>&lt;h1 id=&#34;두더지-잡기-게임&#34;&gt;두더지 잡기 게임&lt;/h1&gt;&#xA;&lt;p&gt;제한 시간 내에 최대한 많은 두더지를 잡아 점수를 획득하세요.&lt;/p&gt;&#xA;&lt;p&gt;9개의 구멍에서 랜덤하게 나타나는 두더지를 빠르게 클릭하여 점수를 획득하는 클래식 아케이드 게임입니다. 연속 적중 시 콤보 보너스가 적용되며, 4가지 난이도 설정으로 다양한 도전이 가능합니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 실시간 점수 추적, 콤보 시스템, 4단계 난이도, 최고 기록 저장, 정확도 통계, 일시정지 기능&lt;/p&gt;</description>
     </item>
     <item>
       <title>로또 번호 생성기 - Studio NFP</title>
