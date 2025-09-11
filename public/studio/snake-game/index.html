@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>Snake 게임 - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="스네이크, 뱀게임, 클래식게임, 아케이드게임, 키보드게임, 성장게임">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/snake-game/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="Snake 게임 - NFP 디자인">
+    <meta property="og:description" content="방향키로 뱀을 조작하여 음식을 먹고 성장시키는 클래식 아케이드 게임입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/snake-game/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Snake 게임 - NFP 디자인">
+    <meta name="twitter:description" content="방향키로 뱀을 조작하여 음식을 먹고 성장시키는 클래식 아케이드 게임입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "Snake 게임",
+      "description": "방향키로 뱀을 조작하여 음식을 먹고 성장시키는 클래식 아케이드 게임입니다.",
+      "url": "http:\/\/localhost:1313\/studio\/snake-game\/",
+      
+      "datePublished": "2025-01-01T00:00:00\u002b09:00",
+      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">Snake 게임</span>
+        <p><br>키보드로 뱀을 조작하여 음식을 먹고 성장시키세요.</p>
+    </div>
+
+    
+    <div class="page-btn-wrapper">
+        <a href="/studio" class="page-btn">스튜디오 메인</a>
+        <a href="/studio/web-demo" class="page-btn">웹 데모</a>
+        <a href="/studio/design-guide/" class="page-btn">디자인 가이드</a>
+    </div>
+
+    
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            
+            <div class="studio-description">
+                <h3>클래식 Snake 게임</h3>
+                <p>방향키로 뱀을 조작하여 음식을 먹고 몸을 키워보세요!<br>
+                #스네이크 #클래식게임 #아케이드게임</p>
+            </div>
+
+            
+            <div class="snake-game-container">
+                
+                
+                <div class="game-header">
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span class="stat-label">점수</span>
+                            <span class="stat-value" id="scoreValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-ruler-horizontal"></i>
+                            <span class="stat-label">길이</span>
+                            <span class="stat-value" id="lengthValue">3</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-apple-alt"></i>
+                            <span class="stat-label">먹은 음식</span>
+                            <span class="stat-value" id="foodEaten">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span class="stat-label">속도</span>
+                            <span class="stat-value" id="speedLevel">1</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <span class="stat-label">최고 점수</span>
+                            <span class="stat-value" id="bestScore">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="game-status" id="gameStatus">
+                    <div class="status-content">
+                        <h3>게임 준비</h3>
+                        <p>시작 버튼을 눌러 뱀의 모험을 시작하세요!</p>
+                        <div class="controls-info">
+                            <span> 방향키로 이동</span>
+                            <span> WASD 키로도 조작</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="game-canvas-container">
+                    <canvas id="gameCanvas" width="600" height="600"></canvas>
+                    <div class="game-overlay" id="gameOverlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-skull" id="overlayIcon"></i>
+                            <h3 id="overlayTitle">게임 오버</h3>
+                            <p id="overlayMessage">뱀이 벽이나 자신의 몸에 부딪혔습니다.</p>
+                            <div class="overlay-stats" id="overlayStats">
+                                <div class="overlay-stat">
+                                    <span>최종 점수</span>
+                                    <span id="finalScore">0</span>
+                                </div>
+                                <div class="overlay-stat">
+                                    <span>최대 길이</span>
+                                    <span id="finalLength">3</span>
+                                </div>
+                                <div class="overlay-stat">
+                                    <span>먹은 음식</span>
+                                    <span id="finalFoodEaten">0</span>
+                                </div>
+                                <div class="overlay-stat">
+                                    <span>생존 시간</span>
+                                    <span id="survivalTime">0초</span>
+                                </div>
+                            </div>
+                            <div class="overlay-actions">
+                                <button class="overlay-btn" id="playAgainBtn">
+                                    <span>다시 시작</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="game-controls">
+                    <button class="control-btn start-btn" id="startBtn">
+                        <i class="fas fa-play"></i>
+                        <span>게임 시작</span>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn" style="display: none;">
+                        <i class="fas fa-pause"></i>
+                        <span>일시정지</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        <span>리셋</span>
+                    </button>
+                    <button class="control-btn settings-btn" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                        <span>설정</span>
+                    </button>
+                </div>
+
+                
+                <div class="settings-panel" id="settingsPanel">
+                    <div class="settings-header">
+                        <h4>게임 설정</h4>
+                        <button class="close-settings" id="closeSettings">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <label>난이도</label>
+                            <div class="setting-options">
+                                <button class="setting-option" data-difficulty="easy">쉬움</button>
+                                <button class="setting-option active" data-difficulty="normal">보통</button>
+                                <button class="setting-option" data-difficulty="hard">어려움</button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>게임 속도</label>
+                            <div class="setting-slider">
+                                <input type="range" id="speedSlider" min="100" max="300" step="50" value="150">
+                                <span id="speedValue">150ms</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label>그리드 크기</label>
+                            <div class="setting-options">
+                                <button class="setting-option" data-grid="15">15x15</button>
+                                <button class="setting-option active" data-grid="20">20x20</button>
+                                <button class="setting-option" data-grid="25">25x25</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+ 
+.snake-game-container {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+ 
+.game-header {
+    margin-bottom: 24px;
+}
+
+.game-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.stat-item {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-item i {
+    font-size: 18px;
+    color: var(--accent-color);
+    width: 20px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 14px;
+    flex: 1;
+}
+
+.stat-value {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+ 
+.game-status {
+    text-align: center;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.game-status.active {
+    display: block;
+}
+
+.status-content {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 32px;
+}
+
+.status-content i {
+    font-size: 48px;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+}
+
+.status-content h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.status-content p {
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.controls-info {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    color: var(--accent-color);
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.controls-info i {
+    margin-right: 4px;
+}
+
+ 
+.game-canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    background: #0a0a0a;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    background: #0a0a0a;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-overlay.active {
+    display: flex;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    max-width: 500px;
+    padding: 32px;
+}
+
+.overlay-content i {
+    font-size: 64px;
+    color: #ff4757;
+    margin-bottom: 20px;
+}
+
+.overlay-content h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.overlay-content p {
+    color: #666;
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.overlay-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+}
+
+.overlay-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.overlay-stat span:first-child {
+    color: #666;
+    font-size: 14px;
+}
+
+.overlay-stat span:last-child {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.overlay-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.overlay-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+}
+
+ 
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+.start-btn:hover {
+    color: var(--accent-color);
+}
+
+.pause-btn:hover {
+    color: #ffa500;
+    border-color: #ffa500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.reset-btn:hover {
+    color: #ff4757;
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+ 
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 400px;
+    display: none;
+}
+
+.settings-panel.active {
+    display: block;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.settings-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-settings {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.close-settings:hover {
+    color: white;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-group label {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.setting-options {
+    display: flex;
+    gap: 8px;
+}
+
+.setting-option {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-align: center;
+}
+
+.setting-option:hover,
+.setting-option.active {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+}
+
+.setting-slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.setting-slider input[type="range"] {
+    flex: 1;
+    height: 6px;
+    background: var(--sub-border-color);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.setting-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-slider input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.setting-slider span {
+    color: var(--accent-color);
+    font-weight: 600;
+    min-width: 50px;
+    text-align: center;
+}
+
+ 
+@media (max-width: 768px) {
+    .game-canvas-container {
+        overflow: auto;
+    }
+    
+    #gameCanvas {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .game-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        min-width: 200px;
+        justify-content: center;
+    }
+    
+    .settings-panel {
+        min-width: 300px;
+        width: 90%;
+    }
+    
+    .overlay-stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+class SnakeGame {
+    constructor() {
+        this.canvas = document.getElementById('gameCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        
+        
+        this.isPlaying = false;
+        this.isPaused = false;
+        this.gameInterval = null;
+        this.startTime = 0;
+        this.gameTime = 0;
+        
+        
+        this.score = 0;
+        this.foodEaten = 0;
+        this.bestScore = 0;
+        this.speedLevel = 1;
+        
+        
+        this.difficulty = 'normal';
+        this.gameSpeed = 150;
+        this.gridSize = 20;
+        this.tileSize = this.canvas.width / this.gridSize;
+        
+        
+        this.snake = [];
+        this.direction = { x: 1, y: 0 };
+        this.nextDirection = { x: 1, y: 0 };
+        this.food = { x: 0, y: 0 };
+        
+        
+        this.keys = {};
+        
+        this.init();
+    }
+    
+    init() {
+        this.loadBestScore();
+        this.setupEventListeners();
+        this.resetSnake();
+        this.generateFood();
+        this.updateDisplay();
+        this.showGameStatus();
+        this.draw();
+    }
+    
+    setupEventListeners() {
+        
+        document.addEventListener('keydown', (e) => {
+            this.keys[e.key] = true;
+            this.handleKeyPress(e.key);
+            
+            
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'a', 's', 'd'].includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+        
+        document.addEventListener('keyup', (e) => {
+            this.keys[e.key] = false;
+        });
+        
+        
+        document.getElementById('startBtn').addEventListener('click', () => this.startGame());
+        document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
+        document.getElementById('resetBtn').addEventListener('click', () => this.resetGame());
+        document.getElementById('settingsBtn').addEventListener('click', () => this.showSettings());
+        document.getElementById('closeSettings').addEventListener('click', () => this.hideSettings());
+        document.getElementById('playAgainBtn').addEventListener('click', () => this.playAgain());
+        
+        
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.addEventListener('click', (e) => this.setDifficulty(e.target.dataset.difficulty));
+        });
+        
+        document.querySelectorAll('[data-grid]').forEach(btn => {
+            btn.addEventListener('click', (e) => this.setGridSize(parseInt(e.target.dataset.grid)));
+        });
+        
+        document.getElementById('speedSlider').addEventListener('input', (e) => {
+            this.gameSpeed = parseInt(e.target.value);
+            document.getElementById('speedValue').textContent = this.gameSpeed + 'ms';
+        });
+    }
+    
+    handleKeyPress(key) {
+        if (!this.isPlaying) {
+            if (key === ' ' || key === 'Enter') {
+                this.startGame();
+            }
+            return;
+        }
+        
+        if (this.isPaused) {
+            if (key === ' ') {
+                this.togglePause();
+            }
+            return;
+        }
+        
+        
+        switch(key) {
+            case 'ArrowUp':
+            case 'w':
+                if (this.direction.y === 0) {
+                    this.nextDirection = { x: 0, y: -1 };
+                }
+                break;
+            case 'ArrowDown':
+            case 's':
+                if (this.direction.y === 0) {
+                    this.nextDirection = { x: 0, y: 1 };
+                }
+                break;
+            case 'ArrowLeft':
+            case 'a':
+                if (this.direction.x === 0) {
+                    this.nextDirection = { x: -1, y: 0 };
+                }
+                break;
+            case 'ArrowRight':
+            case 'd':
+                if (this.direction.x === 0) {
+                    this.nextDirection = { x: 1, y: 0 };
+                }
+                break;
+            case ' ':
+                this.togglePause();
+                break;
+        }
+    }
+    
+    resetSnake() {
+        const centerX = Math.floor(this.gridSize / 2);
+        const centerY = Math.floor(this.gridSize / 2);
+        
+        this.snake = [
+            { x: centerX, y: centerY },
+            { x: centerX - 1, y: centerY },
+            { x: centerX - 2, y: centerY }
+        ];
+        
+        this.direction = { x: 1, y: 0 };
+        this.nextDirection = { x: 1, y: 0 };
+    }
+    
+    generateFood() {
+        do {
+            this.food = {
+                x: Math.floor(Math.random() * this.gridSize),
+                y: Math.floor(Math.random() * this.gridSize)
+            };
+        } while (this.isOnSnake(this.food.x, this.food.y));
+    }
+    
+    isOnSnake(x, y) {
+        return this.snake.some(segment => segment.x === x && segment.y === y);
+    }
+    
+    startGame() {
+        this.isPlaying = true;
+        this.isPaused = false;
+        this.startTime = Date.now();
+        this.score = 0;
+        this.foodEaten = 0;
+        this.speedLevel = 1;
+        this.resetSnake();
+        this.generateFood();
+        this.hideGameStatus();
+        this.showPauseButton();
+        this.gameLoop();
+    }
+    
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        
+        if (this.isPaused) {
+            this.showGameStatus('paused');
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-play"></i><span>계속하기</span>';
+            clearInterval(this.gameInterval);
+        } else {
+            this.hideGameStatus();
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-pause"></i><span>일시정지</span>';
+            this.gameLoop();
+        }
+    }
+    
+    resetGame() {
+        this.stopGame();
+        this.score = 0;
+        this.foodEaten = 0;
+        this.speedLevel = 1;
+        this.gameTime = 0;
+        this.resetSnake();
+        this.generateFood();
+        this.updateDisplay();
+        this.showGameStatus();
+        this.showStartButton();
+        this.draw();
+    }
+    
+    stopGame() {
+        this.isPlaying = false;
+        this.isPaused = false;
+        if (this.gameInterval) {
+            clearInterval(this.gameInterval);
+        }
+    }
+    
+    gameLoop() {
+        if (this.gameInterval) {
+            clearInterval(this.gameInterval);
+        }
+        
+        this.gameInterval = setInterval(() => {
+            if (!this.isPaused && this.isPlaying) {
+                this.update();
+                this.draw();
+            }
+        }, this.gameSpeed);
+    }
+    
+    update() {
+        
+        this.gameTime = Math.floor((Date.now() - this.startTime) / 1000);
+        
+        
+        this.direction = { ...this.nextDirection };
+        
+        
+        const head = { ...this.snake[0] };
+        head.x += this.direction.x;
+        head.y += this.direction.y;
+        
+        
+        if (head.x < 0 || head.x >= this.gridSize || head.y < 0 || head.y >= this.gridSize) {
+            this.gameOver();
+            return;
+        }
+        
+        
+        if (this.isOnSnake(head.x, head.y)) {
+            this.gameOver();
+            return;
+        }
+        
+        this.snake.unshift(head);
+        
+        
+        if (head.x === this.food.x && head.y === this.food.y) {
+            this.score += 10 * this.speedLevel;
+            this.foodEaten++;
+            
+            
+            if (this.foodEaten % 5 === 0 && this.speedLevel < 10) {
+                this.speedLevel++;
+                this.gameSpeed = Math.max(50, this.gameSpeed - 10);
+                this.gameLoop(); 
+            }
+            
+            this.generateFood();
+        } else {
+            this.snake.pop();
+        }
+        
+        this.updateDisplay();
+    }
+    
+    gameOver() {
+        this.stopGame();
+        
+        if (this.score > this.bestScore) {
+            this.bestScore = this.score;
+            this.saveBestScore();
+        }
+        
+        this.showGameResult();
+    }
+    
+    showGameResult() {
+        const overlay = document.getElementById('gameOverlay');
+        const icon = document.getElementById('overlayIcon');
+        const title = document.getElementById('overlayTitle');
+        const message = document.getElementById('overlayMessage');
+        
+        document.getElementById('finalScore').textContent = this.score;
+        document.getElementById('finalLength').textContent = this.snake.length;
+        document.getElementById('finalFoodEaten').textContent = this.foodEaten;
+        document.getElementById('survivalTime').textContent = this.gameTime + '초';
+        
+        icon.className = 'fas fa-skull';
+        title.textContent = '게임 오버';
+        
+        if (this.snake.length >= 50) {
+            message.textContent = '놀라운 성과입니다! 뱀 마스터가 되셨네요!';
+        } else if (this.snake.length >= 25) {
+            message.textContent = '훌륭합니다! 상당한 실력을 보여주셨어요!';
+        } else if (this.snake.length >= 15) {
+            message.textContent = '좋은 게임이었습니다! 계속 연습하면 더 좋아질 거예요!';
+        } else {
+            message.textContent = '뱀이 벽이나 자신의 몸에 부딪혔습니다. 다시 도전해보세요!';
+        }
+        
+        overlay.classList.add('active');
+    }
+    
+    playAgain() {
+        document.getElementById('gameOverlay').classList.remove('active');
+        this.resetGame();
+    }
+    
+    draw() {
+        
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        
+        this.drawBackground();
+        
+        
+        this.drawFood();
+        
+        
+        this.drawSnake();
+        
+        
+        if (this.isPlaying && !this.isPaused) {
+            this.drawGameInfo();
+        }
+    }
+    
+    drawBackground() {
+        
+        this.ctx.fillStyle = '#0a0a0a';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        
+        this.ctx.strokeStyle = '#1a1a1a';
+        this.ctx.lineWidth = 1;
+        
+        for (let i = 0; i <= this.gridSize; i++) {
+            
+            this.ctx.beginPath();
+            this.ctx.moveTo(i * this.tileSize, 0);
+            this.ctx.lineTo(i * this.tileSize, this.canvas.height);
+            this.ctx.stroke();
+            
+            
+            this.ctx.beginPath();
+            this.ctx.moveTo(0, i * this.tileSize);
+            this.ctx.lineTo(this.canvas.width, i * this.tileSize);
+            this.ctx.stroke();
+        }
+    }
+    
+    drawFood() {
+        const x = this.food.x * this.tileSize;
+        const y = this.food.y * this.tileSize;
+        const centerX = x + this.tileSize / 2;
+        const centerY = y + this.tileSize / 2;
+        const radius = this.tileSize / 3;
+        
+        
+        this.ctx.fillStyle = '#FF4757';
+        this.ctx.beginPath();
+        this.ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        
+        this.ctx.fillStyle = '#FF6B7A';
+        this.ctx.beginPath();
+        this.ctx.arc(centerX - radius/3, centerY - radius/3, radius/3, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        
+        this.ctx.fillStyle = '#32CD32';
+        this.ctx.beginPath();
+        this.ctx.ellipse(centerX + radius/2, centerY - radius, radius/4, radius/2, Math.PI/4, 0, Math.PI * 2);
+        this.ctx.fill();
+    }
+    
+    drawSnake() {
+        this.snake.forEach((segment, index) => {
+            const x = segment.x * this.tileSize;
+            const y = segment.y * this.tileSize;
+            
+            if (index === 0) {
+                
+                this.ctx.fillStyle = '#01FF75';
+                this.ctx.fillRect(x + 2, y + 2, this.tileSize - 4, this.tileSize - 4);
+                
+                
+                this.ctx.fillStyle = '#33FF88';
+                this.ctx.fillRect(x + 4, y + 4, this.tileSize - 8, this.tileSize - 8);
+                
+                
+                const eyeSize = 3;
+                const eyeOffset = this.tileSize / 4;
+                
+                this.ctx.fillStyle = '#000';
+                if (this.direction.x === 1) {
+                    
+                    this.ctx.fillRect(x + this.tileSize - eyeOffset, y + eyeOffset, eyeSize, eyeSize);
+                    this.ctx.fillRect(x + this.tileSize - eyeOffset, y + this.tileSize - eyeOffset - eyeSize, eyeSize, eyeSize);
+                } else if (this.direction.x === -1) {
+                    
+                    this.ctx.fillRect(x + eyeOffset - eyeSize, y + eyeOffset, eyeSize, eyeSize);
+                    this.ctx.fillRect(x + eyeOffset - eyeSize, y + this.tileSize - eyeOffset - eyeSize, eyeSize, eyeSize);
+                } else if (this.direction.y === -1) {
+                    
+                    this.ctx.fillRect(x + eyeOffset, y + eyeOffset - eyeSize, eyeSize, eyeSize);
+                    this.ctx.fillRect(x + this.tileSize - eyeOffset - eyeSize, y + eyeOffset - eyeSize, eyeSize, eyeSize);
+                } else {
+                    
+                    this.ctx.fillRect(x + eyeOffset, y + this.tileSize - eyeOffset, eyeSize, eyeSize);
+                    this.ctx.fillRect(x + this.tileSize - eyeOffset - eyeSize, y + this.tileSize - eyeOffset, eyeSize, eyeSize);
+                }
+            } else {
+                
+                const intensity = Math.max(0.3, 1 - (index / this.snake.length) * 0.7);
+                const green = Math.floor(255 * intensity);
+                this.ctx.fillStyle = `rgb(1, ${green}, 75)`;
+                this.ctx.fillRect(x + 1, y + 1, this.tileSize - 2, this.tileSize - 2);
+                
+                
+                if (index % 2 === 0) {
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${0.1 * intensity})`;
+                    this.ctx.fillRect(x + 3, y + 3, this.tileSize - 6, this.tileSize - 6);
+                }
+            }
+        });
+    }
+    
+    drawGameInfo() {
+        
+        if (this.nextDirection.x !== this.direction.x || this.nextDirection.y !== this.direction.y) {
+            this.ctx.fillStyle = 'rgba(1, 255, 117, 0.5)';
+            this.ctx.font = '16px Arial';
+            this.ctx.textAlign = 'left';
+            this.ctx.fillText('Next: ' + this.getDirectionText(this.nextDirection), 10, 25);
+        }
+    }
+    
+    getDirectionText(dir) {
+        if (dir.x === 1) return '→';
+        if (dir.x === -1) return '←';
+        if (dir.y === -1) return '↑';
+        if (dir.y === 1) return '↓';
+        return '';
+    }
+    
+    setDifficulty(difficulty) {
+        this.difficulty = difficulty;
+        
+        document.querySelectorAll('[data-difficulty]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-difficulty="${difficulty}"]`).classList.add('active');
+        
+        switch(difficulty) {
+            case 'easy':
+                this.gameSpeed = 200;
+                break;
+            case 'normal':
+                this.gameSpeed = 150;
+                break;
+            case 'hard':
+                this.gameSpeed = 100;
+                break;
+        }
+        
+        document.getElementById('speedSlider').value = this.gameSpeed;
+        document.getElementById('speedValue').textContent = this.gameSpeed + 'ms';
+        
+        if (this.isPlaying) {
+            this.gameLoop();
+        }
+    }
+    
+    setGridSize(size) {
+        this.gridSize = size;
+        this.tileSize = this.canvas.width / this.gridSize;
+        
+        document.querySelectorAll('[data-grid]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-grid="${size}"]`).classList.add('active');
+        
+        
+        this.resetGame();
+    }
+    
+    showSettings() {
+        document.getElementById('settingsPanel').classList.add('active');
+    }
+    
+    hideSettings() {
+        document.getElementById('settingsPanel').classList.remove('active');
+    }
+    
+    showGameStatus(type = 'ready') {
+        const statusElement = document.getElementById('gameStatus');
+        const statusContent = statusElement.querySelector('.status-content');
+        
+        let icon, title, message;
+        
+        if (type === 'paused') {
+            title = '게임 일시정지';
+            message = '계속하기 버튼을 눌러 게임을 재개하세요.';
+        } else {
+            title = '게임 준비';
+            message = '시작 버튼을 눌러 뱀의 모험을 시작하세요!';
+        }
+        
+        statusContent.innerHTML = `
+            <i class="${icon}"></i>
+            <h3>${title}</h3>
+            <p>${message}</p>
+            <div class="controls-info">
+                <span>방향키로 이동</span>
+                <span>WASD 키로도 조작</span>
+            </div>
+        `;
+        
+        statusElement.classList.add('active');
+    }
+    
+    hideGameStatus() {
+        document.getElementById('gameStatus').classList.remove('active');
+    }
+    
+    showStartButton() {
+        document.getElementById('startBtn').style.display = 'flex';
+        document.getElementById('pauseBtn').style.display = 'none';
+    }
+    
+    showPauseButton() {
+        document.getElementById('startBtn').style.display = 'none';
+        document.getElementById('pauseBtn').style.display = 'flex';
+    }
+    
+    updateDisplay() {
+        document.getElementById('scoreValue').textContent = this.score;
+        document.getElementById('lengthValue').textContent = this.snake.length;
+        document.getElementById('foodEaten').textContent = this.foodEaten;
+        document.getElementById('speedLevel').textContent = this.speedLevel;
+        document.getElementById('bestScore').textContent = this.bestScore;
+    }
+    
+    saveBestScore() {
+        localStorage.setItem('snakeBestScore', this.bestScore.toString());
+    }
+    
+    loadBestScore() {
+        const saved = localStorage.getItem('snakeBestScore');
+        this.bestScore = saved ? parseInt(saved) : 0;
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    new SnakeGame();
+});
+</script>
+
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>

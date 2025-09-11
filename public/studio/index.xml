@@ -79,6 +79,13 @@
       <description>&lt;h1 id=&#34;pong-게임&#34;&gt;Pong 게임&lt;/h1&gt;&#xA;&lt;p&gt;클래식 아케이드 게임의 원조, Pong을 컴퓨터와 즐겨보세요.&lt;/p&gt;&#xA;&lt;p&gt;마우스로 패들을 조작하여 공을 튕겨내며 점수를 획득하는 클래식 탁구 게임입니다. 3단계 AI 난이도와 다양한 게임 모드로 자신만의 도전을 설정할 수 있습니다. 랠리가 지속될수록 공의 속도가 빨라집니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 마우스 패들 조작, AI 난이도 조절, 게임 모드 선택, 실시간 통계, 최고 기록 저장, 일시정지 기능&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Snake 게임</title>
+      <link>http://localhost:1313/studio/snake-game/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/snake-game/</guid>
+      <description>&lt;h1 id=&#34;snake-게임&#34;&gt;Snake 게임&lt;/h1&gt;&#xA;&lt;p&gt;방향키로 뱀을 조작하여 음식을 먹고 최대한 길게 성장시키는 클래식 게임입니다.&lt;/p&gt;&#xA;&lt;p&gt;뱀이 음식을 먹을 때마다 몸이 길어지며, 벽이나 자신의 몸에 부딪히면 게임이 종료됩니다. 음식을 많이 먹을수록 속도가 빨라져 더욱 도전적이 됩니다. 방향키 또는 WASD 키로 조작할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 방향키/WASD 조작, 성장 시스템, 속도 증가, 충돌 감지, 그리드 크기 조절, 난이도 설정, 최고 기록 저장&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>URL 인코딩/디코딩 - Studio NFP</title>
       <link>http://localhost:1313/studio/url-encoder/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>

@@ -499,6 +499,13 @@
       <description>&lt;h1 id=&#34;로또-번호-생성기&#34;&gt;로또 번호 생성기&lt;/h1&gt;&#xA;&lt;p&gt;1부터 45까지 숫자 중에서 6개의 번호를 자동으로 생성하는 행운의 도구입니다.&lt;/p&gt;&#xA;&lt;p&gt;완전 랜덤, 균형잡힌 조합, 인기 번호 위주, 소외 번호 위주 등 다양한 생성 방식을 제공합니다. 1게임부터 10게임까지 한 번에 생성 가능하며, 보너스 번호 포함 옵션과 생성 통계 기능도 제공합니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: 다양한 생성 방식, 여러 게임 동시 생성, 보너스 번호 옵션, 생성 통계, 번호 빈도 분석&lt;/p&gt;</description>
     </item>
     <item>
+      <title>벽돌깨기 게임</title>
+      <link>http://localhost:1313/studio/breakout-game/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/breakout-game/</guid>
+      <description>&lt;h1 id=&#34;벽돌깨기-게임&#34;&gt;벽돌깨기 게임&lt;/h1&gt;&#xA;&lt;p&gt;클래식 아케이드 게임 브레이크아웃을 현대적으로 재현했습니다.&lt;/p&gt;&#xA;&lt;p&gt;마우스로 패들을 조작하여 공을 튕겨내며 화면 상단의 모든 벽돌을 파괴하는 게임입니다. 레벨이 진행될수록 벽돌 수가 증가하고, 일부 벽돌은 여러 번 맞아야 파괴됩니다. 생명이 떨어지면 게임이 종료됩니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 마우스 패들 조작, 레벨 시스템, 생명 관리, 다양한 벽돌 타입, 파티클 효과, 난이도 조절, 최고 기록 저장&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>사이즈 계산기 - Studio NFP</title>
       <link>http://localhost:1313/studio/size-calculator/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
@@ -602,6 +609,13 @@
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
       <guid>http://localhost:1313/studio/font-converter/</guid>
       <description>&lt;h1 id=&#34;폰트-크기-변환기&#34;&gt;폰트 크기 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹과 인쇄물에서 사용하는 폰트 크기를 빠르게 변환하고 반응형 사이즈를 확인하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: px ↔ pt 실시간 상호 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 입력한 폰트 크기로 텍스트 미리보기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 사이즈&lt;/strong&gt;: 모바일/태블릿/데스크톱별 권장 크기 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;권장 사이즈 가이드&lt;/strong&gt;: 본문, 제목, 캡션 등 용도별 권장 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 변환&lt;/strong&gt;: 0.75 비율 기준 정밀 계산&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;픽셀(px) 또는 포인트(pt) 입력란에 크기를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;반대 단위로 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;미리보기에서 실제 크기를 확인하세요&lt;/li&gt;&#xA;&lt;li&gt;반응형 사이즈와 권장 사이즈를 참고하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;변환 공식:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>플래피버드 게임</title>
+      <link>http://localhost:1313/studio/flappy-bird/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/flappy-bird/</guid>
+      <description>&lt;h1 id=&#34;플래피버드-게임&#34;&gt;플래피버드 게임&lt;/h1&gt;&#xA;&lt;p&gt;클릭하여 새를 조종하며 파이프 사이를 통과하는 도전적인 비행 게임입니다.&lt;/p&gt;&#xA;&lt;p&gt;중력의 영향을 받는 새를 클릭(또는 스페이스바)으로 조종하여 연속으로 나타나는 파이프 사이의 좁은 공간을 통과해야 합니다. 간단한 조작법이지만 높은 집중력과 타이밍이 요구되는 중독성 강한 게임입니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 클릭/키보드 조작, 중력 물리학, 파이프 충돌 감지, 점수 시스템, 난이도 조절, 비행 통계, 최고 기록 저장&lt;/p&gt;</description>
     </item>
     <item>
       <title>오늘의 운세</title>
