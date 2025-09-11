@@ -1,0 +1,997 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">두더지 잡기 게임</span>
+        <p><br>빠르게 나타나는 두더지를 잡아 점수를 획득하세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>두더지 잡기 대전</h3>
+                <p>제한 시간 내에 최대한 많은 두더지를 잡아보세요!<br>
+                #두더지잡기 #반응속도 #아케이드게임</p>
+            </div>
+
+            <!-- 메인 게임 영역 -->
+            <div class="whack-game-container">
+                
+                <!-- 게임 헤더 -->
+                <div class="game-header">
+                    <div class="game-info">
+                        <div class="info-item">
+                            <i class="fas fa-trophy"></i>
+                            <span class="info-label">점수</span>
+                            <span class="info-value" id="scoreValue">0</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="info-label">시간</span>
+                            <span class="info-value" id="timeValue">30</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-bullseye"></i>
+                            <span class="info-label">연속 적중</span>
+                            <span class="info-value" id="comboValue">0</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="info-label">최고 기록</span>
+                            <span class="info-value" id="bestScore">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 상태 -->
+                <div class="game-status" id="gameStatus">
+                    <div class="status-display">
+                        <i class="fas fa-play-circle"></i>
+                        <h3>게임 준비중</h3>
+                        <p>하단의 시작 버튼을 눌러 게임을 시작하세요!</p>
+                    </div>
+                </div>
+
+                <!-- 게임 보드 -->
+                <div class="game-board" id="gameBoard">
+                    <div class="hole" data-hole="0">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="1">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="2">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="3">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="4">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="5">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="6">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="7">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="hole" data-hole="8">
+                        <div class="mole">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 컨트롤 -->
+                <div class="game-controls">
+                    <button class="control-btn start-btn" id="startBtn">
+                        <i class="fas fa-play"></i>
+                        <span>게임 시작</span>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn" style="display: none;">
+                        <i class="fas fa-pause"></i>
+                        <span>일시정지</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        <span>다시 시작</span>
+                    </button>
+                    <button class="control-btn difficulty-btn" id="difficultyBtn">
+                        <i class="fas fa-cog"></i>
+                        <span id="difficultyText">보통</span>
+                    </button>
+                </div>
+
+                <!-- 난이도 설정 패널 -->
+                <div class="difficulty-panel" id="difficultyPanel">
+                    <div class="difficulty-header">
+                        <h4>난이도 설정</h4>
+                        <button class="close-difficulty" id="closeDifficulty">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="difficulty-options">
+                        <button class="difficulty-option" data-difficulty="easy">
+                            <i class="fas fa-seedling"></i>
+                            <div>
+                                <span class="difficulty-name">쉬움</span>
+                                <small>두더지가 천천히 나타납니다</small>
+                            </div>
+                        </button>
+                        <button class="difficulty-option active" data-difficulty="normal">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <span class="difficulty-name">보통</span>
+                                <small>적당한 속도로 게임을 즐기세요</small>
+                            </div>
+                        </button>
+                        <button class="difficulty-option" data-difficulty="hard">
+                            <i class="fas fa-fire"></i>
+                            <div>
+                                <span class="difficulty-name">어려움</span>
+                                <small>빠른 반응속도가 필요합니다</small>
+                            </div>
+                        </button>
+                        <button class="difficulty-option" data-difficulty="expert">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <span class="difficulty-name">전문가</span>
+                                <small>극한의 속도에 도전하세요</small>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 결과 패널 -->
+                <div class="result-panel" id="resultPanel">
+                    <div class="result-content">
+                        <div class="result-header">
+                            <i class="fas fa-flag-checkered"></i>
+                            <h3>게임 종료!</h3>
+                        </div>
+                        <div class="result-stats">
+                            <div class="result-stat">
+                                <span class="stat-label">최종 점수</span>
+                                <span class="stat-value" id="finalScore">0</span>
+                            </div>
+                            <div class="result-stat">
+                                <span class="stat-label">잡은 두더지</span>
+                                <span class="stat-value" id="moleCaught">0</span>
+                            </div>
+                            <div class="result-stat">
+                                <span class="stat-label">정확도</span>
+                                <span class="stat-value" id="accuracy">0%</span>
+                            </div>
+                            <div class="result-stat">
+                                <span class="stat-label">최대 연속</span>
+                                <span class="stat-value" id="maxCombo">0</span>
+                            </div>
+                        </div>
+                        <div class="result-message" id="resultMessage">
+                            좋은 게임이었습니다!
+                        </div>
+                        <div class="result-actions">
+                            <button class="result-btn play-again" id="playAgainBtn">
+                                <i class="fas fa-play"></i>
+                                <span>다시 하기</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+/* 두더지잡기 게임 스타일 */
+.whack-game-container {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+/* 게임 헤더 */
+.game-header {
+    margin-bottom: 24px;
+}
+
+.game-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.info-item {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-item i {
+    font-size: 18px;
+    color: var(--accent-color);
+    width: 20px;
+}
+
+.info-label {
+    color: #666;
+    font-size: 14px;
+    flex: 1;
+}
+
+.info-value {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* 게임 상태 */
+.game-status {
+    text-align: center;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.game-status.active {
+    display: block;
+}
+
+.status-display {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 32px;
+}
+
+.status-display i {
+    font-size: 48px;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+}
+
+.status-display h3 {
+    color: white;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.status-display p {
+    color: #666;
+    margin: 0;
+}
+
+/* 게임 보드 */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hole {
+    aspect-ratio: 1;
+    background: #2a2a2a;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hole:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.hole.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.3);
+}
+
+.mole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: var(--accent-color);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.mole i {
+    font-size: 24px;
+    color: black;
+    transition: all 0.1s ease;
+}
+
+.mole.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.mole.hit {
+    background: #ff4757;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.mole.hit i {
+    transform: rotate(45deg);
+}
+
+/* 게임 컨트롤 */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+.start-btn:hover {
+    color: var(--accent-color);
+}
+
+.pause-btn:hover {
+    color: #ffa500;
+    border-color: #ffa500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.reset-btn:hover {
+    color: #ff4757;
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+/* 난이도 설정 패널 */
+.difficulty-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 400px;
+    display: none;
+}
+
+.difficulty-panel.active {
+    display: block;
+}
+
+.difficulty-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.difficulty-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-difficulty {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.close-difficulty:hover {
+    color: white;
+}
+
+.difficulty-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.difficulty-option {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.difficulty-option:hover,
+.difficulty-option.active {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.difficulty-option i {
+    font-size: 20px;
+    color: var(--accent-color);
+    width: 24px;
+}
+
+.difficulty-name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.difficulty-option small {
+    color: #666;
+    font-size: 12px;
+}
+
+/* 결과 패널 */
+.result-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.result-panel.active {
+    display: flex;
+}
+
+.result-content {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.result-header {
+    margin-bottom: 24px;
+}
+
+.result-header i {
+    font-size: 48px;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+}
+
+.result-header h3 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+.result-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.result-stat {
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.stat-value {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.result-message {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: rgba(39, 39, 39, 0.5);
+    border-radius: 4px;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.result-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    background: var(--accent-color);
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.result-btn:hover {
+    background: rgba(1, 255, 117, 0.8);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .game-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .game-board {
+        gap: 12px;
+        max-width: 400px;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        min-width: 200px;
+        justify-content: center;
+    }
+    
+    .difficulty-panel {
+        min-width: 300px;
+        width: 90%;
+    }
+    
+    .result-stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+class WhackAMoleGame {
+    constructor() {
+        this.score = 0;
+        this.timeLeft = 30;
+        this.combo = 0;
+        this.maxCombo = 0;
+        this.isPlaying = false;
+        this.isPaused = false;
+        this.gameTimer = null;
+        this.moleTimer = null;
+        this.activeMoles = new Set();
+        this.totalClicks = 0;
+        this.successfulHits = 0;
+        this.bestScore = 0;
+        
+        this.difficulty = 'normal';
+        this.difficulties = {
+            easy: { moleSpeed: 2000, moleLife: 1500, pointMultiplier: 1 },
+            normal: { moleSpeed: 1500, moleLife: 1200, pointMultiplier: 1.2 },
+            hard: { moleSpeed: 1000, moleLife: 900, pointMultiplier: 1.5 },
+            expert: { moleSpeed: 700, moleLife: 600, pointMultiplier: 2 }
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.loadBestScore();
+        this.setupEventListeners();
+        this.updateDisplay();
+        this.showGameStatus('ready');
+    }
+    
+    setupEventListeners() {
+        // 컨트롤 버튼들
+        document.getElementById('startBtn').addEventListener('click', () => this.startGame());
+        document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
+        document.getElementById('resetBtn').addEventListener('click', () => this.resetGame());
+        document.getElementById('difficultyBtn').addEventListener('click', () => this.showDifficultyPanel());
+        
+        // 난이도 설정
+        document.getElementById('closeDifficulty').addEventListener('click', () => this.hideDifficultyPanel());
+        document.querySelectorAll('.difficulty-option').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const difficulty = btn.dataset.difficulty;
+                this.setDifficulty(difficulty);
+            });
+        });
+        
+        // 구멍 클릭
+        document.querySelectorAll('.hole').forEach(hole => {
+            hole.addEventListener('click', (e) => {
+                if (this.isPlaying && !this.isPaused) {
+                    this.hitHole(parseInt(hole.dataset.hole));
+                }
+            });
+        });
+        
+        // 결과 패널
+        document.getElementById('playAgainBtn').addEventListener('click', () => this.playAgain());
+    }
+    
+    startGame() {
+        this.score = 0;
+        this.timeLeft = 30;
+        this.combo = 0;
+        this.maxCombo = 0;
+        this.totalClicks = 0;
+        this.successfulHits = 0;
+        this.isPlaying = true;
+        this.isPaused = false;
+        this.activeMoles.clear();
+        
+        this.updateDisplay();
+        this.hideGameStatus();
+        this.showPauseButton();
+        this.startTimer();
+        this.startMoleSpawning();
+    }
+    
+    togglePause() {
+        this.isPaused = !this.isPaused;
+        
+        if (this.isPaused) {
+            this.showGameStatus('paused');
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-play"></i><span>계속하기</span>';
+        } else {
+            this.hideGameStatus();
+            document.getElementById('pauseBtn').innerHTML = '<i class="fas fa-pause"></i><span>일시정지</span>';
+        }
+    }
+    
+    resetGame() {
+        this.stopGame();
+        this.score = 0;
+        this.timeLeft = 30;
+        this.combo = 0;
+        this.maxCombo = 0;
+        this.totalClicks = 0;
+        this.successfulHits = 0;
+        this.updateDisplay();
+        this.hideAllMoles();
+        this.showGameStatus('ready');
+        this.showStartButton();
+    }
+    
+    stopGame() {
+        this.isPlaying = false;
+        this.isPaused = false;
+        if (this.gameTimer) clearInterval(this.gameTimer);
+        if (this.moleTimer) clearTimeout(this.moleTimer);
+        this.hideAllMoles();
+        this.showStartButton();
+    }
+    
+    startTimer() {
+        this.gameTimer = setInterval(() => {
+            if (!this.isPaused) {
+                this.timeLeft--;
+                this.updateDisplay();
+                
+                if (this.timeLeft <= 0) {
+                    this.endGame();
+                }
+            }
+        }, 1000);
+    }
+    
+    startMoleSpawning() {
+        if (!this.isPlaying) return;
+        
+        const config = this.difficulties[this.difficulty];
+        const randomDelay = Math.random() * config.moleSpeed + 300;
+        
+        this.moleTimer = setTimeout(() => {
+            if (this.isPlaying && !this.isPaused) {
+                this.spawnMole();
+                this.startMoleSpawning();
+            }
+        }, randomDelay);
+    }
+    
+    spawnMole() {
+        const availableHoles = [];
+        for (let i = 0; i < 9; i++) {
+            if (!this.activeMoles.has(i)) {
+                availableHoles.push(i);
+            }
+        }
+        
+        if (availableHoles.length === 0) return;
+        
+        const holeIndex = availableHoles[Math.floor(Math.random() * availableHoles.length)];
+        const hole = document.querySelector(`[data-hole="${holeIndex}"]`);
+        const mole = hole.querySelector('.mole');
+        
+        this.activeMoles.add(holeIndex);
+        hole.classList.add('active');
+        mole.classList.add('show');
+        
+        const config = this.difficulties[this.difficulty];
+        setTimeout(() => {
+            if (this.activeMoles.has(holeIndex)) {
+                this.hideMole(holeIndex);
+            }
+        }, config.moleLife);
+    }
+    
+    hitHole(holeIndex) {
+        this.totalClicks++;
+        
+        if (this.activeMoles.has(holeIndex)) {
+            this.hitMole(holeIndex);
+        } else {
+            this.missHit();
+        }
+    }
+    
+    hitMole(holeIndex) {
+        const hole = document.querySelector(`[data-hole="${holeIndex}"]`);
+        const mole = hole.querySelector('.mole');
+        
+        this.successfulHits++;
+        this.combo++;
+        this.maxCombo = Math.max(this.maxCombo, this.combo);
+        
+        const config = this.difficulties[this.difficulty];
+        const points = Math.floor(10 * config.pointMultiplier * (1 + this.combo * 0.1));
+        this.score += points;
+        
+        // 히트 애니메이션
+        mole.classList.add('hit');
+        setTimeout(() => {
+            this.hideMole(holeIndex);
+        }, 200);
+        
+        this.updateDisplay();
+    }
+    
+    missHit() {
+        this.combo = 0;
+        this.updateDisplay();
+    }
+    
+    hideMole(holeIndex) {
+        const hole = document.querySelector(`[data-hole="${holeIndex}"]`);
+        const mole = hole.querySelector('.mole');
+        
+        this.activeMoles.delete(holeIndex);
+        hole.classList.remove('active');
+        mole.classList.remove('show', 'hit');
+    }
+    
+    hideAllMoles() {
+        for (let i = 0; i < 9; i++) {
+            this.hideMole(i);
+        }
+        this.activeMoles.clear();
+    }
+    
+    endGame() {
+        this.stopGame();
+        
+        if (this.score > this.bestScore) {
+            this.bestScore = this.score;
+            this.saveBestScore();
+        }
+        
+        this.showResult();
+    }
+    
+    showResult() {
+        const accuracy = this.totalClicks > 0 ? Math.round((this.successfulHits / this.totalClicks) * 100) : 0;
+        
+        document.getElementById('finalScore').textContent = this.score;
+        document.getElementById('moleCaught').textContent = this.successfulHits;
+        document.getElementById('accuracy').textContent = accuracy + '%';
+        document.getElementById('maxCombo').textContent = this.maxCombo;
+        
+        let message = '좋은 게임이었습니다!';
+        if (this.score >= 1000) message = '놀라운 점수입니다! 두더지 잡기 마스터!';
+        else if (this.score >= 500) message = '훌륭합니다! 빠른 반응속도를 보여주셨네요!';
+        else if (this.score >= 200) message = '좋은 점수입니다! 계속 연습하면 더 좋아질 거예요!';
+        
+        document.getElementById('resultMessage').textContent = message;
+        document.getElementById('resultPanel').classList.add('active');
+    }
+    
+    playAgain() {
+        document.getElementById('resultPanel').classList.remove('active');
+        this.resetGame();
+    }
+    
+    setDifficulty(difficulty) {
+        this.difficulty = difficulty;
+        
+        // 활성 상태 업데이트
+        document.querySelectorAll('.difficulty-option').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-difficulty="${difficulty}"]`).classList.add('active');
+        
+        // 버튼 텍스트 업데이트
+        const difficultyNames = {
+            easy: '쉬움',
+            normal: '보통', 
+            hard: '어려움',
+            expert: '전문가'
+        };
+        document.getElementById('difficultyText').textContent = difficultyNames[difficulty];
+        
+        this.hideDifficultyPanel();
+    }
+    
+    showDifficultyPanel() {
+        document.getElementById('difficultyPanel').classList.add('active');
+    }
+    
+    hideDifficultyPanel() {
+        document.getElementById('difficultyPanel').classList.remove('active');
+    }
+    
+    showGameStatus(type) {
+        const statusElement = document.getElementById('gameStatus');
+        const statusDisplay = statusElement.querySelector('.status-display');
+        
+        let icon, title, message;
+        
+        switch(type) {
+            case 'ready':
+                icon = 'fas fa-play-circle';
+                title = '게임 준비중';
+                message = '하단의 시작 버튼을 눌러 게임을 시작하세요!';
+                break;
+            case 'paused':
+                icon = 'fas fa-pause-circle';
+                title = '일시정지';
+                message = '계속하기 버튼을 눌러 게임을 재개하세요.';
+                break;
+        }
+        
+        statusDisplay.innerHTML = `
+            <i class="${icon}"></i>
+            <h3>${title}</h3>
+            <p>${message}</p>
+        `;
+        
+        statusElement.classList.add('active');
+    }
+    
+    hideGameStatus() {
+        document.getElementById('gameStatus').classList.remove('active');
+    }
+    
+    showStartButton() {
+        document.getElementById('startBtn').style.display = 'flex';
+        document.getElementById('pauseBtn').style.display = 'none';
+    }
+    
+    showPauseButton() {
+        document.getElementById('startBtn').style.display = 'none';
+        document.getElementById('pauseBtn').style.display = 'flex';
+    }
+    
+    updateDisplay() {
+        document.getElementById('scoreValue').textContent = this.score;
+        document.getElementById('timeValue').textContent = this.timeLeft;
+        document.getElementById('comboValue').textContent = this.combo;
+        document.getElementById('bestScore').textContent = this.bestScore;
+    }
+    
+    saveBestScore() {
+        localStorage.setItem('whackMoleBestScore', this.bestScore.toString());
+    }
+    
+    loadBestScore() {
+        const saved = localStorage.getItem('whackMoleBestScore');
+        this.bestScore = saved ? parseInt(saved) : 0;
+    }
+}
+
+// 페이지 로드 후 게임 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    new WhackAMoleGame();
+});
+</script>
+
+{{ end }}

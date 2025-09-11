@@ -647,6 +647,11 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/rsp-game/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/enhancement-simulator/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
