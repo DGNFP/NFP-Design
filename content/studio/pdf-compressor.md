@@ -1,5 +1,5 @@
 ---
-title: "PDF 압축기 - Studio NFP"
+title: "PDF 압축기"
 description: "PDF 파일 크기를 줄여 저장공간을 절약하고 업로드 속도를 개선하는 브라우저 전용 도구입니다."
 layout: "pdf-compressor"
 tool_type: "file-processor"

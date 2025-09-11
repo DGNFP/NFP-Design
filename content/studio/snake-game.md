@@ -1,5 +1,5 @@
 ---
-title: "Snake 게임"
+title: "스네이크 게임 (Snake)"
 description: "방향키로 뱀을 조작하여 음식을 먹고 성장시키는 클래식 아케이드 게임입니다."
 layout: "snake-game"
 tool_type: "game"

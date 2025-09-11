@@ -1,5 +1,5 @@
 ---
-title: "사이즈 계산기 - Studio NFP"
+title: "사이즈 계산기"
 description: "비율 계산과 이미지 사이즈 변환을 한 번에 해결하는 도구입니다."
 layout: "size-calculator"
 tool_type: "size-calculator"

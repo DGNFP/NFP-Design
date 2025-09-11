@@ -1,5 +1,5 @@
 ---
-title: "이미지 압축기 - Studio NFP"
+title: "이미지 압축기"
 description: "여러 이미지를 한번에 압축하여 파일 크기를 효율적으로 줄이는 도구입니다."
 layout: "image-compressor"
 tool_type: "image-optimizer"

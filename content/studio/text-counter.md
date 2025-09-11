@@ -1,5 +1,5 @@
 ---
-title: "텍스트 카운터 - Studio NFP"
+title: "텍스트 카운터"
 description: "글자 수, 단어 수, 줄 수를 실시간으로 카운팅하는 텍스트 분석 도구입니다."
 layout: "text-counter"
 tool_type: "text-counter"

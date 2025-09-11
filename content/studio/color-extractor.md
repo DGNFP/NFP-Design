@@ -1,5 +1,5 @@
 ---
-title: "이미지 컬러 추출기 - Studio NFP"
+title: "이미지 컬러 추출기"
 description: "이미지에서 주요 컬러를 분석하여 컬러 팔레트를 생성하는 도구입니다."
 layout: "color-extractor"
 tool_type: "color-analyzer"

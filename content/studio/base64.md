@@ -1,5 +1,5 @@
 ---
-title: "Base64 인코딩/디코딩 - Studio NFP"
+title: "Base64 인코딩/디코딩"
 description: "텍스트와 파일을 Base64 형태로 변환하거나 원본으로 복원하는 도구입니다."
 layout: "base64"
 tool_type: "data-converter"

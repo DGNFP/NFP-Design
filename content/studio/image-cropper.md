@@ -1,5 +1,5 @@
 ---
-title: "이미지 자르기/크롭 - Studio NFP"
+title: "이미지 자르기/크롭"
 description: "이미지의 원하는 부분을 정확하게 자르고 편집하는 도구입니다."
 layout: "image-cropper"
 tool_type: "image-editor"

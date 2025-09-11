@@ -489,6 +489,8 @@ transition: var(--transition);
 white-space: nowrap;
 text-align: center;
 width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 
 .sub-page-btn:hover {
@@ -13707,6 +13709,18 @@ background: rgba(1, 255, 117, 0.8);
         grid-template-columns: 1fr;
         gap: 20px;
     }
+
+.sub-page-btn-wrapper {
+display: grid;
+grid-template-columns: repeat(4, minmax(160px, 1fr)); /* 최소 180px, 남으면 늘어남 */
+justify-items: center;
+row-gap: 10px;
+column-gap: 15px;
+margin: 0 auto;
+margin-bottom: 40px;
+width: 600px;
+}
+
 }
 
 @media (max-width: 768px) {

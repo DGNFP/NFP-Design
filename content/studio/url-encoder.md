@@ -1,5 +1,5 @@
 ---
-title: "URL 인코딩/디코딩 - Studio NFP"
+title: "URL 인코딩/디코딩"
 description: "URL에 특수문자를 안전하게 사용하거나 인코딩된 URL을 해독하는 도구입니다."
 layout: "url-encoder"
 tool_type: "text-converter"

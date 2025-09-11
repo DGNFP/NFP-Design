@@ -1,5 +1,5 @@
 ---
-title: "폰트 크기 변환기 - Studio NFP"
+title: "폰트 크기 변환기"
 description: "px와 pt 단위를 상호 변환하고 반응형 폰트 사이즈를 확인하는 도구입니다."
 layout: "font-converter"
 tool_type: "font-converter"

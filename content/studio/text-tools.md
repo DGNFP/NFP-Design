@@ -1,5 +1,5 @@
 ---
-title: "Lorem Ipsum 생성기 - Studio NFP"
+title: "더미 텍스트 (Lorem Ipsum) 생성기"
 description: "디자인 작업용 더미 텍스트를 빠르게 생성하는 Lorem Ipsum 생성기입니다."
 layout: "text-tools"
 tool_type: "lorem-ipsum"

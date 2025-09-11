@@ -1,5 +1,5 @@
 ---
-title: "이미지 맵 생성기 - Studio NFP"
+title: "이미지 맵 생성기"
 description: "이미지에 클릭 가능한 핫스팟 영역을 만들어 인터랙티브한 웹 콘텐츠를 제작하는 도구입니다."
 layout: "image-map-generator"
 tool_type: "image-map-generator"

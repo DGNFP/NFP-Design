@@ -1,5 +1,5 @@
 ---
-title: "그라데이션 카드 뽑기 - Studio NFP"
+title: "그라데이션 카드 뽑기"
 description: "랜덤으로 그라데이션 카드를 뽑아 오늘의 색상 조합 영감을 얻어보세요. 다채로운 2색·3색 조합을 제공합니다."
 layout: "gradient-card"
 tool_type: "color-generator"

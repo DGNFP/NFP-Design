@@ -11,12 +11,82 @@
         <p><br>패들로 공을 튕겨 모든 벽돌을 깨뜨리세요.</p>
     </div>
 
-    <!-- 다른 페이지로 이동 버튼 -->
-    <div class="page-btn-wrapper">
-        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
-        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
-        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+<!-- 스튜디오 홈 버튼 -->
+<div class="studio-home-section">
+    <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
+        <div class="home-icon">
+            <i class="fas fa-home"></i>
+            <div class="home-pulse"></div>
+        </div>
+        <div class="home-content">
+            <span class="home-title">스튜디오<span> NFP</span> 홈</span>
+            <span class="home-subtitle">작업을 위한 전문 도구 모음</span>
+        </div>
+        <div class="home-arrow">
+            <i class="fas fa-star"></i>
+        </div>
     </div>
+</div>
+
+<!-- 서브 버튼들 -->
+<div class="sub-page-btn-wrapper">
+<!-- 1행: 핵심/인기 도구 -->
+<a href="{{ "/studio/web-demo" | relURL }}" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="{{ "/studio/text-counter" | relURL }}" class="sub-page-btn">텍스트 카운터</a>
+<a href="{{ "/studio/image-compressor" | relURL }}" class="sub-page-btn">이미지 압축기</a>
+<a href="{{ "/studio/qr-basic" | relURL }}" class="sub-page-btn">QR코드 생성기</a>
+<a href="{{ "/studio/watermark" | relURL }}" class="sub-page-btn">워터마크 생성기</a>
+
+<!-- 2행: 이미지 처리 -->
+<a href="{{ "/studio/format-converter" | relURL }}" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="{{ "/studio/image-resizer" | relURL }}" class="sub-page-btn">이미지 크기 조절</a>
+<a href="{{ "/studio/image-cropper" | relURL }}" class="sub-page-btn">이미지 자르기</a>
+<a href="{{ "/studio/image-splitter" | relURL }}" class="sub-page-btn">이미지 분할기</a>
+<a href="{{ "/studio/image-map-generator" | relURL }}" class="sub-page-btn">이미지 맵 생성기</a>
+
+<!-- 3행: 컬러 도구 -->
+<a href="{{ "/studio/color-mixer" | relURL }}" class="sub-page-btn">컬러 조합기</a>
+<a href="{{ "/studio/color-palette-5" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
+<a href="{{ "/studio/color-palette-random" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="{{ "/studio/single-card" | relURL }}" class="sub-page-btn">단색 컬러 카드</a>
+<a href="{{ "/studio/gradient-card/" | relURL }}" class="sub-page-btn">그라데이션 컬러 카드</a>
+
+<!-- 4행: 그라데이션/디자인 -->
+ <a href="{{ "/studio/color-extractor" | relURL }}" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="{{ "/studio/gradient-2" | relURL }}" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
+<a href="{{ "/studio/gradient-3" | relURL }}" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+<a href="{{ "/studio/qr-custom" | relURL }}" class="sub-page-btn">커스텀 QR코드 생성기</a>
+<a href="{{ "/studio/text-tools" | relURL }}" class="sub-page-btn">더미 텍스트 생성기</a>
+
+<!-- 5행: 계산/변환 도구 -->
+<a href="{{ "/studio/unit-converter" | relURL }}" class="sub-page-btn">단위 변환기</a>
+<a href="{{ "/studio/font-converter" | relURL }}" class="sub-page-btn">폰트 변환기</a>
+<a href="{{ "/studio/date-calculator" | relURL }}" class="sub-page-btn">날짜 계산기</a>
+<a href="{{ "/studio/size-calculator" | relURL }}" class="sub-page-btn">사이즈 계산기</a>
+<a href="{{ "/studio/grid-calculator" | relURL }}" class="sub-page-btn">그리드 계산기</a>
+
+<!-- 6행: 문서/텍스트 도구 -->
+<a href="{{ "/studio/base64" | relURL }}" class="sub-page-btn">base64 인코딩/디코딩</a>
+<a href="{{ "/studio/url-encoder" | relURL }}" class="sub-page-btn">URL 인코딩/디코딩</a>
+<a href="{{ "/studio/pdf-compressor" | relURL }}" class="sub-page-btn">PDF 압축기</a>
+<a href="{{ "/studio/pdf-splitter" | relURL }}" class="sub-page-btn">PDF 분할기</a>
+<a href="{{ "/studio/pdf-merger" | relURL }}" class="sub-page-btn">PDF 합치기</a>
+
+<!-- 7행: 게임 1 -->
+<a href="{{ "/studio/rsp-game" | relURL }}" class="sub-page-btn">가위바위보</a>
+<a href="{{ "/studio/whack-a-mole" | relURL }}" class="sub-page-btn">두더지 잡기</a>
+<a href="{{ "/studio/pong-game" | relURL }}" class="sub-page-btn">탁구 게임</a>
+<a href="{{ "/studio/breakout-game" | relURL }}" class="sub-page-btn-active">벽돌깨기</a>
+<a href="{{ "/studio/flappy-bird" | relURL }}" class="sub-page-btn">플래피 버드</a>
+
+<!-- 8행: 게임 2 + 기타 -->
+<a href="{{ "/studio/snake-game" | relURL }}" class="sub-page-btn">스네이크 게임</a>
+<a href="{{ "/studio/lotto-generator" | relURL }}" class="sub-page-btn">로또 번호 생성기</a>
+<a href="{{ "/studio/enhancement-simulator" | relURL }}" class="sub-page-btn">강화 시뮬레이터</a>
+<a href="{{ "/studio/food-roulette" | relURL }}" class="sub-page-btn">오늘 뭐먹지?</a>
+<a href="{{ "/studio/fortune" | relURL }}" class="sub-page-btn">오늘의 운세</a>
+</div>
+<!-- 버튼 컨테이너 닫힘 -->
 
     <!-- 메인 컨테이너 -->
     <div class="studio-page-content"> 
@@ -69,8 +139,8 @@
                         <h3>게임 준비</h3>
                         <p>시작 버튼을 눌러 게임을 시작하세요!</p>
                         <div class="controls-info">
-                            <span><i class="fas fa-mouse"></i> 마우스로 패들 조작</span>
-                            <span><i class="fas fa-mouse-pointer"></i> 클릭으로 공 발사</span>
+                            <span> 마우스로 패들 조작</span>
+                            <span> 클릭으로 공 발사</span>
                         </div>
                     </div>
                 </div>
@@ -95,11 +165,9 @@
                             </div>
                             <div class="overlay-actions">
                                 <button class="overlay-btn" id="playAgainBtn">
-                                    <i class="fas fa-play"></i>
                                     <span>다시 하기</span>
                                 </button>
                                 <button class="overlay-btn secondary" id="nextLevelBtn" style="display: none;">
-                                    <i class="fas fa-arrow-right"></i>
                                     <span>다음 레벨</span>
                                 </button>
                             </div>
@@ -437,17 +505,13 @@
 
 /* 설정 패널 */
 .settings-panel {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background: var(--sub-bg-color);
     border: 1px solid var(--sub-border-color);
+    margin: 30px auto;
     border-radius: 4px;
     padding: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    min-width: 400px;
+    width: 60%;
     display: none;
 }
 
@@ -1178,8 +1242,8 @@ class BreakoutGame {
             <h3>${title}</h3>
             <p>${message}</p>
             <div class="controls-info">
-                <span><i class="fas fa-mouse"></i> 마우스로 패들 조작</span>
-                <span><i class="fas fa-mouse-pointer"></i> 클릭으로 공 발사</span>
+                <span> 마우스로 패들 조작</span>
+                <span> 클릭으로 공 발사</span>
             </div>
         `;
         

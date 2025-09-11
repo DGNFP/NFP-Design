@@ -1,5 +1,5 @@
 ---
-title: "오늘 뭐먹지? - Studio NFP"
+title: "오늘 뭐먹지?"
 description: "점심 뭐먹지? 저녁 뭐먹지? 메뉴 선택 고민을 해결해주는 음식 룰렛 추천 도구입니다."
 layout: "food-roulette"
 tool_type: "entertainment"

@@ -1,5 +1,5 @@
 ---
-title: "커스텀 QR 코드 생성 - Studio NFP"
+title: "커스텀 QR 코드 생성기"
 description: "색상과 로고를 자유롭게 커스터마이징할 수 있는 브랜드 맞춤형 QR 코드 생성기입니다."
 layout: "qr-custom"
 tool_type: "qr-generator"

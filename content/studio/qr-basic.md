@@ -1,5 +1,5 @@
 ---
-title: "기본 QR 코드 생성 - Studio NFP"
+title: "QR 코드 생성기"
 description: "URL, 텍스트, 연락처 정보를 간편하게 QR 코드로 변환하는 도구입니다."
 layout: "qr-basic"
 tool_type: "qr-generator"

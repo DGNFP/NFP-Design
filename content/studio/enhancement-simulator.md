@@ -1,5 +1,5 @@
 ---
-title: "강화 시뮬레이터 - Studio NFP"
+title: "강화 시뮬레이터"
 description: "게임의 아이템 강화 시스템을 시뮬레이션하여 확률과 운을 시험해볼 수 있는 재미있는 도구입니다."
 layout: "enhancement-simulator"
 tool_type: "simulator"

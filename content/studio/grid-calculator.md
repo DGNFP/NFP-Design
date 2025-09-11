@@ -1,5 +1,5 @@
 ---
-title: "그리드 계산기 - Studio NFP"
+title: "그리드 계산기"
 description: "웹 레이아웃 그리드 시스템을 설계하고 시각화하는 도구입니다."
 layout: "grid-calculator"
 tool_type: "grid"

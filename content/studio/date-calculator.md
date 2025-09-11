@@ -1,5 +1,5 @@
 ---
-title: "날짜 계산기 - Studio NFP"
+title: "날짜 계산기"
 description: "기간 계산, D-day 계산, 날짜 더하기/빼기 등 다양한 날짜 관련 계산을 쉽고 빠르게 처리하는 도구입니다."
 layout: "date-calculator"
 tool_type: "calculator"

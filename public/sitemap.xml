@@ -607,17 +607,7 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/studio/color-palette-5/</loc>
-    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/studio/base64/</loc>
-    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/studio/text-tools/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -638,6 +628,16 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/pong-game/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/qr-basic/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/studio/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -672,17 +672,17 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/studio/qr-basic/</loc>
-    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/studio/date-calculator/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/unit-converter/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/text-tools/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -707,12 +707,22 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/snake-game/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/food-roulette/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/watermark/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/studio/web-demo/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -767,6 +777,11 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/studio/color-palette-5/</loc>
+    <lastmod>2025-01-01T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/studio/text-counter/</loc>
     <lastmod>2025-01-01T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -787,15 +802,7 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/studio/studio/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/studio/base/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/studio/web-demo/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

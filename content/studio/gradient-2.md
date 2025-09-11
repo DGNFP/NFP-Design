@@ -1,5 +1,5 @@
 ---
-title: "2색 그라데이션 팔레트 - Studio NFP"
+title: "2색 그라데이션 팔레트"
 description: "두 가지 컬러로 아름다운 그라데이션을 만들고 CSS 코드를 생성하는 도구입니다."
 layout: "gradient-2"
 tool_type: "color-generator"

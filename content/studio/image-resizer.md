@@ -1,5 +1,5 @@
 ---
-title: "이미지 크기 조절기 - Studio NFP"
+title: "이미지 크기 조절기"
 description: "이미지의 해상도와 크기를 자유롭게 조절하는 도구입니다."
 layout: "image-resizer"
 tool_type: "image-editor"

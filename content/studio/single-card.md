@@ -1,5 +1,5 @@
 ---
-title: "컬러 카드 뽑기 - Studio NFP"
+title: "컬러 카드 뽑기"
 description: "랜덤으로 컬러 카드를 뽑아 오늘의 색상 영감을 얻어보세요. 단색과 그라데이션 카드를 제공합니다."
 layout: "single-card"
 tool_type: "color-generator"

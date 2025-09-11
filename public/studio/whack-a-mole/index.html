@@ -172,12 +172,75 @@
         <p><br>빠르게 나타나는 두더지를 잡아 점수를 획득하세요.</p>
     </div>
 
-    
-    <div class="page-btn-wrapper">
-        <a href="/studio" class="page-btn">스튜디오 메인</a>
-        <a href="/studio/web-demo" class="page-btn">웹 데모</a>
-        <a href="/studio/design-guide/" class="page-btn">디자인 가이드</a>
+
+<div class="studio-home-section">
+    <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
+        <div class="home-icon">
+            <i class="fas fa-home"></i>
+            <div class="home-pulse"></div>
+        </div>
+        <div class="home-content">
+            <span class="home-title">스튜디오<span> NFP</span> 홈</span>
+            <span class="home-subtitle">작업을 위한 전문 도구 모음</span>
+        </div>
+        <div class="home-arrow">
+            <i class="fas fa-star"></i>
+        </div>
     </div>
+</div>
+
+
+<div class="sub-page-btn-wrapper">
+
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
+<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
+
+<a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
+<a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
+<a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
+<a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
+
+<a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
+<a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+
+ <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+<a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
+<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
+
+<a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
+<a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
+<a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
+<a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
+<a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
+
+<a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
+<a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
+<a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
+<a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
+<a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
+
+<a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
+<a href="/studio/whack-a-mole" class="sub-page-btn-active">두더지 잡기</a>
+<a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
+<a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
+<a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
+
+<a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
+<a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
+<a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
+<a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
+<a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+</div>
+
 
     
     <div class="studio-page-content"> 
@@ -580,17 +643,13 @@
 
  
 .difficulty-panel {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background: var(--sub-bg-color);
     border: 1px solid var(--sub-border-color);
     border-radius: 4px;
     padding: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    min-width: 400px;
+    margin: 30px auto;
+    width: 40%;
     display: none;
 }
 
@@ -663,11 +722,12 @@
     display: block;
     font-weight: 600;
     margin-bottom: 4px;
+    font-size: 16px;
 }
 
 .difficulty-option small {
     color: #666;
-    font-size: 12px;
+    font-size: 14px;
 }
 
  

@@ -1,5 +1,5 @@
 ---
-title: "5색 랜덤 팔레트 - Studio NFP"
+title: "5색 랜덤 팔레트"
 description: "서로 관계없는 완전히 랜덤한 5색 컬러 팔레트를 생성하는 도구입니다."
 layout: "color-palette-random"
 tool_type: "color-palette"

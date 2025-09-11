@@ -1,5 +1,5 @@
 ---
-title: "5색 조합 팔레트 - Studio NFP"
+title: "컬러 팔레트 생성기"
 description: "조화로운 5색 컬러 팔레트를 자동으로 생성하는 도구입니다."
 layout: "color-palette-5"
 tool_type: "color-palette"

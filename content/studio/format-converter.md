@@ -1,5 +1,5 @@
 ---
-title: "이미지 포맷 변환기 - Studio NFP"
+title: "이미지 포맷 변환기"
 description: "JPG, PNG, WebP 등 다양한 이미지 포맷을 자유롭게 변환할 수 있는 온라인 도구입니다."
 layout: "format-converter"
 tool_type: "image-converter"
