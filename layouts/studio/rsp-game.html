@@ -1,0 +1,747 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    <!-- 헤더 -->
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">가위바위보 게임</span>
+        <p><br>컴퓨터와 가위바위보 대결을 해보세요.</p>
+    </div>
+
+    <!-- 다른 페이지로 이동 버튼 -->
+    <div class="page-btn-wrapper">
+        <a href="{{ "/studio" | relURL }}" class="page-btn">스튜디오 메인</a>
+        <a href="{{ "/studio/web-demo" | relURL }}" class="page-btn">웹 데모</a>
+        <a href="{{ "/studio/design-guide/" | relURL }}" class="page-btn">디자인 가이드</a>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            <!-- 설명 -->
+            <div class="studio-description">
+                <h3>가위바위보 대전</h3>
+                <p>컴퓨터와 가위바위보 게임을 즐겨보세요!<br>
+                #가위바위보 #게임 #대전</p>
+            </div>
+
+            <!-- 메인 게임 영역 -->
+            <div class="rps-game-container">
+                
+                <!-- 게임 헤더 -->
+                <div class="game-header">
+                    <div class="score-board">
+                        <div class="score-item">
+                            <span class="score-label">플레이어</span>
+                            <span class="score-value" id="playerScore">0</span>
+                        </div>
+                        <div class="score-divider">VS</div>
+                        <div class="score-item">
+                            <span class="score-label">컴퓨터</span>
+                            <span class="score-value" id="computerScore">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게임 플레이 영역 -->
+                <div class="game-play-area">
+                    <!-- 플레이어 섹션 -->
+                    <div class="player-section">
+                        <div class="player-header">
+                            <i class="fas fa-user"></i>
+                            <span>플레이어</span>
+                        </div>
+                        <div class="choice-display" id="playerChoice">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="choice-label">선택해주세요</div>
+                    </div>
+
+                    <!-- 결과 섹션 -->
+                    <div class="result-section">
+                        <div class="result-display" id="gameResult">
+                            <i class="fas fa-gamepad"></i>
+                            <span>게임 시작!</span>
+                        </div>
+                        <div class="round-counter">
+                            라운드 <span id="roundCount">0</span>
+                        </div>
+                    </div>
+
+                    <!-- 컴퓨터 섹션 -->
+                    <div class="computer-section">
+                        <div class="computer-header">
+                            <i class="fas fa-robot"></i>
+                            <span>컴퓨터</span>
+                        </div>
+                        <div class="choice-display" id="computerChoice">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="choice-label">생각중...</div>
+                    </div>
+                </div>
+
+                <!-- 선택 버튼들 -->
+                <div class="choice-buttons">
+                    <button class="choice-btn" data-choice="rock">
+                        <i class="fas fa-hand-rock"></i>
+                        <span>바위</span>
+                    </button>
+                    <button class="choice-btn" data-choice="paper">
+                        <i class="fas fa-hand-paper"></i>
+                        <span>보</span>
+                    </button>
+                    <button class="choice-btn" data-choice="scissors">
+                        <i class="fas fa-hand-scissors"></i>
+                        <span>가위</span>
+                    </button>
+                </div>
+
+                <!-- 게임 컨트롤 -->
+                <div class="game-controls">
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        <span>다시 시작</span>
+                    </button>
+                    <button class="control-btn stats-btn" id="statsBtn">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>통계 보기</span>
+                    </button>
+                </div>
+
+                <!-- 통계 패널 (숨김) -->
+                <div class="stats-panel" id="statsPanel">
+                    <div class="stats-header">
+                        <h4>게임 통계</h4>
+                        <button class="close-stats" id="closeStats">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="stats-content">
+                        <div class="stat-item">
+                            <span class="stat-label">총 게임 수</span>
+                            <span class="stat-value" id="totalGames">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">승리</span>
+                            <span class="stat-value" id="totalWins">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">패배</span>
+                            <span class="stat-value" id="totalLoses">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">무승부</span>
+                            <span class="stat-value" id="totalDraws">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">승률</span>
+                            <span class="stat-value" id="winRate">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+/* 가위바위보 게임 스타일 */
+.rps-game-container {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+/* 게임 헤더 */
+.game-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.score-board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.score-label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.score-value {
+    color: var(--accent-color);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.score-divider {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* 게임 플레이 영역 */
+.game-play-area {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.player-section,
+.computer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.player-header,
+.computer-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.player-header i,
+.computer-header i {
+    font-size: 18px;
+    color: var(--accent-color);
+}
+
+.choice-display {
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(39, 39, 39, 0.5);
+    transition: all 0.3s ease;
+}
+
+.choice-display i {
+    font-size: 48px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.choice-display.active i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.choice-label {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* 결과 섹션 */
+.result-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.result-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: rgba(39, 39, 39, 0.5);
+    min-width: 160px;
+    text-align: center;
+}
+
+.result-display i {
+    font-size: 32px;
+    color: var(--accent-color);
+}
+
+.result-display span {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.result-display.win {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.result-display.lose {
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+.result-display.draw {
+    border-color: #ffa500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.round-counter {
+    color: #666;
+    font-size: 14px;
+}
+
+/* 선택 버튼들 */
+.choice-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.choice-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.choice-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+    transform: translateY(-2px);
+}
+
+.choice-btn:active {
+    transform: translateY(0);
+}
+
+.choice-btn i {
+    font-size: 36px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.choice-btn:hover i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.choice-btn span {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.choice-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.choice-btn:disabled:hover {
+    border-color: var(--sub-border-color);
+    background: var(--sub-bg-color);
+    transform: none;
+}
+
+/* 게임 컨트롤 */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+.reset-btn:hover {
+    color: #ff4757;
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+/* 통계 패널 */
+.stats-panel {
+    position: relative;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* z-index: 1000; */
+    margin: 30px auto;
+    /* min-width: 300px; */
+    width: 50%;
+    display: none;
+}
+
+.stats-panel.active {
+    display: block;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.stats-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-stats {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.close-stats:hover {
+    color: white;
+}
+
+.stats-content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 16px;
+}
+
+.stat-value {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .game-play-area {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .choice-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .score-board {
+        gap: 20px;
+        padding: 16px;
+    }
+}
+</style>
+
+<script>
+class RockPaperScissorsGame {
+    constructor() {
+        this.playerScore = 0;
+        this.computerScore = 0;
+        this.roundCount = 0;
+        this.totalGames = 0;
+        this.totalWins = 0;
+        this.totalLoses = 0;
+        this.totalDraws = 0;
+        
+        this.choices = {
+            rock: { icon: 'fas fa-hand-rock', name: '바위' },
+            paper: { icon: 'fas fa-hand-paper', name: '보' },
+            scissors: { icon: 'fas fa-hand-scissors', name: '가위' }
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.setupEventListeners();
+        this.loadStats();
+    }
+    
+    setupEventListeners() {
+        // 선택 버튼들
+        document.querySelectorAll('.choice-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const choice = btn.dataset.choice;
+                this.playRound(choice);
+            });
+        });
+        
+        // 리셋 버튼
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            this.resetGame();
+        });
+        
+        // 통계 버튼
+        document.getElementById('statsBtn').addEventListener('click', () => {
+            this.showStats();
+        });
+        
+        // 통계 패널 닫기
+        document.getElementById('closeStats').addEventListener('click', () => {
+            this.hideStats();
+        });
+    }
+    
+    playRound(playerChoice) {
+        const computerChoice = this.getComputerChoice();
+        const result = this.determineWinner(playerChoice, computerChoice);
+        
+        this.roundCount++;
+        this.totalGames++;
+        
+        // UI 업데이트
+        this.updateChoiceDisplay('playerChoice', playerChoice);
+        this.updateChoiceDisplay('computerChoice', computerChoice);
+        this.updateResult(result, playerChoice, computerChoice);
+        this.updateScores(result);
+        this.updateRoundCounter();
+        
+        // 통계 업데이트
+        this.updateStats(result);
+        this.saveStats();
+        
+        // 버튼 일시 비활성화
+        this.disableButtons(1000);
+    }
+    
+    getComputerChoice() {
+        const choices = Object.keys(this.choices);
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
+    
+    determineWinner(player, computer) {
+        if (player === computer) return 'draw';
+        
+        const winConditions = {
+            rock: 'scissors',
+            paper: 'rock',
+            scissors: 'paper'
+        };
+        
+        return winConditions[player] === computer ? 'win' : 'lose';
+    }
+    
+    updateChoiceDisplay(elementId, choice) {
+        const element = document.getElementById(elementId);
+        const choiceData = this.choices[choice];
+        
+        element.innerHTML = `<i class="${choiceData.icon}"></i>`;
+        element.classList.add('active');
+        
+        setTimeout(() => {
+            element.classList.remove('active');
+        }, 1000);
+    }
+    
+    updateResult(result, playerChoice, computerChoice) {
+        const resultElement = document.getElementById('gameResult');
+        const playerName = this.choices[playerChoice].name;
+        const computerName = this.choices[computerChoice].name;
+        
+        let resultText = '';
+        let resultIcon = '';
+        let resultClass = '';
+        
+        if (result === 'win') {
+            resultText = `승리!<br>${playerName} vs ${computerName}`;
+            resultIcon = 'fas fa-trophy';
+            resultClass = 'win';
+        } else if (result === 'lose') {
+            resultText = `패배!<br>${playerName} vs ${computerName}`;
+            resultIcon = 'fas fa-times-circle';
+            resultClass = 'lose';
+        } else {
+            resultText = `무승부!<br>${playerName} vs ${computerName}`;
+            resultIcon = 'fas fa-handshake';
+            resultClass = 'draw';
+        }
+        
+        resultElement.className = `result-display ${resultClass}`;
+        resultElement.innerHTML = `
+            <i class="${resultIcon}"></i>
+            <span>${resultText}</span>
+        `;
+    }
+    
+    updateScores(result) {
+        if (result === 'win') {
+            this.playerScore++;
+        } else if (result === 'lose') {
+            this.computerScore++;
+        }
+        
+        document.getElementById('playerScore').textContent = this.playerScore;
+        document.getElementById('computerScore').textContent = this.computerScore;
+    }
+    
+    updateRoundCounter() {
+        document.getElementById('roundCount').textContent = this.roundCount;
+    }
+    
+    updateStats(result) {
+        if (result === 'win') {
+            this.totalWins++;
+        } else if (result === 'lose') {
+            this.totalLoses++;
+        } else {
+            this.totalDraws++;
+        }
+    }
+    
+    disableButtons(duration) {
+        const buttons = document.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+        
+        setTimeout(() => {
+            buttons.forEach(btn => btn.disabled = false);
+        }, duration);
+    }
+    
+    resetGame() {
+        this.playerScore = 0;
+        this.computerScore = 0;
+        this.roundCount = 0;
+        
+        document.getElementById('playerScore').textContent = '0';
+        document.getElementById('computerScore').textContent = '0';
+        document.getElementById('roundCount').textContent = '0';
+        
+        // 선택 표시 초기화
+        document.getElementById('playerChoice').innerHTML = '<i class="fas fa-question-circle"></i>';
+        document.getElementById('computerChoice').innerHTML = '<i class="fas fa-question-circle"></i>';
+        
+        // 결과 표시 초기화
+        const resultElement = document.getElementById('gameResult');
+        resultElement.className = 'result-display';
+        resultElement.innerHTML = `
+            <i class="fas fa-gamepad"></i>
+            <span>게임 시작!</span>
+        `;
+    }
+    
+    showStats() {
+        this.updateStatsDisplay();
+        document.getElementById('statsPanel').classList.add('active');
+    }
+    
+    hideStats() {
+        document.getElementById('statsPanel').classList.remove('active');
+    }
+    
+    updateStatsDisplay() {
+        document.getElementById('totalGames').textContent = this.totalGames;
+        document.getElementById('totalWins').textContent = this.totalWins;
+        document.getElementById('totalLoses').textContent = this.totalLoses;
+        document.getElementById('totalDraws').textContent = this.totalDraws;
+        
+        const winRate = this.totalGames > 0 ? 
+            Math.round((this.totalWins / this.totalGames) * 100) : 0;
+        document.getElementById('winRate').textContent = winRate + '%';
+    }
+    
+    saveStats() {
+        const stats = {
+            totalGames: this.totalGames,
+            totalWins: this.totalWins,
+            totalLoses: this.totalLoses,
+            totalDraws: this.totalDraws
+        };
+        localStorage.setItem('rpsGameStats', JSON.stringify(stats));
+    }
+    
+    loadStats() {
+        const savedStats = localStorage.getItem('rpsGameStats');
+        if (savedStats) {
+            const stats = JSON.parse(savedStats);
+            this.totalGames = stats.totalGames || 0;
+            this.totalWins = stats.totalWins || 0;
+            this.totalLoses = stats.totalLoses || 0;
+            this.totalDraws = stats.totalDraws || 0;
+        }
+    }
+}
+
+// 페이지 로드 후 게임 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    new RockPaperScissorsGame();
+});
+</script>
+
+{{ end }}

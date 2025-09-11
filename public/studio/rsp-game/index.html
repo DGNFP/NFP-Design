@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<style>
+.post-body{margin:0}.post-body img[src^="/img/uploads/"]{max-width:70%!important;height:auto!important;margin:0 0 20px 0!important;display:block!important;border-radius:4px!important}.img-aspect-wrapper{contain:layout style paint;min-height:300px}
+</style>
+
+
+<link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+
+
+
+  
+
+
+
+<script>
+  window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('message channel closed')) {
+        e.preventDefault();
+    }
+});
+</script>
+
+    
+    <meta name="naver-site-verification" content="d30a959ee0992c0002c04b07de71bb309638363a" />
+
+    
+
+
+<title>가위바위보 게임 - Studio NFP | 무료 온라인 디자인 도구</title>
+
+
+<meta name="keywords" content="가위바위보, 게임, 대전게임, 브라우저게임, 클래식게임, 컴퓨터게임">
+
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:1313/studio/rsp-game/">
+<meta name="author" content="NFP Design">
+    
+    
+    <meta property="og:title" content="가위바위보 게임 - NFP 디자인">
+    <meta property="og:description" content="컴퓨터와 즐기는 클래식 가위바위보 대전 게임입니다.">
+    <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="http://localhost:1313/studio/rsp-game/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NFP 디자인">
+    <meta property="og:locale" content="ko_KR">
+    
+        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="가위바위보 게임 - NFP 디자인">
+    <meta name="twitter:description" content="컴퓨터와 즐기는 클래식 가위바위보 대전 게임입니다.">
+    <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
+    <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
+    
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "가위바위보 게임",
+      "description": "컴퓨터와 즐기는 클래식 가위바위보 대전 게임입니다.",
+      "url": "http:\/\/localhost:1313\/studio\/rsp-game\/",
+      
+      "datePublished": "2025-01-01T00:00:00\u002b09:00",
+      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "author": {
+        "@type": "Person",
+        "name": "NFP Design"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NFP 디자인",
+        "url": "http:\/\/localhost:1313\/",
+        "logo": "http:\/\/localhost:1313\/img\/nfp-main.png"
+      }
+      
+    }
+    </script>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('css/')) {
+                    link.remove();
+                }
+            });
+        });
+    </script>
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
+    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+    
+    
+    
+    
+    
+    
+    <link rel="icon" type="image/png" href="/img/icon_180.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_180.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/icon_180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon_180.png">
+    
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NFP 디자인">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    
+<link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<section class="section">
+<div class="container">
+    
+    <div class="studio-page-header">
+        <h1>Studio <span>NFP</span></h1>
+        <span class="highlight">가위바위보 게임</span>
+        <p><br>컴퓨터와 가위바위보 대결을 해보세요.</p>
+    </div>
+
+    
+    <div class="page-btn-wrapper">
+        <a href="/studio" class="page-btn">스튜디오 메인</a>
+        <a href="/studio/web-demo" class="page-btn">웹 데모</a>
+        <a href="/studio/design-guide/" class="page-btn">디자인 가이드</a>
+    </div>
+
+    
+    <div class="studio-page-content"> 
+        <div class="studio-container">
+            
+            <div class="studio-description">
+                <h3>가위바위보 대전</h3>
+                <p>컴퓨터와 가위바위보 게임을 즐겨보세요!<br>
+                #가위바위보 #게임 #대전</p>
+            </div>
+
+            
+            <div class="rps-game-container">
+                
+                
+                <div class="game-header">
+                    <div class="score-board">
+                        <div class="score-item">
+                            <span class="score-label">플레이어</span>
+                            <span class="score-value" id="playerScore">0</span>
+                        </div>
+                        <div class="score-divider">VS</div>
+                        <div class="score-item">
+                            <span class="score-label">컴퓨터</span>
+                            <span class="score-value" id="computerScore">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="game-play-area">
+                    
+                    <div class="player-section">
+                        <div class="player-header">
+                            <i class="fas fa-user"></i>
+                            <span>플레이어</span>
+                        </div>
+                        <div class="choice-display" id="playerChoice">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="choice-label">선택해주세요</div>
+                    </div>
+
+                    
+                    <div class="result-section">
+                        <div class="result-display" id="gameResult">
+                            <i class="fas fa-gamepad"></i>
+                            <span>게임 시작!</span>
+                        </div>
+                        <div class="round-counter">
+                            라운드 <span id="roundCount">0</span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="computer-section">
+                        <div class="computer-header">
+                            <i class="fas fa-robot"></i>
+                            <span>컴퓨터</span>
+                        </div>
+                        <div class="choice-display" id="computerChoice">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="choice-label">생각중...</div>
+                    </div>
+                </div>
+
+                
+                <div class="choice-buttons">
+                    <button class="choice-btn" data-choice="rock">
+                        <i class="fas fa-hand-rock"></i>
+                        <span>바위</span>
+                    </button>
+                    <button class="choice-btn" data-choice="paper">
+                        <i class="fas fa-hand-paper"></i>
+                        <span>보</span>
+                    </button>
+                    <button class="choice-btn" data-choice="scissors">
+                        <i class="fas fa-hand-scissors"></i>
+                        <span>가위</span>
+                    </button>
+                </div>
+
+                
+                <div class="game-controls">
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i>
+                        <span>다시 시작</span>
+                    </button>
+                    <button class="control-btn stats-btn" id="statsBtn">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>통계 보기</span>
+                    </button>
+                </div>
+
+                
+                <div class="stats-panel" id="statsPanel">
+                    <div class="stats-header">
+                        <h4>게임 통계</h4>
+                        <button class="close-stats" id="closeStats">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="stats-content">
+                        <div class="stat-item">
+                            <span class="stat-label">총 게임 수</span>
+                            <span class="stat-value" id="totalGames">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">승리</span>
+                            <span class="stat-value" id="totalWins">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">패배</span>
+                            <span class="stat-value" id="totalLoses">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">무승부</span>
+                            <span class="stat-value" id="totalDraws">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">승률</span>
+                            <span class="stat-value" id="winRate">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<style>
+ 
+.rps-game-container {
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+ 
+.game-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.score-board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: rgba(39, 39, 39, 0.5);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.score-label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.score-value {
+    color: var(--accent-color);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.score-divider {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+ 
+.game-play-area {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.player-section,
+.computer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.player-header,
+.computer-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.player-header i,
+.computer-header i {
+    font-size: 18px;
+    color: var(--accent-color);
+}
+
+.choice-display {
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(39, 39, 39, 0.5);
+    transition: all 0.3s ease;
+}
+
+.choice-display i {
+    font-size: 48px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.choice-display.active i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.choice-label {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+}
+
+ 
+.result-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.result-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: rgba(39, 39, 39, 0.5);
+    min-width: 160px;
+    text-align: center;
+}
+
+.result-display i {
+    font-size: 32px;
+    color: var(--accent-color);
+}
+
+.result-display span {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.result-display.win {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.result-display.lose {
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+.result-display.draw {
+    border-color: #ffa500;
+    background: rgba(255, 165, 0, 0.1);
+}
+
+.round-counter {
+    color: #666;
+    font-size: 14px;
+}
+
+ 
+.choice-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.choice-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    border: 2px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.choice-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+    transform: translateY(-2px);
+}
+
+.choice-btn:active {
+    transform: translateY(0);
+}
+
+.choice-btn i {
+    font-size: 36px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.choice-btn:hover i {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.choice-btn span {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.choice-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.choice-btn:disabled:hover {
+    border-color: var(--sub-border-color);
+    background: var(--sub-bg-color);
+    transform: none;
+}
+
+ 
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    background: var(--sub-bg-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.control-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+.reset-btn:hover {
+    color: #ff4757;
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+}
+
+ 
+.stats-panel {
+    position: relative;
+     
+     
+     
+    background: var(--sub-bg-color);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+     
+    margin: 30px auto;
+     
+    width: 50%;
+    display: none;
+}
+
+.stats-panel.active {
+    display: block;
+}
+
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.stats-header h4 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.close-stats {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.close-stats:hover {
+    color: white;
+}
+
+.stats-content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 16px;
+}
+
+.stat-value {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+ 
+@media (max-width: 768px) {
+    .game-play-area {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .choice-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .score-board {
+        gap: 20px;
+        padding: 16px;
+    }
+}
+</style>
+
+<script>
+class RockPaperScissorsGame {
+    constructor() {
+        this.playerScore = 0;
+        this.computerScore = 0;
+        this.roundCount = 0;
+        this.totalGames = 0;
+        this.totalWins = 0;
+        this.totalLoses = 0;
+        this.totalDraws = 0;
+        
+        this.choices = {
+            rock: { icon: 'fas fa-hand-rock', name: '바위' },
+            paper: { icon: 'fas fa-hand-paper', name: '보' },
+            scissors: { icon: 'fas fa-hand-scissors', name: '가위' }
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.setupEventListeners();
+        this.loadStats();
+    }
+    
+    setupEventListeners() {
+        
+        document.querySelectorAll('.choice-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const choice = btn.dataset.choice;
+                this.playRound(choice);
+            });
+        });
+        
+        
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            this.resetGame();
+        });
+        
+        
+        document.getElementById('statsBtn').addEventListener('click', () => {
+            this.showStats();
+        });
+        
+        
+        document.getElementById('closeStats').addEventListener('click', () => {
+            this.hideStats();
+        });
+    }
+    
+    playRound(playerChoice) {
+        const computerChoice = this.getComputerChoice();
+        const result = this.determineWinner(playerChoice, computerChoice);
+        
+        this.roundCount++;
+        this.totalGames++;
+        
+        
+        this.updateChoiceDisplay('playerChoice', playerChoice);
+        this.updateChoiceDisplay('computerChoice', computerChoice);
+        this.updateResult(result, playerChoice, computerChoice);
+        this.updateScores(result);
+        this.updateRoundCounter();
+        
+        
+        this.updateStats(result);
+        this.saveStats();
+        
+        
+        this.disableButtons(1000);
+    }
+    
+    getComputerChoice() {
+        const choices = Object.keys(this.choices);
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
+    
+    determineWinner(player, computer) {
+        if (player === computer) return 'draw';
+        
+        const winConditions = {
+            rock: 'scissors',
+            paper: 'rock',
+            scissors: 'paper'
+        };
+        
+        return winConditions[player] === computer ? 'win' : 'lose';
+    }
+    
+    updateChoiceDisplay(elementId, choice) {
+        const element = document.getElementById(elementId);
+        const choiceData = this.choices[choice];
+        
+        element.innerHTML = `<i class="${choiceData.icon}"></i>`;
+        element.classList.add('active');
+        
+        setTimeout(() => {
+            element.classList.remove('active');
+        }, 1000);
+    }
+    
+    updateResult(result, playerChoice, computerChoice) {
+        const resultElement = document.getElementById('gameResult');
+        const playerName = this.choices[playerChoice].name;
+        const computerName = this.choices[computerChoice].name;
+        
+        let resultText = '';
+        let resultIcon = '';
+        let resultClass = '';
+        
+        if (result === 'win') {
+            resultText = `승리!<br>${playerName} vs ${computerName}`;
+            resultIcon = 'fas fa-trophy';
+            resultClass = 'win';
+        } else if (result === 'lose') {
+            resultText = `패배!<br>${playerName} vs ${computerName}`;
+            resultIcon = 'fas fa-times-circle';
+            resultClass = 'lose';
+        } else {
+            resultText = `무승부!<br>${playerName} vs ${computerName}`;
+            resultIcon = 'fas fa-handshake';
+            resultClass = 'draw';
+        }
+        
+        resultElement.className = `result-display ${resultClass}`;
+        resultElement.innerHTML = `
+            <i class="${resultIcon}"></i>
+            <span>${resultText}</span>
+        `;
+    }
+    
+    updateScores(result) {
+        if (result === 'win') {
+            this.playerScore++;
+        } else if (result === 'lose') {
+            this.computerScore++;
+        }
+        
+        document.getElementById('playerScore').textContent = this.playerScore;
+        document.getElementById('computerScore').textContent = this.computerScore;
+    }
+    
+    updateRoundCounter() {
+        document.getElementById('roundCount').textContent = this.roundCount;
+    }
+    
+    updateStats(result) {
+        if (result === 'win') {
+            this.totalWins++;
+        } else if (result === 'lose') {
+            this.totalLoses++;
+        } else {
+            this.totalDraws++;
+        }
+    }
+    
+    disableButtons(duration) {
+        const buttons = document.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+        
+        setTimeout(() => {
+            buttons.forEach(btn => btn.disabled = false);
+        }, duration);
+    }
+    
+    resetGame() {
+        this.playerScore = 0;
+        this.computerScore = 0;
+        this.roundCount = 0;
+        
+        document.getElementById('playerScore').textContent = '0';
+        document.getElementById('computerScore').textContent = '0';
+        document.getElementById('roundCount').textContent = '0';
+        
+        
+        document.getElementById('playerChoice').innerHTML = '<i class="fas fa-question-circle"></i>';
+        document.getElementById('computerChoice').innerHTML = '<i class="fas fa-question-circle"></i>';
+        
+        
+        const resultElement = document.getElementById('gameResult');
+        resultElement.className = 'result-display';
+        resultElement.innerHTML = `
+            <i class="fas fa-gamepad"></i>
+            <span>게임 시작!</span>
+        `;
+    }
+    
+    showStats() {
+        this.updateStatsDisplay();
+        document.getElementById('statsPanel').classList.add('active');
+    }
+    
+    hideStats() {
+        document.getElementById('statsPanel').classList.remove('active');
+    }
+    
+    updateStatsDisplay() {
+        document.getElementById('totalGames').textContent = this.totalGames;
+        document.getElementById('totalWins').textContent = this.totalWins;
+        document.getElementById('totalLoses').textContent = this.totalLoses;
+        document.getElementById('totalDraws').textContent = this.totalDraws;
+        
+        const winRate = this.totalGames > 0 ? 
+            Math.round((this.totalWins / this.totalGames) * 100) : 0;
+        document.getElementById('winRate').textContent = winRate + '%';
+    }
+    
+    saveStats() {
+        const stats = {
+            totalGames: this.totalGames,
+            totalWins: this.totalWins,
+            totalLoses: this.totalLoses,
+            totalDraws: this.totalDraws
+        };
+        localStorage.setItem('rpsGameStats', JSON.stringify(stats));
+    }
+    
+    loadStats() {
+        const savedStats = localStorage.getItem('rpsGameStats');
+        if (savedStats) {
+            const stats = JSON.parse(savedStats);
+            this.totalGames = stats.totalGames || 0;
+            this.totalWins = stats.totalWins || 0;
+            this.totalLoses = stats.totalLoses || 0;
+            this.totalDraws = stats.totalDraws || 0;
+        }
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    new RockPaperScissorsGame();
+});
+</script>
+
+
+    
+    <div id="footer-container"></div>
+    <div id="floating-buttons-container"></div>
+
+
+
+  
+
+
+
+
+
+    
+    
+    <script src="/components/header.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="/components/floating.js"></script>
+    <script src="/components/project.js"></script>
+    <script src="/js/studio.js"></script>
+    
+    
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createHeader('header-container');
+            createFooter('footer-container');
+            createFloatingButtons('floating-buttons-container');
+        });
+    </script>
+    
+    
+    
+    <script src="/js/filter.js"></script>
+    
+    
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    
+<script type="module">
+  
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
+  const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
+    authDomain: "nfp-design.firebaseapp.com",
+    projectId: "nfp-design",
+    storageBucket: "nfp-design.firebasestorage.app",
+    messagingSenderId: "731666960352",
+    appId: "1:731666960352:web:5d28f1f68864c61c796585",
+    measurementId: "G-ZWL48L9Q4Z"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  
+  
+  window.firebaseDB = db;
+  window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
+  
+</script>
+
+   
+
+</body>
+</html>
