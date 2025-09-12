@@ -82,7 +82,7 @@
 </div>
 <!-- 버튼 컨테이너 닫힘 -->
 
-    <!-- 탭 컨텐츠 -->
+<!-- 탭 컨텐츠 -->
     <div class="studio-page-content">
         <div class="studio-container">
             <!-- 설명 -->
@@ -260,15 +260,15 @@ class DocumentMerger {
 
     showToast(message, type = 'info') {
         // 기존 토스트 제거
-        const existingToast = document.querySelector('.toast');
+        const existingToast = document.querySelector('.pdf-merger-toast');
         if (existingToast) {
             existingToast.remove();
         }
 
         const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
+        toast.className = `pdf-merger-toast pdf-merger-toast-${type}`;
         toast.innerHTML = `
-            <div class="toast-content">
+            <div class="pdf-merger-toast-content">
                 <i class="fas ${type === 'error' ? 'fa-exclamation-circle' : type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
                 <span>${message}</span>
             </div>
@@ -279,7 +279,8 @@ class DocumentMerger {
         // 3초 후 자동 제거
         setTimeout(() => {
             if (toast.parentNode) {
-                toast.remove();
+                toast.style.transform = 'translateX(400px)';
+                setTimeout(() => toast.remove(), 300);
             }
         }, 3000);
     }

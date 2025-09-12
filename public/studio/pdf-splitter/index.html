@@ -787,7 +787,7 @@ class PDFSplitter {
         
         const a = document.createElement('a');
         a.href = url;
-        a.download = result.fileName;
+        a.download = `Studio-NFP-split_${result.fileName}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -816,7 +816,7 @@ class PDFSplitter {
             
             const a = document.createElement('a');
             a.href = url;
-            a.download = `StudioNFP-split_${this.selectedFile.name.replace('.pdf', '')}.zip`;
+            a.download = `Studio-NFP-split_${this.selectedFile.name.replace('.pdf', '')}.zip`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);

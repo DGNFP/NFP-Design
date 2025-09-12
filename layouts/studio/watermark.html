@@ -82,7 +82,7 @@
 </div>
 <!-- 버튼 컨테이너 닫힘 -->
 
-    <!-- 탭 컨텐츠 -->
+<!-- 탭 컨텐츠 -->
     <div class="studio-page-content">
         <div class="container">
 
@@ -103,8 +103,29 @@
                         <!-- 이미지 파일 섹션 -->
                         <div class="watermark-batch-section">
                             <h3 class="watermark-batch-section-title">① 이미지 파일</h3>
-                            <label class="watermark-batch-label">이미지 선택 <span>(다중 선택 가능, 파일을 선택하거나 드래그&드롭 하세요.)</span></label>
-                            <input id="watermark-files" type="file" accept="image/*" multiple class="watermark-batch-input">
+                            
+                            <!-- 드래그앤드롭 업로드 영역 -->
+                            <div id="dropZone" class="watermark-upload-zone">
+                                <div class="watermark-upload-content">
+                                    <div class="watermark-upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <p class="watermark-upload-text">
+                                        <strong>이미지를 여기에 드래그하거나 클릭하여 선택</strong><br>
+                                        <small>다중 선택 가능 (JPEG, PNG, WebP)</small>
+                                    </p>
+                                </div>
+                                <input id="watermark-files" type="file" accept="image/*" multiple class="watermark-batch-input" style="display: none;">
+                            </div>
+                            
+                            <!-- 선택된 파일 목록 -->
+                            <div id="selectedFiles" class="watermark-selected-files" style="display: none;">
+                                <div class="watermark-files-header">
+                                    <span id="fileCount">0개 파일 선택됨</span>
+                                    <button id="clearFiles" class="watermark-clear-btn">모두 제거</button>
+                                </div>
+                                <div id="filesList" class="watermark-files-list"></div>
+                            </div>
                             
                             <div class="watermark-batch-row">
                                 <div>
@@ -268,6 +289,155 @@
 </div>
 </section>
 
+<style>
+/* 드래그앤드롭 업로드 영역 */
+.watermark-upload-zone {
+    border: 2px dashed var(--sub-border-color);
+    border-radius: 4px;
+    padding: 40px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+}
+
+.watermark-upload-zone:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.05);
+}
+
+.watermark-upload-zone.drag-over {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.1);
+}
+
+.watermark-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.watermark-upload-icon {
+    font-size: 48px;
+    opacity: 0.7;
+}
+
+.watermark-upload-text {
+    color: white;
+    margin: 0;
+}
+
+.watermark-upload-text strong {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.watermark-upload-text small {
+    color: #666;
+    font-size: 14px;
+}
+
+/* 선택된 파일 목록 */
+.watermark-selected-files {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--sub-border-color);
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.watermark-files-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--sub-border-color);
+}
+
+.watermark-files-header span {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.watermark-clear-btn {
+    background: transparent;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.watermark-clear-btn:hover {
+    background: #ff4444;
+    color: white;
+}
+
+.watermark-files-list {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.watermark-file-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.watermark-file-item:last-child {
+    border-bottom: none;
+}
+
+.watermark-file-icon {
+    color: var(--accent-color);
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.watermark-file-name {
+    flex: 1;
+    color: white;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.watermark-file-size {
+    color: #666;
+    font-size: 12px;
+    min-width: 60px;
+    text-align: right;
+}
+
+.watermark-file-remove {
+    background: transparent;
+    color: #ff4444;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.watermark-file-remove:hover {
+    background: #ff4444;
+    color: white;
+}
+</style>
+
 <!-- 라이브러리 로드 -->
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
@@ -279,6 +449,149 @@ const watermarkState = {
     customPos: null
 };
 
+// 토스트 메시지 표시 함수
+function showToast(message, duration = 3000) {
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    const toast = document.createElement('div');
+    toast.className = 'toast show';
+    toast.textContent = message;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, duration);
+}
+
+// 파일 크기 포맷팅
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// 드래그앤드롭 설정
+function setupDragDrop() {
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('watermark-files');
+
+    // 클릭으로 파일 선택
+    dropZone.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    // 드래그 이벤트
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+    });
+
+    dropZone.addEventListener('dragleave', (e) => {
+        if (!dropZone.contains(e.relatedTarget)) {
+            dropZone.classList.remove('drag-over');
+        }
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        
+        const files = Array.from(e.dataTransfer.files).filter(file => 
+            file.type.startsWith('image/')
+        );
+        
+        if (files.length > 0) {
+            handleFiles(files);
+        } else {
+            showToast('이미지 파일만 업로드 가능합니다.');
+        }
+    });
+
+    // 파일 입력 변경
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            handleFiles(Array.from(e.target.files));
+        }
+    });
+}
+
+// 파일 처리
+function handleFiles(newFiles) {
+    // 기존 파일에 새 파일 추가 (중복 제거)
+    newFiles.forEach(file => {
+        const exists = watermarkState.files.some(existingFile => 
+            existingFile.name === file.name && existingFile.size === file.size
+        );
+        if (!exists) {
+            watermarkState.files.push(file);
+        }
+    });
+    
+    updateFilesList();
+    renderPreview();
+    
+    const addedCount = newFiles.length;
+    showToast(`${addedCount}개 파일이 추가되었습니다.`);
+}
+
+// 파일 목록 업데이트
+function updateFilesList() {
+    const selectedFiles = document.getElementById('selectedFiles');
+    const filesList = document.getElementById('filesList');
+    const fileCount = document.getElementById('fileCount');
+    
+    if (watermarkState.files.length === 0) {
+        selectedFiles.style.display = 'none';
+        return;
+    }
+    
+    selectedFiles.style.display = 'block';
+    fileCount.textContent = `${watermarkState.files.length}개 파일 선택됨`;
+    
+    filesList.innerHTML = '';
+    watermarkState.files.forEach((file, index) => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'watermark-file-item';
+        
+        fileItem.innerHTML = `
+            <div class="watermark-file-icon">
+                <i class="fas fa-file-image"></i>
+            </div>
+            <div class="watermark-file-name">${file.name}</div>
+            <div class="watermark-file-size">${formatFileSize(file.size)}</div>
+            <button class="watermark-file-remove" onclick="removeFile(${index})">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+        
+        filesList.appendChild(fileItem);
+    });
+}
+
+// 파일 제거
+function removeFile(index) {
+    watermarkState.files.splice(index, 1);
+    updateFilesList();
+    renderPreview();
+    showToast('파일이 제거되었습니다.');
+}
+
+// 모든 파일 제거
+function clearAllFiles() {
+    watermarkState.files = [];
+    watermarkState.customPos = null;
+    updateFilesList();
+    renderPreview();
+    showToast('모든 파일이 제거되었습니다.');
+}
+
 function readFileAsDataURL(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -286,10 +599,6 @@ function readFileAsDataURL(file) {
         reader.onerror = reject;
         reader.readAsDataURL(file);
     });
-}
-
-async function getOrientation(file) {
-    return 1; // 항상 기본 방향 사용
 }
 
 function drawWithOrientation(ctx, img, w, h, orientation) {
@@ -334,6 +643,12 @@ const ctx = canvas.getContext('2d');
 async function renderPreview() {
     if (watermarkState.files.length === 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#333';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#666';
+        ctx.font = '40px system-ui';
+        ctx.textAlign = 'center';
+        ctx.fillText('이미지를 선택하면 미리보기가 표시됩니다.', canvas.width/2, canvas.height/2);
         return;
     }
     
@@ -397,6 +712,7 @@ async function renderPreview() {
 // 드래그 이벤트
 let dragging = false;
 canvas.addEventListener('pointerdown', (e) => {
+    if (watermarkState.files.length === 0) return;
     dragging = true;
     const rect = canvas.getBoundingClientRect();
     watermarkState.customPos = { x: e.clientX - rect.left, y: e.clientY - rect.top };
@@ -404,7 +720,7 @@ canvas.addEventListener('pointerdown', (e) => {
 });
 
 window.addEventListener('pointermove', (e) => {
-    if (!dragging) return;
+    if (!dragging || watermarkState.files.length === 0) return;
     const rect = canvas.getBoundingClientRect();
     watermarkState.customPos = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     renderPreview();
@@ -466,7 +782,7 @@ async function processOne(file) {
 
 async function batchZip() {
     if (!watermarkState.files.length) {
-        alert('이미지를 먼저 선택해주세요!');
+        showToast('이미지를 먼저 선택해주세요!');
         return;
     }
     
@@ -483,7 +799,7 @@ async function batchZip() {
             const ext = (document.getElementById('watermark-outputFormat').value === 'image/png' || 
                         (document.getElementById('watermark-outputFormat').value === 'auto' && file.type === 'image/png')) ? 'png' : 'jpg';
             const baseName = file.name.replace(/\.[^.]+$/, '');
-            zip.file(`${baseName}Studio-NFP_watermark.${ext}`, blob);
+            zip.file(`${baseName}_Studio-NFP_watermark.${ext}`, blob);
             i++;
             downloadBtn.textContent = `처리 중... (${i}/${watermarkState.files.length})`;
             
@@ -493,49 +809,60 @@ async function batchZip() {
         
         const zipBlob = await zip.generateAsync({ type: 'blob' });
         saveAs(zipBlob, `Studio-NFP_watermarked_${Date.now()}.zip`);
+        showToast('워터마크 처리가 완료되었습니다!');
     } catch (error) {
         console.error(error);
-        alert('처리 중 오류가 발생했습니다. 콘솔을 확인해주세요.');
+        showToast('처리 중 오류가 발생했습니다. 콘솔을 확인해주세요.');
     } finally {
         downloadBtn.disabled = false;
         downloadBtn.textContent = 'ZIP으로 일괄 저장';
     }
 }
 
-// 이벤트 리스너
-document.getElementById('watermark-files').addEventListener('change', (e) => {
-    watermarkState.files = [...e.target.files];
-    watermarkState.customPos = null;
-    renderPreview();
-});
-
-document.getElementById('watermark-wmImage').addEventListener('change', async (e) => {
-    const file = e.target.files[0];
-    if (!file) {
-        watermarkState.wmImg = null;
+// 이벤트 리스너 설정
+function setupEventListeners() {
+    // 워터마크 이미지 변경
+    document.getElementById('watermark-wmImage').addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) {
+            watermarkState.wmImg = null;
+            renderPreview();
+            return;
+        }
+        const url = await readFileAsDataURL(file);
+        watermarkState.wmImg = await loadHTMLImage(url);
         renderPreview();
-        return;
-    }
-    const url = await readFileAsDataURL(file);
-    watermarkState.wmImg = await loadHTMLImage(url);
-    renderPreview();
-});
+        showToast('워터마크 이미지가 업로드되었습니다.');
+    });
 
-// 입력 변경 이벤트
-['watermark-wmType', 'watermark-opacity', 'watermark-scalePct', 'watermark-hires', 
- 'watermark-fontSize', 'watermark-fontWeight', 'watermark-fontColor', 'watermark-wmText', 
- 'watermark-marginX', 'watermark-marginY', 'watermark-outputFormat', 'watermark-jpegQ'].forEach(id => {
-    document.getElementById(id).addEventListener('input', () => renderPreview());
-});
+    // 입력 변경 이벤트
+    ['watermark-wmType', 'watermark-opacity', 'watermark-scalePct', 'watermark-hires', 
+     'watermark-fontSize', 'watermark-fontWeight', 'watermark-fontColor', 'watermark-wmText', 
+     'watermark-marginX', 'watermark-marginY', 'watermark-outputFormat', 'watermark-jpegQ'].forEach(id => {
+        document.getElementById(id).addEventListener('input', () => renderPreview());
+    });
 
-document.querySelectorAll('input[name="watermark-pos"]').forEach(radio => {
-    radio.addEventListener('change', () => {
+    // 위치 라디오 버튼
+    document.querySelectorAll('input[name="watermark-pos"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            watermarkState.customPos = null;
+            renderPreview();
+        });
+    });
+
+    // 다운로드 버튼
+    document.getElementById('watermark-download').addEventListener('click', batchZip);
+
+    // 모든 파일 제거 버튼
+    document.getElementById('clearFiles').addEventListener('click', clearAllFiles);
+
+    // 타입 변경 시 패널 토글
+    document.getElementById('watermark-wmType').addEventListener('change', () => {
         watermarkState.customPos = null;
+        togglePanels();
         renderPreview();
     });
-});
-
-document.getElementById('watermark-download').addEventListener('click', batchZip);
+}
 
 // 타입 변경 시 패널 토글
 function togglePanels() {
@@ -544,13 +871,16 @@ function togglePanels() {
     document.getElementById('watermark-imageOpts').style.display = (type === 'image') ? 'block' : 'none';
 }
 
-document.getElementById('watermark-wmType').addEventListener('change', () => {
-    watermarkState.customPos = null;
+// 초기화
+function init() {
+    setupDragDrop();
+    setupEventListeners();
     togglePanels();
-    renderPreview();
-});
+    renderPreview(); // 초기 캔버스 설정
+}
 
-togglePanels();
+// 페이지 로드 시 초기화
+init();
 </script>
 
 {{ end }}
