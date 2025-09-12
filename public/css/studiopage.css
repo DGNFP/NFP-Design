@@ -13,8 +13,7 @@ html{
 
 @font-face {
   font-family: 'EunSikDimiBang';
-  src: url('/fonts/YydimibangBold.woff2') format('woff2'),
-       url('/fonts/YydimibangBold.woff') format('woff');
+  src: url('/fonts/YydimibangBold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: block;
