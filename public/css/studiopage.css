@@ -13,10 +13,11 @@ html{
 
 @font-face {
   font-family: 'EunSikDimiBang';
-  src: url('/fonts/YydimibangBold.woff2') format('woff2');
+  src: url('/fonts/YydimibangBold.woff2') format('woff2'),
+       url('/fonts/YydimibangBold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,7 +25,7 @@ html{
   src: url('/fonts/KDG.woff') format('woff');
   font-weight: 500;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
@@ -34,7 +35,7 @@ html{
   font-weight: 300;
   font-weight: 500;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 :root {
@@ -1115,7 +1116,7 @@ select.studio-form-input option {
 .studio-qr-result {
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 30px;
     border: 2px solid rgba(1, 255, 117, 0.2);
     display: flex;
@@ -13772,13 +13773,18 @@ width: 600px;
         font-size: 28px;
     }
 
-    /* 개선된 탭 버튼 - 3x2 그리드 */
-    .studio-page-tabs {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-        max-width: 100%;
-        margin-bottom: 30px;
-    }
+/* 개선된 탭 버튼 - 3x2 그리드 */
+.studio-page-tabs {
+grid-template-columns: repeat(3, 1fr);
+gap: 8px;
+max-width: 95%;
+margin-bottom: 30px;
+}
+
+.studio-main-content {
+margin: 0 auto;
+max-width: 95%;
+}
 
     .studio-page-tab {
         padding: 12px 8px;
@@ -14062,6 +14068,8 @@ row-gap: 8px; /* 행 간격 조정 */
 
     .studio-page-content {
         padding: 20px 25px;
+        margin: 0 auto;
+        width: 95%;
     }
 
     .studio-page-tabs {

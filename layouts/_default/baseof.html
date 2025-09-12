@@ -308,10 +308,12 @@
         {{- else if eq $cat "creative" -}}{{ $categoryKorean = "크리에이티브 디자인" -}}
         {{- else if eq $cat "web" -}}{{ $categoryKorean = "웹 디자인" -}}
         {{- else if eq $cat "programming" -}}{{ $categoryKorean = "웹 퍼블리싱" -}}
-        {{- else if eq $cat "project" -}}{{ $categoryKorean = "브랜딩 프로젝트" -}}
+        {{- else if eq $cat "project" -}}{{ $categoryKorean = "프로젝트" -}}
         {{- else if eq $cat "content" -}}{{ $categoryKorean = "컨텐츠 디자인" -}}
+        {{- else if eq $cat "streaming" -}}{{ $categoryKorean = "인터넷 방송 디자인" -}}
         {{- else if eq $cat "ad" -}}{{ $categoryKorean = "광고 디자인" -}}
-        {{- else if eq $cat "games" -}}{{ $categoryKorean = "게임 컨텐츠" -}}
+
+        {{- else if eq $cat "games" -}}{{ $categoryKorean = "게임 블로그" -}}
         {{- end -}}
       {{- end -}}
       {{- if eq .Params.categories "games" -}}
@@ -327,13 +329,14 @@
     {{- else if eq .Title "Video" -}}영상 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
     {{- else if eq .Title "Creative" -}}크리에이티브 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
     {{- else if eq .Title "Programming" -}}프로그래밍 작업물 - NFP 디자인 | 스튜디오 NFP
-    {{- else if eq .Title "Project" -}}브랜딩 프로젝트 작업물 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "streaming" -}}인터넷 방송 디자인 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Project" -}}프로젝트 - NFP 디자인 | 스튜디오 NFP
     {{- else if eq .Title "Ad" -}}광고 디자인 작업물 - NFP 디자인 | 스튜디오 NFP
-    {{- else if eq .Title "Games" -}}게임 컨텐츠 - Studio NFP | 스튜디오 NFP
+    {{- else if eq .Title "Games" -}}게임 블로그 - Studio NFP | 스튜디오 NFP
     {{- else -}}{{ .Title }} 작업물 - NFP 디자인 | 스튜디오 NFP{{ end -}}
   {{- end -}}
 {{- else if eq .Section "freeboard" -}}
-  {{- if eq .Title "Freeboards" -}}블로그 - Studio NFP | 스튜디오 NFP
+  {{- if eq .Title "blog" -}}블로그 - Studio NFP | 스튜디오 NFP
   {{- else -}}
     {{- if .Params.subCategory -}}
 [ {{ .Params.subCategory }} ] {{ .Title }} - NFP 디자인 | 스튜디오 NFP
@@ -342,7 +345,7 @@
     {{- end -}}
   {{- end -}}
 {{- else if eq .Section "games" -}}
-  {{- if eq .Title "Games" -}}게임 컨텐츠 - Studio NFP | 스튜디오 NFP
+  {{- if eq .Title "Games" -}}게임 블로그 - Studio NFP | 스튜디오 NFP
   {{- else -}}
     {{- if .Params.subCategory -}}
 [ {{ .Params.subCategory }} ] {{ .Title }} - Studio NFP | 스튜디오 NFP
@@ -354,7 +357,7 @@
 {{ .Title }} 관련 작업물 - NFP 디자인 | 스튜디오 NFP
 {{- else -}}
   {{- if eq .Title "Studio" -}}디자인 작업을 위한 전문 도구 모음 - Studio NFP | 스튜디오 NFP
-  {{- else if eq .Title "Games" -}}게임 컨텐츠 - Studio NFP | 스튜디오 NFP
+  {{- else if eq .Title "Games" -}}게임 블로그 - Studio NFP | 스튜디오 NFP
   {{- else if or (eq .Title "Notice") (eq .Title "Notices") -}}공지사항 - NFP 디자인 | 스튜디오 NFP
   {{- else if eq .Title "News" -}}NFP 소식 - NFP 디자인 | 스튜디오 NFP
   {{- else if eq .Title "Terms" -}}이용약관 - NFP 디자인 | 스튜디오 NFP

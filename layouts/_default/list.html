@@ -5,9 +5,13 @@
         <h2 class="board-section-title">NFP 디자인 포트폴리오</h2>
         <p class="board-intro">모든 작업물을을 모아둔 게시판</p>
 
-        
-<div class="all-view-all-wrapper">
+
+<!-- 전체작업 버튼만 별도로 구분 -->
+<div class="view-wrapper">
 <a href="{{ "/categories/" | relURL }}" class="all-view-all-button-active">전체 작업</a>
+</div>
+<!-- 그 아래 나머지 버튼들         -->
+<div class="all-view-all-wrapper">
 <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
 <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
 <a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
@@ -16,196 +20,197 @@
 <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
 <a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고 디자인</a>
 <a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
+<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">디자인 블로그</a>
 <a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
-<a href="{{ "/blog/" | relURL }}" class="all-view-all-button-blog">블로그</a>
+</div>
+<!-- 버튼 컨테이너 닫힘 -->
+
+<!-- 카테고리 필터 -->
+<div class="board-filter">
+<div class="filter-group">
+    <ul class="category-filter">
+        <li><a class="active" data-filter="all">전체</a></li>
+        <li><a data-filter="web">웹</a></li>
+        <li><a data-filter="content">컨텐츠</a></li>
+        <li><a data-filter="creative">크리에이티브</a></li>
+        <li><a data-filter="streaming">인터넷 방송</a></li>
+        <li><a data-filter="video">영상</a></li>
+        <li><a data-filter="programming">프로그래밍</a></li>
+        <li><a data-filter="ad">광고</a></li>
+        <li><a data-filter="project">프로젝트</a></li>
+        <li><a data-filter="youtube">유튜브</a></li>
+    </ul>
 </div>
 
-        <!-- 카테고리 필터 -->
-        <div class="board-filter">
-            <div class="filter-group">
-                <ul class="category-filter">
-                    <li><a class="active" data-filter="all">전체</a></li>
-                    <li><a data-filter="web">웹</a></li>
-                    <li><a data-filter="content">컨텐츠</a></li>
-                    <li><a data-filter="creative">크리에이티브</a></li>
-                    <li><a data-filter="streaming">인터넷 방송</a></li>
-                    <li><a data-filter="video">영상</a></li>
-                    <li><a data-filter="programming">프로그래밍</a></li>
-                    <li><a data-filter="ad">광고</a></li>
-                    <li><a data-filter="project">프로젝트</a></li>
-                    <li><a data-filter="youtube">유튜브</a></li>
-                </ul>
-            </div>
-            
-            <!-- 검색창 -->
-            <div class="board-search">
-                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
-                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
+<!-- 검색창 -->
+<div class="board-search">
+    <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+    <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+</div>
+</div>
 
-        <!-- 게시판 컨텐츠 -->
-         <section class="board-all-container">
-            <div class="board-all-grid">
-                <!-- 새로운: 모든 게시물 로드 -->
-                {{ $allPosts := where site.RegularPages "Section" "categories" }}
-                {{ $filteredPosts := slice }}
-                {{ range $allPosts }}
-                {{ if not (in .Params.categories "news") }}
-                    {{ $filteredPosts = $filteredPosts | append . }}
-                {{ end }}
-                {{ end }}
-                {{ range $filteredPosts }}
-                
-                {{ $mainCat := "" }}
-                {{ if .Params.categories }}
-                    {{ $mainCat = index .Params.categories 0 }}
-                {{ end }}
-                <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
-                    <a href="{{ .Permalink }}">
-                       <!-- 새로운 통합 썸네일 처리 (WebP 지원) -->
+    <!-- 게시판 컨텐츠 -->
+        <section class="board-all-container">
+        <div class="board-all-grid">
+            <!-- 새로운: 모든 게시물 로드 -->
+            {{ $allPosts := where site.RegularPages "Section" "categories" }}
+            {{ $filteredPosts := slice }}
+            {{ range $allPosts }}
+            {{ if not (in .Params.categories "news") }}
+                {{ $filteredPosts = $filteredPosts | append . }}
+            {{ end }}
+            {{ end }}
+            {{ range $filteredPosts }}
+            
+            {{ $mainCat := "" }}
+            {{ if .Params.categories }}
+                {{ $mainCat = index .Params.categories 0 }}
+            {{ end }}
+            <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
+                <a href="{{ .Permalink }}">
+                    <!-- 새로운 통합 썸네일 처리 (WebP 지원) -->
 <div class="board-thumbnail">
-    {{ $content := .Content }}
-    {{ $hasVideo := false }}
-    {{ $hasImage := false }}
-    {{ $videoId := "" }}
-    {{ $isVimeo := false }}
-    {{ $firstImageSrc := "" }}
-    {{ $firstContentType := "" }}
-    {{ $showPlaceholder := false }}
+{{ $content := .Content }}
+{{ $hasVideo := false }}
+{{ $hasImage := false }}
+{{ $videoId := "" }}
+{{ $isVimeo := false }}
+{{ $firstImageSrc := "" }}
+{{ $firstContentType := "" }}
+{{ $showPlaceholder := false }}
+
+<!-- 프로그래밍 카테고리 특별 규칙 확인 -->
+{{ if and (eq $mainCat "programming") (or (eq .Params.subCategory "프론트엔드") (eq .Params.subCategory "웹 퍼블리싱")) }}
+    {{ $showPlaceholder = true }}
+{{ else }}
+    <!-- 일반 카테고리 또는 프로그래밍 기타 서브카테고리 -->
     
-    <!-- 프로그래밍 카테고리 특별 규칙 확인 -->
-    {{ if and (eq $mainCat "programming") (or (eq .Params.subCategory "프론트엔드") (eq .Params.subCategory "웹 퍼블리싱")) }}
-        {{ $showPlaceholder = true }}
-    {{ else }}
-        <!-- 일반 카테고리 또는 프로그래밍 기타 서브카테고리 -->
-        
-       <!-- 1순위: 본문에서 첫 번째 이미지 찾기 -->
+    <!-- 1순위: 본문에서 첫 번째 이미지 찾기 -->
 {{ $imageMatches := findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
 {{ $youtubeMatches := "" }}
 {{ $vimeoMatches := "" }}
 
 {{ if $imageMatches }}
-    {{ $firstContentType = "image" }}
-    {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
-    {{ $hasImage = true }}
+{{ $firstContentType = "image" }}
+{{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+{{ $hasImage = true }}
 {{ else }}
-    <!-- 2순위: 본문에서 YouTube URL 찾기 (Shorts 포함) -->
-    {{ $youtubeMatches = findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
-    {{ if $youtubeMatches }}
-        {{ $firstContentType = "youtube" }}
-        {{ $fullMatch := index $youtubeMatches 0 }}
-        <!-- YouTube Shorts, 일반 YouTube, youtu.be 모두 처리 -->
-        {{ if findRE "/shorts/" $fullMatch 1 }}
-            {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
-        {{ else }}
-            {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
-        {{ end }}
-        {{ $hasVideo = true }}
+<!-- 2순위: 본문에서 YouTube URL 찾기 (Shorts 포함) -->
+{{ $youtubeMatches = findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+{{ if $youtubeMatches }}
+    {{ $firstContentType = "youtube" }}
+    {{ $fullMatch := index $youtubeMatches 0 }}
+    <!-- YouTube Shorts, 일반 YouTube, youtu.be 모두 처리 -->
+    {{ if findRE "/shorts/" $fullMatch 1 }}
+        {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
     {{ else }}
-        <!-- 3순위: 본문에서 Vimeo URL 찾기 -->
-        {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
-        {{ if $vimeoMatches }}
-            {{ $firstContentType = "vimeo" }}
-            {{ $fullMatch := index $vimeoMatches 0 }}
-            {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
-            {{ $hasVideo = true }}
-            {{ $isVimeo = true }}
-        {{ else }}
-            <!-- 4순위: 아무 것도 없으면 플레이스홀더 -->
-            {{ $showPlaceholder = true }}
-        {{ end }}
+        {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+    {{ end }}
+    {{ $hasVideo = true }}
+{{ else }}
+    <!-- 3순위: 본문에서 Vimeo URL 찾기 -->
+    {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
+    {{ if $vimeoMatches }}
+        {{ $firstContentType = "vimeo" }}
+        {{ $fullMatch := index $vimeoMatches 0 }}
+        {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
+        {{ $hasVideo = true }}
+        {{ $isVimeo = true }}
+    {{ else }}
+        <!-- 4순위: 아무 것도 없으면 플레이스홀더 -->
+        {{ $showPlaceholder = true }}
     {{ end }}
 {{ end }}
+{{ end }}
 
-    {{ end }}
-    
-    <!-- 썸네일 표시 분기 -->
-    {{ if $showPlaceholder }}
-        {{ if eq $mainCat "programming" }}
-            <!-- 프로그래밍 서브카테고리별 플레이스홀더 -->
-            <div class="demo-placeholder-all" data-subcategory="{{ .Params.subCategory }}">
-                <div class="demo-icon">
-                    {{ if eq .Params.subCategory "프론트엔드" }}
-                        <i class="fab fa-react"></i>
-                    {{ else if eq .Params.subCategory "백엔드" }}
-                        <i class="fas fa-server"></i>
-                    {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
-                        <i class="fab fa-html5"></i>
-                    {{ else if eq .Params.subCategory "모바일 앱" }}
-                        <i class="fas fa-mobile-alt"></i>
-                    {{ else if eq .Params.subCategory "게임 개발" }}
-                        <i class="fas fa-gamepad"></i>
-                    {{ else }}
-                        <i class="fas fa-code"></i>
-                    {{ end }}
-                </div>
-                <div class="demo-label">
-                    <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
-                    {{ if .Params.demoCode }}
-                        <span class="demo-tech">WEB DEMO</span>
-                    {{ end }}
-                </div>
-            </div>
-        {{ else }}
-            <!-- 일반 카테고리별 플레이스홀더 -->
-            <div class="category-placeholder-all" data-category="{{ $mainCat }}">
-                {{ if eq $mainCat "web" }}
-                    <i class="fas fa-desktop"></i>
-                    <span>웹 디자인</span>
-                {{ else if eq $mainCat "content" }}
-                    <i class="fas fa-image"></i>
-                    <span>콘텐츠 디자인</span>
-                {{ else if eq $mainCat "creative" }}
-                    <i class="fas fa-palette"></i>
-                    <span>크리에이티브</span>
-                {{ else if eq $mainCat "video" }}
-                    <i class="fas fa-video"></i>
-                    <span>영상 디자인</span>
-                {{ else if eq $mainCat "ad" }}
-                    <i class="fas fa-bullhorn"></i>
-                    <span>광고 디자인</span>
-                {{ else if eq $mainCat "project" }}
-                    <i class="fas fa-project-diagram"></i>
-                    <span>프로젝트</span>
+{{ end }}
+
+<!-- 썸네일 표시 분기 -->
+{{ if $showPlaceholder }}
+    {{ if eq $mainCat "programming" }}
+        <!-- 프로그래밍 서브카테고리별 플레이스홀더 -->
+        <div class="demo-placeholder-all" data-subcategory="{{ .Params.subCategory }}">
+            <div class="demo-icon">
+                {{ if eq .Params.subCategory "프론트엔드" }}
+                    <i class="fab fa-react"></i>
+                {{ else if eq .Params.subCategory "백엔드" }}
+                    <i class="fas fa-server"></i>
+                {{ else if eq .Params.subCategory "웹 퍼블리싱" }}
+                    <i class="fab fa-html5"></i>
+                {{ else if eq .Params.subCategory "모바일 앱" }}
+                    <i class="fas fa-mobile-alt"></i>
+                {{ else if eq .Params.subCategory "게임 개발" }}
+                    <i class="fas fa-gamepad"></i>
                 {{ else }}
-                    <i class="fas fa-file"></i>
-                    <span>게시글</span>
+                    <i class="fas fa-code"></i>
                 {{ end }}
             </div>
-        {{ end }}
-    {{ else if eq $firstContentType "youtube" }}
-        <!-- YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
-        <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
-             alt="{{ .Title }}" width="1280" height="720" loading="lazy"
-             onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'"
-             >
-        <div class="video-overlay">
-            <i class="fas fa-play"></i>
+            <div class="demo-label">
+                <span class="demo-type">{{ .Params.subCategory | default "프로그래밍" }}</span>
+                {{ if .Params.demoCode }}
+                    <span class="demo-tech">WEB DEMO</span>
+                {{ end }}
+            </div>
         </div>
-    {{ else if eq $firstContentType "vimeo" }}
-        <!-- Vimeo 썸네일 + 재생 아이콘 -->
-        <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
-             alt="{{ .Title }}" width="640" height="360" loading="lazy"
-             onerror="this.src='/img/vimeo-default.jpg'">
-        <div class="video-overlay">
-            <i class="fas fa-play"></i>
+    {{ else }}
+        <!-- 일반 카테고리별 플레이스홀더 -->
+        <div class="category-placeholder-all" data-category="{{ $mainCat }}">
+            {{ if eq $mainCat "web" }}
+                <i class="fas fa-desktop"></i>
+                <span>웹 디자인</span>
+            {{ else if eq $mainCat "content" }}
+                <i class="fas fa-image"></i>
+                <span>콘텐츠 디자인</span>
+            {{ else if eq $mainCat "creative" }}
+                <i class="fas fa-palette"></i>
+                <span>크리에이티브</span>
+            {{ else if eq $mainCat "video" }}
+                <i class="fas fa-video"></i>
+                <span>영상 디자인</span>
+            {{ else if eq $mainCat "ad" }}
+                <i class="fas fa-bullhorn"></i>
+                <span>광고 디자인</span>
+            {{ else if eq $mainCat "project" }}
+                <i class="fas fa-project-diagram"></i>
+                <span>프로젝트</span>
+            {{ else }}
+                <i class="fas fa-file"></i>
+                <span>게시글</span>
+            {{ end }}
         </div>
+    {{ end }}
+{{ else if eq $firstContentType "youtube" }}
+    <!-- YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
+    <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+            alt="{{ .Title }}" width="1280" height="720" loading="lazy"
+            onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'"
+            >
+    <div class="video-overlay">
+        <i class="fas fa-play"></i>
+    </div>
+{{ else if eq $firstContentType "vimeo" }}
+    <!-- Vimeo 썸네일 + 재생 아이콘 -->
+    <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
+            alt="{{ .Title }}" width="640" height="360" loading="lazy"
+            onerror="this.src='/img/vimeo-default.jpg'">
+    <div class="video-overlay">
+        <i class="fas fa-play"></i>
+    </div>
 
 
 {{ else if eq $firstContentType "image" }}
-    <!-- WebP 썸네일 처리 -->
-    {{ $originalSrc := $firstImageSrc }}
-    
-    <!-- 파일명에서 확장자 제거 -->
-    {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
-    
-    <picture>
-        <!-- WebP 버전 우선 로드 -->
-        <source srcset="{{ $withoutExt }}.webp" type="image/webp">
-        <!-- 원본 이미지 (폴백) -->
-        <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
-    </picture>
+<!-- WebP 썸네일 처리 -->
+{{ $originalSrc := $firstImageSrc }}
+
+<!-- 파일명에서 확장자 제거 -->
+{{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+
+<picture>
+    <!-- WebP 버전 우선 로드 -->
+    <source srcset="{{ $withoutExt }}.webp" type="image/webp">
+    <!-- 원본 이미지 (폴백) -->
+    <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
+</picture>
 {{ end }}
 
 
@@ -220,78 +225,79 @@
 
 <!-- 제목에 카테고리 명 표기되고 강조되게 수정 -->
 <h3 class="board-all-item-title">
-    {{- if .Params.subCategory -}}
-        <span class="category-text">[ {{ .Params.subCategory }} ]</span> {{ .Title }}
-    {{- else -}}
-        {{ .Title }}
-    {{- end -}}
+{{- if .Params.subCategory -}}
+    <span class="category-text">[ {{ .Params.subCategory }} ]</span> {{ .Title }}
+{{- else -}}
+    {{ .Title }}
+{{- end -}}
 </h3>
-    
-    <!-- 소제목 추가 -->
-    {{ if .Params.subtitle }}
-    <h4 class="board-all-item-subtitle">{{ .Params.subtitle }}</h4>
-    {{ end }}
-    
-    <!-- 카테고리 표시 (1차 + 2차 카테고리) -->
-    {{ if .Params.categories }}
-        <p class="board-all-item-desc">
-            {{ $mainCategory := index .Params.categories 0 }}
-            {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
-            {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
-            {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
-            {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
-            {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
-            {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
-            {{ if eq $mainCategory "project" }}프로젝트{{ end }}
-            {{ if eq $mainCategory "streaming" }}인터넷 방송 디자인{{ end }}
-            {{ if eq $mainCategory "youtube" }}유튜브{{ end }}
+
+<!-- 소제목 추가 -->
+{{ if .Params.subtitle }}
+<h4 class="board-all-item-subtitle">{{ .Params.subtitle }}</h4>
+{{ end }}
+
+<!-- 카테고리 표시 (1차 + 2차 카테고리) -->
+{{ if .Params.categories }}
+    <p class="board-all-item-desc">
+        {{ $mainCategory := index .Params.categories 0 }}
+        {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
+        {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
+        {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
+        {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
+        {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
+        {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
+        {{ if eq $mainCategory "project" }}프로젝트{{ end }}
+        {{ if eq $mainCategory "streaming" }}인터넷 방송 디자인{{ end }}
+        {{ if eq $mainCategory "blog" }}블로그{{ end }}
+        {{ if eq $mainCategory "youtube" }}유튜브{{ end }}
 <!-- 카테고리명 -> 2차카테고리 표기 로직 -->
-            {{ if .Params.subCategory }}
-                · {{ .Params.subCategory }}
-            {{ end }}
-        </p>
-    {{ end }}
-                            
-                           
-                            
-                            <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                            <a href="{{ .Permalink }}" class="board-all-item-link"></a>
-                            
-                             <!-- ✨ 태그 시스템 추가 (일관된 스타일) -->
+        {{ if .Params.subCategory }}
+            · {{ .Params.subCategory }}
+        {{ end }}
+    </p>
+{{ end }}
+                        
+                        
+                        
+                        <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
+                        <a href="{{ .Permalink }}" class="board-all-item-link"></a>
+                        
+                            <!-- ✨ 태그 시스템 추가 (일관된 스타일) -->
 {{ $mainCategory := index .Params.categories 0 }}
 {{ if eq $mainCategory "freeboard" }}
-   <!-- 자유게시판: 커스텀 태그 3개 -->
-   {{ if .Params.custom_tags }}
-   <div class="board-tags">
-       {{ range first 3 .Params.custom_tags }}
-           {{ $tagValue := . }}
-           {{ if reflect.IsMap . }}
-               {{ $tagValue = .tag }}
-           {{ end }}
-           <span class="board-tag">{{ $tagValue }}</span>
-       {{ end }}
-   </div>
-   {{ end }}
+<!-- 자유게시판: 커스텀 태그 3개 -->
+{{ if .Params.custom_tags }}
+<div class="board-tags">
+    {{ range first 3 .Params.custom_tags }}
+        {{ $tagValue := . }}
+        {{ if reflect.IsMap . }}
+            {{ $tagValue = .tag }}
+        {{ end }}
+        <span class="board-tag">{{ $tagValue }}</span>
+    {{ end }}
+</div>
+{{ end }}
 {{ else }}
-   <!-- 일반 게시판 & 프로젝트 게시판: 기본 태그 2개 + 커스텀 태그 1개 -->
-   {{ if or .Params.tags .Params.custom_tags }}
-   <div class="board-tags">
-       {{ if .Params.tags }}
-           {{ range first 2 .Params.tags }}
-           <span class="board-tag">{{ . }}</span>
-           {{ end }}
-       {{ end }}
-       {{ if .Params.custom_tags }}
-           {{ range first 1 .Params.custom_tags }}
-               {{ $tagValue := . }}
-               {{ if reflect.IsMap . }}
-                   {{ $tagValue = .tag }}
-               {{ end }}
-               <span class="board-tag">{{ $tagValue }}</span>
-           {{ end }}
-       {{ end }}
-   </div>
-   {{ end }}
+<!-- 일반 게시판 & 프로젝트 게시판: 기본 태그 2개 + 커스텀 태그 1개 -->
+{{ if or .Params.tags .Params.custom_tags }}
+<div class="board-tags">
+    {{ if .Params.tags }}
+        {{ range first 2 .Params.tags }}
+        <span class="board-tag">{{ . }}</span>
+        {{ end }}
+    {{ end }}
+    {{ if .Params.custom_tags }}
+        {{ range first 1 .Params.custom_tags }}
+            {{ $tagValue := . }}
+            {{ if reflect.IsMap . }}
+                {{ $tagValue = .tag }}
+            {{ end }}
+            <span class="board-tag">{{ $tagValue }}</span>
+        {{ end }}
+    {{ end }}
+</div>
+{{ end }}
 {{ end }}
 </div>
 
@@ -302,11 +308,11 @@
 {{ end }}
 
 </div>
-            
-            <!-- 새로운 JavaScript 페이지네이션 -->
-            <div class="pagination js-pagination">
-                <!-- JavaScript로 동적 생성됨 -->
-            </div>
-        </section>
+        
+        <!-- 새로운 JavaScript 페이지네이션 -->
+        <div class="pagination js-pagination">
+            <!-- JavaScript로 동적 생성됨 -->
+        </div>
+    </section>
 
 {{ end }}
