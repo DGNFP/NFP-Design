@@ -52,12 +52,27 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/categories/creative/</loc>
     <lastmod>2025-09-08T23:22:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/blog/projects/</loc>
+    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/tags/%EB%A1%9C%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2025-09-08T23:22:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/blog/projects/2025-09-08-%EC%9C%A4-%EA%B8%B0%ED%83%80%EA%B3%B5%EB%B0%A9-%EB%A1%9C%EA%B3%A0/</loc>
     <lastmod>2025-09-08T23:22:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -243,11 +258,6 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/categories/blog/</loc>
-    <lastmod>2025-07-13T21:25:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2025-07-13T21:25:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
