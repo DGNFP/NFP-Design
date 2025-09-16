@@ -113,7 +113,63 @@
     transition: all 0.3s ease;
 }
 
+.category-filter li a:hover{
+background-color: #4d4c4c77;
+color: var(--accent-color);
+}
 
+/* 활성화 상태 - 폰트 굵기 강화 */
+.category-filter li a.active {
+background-color: var(--accent-color);
+color: var(--background-color);
+font-weight: var(--font-bold);
+}
+
+/* 전체 게시판용 카테고리 필터도 동일하게 적용 */
+.all-category-filter li a.active {
+background-color: var(--accent-color);
+color: var(--background-color);
+font-weight: var(--font-bold);
+}
+
+/* 블로그 전용 페이크 필터 버튼 */
+.blog-wapper {
+display: flex;
+list-style: none;
+flex-wrap: wrap;
+gap: 10px;
+cursor: pointer;
+}
+
+.blog-btn {
+display: block;
+padding: 8px 16px;
+background-color: rgba(255, 255, 255, 0.05);
+border-radius: 20px;
+font-size: 14px;
+transition: all 0.3s ease;
+}
+
+.blog-btn-active{
+display: block;
+padding: 8px 16px;
+border-radius: 20px;
+font-size: 14px;
+transition: all 0.3s ease;
+background-color: var(--accent-color);
+color: var(--background-color);
+font-weight: var(--font-bold);   
+}
+
+.blog-btn:hover {
+background-color: #4d4c4c77;
+color: var(--accent-color);
+}
+/* 활성버튼 호버 */
+.blog-btn-active:hover{ 
+background: #005f2cfd;    
+color: #00FF75;
+}
 
 /*  가운데 정렬 및 간격 수정 */
 .all-view-all-wrapper {
@@ -292,14 +348,7 @@ left: 100%;
     transition: all 0.3s ease;
 }
 
-.category-filter li a:hover{
-    background-color: #4d4c4c77;
-    color: var(--accent-color);
-}
-.category-filter li a.active {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-}
+
 
 
 /* 검색창 */
@@ -1442,21 +1491,6 @@ word-break: break-word;
     font-size: 11px;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
-}
-
-/* board.css 또는 styles.css에 추가하세요 */
-/* 활성화 상태 - 폰트 굵기 강화 */
-.category-filter li a.active {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-    font-weight: var(--font-bold) !important; /* 가장 굵게 + 강제 적용 */
-}
-
-/* 전체 게시판용 카테고리 필터도 동일하게 적용 */
-.all-category-filter li a.active {
-    background-color: var(--accent-color);
-    color: var(--background-color);
-    font-weight: var(--font-bold) !important;
 }
 
 /* 페이지네이션 컨테이너 */

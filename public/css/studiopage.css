@@ -1116,7 +1116,7 @@ select.studio-form-input option {
 .studio-qr-result {
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 30px;
     border: 2px solid rgba(1, 255, 117, 0.2);
     display: flex;
@@ -13773,18 +13773,13 @@ width: 600px;
         font-size: 28px;
     }
 
-/* 개선된 탭 버튼 - 3x2 그리드 */
-.studio-page-tabs {
-grid-template-columns: repeat(3, 1fr);
-gap: 8px;
-max-width: 95%;
-margin-bottom: 30px;
-}
-
-.studio-main-content {
-margin: 0 auto;
-max-width: 95%;
-}
+    /* 개선된 탭 버튼 - 3x2 그리드 */
+    .studio-page-tabs {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
 
     .studio-page-tab {
         padding: 12px 8px;
@@ -14068,8 +14063,6 @@ row-gap: 8px; /* 행 간격 조정 */
 
     .studio-page-content {
         padding: 20px 25px;
-        margin: 0 auto;
-        width: 95%;
     }
 
     .studio-page-tabs {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>개인 작업 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
+    <link>http://localhost:1313/blog/projects/</link>
+    <description>Recent content in 개인 작업 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 08 Sep 2025 23:22:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>윤 기타공방 로고</title>
+      <link>http://localhost:1313/blog/projects/2025-09-08-%EC%9C%A4-%EA%B8%B0%ED%83%80%EA%B3%B5%EB%B0%A9-%EB%A1%9C%EA%B3%A0/</link>
+      <pubDate>Mon, 08 Sep 2025 23:22:00 +0900</pubDate>
+      <guid>http://localhost:1313/blog/projects/2025-09-08-%EC%9C%A4-%EA%B8%B0%ED%83%80%EA%B3%B5%EB%B0%A9-%EB%A1%9C%EA%B3%A0/</guid>
+      <description>&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/%ec%9c%a4-%ea%b8%b0%ed%83%80%ea%b3%b5%eb%b0%a9.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/%ec%9c%a4-%ea%b8%b0%ed%83%80%ea%b3%b5%eb%b0%a9.jpg&#34; &#xD;&#xA;         alt=&#34;기타를 형상화한 로고 디자인 - 윤 수제 기타 공방&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;기타를 형상화한 로고, 윤 - 수제 기타 공방의 로고 디자인 입니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
