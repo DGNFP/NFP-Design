@@ -968,6 +968,11 @@ animation: studio-content-scan 8s infinite linear;
 pointer-events: none;
 }
 
+.blog-tab-panel,
+.blog-sub-panel {
+    display: block;
+    position: relative;
+}
 
 .studio-tab-panel,
 .studio-sub-panel {

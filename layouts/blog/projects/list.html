@@ -1,35 +1,9 @@
 {{ define "main" }}
-<style>
-.board-grid-creative {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 20px;
-margin-bottom: 50px;
-}   
-.board-item-creative .board-item-title{
-font-size: 16px;
-height: auto;
-overflow: hidden;
-text-overflow: ellipsis;
-margin-bottom: 6px;
-color: var(--text-colorr);
-font-weight: var(--font-bold);
-line-height: 1.5;
-display: -webkit-box;
--webkit-line-clamp: 2;
--webkit-box-orient: vertical;
-line-clamp: 2;
-box-orient: vertical;
-white-space: normal !important;
-word-break: break-word;  
-}
-</style>
-
 <!-- 게시판 섹션 -->
 <section class="board-section">
     <div class="container">
         <h2 class="board-section-title">NFP 개인 작업</h2>
-        <p class="board-intro">로고 디자인, 음반 아트워크, 게임 마케팅 소재 등 창의적인 디자인 작업</p>
+        <p class="board-intro">디자인 + 프로그래밍 프로젝트들의 과정과 결과물을 자유롭게 공유하는 공간</p>
 
 <!-- 전체작업 버튼만 별도로 구분 -->
 <div class="view-wrapper">
@@ -56,6 +30,7 @@ word-break: break-word;
 <a href="{{ "/blog/" | relURL }}" class="blog-btn">블로그 전체</a>
 <a href="{{ "/blog/projects/" | relURL }}" class="blog-btn-active">개인 작업</a>
 <a href="{{ "/blog/tips/" | relURL }}" class="blog-btn">디자인 팁</a>
+<a href="{{ "/blog/daily/" | relURL }}" class="blog-btn">디자인 가이드</a>
 <a href="{{ "/blog/nfp-resources/" | relURL }}" class="blog-btn">NFP 자료실</a>
 <a href="{{ "/blog/daily/" | relURL }}" class="blog-btn">일상</a>
 </div>
@@ -68,13 +43,12 @@ word-break: break-word;
         </div>
              
         <!-- 크리에이티브 전용 4x3 분리형 레이아웃 (수정됨) -->
-        <div class="board-grid-creative">
+        <div class="board-grid-blog-projects">
             <!-- 모든 게시물 로드 -->
             {{ $allPosts := .Pages }}
             {{ range $allPosts }}
             <div class="board-item-creative" data-main="creative" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .Permalink }}">
-                    <!-- 이미지만 별도 영역 (카드 외부) -->
                   <!-- 이미지만 별도 영역 (카드 외부) -->
                     <div class="board-item-image-only">
                         {{ $content := .Content }}
