@@ -457,6 +457,11 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
+    <loc>http://localhost:1313/blog/tips/</loc>
+    <lastmod>2025-06-28T23:06:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/blog/tips/2025-06-28-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EA%B4%91%EA%B3%A0-%EC%98%81%EC%83%81/</loc>
     <lastmod>2025-06-28T23:06:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -819,6 +824,10 @@
   </url><url>
     <loc>http://localhost:1313/studio/fortune/</loc>
     <lastmod>2024-12-21T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/blog/guide/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
