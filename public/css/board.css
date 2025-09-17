@@ -21,10 +21,10 @@
     border: 1px solid var(--accent-color);
     color: var(--accent-color);
     padding: 10px 14px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 12px; /* 10px → 11px */
     font-weight: 700;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 0.5px;
     z-index: 10;
     white-space: nowrap;
@@ -42,20 +42,21 @@
 
 /* 게시판 페이지 스타일 */
 .board-section {
-    padding-top: 150px;
+    padding-top: 100px;
     padding-bottom: 80px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .board-section-title {
     font-size: 40px;
-    margin-bottom: 15px; /* 제목과 설명 사이 여백 줄임 */
+    margin-bottom: 0px; /* 제목과 설명 사이 여백 줄임 */
     text-align: center;
     position: relative;
     font-weight: var(--font-bold);
 }
 
-.board-section-title::after {
+/* 타이틀 - 구분선 - 인트로 레이아웃 */
+/* .board-section-title::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -64,17 +65,44 @@
     width: 120px;
     height: 4px;
     background-color: var(--accent-color);
-}
+} */
+
+/* 타이틀 - 인트로 - 구분선 레이아웃 */
+/* .board-section-title::after {
+content: '';
+position: absolute;
+top: 100%;
+left: 50%;
+transform: translateX(-50%);
+width: 90%;
+height: 1px;
+background-color: var(--accent-color);
+margin-top: 40px;
+} */
 
 /* 게시판 소개 문구 스타일 */
 .board-intro {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto 40px; /* 위 0, 좌우 auto, 아래 40px로 설정 */
-    opacity: 0.8;
-    text-align: center;
-    line-height: 1.5;
-    padding-top: 25px; /* 제목 밑의 장식선과의 간격 */
+font-size: 18px;
+max-width: 600px;
+margin: 0 auto;
+/* opacity: 0.8; */
+color: rgba(255, 255, 255, 0.8); /* opacity 대신 rgba 사용 */
+margin-bottom: 30px;
+text-align: center;
+line-height: 1.5;
+padding-bottom: 20px;
+/* border-bottom: 1px solid var(--accent-color); */
+position: relative;
+}
+
+.board-intro span{
+color: var(--accent-color);
+font-weight: 700;
+}
+
+.board-section-title span{
+color: var(--accent-color);
+font-weight: 700;  
 }
 
 /* 카테고리 필터 */
@@ -186,15 +214,6 @@ margin-bottom: 40px; /* 아래 카테고리와의 간격 추가 */
 flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈 되도록 설정 */
 }
 
-/* 전체보기 버튼 전용 와퍼 */
-.view-wrapper{
-display: flex;
-align-items: center;
-gap: 6px;
-justify-content: center; /* 가운데 정렬로 변경 */
-margin-bottom: 15px; /* 아래 카테고리와의 간격 추가 */
-flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈 되도록 설정 */  
-}
 
 /* 각 페이지 이동 버튼 */
 .all-view-all-button {
@@ -542,18 +561,40 @@ left: 100%;
     transition: transform 0.3s ease;
 }
 
+/* 블로그 페이지 변형 레이아웃 */
+#blog-page .board-thumbnail{
+width: 200px;
+aspect-ratio: 1/1;  
+}
+
+#blog-page .board-all-grid {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 40px;
+}
+
+#blog-page .board-all-item-content {
+padding: 10px 0px;
+}
+
+#resources-page .board-item-square{
+background: none;
+}
 
 .board-thumbnail:hover img {
     transform: scale(1.05);
 }
 
 .board-all-item-content {
-    padding: 10px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+padding: 10px;
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
+
+
 
 
 
@@ -919,10 +960,10 @@ margin-bottom: 0px !important;
     border: 1px solid var(--accent-color);
     color: var(--accent-color);
     padding: 10px 14px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 12px; /* 10px → 11px */
     font-weight: 700;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 0.5px;
     z-index: 10;
     white-space: nowrap;
@@ -932,7 +973,6 @@ margin-bottom: 0px !important;
     align-items: center;
     justify-content: center;
     line-height: 1; /* 추가 - 텍스트 높이 정규화 */
-    
 }
 
 .board-item-square:hover .category-overlay {
@@ -1102,7 +1142,7 @@ line-height: 1.2; /* 1.25 → 1.2 */
 /* 디자인 팁 게시판 - 분리형 레이아웃 */
 .board-grid-tips {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-bottom: 50px;
 }
@@ -2048,7 +2088,7 @@ margin-bottom: 0px;
     border-radius: 4px;
     font-size: 12px; /* 10px → 11px */
     font-weight: 700;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 0.5px;
     z-index: 10;
     white-space: nowrap;
@@ -2336,107 +2376,105 @@ margin-bottom: 0px;
     border: 1px solid rgba(1, 255, 117, 0.2);
 }
 
-/* 다른 카테고리별 색상 */
-.simple-placeholder-thumbnail[data-category="web"] {
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(74, 144, 226, 0.08));
-    color: #4a90e2;
+/* 공통 페이지 배너 스타일 */
+.page-banner {
+width: 100%;
+height: 250px;
+margin: 0 auto;
+margin-bottom: 40px;
+border-radius: 4px;
+position: relative;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
-.simple-placeholder-thumbnail[data-category="creative"] {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 107, 107, 0.08));
-    color: #ff6b6b;
+/* 이미지 배너용 */
+.page-banner img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 4px;
 }
 
-.simple-placeholder-thumbnail[data-category="video"] {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 193, 7, 0.08));
-    color: #ffc107;
-}
-/* YouTube 게시판 스타일 유튜브 */
-.youtube-board-section {
-    background: #0f0f0f;
-    color: #fff;
-
-    padding-top: 150px;
-    padding-bottom: 80px;
-    margin-bottom: 40px;
-}
-
-.youtube-board-title {
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-.youtube-intro {
-    text-align: center;
-    color: #aaa;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+/* 유튜브 페이지 */
+#youtube-page .board-section-title span {
+color: white;
+background: #FF0000; /* YouTube 빨간색 */
+padding: 4px 6px;
+border-radius: 4px;
 }
 
 /* YouTube CTA 버튼 */
 .youtube-cta-wrapper {
     text-align: center;
+    /* 위드 1200px */
+    width: 100%;    
+    height: 250px;
+    margin: 0 auto; /* 중앙 정렬 */
     margin-bottom: 40px;
-    padding: 60px;
     background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-    border-radius: 6px;
+    border-radius: 4px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .youtube-cta-wrapper::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-    transform: translateX(-100%);
-    animation: shimmer 3s infinite;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: scan 3s linear infinite;
+    z-index: 1;
 }
 
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+@keyframes scan {
+0% { left: -100%; }
+100% { left: 100%; }
 }
 
 .youtube-cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255,255,255,0.15);
-    color: white;
-    text-decoration: none;
-    padding: 16px 32px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.2);
+display: inline-flex;
+align-items: center;
+gap: 12px;
+background: rgba(255,255,255,0.15);
+color: white;
+text-decoration: none;
+padding: 16px 32px;
+border-radius: 50px;
+font-weight: 600;
+font-size: 18px;
+transition: all 0.3s ease;
+backdrop-filter: blur(10px);
+border: 2px solid rgba(255,255,255,0.2);
 }
 
 .youtube-cta-button:hover {
-    background: rgba(255,255,255,0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    color: white;
-    text-decoration: none;
+background: rgba(255,255,255,0.25);
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+color: white;
+text-decoration: none;
 }
 
 .youtube-cta-button i {
-    font-size: 1.3rem;
+font-size: 18px;
 }
 
 .youtube-stats {
-    margin-top: 1rem;
-    color: rgba(255,255,255,0.8);
-    font-size: 0.95rem;
+margin-top: 15px;
+color: rgba(255,255,255,0.8);
+font-size: 16px;
 }
+
 
 /* 네비게이션 */
 .youtube-nav {
@@ -2996,6 +3034,12 @@ box-shadow: 0 4px 12px rgba(98, 0, 255, 0.3); /* 보라색 글로우 */
     margin-bottom: 0;
   }
 
+  .view-wrapper {
+    gap: 6px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
 
 /* 웹디자인,프로그래밍 게시판 반응형 이미지처리 */
 .board-item-img img {
@@ -3119,11 +3163,26 @@ transition: transform 0.3s ease;
         gap: 8px;
     }
     
-    .all-view-all-button {
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-    
+.all-view-all-button {
+padding: 6px 12px;
+font-size: 13px;
+}
+
+.all-view-all-button-active{
+padding: 6px 12px;
+font-size: 13px;  
+}
+
+.all-view-all-button-youtube{
+padding: 6px 12px;
+font-size: 13px;
+}
+  
+.all-view-all-button-youtube-active {
+padding: 6px 12px;
+font-size: 13px;
+}
+  
     .board-grid-wide {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -3142,7 +3201,7 @@ transition: transform 0.3s ease;
     
     .board-intro {
         font-size: 16px;
-        padding: 20px 15px 0;
+        padding-bottom: 20px;
     }
 
     /* 전체 게시판 태블릿 반응형 */
@@ -3270,7 +3329,17 @@ transition: transform 0.3s ease;
 padding: 0px 30px;
 }
 
-
+/* .board-section-title::after {
+content: '';
+position: absolute;
+top: 100%;
+left: 50%;
+transform: translateX(-50%);
+width: 90%;
+height: 1px;
+background-color: var(--accent-color);
+margin-top: 30px;
+} */
 
 .board-all-container {
 padding: 0px 0px;
@@ -3302,7 +3371,7 @@ padding: 0px 0px;
     top: 8px;
     left: 50%;
     padding: 4px 6px !important;
-    border-radius: 5px !important;
+    border-radius: 4px !important;
     font-size: 9px !important;
 }
 
@@ -3387,7 +3456,8 @@ font-size: 12px;
     
     .board-intro {
         font-size: 14px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
     }
     
     .filter-group {
@@ -3854,7 +3924,7 @@ justify-content: space-around;
 display: flex;
 justify-content: space-around;
 align-items: center;
-margin-bottom: 2rem;
+margin-bottom: 20px;
 flex-wrap: wrap;
 gap: 1rem;
 }
@@ -3876,15 +3946,14 @@ text-align: center;
 }
 
 .youtube-cta-wrapper {
-text-align: center;
+height: 160px;
 margin-bottom: 20px;
-padding: 20px;
-background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-border-radius: 6px;
-position: relative;
-overflow: hidden;
 }
 
+.page-banner {
+height: 160px;
+margin-bottom: 20px;
+}
 
 .youtube-cta-button {
 display: inline-flex;
@@ -3939,9 +4008,6 @@ font-size: 13px;
 }
 
 }
-
-
-
 
 /* 작은 모바일 */
 @media (max-width: 375px) {

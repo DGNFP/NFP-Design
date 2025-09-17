@@ -342,18 +342,19 @@ collections:
     - {label: "제목", name: "title", widget: "string"}
     - {label: "발행일", name: "date", widget: "datetime"}
     - {label: "카테고리", name: "categories", widget: "hidden", default: ["blog"]}
-    - {label: "서브 카테고리", name: "subCategory", widget: "hidden", default: "자료실"}
+    - {label: "서브 카테고리", name: "subCategory", widget: "hidden", default: "NFP 자료실"}
     - label: "자료 카테고리"
       name: "resourceCategory"
       widget: "select"
       options: 
-        - "vector"
-        - "image"
-        - "font"
-        - "icon"
-        - "mockup"
-        - "psd"
-        - "etc"
+        - "Vector (ai)"
+        - "Image (psd)"
+        - "Image (JPG,PNG)"
+        - "Icon (ai)"
+        - "Mockup (ai)"
+        - "Mockup (psd)"
+        - "Font"
+        - "ETC"
       required: true
     - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","리소스", "템플릿", "소스코드", "폰트", "아이콘", "가이드", "디자인", "개발"], hint: "자료와 관련된 태그를 선택하세요", required: false}
     - label: "커스텀 태그"
