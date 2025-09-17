@@ -1493,10 +1493,8 @@ opacity: 0.3;
 
 /* 첨부파일 섹션 스타일 */
 .attachments-section {
-    margin: 30px 0;
-    padding: 20px 0;
-    border-top: 1px solid rgba(1, 255, 117, 0.15);
-    border-bottom: 1px solid rgba(1, 255, 117, 0.15);
+margin: 0px auto;
+padding: 20px 0;
 }
 
 .attachments-title {
@@ -1523,15 +1521,15 @@ opacity: 0.3;
 .attachment-item {
     background: rgba(1, 255, 117, 0.05);
     border: 1px solid rgba(1, 255, 117, 0.2);
-    border-radius: 6px;
+    border-radius: 4px;
     transition: all 0.3s ease;
+    width: 75%;
     overflow: hidden;
 }
 
 .attachment-item:hover {
     background: rgba(1, 255, 117, 0.1);
     border-color: var(--accent-color);
-    transform: translateX(5px);
 }
 
 .attachment-link {
@@ -1557,7 +1555,6 @@ opacity: 0.3;
 }
 
 .attachment-link:hover i {
-    transform: scale(1.1);
     color: var(--accent-color);
 }
 
@@ -1573,7 +1570,6 @@ opacity: 0.3;
     color: rgba(255, 255, 255, 0.7);
     margin-top: 4px;
     line-height: 1.4;
-    font-style: italic;
 }
 
 /* 반응형 스타일 */
@@ -1638,10 +1634,7 @@ opacity: 0.3;
         font-size: 12px;
         margin-top: 2px;
     }
-    
-    .attachment-item:hover {
-        transform: translateX(3px);
-    }
+
 }
 
 

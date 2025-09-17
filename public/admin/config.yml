@@ -334,7 +334,7 @@ collections:
       - {label: "내용", name: "body", widget: "markdown", editor_components: ["image"], hint: "본문에서도 이미지 업로드가 가능합니다. 위의 이미지 필드와 본문 이미지를 함께 활용하세요."}
 
   - name: "nfp-resources"
-    label: "NFP-자료실"
+    label: "NFP 자료실"
     folder: "content/blog/nfp-resources"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"

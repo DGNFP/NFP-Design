@@ -146,8 +146,6 @@
                         <div class="board-all-item-content">
                             <h3 class="board-all-item-title">{{ .Title }}</h3>
                             
-                            
-                            
                             <!-- 카테고리 표시 -->
                             <p class="board-all-item-desc">
                                 블로그
@@ -156,27 +154,34 @@
                                 {{ end }}
                             </p>
                             
-                            
-                            
                             <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
-                            <!-- 커스텀 태그 표시 -->
-                            {{ if .Params.custom_tags }}
-                            <div class="blog-tags">
-                                {{ range first 3 .Params.custom_tags }}
-                                    {{ $tagValue := . }}
-                                    {{ if reflect.IsMap . }}
-                                        {{ $tagValue = .tag }}
-                                    {{ end }}
-                                    <span class="blog-tag">{{ $tagValue }}</span>
-                                {{ end }}
-                            </div>
-                            {{ end }}
-                            <a href="{{ .Permalink }}" class="board-all-item-link"></a>
-                        </div>
-                    </a>
-                </div>
-                {{ end }}
-            </div>
+                            
+
+<!-- 태그 표시: 기본 태그 2개 + 커스텀 태그 1개 -->
+{{ if or .Params.tags .Params.custom_tags }}
+<div class="blog-tags">
+{{ if .Params.tags }}
+{{ range first 2 .Params.tags }}
+<span class="blog-tag">{{ . }}</span>
+{{ end }}
+{{ end }}
+{{ if .Params.custom_tags }}
+{{ range first 1 .Params.custom_tags }}
+{{ $tagValue := . }}
+{{ if reflect.IsMap . }}
+{{ $tagValue = .tag }}
+{{ end }}
+<span class="blog-tag">{{ $tagValue }}</span>
+{{ end }}
+{{ end }}
+</div>
+{{ end }}
+<a href="{{ .Permalink }}" class="board-all-item-link"></a>
+</div>
+</a>
+</div>
+{{ end }}
+</div>
             
             <!-- JavaScript 페이지네이션 -->
             <div class="pagination js-pagination">
