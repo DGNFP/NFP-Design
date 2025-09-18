@@ -314,7 +314,7 @@ animation: float 20s infinite linear;
 }
 
 .studio-page-section {
-    padding: 140px 0;
+    padding: 140px 15px;
     position: relative;
 }
 
@@ -11530,6 +11530,28 @@ border-radius: 4px;
 margin-bottom: 8px;
 }
 
+.qr-form-select {
+width: 100%;
+background: #1a1a1a;
+border: 1px solid #272727;
+border-radius: 4px;
+padding: 12px 15px;
+color: white;
+font-size: 14px;
+box-sizing: border-box;
+cursor: pointer;
+
+appearance: none;
+-webkit-appearance: none;
+
+background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2301FF75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+background-repeat: no-repeat;
+background-position: right 15px center;
+background-size: 20px 20px;
+transition: all 0.3s ease;
+}
+
+
 .area-info {
 flex: 1;
 color: #666;
@@ -13590,7 +13612,7 @@ background: rgba(1, 255, 117, 0.8);
 /* 반응형 */
 @media (max-width: 768px) {
     .fortune-app {
-        padding: 15px;
+        padding: 0px;
     }
     
     .question-screen {
@@ -14055,13 +14077,14 @@ width: 600px;
 @media (max-width: 480px) {
 
 .container{
-width: 95%;
+width: 100%;
+padding: 0 20px;
 }
 
 .sub-page-btn-wrapper {
 grid-template-columns: repeat(2, minmax(140px, 1fr)); /* 2열로 변경 */
 width: 100%; /* 고정 너비 대신 반응형 */
-padding: 0 20px; /* 양쪽 여백 */
+padding: 0 5px; /* 양쪽 여백 */
 column-gap: 10px; /* 컬럼 간격 조정 */
 row-gap: 8px; /* 행 간격 조정 */
 }
@@ -14423,6 +14446,15 @@ row-gap: 8px; /* 행 간격 조정 */
     height: 30;
     min-width: 100px; 
     }
+
+.highlight {
+font-size: 16px;
+padding: 10px 14px;
+}
+
+.studio-page-header p {
+font-size: 15px;
+}
 
 .gradient-bar {
 max-width: 300px;

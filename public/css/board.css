@@ -129,7 +129,6 @@ font-weight: 700;
     list-style: none;
     flex-wrap: wrap;
     gap: 10px;
-    cursor: pointer;
 }
 
 .category-filter li a {
@@ -139,6 +138,8 @@ font-weight: 700;
     border-radius: 20px;
     font-size: 14px;
     transition: all 0.3s ease;
+    line-height: 1.5;
+    cursor: pointer;
 }
 
 .category-filter li a:hover{
@@ -241,27 +242,43 @@ display: flex;
 align-items: center;
 gap: 6px;
 justify-content: center; /* 가운데 정렬로 변경 */
-margin-bottom: 6px; /* 아래 카테고리와의 간격 추가 */
+margin-bottom: 15px; /* 아래 카테고리와의 간격 추가 */
 flex-wrap: wrap; /* 모바일에서 버튼이 줄바꿈 되도록 설정 */  
 }
 
-/* 각 페이지 이동 버튼 */
-.all-view-all-button {
-position: relative; /* 비포어 호버효과 사용하려면 필수 */
-overflow: hidden; /* 이것도 추가하면 더 안전합니다 */
-padding: 8px 16px;
+.view-wrapper .all-view-all-button{
+position: relative;
+overflow: hidden;
+padding: 8px 24px;
 border-radius: 5px;
-border:1px solid var(--accent-color); /*테두리*/
-font-size: 14px;
+border: 1px solid var(--accent-color);
+font-size: 16px;
 font-family: inherit;
 color: var(--accent-color);
 background-color: var(--background-color);
 text-decoration: none;
 transition: var(--transition);
-white-space: nowrap;
-/* box-shadow: 0 0px 0px rgba(1, 255, 115, 0); */
+white-space: nowrap;    
 }
 
+/* 전체보기 버튼 액티브 */
+.view-wrapper .all-view-all-button-active {
+padding: 8px 24px;
+border-radius: 5px;
+border: 1px solid var(--accent-color);
+font-size: 16px;
+font-family: inherit;
+font-weight: 700;
+color: #000000;
+background: linear-gradient(135deg, #00FF75 0%, #00FF88 100%);
+text-decoration: none;
+transition: var(--transition);
+white-space: nowrap;
+text-align: center;
+box-shadow: 0 0 10px rgba(1, 255, 117, 0.6), 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+/* 나머지 버튼 스타일 */
 .all-view-all-button-active {
 padding: 8px 16px;
 border-radius: 4px;
@@ -291,56 +308,49 @@ box-shadow:
 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-
-/* 추가된 호버효과 */
-/* .all-view-all-button::before {
-content: '';
-position: absolute;
-top: 0;
-left: -100%;
-width: 100%;
-height: 100%;
-background: linear-gradient(90deg, transparent, rgba(1, 255, 117, 0.2), transparent);
-transition: left 0.5s ease;
+/* 각 페이지 이동 버튼 */
+.all-view-all-button {
+position: relative; /* 비포어 호버효과 사용하려면 필수 */
+overflow: hidden; /* 이것도 추가하면 더 안전합니다 */
+padding: 8px 16px;
+border-radius: 5px;
+border:1px solid var(--accent-color); /*테두리*/
+font-size: 14px;
+font-family: inherit;
+color: var(--accent-color);
+background-color: var(--background-color);
+text-decoration: none;
+transition: var(--transition);
+white-space: nowrap;
+/* box-shadow: 0 0px 0px rgba(1, 255, 115, 0); */
 }
 
-.all-view-all-button:hover {
-background: linear-gradient(135deg, rgba(1, 255, 117, 0.15), rgba(1, 255, 117, 0.25));
-color: #00FF88;
-box-shadow: 0 8px 25px rgba(1, 255, 117, 0.3), 0 0 20px rgba(1, 255, 117, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-border: 1px solid rgba(1, 255, 117, 0.6);
-backdrop-filter: blur(10px);
-}
-
-.all-view-all-button:hover::before {
-left: 100%;
-}
 
 /* 검색창 */
 .board-search {
-    display: flex;
-    max-width: 300px;
-    position: relative;
+display: flex;
+max-width: 300px;
+position: relative;
 }
 
 .board-search .form-control {
-    padding-right: 40px;
+padding-right: 40px;
 }
 
 .search-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: var(--transition);
+position: absolute;
+right: 10px;
+top: 50%;
+transform: translateY(-50%);
+background: none;
+border: none;
+color: var(--text-color);
+cursor: pointer;
+transition: var(--transition);
 }
 
 .search-btn:hover {
-    color: var(--accent-color);
+color: var(--accent-color);
 }
 
 
@@ -575,7 +585,7 @@ margin-top: 40px;
 }
 
 #blog-page .board-all-item-content {
-padding: 10px 0px;
+padding: 10px 4px;
 }
 
 #resources-page .board-item-square{
@@ -2418,9 +2428,9 @@ border-radius: 4px;
     text-align: center;
     /* 위드 1200px */
     width: 100%;    
-    height: 250px;
+    height: 111px;
     margin: 0 auto; /* 중앙 정렬 */
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
     border-radius: 4px;
     position: relative;
@@ -2455,9 +2465,9 @@ gap: 12px;
 background: rgba(255,255,255,0.15);
 color: white;
 text-decoration: none;
-padding: 16px 32px;
+padding: 8px 24px;
 border-radius: 50px;
-font-weight: 600;
+font-weight: 700;
 font-size: 18px;
 transition: all 0.3s ease;
 backdrop-filter: blur(10px);
@@ -2477,7 +2487,7 @@ font-size: 18px;
 }
 
 .youtube-stats {
-margin-top: 15px;
+margin-top: 6px;
 color: rgba(255,255,255,0.8);
 font-size: 16px;
 }
@@ -3031,11 +3041,12 @@ box-shadow: 0 4px 12px rgba(98, 0, 255, 0.3); /* 보라색 글로우 */
 
 /* 태블릿 */
 @media (max-width: 768px) {
-     .board-game-grid {
-          display: flex;
-    flex-direction: column;
-    gap: 12px;
-    }
+.board-game-grid {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin-top: 20px;
+}
 
   .board-game-grid .board-all-item {
     margin-bottom: 0;
@@ -3470,6 +3481,7 @@ font-size: 12px;
     .filter-group {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 0;
     }
     
     .category-filter {
@@ -3492,32 +3504,43 @@ margin-bottom: 6px;
 .all-view-all-wrapper {
 padding: 0 0px;
 gap: 6px;
+margin-bottom: 20px;
 }
     
-    .all-view-all-button {
-        font-size: 12px;
-        padding: 8px 10px;
-        border-radius: 2px;
-        flex-grow: 1;
-        text-align: center;
-        line-height: 1.5;
-    }
-    
-    .all-view-all-button-active {
-        font-size: 12px;
-        padding: 8px 10px;
-        flex-grow: 1;
-        text-align: center;
-    }
+.all-view-all-button {
+font-size: 12px;
+padding: 8px 10px;
+border-radius: 4px;
+flex-grow: 1;
+text-align: center;
+line-height: 1.5;
+}
+ 
+.view-wrapper .all-view-all-button{
+padding: 8px 24px;
+font-size: 14px;
+}
 
-    .all-view-all-button-youtube{
-        font-size: 12px;
-        padding: 8px 10px;
-        flex-grow: 1;
-        text-align: center; 
-        border-radius: 2px;
-        line-height: 1.5;
-    }
+.view-wrapper .all-view-all-button-active{
+padding: 8px 24px;
+font-size: 14px;
+}
+
+.all-view-all-button-active {
+font-size: 12px;
+padding: 8px 10px;
+flex-grow: 1;
+text-align: center;
+}
+
+.all-view-all-button-youtube{
+font-size: 12px;
+padding: 8px 10px;
+flex-grow: 1;
+text-align: center; 
+border-radius: 2px;
+line-height: 1.5;
+}
 
     .all-view-all-button-blog{
         font-size: 12px;
@@ -3531,6 +3554,7 @@ gap: 6px;
         padding: 8px 10px;
         flex-grow: 1;
         text-align: center;    
+        line-height: 1.5;
     }
     
     .all-view-all-button-blog-active {
@@ -3616,7 +3640,8 @@ gap: 6px;
 
     /* 모바일에서 카드간 여백 없애기 */
     .board-all-grid {
-        gap: 0px;
+        margin-top: 0px;
+        gap: 15px;
     }
 
     /* 전체 게시판 모바일 반응형 - 정사각형 비율 */
@@ -3638,14 +3663,12 @@ gap: 6px;
     
 /* 게임게시판도 전체게시판 처럼 레이아웃 수정 */
     .board-all-grid .board-thumbnail {
-        width: 120px !important;  
-        height: 120px !important; 
-        margin-right: 12px;
+        margin-right: 4px;
     }
 
       /* 이 부분을 추가! */
   .board-game-grid .board-all-item {
-    min-height: 140px;
+    /* min-height: 140px; */
     align-items: center;
     padding: 0px;
   }
@@ -3677,14 +3700,14 @@ gap: 6px;
     object-position: center !important;
 }
 
-    .board-all-item {
-        min-height: 140px; /* 정사각형 이미지에 맞춰 높이 조정 */
-        align-items: center; /* 가운데 정렬 복원 */
-        padding: 0px;
-    }
-    
+.board-all-item {
+align-items: center; /* 가운데 정렬 복원 */
+padding: 0px;
+}
+
     .board-all-item-content {
-        padding: 12px 8px 12px 0;
+        padding: 0px;
+        padding-left: 4px;
         justify-content: center; /* 가운데 정렬 복원 */
     }
     
@@ -3914,6 +3937,17 @@ white-space: nowrap;
     }
 
 
+.board-filter {
+margin-bottom: 20px;
+}
+
+#blog-page .board-all-grid {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 0px;
+}
+
 .youtube-category-filter {
 display: flex;
 list-style: none;
@@ -3938,7 +3972,6 @@ gap: 1rem;
 
 .youtube-category-filter {
 margin: 0;
-margin-top: -10px;
 flex-direction: column;
 padding: 12px;
 border-radius: 12px;
@@ -3953,13 +3986,19 @@ text-align: center;
 }
 
 .youtube-cta-wrapper {
-height: 160px;
-margin-bottom: 20px;
+height: 81px;
+margin-bottom: 12px;
 }
 
 .page-banner {
 height: 160px;
 margin-bottom: 20px;
+}
+
+.btn-outline {
+background-color: transparent;
+color: var(--accent-color);
+margin-left: 8px;
 }
 
 .youtube-cta-button {
@@ -3969,17 +4008,18 @@ gap: 12px;
 background: rgba(255,255,255,0.15);
 color: white;
 text-decoration: none;
-padding: 8px 16px;
+padding: 6px 14px;
 border-radius: 50px;
 font-weight: 600;
-font-size: 16px;
+font-size: 14px;
 transition: all 0.3s ease;
 backdrop-filter: blur(10px);
 border: 2px solid rgba(255,255,255,0.2);
 }
 
 .youtube-stats{
-    margin-top: 6px;
+font-size: 12px;
+margin-top: 4px;
 }
 
 .blog-wapper{

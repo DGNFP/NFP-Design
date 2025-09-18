@@ -268,6 +268,7 @@
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
+    line-height: 1.5;
 }
 
 .studio-more-btn:hover {
@@ -469,7 +470,7 @@
     }
     
     .studio-item {
-        border-radius: 15px;
+        border-radius: 6px;
     }
     
     .studio-icon {
@@ -566,7 +567,7 @@
     .studio-more-btn {
         margin: 25px auto 20px auto;
         padding: 10px 18px;
-        font-size: 11px;
+        line-height: 1.5;
     }
     
     .app-download-btn {

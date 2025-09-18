@@ -28,7 +28,7 @@ html{
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.5;
     overflow-x: hidden;
     font-weight: var(--font-medium);
     /* cursor: url('../img/coser.png') 2 2, auto; */
@@ -1819,7 +1819,7 @@ nav {
     }
     
     .section {
-        padding: 40px 0;
+        padding: 140px 0;
     }
     .btn {
     padding: 12px 16px !important; 
