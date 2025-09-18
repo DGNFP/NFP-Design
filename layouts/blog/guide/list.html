@@ -2,11 +2,18 @@
 <link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
 
 <style>
+
 .container {
-width: 100%;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0px 30px;
+    }
 }
 
 .studio-size-categories {
@@ -59,7 +66,7 @@ margin-top: 20px;
 <a href="{{ "/blog/" | relURL }}" class="blog-btn">블로그 전체</a>
 <a href="{{ "/blog/projects/" | relURL }}" class="blog-btn">개인 작업</a>
 <a href="{{ "/blog/tips/" | relURL }}" class="blog-btn">디자인 팁</a>
-<a href="{{ "/blog/daily/" | relURL }}" class="blog-btn-active">디자인 가이드</a>
+<a href="{{ "/blog/guide/" | relURL }}" class="blog-btn-active">디자인 가이드</a>
 <a href="{{ "/blog/nfp-resources/" | relURL }}" class="blog-btn">NFP 자료실</a>
 <a href="{{ "/blog/daily/" | relURL }}" class="blog-btn">일상</a>
 </div>

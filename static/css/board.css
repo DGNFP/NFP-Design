@@ -585,7 +585,7 @@ margin-top: 40px;
 }
 
 #blog-page .board-all-item-content {
-padding: 10px 4px;
+padding: 10px 8px;
 }
 
 #resources-page .board-item-square{
@@ -1435,18 +1435,18 @@ margin-bottom: 0px;
 }
 
   .board-game-grid .board-all-item {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     border-radius: 4px;
     transition: all 0.3s ease;
   }
 
   .board-game-grid .board-all-item a {
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    align-items: flex-start !important;
+    align-items: flex-start;
   }
 
 /* 게임게시판용 본문 내용 표기 */
@@ -3044,7 +3044,7 @@ box-shadow: 0 4px 12px rgba(98, 0, 255, 0.3); /* 보라색 글로우 */
 .board-game-grid {
 display: flex;
 flex-direction: column;
-gap: 12px;
+gap: 15px;
 margin-top: 20px;
 }
 
@@ -3230,9 +3230,7 @@ font-size: 13px;
     
     .board-thumbnail {
         width: 240px; /* 태블릿에서 축소 */
-        height: 135px; /* 16:9 비율 (240 × 0.5625) */
-        margin-right: 15px;
-        min-height: 135px; /* 추가: 고정 높이 보장 */
+        margin-right: 4px;
     }
     
     .board-all-item-content {
@@ -3390,7 +3388,7 @@ padding: 0px 0px;
     left: 50%;
     padding: 4px 6px !important;
     border-radius: 4px !important;
-    font-size: 9px !important;
+    font-size: 11px !important;
 }
 
 .video-overlay {
@@ -3538,7 +3536,6 @@ font-size: 12px;
 padding: 8px 10px;
 flex-grow: 1;
 text-align: center; 
-border-radius: 2px;
 line-height: 1.5;
 }
 
@@ -3605,7 +3602,7 @@ line-height: 1.5;
 
      .board-item-square .board-item-title {
         font-size: 13px;
-        height: 36px;
+        height: auto;
         overflow: hidden;
         text-overflow: ellipsis;
         margin-bottom: 6px;
@@ -3674,9 +3671,9 @@ line-height: 1.5;
   }
   
   .board-game-grid .board-all-item a {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
     width: 100%;
   }
   
@@ -3707,7 +3704,7 @@ padding: 0px;
 
     .board-all-item-content {
         padding: 0px;
-        padding-left: 4px;
+        padding-left: 8px;
         justify-content: center; /* 가운데 정렬 복원 */
     }
     
@@ -3907,8 +3904,8 @@ white-space: nowrap;
     }
     
     .video-overlay {
-        width: 35px;
-        height: 35px;
+        width: 28px;
+        height: 28px;
         font-size: 12px;
     }
     
