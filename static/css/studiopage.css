@@ -68,7 +68,7 @@ html{
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.5;
     overflow-x: hidden;
     font-weight: var(--font-medium);
     /* cursor: url('../img/coser.png') 2 2, auto; */

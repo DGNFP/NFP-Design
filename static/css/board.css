@@ -601,7 +601,7 @@ background: none;
 }
 
 .board-all-item-content {
-padding: 10px;
+padding: 10px 0px;
 flex: 1;
 display: flex;
 flex-direction: column;
@@ -2428,7 +2428,7 @@ border-radius: 4px;
     text-align: center;
     /* 위드 1200px */
     width: 100%;    
-    height: 111px;
+    height: 107px;
     margin: 0 auto; /* 중앙 정렬 */
     margin-bottom: 30px;
     background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
