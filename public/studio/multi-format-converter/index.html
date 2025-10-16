@@ -35,37 +35,37 @@
     
 
 
-<title>이미지 포맷 변환기 - Studio NFP | 무료 온라인 디자인 도구</title>
+<title>디자인 작업을 위한 전문 도구 모음 - Studio NFP | 스튜디오 NFP</title>
 
 
-<meta name="keywords" content="이미지 변환, 포맷 변환, JPG PNG 변환, WebP 변환, 이미지 포맷, 파일 변환, 이미지 압축">
+<meta name="keywords" content="NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너, 디자인 도구, 온라인 도구, 무료 도구">
 
 
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="http://localhost:1313/studio/format-converter/">
+<link rel="canonical" href="http://localhost:1313/studio/multi-format-converter/">
 <meta name="author" content="NFP Design">
     
     
-    <meta property="og:title" content="이미지 포맷 변환기 - NFP 디자인">
-    <meta property="og:description" content="JPG, PNG, WebP 등 다양한 이미지 포맷을 자유롭게 변환할 수 있는 온라인 도구입니다.">
+    <meta property="og:title" content="다중 이미지 포맷 변환기 - NFP 디자인">
+    <meta property="og:description" content="여러 이미지를 한 번에 업로드하여 JPG, PNG, WebP 포맷으로 일괄 변환하고 ZIP으로 다운로드하세요.">
     <meta property="og:image" content="http://localhost:1313/img/nfp-main.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:url" content="http://localhost:1313/studio/format-converter/">
+    <meta property="og:url" content="http://localhost:1313/studio/multi-format-converter/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
     
-        <meta property="article:published_time" content="2025-01-01T00:00:00&#43;09:00">
-        <meta property="article:modified_time" content="2025-01-01T00:00:00&#43;09:00">
+        <meta property="article:published_time" content="0001-01-01T00:00:00Z">
+        <meta property="article:modified_time" content="0001-01-01T00:00:00Z">
         
     
     
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="이미지 포맷 변환기 - NFP 디자인">
-    <meta name="twitter:description" content="JPG, PNG, WebP 등 다양한 이미지 포맷을 자유롭게 변환할 수 있는 온라인 도구입니다.">
+    <meta name="twitter:title" content="다중 이미지 포맷 변환기 - NFP 디자인">
+    <meta name="twitter:description" content="여러 이미지를 한 번에 업로드하여 JPG, PNG, WebP 포맷으로 일괄 변환하고 ZIP으로 다운로드하세요.">
     <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
     <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
     
@@ -74,12 +74,12 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "name": "이미지 포맷 변환기",
-      "description": "JPG, PNG, WebP 등 다양한 이미지 포맷을 자유롭게 변환할 수 있는 온라인 도구입니다.",
-      "url": "http:\/\/localhost:1313\/studio\/format-converter\/",
+      "name": "다중 이미지 포맷 변환기",
+      "description": "여러 이미지를 한 번에 업로드하여 JPG, PNG, WebP 포맷으로 일괄 변환하고 ZIP으로 다운로드하세요.",
+      "url": "http:\/\/localhost:1313\/studio\/multi-format-converter\/",
       
-      "datePublished": "2025-01-01T00:00:00\u002b09:00",
-      "dateModified": "2025-01-01T00:00:00\u002b09:00",
+      "datePublished": "0001-01-01T00:00:00Z",
+      "dateModified": "0001-01-01T00:00:00Z",
       "author": {
         "@type": "Person",
         "name": "NFP Design"
@@ -162,16 +162,16 @@
     
 
 <link rel="stylesheet" href="/css/studiopage.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <section class="section">
 <div class="container">
     
     <div class="studio-page-header">
         <h1>Studio <span>NFP</span></h1>
-        <span class="highlight">이미지 포맷 변환기</span>
-        <p><br>JPG, PNG, WebP 등 다양한 이미지 포맷을 자유롭게 변환하세요.</p>
+        <span class="highlight">다중 이미지 포맷 변환기</span>
+        <p><br>여러 이미지를 한 번에 변환하고 ZIP으로 다운로드하세요.</p>
     </div>
-
 
 
 <div class="studio-home-section">
@@ -192,49 +192,42 @@
 
 
 <div class="sub-page-btn-wrapper">
-
 <a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
 <a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
 <a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
 <a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
-
-<a href="/studio/format-converter" class="sub-page-btn-active">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn-active">다중 이미지 포맷 변환</a>
+<a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
-
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
 <a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
 <a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
-
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
 <a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
 <a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
 <a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
-
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
 <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
-
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
 <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
-
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
@@ -242,16 +235,14 @@
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
 </div>
 
-
-
     
     <div class="studio-page-content">
         <div class="format-converter-container">
             
             <div class="format-converter-description">
-                <h3>이미지 포맷 변환기</h3>
-                <p>JPG, PNG, WebP 등 다양한 이미지 포맷 간 변환이 가능합니다.<br>
-                원본 이미지의 품질을 유지하면서 원하는 포맷으로 변환해보세요.</p>
+                <h3>다중 이미지 포맷 변환기</h3>
+                <p>여러 장의 이미지를 한 번에 업로드하여 원하는 포맷으로 일괄 변환할 수 있습니다.<br>
+                변환된 이미지는 ZIP 파일로 다운로드됩니다.</p>
             </div>
 
             <div class="format-converter-content">
@@ -259,27 +250,24 @@
                 <div class="format-converter-upload-section">
                     
                     <div class="converter-settings-group">
-                        <h4>이미지 선택</h4>
+                        <h4>이미지 선택 (다중 업로드 가능)</h4>
                         <div class="converter-input-group">
                             <label for="format-image-upload" class="image-upload-label">
-                                <span>이미지를 선택하거나 드래그해주세요.</span>
+                                <span>이미지를 선택하거나 드래그해주세요.<br>(다중 선택 가능)</span>
                                 <small>지원 포맷: JPG, PNG, WebP, BMP, GIF</small>
                             </label>
-                            <input type="file" id="format-image-upload" accept="image/*" style="display: none;">
+                            <input type="file" id="format-image-upload" accept="image/*" multiple style="display: none;">
                         </div>
                         
                         
-                        <div class="original-preview" id="original-preview" style="display: none;">
-                            <div class="preview-header">
-                                <h5>원본 이미지</h5>
-                                <button type="button" class="remove-image-btn" id="remove-image-btn">
-                                    <i class="fas fa-times"></i>
+                        <div class="uploaded-images-list" id="uploaded-images-list" style="display: none;">
+                            <div class="list-header">
+                                <h5>업로드된 이미지 (<span id="image-count">0</span>개)</h5>
+                                <button type="button" class="remove-all-btn" id="remove-all-btn">
+                                    <i class="fas fa-trash"></i> 전체 삭제
                                 </button>
                             </div>
-                            <div class="preview-image-container">
-                                <img id="original-image" src="" alt="원본 이미지">
-                            </div>
-                            <div class="image-info" id="original-info"></div>
+                            <div class="image-items" id="image-items"></div>
                         </div>
                     </div>
 
@@ -307,7 +295,10 @@
                     
                     <div class="converter-button-area">
                         <button class="converter-btn" id="convert-btn" disabled>
-                            <i class="fas fa-exchange-alt"></i> 포맷 변환하기
+                            <i class="fas fa-exchange-alt"></i> 일괄 변환하기
+                        </button>
+                        <button class="converter-download-btn" id="download-zip-btn" disabled style="margin-top: 10px;">
+                            <i class="fas fa-file-archive"></i> ZIP 파일로 다운로드
                         </button>
                     </div>
                 </div>
@@ -319,20 +310,19 @@
                     </div>
                     <div class="converter-result-container">
                         <div class="converter-placeholder" id="converter-placeholder">
-                            <i class="fas fa-image"></i>
+                            <i class="fas fa-images"></i>
                             <p>이미지를 업로드하고<br>변환 설정을 완료해주세요.</p>
                         </div>
                         
                         
-                        <div class="converted-preview" id="converted-preview" style="display: none;">
-                            <div class="preview-image-container">
-                                <canvas id="converted-canvas"></canvas>
+                        <div class="multi-converter-result" id="conversion-stats" style="display: none;">
+                            <div class="multi-converter-info">
+                                <span class="multi-converter-label">이미지 수 : </span>
+                                <span class="multi-converter-value" id="total-images">0</span>
                             </div>
-                            <div class="image-info" id="converted-info"></div>
-                            <div class="converter-download-area">
-                                <button class="converter-download-btn" id="download-btn">
-                                    <i class="fas fa-download"></i> 변환된 이미지 다운로드
-                                </button>
+                            <div class="multi-converter-info">
+                                <span class="multi-converter-label">변환 포맷 : </span>
+                                <span class="multi-converter-value" id="target-format-display">-</span>
                             </div>
                         </div>
                     </div>
@@ -344,12 +334,113 @@
 </section>
 
 
-<script>
-let originalImage = null;
-let convertedImage = null;
 
-function convertImageFormat() {
-    if (!originalImage) {
+<script>
+let uploadedImages = [];
+let convertedImages = [];
+
+function handleImageUpload(files) {
+    if (!files || files.length === 0) return;
+    
+    const imageFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
+    
+    if (imageFiles.length === 0) {
+        alert('이미지 파일을 선택해주세요.');
+        return;
+    }
+    
+    imageFiles.forEach(file => {
+        const id = Date.now() + Math.random();
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            const img = new Image();
+            img.onload = function() {
+                uploadedImages.push({
+                    id: id,
+                    file: file,
+                    name: file.name,
+                    originalName: file.name.substring(0, file.name.lastIndexOf('.')),
+                    size: file.size,
+                    imageData: e.target.result,
+                    width: img.naturalWidth,
+                    height: img.naturalHeight,
+                    converted: false,
+                    convertedData: null
+                });
+                
+                updateImageList();
+                checkConvertButtonState();
+            };
+            img.src = e.target.result;
+        };
+        
+        reader.readAsDataURL(file);
+    });
+}
+
+function updateImageList() {
+    const list = document.getElementById('uploaded-images-list');
+    const items = document.getElementById('image-items');
+    const count = document.getElementById('image-count');
+    
+    if (uploadedImages.length === 0) {
+        list.style.display = 'none';
+        return;
+    }
+    
+    list.style.display = 'block';
+    count.textContent = uploadedImages.length;
+    
+    items.innerHTML = uploadedImages.map(img => `
+        <div class="image-item" data-id="${img.id}">
+            <div class="image-item-left">
+                <i class="fas fa-image image-icon"></i>
+                <div class="image-info">
+                    <div class="image-name">${img.name}</div>
+                    <div class="image-size">${formatBytes(img.size)} • ${img.width} × ${img.height}px</div>
+                </div>
+            </div>
+            <span class="image-status ${img.converted ? 'status-converted' : 'status-ready'}">
+                ${img.converted ? '변환 완료' : '대기'}
+            </span>
+            <button class="remove-image-btn" onclick="removeImage(${img.id})">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `).join('');
+}
+
+function removeImage(id) {
+    uploadedImages = uploadedImages.filter(img => img.id !== id);
+    convertedImages = convertedImages.filter(img => img.id !== id);
+    updateImageList();
+    updateStats();
+    checkConvertButtonState();
+}
+
+function removeAllImages() {
+    if (uploadedImages.length === 0) return;
+    
+    if (confirm('모든 이미지를 삭제하시겠습니까?')) {
+        uploadedImages = [];
+        convertedImages = [];
+        document.getElementById('format-image-upload').value = '';
+        updateImageList();
+        updateStats();
+        checkConvertButtonState();
+        
+        document.getElementById('converter-placeholder').style.display = 'flex';
+        document.getElementById('conversion-stats').style.display = 'none';
+    }
+}
+
+function formatBytes(bytes) {
+    return Math.round(bytes / 1024) + ' KB';
+}
+
+async function convertAllImages() {
+    if (uploadedImages.length === 0) {
         alert('먼저 이미지를 선택해주세요.');
         return;
     }
@@ -361,146 +452,152 @@ function convertImageFormat() {
     }
     
     const button = document.getElementById('convert-btn');
+    const downloadBtn = document.getElementById('download-zip-btn');
+    
     button.disabled = true;
+    downloadBtn.disabled = true;
     button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 변환 중...';
     
-    setTimeout(() => {
-        try {
-            const canvas = document.getElementById('converted-canvas');
-            const ctx = canvas.getContext('2d');
+    try {
+        convertedImages = [];
+        
+        for (let i = 0; i < uploadedImages.length; i++) {
+            const img = uploadedImages[i];
+            const convertedData = await convertImage(img.imageData, targetFormat);
             
-            canvas.width = originalImage.naturalWidth;
-            canvas.height = originalImage.naturalHeight;
+            convertedImages.push({
+                ...img,
+                converted: true,
+                convertedData: convertedData
+            });
             
-            if (targetFormat === 'jpeg') {
-                ctx.fillStyle = '#FFFFFF';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
+            uploadedImages[i].converted = true;
+            uploadedImages[i].convertedData = convertedData;
             
-            ctx.drawImage(originalImage, 0, 0);
-            
-            let quality = 0.9;
-            if (targetFormat === 'jpeg' || targetFormat === 'webp') {
-                quality = parseInt(document.getElementById('image-quality').value) / 100;
-            }
-            
-            let mimeType;
-            switch(targetFormat) {
-                case 'jpeg':
-                    mimeType = 'image/jpeg';
-                    break;
-                case 'png':
-                    mimeType = 'image/png';
-                    break;
-                case 'webp':
-                    mimeType = 'image/webp';
-                    break;
-            }
-            
-            convertedImage = canvas.toDataURL(mimeType, quality);
-            
-            showConvertedResult(canvas, targetFormat, quality);
-            showConversionSuccessToast();
-            
-        } catch (error) {
-            console.error('변환 오류:', error);
-            alert('이미지 변환 중 오류가 발생했습니다.');
-        } finally {
-            button.disabled = false;
-            button.innerHTML = '<i class="fas fa-exchange-alt"></i> 포맷 변환하기';
+            updateImageList();
         }
-    }, 500);
+        
+        showToast('모든 이미지 변환이 완료되었습니다!');
+        updateStats();
+        downloadBtn.disabled = false;
+        
+        document.getElementById('converter-placeholder').style.display = 'none';
+        document.getElementById('conversion-stats').style.display = 'block';
+        
+    } catch (error) {
+        console.error('변환 오류:', error);
+        alert('이미지 변환 중 오류가 발생했습니다.');
+    } finally {
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-exchange-alt"></i> 일괄 변환하기';
+    }
 }
 
-function showConvertedResult(canvas, format, quality) {
-    const placeholder = document.getElementById('converter-placeholder');
-    const convertedPreview = document.getElementById('converted-preview');
-    const convertedInfo = document.getElementById('converted-info');
-    
-    const dataUrl = convertedImage;
-    const base64Length = dataUrl.split(',')[1].length;
-    const fileSize = Math.round((base64Length * 0.75) / 1024);
-    
-    convertedInfo.innerHTML = `
-        <strong>포맷:</strong> ${format.toUpperCase()}<br>
-        <strong>크기:</strong> ${canvas.width} × ${canvas.height}px<br>
-        <strong>예상 파일크기:</strong> ${fileSize}KB
-        ${(format === 'jpeg' || format === 'webp') ? `<br><strong>품질:</strong> ${Math.round(quality * 100)}%` : ''}
-    `;
-    
-    placeholder.style.display = 'none';
-    convertedPreview.style.display = 'block';
+function convertImage(imageData, format) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = function() {
+            try {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                
+                if (format === 'jpeg') {
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+                
+                ctx.drawImage(img, 0, 0);
+                
+                let quality = 0.9;
+                if (format === 'jpeg' || format === 'webp') {
+                    quality = parseInt(document.getElementById('image-quality').value) / 100;
+                }
+                
+                let mimeType;
+                switch(format) {
+                    case 'jpeg':
+                        mimeType = 'image/jpeg';
+                        break;
+                    case 'png':
+                        mimeType = 'image/png';
+                        break;
+                    case 'webp':
+                        mimeType = 'image/webp';
+                        break;
+                }
+                
+                const dataUrl = canvas.toDataURL(mimeType, quality);
+                resolve(dataUrl);
+            } catch (error) {
+                reject(error);
+            }
+        };
+        img.onerror = reject;
+        img.src = imageData;
+    });
 }
 
-function downloadConvertedImage() {
-    if (!convertedImage) return;
-    
-    const targetFormat = document.getElementById('target-format').value;
-    let extension = targetFormat;
-    if (targetFormat === 'jpeg') extension = 'jpg';
-    
-    const link = document.createElement('a');
-    link.download = `Studio-NFP_converted_image_${Date.now()}.${extension}`;
-    link.href = convertedImage;
-    link.click();
-    
-    showDownloadSuccessToast();
-}
-
-function handleImageUpload(file) {
-    if (!file || !file.type.startsWith('image/')) {
-        alert('이미지 파일을 선택해주세요.');
+async function downloadAsZip() {
+    if (convertedImages.length === 0) {
+        alert('먼저 이미지를 변환해주세요.');
         return;
     }
     
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const img = new Image();
-        img.onload = function() {
-            originalImage = img;
-            showOriginalPreview(img, file);
-            checkConvertButtonState();
-        };
-        img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+    const button = document.getElementById('download-zip-btn');
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ZIP 생성 중...';
+    
+    try {
+        const zip = new JSZip();
+        const targetFormat = document.getElementById('target-format').value;
+        let extension = targetFormat === 'jpeg' ? 'jpg' : targetFormat;
+        
+        convertedImages.forEach(img => {
+            const base64Data = img.convertedData.split(',')[1];
+            const fileName = `${img.originalName}.${extension}`;
+            zip.file(fileName, base64Data, { base64: true });
+        });
+        
+        const content = await zip.generateAsync({ type: 'blob' });
+        const url = URL.createObjectURL(content);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `Studio-NFP_converted_images_${Date.now()}.zip`;
+        link.click();
+        URL.revokeObjectURL(url);
+        
+        showToast('ZIP 다운로드 완료!');
+        
+    } catch (error) {
+        console.error('ZIP 생성 오류:', error);
+        alert('ZIP 파일 생성 중 오류가 발생했습니다.');
+    } finally {
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-file-archive"></i> ZIP 파일로 다운로드';
+    }
 }
 
-function showOriginalPreview(img, file) {
-    const preview = document.getElementById('original-preview');
-    const originalImg = document.getElementById('original-image');
-    const originalInfo = document.getElementById('original-info');
+function updateStats() {
+    const totalImages = document.getElementById('total-images');
+    const formatDisplay = document.getElementById('target-format-display');
+    const targetFormat = document.getElementById('target-format').value;
     
-    originalImg.src = img.src;
-    
-    const fileSizeKB = Math.round(file.size / 1024);
-    originalInfo.innerHTML = `
-        <strong>파일명:</strong> ${file.name}<br>
-        <strong>포맷:</strong> ${file.type}<br>
-        <strong>크기:</strong> ${img.naturalWidth} × ${img.naturalHeight}px<br>
-        <strong>파일크기:</strong> ${fileSizeKB}KB
-    `;
-    
-    preview.style.display = 'block';
-}
-
-function removeImage() {
-    originalImage = null;
-    convertedImage = null;
-    
-    document.getElementById('original-preview').style.display = 'none';
-    document.getElementById('converted-preview').style.display = 'none';
-    document.getElementById('converter-placeholder').style.display = 'flex';
-    document.getElementById('format-image-upload').value = '';
-    
-    checkConvertButtonState();
+    if (totalImages) {
+        totalImages.textContent = uploadedImages.length;
+    }
+    if (formatDisplay) {
+        formatDisplay.textContent = targetFormat ? targetFormat.toUpperCase() : '-';
+    }
 }
 
 function checkConvertButtonState() {
     const convertBtn = document.getElementById('convert-btn');
     const targetFormat = document.getElementById('target-format').value;
     
-    convertBtn.disabled = !originalImage || !targetFormat;
+    convertBtn.disabled = uploadedImages.length === 0 || !targetFormat;
 }
 
 function toggleQualitySetting() {
@@ -514,105 +611,33 @@ function toggleQualitySetting() {
     }
     
     checkConvertButtonState();
+    updateStats();
 }
 
-function showConversionSuccessToast() {
-    const existingToast = document.querySelector('.conversion-success-toast');
+function showToast(message, duration = 3000) {
+    const existingToast = document.querySelector('.toast');
     if (existingToast) {
         existingToast.remove();
     }
     
     const toast = document.createElement('div');
-    toast.className = 'conversion-success-toast';
-    toast.innerHTML = '<i class="fas fa-check"></i> 이미지 변환이 완료되었습니다!';
-    toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, #01FF75, #00CC5E);
-        color: black;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-weight: 600;
-        z-index: 10000;
-        animation: conversionToastShow 0.3s ease;
-    `;
-    
-    if (!document.querySelector('#conversion-toast-style')) {
-        const style = document.createElement('style');
-        style.id = 'conversion-toast-style';
-        style.textContent = `
-            @keyframes conversionToastShow {
-                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-                to { opacity: 1; transform: translateX(-50%) translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-    }
+    toast.className = 'toast show';
+    toast.textContent = message;
     
     document.body.appendChild(toast);
     
     setTimeout(() => {
-        if (toast.parentNode) {
-            toast.style.animation = 'conversionToastShow 0.3s ease reverse';
-            setTimeout(() => toast.remove(), 300);
-        }
-    }, 2000);
-}
-
-function showDownloadSuccessToast() {
-    const existingToast = document.querySelector('.format-download-success-toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
-    
-    const toast = document.createElement('div');
-    toast.className = 'format-download-success-toast';
-    toast.innerHTML = '<i class="fas fa-download"></i> 다운로드 완료!';
-    toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #141414;
-        color: white;
-        border: 1px solid #272727;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-weight: 600;
-        z-index: 10000;
-        animation: formatDownloadToastShow 0.3s ease;
-    `;
-    
-    if (!document.querySelector('#format-download-toast-style')) {
-        const style = document.createElement('style');
-        style.id = 'format-download-toast-style';
-        style.textContent = `
-            @keyframes formatDownloadToastShow {
-                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-                to { opacity: 1; transform: translateX(-50%) translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        if (toast.parentNode) {
-            toast.style.animation = 'formatDownloadToastShow 0.3s ease reverse';
-            setTimeout(() => toast.remove(), 300);
-        }
-    }, 2000);
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, duration);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     const imageUpload = document.getElementById('format-image-upload');
     const uploadLabel = document.querySelector('.image-upload-label');
     const convertBtn = document.getElementById('convert-btn');
-    const downloadBtn = document.getElementById('download-btn');
-    const removeBtn = document.getElementById('remove-image-btn');
+    const downloadZipBtn = document.getElementById('download-zip-btn');
+    const removeAllBtn = document.getElementById('remove-all-btn');
     const targetFormat = document.getElementById('target-format');
     const qualitySlider = document.getElementById('image-quality');
     const qualityValue = document.getElementById('quality-value');
@@ -620,7 +645,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (imageUpload) {
         imageUpload.addEventListener('change', function(e) {
             if (e.target.files.length > 0) {
-                handleImageUpload(e.target.files[0]);
+                handleImageUpload(e.target.files);
             }
         });
     }
@@ -645,21 +670,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const files = e.dataTransfer.files;
             if (files.length > 0) {
-                handleImageUpload(files[0]);
+                handleImageUpload(files);
             }
         });
     }
     
     if (convertBtn) {
-        convertBtn.addEventListener('click', convertImageFormat);
+        convertBtn.addEventListener('click', convertAllImages);
     }
     
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', downloadConvertedImage);
+    if (downloadZipBtn) {
+        downloadZipBtn.addEventListener('click', downloadAsZip);
     }
     
-    if (removeBtn) {
-        removeBtn.addEventListener('click', removeImage);
+    if (removeAllBtn) {
+        removeAllBtn.addEventListener('click', removeAllImages);
     }
     
     if (targetFormat) {
