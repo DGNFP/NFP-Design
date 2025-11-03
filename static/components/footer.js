@@ -30,7 +30,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
             <i class="fab fa-tiktok"></i>
             </a>
 
-            <a href="https://open.kakao.com/me/nfp" target="_blank" class="social-link social-link-kakao">
+            <a href="http://pf.kakao.com/_ffMtn" target="_blank" class="social-link social-link-kakao">
             <i class="fas fa-comment"></i>
             </a>
 
