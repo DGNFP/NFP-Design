@@ -296,6 +296,13 @@
       <description>&lt;h1 id=&#34;운세-컬러-카드&#34;&gt;운세 컬러 카드&lt;/h1&gt;&#xA;&lt;p&gt;오늘의 운세와 함께 특별한 색상을 받아보는 재미있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;h3 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;수정구 터치&lt;/strong&gt;: 신비로운 수정구를 터치하여 운세 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;일일 운세&lt;/strong&gt;: 매일 다른 운세 메시지 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 매칭&lt;/strong&gt;: 운세에 맞는 특별한 색상 추천&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;행운 지수&lt;/strong&gt;: 1~100점으로 표시되는 오늘의 운세&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개인화&lt;/strong&gt;: 키워드와 추천 활동 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;운세-구성-요소&#34;&gt;운세 구성 요소&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;길흉 타입&lt;/strong&gt;: 대길, 중길, 소길, 길, 평, 소흉, 중흉, 대흉 (8단계)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;행운 지수&lt;/strong&gt;: 시각적 게이지로 표시 (1~100점)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;오늘의 키워드&lt;/strong&gt;: 하루를 대표하는 핵심 단어&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;추천 활동&lt;/strong&gt;: 운세에 맞는 구체적인 행동 가이드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 정보&lt;/strong&gt;: HEX 코드와 색상명 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;색상-데이터베이스&#34;&gt;색상 데이터베이스&lt;/h2&gt;&#xA;&lt;p&gt;총 12가지 특별한 색상과 의미를 제공합니다:&lt;/p&gt;</description>
     </item>
     <item>
+      <title>RGB ↔ CMYK 변환기</title>
+      <link>http://localhost:1313/studio/rgb-cmyk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/studio/rgb-cmyk/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>다중 이미지 포맷 변환기</title>
       <link>http://localhost:1313/studio/multi-format-converter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
