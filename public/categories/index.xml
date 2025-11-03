@@ -92,5 +92,40 @@
       <guid>http://localhost:1313/categories/news/</guid>
       <description></description>
     </item>
+    <item>
+      <title>UX/UI 디자인</title>
+      <link>http://localhost:1313/categories/web/ux-ui-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/web/ux-ui-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>디지털 배너 디자인</title>
+      <link>http://localhost:1313/categories/web/digital-banner-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/web/digital-banner-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>상세페이지 디자인</title>
+      <link>http://localhost:1313/categories/web/detail-page-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/web/detail-page-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>웹 퍼블리싱</title>
+      <link>http://localhost:1313/categories/web/publishing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/web/publishing/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>홈페이지 디자인</title>
+      <link>http://localhost:1313/categories/web/home-page-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/web/home-page-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

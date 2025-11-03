@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchInput') || document.getElementById('youtubeSearchInput');
   const searchBtn = document.getElementById('searchBtn') || document.getElementById('youtubeSearchBtn');
-  const filters = document.querySelectorAll('.category-filter a, .youtube-category-filter a');
+  
+  // ✅ 수정: blog-btn 클래스 제외
+  const filters = document.querySelectorAll('.category-filter a:not(.blog-btn), .youtube-category-filter a');
   
   // 게시판별 페이지네이션 설정
   function getItemsPerPage() {
@@ -540,12 +542,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // 전역에 노출
   window.updateDisplay = updateDisplay;
   
-  // 필터 기능
+  // ✅ 필터 기능 수정
   filters.forEach(filter => {
       filter.addEventListener('click', function(e) {
           e.preventDefault();
           
-          filters.forEach(f => f.classList.remove('active'));
+          // ✅ active 제거 시에도 blog-btn 제외
+          document.querySelectorAll('.category-filter a:not(.blog-btn), .youtube-category-filter a').forEach(f => {
+              f.classList.remove('active');
+          });
+          
           this.classList.add('active');
           
           currentFilter = this.getAttribute('data-filter');

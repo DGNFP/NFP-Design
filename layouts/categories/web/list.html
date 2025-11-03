@@ -24,17 +24,15 @@
 </div>
 <!-- 버튼 컨테이너 닫힘 -->
         
-        <!-- 카테고리 필터 -->
-        <div class="board-filter">
-            <div class="filter-group">
-                <ul class="category-filter">
-                    <li><a class="active" data-filter="all">웹 디자인 전체</a></li>
-                    <li><a data-filter="홈페이지 디자인">홈페이지 디자인</a></li>
-                    <li><a data-filter="디지털배너 디자인">디지털배너 디자인</a></li>
-                    <li><a data-filter="상세페이지 디자인">상세페이지 디자인</a></li>
-                    <li><a data-filter="UX/UI 디자인">UX/UI 디자인</a></li>
-                </ul>
-            </div>
+<div class="board-filter">
+    <div class="blog-wapper">
+        <a href="{{ "/categories/web/" | relURL }}" class="blog-btn-active">웹 디자인 전체</a>
+        <a href="{{ "/categories/web/publishing/" | relURL }}" class="blog-btn">웹 퍼블리싱</a>
+        <a href="{{ "/categories/web/home-page-design/" | relURL }}" class="blog-btn">홈페이지 디자인</a>
+        <a href="{{ "/categories/web/digital-banner-design/" | relURL }}" class="blog-btn">디지털배너 디자인</a>
+        <a href="{{ "/categories/web/detail-page-design/" | relURL }}" class="blog-btn">상세페이지 디자인</a>
+        <a href="{{ "/categories/web/ux-ui-design/" | relURL }}" class="blog-btn">UX/UI 디자인</a>
+    </div>
             
             <!-- 검색창 -->
             <div class="board-search">

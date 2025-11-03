@@ -102,8 +102,8 @@ collections:
     - {label: "소제목", name: "subtitle", widget: "string", required: false}
     - {label: "발행일", name: "date", widget: "datetime"}
     - {label: "카테고리", name: "categories", widget: "hidden", default: ["programming"]}
-    - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발"], required: false}
-    - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "HTML5", "CSS3", "JavaScript", "Android", "iOS", "React Native", "Java", "Android Studio", "Visual Studio", "Visual Studio Code", "Node.js", "Git", "Google Play Console", "App Store Connect", "Figma", "Unity"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+    - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["프론트엔드", "웹 데모", "모바일 앱", "게임 개발"], required: false}
+    - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","프론트엔드", "웹 데모", "모바일 앱", "게임 개발", "HTML5", "CSS3", "JavaScript", "Android", "iOS", "React Native", "Java", "Android Studio", "Visual Studio", "Visual Studio Code", "Node.js", "Git", "Google Play Console", "App Store Connect", "Figma", "Unity"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
     - label: "커스텀 태그"
       name: "custom_tags"
       widget: "list"
