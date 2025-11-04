@@ -503,16 +503,33 @@ document.addEventListener('DOMContentLoaded', function() {
 // 커스텀 컬러피커 설정
 function setupCustomPicker() {
     const sbPicker = document.getElementById('sb-picker');
+    const customPicker = document.getElementById('custom-picker');
     const hueSlider = document.getElementById('hue-slider');
     const cursor = document.getElementById('picker-cursor');
     
+    // 기본 동작 방지
+    customPicker.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    
     // Saturation/Brightness 피커 이벤트
-    sbPicker.addEventListener('mousedown', startDragging);
+    sbPicker.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        startDragging(e);
+    });
+    
     document.addEventListener('mousemove', onDrag);
     document.addEventListener('mouseup', stopDragging);
     
     // 터치 이벤트 지원
-    sbPicker.addEventListener('touchstart', startDragging);
+    sbPicker.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        startDragging(e);
+    });
+    
     document.addEventListener('touchmove', onDrag);
     document.addEventListener('touchend', stopDragging);
     
@@ -521,20 +538,33 @@ function setupCustomPicker() {
         currentHue = parseInt(this.value);
         updateColorFromHSB();
     });
+    
+    hueSlider.addEventListener('change', function() {
+        currentHue = parseInt(this.value);
+        updateColorFromHSB();
+    });
 }
 
 function startDragging(e) {
+    e.preventDefault();
+    e.stopPropagation();
     isDragging = true;
     updateSBFromMouse(e);
 }
 
 function onDrag(e) {
     if (isDragging) {
+        e.preventDefault();
+        e.stopPropagation();
         updateSBFromMouse(e);
     }
 }
 
-function stopDragging() {
+function stopDragging(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
     isDragging = false;
 }
 
