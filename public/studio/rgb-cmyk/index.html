@@ -160,103 +160,11 @@
     <div id="header-container"></div>
     
     
-
 <link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
- 
-.nfp-slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    outline: none;
-    border: 2px solid #272727;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-}
 
-.nfp-slider:hover {
-    border-color: #01FF75;
-    box-shadow: 0 0 10px rgba(1, 255, 117, 0.3);
-}
 
- 
-.nfp-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #01FF75;
-    cursor: pointer;
-    border: 3px solid #0a0a0a;
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.5);
-    transition: all 0.2s ease;
-    margin-top: 0;
-}
-
-.nfp-slider::-webkit-slider-thumb:hover {
-    background: #00ff88;
-    box-shadow: 0 0 20px rgba(1, 255, 117, 0.8);
-    transform: scale(1.1);
-}
-
-.nfp-slider::-webkit-slider-thumb:active {
-    transform: scale(1.2);
-    box-shadow: 0 0 25px rgba(1, 255, 117, 1);
-}
-
- 
-.nfp-slider::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #01FF75;
-    cursor: pointer;
-    border: 3px solid #0a0a0a;
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.5);
-    transition: all 0.2s ease;
-}
-
-.nfp-slider::-moz-range-thumb:hover {
-    background: #00ff88;
-    box-shadow: 0 0 20px rgba(1, 255, 117, 0.8);
-    transform: scale(1.1);
-}
-
-.nfp-slider::-moz-range-thumb:active {
-    transform: scale(1.2);
-    box-shadow: 0 0 25px rgba(1, 255, 117, 1);
-}
-
- 
-.nfp-slider::-moz-range-track {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    height: 10px;
-}
-
- 
-.nfp-slider::-webkit-slider-runnable-track {
-    height: 10px;
-    border-radius: 5px;
-}
-
- 
-input[type="color"] {
-    transition: all 0.3s ease;
-}
-
-input[type="color"]:hover {
-    border-color: #01FF75 !important;
-    box-shadow: 0 0 20px rgba(1, 255, 117, 0.3);
-}
-</style>
 
 <section class="section">
 <div class="container">
@@ -264,7 +172,7 @@ input[type="color"]:hover {
     <div class="studio-page-header">
         <h1>Studio <span>NFP</span></h1>
         <span class="highlight">RGB ↔ CMYK 변환기</span>
-        <p><br>디지털(RGB)과 인쇄(CMYK) 색상을 상호 변환하세요.</p>
+        <p><br>디지털 화면용 RGB 색상과 인쇄용 CMYK 색상을 상호 변환합니다.<br>웹 디자인 → 인쇄물 작업 시 필수적인 색상 변환 도구입니다.</p>
     </div>
 
     
@@ -286,56 +194,41 @@ input[type="color"]:hover {
 
     
     <div class="sub-page-btn-wrapper">
-        
         <a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
         <a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
         <a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
         <a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
         <a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
-
-        
         <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
         <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
         <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
         <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
         <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
-
-        
         <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
         <a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
         <a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
         <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
         <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
-
-        
         <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
         <a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
         <a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
         <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
         <a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
-
-        
         <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
         <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
         <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
         <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
         <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
-
-        
         <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
         <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
         <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
         <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
         <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
-
-        
         <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
         <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
         <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
         <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
         <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
-        
         <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
         <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
         <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
@@ -345,229 +238,181 @@ input[type="color"]:hover {
 
     
     <div class="studio-page-content">
-        <div class="base64-encoder-container">
+        <div class="converter-wrapper">
             
-            <div class="base64-encoder-description">
-                <h3>RGB ↔ CMYK 변환기</h3>
-                <p>디지털 화면용 RGB 색상과 인쇄용 CMYK 색상을 상호 변환합니다.<br>
-                웹 디자인 → 인쇄물 작업 시 필수적인 색상 변환 도구입니다.</p>
-            </div>
+<div class="studio-description">
+    <h3>RGB ↔ CMYK 색상 변환기</h3>
+    <p>디지털 화면용 RGB 색상과 인쇄용 CMYK 색상을 상호 변환 합니다.<br>
+    웹 디자인 → 인쇄물 작업시 필수적인 색상 변환 도구 입니다.</p>
+</div>
 
             
-            <div class="base64-text-section">
-                <div class="section-title">
-                    <h4><i class="fas fa-palette"></i> RGB ↔ CMYK 색상 변환</h4>
-                </div>
+            <div class="converter-grid">
+                
+                <div class="picker-section">
+                    <div class="picker-label">
+                        <i class="fas fa-eye-dropper"></i> 색상 선택
+                    </div>
 
-                <div class="base64-text-content">
                     
-                    <div class="base64-section">
-                        <div class="base64-header">
-                            <h5><i class="fas fa-desktop"></i> RGB 컬러피커 (디지털 → 인쇄)</h5>
-                        </div>
-                        
-                        <div class="base64-input-section">
-                            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 25px; margin-bottom: 25px;">
-                                
-                                <div>
-                                    <label style="display: block; margin-bottom: 12px; color: #01FF75; font-weight: 600; font-size: 1.1rem;">
-                                        <i class="fas fa-eye-dropper"></i> 색상 선택
-                                    </label>
-                                    <input type="color" id="rgb-picker" value="#ff0000" 
-                                           style="width: 100%; height: 240px; border: 3px solid #272727; border-radius: 10px; background: transparent; cursor: pointer;">
-                                </div>
+                    <div class="custom-color-picker" id="colorPicker">
+                        <div class="saturation-brightness" id="sbPicker">
 
-                                
-                                <div>
-                                    <label style="display: block; margin-bottom: 12px; color: #01FF75; font-weight: 600; font-size: 1.1rem;">색상 미리보기</label>
-                                    <div id="rgb-preview" style="width: 100%; height: 240px; border: 3px solid #272727; border-radius: 10px; background: rgb(255, 0, 0); box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);"></div>
-                                </div>
-                            </div>
 
                             
-                            <div style="margin-bottom: 20px;">
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <label style="color: #01FF75; font-weight: 600;">R (Red)</label>
-                                        <span id="rgb-r-value" style="color: #01FF75; font-weight: 700;">255</span>
-                                    </div>
-                                    <input type="range" id="rgb-r" min="0" max="255" value="255" class="nfp-slider">
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <label style="color: #01FF75; font-weight: 600;">G (Green)</label>
-                                        <span id="rgb-g-value" style="color: #01FF75; font-weight: 700;">0</span>
-                                    </div>
-                                    <input type="range" id="rgb-g" min="0" max="255" value="0" class="nfp-slider">
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <label style="color: #01FF75; font-weight: 600;">B (Blue)</label>
-                                        <span id="rgb-b-value" style="color: #01FF75; font-weight: 700;">0</span>
-                                    </div>
-                                    <input type="range" id="rgb-b" min="0" max="255" value="0" class="nfp-slider">
-                                </div>
-                            </div>
-
-                            
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 2px solid #272727;">
-                                    <div style="color: #999; font-size: 0.9rem; margin-bottom: 5px;">HEX</div>
-                                    <div id="hex-value" style="color: #01FF75; font-size: 1.3rem; font-weight: 700;">#FF0000</div>
-                                </div>
-                                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 2px solid #272727;">
-                                    <div style="color: #999; font-size: 0.9rem; margin-bottom: 5px;">RGB</div>
-                                    <div id="rgb-value" style="color: #01FF75; font-size: 1.3rem; font-weight: 700;">255, 0, 0</div>
-                                </div>
-                            </div>
+                            <div class="picker-cursor" id="cursor"></div>
                         </div>
-
-                        <div class="base64-output-section">
-                            <div class="output-header">
-                                <label><i class="fas fa-print"></i> CMYK 변환 결과</label>
-                                <button type="button" class="copy-btn" id="copy-cmyk-btn">
-                                    복사
-                                </button>
-                            </div>
-                            <div class="output-container">
-                                <div style="background: rgba(1, 255, 117, 0.05); padding: 20px; border-radius: 8px; border: 2px solid #272727;">
-                                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center;">
-                                        <div>
-                                            <div style="color: #999; font-size: 0.85rem; margin-bottom: 5px;">Cyan</div>
-                                            <div id="cmyk-c-result" style="color: #01FF75; font-size: 1.5rem; font-weight: 700;">0%</div>
-                                        </div>
-                                        <div>
-                                            <div style="color: #999; font-size: 0.85rem; margin-bottom: 5px;">Magenta</div>
-                                            <div id="cmyk-m-result" style="color: #01FF75; font-size: 1.5rem; font-weight: 700;">100%</div>
-                                        </div>
-                                        <div>
-                                            <div style="color: #999; font-size: 0.85rem; margin-bottom: 5px;">Yellow</div>
-                                            <div id="cmyk-y-result" style="color: #01FF75; font-size: 1.5rem; font-weight: 700;">100%</div>
-                                        </div>
-                                        <div>
-                                            <div style="color: #999; font-size: 0.85rem; margin-bottom: 5px;">Black</div>
-                                            <div id="cmyk-k-result" style="color: #01FF75; font-size: 1.5rem; font-weight: 700;">0%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="hue-slider-container">
+                            <input type="range" class="hue-slider" id="hueSlider" min="0" max="360" value="120">
+                            
                         </div>
                     </div>
 
                     
-                    <div class="base64-section">
-                        <div class="base64-header">
-                            <h5><i class="fas fa-print"></i> CMYK 컬러피커 (인쇄 → 디지털)</h5>
+                    <div id="colorPreview" style="width: 100%; height: 80px; background: #0F0600; border: 1px solid #272727; border-radius: 4px; margin-bottom: 20px;"></div>
+
+                    
+                    <div class="hex-display-box">
+                        <div class="hex-label">
+                            <span>HEX (직접입력가능)</span>
+                            <button class="copy-hex-btn" id="copyBtn">복사</button>
+                        </div>
+                        <input type="text" class="hex-input" id="hexInput" value="0F0600" maxlength="6" placeholder="FFFFFF">
+                    </div>
+
+                    
+                    <div class="values-grid">
+                        
+                        <div class="value-box">
+                            <div class="value-box-title">
+                                <i class="fas fa-desktop"></i> RGB
+                            </div>
+                            <div class="value-row">
+                                <span class="label">R</span>
+                                <span class="value" id="displayR">15</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">G</span>
+                                <span class="value" id="displayG">6</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">B</span>
+                                <span class="value" id="displayB">0</span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="value-box">
+                            <div class="value-box-title">
+                                <i class="fas fa-print"></i> CMYK
+                            </div>
+                            <div class="value-row">
+                                <span class="label">C</span>
+                                <span class="value" id="displayC">0%</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">M</span>
+                                <span class="value" id="displayM">60%</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">Y</span>
+                                <span class="value" id="displayY">100%</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">K</span>
+                                <span class="value" id="displayK">94%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="sliders-section">
+                    
+                    <div class="slider-panel">
+                        <div class="panel-title">
+                            <span><i class="fas fa-desktop"></span></i> RGB 슬라이더 (디지털)
                         </div>
                         
-                        <div class="base64-input-section">
-                            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 25px; margin-bottom: 25px;">
-                                
-                                <div>
-                                    <label style="display: block; margin-bottom: 12px; color: #01FF75; font-weight: 600; font-size: 1.1rem;">
-                                        <i class="fas fa-eye-dropper"></i> 색상 선택
-                                    </label>
-                                    <input type="color" id="cmyk-picker" value="#ff0000" 
-                                           style="width: 100%; height: 240px; border: 3px solid #272727; border-radius: 10px; background: transparent; cursor: pointer;">
-                                </div>
-
-                                
-                                <div>
-                                    <label style="display: block; margin-bottom: 12px; color: #01FF75; font-weight: 600; font-size: 1.1rem;">색상 미리보기</label>
-                                    <div id="cmyk-preview" style="width: 100%; height: 240px; border: 3px solid #272727; border-radius: 10px; background: rgb(255, 0, 0); box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);"></div>
-                                </div>
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label"><span>R</span> (Red)</span>
+                                <span class="slider-value" id="rgbR">15</span>
                             </div>
-
-                            
-                            <div style="margin-bottom: 20px;">
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <label style="color: #01FF75; font-weight: 600;">C (Cyan)</label>
-                                        <span id="cmyk-c-value" style="color: #01FF75; font-weight: 700;">0%</span>
-                                    </div>
-                                    <input type="range" id="cmyk-c" min="0" max="100" value="0" class="nfp-slider">
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <label style="color: #01FF75; font-weight: 600;">M (Magenta)</label>
-                                        <span id="cmyk-m-value" style="color: #01FF75; font-weight: 700;">100%</span>
-                                    </div>
-                                    <input type="range" id="cmyk-m" min="0" max="100" value="100" class="nfp-slider">
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <label style="color: #01FF75; font-weight: 600;">Y (Yellow)</label>
-                                        <span id="cmyk-y-value" style="color: #01FF75; font-weight: 700;">100%</span>
-                                    </div>
-                                    <input type="range" id="cmyk-y" min="0" max="100" value="100" class="nfp-slider">
-                                </div>
-                                <div style="margin-bottom: 15px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <label style="color: #01FF75; font-weight: 600;">K (Black)</label>
-                                        <span id="cmyk-k-value" style="color: #01FF75; font-weight: 700;">0%</span>
-                                    </div>
-                                    <input type="range" id="cmyk-k" min="0" max="100" value="0" class="nfp-slider">
-                                </div>
-                            </div>
-
-                            
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 2px solid #272727;">
-                                    <div style="color: #999; font-size: 0.9rem; margin-bottom: 5px;">HEX</div>
-                                    <div id="hex-from-cmyk" style="color: #01FF75; font-size: 1.3rem; font-weight: 700;">#FF0000</div>
-                                </div>
-                                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 2px solid #272727;">
-                                    <div style="color: #999; font-size: 0.9rem; margin-bottom: 5px;">RGB</div>
-                                    <div id="rgb-from-cmyk" style="color: #01FF75; font-size: 1.3rem; font-weight: 700;">255, 0, 0</div>
-                                </div>
-                            </div>
+                            <input type="range" class="color-slider" id="sliderR" min="0" max="255" value="15">
                         </div>
 
-                        <div class="base64-output-section">
-                            <div class="output-header">
-                                <label><i class="fas fa-desktop"></i> RGB 변환 결과</label>
-                                <button type="button" class="copy-btn" id="copy-rgb-btn">
-                                    복사
-                                </button>
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label"><span>G</span> (Green)</span>
+                                <span class="slider-value" id="rgbG">6</span>
                             </div>
-                            <div class="output-container">
-                                <div style="background: rgba(1, 255, 117, 0.05); padding: 20px; border-radius: 8px; border: 2px solid #272727;">
-                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;">
-                                        <div>
-                                            <div style="color: #999; font-size: 0.85rem; margin-bottom: 5px;">Red</div>
-                                            <div id="rgb-r-result" style="color: #01FF75; font-size: 1.5rem; font-weight: 700;">255</div>
-                                        </div>
-                                        <div>
-                                            <div style="color: #999; font-size: 0.85rem; margin-bottom: 5px;">Green</div>
-                                            <div id="rgb-g-result" style="color: #01FF75; font-size: 1.5rem; font-weight: 700;">0</div>
-                                        </div>
-                                        <div>
-                                            <div style="color: #999; font-size: 0.85rem; margin-bottom: 5px;">Blue</div>
-                                            <div id="rgb-b-result" style="color: #01FF75; font-size: 1.5rem; font-weight: 700;">0</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <input type="range" class="color-slider" id="sliderG" min="0" max="255" value="6">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label"><span>B</span> (Blue)</span>
+                                <span class="slider-value" id="rgbB">0</span>
                             </div>
+                            <input type="range" class="color-slider" id="sliderB" min="0" max="255" value="0">
+                        </div>
+                    </div>
+
+                    
+                    <div class="slider-panel">
+                        <div class="panel-title">
+                            <span><i class="fas fa-print"></span></i> CMYK 슬라이더 (인쇄)
+                        </div>
+                        
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label"><span>C</span> (Cyan)</span>
+                                <span class="slider-value" id="cmykC">0%</span>
+                            </div>
+                            <input type="range" class="color-slider" id="sliderC" min="0" max="100" value="0">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label"><span>M</span> (Magenta)</span>
+                                <span class="slider-value" id="cmykM">60%</span>
+                            </div>
+                            <input type="range" class="color-slider" id="sliderM" min="0" max="100" value="60">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label"><span>Y</span> (Yellow)</span>
+                                <span class="slider-value" id="cmykY">100%</span>
+                            </div>
+                            <input type="range" class="color-slider" id="sliderY" min="0" max="100" value="100">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label"><span>K</span> (Black)</span>
+                                <span class="slider-value" id="cmykK">94%</span>
+                            </div>
+                            <input type="range" class="color-slider" id="sliderK" min="0" max="100" value="94">
                         </div>
                     </div>
                 </div>
             </div>
 
-            
-            <div class="base64-file-section">
-                <div class="section-title">
-                    <h4><i class="fas fa-info-circle"></i> 색상 변환 정보</h4>
-                </div>
+            <div class="info-section">
 
-                <div class="base64-encoder-description">
-                    <h3>알아두기</h3>
-                    <div style="line-height: 2; color: #999;">
-                        <p style="margin-bottom: 10px;"><strong style="color: #01FF75;">RGB</strong>는 빛의 삼원색으로 디지털 화면(모니터, 웹, 모바일)에서 사용됩니다.</p>
-                        <p style="margin-bottom: 10px;"><strong style="color: #01FF75;">CMYK</strong>는 색의 삼원색 + Black으로 인쇄물(포스터, 명함, 책자)에서 사용됩니다.</p>
-                        <p style="margin-bottom: 10px;">RGB → CMYK 변환 시 색상 차이가 발생할 수 있습니다. (색역 차이)</p>
-                        <p style="margin-bottom: 10px;">정확한 인쇄 색상은 인쇄소와 사전 테스트를 권장합니다.</p>
-                        <p>모니터와 실제 인쇄물의 색상은 다를 수 있습니다.</p>
-                    </div>
+<div class="studio-description">
+<h4><span><i class="fas fa-info-circle"></span></i> 색상 변환 정보</h4>
+</div>
+
+                <div class="info-title">알아두기</div>
+                <div class="info-content">
+                    <p><strong>RGB</strong>는 빛의 삼원색으로 디지털 화면(모니터, 웹, 모바일)에서 사용됩니다.</p>
+                    <p><strong>CMYK</strong>는 색의 삼원색 + Black으로 인쇄물(포스터, 명함, 책자)에서 사용됩니다.</p>
+                    <p>RGB → CMYK 변환 시 색상 차이가 발생할 수 있습니다. (색역 차이)</p>
+                    <p>정확한 인쇄 색상은 인쇄소와 사전 테스트를 권장합니다.</p>
+                    <p>모니터와 실제 인쇄물의 색상은 다를 수 있습니다.</p>
                 </div>
             </div>
         </div>
@@ -577,199 +422,416 @@ input[type="color"]:hover {
 
 <script>
 
+let currentHue = 120;
+let currentSat = 100;
+let currentBright = 6;
+let isDragging = false;
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    setupColorPickerEvents();
-    setupSliderEvents();
-    setupCopyButtons();
+    setupColorPicker();
+    setupSliders();
+    setupCopyButton();
+    setupHexInput();
     
     
-    updateFromRgbPicker();
-    updateFromCmykSliders();
+    updateColorFromHSB();
 });
 
-function setupColorPickerEvents() {
-    
-    document.getElementById('rgb-picker').addEventListener('input', updateFromRgbPicker);
-    
-    
-    ['rgb-r', 'rgb-g', 'rgb-b'].forEach(id => {
-        document.getElementById(id).addEventListener('input', updateFromRgbSliders);
-    });
 
+function setupColorPicker() {
+    const sbPicker = document.getElementById('sbPicker');
+    const hueSlider = document.getElementById('hueSlider');
+    const cursor = document.getElementById('cursor');
     
-    document.getElementById('cmyk-picker').addEventListener('input', updateFromCmykPicker);
+    
+    const rect = sbPicker.getBoundingClientRect();
+    cursor.style.left = rect.width + 'px';
+    cursor.style.top = (rect.height * 0.94) + 'px';
+    
+    
+    sbPicker.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        updateFromMouse(e);
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) updateFromMouse(e);
+    });
+    
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+    
+    
+    sbPicker.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        isDragging = true;
+        updateFromTouch(e);
+    }, { passive: false });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            updateFromTouch(e);
+        }
+    }, { passive: false });
+    
+    document.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+    
+    
+    hueSlider.addEventListener('input', () => {
+        currentHue = parseInt(hueSlider.value);
+        updateColorFromHSB();
+    });
 }
 
-function setupSliderEvents() {
+
+function updateFromMouse(e) {
+    const sbPicker = document.getElementById('sbPicker');
+    const rect = sbPicker.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
     
-    ['cmyk-c', 'cmyk-m', 'cmyk-y', 'cmyk-k'].forEach(id => {
-        document.getElementById(id).addEventListener('input', updateFromCmykSliders);
-    });
-}
-
-function setupCopyButtons() {
-    document.getElementById('copy-cmyk-btn').addEventListener('click', function() {
-        const c = document.getElementById('cmyk-c-result').textContent;
-        const m = document.getElementById('cmyk-m-result').textContent;
-        const y = document.getElementById('cmyk-y-result').textContent;
-        const k = document.getElementById('cmyk-k-result').textContent;
-        copyText(`C: ${c}, M: ${m}, Y: ${y}, K: ${k}`);
-    });
-
-    document.getElementById('copy-rgb-btn').addEventListener('click', function() {
-        const hex = document.getElementById('hex-from-cmyk').textContent;
-        const rgb = document.getElementById('rgb-from-cmyk').textContent;
-        copyText(`HEX: ${hex}\nRGB: ${rgb}`);
-    });
+    x = Math.max(0, Math.min(x, rect.width));
+    y = Math.max(0, Math.min(y, rect.height));
+    
+    currentSat = (x / rect.width) * 100;
+    currentBright = 100 - (y / rect.height) * 100;
+    
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+    
+    updateColorFromHSB();
 }
 
 
-function updateFromRgbPicker() {
-    const picker = document.getElementById('rgb-picker');
-    const hex = picker.value;
+function updateFromTouch(e) {
+    const touch = e.touches[0];
+    const sbPicker = document.getElementById('sbPicker');
+    const rect = sbPicker.getBoundingClientRect();
+    let x = touch.clientX - rect.left;
+    let y = touch.clientY - rect.top;
+    
+    x = Math.max(0, Math.min(x, rect.width));
+    y = Math.max(0, Math.min(y, rect.height));
+    
+    currentSat = (x / rect.width) * 100;
+    currentBright = 100 - (y / rect.height) * 100;
+    
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+    
+    updateColorFromHSB();
+}
+
+
+function updateColorFromHSB() {
+    const rgb = hsbToRgb(currentHue, currentSat, currentBright);
+    const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+    const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
     
     
-    const r = parseInt(hex.substr(1, 2), 16);
-    const g = parseInt(hex.substr(3, 2), 16);
-    const b = parseInt(hex.substr(5, 2), 16);
+    document.getElementById('sliderR').value = rgb.r;
+    document.getElementById('sliderG').value = rgb.g;
+    document.getElementById('sliderB').value = rgb.b;
+    document.getElementById('sliderC').value = cmyk.c;
+    document.getElementById('sliderM').value = cmyk.m;
+    document.getElementById('sliderY').value = cmyk.y;
+    document.getElementById('sliderK').value = cmyk.k;
     
     
-    document.getElementById('rgb-r').value = r;
-    document.getElementById('rgb-g').value = g;
-    document.getElementById('rgb-b').value = b;
+    const hueColor = hsbToRgb(currentHue, 100, 100);
+    const sbPicker = document.getElementById('sbPicker');
+    sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
     
     
-    updateRgbDisplay(r, g, b, hex);
+    updateDisplays(rgb, hex, cmyk);
+}
+
+
+function setupSliders() {
+    
+    ['R', 'G', 'B'].forEach(channel => {
+        const slider = document.getElementById('slider' + channel);
+        slider.addEventListener('input', updateFromRgbSliders);
+    });
+    
+    
+    ['C', 'M', 'Y', 'K'].forEach(channel => {
+        const slider = document.getElementById('slider' + channel);
+        slider.addEventListener('input', updateFromCmykSliders);
+    });
 }
 
 
 function updateFromRgbSliders() {
-    const r = parseInt(document.getElementById('rgb-r').value);
-    const g = parseInt(document.getElementById('rgb-g').value);
-    const b = parseInt(document.getElementById('rgb-b').value);
+    const r = parseInt(document.getElementById('sliderR').value);
+    const g = parseInt(document.getElementById('sliderG').value);
+    const b = parseInt(document.getElementById('sliderB').value);
     
     
-    const hex = '#' + [r, g, b].map(x => {
-        const hexValue = x.toString(16);
-        return hexValue.length === 1 ? '0' + hexValue : hexValue;
-    }).join('').toUpperCase();
+    const hsb = rgbToHsb(r, g, b);
+    currentHue = hsb.h;
+    currentSat = hsb.s;
+    currentBright = hsb.b;
+    
+    document.getElementById('hueSlider').value = currentHue;
     
     
-    document.getElementById('rgb-picker').value = hex;
+    const sbPicker = document.getElementById('sbPicker');
+    const rect = sbPicker.getBoundingClientRect();
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = (currentSat / 100) * rect.width + 'px';
+    cursor.style.top = (1 - currentBright / 100) * rect.height + 'px';
     
-    
-    updateRgbDisplay(r, g, b, hex);
-}
-
-
-function updateRgbDisplay(r, g, b, hex) {
-    
-    document.getElementById('rgb-r-value').textContent = r;
-    document.getElementById('rgb-g-value').textContent = g;
-    document.getElementById('rgb-b-value').textContent = b;
-    document.getElementById('hex-value').textContent = hex;
-    document.getElementById('rgb-value').textContent = `${r}, ${g}, ${b}`;
-    
-    
-    const preview = document.getElementById('rgb-preview');
-    preview.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    preview.style.boxShadow = `0 4px 20px rgba(${r}, ${g}, ${b}, 0.4)`;
-    
-    
+    const hex = rgbToHex(r, g, b);
     const cmyk = rgbToCmyk(r, g, b);
-    document.getElementById('cmyk-c-result').textContent = `${cmyk.c}%`;
-    document.getElementById('cmyk-m-result').textContent = `${cmyk.m}%`;
-    document.getElementById('cmyk-y-result').textContent = `${cmyk.y}%`;
-    document.getElementById('cmyk-k-result').textContent = `${cmyk.k}%`;
+    
+    
+    document.getElementById('sliderC').value = cmyk.c;
+    document.getElementById('sliderM').value = cmyk.m;
+    document.getElementById('sliderY').value = cmyk.y;
+    document.getElementById('sliderK').value = cmyk.k;
+    
+    
+    const hueColor = hsbToRgb(currentHue, 100, 100);
+    sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
+    
+    updateDisplays({ r, g, b }, hex, cmyk);
 }
 
 
 function updateFromCmykSliders() {
-    const c = parseInt(document.getElementById('cmyk-c').value);
-    const m = parseInt(document.getElementById('cmyk-m').value);
-    const y = parseInt(document.getElementById('cmyk-y').value);
-    const k = parseInt(document.getElementById('cmyk-k').value);
-    
-    
-    document.getElementById('cmyk-c-value').textContent = `${c}%`;
-    document.getElementById('cmyk-m-value').textContent = `${m}%`;
-    document.getElementById('cmyk-y-value').textContent = `${y}%`;
-    document.getElementById('cmyk-k-value').textContent = `${k}%`;
-    
+    const c = parseInt(document.getElementById('sliderC').value);
+    const m = parseInt(document.getElementById('sliderM').value);
+    const y = parseInt(document.getElementById('sliderY').value);
+    const k = parseInt(document.getElementById('sliderK').value);
     
     const rgb = cmykToRgb(c, m, y, k);
+    const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
     
     
-    const hex = '#' + [rgb.r, rgb.g, rgb.b].map(x => {
-        const hexValue = x.toString(16);
-        return hexValue.length === 1 ? '0' + hexValue : hexValue;
-    }).join('').toUpperCase();
+    const hsb = rgbToHsb(rgb.r, rgb.g, rgb.b);
+    currentHue = hsb.h;
+    currentSat = hsb.s;
+    currentBright = hsb.b;
+    
+    document.getElementById('hueSlider').value = currentHue;
     
     
-    document.getElementById('cmyk-picker').value = hex;
+    const sbPicker = document.getElementById('sbPicker');
+    const rect = sbPicker.getBoundingClientRect();
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = (currentSat / 100) * rect.width + 'px';
+    cursor.style.top = (1 - currentBright / 100) * rect.height + 'px';
     
     
-    const preview = document.getElementById('cmyk-preview');
-    preview.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
-    preview.style.boxShadow = `0 4px 20px rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.4)`;
+    document.getElementById('sliderR').value = rgb.r;
+    document.getElementById('sliderG').value = rgb.g;
+    document.getElementById('sliderB').value = rgb.b;
     
     
-    document.getElementById('hex-from-cmyk').textContent = hex;
-    document.getElementById('rgb-from-cmyk').textContent = `${rgb.r}, ${rgb.g}, ${rgb.b}`;
-    document.getElementById('rgb-r-result').textContent = rgb.r;
-    document.getElementById('rgb-g-result').textContent = rgb.g;
-    document.getElementById('rgb-b-result').textContent = rgb.b;
+    const hueColor = hsbToRgb(currentHue, 100, 100);
+    sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
+    
+    updateDisplays(rgb, hex, { c, m, y, k });
 }
 
 
-function updateFromCmykPicker() {
-    const picker = document.getElementById('cmyk-picker');
-    const hex = picker.value;
+function updateDisplays(rgb, hex, cmyk) {
+    
+    document.getElementById('colorPreview').style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
     
     
-    const r = parseInt(hex.substr(1, 2), 16);
-    const g = parseInt(hex.substr(3, 2), 16);
-    const b = parseInt(hex.substr(5, 2), 16);
+    document.getElementById('hexInput').value = hex.replace('#', '');
+    
+    
+    document.getElementById('rgbR').textContent = rgb.r;
+    document.getElementById('rgbG').textContent = rgb.g;
+    document.getElementById('rgbB').textContent = rgb.b;
+    
+    
+    document.getElementById('displayR').textContent = rgb.r;
+    document.getElementById('displayG').textContent = rgb.g;
+    document.getElementById('displayB').textContent = rgb.b;
+    
+    
+    document.getElementById('cmykC').textContent = `${cmyk.c}%`;
+    document.getElementById('cmykM').textContent = `${cmyk.m}%`;
+    document.getElementById('cmykY').textContent = `${cmyk.y}%`;
+    document.getElementById('cmykK').textContent = `${cmyk.k}%`;
+    
+    
+    document.getElementById('displayC').textContent = `${cmyk.c}%`;
+    document.getElementById('displayM').textContent = `${cmyk.m}%`;
+    document.getElementById('displayY').textContent = `${cmyk.y}%`;
+    document.getElementById('displayK').textContent = `${cmyk.k}%`;
+}
+
+
+function setupCopyButton() {
+    document.getElementById('copyBtn').addEventListener('click', () => {
+        const hex = document.getElementById('hexInput').value;
+        navigator.clipboard.writeText(hex).then(() => {
+            showToast(`복사 완료: ${hex}`);
+        }).catch(() => {
+            const textarea = document.createElement('textarea');
+            textarea.value = hex;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast(`복사 완료: ${hex}`);
+        });
+    });
+}
+
+
+function setupHexInput() {
+    const hexInput = document.getElementById('hexInput');
+    
+    
+    hexInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/[^0-9A-Fa-f]/g, '').toUpperCase();
+        e.target.value = value;
+        
+        
+        if (value.length === 6) {
+            updateFromHexInput(value);
+        }
+    });
+    
+    
+    hexInput.addEventListener('blur', function(e) {
+        let value = e.target.value;
+        if (value.length === 6) {
+            updateFromHexInput(value);
+        } else if (value.length > 0 && value.length < 6) {
+            
+            const rgb = hsbToRgb(currentHue, currentSat, currentBright);
+            const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+            e.target.value = hex.replace('#', '');
+        }
+    });
+    
+    
+    hexInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            let value = e.target.value;
+            if (value.length === 6) {
+                updateFromHexInput(value);
+                e.target.blur();
+            }
+        }
+    });
+}
+
+
+function updateFromHexInput(hex) {
+    
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    
+    const hsb = rgbToHsb(r, g, b);
+    currentHue = hsb.h;
+    currentSat = hsb.s;
+    currentBright = hsb.b;
+    
+    
+    document.getElementById('hueSlider').value = currentHue;
+    
+    
+    const sbPicker = document.getElementById('sbPicker');
+    const rect = sbPicker.getBoundingClientRect();
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = (currentSat / 100) * rect.width + 'px';
+    cursor.style.top = (1 - currentBright / 100) * rect.height + 'px';
+    
+    
+    document.getElementById('sliderR').value = r;
+    document.getElementById('sliderG').value = g;
+    document.getElementById('sliderB').value = b;
     
     
     const cmyk = rgbToCmyk(r, g, b);
+    document.getElementById('sliderC').value = cmyk.c;
+    document.getElementById('sliderM').value = cmyk.m;
+    document.getElementById('sliderY').value = cmyk.y;
+    document.getElementById('sliderK').value = cmyk.k;
     
     
-    document.getElementById('cmyk-c').value = cmyk.c;
-    document.getElementById('cmyk-m').value = cmyk.m;
-    document.getElementById('cmyk-y').value = cmyk.y;
-    document.getElementById('cmyk-k').value = cmyk.k;
+    const hueColor = hsbToRgb(currentHue, 100, 100);
+    sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
     
     
-    document.getElementById('cmyk-c-value').textContent = `${cmyk.c}%`;
-    document.getElementById('cmyk-m-value').textContent = `${cmyk.m}%`;
-    document.getElementById('cmyk-y-value').textContent = `${cmyk.y}%`;
-    document.getElementById('cmyk-k-value').textContent = `${cmyk.k}%`;
-    
-    
-    const preview = document.getElementById('cmyk-preview');
-    preview.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    preview.style.boxShadow = `0 4px 20px rgba(${r}, ${g}, ${b}, 0.4)`;
-    
-    
-    document.getElementById('hex-from-cmyk').textContent = hex;
-    document.getElementById('rgb-from-cmyk').textContent = `${r}, ${g}, ${b}`;
-    document.getElementById('rgb-r-result').textContent = r;
-    document.getElementById('rgb-g-result').textContent = g;
-    document.getElementById('rgb-b-result').textContent = b;
+    updateDisplays({ r, g, b }, '#' + hex, cmyk);
 }
 
+
+function hsbToRgb(h, s, b) {
+    s = s / 100;
+    b = b / 100;
+    const k = (n) => (n + h / 60) % 6;
+    const f = (n) => b * (1 - s * Math.max(0, Math.min(k(n), 4 - k(n), 1)));
+    return {
+        r: Math.round(255 * f(5)),
+        g: Math.round(255 * f(3)),
+        b: Math.round(255 * f(1))
+    };
+}
+
+function rgbToHsb(r, g, b) {
+    r = r / 255;
+    g = g / 255;
+    b = b / 255;
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const d = max - min;
+    const s = max === 0 ? 0 : d / max;
+    const v = max;
+    let h;
+    
+    if (d === 0) {
+        h = 0;
+    } else {
+        switch (max) {
+            case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+            case g: h = ((b - r) / d + 2) / 6; break;
+            case b: h = ((r - g) / d + 4) / 6; break;
+        }
+    }
+    
+    return {
+        h: Math.round(h * 360),
+        s: Math.round(s * 100),
+        b: Math.round(v * 100)
+    };
+}
+
+function rgbToHex(r, g, b) {
+    return '#' + [r, g, b].map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+    }).join('').toUpperCase();
+}
 
 function rgbToCmyk(r, g, b) {
     let rNorm = r / 255;
     let gNorm = g / 255;
     let bNorm = b / 255;
-
+    
     let k = 1 - Math.max(rNorm, gNorm, bNorm);
     let c = k < 1 ? (1 - rNorm - k) / (1 - k) : 0;
     let m = k < 1 ? (1 - gNorm - k) / (1 - k) : 0;
     let y = k < 1 ? (1 - bNorm - k) / (1 - k) : 0;
-
+    
     return {
         c: Math.round(c * 100),
         m: Math.round(m * 100),
@@ -778,54 +840,28 @@ function rgbToCmyk(r, g, b) {
     };
 }
 
-
 function cmykToRgb(c, m, y, k) {
     let r = Math.round(255 * (1 - c / 100) * (1 - k / 100));
     let g = Math.round(255 * (1 - m / 100) * (1 - k / 100));
     let b = Math.round(255 * (1 - y / 100) * (1 - k / 100));
-
+    
     return { r, g, b };
-}
-
-
-function copyText(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showToast('클립보드에 복사되었습니다.');
-    }).catch(() => {
-        
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        showToast('클립보드에 복사되었습니다.');
-    });
 }
 
 
 function showToast(message) {
     const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
+    if (existingToast) existingToast.remove();
     
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.textContent = message;
     document.body.appendChild(toast);
     
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 100);
-    
+    setTimeout(() => toast.classList.add('show'), 100);
     setTimeout(() => {
         toast.classList.remove('show');
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
+        setTimeout(() => toast.remove(), 300);
     }, 2000);
 }
 </script>
