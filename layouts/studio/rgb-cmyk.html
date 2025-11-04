@@ -218,6 +218,31 @@
     font-family: 'Courier New', monospace;
 }
 
+.hex-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #272727;
+    border-radius: 8px;
+    color: #01FF75;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    padding: 10px 15px;
+    text-align: left;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.hex-input:focus {
+    outline: none;
+    border-color: #01FF75;
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.3);
+}
+
+.hex-input::placeholder {
+    color: #444;
+}
+
 .copy-hex-btn {
     background: transparent;
     border: 2px solid #01FF75;
@@ -527,13 +552,13 @@
                     <!-- 색상 미리보기 (작은 박스) -->
                     <div id="colorPreview" style="width: 100%; height: 80px; background: #0F0600; border: 3px solid #272727; border-radius: 10px; margin-bottom: 20px;"></div>
 
-                    <!-- HEX 표시 -->
+                    <!-- HEX 입력 -->
                     <div class="hex-display-box">
                         <div class="hex-label">
                             <span>HEX (직접입력가능)</span>
                             <button class="copy-hex-btn" id="copyBtn">복사</button>
                         </div>
-                        <div class="hex-value" id="hexValue">#0F0600</div>
+                        <input type="text" class="hex-input" id="hexInput" value="0F0600" maxlength="6" placeholder="FFFFFF">
                     </div>
 
                     <!-- RGB & CMYK 값 -->
@@ -688,6 +713,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupColorPicker();
     setupSliders();
     setupCopyButton();
+    setupHexInput();
     
     // 초기 색상 설정
     updateColorFromHSB();
@@ -902,8 +928,8 @@ function updateDisplays(rgb, hex, cmyk) {
     // 미리보기
     document.getElementById('colorPreview').style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
     
-    // HEX
-    document.getElementById('hexValue').textContent = hex;
+    // HEX input (# 제외)
+    document.getElementById('hexInput').value = hex.replace('#', '');
     
     // RGB 슬라이더 값
     document.getElementById('rgbR').textContent = rgb.r;
@@ -931,7 +957,7 @@ function updateDisplays(rgb, hex, cmyk) {
 // 복사 버튼
 function setupCopyButton() {
     document.getElementById('copyBtn').addEventListener('click', () => {
-        const hex = document.getElementById('hexValue').textContent.replace('#', '');
+        const hex = document.getElementById('hexInput').value;
         navigator.clipboard.writeText(hex).then(() => {
             showToast(`복사 완료: ${hex}`);
         }).catch(() => {
@@ -944,6 +970,89 @@ function setupCopyButton() {
             showToast(`복사 완료: ${hex}`);
         });
     });
+}
+
+// HEX input 설정
+function setupHexInput() {
+    const hexInput = document.getElementById('hexInput');
+    
+    // 입력 시 실시간 검증 및 변환
+    hexInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/[^0-9A-Fa-f]/g, '').toUpperCase();
+        e.target.value = value;
+        
+        // 6자리 완성 시 색상 업데이트
+        if (value.length === 6) {
+            updateFromHexInput(value);
+        }
+    });
+    
+    // 포커스 아웃 시에도 검증
+    hexInput.addEventListener('blur', function(e) {
+        let value = e.target.value;
+        if (value.length === 6) {
+            updateFromHexInput(value);
+        } else if (value.length > 0 && value.length < 6) {
+            // 불완전한 입력은 이전 값으로 복원
+            const rgb = hsbToRgb(currentHue, currentSat, currentBright);
+            const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+            e.target.value = hex.replace('#', '');
+        }
+    });
+    
+    // Enter 키 입력 시
+    hexInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            let value = e.target.value;
+            if (value.length === 6) {
+                updateFromHexInput(value);
+                e.target.blur();
+            }
+        }
+    });
+}
+
+// HEX 입력에서 업데이트
+function updateFromHexInput(hex) {
+    // HEX → RGB
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    // RGB → HSB
+    const hsb = rgbToHsb(r, g, b);
+    currentHue = hsb.h;
+    currentSat = hsb.s;
+    currentBright = hsb.b;
+    
+    // Hue 슬라이더 업데이트
+    document.getElementById('hueSlider').value = currentHue;
+    
+    // 커서 위치 업데이트
+    const sbPicker = document.getElementById('sbPicker');
+    const rect = sbPicker.getBoundingClientRect();
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = (currentSat / 100) * rect.width + 'px';
+    cursor.style.top = (1 - currentBright / 100) * rect.height + 'px';
+    
+    // RGB 슬라이더 업데이트
+    document.getElementById('sliderR').value = r;
+    document.getElementById('sliderG').value = g;
+    document.getElementById('sliderB').value = b;
+    
+    // CMYK 계산 및 슬라이더 업데이트
+    const cmyk = rgbToCmyk(r, g, b);
+    document.getElementById('sliderC').value = cmyk.c;
+    document.getElementById('sliderM').value = cmyk.m;
+    document.getElementById('sliderY').value = cmyk.y;
+    document.getElementById('sliderK').value = cmyk.k;
+    
+    // 피커 배경 업데이트
+    const hueColor = hsbToRgb(currentHue, 100, 100);
+    sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
+    
+    // 디스플레이 업데이트
+    updateDisplays({ r, g, b }, '#' + hex, cmyk);
 }
 
 // 변환 함수들
