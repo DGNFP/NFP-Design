@@ -3,112 +3,115 @@
 <link rel="stylesheet" href="{{ "/css/studiopage.css" | relURL }}">
 
 <style>
-/* NFP 커스텀 슬라이더 스타일 */
-.nfp-slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0.5);
-    outline: none;
-    border: 2px solid #272727;
-    cursor: pointer;
+/* 토스트 알림 */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #01FF75;
+    color: #0a0a0a;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(1, 255, 117, 0.5);
+    z-index: 1000;
+    opacity: 0;
     transition: all 0.3s ease;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
 }
 
-.nfp-slider:hover {
-    border-color: #01FF75;
-    box-shadow: 0 0 10px rgba(1, 255, 117, 0.3);
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
 }
 
-/* 슬라이더 썸 (크롬/사파리) */
-.nfp-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #01FF75;
-    cursor: pointer;
-    border: 3px solid #0a0a0a;
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.5);
-    transition: all 0.2s ease;
-    margin-top: 0;
+/* 메인 컨테이너 */
+.converter-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.nfp-slider::-webkit-slider-thumb:hover {
-    background: #00ff88;
-    box-shadow: 0 0 20px rgba(1, 255, 117, 0.8);
-    transform: scale(1.1);
+/* 상단 헤더 */
+.converter-header {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.nfp-slider::-webkit-slider-thumb:active {
-    transform: scale(1.2);
-    box-shadow: 0 0 25px rgba(1, 255, 117, 1);
+.converter-header h1 {
+    font-size: 2.5rem;
+    color: #01FF75;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(1, 255, 117, 0.3);
 }
 
-/* 슬라이더 썸 (파이어폭스) */
-.nfp-slider::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #01FF75;
-    cursor: pointer;
-    border: 3px solid #0a0a0a;
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.5);
-    transition: all 0.2s ease;
+.converter-header p {
+    color: #999;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-.nfp-slider::-moz-range-thumb:hover {
-    background: #00ff88;
-    box-shadow: 0 0 20px rgba(1, 255, 117, 0.8);
-    transform: scale(1.1);
+/* 섹션 타이틀 */
+.section-title-bar {
+    background: linear-gradient(90deg, #01FF75 0%, transparent 100%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
-.nfp-slider::-moz-range-thumb:active {
-    transform: scale(1.2);
-    box-shadow: 0 0 25px rgba(1, 255, 117, 1);
+.section-title-bar h2 {
+    color: #0a0a0a;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* 슬라이더 트랙 (파이어폭스) */
-.nfp-slider::-moz-range-track {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    height: 10px;
+/* 메인 그리드 */
+.converter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
-/* 슬라이더 트랙 (크롬/사파리) */
-.nfp-slider::-webkit-slider-runnable-track {
-    height: 10px;
-    border-radius: 5px;
+/* 왼쪽: 컬러피커 섹션 */
+.picker-section {
+    background: rgba(0, 255, 117, 0.05);
+    border: 2px solid #272727;
+    border-radius: 15px;
+    padding: 30px;
 }
 
-/* 커스텀 컬러피커 스타일 */
+.picker-label {
+    color: #01FF75;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 커스텀 컬러피커 */
 .custom-color-picker {
     width: 100%;
-    height: 320px;
+    height: 350px;
     position: relative;
     border: 3px solid #272727;
     border-radius: 10px;
     overflow: hidden;
-    cursor: crosshair;
     background: #000;
-}
-
-.color-gradient {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    margin-bottom: 20px;
 }
 
 .saturation-brightness {
     width: 100%;
-    height: calc(100% - 40px);
+    height: calc(100% - 50px);
     position: relative;
-    background: linear-gradient(to right, #fff 0%, rgba(255, 0, 0, 1) 100%);
+    background: linear-gradient(to right, #fff 0%, #ff0000 100%);
+    cursor: crosshair;
 }
 
 .saturation-brightness::before {
@@ -119,15 +122,16 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, transparent 0%, #000 100%);
+    pointer-events: none;
 }
 
-.color-picker-cursor {
+.picker-cursor {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border: 3px solid #01FF75;
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.8), inset 0 0 0 2px #000;
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.8), inset 0 0 0 2px rgba(0, 0, 0, 0.5);
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 10;
@@ -135,9 +139,11 @@
 
 .hue-slider-container {
     width: 100%;
-    height: 40px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
+    height: 50px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
 }
 
 .hue-slider {
@@ -163,34 +169,262 @@
 .hue-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: #01FF75;
     cursor: pointer;
     border: 3px solid #0a0a0a;
     box-shadow: 0 0 15px rgba(1, 255, 117, 0.8);
+    transition: all 0.2s ease;
+}
+
+.hue-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
 }
 
 .hue-slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: #01FF75;
     cursor: pointer;
     border: 3px solid #0a0a0a;
     box-shadow: 0 0 15px rgba(1, 255, 117, 0.8);
-    -moz-appearance: none;
 }
 
-.hue-slider::-ms-thumb {
+/* HEX 표시 박스 */
+.hex-display-box {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #272727;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.hex-label {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hex-value {
+    color: #01FF75;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+}
+
+.copy-hex-btn {
+    background: transparent;
+    border: 2px solid #01FF75;
+    color: #01FF75;
+    padding: 6px 15px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-hex-btn:hover {
+    background: #01FF75;
+    color: #0a0a0a;
+}
+
+/* RGB/CMYK 값 표시 */
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.value-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #272727;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.value-box-title {
+    color: #01FF75;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.value-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.value-row:last-child {
+    margin-bottom: 0;
+}
+
+.value-row .label {
+    color: #999;
+}
+
+.value-row .value {
+    color: #01FF75;
+    font-weight: 700;
+}
+
+/* 오른쪽: 슬라이더 섹션 */
+.sliders-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.slider-panel {
+    background: rgba(0, 255, 117, 0.05);
+    border: 2px solid #272727;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.panel-title {
+    color: #01FF75;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #272727;
+}
+
+/* 슬라이더 */
+.slider-item {
+    margin-bottom: 18px;
+}
+
+.slider-item:last-child {
+    margin-bottom: 0;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.slider-label {
+    color: #01FF75;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.slider-value {
+    color: #01FF75;
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 50px;
+    text-align: right;
+}
+
+.color-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    outline: none;
+    border: 2px solid #272727;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-slider:hover {
+    border-color: #01FF75;
+}
+
+.color-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
     width: 24px;
     height: 24px;
     border-radius: 50%;
     background: #01FF75;
     cursor: pointer;
     border: 3px solid #0a0a0a;
-    box-shadow: 0 0 15px rgba(1, 255, 117, 0.8);
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.5);
+    transition: all 0.2s ease;
+}
+
+.color-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(1, 255, 117, 0.8);
+}
+
+.color-slider::-webkit-slider-thumb:active {
+    transform: scale(1.25);
+}
+
+.color-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #01FF75;
+    cursor: pointer;
+    border: 3px solid #0a0a0a;
+    box-shadow: 0 0 15px rgba(1, 255, 117, 0.5);
+}
+
+/* 정보 섹션 */
+.info-section {
+    background: rgba(0, 255, 117, 0.05);
+    border: 2px solid #272727;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.info-title {
+    color: #01FF75;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-content {
+    color: #999;
+    line-height: 2;
+}
+
+.info-content strong {
+    color: #01FF75;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+    .converter-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .converter-header h1 {
+        font-size: 2rem;
+    }
 }
 </style>
 
@@ -200,7 +434,7 @@
     <div class="studio-page-header">
         <h1>Studio <span>NFP</span></h1>
         <span class="highlight">RGB ↔ CMYK 변환기</span>
-        <p><br>디지털(RGB)과 인쇄(CMYK) 색상을 상호 변환하세요.</p>
+        <p><br>디지털 화면용 RGB 색상과 인쇄용 CMYK 색상을 상호 변환합니다.<br>웹 디자인 → 인쇄물 작업 시 필수적인 색상 변환 도구입니다.</p>
     </div>
 
     <!-- 스튜디오 홈 버튼 -->
@@ -222,56 +456,41 @@
 
     <!-- 서브 버튼들 -->
     <div class="sub-page-btn-wrapper">
-        <!-- 1행: 핵심/인기 도구 -->
         <a href="{{ "/studio/web-demo" | relURL }}" class="sub-page-btn">웹 데모 뷰어</a>
         <a href="{{ "/studio/text-counter" | relURL }}" class="sub-page-btn">텍스트 카운터</a>
         <a href="{{ "/studio/image-compressor" | relURL }}" class="sub-page-btn">이미지 압축기</a>
         <a href="{{ "/studio/qr-basic" | relURL }}" class="sub-page-btn">QR코드 생성기</a>
         <a href="{{ "/studio/watermark" | relURL }}" class="sub-page-btn">워터마크 생성기</a>
-
-        <!-- 2행: 이미지 처리 -->
         <a href="{{ "/studio/format-converter" | relURL }}" class="sub-page-btn">이미지 포맷 변환</a>
         <a href="{{ "/studio/image-resizer" | relURL }}" class="sub-page-btn">이미지 크기 조절</a>
         <a href="{{ "/studio/image-cropper" | relURL }}" class="sub-page-btn">이미지 자르기</a>
         <a href="{{ "/studio/image-splitter" | relURL }}" class="sub-page-btn">이미지 분할기</a>
         <a href="{{ "/studio/image-map-generator" | relURL }}" class="sub-page-btn">이미지 맵 생성기</a>
-
-        <!-- 3행: 컬러 도구 -->
         <a href="{{ "/studio/color-mixer" | relURL }}" class="sub-page-btn">컬러 조합기</a>
         <a href="{{ "/studio/color-palette-5" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
         <a href="{{ "/studio/color-palette-random" | relURL }}" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
         <a href="{{ "/studio/single-card" | relURL }}" class="sub-page-btn">단색 컬러 카드</a>
         <a href="{{ "/studio/gradient-card/" | relURL }}" class="sub-page-btn">그라데이션 컬러 카드</a>
-
-        <!-- 4행: 그라데이션/디자인 -->
         <a href="{{ "/studio/color-extractor" | relURL }}" class="sub-page-btn">이미지 컬러 추출기</a>
         <a href="{{ "/studio/gradient-2" | relURL }}" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
         <a href="{{ "/studio/gradient-3" | relURL }}" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
         <a href="{{ "/studio/qr-custom" | relURL }}" class="sub-page-btn">커스텀 QR코드 생성기</a>
         <a href="{{ "/studio/text-tools" | relURL }}" class="sub-page-btn">더미 텍스트 생성기</a>
-
-        <!-- 5행: 계산/변환 도구 -->
         <a href="{{ "/studio/unit-converter" | relURL }}" class="sub-page-btn">단위 변환기</a>
         <a href="{{ "/studio/font-converter" | relURL }}" class="sub-page-btn">폰트 변환기</a>
         <a href="{{ "/studio/date-calculator" | relURL }}" class="sub-page-btn">날짜 계산기</a>
         <a href="{{ "/studio/size-calculator" | relURL }}" class="sub-page-btn">사이즈 계산기</a>
         <a href="{{ "/studio/grid-calculator" | relURL }}" class="sub-page-btn">그리드 계산기</a>
-
-        <!-- 6행: 문서/텍스트 도구 -->
         <a href="{{ "/studio/base64" | relURL }}" class="sub-page-btn">base64 인코딩/디코딩</a>
         <a href="{{ "/studio/url-encoder" | relURL }}" class="sub-page-btn">URL 인코딩/디코딩</a>
         <a href="{{ "/studio/pdf-compressor" | relURL }}" class="sub-page-btn">PDF 압축기</a>
         <a href="{{ "/studio/pdf-splitter" | relURL }}" class="sub-page-btn">PDF 분할기</a>
         <a href="{{ "/studio/pdf-merger" | relURL }}" class="sub-page-btn">PDF 합치기</a>
-
-        <!-- 7행: 게임 1 -->
         <a href="{{ "/studio/rsp-game" | relURL }}" class="sub-page-btn">가위바위보</a>
         <a href="{{ "/studio/whack-a-mole" | relURL }}" class="sub-page-btn">두더지 잡기</a>
         <a href="{{ "/studio/pong-game" | relURL }}" class="sub-page-btn">탁구 게임</a>
         <a href="{{ "/studio/breakout-game" | relURL }}" class="sub-page-btn">벽돌깨기</a>
         <a href="{{ "/studio/flappy-bird" | relURL }}" class="sub-page-btn">플래피 버드</a>
-
-        <!-- 8행: 게임 2 + 기타 -->
         <a href="{{ "/studio/snake-game" | relURL }}" class="sub-page-btn">스네이크 게임</a>
         <a href="{{ "/studio/lotto-generator" | relURL }}" class="sub-page-btn">로또 번호 생성기</a>
         <a href="{{ "/studio/enhancement-simulator" | relURL }}" class="sub-page-btn">강화 시뮬레이터</a>
@@ -279,202 +498,177 @@
         <a href="{{ "/studio/fortune" | relURL }}" class="sub-page-btn">오늘의 운세</a>
     </div>
 
-    <!-- 탭 컨텐츠 -->
+    <!-- 메인 컨텐츠 -->
     <div class="studio-page-content">
-        <div class="base64-encoder-container">
-            <!-- 설명 -->
-            <div class="base64-encoder-description">
-                <h3>RGB ↔ CMYK 변환기</h3>
-                <p>디지털 화면용 RGB 색상과 인쇄용 CMYK 색상을 상호 변환합니다.<br>
-                웹 디자인 → 인쇄물 작업 시 필수적인 색상 변환 도구입니다.</p>
+        <div class="converter-wrapper">
+            <!-- 섹션 타이틀 -->
+            <div class="section-title-bar">
+                <h2><i class="fas fa-palette"></i> RGB ↔ CMYK 색상 변환</h2>
             </div>
 
-            <!-- RGB ↔ CMYK 변환 섹션 -->
-            <div class="base64-text-section">
-                <div class="section-title">
-                    <h4><i class="fas fa-palette"></i> RGB ↔ CMYK 색상 변환</h4>
-                </div>
+            <!-- 메인 그리드 -->
+            <div class="converter-grid">
+                <!-- 왼쪽: 색상 선택 -->
+                <div class="picker-section">
+                    <div class="picker-label">
+                        <i class="fas fa-eye-dropper"></i> 색상 선택
+                    </div>
 
-                <!-- 공용 컬러피커 섹션 -->
-                <div style="background: rgba(0, 255, 117, 0.03); border: 2px solid #272727; border-radius: 15px; padding: 30px; margin-bottom: 30px;">
-                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px;">
-                        <!-- 왼쪽: 커스텀 컬러피커 -->
-                        <div>
-                            <label style="display: block; margin-bottom: 15px; color: #01FF75; font-weight: 600; font-size: 1.2rem;">
-                                <i class="fas fa-eye-dropper"></i> 색상 선택
-                            </label>
-                            <div class="custom-color-picker" id="custom-picker">
-                                <div class="color-gradient">
-                                    <div class="saturation-brightness" id="sb-picker">
-                                        <div class="color-picker-cursor" id="picker-cursor"></div>
-                                    </div>
-                                    <div class="hue-slider-container">
-                                        <input type="range" class="hue-slider" id="hue-slider" min="0" max="360" value="0">
-                                    </div>
-                                </div>
+                    <!-- 커스텀 컬러피커 -->
+                    <div class="custom-color-picker" id="colorPicker">
+                        <div class="saturation-brightness" id="sbPicker">
+                            <div class="picker-cursor" id="cursor"></div>
+                        </div>
+                        <div class="hue-slider-container">
+                            <input type="range" class="hue-slider" id="hueSlider" min="0" max="360" value="120">
+                        </div>
+                    </div>
+
+                    <!-- 색상 미리보기 (작은 박스) -->
+                    <div id="colorPreview" style="width: 100%; height: 80px; background: #0F0600; border: 3px solid #272727; border-radius: 10px; margin-bottom: 20px;"></div>
+
+                    <!-- HEX 표시 -->
+                    <div class="hex-display-box">
+                        <div class="hex-label">
+                            <span>HEX (직접입력가능)</span>
+                            <button class="copy-hex-btn" id="copyBtn">복사</button>
+                        </div>
+                        <div class="hex-value" id="hexValue">#0F0600</div>
+                    </div>
+
+                    <!-- RGB & CMYK 값 -->
+                    <div class="values-grid">
+                        <!-- RGB -->
+                        <div class="value-box">
+                            <div class="value-box-title">
+                                <i class="fas fa-desktop"></i> RGB
+                            </div>
+                            <div class="value-row">
+                                <span class="label">R</span>
+                                <span class="value" id="displayR">15</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">G</span>
+                                <span class="value" id="displayG">6</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">B</span>
+                                <span class="value" id="displayB">0</span>
                             </div>
                         </div>
 
-                        <!-- 오른쪽: 색상 정보 -->
-                        <div>
-                            <!-- 미리보기 -->
-                            <div style="margin-bottom: 20px;">
-                                <label style="display: block; margin-bottom: 10px; color: #01FF75; font-weight: 600;">색상 미리보기</label>
-                                <div id="color-preview" style="width: 100%; height: 100px; border: 3px solid #272727; border-radius: 10px; background: rgb(255, 106, 0); box-shadow: 0 4px 20px rgba(255, 106, 0, 0.4);"></div>
+                        <!-- CMYK -->
+                        <div class="value-box">
+                            <div class="value-box-title">
+                                <i class="fas fa-print"></i> CMYK
                             </div>
-
-                            <!-- HEX 값 -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <label style="color: #01FF75; font-weight: 600; font-size: 1.1rem;">HEX</label>
-                                    <button type="button" class="copy-btn" id="copy-hex-btn" style="padding: 6px 15px; font-size: 0.85rem;">
-                                        복사
-                                    </button>
-                                </div>
-                                <div style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 2px solid #272727;">
-                                    <div id="hex-display" style="color: #01FF75; font-size: 1.5rem; font-weight: 700; font-family: monospace;">#FF6A00</div>
-                                </div>
+                            <div class="value-row">
+                                <span class="label">C</span>
+                                <span class="value" id="displayC">0%</span>
                             </div>
-
-                            <!-- RGB & CMYK 값 -->
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                                <!-- RGB -->
-                                <div>
-                                    <label style="display: block; margin-bottom: 10px; color: #01FF75; font-weight: 600;">
-                                        <i class="fas fa-desktop"></i> RGB
-                                    </label>
-                                    <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 2px solid #272727;">
-                                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                            <span style="color: #999; font-size: 0.9rem;">R</span>
-                                            <span id="rgb-r-display" style="color: #01FF75; font-weight: 700;">255</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                            <span style="color: #999; font-size: 0.9rem;">G</span>
-                                            <span id="rgb-g-display" style="color: #01FF75; font-weight: 700;">106</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <span style="color: #999; font-size: 0.9rem;">B</span>
-                                            <span id="rgb-b-display" style="color: #01FF75; font-weight: 700;">0</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- CMYK -->
-                                <div>
-                                    <label style="display: block; margin-bottom: 10px; color: #01FF75; font-weight: 600;">
-                                        <i class="fas fa-print"></i> CMYK
-                                    </label>
-                                    <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; border: 2px solid #272727;">
-                                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                            <span style="color: #999; font-size: 0.9rem;">C</span>
-                                            <span id="cmyk-c-display" style="color: #01FF75; font-weight: 700;">0%</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                            <span style="color: #999; font-size: 0.9rem;">M</span>
-                                            <span id="cmyk-m-display" style="color: #01FF75; font-weight: 700;">58%</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                            <span style="color: #999; font-size: 0.9rem;">Y</span>
-                                            <span id="cmyk-y-display" style="color: #01FF75; font-weight: 700;">100%</span>
-                                        </div>
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <span style="color: #999; font-size: 0.9rem;">K</span>
-                                            <span id="cmyk-k-display" style="color: #01FF75; font-weight: 700;">0%</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="value-row">
+                                <span class="label">M</span>
+                                <span class="value" id="displayM">60%</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">Y</span>
+                                <span class="value" id="displayY">100%</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="label">K</span>
+                                <span class="value" id="displayK">94%</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="base64-text-content">
+                <!-- 오른쪽: 슬라이더 -->
+                <div class="sliders-section">
                     <!-- RGB 슬라이더 -->
-                    <div class="base64-section">
-                        <div class="base64-header">
-                            <h5><i class="fas fa-desktop"></i> RGB 슬라이더 (디지털)</h5>
+                    <div class="slider-panel">
+                        <div class="panel-title">
+                            <i class="fas fa-desktop"></i> RGB 슬라이더 (디지털)
                         </div>
                         
-                        <div class="base64-input-section">
-                            <div style="margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <label style="color: #01FF75; font-weight: 600;">R (Red)</label>
-                                    <span id="rgb-r-value" style="color: #01FF75; font-weight: 700;">255</span>
-                                </div>
-                                <input type="range" id="rgb-r" min="0" max="255" value="255" class="nfp-slider">
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label">R (Red)</span>
+                                <span class="slider-value" id="rgbR">15</span>
                             </div>
-                            <div style="margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <label style="color: #01FF75; font-weight: 600;">G (Green)</label>
-                                    <span id="rgb-g-value" style="color: #01FF75; font-weight: 700;">106</span>
-                                </div>
-                                <input type="range" id="rgb-g" min="0" max="255" value="106" class="nfp-slider">
+                            <input type="range" class="color-slider" id="sliderR" min="0" max="255" value="15">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label">G (Green)</span>
+                                <span class="slider-value" id="rgbG">6</span>
                             </div>
-                            <div style="margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <label style="color: #01FF75; font-weight: 600;">B (Blue)</label>
-                                    <span id="rgb-b-value" style="color: #01FF75; font-weight: 700;">0</span>
-                                </div>
-                                <input type="range" id="rgb-b" min="0" max="255" value="0" class="nfp-slider">
+                            <input type="range" class="color-slider" id="sliderG" min="0" max="255" value="6">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label">B (Blue)</span>
+                                <span class="slider-value" id="rgbB">0</span>
                             </div>
+                            <input type="range" class="color-slider" id="sliderB" min="0" max="255" value="0">
                         </div>
                     </div>
 
                     <!-- CMYK 슬라이더 -->
-                    <div class="base64-section">
-                        <div class="base64-header">
-                            <h5><i class="fas fa-print"></i> CMYK 슬라이더 (인쇄)</h5>
+                    <div class="slider-panel">
+                        <div class="panel-title">
+                            <i class="fas fa-print"></i> CMYK 슬라이더 (인쇄)
                         </div>
                         
-                        <div class="base64-input-section">
-                            <div style="margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <label style="color: #01FF75; font-weight: 600;">C (Cyan)</label>
-                                    <span id="cmyk-c-value" style="color: #01FF75; font-weight: 700;">0%</span>
-                                </div>
-                                <input type="range" id="cmyk-c" min="0" max="100" value="0" class="nfp-slider">
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label">C (Cyan)</span>
+                                <span class="slider-value" id="cmykC">0%</span>
                             </div>
-                            <div style="margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <label style="color: #01FF75; font-weight: 600;">M (Magenta)</label>
-                                    <span id="cmyk-m-value" style="color: #01FF75; font-weight: 700;">58%</span>
-                                </div>
-                                <input type="range" id="cmyk-m" min="0" max="100" value="58" class="nfp-slider">
+                            <input type="range" class="color-slider" id="sliderC" min="0" max="100" value="0">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label">M (Magenta)</span>
+                                <span class="slider-value" id="cmykM">60%</span>
                             </div>
-                            <div style="margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <label style="color: #01FF75; font-weight: 600;">Y (Yellow)</label>
-                                    <span id="cmyk-y-value" style="color: #01FF75; font-weight: 700;">100%</span>
-                                </div>
-                                <input type="range" id="cmyk-y" min="0" max="100" value="100" class="nfp-slider">
+                            <input type="range" class="color-slider" id="sliderM" min="0" max="100" value="60">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label">Y (Yellow)</span>
+                                <span class="slider-value" id="cmykY">100%</span>
                             </div>
-                            <div style="margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <label style="color: #01FF75; font-weight: 600;">K (Black)</label>
-                                    <span id="cmyk-k-value" style="color: #01FF75; font-weight: 700;">0%</span>
-                                </div>
-                                <input type="range" id="cmyk-k" min="0" max="100" value="0" class="nfp-slider">
+                            <input type="range" class="color-slider" id="sliderY" min="0" max="100" value="100">
+                        </div>
+
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <span class="slider-label">K (Black)</span>
+                                <span class="slider-value" id="cmykK">94%</span>
                             </div>
+                            <input type="range" class="color-slider" id="sliderK" min="0" max="100" value="94">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 안내 정보 -->
-            <div class="base64-file-section">
-                <div class="section-title">
-                    <h4><i class="fas fa-info-circle"></i> 색상 변환 정보</h4>
-                </div>
+            <!-- 정보 섹션 -->
+            <div class="section-title-bar">
+                <h2><i class="fas fa-info-circle"></i> 색상 변환 정보</h2>
+            </div>
 
-                <div class="base64-encoder-description">
-                    <h3>알아두기</h3>
-                    <div style="line-height: 2; color: #999;">
-                        <p style="margin-bottom: 10px;"><strong style="color: #01FF75;">RGB</strong>는 빛의 삼원색으로 디지털 화면(모니터, 웹, 모바일)에서 사용됩니다.</p>
-                        <p style="margin-bottom: 10px;"><strong style="color: #01FF75;">CMYK</strong>는 색의 삼원색 + Black으로 인쇄물(포스터, 명함, 책자)에서 사용됩니다.</p>
-                        <p style="margin-bottom: 10px;">RGB → CMYK 변환 시 색상 차이가 발생할 수 있습니다. (색역 차이)</p>
-                        <p style="margin-bottom: 10px;">정확한 인쇄 색상은 인쇄소와 사전 테스트를 권장합니다.</p>
-                        <p>모니터와 실제 인쇄물의 색상은 다를 수 있습니다.</p>
-                    </div>
+            <div class="info-section">
+                <div class="info-title">알아두기</div>
+                <div class="info-content">
+                    <p><strong>RGB</strong>는 빛의 삼원색으로 디지털 화면(모니터, 웹, 모바일)에서 사용됩니다.</p>
+                    <p><strong>CMYK</strong>는 색의 삼원색 + Black으로 인쇄물(포스터, 명함, 책자)에서 사용됩니다.</p>
+                    <p>RGB → CMYK 변환 시 색상 차이가 발생할 수 있습니다. (색역 차이)</p>
+                    <p>정확한 인쇄 색상은 인쇄소와 사전 테스트를 권장합니다.</p>
+                    <p>모니터와 실제 인쇄물의 색상은 다를 수 있습니다.</p>
                 </div>
             </div>
         </div>
@@ -484,326 +678,275 @@
 
 <script>
 // 전역 변수
-let currentHue = 0;
-let currentSaturation = 100;
-let currentBrightness = 58;
+let currentHue = 120;
+let currentSat = 100;
+let currentBright = 6;
 let isDragging = false;
 
-// 이벤트 리스너 등록
+// 초기화
 document.addEventListener('DOMContentLoaded', function() {
-    setupCustomPicker();
-    setupRgbSliders();
-    setupCmykSliders();
+    setupColorPicker();
+    setupSliders();
     setupCopyButton();
     
-    // 초기 색상 설정 (#FF6A00)
-    setColorFromHex('#FF6A00');
+    // 초기 색상 설정
+    updateColorFromHSB();
 });
 
-// 커스텀 컬러피커 설정
-function setupCustomPicker() {
-    const sbPicker = document.getElementById('sb-picker');
-    const customPicker = document.getElementById('custom-picker');
-    const hueSlider = document.getElementById('hue-slider');
-    const cursor = document.getElementById('picker-cursor');
+// 컬러피커 설정
+function setupColorPicker() {
+    const sbPicker = document.getElementById('sbPicker');
+    const hueSlider = document.getElementById('hueSlider');
+    const cursor = document.getElementById('cursor');
     
-    // 기본 동작 방지
-    customPicker.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    // 초기 커서 위치
+    const rect = sbPicker.getBoundingClientRect();
+    cursor.style.left = rect.width + 'px';
+    cursor.style.top = (rect.height * 0.94) + 'px';
+    
+    // 마우스 이벤트
+    sbPicker.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        updateFromMouse(e);
     });
     
-    // Saturation/Brightness 피커 이벤트
-    sbPicker.addEventListener('mousedown', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        startDragging(e);
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) updateFromMouse(e);
     });
     
-    document.addEventListener('mousemove', onDrag);
-    document.addEventListener('mouseup', stopDragging);
-    
-    // 터치 이벤트 지원
-    sbPicker.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        startDragging(e);
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
     });
     
-    document.addEventListener('touchmove', onDrag);
-    document.addEventListener('touchend', stopDragging);
+    // 터치 이벤트
+    sbPicker.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        isDragging = true;
+        updateFromTouch(e);
+    }, { passive: false });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            updateFromTouch(e);
+        }
+    }, { passive: false });
+    
+    document.addEventListener('touchend', () => {
+        isDragging = false;
+    });
     
     // Hue 슬라이더
-    hueSlider.addEventListener('input', function() {
-        currentHue = parseInt(this.value);
-        updateColorFromHSB();
-    });
-    
-    hueSlider.addEventListener('change', function() {
-        currentHue = parseInt(this.value);
+    hueSlider.addEventListener('input', () => {
+        currentHue = parseInt(hueSlider.value);
         updateColorFromHSB();
     });
 }
 
-function startDragging(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    isDragging = true;
-    updateSBFromMouse(e);
-}
-
-function onDrag(e) {
-    if (isDragging) {
-        e.preventDefault();
-        e.stopPropagation();
-        updateSBFromMouse(e);
-    }
-}
-
-function stopDragging(e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    isDragging = false;
-}
-
-function updateSBFromMouse(e) {
-    const sbPicker = document.getElementById('sb-picker');
+// 마우스 위치에서 업데이트
+function updateFromMouse(e) {
+    const sbPicker = document.getElementById('sbPicker');
     const rect = sbPicker.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
     
-    let x, y;
-    if (e.type.startsWith('touch')) {
-        const touch = e.touches[0] || e.changedTouches[0];
-        x = touch.clientX - rect.left;
-        y = touch.clientY - rect.top;
-    } else {
-        x = e.clientX - rect.left;
-        y = e.clientY - rect.top;
-    }
-    
-    // 범위 제한
     x = Math.max(0, Math.min(x, rect.width));
     y = Math.max(0, Math.min(y, rect.height));
     
-    // Saturation & Brightness 계산
-    currentSaturation = (x / rect.width) * 100;
-    currentBrightness = 100 - (y / rect.height) * 100;
+    currentSat = (x / rect.width) * 100;
+    currentBright = 100 - (y / rect.height) * 100;
     
-    // 커서 위치 업데이트
-    const cursor = document.getElementById('picker-cursor');
+    const cursor = document.getElementById('cursor');
     cursor.style.left = x + 'px';
     cursor.style.top = y + 'px';
     
     updateColorFromHSB();
 }
 
-function updateColorFromHSB() {
-    // HSB → RGB 변환
-    const rgb = hsbToRgb(currentHue, currentSaturation, currentBrightness);
-    
-    // RGB → HEX 변환
-    const hex = '#' + [rgb.r, rgb.g, rgb.b].map(x => {
-        const hexValue = x.toString(16);
-        return hexValue.length === 1 ? '0' + hexValue : hexValue;
-    }).join('').toUpperCase();
-    
-    // RGB 슬라이더 업데이트
-    document.getElementById('rgb-r').value = rgb.r;
-    document.getElementById('rgb-g').value = rgb.g;
-    document.getElementById('rgb-b').value = rgb.b;
-    
-    // RGB → CMYK 변환
-    const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
-    
-    // CMYK 슬라이더 업데이트
-    document.getElementById('cmyk-c').value = cmyk.c;
-    document.getElementById('cmyk-m').value = cmyk.m;
-    document.getElementById('cmyk-y').value = cmyk.y;
-    document.getElementById('cmyk-k').value = cmyk.k;
-    
-    // 피커 배경색 업데이트
-    const hueColor = hsbToRgb(currentHue, 100, 100);
-    const sbPicker = document.getElementById('sb-picker');
-    sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
-    
-    // 모든 표시 업데이트
-    updateAllDisplays(rgb.r, rgb.g, rgb.b, hex, cmyk);
-}
-
-// HEX에서 색상 설정
-function setColorFromHex(hex) {
-    const r = parseInt(hex.substr(1, 2), 16);
-    const g = parseInt(hex.substr(3, 2), 16);
-    const b = parseInt(hex.substr(5, 2), 16);
-    
-    const hsb = rgbToHsb(r, g, b);
-    currentHue = hsb.h;
-    currentSaturation = hsb.s;
-    currentBrightness = hsb.b;
-    
-    // Hue 슬라이더 업데이트
-    document.getElementById('hue-slider').value = currentHue;
-    
-    // 커서 위치 업데이트
-    const sbPicker = document.getElementById('sb-picker');
+// 터치 위치에서 업데이트
+function updateFromTouch(e) {
+    const touch = e.touches[0];
+    const sbPicker = document.getElementById('sbPicker');
     const rect = sbPicker.getBoundingClientRect();
-    const cursor = document.getElementById('picker-cursor');
-    cursor.style.left = (currentSaturation / 100) * rect.width + 'px';
-    cursor.style.top = (1 - currentBrightness / 100) * rect.height + 'px';
+    let x = touch.clientX - rect.left;
+    let y = touch.clientY - rect.top;
+    
+    x = Math.max(0, Math.min(x, rect.width));
+    y = Math.max(0, Math.min(y, rect.height));
+    
+    currentSat = (x / rect.width) * 100;
+    currentBright = 100 - (y / rect.height) * 100;
+    
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
     
     updateColorFromHSB();
 }
 
-// RGB 슬라이더 설정
-function setupRgbSliders() {
-    ['rgb-r', 'rgb-g', 'rgb-b'].forEach(id => {
-        document.getElementById(id).addEventListener('input', updateFromRgbSliders);
-    });
+// HSB에서 색상 업데이트
+function updateColorFromHSB() {
+    const rgb = hsbToRgb(currentHue, currentSat, currentBright);
+    const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+    const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
+    
+    // 슬라이더 업데이트
+    document.getElementById('sliderR').value = rgb.r;
+    document.getElementById('sliderG').value = rgb.g;
+    document.getElementById('sliderB').value = rgb.b;
+    document.getElementById('sliderC').value = cmyk.c;
+    document.getElementById('sliderM').value = cmyk.m;
+    document.getElementById('sliderY').value = cmyk.y;
+    document.getElementById('sliderK').value = cmyk.k;
+    
+    // 피커 배경 업데이트
+    const hueColor = hsbToRgb(currentHue, 100, 100);
+    const sbPicker = document.getElementById('sbPicker');
+    sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
+    
+    // 디스플레이 업데이트
+    updateDisplays(rgb, hex, cmyk);
 }
 
-// CMYK 슬라이더 설정
-function setupCmykSliders() {
-    ['cmyk-c', 'cmyk-m', 'cmyk-y', 'cmyk-k'].forEach(id => {
-        document.getElementById(id).addEventListener('input', updateFromCmykSliders);
+// 슬라이더 설정
+function setupSliders() {
+    // RGB 슬라이더
+    ['R', 'G', 'B'].forEach(channel => {
+        const slider = document.getElementById('slider' + channel);
+        slider.addEventListener('input', updateFromRgbSliders);
+    });
+    
+    // CMYK 슬라이더
+    ['C', 'M', 'Y', 'K'].forEach(channel => {
+        const slider = document.getElementById('slider' + channel);
+        slider.addEventListener('input', updateFromCmykSliders);
     });
 }
 
 // RGB 슬라이더에서 업데이트
 function updateFromRgbSliders() {
-    const r = parseInt(document.getElementById('rgb-r').value);
-    const g = parseInt(document.getElementById('rgb-g').value);
-    const b = parseInt(document.getElementById('rgb-b').value);
+    const r = parseInt(document.getElementById('sliderR').value);
+    const g = parseInt(document.getElementById('sliderG').value);
+    const b = parseInt(document.getElementById('sliderB').value);
     
-    // RGB → HSB 변환 및 피커 업데이트
+    // RGB → HSB
     const hsb = rgbToHsb(r, g, b);
     currentHue = hsb.h;
-    currentSaturation = hsb.s;
-    currentBrightness = hsb.b;
+    currentSat = hsb.s;
+    currentBright = hsb.b;
     
-    document.getElementById('hue-slider').value = currentHue;
+    document.getElementById('hueSlider').value = currentHue;
     
     // 커서 위치 업데이트
-    const sbPicker = document.getElementById('sb-picker');
+    const sbPicker = document.getElementById('sbPicker');
     const rect = sbPicker.getBoundingClientRect();
-    const cursor = document.getElementById('picker-cursor');
-    cursor.style.left = (currentSaturation / 100) * rect.width + 'px';
-    cursor.style.top = (1 - currentBrightness / 100) * rect.height + 'px';
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = (currentSat / 100) * rect.width + 'px';
+    cursor.style.top = (1 - currentBright / 100) * rect.height + 'px';
     
-    // RGB → HEX 변환
-    const hex = '#' + [r, g, b].map(x => {
-        const hexValue = x.toString(16);
-        return hexValue.length === 1 ? '0' + hexValue : hexValue;
-    }).join('').toUpperCase();
-    
-    // RGB → CMYK 변환
+    const hex = rgbToHex(r, g, b);
     const cmyk = rgbToCmyk(r, g, b);
     
-    // CMYK 슬라이더 값 업데이트
-    document.getElementById('cmyk-c').value = cmyk.c;
-    document.getElementById('cmyk-m').value = cmyk.m;
-    document.getElementById('cmyk-y').value = cmyk.y;
-    document.getElementById('cmyk-k').value = cmyk.k;
+    // CMYK 슬라이더 업데이트
+    document.getElementById('sliderC').value = cmyk.c;
+    document.getElementById('sliderM').value = cmyk.m;
+    document.getElementById('sliderY').value = cmyk.y;
+    document.getElementById('sliderK').value = cmyk.k;
     
-    // 피커 배경색 업데이트
+    // 피커 배경 업데이트
     const hueColor = hsbToRgb(currentHue, 100, 100);
-    const sbPicker = document.getElementById('sb-picker');
     sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
     
-    // 모든 표시 업데이트
-    updateAllDisplays(r, g, b, hex, cmyk);
+    updateDisplays({ r, g, b }, hex, cmyk);
 }
 
 // CMYK 슬라이더에서 업데이트
 function updateFromCmykSliders() {
-    const c = parseInt(document.getElementById('cmyk-c').value);
-    const m = parseInt(document.getElementById('cmyk-m').value);
-    const y = parseInt(document.getElementById('cmyk-y').value);
-    const k = parseInt(document.getElementById('cmyk-k').value);
+    const c = parseInt(document.getElementById('sliderC').value);
+    const m = parseInt(document.getElementById('sliderM').value);
+    const y = parseInt(document.getElementById('sliderY').value);
+    const k = parseInt(document.getElementById('sliderK').value);
     
-    // CMYK → RGB 변환
     const rgb = cmykToRgb(c, m, y, k);
+    const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
     
-    // RGB → HSB 변환 및 피커 업데이트
+    // RGB → HSB
     const hsb = rgbToHsb(rgb.r, rgb.g, rgb.b);
     currentHue = hsb.h;
-    currentSaturation = hsb.s;
-    currentBrightness = hsb.b;
+    currentSat = hsb.s;
+    currentBright = hsb.b;
     
-    document.getElementById('hue-slider').value = currentHue;
+    document.getElementById('hueSlider').value = currentHue;
     
     // 커서 위치 업데이트
-    const sbPicker = document.getElementById('sb-picker');
+    const sbPicker = document.getElementById('sbPicker');
     const rect = sbPicker.getBoundingClientRect();
-    const cursor = document.getElementById('picker-cursor');
-    cursor.style.left = (currentSaturation / 100) * rect.width + 'px';
-    cursor.style.top = (1 - currentBrightness / 100) * rect.height + 'px';
+    const cursor = document.getElementById('cursor');
+    cursor.style.left = (currentSat / 100) * rect.width + 'px';
+    cursor.style.top = (1 - currentBright / 100) * rect.height + 'px';
     
-    // RGB → HEX 변환
-    const hex = '#' + [rgb.r, rgb.g, rgb.b].map(x => {
-        const hexValue = x.toString(16);
-        return hexValue.length === 1 ? '0' + hexValue : hexValue;
-    }).join('').toUpperCase();
+    // RGB 슬라이더 업데이트
+    document.getElementById('sliderR').value = rgb.r;
+    document.getElementById('sliderG').value = rgb.g;
+    document.getElementById('sliderB').value = rgb.b;
     
-    // RGB 슬라이더 값 업데이트
-    document.getElementById('rgb-r').value = rgb.r;
-    document.getElementById('rgb-g').value = rgb.g;
-    document.getElementById('rgb-b').value = rgb.b;
-    
-    // 피커 배경색 업데이트
+    // 피커 배경 업데이트
     const hueColor = hsbToRgb(currentHue, 100, 100);
     sbPicker.style.background = `linear-gradient(to right, #fff 0%, rgb(${hueColor.r}, ${hueColor.g}, ${hueColor.b}) 100%)`;
     
-    // CMYK 객체 생성
-    const cmyk = { c, m, y, k };
-    
-    // 모든 표시 업데이트
-    updateAllDisplays(rgb.r, rgb.g, rgb.b, hex, cmyk);
+    updateDisplays(rgb, hex, { c, m, y, k });
 }
 
-// 모든 표시 업데이트
-function updateAllDisplays(r, g, b, hex, cmyk) {
+// 디스플레이 업데이트
+function updateDisplays(rgb, hex, cmyk) {
     // 미리보기
-    const preview = document.getElementById('color-preview');
-    preview.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    preview.style.boxShadow = `0 4px 20px rgba(${r}, ${g}, ${b}, 0.4)`;
+    document.getElementById('colorPreview').style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
     
-    // HEX 표시
-    document.getElementById('hex-display').textContent = hex;
+    // HEX
+    document.getElementById('hexValue').textContent = hex;
     
-    // RGB 슬라이더 값 표시
-    document.getElementById('rgb-r-value').textContent = r;
-    document.getElementById('rgb-g-value').textContent = g;
-    document.getElementById('rgb-b-value').textContent = b;
+    // RGB 슬라이더 값
+    document.getElementById('rgbR').textContent = rgb.r;
+    document.getElementById('rgbG').textContent = rgb.g;
+    document.getElementById('rgbB').textContent = rgb.b;
     
     // RGB 디스플레이
-    document.getElementById('rgb-r-display').textContent = r;
-    document.getElementById('rgb-g-display').textContent = g;
-    document.getElementById('rgb-b-display').textContent = b;
+    document.getElementById('displayR').textContent = rgb.r;
+    document.getElementById('displayG').textContent = rgb.g;
+    document.getElementById('displayB').textContent = rgb.b;
     
-    // CMYK 슬라이더 값 표시
-    document.getElementById('cmyk-c-value').textContent = `${cmyk.c}%`;
-    document.getElementById('cmyk-m-value').textContent = `${cmyk.m}%`;
-    document.getElementById('cmyk-y-value').textContent = `${cmyk.y}%`;
-    document.getElementById('cmyk-k-value').textContent = `${cmyk.k}%`;
+    // CMYK 슬라이더 값
+    document.getElementById('cmykC').textContent = `${cmyk.c}%`;
+    document.getElementById('cmykM').textContent = `${cmyk.m}%`;
+    document.getElementById('cmykY').textContent = `${cmyk.y}%`;
+    document.getElementById('cmykK').textContent = `${cmyk.k}%`;
     
     // CMYK 디스플레이
-    document.getElementById('cmyk-c-display').textContent = `${cmyk.c}%`;
-    document.getElementById('cmyk-m-display').textContent = `${cmyk.m}%`;
-    document.getElementById('cmyk-y-display').textContent = `${cmyk.y}%`;
-    document.getElementById('cmyk-k-display').textContent = `${cmyk.k}%`;
+    document.getElementById('displayC').textContent = `${cmyk.c}%`;
+    document.getElementById('displayM').textContent = `${cmyk.m}%`;
+    document.getElementById('displayY').textContent = `${cmyk.y}%`;
+    document.getElementById('displayK').textContent = `${cmyk.k}%`;
 }
 
-// 복사 버튼 설정
+// 복사 버튼
 function setupCopyButton() {
-    document.getElementById('copy-hex-btn').addEventListener('click', function() {
-        const hex = document.getElementById('hex-display').textContent;
-        const hexValue = hex.replace('#', '');
-        copyText(hexValue);
+    document.getElementById('copyBtn').addEventListener('click', () => {
+        const hex = document.getElementById('hexValue').textContent.replace('#', '');
+        navigator.clipboard.writeText(hex).then(() => {
+            showToast(`복사 완료: ${hex}`);
+        }).catch(() => {
+            const textarea = document.createElement('textarea');
+            textarea.value = hex;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast(`복사 완료: ${hex}`);
+        });
     });
 }
 
-// HSB → RGB 변환
+// 변환 함수들
 function hsbToRgb(h, s, b) {
     s = s / 100;
     b = b / 100;
@@ -816,7 +959,6 @@ function hsbToRgb(h, s, b) {
     };
 }
 
-// RGB → HSB 변환
 function rgbToHsb(r, g, b) {
     r = r / 255;
     g = g / 255;
@@ -845,17 +987,23 @@ function rgbToHsb(r, g, b) {
     };
 }
 
-// RGB → CMYK 변환
+function rgbToHex(r, g, b) {
+    return '#' + [r, g, b].map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+    }).join('').toUpperCase();
+}
+
 function rgbToCmyk(r, g, b) {
     let rNorm = r / 255;
     let gNorm = g / 255;
     let bNorm = b / 255;
-
+    
     let k = 1 - Math.max(rNorm, gNorm, bNorm);
     let c = k < 1 ? (1 - rNorm - k) / (1 - k) : 0;
     let m = k < 1 ? (1 - gNorm - k) / (1 - k) : 0;
     let y = k < 1 ? (1 - bNorm - k) / (1 - k) : 0;
-
+    
     return {
         c: Math.round(c * 100),
         m: Math.round(m * 100),
@@ -864,53 +1012,28 @@ function rgbToCmyk(r, g, b) {
     };
 }
 
-// CMYK → RGB 변환
 function cmykToRgb(c, m, y, k) {
     let r = Math.round(255 * (1 - c / 100) * (1 - k / 100));
     let g = Math.round(255 * (1 - m / 100) * (1 - k / 100));
     let b = Math.round(255 * (1 - y / 100) * (1 - k / 100));
-
+    
     return { r, g, b };
 }
 
-// 텍스트 복사
-function copyText(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showToast(`복사 완료: ${text}`);
-    }).catch(() => {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        showToast(`복사 완료: ${text}`);
-    });
-}
-
-// 토스트 알림
+// 토스트
 function showToast(message) {
     const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
+    if (existingToast) existingToast.remove();
     
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.textContent = message;
     document.body.appendChild(toast);
     
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 100);
-    
+    setTimeout(() => toast.classList.add('show'), 100);
     setTimeout(() => {
         toast.classList.remove('show');
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
+        setTimeout(() => toast.remove(), 300);
     }, 2000);
 }
 </script>
