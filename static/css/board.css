@@ -2922,6 +2922,200 @@ box-shadow: 0 4px 12px rgba(98, 0, 255, 0.3); /* 보라색 글로우 */
     font-size: 0.7rem;
 }
 
+/* 표 스타일 */
+/* ========================================
+   📊 테이블 스타일
+   ======================================== */
+.post-body h2{
+/* background: linear-gradient(135deg, #01FF75 0%, #00CC5E 100%);
+color: #000; */
+
+border: 2px solid rgba(1, 255, 117, 0.4);
+background: rgba(1, 255, 117, 0.1);
+color: #01FF75;
+
+padding: 14px 24px;
+font-size: 22px;
+font-weight: 700;
+border-radius: 4px;
+display: inline-block;
+margin-bottom: 20px;
+}
+
+.post-body strong{
+/* background: linear-gradient(135deg, #01FF75 0%, #00CC5E 100%); */
+/* color: #000; */
+/* padding: 4px 8px;  */
+}
+
+.post-content table {
+  width: 100%;
+  margin-bottom: 60px;
+  font-size: 14px;
+  background-color: #141414;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* border-radius: 8px; */
+  /* overflow: hidden; */
+  table-layout: fixed; /* ⭐ 표 너비 고정 이 줄 추가 */
+}
+
+/* 테이블 헤더 */
+.post-content table thead {
+  /* background: linear-gradient(135deg, #01FF75 0%, #00CC5E 100%);
+  color: #000; */
+
+color: var(--accent-color);
+}
+
+.post-content table thead tr th {
+padding: 15px 12px;
+text-align: left;
+font-weight: 500;
+font-size: 15px;
+border: 1px solid var(--accent-color);
+}
+
+/* 테이블 바디 */
+.post-content table tbody tr {
+  /* border-bottom: 1px solid #e0e0e0; */
+  transition: background-color 0.3s ease;
+}
+
+.post-content table tbody tr:hover {
+  /* background-color: #f8f8f8; */
+  background-color: #0a0a0a;
+}
+
+/* .post-content table tbody tr:nth-of-type(even) {
+  background-color: #fafafa;
+} */
+
+.post-content table tbody tr:last-of-type {
+  border-bottom: 3px solid #01FF75;
+}
+
+/* 테이블 셀 */
+.post-content table td {
+  padding: 12px;
+  border: 1px solid #272727;
+  color: #666;
+}
+
+.post-content table td:last-child {
+  border-right: none;
+}
+
+/* 첫 번째 열 (패키지명) 강조 */
+.post-content table tbody tr td:first-child {
+  font-weight: 600;
+  /* color: #333; */
+  color: white;
+  background-color: #0a0a0a;
+}
+
+/* 가격 열 강조 */
+.post-content table tbody tr td:last-child {
+  font-weight: 600;
+  color: #01FF75;
+  text-align: right;
+}
+
+/* 패키지 가격 행 특별 스타일 */
+.post-content table tbody tr td strong {
+  color: #01FF75;
+  font-size: 14px;
+}
+
+/* 각 열의 너비 비율 고정 */
+.post-content table thead tr th:first-child,
+.post-content table tbody tr td:first-child {
+  width: 20%; /* 첫 번째 열 (항목명) */
+}
+
+.post-content table thead tr th:nth-child(2),
+.post-content table tbody tr td:nth-child(2) {
+  width: 50%; /* 두 번째 열 (상세 내용) */
+}
+
+.post-content table thead tr th:last-child,
+.post-content table tbody tr td:last-child {
+  width: 20%; /* 세 번째 열 (가격) */
+}
+
+/* ========================================
+   📱 반응형 (모바일)
+   ======================================== */
+
+/* 태블릿 (768px 이하) */
+@media screen and (max-width: 768px) {
+  .post-body h2 {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin-bottom: 16px;
+  }
+
+  /* 상세내용 열 숨기기 */
+  .post-content table thead tr th:nth-child(2),
+  .post-content table tbody tr td:nth-child(2) {
+    display: none;
+  }
+
+  .post-content table {
+    font-size: 13px;
+    margin-bottom: 40px;
+  }
+  
+  .post-content table thead tr th,
+  .post-content table tbody tr td {
+    padding: 12px 10px;
+  }
+
+  /* 2열 레이아웃 (항목 + 가격) */
+  .post-content table thead tr th:first-child,
+  .post-content table tbody tr td:first-child {
+    width: 50%;
+  }
+
+  .post-content table thead tr th:last-child,
+  .post-content table tbody tr td:last-child {
+    width: 50%;
+  }
+}
+
+/* 모바일 (480px 이하) */
+@media screen and (max-width: 480px) {
+  .post-body h2 {
+    font-size: 16px;
+    padding: 10px 16px;
+    margin-bottom: 14px;
+  }
+
+  .post-content table {
+    font-size: 12px;
+  }
+
+  .post-content table thead tr th,
+  .post-content table tbody tr td {
+    padding: 10px 8px;
+  }
+
+  /* 항목과 가격 비율 조정 */
+  .post-content table thead tr th:first-child,
+  .post-content table tbody tr td:first-child {
+    width: 50%;
+  }
+
+  .post-content table thead tr th:last-child,
+  .post-content table tbody tr td:last-child {
+    width: 50%;
+    font-size: 13px;
+  }
+
+  .post-content table tbody tr td strong {
+    font-size: 13px;
+  }
+}
+
 /* 페이지네이션 */
 /* .youtube-pagination {
     display: flex;

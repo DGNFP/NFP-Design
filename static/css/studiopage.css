@@ -3621,11 +3621,11 @@ select.studio-form-input option {
 .grid-a{
     display: inline-block;
     padding: 6px 26px;
-    border: 2px solid var(--accent-color);
-    border-radius: 4px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50px;
     width: auto;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--accent-color);
     margin-bottom: 24px;
     text-align: center;
@@ -3633,7 +3633,7 @@ select.studio-form-input option {
 
 .grid-calculator-input-col label {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-align: center;
 }
@@ -3698,7 +3698,7 @@ select.studio-form-input option {
 
 .grid-calculator-result-col label {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-align: center;
 }
