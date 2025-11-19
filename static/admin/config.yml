@@ -302,7 +302,7 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["blog"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["작업", "취미", "일상", "기타"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "hidden", default: "개인 작업"}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","작업", "취미", "일상", "기타", "디자인", "개발", "영상", "게임"], hint: "게시글과 관련된 주제를 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
@@ -322,7 +322,7 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["blog"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["작업", "취미", "일상", "기타"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "hidden", default: "디자인 팁"}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","작업", "취미", "일상", "기타", "디자인", "개발", "영상", "게임"], hint: "게시글과 관련된 주제를 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
