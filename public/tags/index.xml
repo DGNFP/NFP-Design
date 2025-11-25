@@ -6,41 +6,69 @@
     <description>Recent content in Tags on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 12 Oct 2025 22:28:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 24 Nov 2025 15:04:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NFP Design</title>
       <link>http://localhost:1313/tags/nfp-design/</link>
-      <pubDate>Sun, 12 Oct 2025 22:28:00 +0900</pubDate>
+      <pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/nfp-design/</guid>
       <description></description>
     </item>
     <item>
       <title>NFP 디자인</title>
       <link>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
-      <pubDate>Sun, 12 Oct 2025 22:28:00 +0900</pubDate>
+      <pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
       <description></description>
     </item>
     <item>
       <title>Studio NFP</title>
       <link>http://localhost:1313/tags/studio-nfp/</link>
-      <pubDate>Sun, 12 Oct 2025 22:28:00 +0900</pubDate>
+      <pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/studio-nfp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>스튜디오 NFP</title>
-      <link>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</link>
-      <pubDate>Sun, 12 Oct 2025 22:28:00 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</guid>
       <description></description>
     </item>
     <item>
       <title>리소스</title>
       <link>http://localhost:1313/tags/%EB%A6%AC%EC%86%8C%EC%8A%A4/</link>
-      <pubDate>Wed, 17 Sep 2025 13:56:00 +0900</pubDate>
+      <pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate>
       <guid>http://localhost:1313/tags/%EB%A6%AC%EC%86%8C%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>스튜디오 NFP</title>
+      <link>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</link>
+      <pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>템플릿</title>
+      <link>http://localhost:1313/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/</link>
+      <pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>게임 광고 디자인</title>
+      <link>http://localhost:1313/tags/%EA%B2%8C%EC%9E%84-%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Fri, 07 Nov 2025 15:50:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%EA%B2%8C%EC%9E%84-%EA%B4%91%EA%B3%A0-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>디자인</title>
+      <link>http://localhost:1313/tags/%EB%94%94%EC%9E%90%EC%9D%B8/</link>
+      <pubDate>Wed, 05 Nov 2025 13:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Illustrator</title>
+      <link>http://localhost:1313/tags/illustrator/</link>
+      <pubDate>Sat, 25 Oct 2025 21:45:00 +0900</pubDate>
+      <guid>http://localhost:1313/tags/illustrator/</guid>
       <description></description>
     </item>
     <item>
@@ -265,13 +293,6 @@
       <link>http://localhost:1313/tags/%ED%98%84%EC%88%98%EB%A7%89/%EC%97%91%EC%8A%A4%EB%B0%B0%EB%84%88-%EB%94%94%EC%9E%90%EC%9D%B8/</link>
       <pubDate>Mon, 30 Jun 2025 23:49:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/%ED%98%84%EC%88%98%EB%A7%89/%EC%97%91%EC%8A%A4%EB%B0%B0%EB%84%88-%EB%94%94%EC%9E%90%EC%9D%B8/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Illustrator</title>
-      <link>http://localhost:1313/tags/illustrator/</link>
-      <pubDate>Sun, 29 Jun 2025 23:29:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/illustrator/</guid>
       <description></description>
     </item>
     <item>

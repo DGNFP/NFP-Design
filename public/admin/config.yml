@@ -18,7 +18,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["web"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지 디자인", "디지털배너 디자인", "상세페이지 디자인", "UX/UI 디자인"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design","스튜디오 NFP","Studio NFP", "홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "XD", "Photoshop", "Illustrator", "HTML5", "CSS3", "JavaScript", "Figma"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
@@ -164,7 +164,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["youtube"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["유튜브 영상", "유튜브 썸네일 디자인", "유튜브 채널아트 디자인"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["유튜브 영상"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","YouTube", "유튜브", "영상 제작", "영상 편집", "썸네일 디자인", "채널아트", "After Effects", "Premiere Pro", "Photoshop", "Illustrator", "브랜딩"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
@@ -184,9 +184,9 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
-      - {label: "카테고리", name: "categories", widget: "hidden", default: ["youtube"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["방송 로고 디자인", "방송 스케줄표 디자인", "채널아트 디자인" ,"패널 디자인" , "OAP 디자인"], required: false}
-      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","YouTube", "유튜브", "영상 제작", "영상 편집", "썸네일 디자인", "채널아트", "After Effects", "Premiere Pro", "Photoshop", "Illustrator", "브랜딩"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
+      - {label: "카테고리", name: "categories", widget: "hidden", default: ["streaming"]}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["방송 로고 디자인", "방송 스케줄표 디자인", "채널아트 디자인" ,"패널 디자인" , "OAP 디자인" , "썸네일 디자인"], required: false}
+      - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","YouTube", "유튜브", "영상 제작", "영상 편집", "썸네일 디자인", "유튜브 썸네일" , "채널아트", "After Effects", "Premiere Pro", "Photoshop", "Illustrator", "브랜딩"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
         widget: "list"
@@ -302,7 +302,7 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["blog"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["작업", "취미", "일상", "기타"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "hidden", default: "개인 작업"}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","작업", "취미", "일상", "기타", "디자인", "개발", "영상", "게임"], hint: "게시글과 관련된 주제를 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
@@ -322,7 +322,7 @@ collections:
       - {label: "제목", name: "title", widget: "string"}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["blog"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["작업", "취미", "일상", "기타"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "hidden", default: "디자인 팁"}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","작업", "취미", "일상", "기타", "디자인", "개발", "영상", "게임"], hint: "게시글과 관련된 주제를 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"

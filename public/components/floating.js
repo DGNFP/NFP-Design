@@ -361,7 +361,7 @@ const defaultButtons = [
         id: 'blog-btn',
         href: '/games',
         icon: '<i class="fas fa-gamepad"></i>',
-        text: '게임 블로그'
+        text: 'Games'
     },
     {
         id: 'studio-btn',
@@ -373,7 +373,7 @@ const defaultButtons = [
         id: 'work-btn',
         href: '/categories/',
         icon: '<i class="fas fa-clipboard-list"></i>',
-        text: '작업 보기'
+        text: '포트폴리오'
     },
     {
         id: 'contact-btn',

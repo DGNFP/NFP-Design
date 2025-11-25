@@ -1395,7 +1395,7 @@ border-color: rgba(1, 255, 117, 0.3);
 
 .board-item-ad .board-item-title {
 font-size: 14px; /* 16px에서 15px로 축소 */
-height: 40px; 
+/* height: 40px;  */
 overflow: hidden;
 margin-bottom: 6px; /* 8px에서 6px로 축소 */
 color: white;
