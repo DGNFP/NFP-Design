@@ -487,12 +487,7 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/youtube/</loc>
-    <lastmod>2025-07-01T22:07:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/categories/youtube/2025-07-01-%EB%B8%94%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%95%A4-%EC%86%8C%EC%9A%B8-%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <loc>http://localhost:1313/categories/streaming/2025-07-01-%EB%B8%94%EB%A0%88%EC%9D%B4%EB%93%9C-%EC%95%A4-%EC%86%8C%EC%9A%B8-%EC%9C%A0%ED%8A%9C%EB%B8%8C-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
     <lastmod>2025-07-01T22:07:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -923,6 +918,10 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/studio/rgb-cmyk/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/youtube/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
