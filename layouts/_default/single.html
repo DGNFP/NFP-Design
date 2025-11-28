@@ -318,6 +318,8 @@
         {{ if eq .Section "categories" }}
             {{ $currentCategory := index .Params.categories 0 }}
             {{ $relatedPosts = where .Site.RegularPages "Params.categories" "intersect" (slice $currentCategory) }}
+        {{ else if eq .Section "blog" }}
+            {{ $relatedPosts = where (where .Site.RegularPages "Section" "blog") "Params.subCategory" .Params.subCategory }}
         {{ else if eq .Section "games" }}
             {{ $relatedPosts = where (where .Site.RegularPages "Section" "games") "Params.subCategory" .Params.subCategory }}
         {{ else if eq .Section "freeboard" }}
