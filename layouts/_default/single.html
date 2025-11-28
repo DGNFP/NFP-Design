@@ -300,7 +300,8 @@
                 {{ else if eq $currentCategory "youtube" }}유튜브
 
                 {{ end }} 카테고리의 다른 작업물
-
+            {{ else if eq .Section "blog" }}
+                {{ .Params.subCategory }}의 다른 게시글
             {{ else if eq .Section "games" }}
                 {{ .Params.subCategory }}의 다른 게시글
             {{ else if eq .Section "freeboard" }}
