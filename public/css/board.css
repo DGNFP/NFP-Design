@@ -4161,13 +4161,7 @@ flex-wrap: wrap;
 gap: 1rem;
 }
 
-.youtube-category-filter {
-margin: 0;
-flex-direction: column;
-padding: 12px;
-border-radius: 12px;
-gap: 10px;
-}
+
 
 .youtube-category-filter a {
 padding: 6px 8px;
