@@ -284,7 +284,7 @@
 
 <!-- 페이지 네비게이션 -->
 <div class="post-navigation">
-    <!-- 제목 (맨 위) -->
+<!-- 제목 (맨 위) -->
     <div class="related-posts-header">
         <h3>
             {{ if eq .Section "categories" }}
@@ -298,14 +298,13 @@
                 {{ else if eq $currentCategory "ad" }}광고 디자인
                 {{ else if eq $currentCategory "project" }}프로젝트
                 {{ else if eq $currentCategory "youtube" }}유튜브
-
-                {{ end }} 카테고리의 다른 작업물
+                {{ end }}의 관련 게시글
             {{ else if eq .Section "blog" }}
-                {{ .Params.subCategory }}의 다른 게시글
+                {{ .Params.subCategory }}의 관련 게시글
             {{ else if eq .Section "games" }}
-                {{ .Params.subCategory }}의 다른 게시글
+                {{ .Params.subCategory }}의 관련 게시글
             {{ else if eq .Section "freeboard" }}
-                {{ .Params.subCategory }}의 다른 게시글
+                {{ .Params.subCategory }}의 관련 게시글
             {{ else }}
                 관련 게시글
             {{ end }}
