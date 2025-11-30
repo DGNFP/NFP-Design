@@ -13,7 +13,7 @@
 <div class="all-view-all-wrapper">
 <a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
 <a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button-active">컨텐츠 디자인</a>
-<a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button">크리에이티브 디자인</a>
+<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
 <a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button">인터넷 방송 디자인</a>
 <a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
 <a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
@@ -24,18 +24,16 @@
 </div>
 <!-- 버튼 컨테이너 닫힘 -->
         
-        <!-- 카테고리 필터 -->
-        <div class="board-filter">
-            <div class="filter-group">
-                <ul class="category-filter">
-                    <li><a class="active" data-filter="all">컨텐츠 디자인 전체</a></li>
-                    <li><a data-filter="카드뉴스 디자인">카드뉴스 디자인</a></li>
-                    <li><a data-filter="포스터 디자인">포스터 디자인</a></li>
-                    <li><a data-filter="이벤트 페이지 디자인">이벤트 페이지 디자인</a></li>
-                    <li><a data-filter="블로그 스킨 디자인">블로그 스킨 디자인</a></li>
-                    <li><a data-filter="SNS 광고">SNS 광고</a></li>
-                </ul>
-            </div>
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/content/" | relURL }}" class="blog-btn-active">컨텐츠 디자인 전체</a>
+<a href="{{ "/categories/content/card-news-design/" | relURL }}" class="blog-btn">카드뉴스 디자인</a>
+<a href="{{ "/categories/content/poster-design/" | relURL }}" class="blog-btn">포스터 디자인</a>
+<a href="{{ "/categories/content/event-design/" | relURL }}" class="blog-btn">이벤트 페이지 디자인</a>
+<a href="{{ "/categories/content/blog-design/" | relURL }}" class="blog-btn">블로그 스킨 디자인</a>
+<a href="{{ "/categories/content/sns-design/" | relURL }}" class="blog-btn">SNS 광고 디자인</a>
+</div>
                     
             <!-- 검색창 -->
             <div class="board-search">
@@ -43,6 +41,8 @@
                 <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
         </div>
+        
+
              
         <!-- 정사각형 레이아웃 게시판 그리드 (5x3) -->
         <div class="board-grid-square">

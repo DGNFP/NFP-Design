@@ -1,0 +1,163 @@
+{{ define "main" }}
+<!-- 게시판 섹션 -->
+<section class="board-section">
+    <div class="container">
+        <h2 class="board-section-title"><span>인터넷 방송</span> 디자인</h2>
+        <p class="board-intro">치지직, 아프리카(SOOP) 등 스트리밍 플랫폼 디자인</p>
+        
+<!-- 전체작업 버튼만 별도로 구분 -->
+<div class="view-wrapper">
+<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
+</div>
+<!-- 그 아래 나머지 버튼들         -->
+<div class="all-view-all-wrapper">
+<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
+<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
+<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
+<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button-active">인터넷 방송 디자인</a>
+<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
+<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
+<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고 디자인</a>
+<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
+<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">NFP 블로그</a>
+<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
+</div>
+<!-- 버튼 컨테이너 닫힘 -->
+        
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/streaming/" | relURL }}" class="blog-btn">전체</a>
+<a href="{{ "/categories/streaming/thumbnail-design/" | relURL }}" class="blog-btn-active">썸네일 디자인</a>
+<a href="{{ "/categories/streaming/logo-design/" | relURL }}" class="blog-btn">방송 로고</a>
+<a href="{{ "/categories/streaming/schedule-design/" | relURL }}" class="blog-btn">방송 스케줄표</a>
+<a href="{{ "/categories/streaming/channel-art/" | relURL }}" class="blog-btn">채널아트</a>
+<a href="{{ "/categories/streaming/panel-design/" | relURL }}" class="blog-btn">패널 디자인</a>
+<a href="{{ "/categories/streaming/oap-design/" | relURL }}" class="blog-btn">OAP 디자인 (오버레이)</a>
+</div>
+            
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        
+        <!-- 게시판 그리드 -->
+        <div class="board-grid">
+            <!-- 모든 게시물 로드 (페이지네이션 제거) -->
+{{ $allPosts := .Parent.RegularPages }}
+{{ $filteredPosts := where $allPosts ".Params.subCategory" "썸네일 디자인" }}
+{{ range $filteredPosts }}
+            <div class="board-item" data-main="web" data-category="{{ .Params.subCategory }}">
+                <a href="{{ .Permalink }}">
+                    <div class="board-item-img">
+                        {{ $content := .Content }}
+                        {{ $hasVideo := false }}
+                        {{ $hasImage := false }}
+                        {{ $videoId := "" }}
+                        {{ $isVimeo := false }}
+                        {{ $firstImageSrc := "" }}
+                        {{ $firstContentType := "" }}
+                        
+                        <!-- 1순위: 본문에서 YouTube URL 찾기 (Shorts 포함) -->
+                        {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+                        {{ $vimeoMatches := "" }}
+                        {{ $imageMatches := "" }}
+                        
+                        {{ if $youtubeMatches }}
+                            {{ $firstContentType = "youtube" }}
+                            {{ $fullMatch := index $youtubeMatches 0 }}
+                            <!-- YouTube Shorts, 일반 YouTube, youtu.be 모두 처리 -->
+                            {{ if findRE "/shorts/" $fullMatch 1 }}
+                                {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
+                            {{ else }}
+                                {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+                            {{ end }}
+                            {{ $hasVideo = true }}
+                        {{ else }}
+                            <!-- 2순위: 본문에서 Vimeo URL 찾기 -->
+                            {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
+                            {{ if $vimeoMatches }}
+                                {{ $firstContentType = "vimeo" }}
+                                {{ $fullMatch := index $vimeoMatches 0 }}
+                                {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
+                                {{ $hasVideo = true }}
+                                {{ $isVimeo = true }}
+                            {{ else }}
+                                <!-- 3순위: 본문에서 첫 번째 이미지 찾기 -->
+                                {{ $imageMatches = findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                                {{ if $imageMatches }}
+                                    {{ $firstContentType = "image" }}
+                                    {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                                    {{ $hasImage = true }}
+                                {{ end }}
+                            {{ end }}
+                        {{ end }}
+                        
+                        <!-- 첫 번째 컨텐츠 타입에 따라 썸네일 표시 -->
+                        {{ if eq $firstContentType "youtube" }}
+                            <!-- YouTube 썸네일 + 재생 아이콘 (Shorts 포함) -->
+                            <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
+                                 alt="{{ .Title }}"
+                                 onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        {{ else if eq $firstContentType "vimeo" }}
+                            <!-- Vimeo 썸네일 + 재생 아이콘 -->
+                            <img src="https://vumbnail.com/{{ $videoId }}.jpg" 
+                                 alt="{{ .Title }}"
+                                 onerror="this.src='/img/vimeo-default.jpg'">
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        {{ else if eq $firstContentType "image" }}
+                            <!-- WebP 썸네일 처리 -->
+                            {{ $originalSrc := $firstImageSrc }}
+                            
+                            <!-- 파일명에서 확장자 제거 -->
+                            {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+                            
+                            <picture>
+                                <!-- WebP 버전 우선 로드 -->
+                                <source srcset="{{ $withoutExt }}.webp" type="image/webp">
+                                <!-- 원본 이미지 (폴백) -->
+                                <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
+                            </picture>
+                        {{ end }}
+                        
+                        <!-- 오버레이 태그 추가 -->
+                        {{ if .Params.subCategory }}
+                        <div class="category-overlay">{{ .Params.subCategory }}</div>
+                        {{ end }}
+                    </div>
+                    
+                    <div class="board-item-content">
+                        <h3 class="board-item-title">
+                        {{- if .Params.subCategory -}}
+                        <span class="category-text">[ {{ .Params.subCategory }} ]</span> {{ .Title }}
+                        {{- else -}}
+                        {{ .Title }}
+                        {{- end -}}
+                        </h3>
+                        
+                        <!-- 소제목 추가 -->
+                        {{ if .Params.subtitle }}
+                        <h4 class="board-item-subtitle">{{ .Params.subtitle }}</h4>
+                        {{ end }}
+                        
+                        <span class="board-item-link">자세히 보기</span>
+                    </div>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+        
+        <!-- 새로운 JavaScript 페이지네이션 -->
+        <div class="pagination js-pagination">
+            <!-- JavaScript로 동적 생성됨 -->
+        </div>
+    </div> <!-- container 닫기 -->
+</section> <!-- board-section 닫기 -->
+{{ end }}

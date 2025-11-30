@@ -6,8 +6,15 @@
     <description>Recent content in Categories on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 28 Nov 2025 00:56:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Nov 2025 16:58:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Games</title>
+      <link>http://localhost:1313/categories/games/</link>
+      <pubDate>Sun, 30 Nov 2025 16:58:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/games/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Streaming</title>
       <link>http://localhost:1313/categories/streaming/</link>
@@ -16,10 +23,10 @@
       <description></description>
     </item>
     <item>
-      <title>Creative</title>
-      <link>http://localhost:1313/categories/creative/</link>
+      <title>Ad</title>
+      <link>http://localhost:1313/categories/ad/</link>
       <pubDate>Thu, 27 Nov 2025 00:06:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/creative/</guid>
+      <guid>http://localhost:1313/categories/ad/</guid>
       <description></description>
     </item>
     <item>
@@ -30,10 +37,10 @@
       <description></description>
     </item>
     <item>
-      <title>Ad</title>
-      <link>http://localhost:1313/categories/ad/</link>
-      <pubDate>Tue, 09 Sep 2025 00:05:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/ad/</guid>
+      <title>Game-Ad</title>
+      <link>http://localhost:1313/categories/game-ad/</link>
+      <pubDate>Fri, 07 Nov 2025 15:50:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/game-ad/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +48,6 @@
       <link>http://localhost:1313/categories/programming/</link>
       <pubDate>Mon, 25 Aug 2025 13:32:00 +0900</pubDate>
       <guid>http://localhost:1313/categories/programming/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Games</title>
-      <link>http://localhost:1313/categories/games/</link>
-      <pubDate>Wed, 20 Aug 2025 00:11:00 +0900</pubDate>
-      <guid>http://localhost:1313/categories/games/</guid>
       <description></description>
     </item>
     <item>
@@ -86,6 +86,20 @@
       <description></description>
     </item>
     <item>
+      <title>OAP 디자인</title>
+      <link>http://localhost:1313/categories/streaming/oap-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/streaming/oap-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SNS 광고 디자인</title>
+      <link>http://localhost:1313/categories/content/sns-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/content/sns-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Studio NFP YouTube</title>
       <link>http://localhost:1313/categories/youtube/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -100,10 +114,87 @@
       <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
     </item>
     <item>
+      <title>게임 디자인</title>
+      <link>http://localhost:1313/categories/game-ad/game-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/game-ad/game-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>게임 영상 광고 디자인</title>
+      <link>http://localhost:1313/categories/game-ad/game-video/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/game-ad/game-video/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>게임 이미지 광고 디자인</title>
+      <link>http://localhost:1313/categories/game-ad/game-image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/game-ad/game-image/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>굿즈 디자인</title>
+      <link>http://localhost:1313/categories/ad/goods/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/ad/goods/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>디지털 배너 디자인</title>
       <link>http://localhost:1313/categories/web/digital-banner-design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/web/digital-banner-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>로고/명함 디자인</title>
+      <link>http://localhost:1313/categories/ad/logo-card/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/ad/logo-card/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>메뉴판/전단지 디자인</title>
+      <link>http://localhost:1313/categories/ad/menu-flyer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/ad/menu-flyer/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>모션 그래픽</title>
+      <link>http://localhost:1313/categories/video/motion-graphics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/video/motion-graphics/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>방송 로고 디자인</title>
+      <link>http://localhost:1313/categories/streaming/logo-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/streaming/logo-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>방송 스케줄표 디자인</title>
+      <link>http://localhost:1313/categories/streaming/schedule-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/streaming/schedule-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>브로슈어/카탈로그 디자인</title>
+      <link>http://localhost:1313/categories/ad/brochure-catalog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/ad/brochure-catalog/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>블로그 스킨 디자인</title>
+      <link>http://localhost:1313/categories/content/blog-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/content/blog-design/</guid>
       <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
     </item>
     <item>
@@ -114,10 +205,87 @@
       <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
     </item>
     <item>
+      <title>시트지 디자인</title>
+      <link>http://localhost:1313/categories/ad/sticker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/ad/sticker/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>썸네일 디자인</title>
+      <link>http://localhost:1313/categories/streaming/thumbnail-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/streaming/thumbnail-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>앨범커버/음반 디자인</title>
+      <link>http://localhost:1313/categories/ad/album-cover/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/ad/album-cover/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>영상 제작</title>
+      <link>http://localhost:1313/categories/video/video-production/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/video/video-production/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>영상 편집</title>
+      <link>http://localhost:1313/categories/video/video-editing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/video/video-editing/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>웹 퍼블리싱</title>
       <link>http://localhost:1313/categories/web/publishing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/web/publishing/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>이벤트 페이지 디자인</title>
+      <link>http://localhost:1313/categories/content/event-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/content/event-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>채널아트 디자인</title>
+      <link>http://localhost:1313/categories/streaming/channel-art/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/streaming/channel-art/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>카드뉴스 디자인</title>
+      <link>http://localhost:1313/categories/content/card-news-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/content/card-news-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>패널 디자인</title>
+      <link>http://localhost:1313/categories/streaming/panel-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/streaming/panel-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>포스터 디자인</title>
+      <link>http://localhost:1313/categories/content/poster-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/content/poster-design/</guid>
+      <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>현수막/엑스배너 디자인</title>
+      <link>http://localhost:1313/categories/ad/banner-signage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/ad/banner-signage/</guid>
       <description>&lt;h1 id=&#34;테스트-페이지&#34;&gt;테스트 페이지&lt;/h1&gt;&#xA;&lt;p&gt;이 글이 보이면 성공!&lt;/p&gt;</description>
     </item>
     <item>
