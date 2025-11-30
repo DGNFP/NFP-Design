@@ -74,3 +74,6 @@ markup:
     parser:
       autoHeadingID: true
       wrapStandAloneImageWithinParagraph: false  # 🔥 이 설정이 핵심!
+      extensions:
+      linkify: false  # 자동 링크변환 해제
+    

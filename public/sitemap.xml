@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/nfp-design/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/streaming/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/studio-nfp/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/streaming/2025-11-30-%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%A8%B8-%ED%8C%A8%EB%84%90-%EB%94%94%EC%9E%90%EC%9D%B8-01/</loc>
+    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
     <loc>http://localhost:1313/categories/games/</loc>
     <lastmod>2025-11-30T16:58:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -12,52 +57,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-11-30T16:58:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/games/2025-11-30-%EC%8A%A4%ED%83%802-%ED%95%98%EB%8B%A4-%EB%A7%8C%EB%82%9C-%EC%99%B8%EA%B5%AD%EC%9D%B8/</loc>
     <lastmod>2025-11-30T16:58:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-11-28T00:56:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/nfp-design/</loc>
-    <lastmod>2025-11-28T00:56:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-11-28T00:56:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/categories/streaming/</loc>
-    <lastmod>2025-11-28T00:56:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/studio-nfp/</loc>
-    <lastmod>2025-11-28T00:56:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-11-28T00:56:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/tags/youtube/</loc>
-    <lastmod>2025-11-28T00:56:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</loc>
     <lastmod>2025-11-28T00:56:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>

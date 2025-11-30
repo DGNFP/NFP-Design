@@ -46,7 +46,7 @@
         
         <!-- 게시판 그리드 (3x3 정사각형 레이아웃) -->
         <div class="board-grid-ad">
-            <!-- 모든 게시물 로드 (페이지네이션 제거) -->
+<!-- 모든 게시물 로드 (페이지네이션 제거) -->
 {{ $allPosts := .Parent.RegularPages }}
 {{ $filteredPosts := where $allPosts ".Params.subCategory" "in" (slice "현수막 디자인" "엑스배너 디자인") }}
 {{ range $filteredPosts }}
