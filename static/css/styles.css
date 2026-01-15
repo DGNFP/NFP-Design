@@ -1671,7 +1671,96 @@ nav {
 }
 
 
+/* Business CTA Section */
+.business-cta {
+  margin: 60px 0 40px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
 
+.cta-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.cta-btn.primary {
+  background: #007bff;
+  color: #fff;
+}
+
+.cta-btn.primary:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.cta-btn.secondary {
+  background: #fff;
+  color: #495057;
+  border: 2px solid #dee2e6;
+}
+
+.cta-btn.secondary:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+  transform: translateY(-2px);
+}
+
+.cta-btn.tertiary {
+  background: #6c757d;
+  color: #fff;
+}
+
+.cta-btn.tertiary:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .business-cta {
+    padding: 24px 16px;
+    margin: 40px 0 30px;
+  }
+  
+  .cta-text {
+    font-size: 16px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 
 
