@@ -2,22 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/nfp-design/</loc>
-    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
-    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
+    <loc>http://localhost:1313/terms/pinterest-privacy/</loc>
+    <lastmod>2026-03-10T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2026-03-10T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/terms/</loc>
+    <lastmod>2026-03-10T00:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/fc%EC%98%A8%EB%9D%BC%EC%9D%B8/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/games/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/games/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/nfp-design/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/nfp-%EB%94%94%EC%9E%90%EC%9D%B8/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/studio-nfp/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/%ED%94%BC%ED%8C%8C4/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/%ED%94%BC%ED%8C%8C%EC%98%A8%EB%9D%BC%EC%9D%B84/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/games/2026-02-11-%ED%99%95%EC%A0%95-%EA%B0%95%ED%99%94-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%AD%90-%EB%B0%9B%EC%A7%80/</loc>
+    <lastmod>2026-02-11T09:38:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/games/2025-12-15-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-%EC%84%A0%EC%88%98-%ED%99%95%EC%A0%95-%EA%B0%95%ED%99%94-%EC%9D%B4%EB%B2%A4%ED%8A%B8/</loc>
+    <lastmod>2025-12-15T23:08:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/blog/</loc>
+    <lastmod>2025-12-11T08:57:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2025-12-11T08:57:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/blog/daily/2025-12-10-%EC%9D%B8%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%90%EC%84%9C-%EB%B0%9C%EA%B2%AC%ED%95%9C-%EC%97%91%EC%8A%A4%EC%B9%BC%EB%A6%AC%EB%B2%84/</loc>
+    <lastmod>2025-12-11T08:57:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/blog/daily/</loc>
+    <lastmod>2025-12-11T08:57:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EA%B8%B0%ED%83%80/</loc>
+    <lastmod>2025-12-04T23:04:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/blog/daily/2025-12-04-%EC%99%95%EB%9A%9C%EA%BB%91-x-%ED%8E%98%EC%9D%B4%EC%BB%A4-%EC%BD%9C%EB%9D%BC%EB%B3%B4/</loc>
+    <lastmod>2025-12-04T23:04:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-12-01T01:32:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -27,33 +117,8 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/studio-nfp/</loc>
-    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp/</loc>
-    <lastmod>2025-12-01T01:32:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/categories/streaming/2025-11-30-%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%A8%B8-%ED%8C%A8%EB%84%90-%EB%94%94%EC%9E%90%EC%9D%B8-01/</loc>
     <lastmod>2025-12-01T01:32:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/categories/games/</loc>
-    <lastmod>2025-11-30T16:58:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/games/</loc>
-    <lastmod>2025-11-30T16:58:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
@@ -97,13 +162,13 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/blog/</loc>
-    <lastmod>2025-11-24T15:04:00+09:00</lastmod>
+    <loc>http://localhost:1313/blog/tips/</loc>
+    <lastmod>2025-11-26T10:08:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2025-11-24T15:04:00+09:00</lastmod>
+    <loc>http://localhost:1313/blog/tips/2025-11-26-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8--%ED%8F%AC%ED%86%A0%EC%83%B5%EC%97%90%EC%84%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B6%84%ED%95%A0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</loc>
+    <lastmod>2025-11-26T10:08:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
@@ -127,17 +192,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/blog/tips/</loc>
-    <lastmod>2025-11-19T13:00:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/blog/tips/2025-11-24-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%84%B0%EC%97%90%EC%84%9C-%EB%A7%81%ED%81%AC-%EA%B1%B0%EB%8A%94-%EB%B2%95/</loc>
     <lastmod>2025-11-19T13:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/blog/tips/2025-11-24-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%95%A0-%EB%95%8C-%EC%BB%AC%EB%9F%AC%EA%B0%80-%EA%B3%A0%EB%AF%BC%EC%9D%B4%EB%9D%BC%EB%A9%B4/</loc>
+    <loc>http://localhost:1313/blog/tips/2025-11-12-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%95%A0-%EB%95%8C-%EC%BB%AC%EB%9F%AC%EA%B0%80-%EA%B3%A0%EB%AF%BC%EC%9D%B4%EB%9D%BC%EB%A9%B4/</loc>
     <lastmod>2025-11-12T13:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -172,7 +232,7 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/blog/tips/2025-11-19-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%84%B0%EC%97%90%EC%84%9C-%EB%8F%84%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B9%84%ED%8A%B8%EB%A7%B5-%ED%94%BD%EC%85%80%EC%95%84%ED%8A%B8-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95/</loc>
+    <loc>http://localhost:1313/blog/tips/2025-11-05-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%84%B0%EC%97%90%EC%84%9C-%EB%8F%84%ED%8A%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B9%84%ED%8A%B8%EB%A7%B5-%ED%94%BD%EC%85%80%EC%95%84%ED%8A%B8-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95/</loc>
     <lastmod>2025-11-05T13:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -272,22 +332,12 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/fc%EC%98%A8%EB%9D%BC%EC%9D%B8/</loc>
-    <lastmod>2025-08-20T00:11:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
     <loc>http://localhost:1313/games/2025-08-19-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-%EA%B0%95%ED%99%94-%EC%9E%AC%EC%8B%9C%EB%8F%84%EA%B6%8C/</loc>
     <lastmod>2025-08-20T00:11:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/games/2025-08-11-fc%EC%98%A8%EB%9D%BC%EC%9D%B8-%EC%84%B8%EB%9F%B0%EB%94%94%ED%94%BC%ED%8B%B0-%EC%83%81%EC%9E%90/</loc>
-    <lastmod>2025-08-11T22:30:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/%ED%94%BC%ED%8C%8C%EC%98%A8%EB%9D%BC%EC%9D%B84/</loc>
     <lastmod>2025-08-11T22:30:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -333,11 +383,6 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/terms/privacy-policy/</loc>
-    <lastmod>2025-07-30T00:00:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/terms/</loc>
     <lastmod>2025-07-30T00:00:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -413,11 +458,6 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/blog/daily/2025-07-13-%EC%96%B4%EC%A9%8C%EB%8B%A4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</loc>
-    <lastmod>2025-07-13T21:25:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/blog/daily/</loc>
     <lastmod>2025-07-13T21:25:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -703,11 +743,6 @@
     <priority>0.8</priority>
   </url><url>
     <loc>http://localhost:1313/tags/%EA%B2%8C%EC%9E%84/</loc>
-    <lastmod>2025-06-19T22:46:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/%ED%94%BC%ED%8C%8C4/</loc>
     <lastmod>2025-06-19T22:46:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>

@@ -1671,7 +1671,125 @@ nav {
 }
 
 
+/* Business CTA Section */
+/* Business CTA Section - NFP Style */
+.business-cta {
+  margin: 60px 0 40px;
+  padding: 40px 30px;
+  background: rgba(1, 255, 117, 0.05);
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(1, 255, 117, 0.2);
+  position: relative;
+  overflow: hidden;
+}
 
+/* 배경 글로우 효과 */
+.business-cta::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(1, 255, 117, 0.1);
+  border-radius: 50%;
+  filter: blur(60px);
+  top: -50px;
+  right: -50px;
+  z-index: -1;
+}
+
+.cta-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  border: 2px solid transparent;
+}
+
+.cta-btn.primary {
+  background: var(--accent-color);
+  color: var(--background-color);
+  border-color: var(--accent-color);
+}
+
+.cta-btn.primary:hover {
+  background: transparent;
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(1, 255, 117, 0.4);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: var(--text-color);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(1, 255, 117, 0.2);
+}
+
+.cta-btn.tertiary {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn.tertiary:hover {
+  background: rgba(1, 255, 117, 0.1);
+  border-color: rgba(1, 255, 117, 0.5);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(1, 255, 117, 0.2);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .business-cta {
+    padding: 30px 20px;
+    margin: 40px 0 30px;
+  }
+  
+  .cta-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
 
 
 

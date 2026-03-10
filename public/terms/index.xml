@@ -6,8 +6,15 @@
     <description>Recent content in Terms on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
     <generator>Hugo</generator>
     <language>ko</language>
-    <lastBuildDate>Wed, 30 Jul 2025 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/terms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NFP 디자인 - Pinterest API 개인정보처리방침</title>
+      <link>http://localhost:1313/terms/pinterest-privacy/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/terms/pinterest-privacy/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;NFP Design은 nfpdesign.co.kr의 콘텐츠를 Pinterest에 자동 게시하기 위한&lt;/p&gt;&#xA;&lt;p&gt;개인 용도의 자동화 도구를 운영합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;수집하는-개인정보&#34;&gt;수집하는 개인정보&lt;/h2&gt;&#xA;&lt;p&gt;없음.&lt;/p&gt;&#xA;&lt;p&gt;본 도구는 운영자 본인만 사용하며 외부 이용자 데이터를 수집하지 않습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;문의&#34;&gt;문의&lt;/h2&gt;&#xA;&lt;p&gt;이메일: &lt;a href=&#34;mailto:dgnam1110@gmail.com&#34;&gt;dgnam1110@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;웹사이트: &lt;a href=&#34;https://nfpdesign.co.kr&#34;&gt;https://nfpdesign.co.kr&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>NFP 디자인 어시스턴트 - 개인정보처리방침</title>
       <link>http://localhost:1313/terms/privacy-policy/</link>
