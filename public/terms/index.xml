@@ -1,26 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Terms on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
-    <link>http://localhost:1313/terms/</link>
-    <description>Recent content in Terms on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
-    <generator>Hugo</generator>
-    <language>ko</language>
-    <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/terms/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>NFP 디자인 - Pinterest API 개인정보처리방침</title>
-      <link>http://localhost:1313/terms/pinterest-privacy/</link>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/terms/pinterest-privacy/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;NFP Design은 nfpdesign.co.kr의 콘텐츠를 Pinterest에 자동 게시하기 위한&lt;/p&gt;&#xA;&lt;p&gt;개인 용도의 자동화 도구를 운영합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;수집하는-개인정보&#34;&gt;수집하는 개인정보&lt;/h2&gt;&#xA;&lt;p&gt;없음.&lt;/p&gt;&#xA;&lt;p&gt;본 도구는 운영자 본인만 사용하며 외부 이용자 데이터를 수집하지 않습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;문의&#34;&gt;문의&lt;/h2&gt;&#xA;&lt;p&gt;이메일: &lt;a href=&#34;mailto:dgnam1110@gmail.com&#34;&gt;dgnam1110@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;웹사이트: &lt;a href=&#34;https://nfpdesign.co.kr&#34;&gt;https://nfpdesign.co.kr&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>NFP 디자인 어시스턴트 - 개인정보처리방침</title>
-      <link>http://localhost:1313/terms/privacy-policy/</link>
-      <pubDate>Wed, 30 Jul 2025 00:00:00 +0900</pubDate>
-      <guid>http://localhost:1313/terms/privacy-policy/</guid>
-      <description>&lt;p&gt;NFP Design(이하 &amp;lsquo;회사&amp;rsquo;라고 함)은 NFP 디자인 어시스턴트 애플리케이션(이하 &amp;lsquo;서비스&amp;rsquo;라고 함)을 이용하는 이용자들(이하 &amp;lsquo;이용자&amp;rsquo;라고 함)의 개인정보를 매우 소중하게 생각하고 있으며, 이용자의 개인정보를 보호하기 위하여 최선의 노력을 다하고 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;회사는 『개인정보보호법』, 『정보통신망 이용촉진 및 정보보호 등에 관한 법률』을 비롯한 모든 개인정보보호 관련 법률규정을 준수하고 있으며, 회사의 개인정보처리방침을 별도로 제정하고 이를 준수함으로써 이용자의 개인정보를 더욱 보호하고 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;또한 회사는 개인정보처리방침을 항상 회사 홈페이지에 공개함으로써 이용자들이 언제나 쉽게 열람할 수 있도록 조치하고 있습니다. 회사의 개인정보처리방침은 관련 법률 및 고시의 변경 또는 내부 운영방침의 변경에 따라 변경될 수 있으며, 수정될 경우 변경된 사항은 홈페이지를 통하여 확인할 수 있습니다.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Terms on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title><link>https://nfpdesign.co.kr/terms/</link><description>Recent content in Terms on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://nfpdesign.co.kr/terms/index.xml" rel="self" type="application/rss+xml"/><item><title>NFP 디자인 - Pinterest API 개인정보처리방침</title><link>https://nfpdesign.co.kr/terms/pinterest-privacy/</link><pubDate>Tue, 10 Mar 2026 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/terms/pinterest-privacy/</guid><description>&lt;pre tabindex="0">&lt;code>&lt;/code>&lt;/pre>&lt;p>NFP Design은 nfpdesign.co.kr의 콘텐츠를 Pinterest에 자동 게시하기 위한&lt;/p>
+&lt;p>개인 용도의 자동화 도구를 운영합니다.&lt;/p>
+&lt;h2 id="수집하는-개인정보">수집하는 개인정보&lt;/h2>
+&lt;p>없음.&lt;/p>
+&lt;p>본 도구는 운영자 본인만 사용하며 외부 이용자 데이터를 수집하지 않습니다.&lt;/p>
+&lt;h2 id="문의">문의&lt;/h2>
+&lt;p>이메일: &lt;a href="mailto:dgnam1110@gmail.com">dgnam1110@gmail.com&lt;/a>&lt;/p>
+&lt;p>웹사이트: &lt;a href="https://nfpdesign.co.kr">https://nfpdesign.co.kr&lt;/a>&lt;/p></description></item><item><title>NFP 디자인 어시스턴트 - 개인정보처리방침</title><link>https://nfpdesign.co.kr/terms/privacy-policy/</link><pubDate>Wed, 30 Jul 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/terms/privacy-policy/</guid><description>&lt;p>NFP Design(이하 &amp;lsquo;회사&amp;rsquo;라고 함)은 NFP 디자인 어시스턴트 애플리케이션(이하 &amp;lsquo;서비스&amp;rsquo;라고 함)을 이용하는 이용자들(이하 &amp;lsquo;이용자&amp;rsquo;라고 함)의 개인정보를 매우 소중하게 생각하고 있으며, 이용자의 개인정보를 보호하기 위하여 최선의 노력을 다하고 있습니다.&lt;/p>
+&lt;p>회사는 『개인정보보호법』, 『정보통신망 이용촉진 및 정보보호 등에 관한 법률』을 비롯한 모든 개인정보보호 관련 법률규정을 준수하고 있으며, 회사의 개인정보처리방침을 별도로 제정하고 이를 준수함으로써 이용자의 개인정보를 더욱 보호하고 있습니다.&lt;/p>
+&lt;p>또한 회사는 개인정보처리방침을 항상 회사 홈페이지에 공개함으로써 이용자들이 언제나 쉽게 열람할 수 있도록 조치하고 있습니다. 회사의 개인정보처리방침은 관련 법률 및 고시의 변경 또는 내부 운영방침의 변경에 따라 변경될 수 있으며, 수정될 경우 변경된 사항은 홈페이지를 통하여 확인할 수 있습니다.&lt;/p></description></item></channel></rss>

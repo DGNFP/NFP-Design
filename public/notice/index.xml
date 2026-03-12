@@ -1,33 +1,501 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Notices on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
-    <link>http://localhost:1313/notice/</link>
-    <description>Recent content in Notices on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
-    <generator>Hugo</generator>
-    <language>ko</language>
-    <lastBuildDate>Wed, 05 Nov 2025 21:37:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/notice/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>NFP 디자인 가격표</title>
-      <link>http://localhost:1313/notice/2025-11-05-nfp-design-price-list/</link>
-      <pubDate>Wed, 05 Nov 2025 21:37:00 +0000</pubDate>
-      <guid>http://localhost:1313/notice/2025-11-05-nfp-design-price-list/</guid>
-      <description>&lt;h2 id=&#34;nfp-디자인-패키지-가격표&#34;&gt;NFP 디자인 패키지 가격표&lt;/h2&gt;&#xA;&lt;!-- 전체 서비스 패키지 상세 내역을 확인하실 수 있습니다. --&gt;&#xD;&#xA;&lt;!-- --- --&gt;&#xD;&#xA;&lt;!-- ## 스타트업 런칭 패키지 --&gt;&#xD;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;스타트업 런칭 패키지&lt;/th&gt;&#xA;          &lt;th&gt;상세 내용&lt;/th&gt;&#xA;          &lt;th&gt;가격&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;웹사이트 디자인&lt;/td&gt;&#xA;          &lt;td&gt;원페이지, 섹션 3개 (헤더/메인/푸터), 고정형 (PC)&lt;/td&gt;&#xA;          &lt;td&gt;29,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;로고 디자인&lt;/td&gt;&#xA;          &lt;td&gt;심볼+텍스트 or 텍스트형, 시안 2개, JPG/PNG 파일&lt;/td&gt;&#xA;          &lt;td&gt;25,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;명함 디자인&lt;/td&gt;&#xA;          &lt;td&gt;양면 디자인, 90x50mm&lt;/td&gt;&#xA;          &lt;td&gt;12,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;SNS 프로필 이미지&lt;/td&gt;&#xA;          &lt;td&gt;인스타/페북/트위터용, 정사각형 (800x800px), 1종&lt;/td&gt;&#xA;          &lt;td&gt;8,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;SNS 광고 배너&lt;/td&gt;&#xA;          &lt;td&gt;인스타/페북 광고용, 3종 (사이즈별)&lt;/td&gt;&#xA;          &lt;td&gt;24,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 98,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;49,000원 (50% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;!-- --- --&gt;&#xD;&#xA;&lt;!-- ## 인터넷 방송 패키지 --&gt;&#xD;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;인터넷 방송 패키지&lt;/th&gt;&#xA;          &lt;th&gt;상세 내용&lt;/th&gt;&#xA;          &lt;th&gt;가격&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;채널아트 디자인&lt;/td&gt;&#xA;          &lt;td&gt;유튜브 (2560x1440px), 트위치 (1200x480px), 1종&lt;/td&gt;&#xA;          &lt;td&gt;15,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;스트리머 로고&lt;/td&gt;&#xA;          &lt;td&gt;방송용 로고, 시안 2개, 게이밍/귀여운 스타일&lt;/td&gt;&#xA;          &lt;td&gt;25,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;방송 프로필 이미지&lt;/td&gt;&#xA;          &lt;td&gt;유튜브/트위치 프로필용, 정사각형 (800x800px)&lt;/td&gt;&#xA;          &lt;td&gt;8,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일 템플릿&lt;/td&gt;&#xA;          &lt;td&gt;유튜브 썸네일, 3종 (텍스트 교체 가능)&lt;/td&gt;&#xA;          &lt;td&gt;15,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;방송 스케줄표&lt;/td&gt;&#xA;          &lt;td&gt;방송 시간표 디자인, SNS 업로드용&lt;/td&gt;&#xA;          &lt;td&gt;12,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 75,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;35,000원 (53% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;!-- --- --&gt;&#xD;&#xA;&lt;!-- ## 홈페이지 패키지 --&gt;&#xD;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;홈페이지 패키지&lt;/th&gt;&#xA;          &lt;th&gt;상세 내용&lt;/th&gt;&#xA;          &lt;th&gt;가격&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;홈페이지 디자인 (디자인만)&lt;/td&gt;&#xA;          &lt;td&gt;원페이지, 섹션 3개, 고정형 (PC)&lt;/td&gt;&#xA;          &lt;td&gt;29,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;홈페이지 디자인 (디자인+퍼블리싱)&lt;/td&gt;&#xA;          &lt;td&gt;원페이지, 섹션 6개&lt;/td&gt;&#xA;          &lt;td&gt;59,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;웹 퍼블리싱&lt;/td&gt;&#xA;          &lt;td&gt;HTML/CSS 코딩, 고정형&lt;/td&gt;&#xA;          &lt;td&gt;70,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (디자인만)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;-&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;29,000원&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (디자인+퍼블리싱)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 129,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;99,000원 (23% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;!-- --- --&gt;&#xD;&#xA;&lt;!-- ## 쇼핑몰/이커머스 패키지 --&gt;&#xD;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;쇼핑몰/이커머스 패키지&lt;/th&gt;&#xA;          &lt;th&gt;상세 내용&lt;/th&gt;&#xA;          &lt;th&gt;가격&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;상세페이지 (기본)&lt;/td&gt;&#xA;          &lt;td&gt;세로 500px, 모델컷 3장, 단순 배치&lt;/td&gt;&#xA;          &lt;td&gt;15,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;상세페이지 (일반)&lt;/td&gt;&#xA;          &lt;td&gt;세로 1500px, 모델컷 10장, 기본 디자인&lt;/td&gt;&#xA;          &lt;td&gt;40,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일 (일반)&lt;/td&gt;&#xA;          &lt;td&gt;2종 (메인/서브)&lt;/td&gt;&#xA;          &lt;td&gt;10,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;상세페이지 (프리미엄)&lt;/td&gt;&#xA;          &lt;td&gt;세로 3000px, 모델컷 20장, 고급 디자인&lt;/td&gt;&#xA;          &lt;td&gt;70,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;기획 포함 (프리미엄)&lt;/td&gt;&#xA;          &lt;td&gt;구성 기획, 카피라이팅&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일 (프리미엄)&lt;/td&gt;&#xA;          &lt;td&gt;5종&lt;/td&gt;&#xA;          &lt;td&gt;25,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (기본)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;-&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;15,000원&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (일반)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 50,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;30,000원 (40% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (프리미엄)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 115,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;50,000원 (57% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;!-- --- --&gt;&#xD;&#xA;&lt;!-- ## 오프라인 홍보물 패키지 --&gt;&#xD;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;오프라인 홍보물 패키지&lt;/th&gt;&#xA;          &lt;th&gt;상세 내용&lt;/th&gt;&#xA;          &lt;th&gt;가격&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;명함 OR 전단지 (기본)&lt;/td&gt;&#xA;          &lt;td&gt;택1, 양면 디자인&lt;/td&gt;&#xA;          &lt;td&gt;18,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;명함 (풀패키지)&lt;/td&gt;&#xA;          &lt;td&gt;양면 (90x50mm)&lt;/td&gt;&#xA;          &lt;td&gt;18,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;전단지 (풀패키지)&lt;/td&gt;&#xA;          &lt;td&gt;A4 양면&lt;/td&gt;&#xA;          &lt;td&gt;31,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;엑스배너 (풀패키지)&lt;/td&gt;&#xA;          &lt;td&gt;60x180cm&lt;/td&gt;&#xA;          &lt;td&gt;31,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (기본)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;-&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;18,000원&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (풀패키지)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 80,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;50,000원 (38% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;!-- --- --&gt;&#xD;&#xA;&lt;!-- ## 영상 제작 패키지 --&gt;&#xD;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;영상 제작 패키지&lt;/th&gt;&#xA;          &lt;th&gt;상세 내용&lt;/th&gt;&#xA;          &lt;th&gt;가격&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;영상 편집 (기본)&lt;/td&gt;&#xA;          &lt;td&gt;1~3분 분량, 컷 편집+자막+BGM, 수정 1회&lt;/td&gt;&#xA;          &lt;td&gt;30,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;인트로&lt;/td&gt;&#xA;          &lt;td&gt;10초, 로고 애니메이션&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;아웃트로&lt;/td&gt;&#xA;          &lt;td&gt;10초, 구독 유도&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;영상 편집 (기업 홍보영상)&lt;/td&gt;&#xA;          &lt;td&gt;1~2분 분량&lt;/td&gt;&#xA;          &lt;td&gt;50,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;기획&lt;/td&gt;&#xA;          &lt;td&gt;스토리보드&lt;/td&gt;&#xA;          &lt;td&gt;30,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;전문 편집&lt;/td&gt;&#xA;          &lt;td&gt;자막/효과/색보정&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일&lt;/td&gt;&#xA;          &lt;td&gt;1종&lt;/td&gt;&#xA;          &lt;td&gt;5,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (기본 편집)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;-&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;30,000원&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (인트로/아웃트로)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 40,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;35,000원 (13% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;패키지 가격 (기업 홍보영상)&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;개별 구매 시: 105,000원&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;&lt;strong&gt;100,000원 (5% 할인)&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;!-- --- --&gt;&#xD;&#xA;&lt;!-- ## 전체 패키지 통합 가격표 --&gt;&#xD;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;개별 품목 단가&lt;/th&gt;&#xA;          &lt;th&gt;상세 내용&lt;/th&gt;&#xA;          &lt;th&gt;가격&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;웹사이트 디자인&lt;/td&gt;&#xA;          &lt;td&gt;원페이지, 섹션 3개, 고정형 (PC)&lt;/td&gt;&#xA;          &lt;td&gt;29,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;로고 디자인&lt;/td&gt;&#xA;          &lt;td&gt;심볼+텍스트 or 텍스트형, 시안 2개&lt;/td&gt;&#xA;          &lt;td&gt;25,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;명함 디자인&lt;/td&gt;&#xA;          &lt;td&gt;양면 디자인, 90x50mm&lt;/td&gt;&#xA;          &lt;td&gt;12,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;SNS 프로필 이미지&lt;/td&gt;&#xA;          &lt;td&gt;정사각형 (800x800px), 1종&lt;/td&gt;&#xA;          &lt;td&gt;8,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;SNS 광고 배너&lt;/td&gt;&#xA;          &lt;td&gt;3종 (사이즈별)&lt;/td&gt;&#xA;          &lt;td&gt;24,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;채널아트 디자인&lt;/td&gt;&#xA;          &lt;td&gt;유튜브/트위치, 1종&lt;/td&gt;&#xA;          &lt;td&gt;15,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;스트리머 로고&lt;/td&gt;&#xA;          &lt;td&gt;방송용 로고, 시안 2개&lt;/td&gt;&#xA;          &lt;td&gt;25,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;방송 프로필 이미지&lt;/td&gt;&#xA;          &lt;td&gt;정사각형 (800x800px)&lt;/td&gt;&#xA;          &lt;td&gt;8,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일 템플릿&lt;/td&gt;&#xA;          &lt;td&gt;유튜브 썸네일, 3종&lt;/td&gt;&#xA;          &lt;td&gt;15,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;방송 스케줄표&lt;/td&gt;&#xA;          &lt;td&gt;방송 시간표 디자인&lt;/td&gt;&#xA;          &lt;td&gt;12,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;홈페이지 디자인 (디자인만)&lt;/td&gt;&#xA;          &lt;td&gt;원페이지, 섹션 3개&lt;/td&gt;&#xA;          &lt;td&gt;29,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;홈페이지 디자인 (디자인+퍼블리싱)&lt;/td&gt;&#xA;          &lt;td&gt;원페이지, 섹션 6개&lt;/td&gt;&#xA;          &lt;td&gt;59,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;웹 퍼블리싱&lt;/td&gt;&#xA;          &lt;td&gt;HTML/CSS 코딩, 고정형&lt;/td&gt;&#xA;          &lt;td&gt;70,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;상세페이지 (기본)&lt;/td&gt;&#xA;          &lt;td&gt;세로 500px, 모델컷 3장&lt;/td&gt;&#xA;          &lt;td&gt;15,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;상세페이지 (일반)&lt;/td&gt;&#xA;          &lt;td&gt;세로 1500px, 모델컷 10장&lt;/td&gt;&#xA;          &lt;td&gt;40,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;상세페이지 (프리미엄)&lt;/td&gt;&#xA;          &lt;td&gt;세로 3000px, 모델컷 20장&lt;/td&gt;&#xA;          &lt;td&gt;70,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;기획 포함&lt;/td&gt;&#xA;          &lt;td&gt;구성 기획, 카피라이팅&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일 (2종)&lt;/td&gt;&#xA;          &lt;td&gt;메인/서브&lt;/td&gt;&#xA;          &lt;td&gt;10,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일 (5종)&lt;/td&gt;&#xA;          &lt;td&gt;다양한 디자인&lt;/td&gt;&#xA;          &lt;td&gt;25,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;명함 OR 전단지&lt;/td&gt;&#xA;          &lt;td&gt;택1, 양면 디자인&lt;/td&gt;&#xA;          &lt;td&gt;18,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;명함&lt;/td&gt;&#xA;          &lt;td&gt;양면 (90x50mm)&lt;/td&gt;&#xA;          &lt;td&gt;18,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;전단지&lt;/td&gt;&#xA;          &lt;td&gt;A4 양면&lt;/td&gt;&#xA;          &lt;td&gt;31,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;엑스배너&lt;/td&gt;&#xA;          &lt;td&gt;60x180cm&lt;/td&gt;&#xA;          &lt;td&gt;31,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;영상 편집 (기본)&lt;/td&gt;&#xA;          &lt;td&gt;1~3분 분량, 컷 편집+자막+BGM&lt;/td&gt;&#xA;          &lt;td&gt;30,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;인트로&lt;/td&gt;&#xA;          &lt;td&gt;10초, 로고 애니메이션&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;아웃트로&lt;/td&gt;&#xA;          &lt;td&gt;10초, 구독 유도&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;영상 편집 (홍보영상)&lt;/td&gt;&#xA;          &lt;td&gt;1~2분 분량&lt;/td&gt;&#xA;          &lt;td&gt;50,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;기획&lt;/td&gt;&#xA;          &lt;td&gt;스토리보드&lt;/td&gt;&#xA;          &lt;td&gt;30,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;전문 편집&lt;/td&gt;&#xA;          &lt;td&gt;자막/효과/색보정&lt;/td&gt;&#xA;          &lt;td&gt;20,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;썸네일 (영상용)&lt;/td&gt;&#xA;          &lt;td&gt;1종&lt;/td&gt;&#xA;          &lt;td&gt;5,000원&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;위 가격표는 &lt;strong&gt;기본 패키지의 시작 금액&lt;/strong&gt;입니다.&lt;br&gt;&#xA;추가 옵션 선택 시 금액이 변동될 수 있으며, 자세한 견적은 문의를 통해 안내드립니다.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>25.07.09 업데이트 내역 - 카드 뽑기, 카드 저장 기능</title>
-      <link>http://localhost:1313/notice/2025-07-08-250709-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%B9%B4%EB%93%9C-%EB%BD%91%EA%B8%B0-%EC%B9%B4%EB%93%9C-%EC%A0%80%EC%9E%A5-%EA%B8%B0%EB%8A%A5/</link>
-      <pubDate>Wed, 09 Jul 2025 00:20:00 +0000</pubDate>
-      <guid>http://localhost:1313/notice/2025-07-08-250709-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%B9%B4%EB%93%9C-%EB%BD%91%EA%B8%B0-%EC%B9%B4%EB%93%9C-%EC%A0%80%EC%9E%A5-%EA%B8%B0%EB%8A%A5/</guid>
-      <description>&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/%ec%b9%b4%eb%93%9c%eb%bd%91%ea%b8%b0.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/%ec%b9%b4%eb%93%9c%eb%bd%91%ea%b8%b0.jpg&#34; &#xD;&#xA;         alt=&#34;&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;오늘의 색상 카드 뽑기 기능을 구현하였습니다, 초기엔 그저 팔레트 생성에서&lt;/p&gt;&#xA;&lt;p&gt;단색 컬러 생성 기능에 그쳤는데, 뭔가 창의적인 영감이 샘솟다가 아, 이것을 가챠 형식으로 구현하면 재밌겠다! 싶어서 번뜩이는 아이디어에 발빠르게 대응하여 만든 기능입니다.&lt;/p&gt;&#xA;&lt;p&gt;사실 별 건 없고, 그냥 제가 디자인 할 때 무슨 톤을 메인컬러로 잡을까 고민하는 경우가 있는데&lt;/p&gt;&#xA;&lt;p&gt;그럴 때 마다 종종 컬러를 찾아보곤 합니다, 그게 귀찮아서 아예 기능을 만들어 버렸어요.&lt;/p&gt;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/kakaotalk_20250709_002639954.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/kakaotalk_20250709_002639954.jpg&#34; &#xD;&#xA;         alt=&#34;&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;처음엔 그냥 단색 컬러 하나 추천해주는 기능에서, 카드 뽑기 기능으로 만들어서 애니메이션을 추가하고&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>25.07.06 업데이트 내역 - 스튜디오 NFP 페이지 추가</title>
-      <link>http://localhost:1313/notice/2025-07-06-25-07-06-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%B6%94%EA%B0%80/</link>
-      <pubDate>Sun, 06 Jul 2025 21:37:00 +0000</pubDate>
-      <guid>http://localhost:1313/notice/2025-07-06-25-07-06-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%B6%94%EA%B0%80/</guid>
-      <description>&lt;p&gt;업데이트 내역&lt;/p&gt;&#xA;&lt;p&gt;=== 스튜디오 NFP 페이지 신규 추가 ===&lt;/p&gt;&#xA;&lt;p&gt;새로운 디자인 도구 통합 페이지로 6개 주요 탭 구성&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;QR 생성기 탭&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;- QR 코드 생성 및 다운로드 기능&lt;/p&gt;&#xA;&lt;p&gt;- 사이즈 조절 가능 (최소 128px ~ 최대 512px)&lt;/p&gt;&#xA;&lt;p&gt;- PNG 형식 다운로드 지원&lt;/p&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;컬러 팔레트 탭&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;- 베이스 컬러 선택 (컬러 피커, RGB 슬라이더, HEX 코드 입력)&lt;/p&gt;&#xA;&lt;p&gt;- 4가지 팔레트 타입 생성: 단조색, 유사색, 보색, 삼각색&lt;/p&gt;&#xA;&lt;p&gt;- 실시간 팔레트 미리보기 및 색상 코드 복사&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notices on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title><link>https://nfpdesign.co.kr/notice/</link><description>Recent content in Notices on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Wed, 05 Nov 2025 21:37:00 +0000</lastBuildDate><atom:link href="https://nfpdesign.co.kr/notice/index.xml" rel="self" type="application/rss+xml"/><item><title>NFP 디자인 가격표</title><link>https://nfpdesign.co.kr/notice/2025-11-05-nfp-design-price-list/</link><pubDate>Wed, 05 Nov 2025 21:37:00 +0000</pubDate><guid>https://nfpdesign.co.kr/notice/2025-11-05-nfp-design-price-list/</guid><description>&lt;h2 id="nfp-디자인-패키지-가격표">NFP 디자인 패키지 가격표&lt;/h2>
+&lt;!-- 전체 서비스 패키지 상세 내역을 확인하실 수 있습니다. -->
+&lt;!-- --- -->
+&lt;!-- ## 스타트업 런칭 패키지 -->
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>스타트업 런칭 패키지&lt;/th>
+ &lt;th>상세 내용&lt;/th>
+ &lt;th>가격&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>웹사이트 디자인&lt;/td>
+ &lt;td>원페이지, 섹션 3개 (헤더/메인/푸터), 고정형 (PC)&lt;/td>
+ &lt;td>29,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>로고 디자인&lt;/td>
+ &lt;td>심볼+텍스트 or 텍스트형, 시안 2개, JPG/PNG 파일&lt;/td>
+ &lt;td>25,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>명함 디자인&lt;/td>
+ &lt;td>양면 디자인, 90x50mm&lt;/td>
+ &lt;td>12,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>SNS 프로필 이미지&lt;/td>
+ &lt;td>인스타/페북/트위터용, 정사각형 (800x800px), 1종&lt;/td>
+ &lt;td>8,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>SNS 광고 배너&lt;/td>
+ &lt;td>인스타/페북 광고용, 3종 (사이즈별)&lt;/td>
+ &lt;td>24,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 98,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>49,000원 (50% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;!-- --- -->
+&lt;!-- ## 인터넷 방송 패키지 -->
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>인터넷 방송 패키지&lt;/th>
+ &lt;th>상세 내용&lt;/th>
+ &lt;th>가격&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>채널아트 디자인&lt;/td>
+ &lt;td>유튜브 (2560x1440px), 트위치 (1200x480px), 1종&lt;/td>
+ &lt;td>15,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>스트리머 로고&lt;/td>
+ &lt;td>방송용 로고, 시안 2개, 게이밍/귀여운 스타일&lt;/td>
+ &lt;td>25,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>방송 프로필 이미지&lt;/td>
+ &lt;td>유튜브/트위치 프로필용, 정사각형 (800x800px)&lt;/td>
+ &lt;td>8,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일 템플릿&lt;/td>
+ &lt;td>유튜브 썸네일, 3종 (텍스트 교체 가능)&lt;/td>
+ &lt;td>15,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>방송 스케줄표&lt;/td>
+ &lt;td>방송 시간표 디자인, SNS 업로드용&lt;/td>
+ &lt;td>12,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 75,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>35,000원 (53% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;!-- --- -->
+&lt;!-- ## 홈페이지 패키지 -->
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>홈페이지 패키지&lt;/th>
+ &lt;th>상세 내용&lt;/th>
+ &lt;th>가격&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>홈페이지 디자인 (디자인만)&lt;/td>
+ &lt;td>원페이지, 섹션 3개, 고정형 (PC)&lt;/td>
+ &lt;td>29,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>홈페이지 디자인 (디자인+퍼블리싱)&lt;/td>
+ &lt;td>원페이지, 섹션 6개&lt;/td>
+ &lt;td>59,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>웹 퍼블리싱&lt;/td>
+ &lt;td>HTML/CSS 코딩, 고정형&lt;/td>
+ &lt;td>70,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (디자인만)&lt;/strong>&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&lt;strong>29,000원&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (디자인+퍼블리싱)&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 129,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>99,000원 (23% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;!-- --- -->
+&lt;!-- ## 쇼핑몰/이커머스 패키지 -->
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>쇼핑몰/이커머스 패키지&lt;/th>
+ &lt;th>상세 내용&lt;/th>
+ &lt;th>가격&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>상세페이지 (기본)&lt;/td>
+ &lt;td>세로 500px, 모델컷 3장, 단순 배치&lt;/td>
+ &lt;td>15,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>상세페이지 (일반)&lt;/td>
+ &lt;td>세로 1500px, 모델컷 10장, 기본 디자인&lt;/td>
+ &lt;td>40,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일 (일반)&lt;/td>
+ &lt;td>2종 (메인/서브)&lt;/td>
+ &lt;td>10,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>상세페이지 (프리미엄)&lt;/td>
+ &lt;td>세로 3000px, 모델컷 20장, 고급 디자인&lt;/td>
+ &lt;td>70,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>기획 포함 (프리미엄)&lt;/td>
+ &lt;td>구성 기획, 카피라이팅&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일 (프리미엄)&lt;/td>
+ &lt;td>5종&lt;/td>
+ &lt;td>25,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (기본)&lt;/strong>&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&lt;strong>15,000원&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (일반)&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 50,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>30,000원 (40% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (프리미엄)&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 115,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>50,000원 (57% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;!-- --- -->
+&lt;!-- ## 오프라인 홍보물 패키지 -->
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>오프라인 홍보물 패키지&lt;/th>
+ &lt;th>상세 내용&lt;/th>
+ &lt;th>가격&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>명함 OR 전단지 (기본)&lt;/td>
+ &lt;td>택1, 양면 디자인&lt;/td>
+ &lt;td>18,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>명함 (풀패키지)&lt;/td>
+ &lt;td>양면 (90x50mm)&lt;/td>
+ &lt;td>18,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>전단지 (풀패키지)&lt;/td>
+ &lt;td>A4 양면&lt;/td>
+ &lt;td>31,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>엑스배너 (풀패키지)&lt;/td>
+ &lt;td>60x180cm&lt;/td>
+ &lt;td>31,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (기본)&lt;/strong>&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&lt;strong>18,000원&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (풀패키지)&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 80,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>50,000원 (38% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;!-- --- -->
+&lt;!-- ## 영상 제작 패키지 -->
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>영상 제작 패키지&lt;/th>
+ &lt;th>상세 내용&lt;/th>
+ &lt;th>가격&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>영상 편집 (기본)&lt;/td>
+ &lt;td>1~3분 분량, 컷 편집+자막+BGM, 수정 1회&lt;/td>
+ &lt;td>30,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>인트로&lt;/td>
+ &lt;td>10초, 로고 애니메이션&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>아웃트로&lt;/td>
+ &lt;td>10초, 구독 유도&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>영상 편집 (기업 홍보영상)&lt;/td>
+ &lt;td>1~2분 분량&lt;/td>
+ &lt;td>50,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>기획&lt;/td>
+ &lt;td>스토리보드&lt;/td>
+ &lt;td>30,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>전문 편집&lt;/td>
+ &lt;td>자막/효과/색보정&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일&lt;/td>
+ &lt;td>1종&lt;/td>
+ &lt;td>5,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (기본 편집)&lt;/strong>&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&lt;strong>30,000원&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (인트로/아웃트로)&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 40,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>35,000원 (13% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>패키지 가격 (기업 홍보영상)&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>개별 구매 시: 105,000원&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>100,000원 (5% 할인)&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;!-- --- -->
+&lt;!-- ## 전체 패키지 통합 가격표 -->
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>개별 품목 단가&lt;/th>
+ &lt;th>상세 내용&lt;/th>
+ &lt;th>가격&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>웹사이트 디자인&lt;/td>
+ &lt;td>원페이지, 섹션 3개, 고정형 (PC)&lt;/td>
+ &lt;td>29,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>로고 디자인&lt;/td>
+ &lt;td>심볼+텍스트 or 텍스트형, 시안 2개&lt;/td>
+ &lt;td>25,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>명함 디자인&lt;/td>
+ &lt;td>양면 디자인, 90x50mm&lt;/td>
+ &lt;td>12,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>SNS 프로필 이미지&lt;/td>
+ &lt;td>정사각형 (800x800px), 1종&lt;/td>
+ &lt;td>8,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>SNS 광고 배너&lt;/td>
+ &lt;td>3종 (사이즈별)&lt;/td>
+ &lt;td>24,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>채널아트 디자인&lt;/td>
+ &lt;td>유튜브/트위치, 1종&lt;/td>
+ &lt;td>15,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>스트리머 로고&lt;/td>
+ &lt;td>방송용 로고, 시안 2개&lt;/td>
+ &lt;td>25,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>방송 프로필 이미지&lt;/td>
+ &lt;td>정사각형 (800x800px)&lt;/td>
+ &lt;td>8,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일 템플릿&lt;/td>
+ &lt;td>유튜브 썸네일, 3종&lt;/td>
+ &lt;td>15,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>방송 스케줄표&lt;/td>
+ &lt;td>방송 시간표 디자인&lt;/td>
+ &lt;td>12,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>홈페이지 디자인 (디자인만)&lt;/td>
+ &lt;td>원페이지, 섹션 3개&lt;/td>
+ &lt;td>29,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>홈페이지 디자인 (디자인+퍼블리싱)&lt;/td>
+ &lt;td>원페이지, 섹션 6개&lt;/td>
+ &lt;td>59,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>웹 퍼블리싱&lt;/td>
+ &lt;td>HTML/CSS 코딩, 고정형&lt;/td>
+ &lt;td>70,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>상세페이지 (기본)&lt;/td>
+ &lt;td>세로 500px, 모델컷 3장&lt;/td>
+ &lt;td>15,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>상세페이지 (일반)&lt;/td>
+ &lt;td>세로 1500px, 모델컷 10장&lt;/td>
+ &lt;td>40,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>상세페이지 (프리미엄)&lt;/td>
+ &lt;td>세로 3000px, 모델컷 20장&lt;/td>
+ &lt;td>70,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>기획 포함&lt;/td>
+ &lt;td>구성 기획, 카피라이팅&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일 (2종)&lt;/td>
+ &lt;td>메인/서브&lt;/td>
+ &lt;td>10,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일 (5종)&lt;/td>
+ &lt;td>다양한 디자인&lt;/td>
+ &lt;td>25,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>명함 OR 전단지&lt;/td>
+ &lt;td>택1, 양면 디자인&lt;/td>
+ &lt;td>18,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>명함&lt;/td>
+ &lt;td>양면 (90x50mm)&lt;/td>
+ &lt;td>18,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>전단지&lt;/td>
+ &lt;td>A4 양면&lt;/td>
+ &lt;td>31,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>엑스배너&lt;/td>
+ &lt;td>60x180cm&lt;/td>
+ &lt;td>31,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>영상 편집 (기본)&lt;/td>
+ &lt;td>1~3분 분량, 컷 편집+자막+BGM&lt;/td>
+ &lt;td>30,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>인트로&lt;/td>
+ &lt;td>10초, 로고 애니메이션&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>아웃트로&lt;/td>
+ &lt;td>10초, 구독 유도&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>영상 편집 (홍보영상)&lt;/td>
+ &lt;td>1~2분 분량&lt;/td>
+ &lt;td>50,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>기획&lt;/td>
+ &lt;td>스토리보드&lt;/td>
+ &lt;td>30,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>전문 편집&lt;/td>
+ &lt;td>자막/효과/색보정&lt;/td>
+ &lt;td>20,000원&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>썸네일 (영상용)&lt;/td>
+ &lt;td>1종&lt;/td>
+ &lt;td>5,000원&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>위 가격표는 &lt;strong>기본 패키지의 시작 금액&lt;/strong>입니다.&lt;br>
+추가 옵션 선택 시 금액이 변동될 수 있으며, 자세한 견적은 문의를 통해 안내드립니다.&lt;/p></description></item><item><title>25.07.09 업데이트 내역 - 카드 뽑기, 카드 저장 기능</title><link>https://nfpdesign.co.kr/notice/2025-07-08-250709-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%B9%B4%EB%93%9C-%EB%BD%91%EA%B8%B0-%EC%B9%B4%EB%93%9C-%EC%A0%80%EC%9E%A5-%EA%B8%B0%EB%8A%A5/</link><pubDate>Wed, 09 Jul 2025 00:20:00 +0000</pubDate><guid>https://nfpdesign.co.kr/notice/2025-07-08-250709-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%B9%B4%EB%93%9C-%EB%BD%91%EA%B8%B0-%EC%B9%B4%EB%93%9C-%EC%A0%80%EC%9E%A5-%EA%B8%B0%EB%8A%A5/</guid><description>&lt;picture>
+ 
+ &lt;source srcset="https://nfpdesign.co.kr/img/uploads/%ec%b9%b4%eb%93%9c%eb%bd%91%ea%b8%b0.webp" type="image/webp">
+ 
+ &lt;img src="https://nfpdesign.co.kr/img/uploads/%ec%b9%b4%eb%93%9c%eb%bd%91%ea%b8%b0.jpg" 
+ alt="" 
+ 
+ style="max-width: 100%; height: auto;" 
+ loading="lazy">
+&lt;/picture>&lt;p>오늘의 색상 카드 뽑기 기능을 구현하였습니다, 초기엔 그저 팔레트 생성에서&lt;/p>
+&lt;p>단색 컬러 생성 기능에 그쳤는데, 뭔가 창의적인 영감이 샘솟다가 아, 이것을 가챠 형식으로 구현하면 재밌겠다! 싶어서 번뜩이는 아이디어에 발빠르게 대응하여 만든 기능입니다.&lt;/p>
+&lt;p>사실 별 건 없고, 그냥 제가 디자인 할 때 무슨 톤을 메인컬러로 잡을까 고민하는 경우가 있는데&lt;/p>
+&lt;p>그럴 때 마다 종종 컬러를 찾아보곤 합니다, 그게 귀찮아서 아예 기능을 만들어 버렸어요.&lt;/p>
+
+
+
+
+
+
+
+
+
+
+&lt;picture>
+ 
+ &lt;source srcset="https://nfpdesign.co.kr/img/uploads/kakaotalk_20250709_002639954.webp" type="image/webp">
+ 
+ &lt;img src="https://nfpdesign.co.kr/img/uploads/kakaotalk_20250709_002639954.jpg" 
+ alt="" 
+ 
+ style="max-width: 100%; height: auto;" 
+ loading="lazy">
+&lt;/picture>&lt;p>처음엔 그냥 단색 컬러 하나 추천해주는 기능에서, 카드 뽑기 기능으로 만들어서 애니메이션을 추가하고&lt;/p></description></item><item><title>25.07.06 업데이트 내역 - 스튜디오 NFP 페이지 추가</title><link>https://nfpdesign.co.kr/notice/2025-07-06-25-07-06-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%B6%94%EA%B0%80/</link><pubDate>Sun, 06 Jul 2025 21:37:00 +0000</pubDate><guid>https://nfpdesign.co.kr/notice/2025-07-06-25-07-06-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EB%82%B4%EC%97%AD-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-nfp-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%B6%94%EA%B0%80/</guid><description>&lt;p>업데이트 내역&lt;/p>
+&lt;p>=== 스튜디오 NFP 페이지 신규 추가 ===&lt;/p>
+&lt;p>새로운 디자인 도구 통합 페이지로 6개 주요 탭 구성&lt;/p>
+&lt;ol>
+&lt;li>QR 생성기 탭&lt;/li>
+&lt;/ol>
+&lt;p>- QR 코드 생성 및 다운로드 기능&lt;/p>
+&lt;p>- 사이즈 조절 가능 (최소 128px ~ 최대 512px)&lt;/p>
+&lt;p>- PNG 형식 다운로드 지원&lt;/p>
+&lt;ol start="2">
+&lt;li>컬러 팔레트 탭&lt;/li>
+&lt;/ol>
+&lt;p>- 베이스 컬러 선택 (컬러 피커, RGB 슬라이더, HEX 코드 입력)&lt;/p>
+&lt;p>- 4가지 팔레트 타입 생성: 단조색, 유사색, 보색, 삼각색&lt;/p>
+&lt;p>- 실시간 팔레트 미리보기 및 색상 코드 복사&lt;/p></description></item></channel></rss>

@@ -1,19 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>템플릿 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
-    <link>http://localhost:1313/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/</link>
-    <description>Recent content in 템플릿 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
-    <generator>Hugo</generator>
-    <language>ko</language>
-    <lastBuildDate>Mon, 24 Nov 2025 15:04:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>격자 무늬 배경</title>
-      <link>http://localhost:1313/blog/nfp-resources/2025-11-24-%EA%B2%A9%EC%9E%90-%EB%AC%B4%EB%8A%AC-%EB%B0%B0%EA%B2%BD/</link>
-      <pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate>
-      <guid>http://localhost:1313/blog/nfp-resources/2025-11-24-%EA%B2%A9%EC%9E%90-%EB%AC%B4%EB%8A%AC-%EB%B0%B0%EA%B2%BD/</guid>
-      <description>&lt;picture&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;source srcset=&#34;http://localhost:1313/img/uploads/%ea%b2%a9%ec%9e%90.webp&#34; type=&#34;image/webp&#34;&gt;&#xD;&#xA;    &#xD;&#xA;    &lt;img src=&#34;http://localhost:1313/img/uploads/%ea%b2%a9%ec%9e%90.jpg&#34; &#xD;&#xA;         alt=&#34;&#34; &#xD;&#xA;         &#xD;&#xA;         style=&#34;max-width: 100%; height: auto;&#34; &#xD;&#xA;         loading=&#34;lazy&#34;&gt;&#xD;&#xA;&lt;/picture&gt;&lt;p&gt;깔끔하면서도 모던한, 어떤 컨셉에도 사용이 가능한&lt;br&gt;&#xA;격자무늬 배경 소스 입니다.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>템플릿 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title><link>https://nfpdesign.co.kr/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/</link><description>Recent content in 템플릿 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Mon, 24 Nov 2025 15:04:00 +0900</lastBuildDate><atom:link href="https://nfpdesign.co.kr/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/index.xml" rel="self" type="application/rss+xml"/><item><title>격자 무늬 배경</title><link>https://nfpdesign.co.kr/blog/nfp-resources/2025-11-24-%EA%B2%A9%EC%9E%90-%EB%AC%B4%EB%8A%AC-%EB%B0%B0%EA%B2%BD/</link><pubDate>Mon, 24 Nov 2025 15:04:00 +0900</pubDate><guid>https://nfpdesign.co.kr/blog/nfp-resources/2025-11-24-%EA%B2%A9%EC%9E%90-%EB%AC%B4%EB%8A%AC-%EB%B0%B0%EA%B2%BD/</guid><description>&lt;picture>
+ 
+ &lt;source srcset="https://nfpdesign.co.kr/img/uploads/%ea%b2%a9%ec%9e%90.webp" type="image/webp">
+ 
+ &lt;img src="https://nfpdesign.co.kr/img/uploads/%ea%b2%a9%ec%9e%90.jpg" 
+ alt="" 
+ 
+ style="max-width: 100%; height: auto;" 
+ loading="lazy">
+&lt;/picture>&lt;p>깔끔하면서도 모던한, 어떤 컨셉에도 사용이 가능한&lt;br>
+격자무늬 배경 소스 입니다.&lt;/p></description></item></channel></rss>

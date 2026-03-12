@@ -454,14 +454,14 @@
 </div>
 {{ end }}
 {{ else if $hasVideo }}
-<img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg" 
-alt="{{ .Title }}" loading="lazy"
+<img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
+alt="{{ .Title }}" width="1280" height="720" loading="lazy"
 onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
 <div class="video-overlay">
 <i class="fas fa-play"></i>
 </div>
 {{ else if $hasImage }}
-<img src="{{ $firstImageSrc }}" alt="{{ .Title }}" loading="lazy">
+<img src="{{ $firstImageSrc }}" alt="{{ .Title }}" width="360" height="200" loading="lazy">
 {{ end }}
 
 <!-- 카테고리 오버레이 -->
