@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -97,29 +96,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -176,6 +161,7 @@
     </div>
 
 
+
 <div class="studio-home-section">
     <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
         <div class="home-icon">
@@ -193,56 +179,71 @@
 </div>
 
 
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
-<a href="/studio/image-compressor" class="sub-page-btn-active">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
-<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
+<a href="/studio/image-compressor" class="sub-page-btn-active">이미지 압축기</a>
+<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
-<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
 <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
 <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
     
@@ -759,6 +760,203 @@ window.downloadSingleImage = downloadSingleImage;
 </script>
 
 
+
+<section class="studio-seo-section">
+<div class="container">
+  
+  <div class="studio-md-content">
+    <h1 id="이미지-압축기">이미지 압축기</h1>
+<p>여러 이미지를 동시에 선택하여 효율적으로 압축하고 파일 크기를 줄이는 다중 파일 지원 도구입니다.</p>
+<h2 id="기능-소개">기능 소개</h2>
+<ul>
+<li><strong>다중 파일 지원</strong>: 여러 이미지를 한번에 선택하여 일괄 압축 처리</li>
+<li><strong>실시간 진행률</strong>: 압축 과정을 시각적으로 확인할 수 있는 진행률 표시</li>
+<li><strong>품질 조절</strong>: 10~100% 범위에서 압축 품질을 세밀하게 조절</li>
+<li><strong>포맷 선택</strong>: 원본 포맷 유지 또는 JPEG/WebP로 변환 압축</li>
+<li><strong>개별/일괄 다운로드</strong>: 각 파일 개별 다운로드 또는 모든 파일 한번에 다운로드</li>
+<li><strong>압축 통계</strong>: 원본 대비 압축률과 절약된 용량을 실시간으로 확인</li>
+</ul>
+<h2 id="사용법">사용법</h2>
+<ol>
+<li><strong>이미지 선택</strong>: 압축할 이미지들을 드래그하거나 클릭해서 다중 선택하세요</li>
+<li><strong>품질 설정</strong>: 압축 품질을 10~100% 범위에서 조절하세요</li>
+<li><strong>포맷 선택</strong>: 원본 포맷 유지 또는 JPEG/WebP로 변환 선택</li>
+<li><strong>압축 실행</strong>: &lsquo;이미지 압축하기&rsquo; 버튼을 클릭하세요</li>
+<li><strong>다운로드</strong>: 개별 다운로드 또는 모든 파일 한번에 다운로드</li>
+</ol>
+<h2 id="압축-품질-가이드">압축 품질 가이드</h2>
+<h3 id="품질별-특성">품질별 특성</h3>
+<table>
+  <thead>
+      <tr>
+          <th>품질 범위</th>
+          <th>설명</th>
+          <th>용도</th>
+          <th>압축률</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>90-100%</strong></td>
+          <td>최고 품질, 낮은 압축</td>
+          <td>인쇄용, 아카이브</td>
+          <td>10-30%</td>
+      </tr>
+      <tr>
+          <td><strong>70-89%</strong></td>
+          <td>높은 품질, 적당한 압축</td>
+          <td>웹사이트, 포트폴리오</td>
+          <td>30-50%</td>
+      </tr>
+      <tr>
+          <td><strong>50-69%</strong></td>
+          <td>표준 품질, 좋은 압축</td>
+          <td>블로그, SNS</td>
+          <td>50-70%</td>
+      </tr>
+      <tr>
+          <td><strong>10-49%</strong></td>
+          <td>낮은 품질, 최대 압축</td>
+          <td>썸네일, 미리보기</td>
+          <td>70-90%</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="권장-설정">권장 설정</h3>
+<p><strong>웹 사이트용</strong></p>
+<ul>
+<li>품질: 70-80%</li>
+<li>포맷: WebP (지원 시) 또는 JPEG</li>
+</ul>
+<p><strong>소셜미디어용</strong></p>
+<ul>
+<li>품질: 60-75%</li>
+<li>포맷: JPEG</li>
+</ul>
+<p><strong>이메일 첨부용</strong></p>
+<ul>
+<li>품질: 50-60%</li>
+<li>포맷: JPEG</li>
+</ul>
+<p><strong>아카이브용</strong></p>
+<ul>
+<li>품질: 90-100%</li>
+<li>포맷: 원본 유지</li>
+</ul>
+<h2 id="출력-포맷-선택">출력 포맷 선택</h2>
+<h3 id="원본-포맷-유지">원본 포맷 유지</h3>
+<ul>
+<li>기존 이미지 포맷(PNG, JPEG 등)을 그대로 유지</li>
+<li>품질만 조절하여 파일 크기 축소</li>
+</ul>
+<h3 id="jpeg-변환">JPEG 변환</h3>
+<ul>
+<li>최대 압축률 제공</li>
+<li>사진에 최적화</li>
+<li>투명도 미지원 (흰색 배경으로 변환)</li>
+</ul>
+<h3 id="webp-변환">WebP 변환</h3>
+<ul>
+<li>뛰어난 압축 효율성</li>
+<li>JPEG 대비 25-35% 더 작은 파일 크기</li>
+<li>투명도 지원</li>
+<li>최신 브라우저 지원</li>
+</ul>
+<h2 id="활용-사례">활용 사례</h2>
+<ul>
+<li><strong>웹사이트 최적화</strong>: 페이지 로딩 속도 향상을 위한 이미지 압축</li>
+<li><strong>저장 공간 절약</strong>: 대용량 사진 컬렉션의 용량 줄이기</li>
+<li><strong>이메일 첨부</strong>: 파일 크기 제한에 맞춰 이미지 압축</li>
+<li><strong>SNS 업로드</strong>: 소셜미디어 최적화된 크기로 압축</li>
+<li><strong>백업 준비</strong>: 클라우드 저장소 용량 절약을 위한 압축</li>
+</ul>
+<h2 id="기술적-특징">기술적 특징</h2>
+<ul>
+<li><strong>브라우저 기반 처리</strong>: 서버 업로드 없이 로컬에서 압축</li>
+<li><strong>개인정보 보호</strong>: 업로드된 이미지는 브라우저 외부로 전송되지 않음</li>
+<li><strong>Canvas API 활용</strong>: HTML5 Canvas를 이용한 고품질 이미지 처리</li>
+<li><strong>실시간 통계</strong>: 압축 전후 파일 크기 비교 및 절약률 계산</li>
+<li><strong>메모리 최적화</strong>: 대용량 파일도 안정적으로 처리</li>
+</ul>
+<h2 id="압축-과정">압축 과정</h2>
+<ol>
+<li><strong>이미지 로딩</strong>: 선택된 파일을 메모리로 로드</li>
+<li><strong>Canvas 렌더링</strong>: 이미지를 HTML5 Canvas에 그리기</li>
+<li><strong>품질 적용</strong>: 설정된 품질로 압축 알고리즘 적용</li>
+<li><strong>포맷 변환</strong>: 필요시 다른 포맷으로 변환</li>
+<li><strong>결과 생성</strong>: 압축된 이미지 데이터 생성</li>
+</ol>
+<h2 id="브라우저-호환성">브라우저 호환성</h2>
+<ul>
+<li><strong>Chrome</strong>: 모든 기능 완벽 지원</li>
+<li><strong>Firefox</strong>: 모든 기능 지원</li>
+<li><strong>Safari</strong>: WebP 지원 (버전 14+)</li>
+<li><strong>Edge</strong>: 모든 기능 완벽 지원</li>
+</ul>
+<p>대부분의 최신 브라우저에서 안정적으로 작동하며, 오래된 브라우저에서는 WebP 대신 JPEG 사용을 권장합니다.</p>
+
+  </div>
+  
+  <div class="studio-related-section">
+    <h3 class="studio-related-title">관련 도구</h3>
+    <div class="studio-related-grid">
+      <a href="/studio/multi-format-converter/" class="studio-related-item">
+        <span class="related-title">다중 이미지 포맷 변환기</span>
+        <span class="related-desc">여러 이미지를 한 번에 업로드하여 JPG, PNG, WebP 포맷으로 일괄 변환하고 ZIP …</span>
+      </a>
+      <a href="/studio/image-splitter/" class="studio-related-item">
+        <span class="related-title">이미지 분할기</span>
+        <span class="related-desc">이미지를 격자로 분할하거나 원하는 영역으로 나누어 개별 이미지로 다운로드할 수 있는 도구입 …</span>
+      </a>
+      <a href="/studio/image-cropper/" class="studio-related-item">
+        <span class="related-title">이미지 자르기/크롭</span>
+        <span class="related-desc">이미지의 원하는 부분을 정확하게 자르고 편집하는 도구입니다.</span>
+      </a>
+      <a href="/studio/color-extractor/" class="studio-related-item">
+        <span class="related-title">이미지 컬러 추출기</span>
+        <span class="related-desc">이미지에서 주요 컬러를 분석하여 컬러 팔레트를 생성하는 도구입니다.</span>
+      </a>
+      <a href="/studio/image-resizer/" class="studio-related-item">
+        <span class="related-title">이미지 크기 조절기</span>
+        <span class="related-desc">이미지의 해상도와 크기를 자유롭게 조절하는 도구입니다.</span>
+      </a>
+      <a href="/studio/format-converter/" class="studio-related-item">
+        <span class="related-title">이미지 포맷 변환기</span>
+        <span class="related-desc">JPG, PNG, WebP 등 다양한 이미지 포맷을 자유롭게 변환할 수 있는 온라인 도구입 …</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "이미지 압축기 - Studio NFP",
+  "description": "여러 이미지를 한번에 압축하여 파일 크기를 효율적으로 줄이는 도구입니다.",
+  "url": "http:\/\/localhost:1313\/studio\/image-compressor\/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "http:\/\/localhost:1313\/"
+  },
+  "keywords": "이미지 압축, 파일 크기 줄이기, 일괄 압축, 다중 파일, 이미지 최적화, 용량 절약"
+}
+</script>
+
+
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
@@ -772,6 +970,13 @@ window.downloadSingleImage = downloadSingleImage;
 
 
     
+    
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
     
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -803,7 +1008,7 @@ window.downloadSingleImage = downloadSingleImage;
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -813,18 +1018,17 @@ window.downloadSingleImage = downloadSingleImage;
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

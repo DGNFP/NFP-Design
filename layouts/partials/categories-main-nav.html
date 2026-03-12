@@ -1,0 +1,27 @@
+{{- /*
+  categories-main-nav.html
+  Usage: {{ partial "categories-main-nav.html" (dict "active" "ad") }}
+  active 값: web | content | game-ad | creative | streaming | video | programming | ad | project | blog | youtube | (빈 문자열 = 없음)
+*/ -}}
+<!-- 전체작업 버튼만 별도로 구분 -->
+<div class="view-wrapper">
+<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
+</div>
+<!-- 그 아래 나머지 버튼들 -->
+<div class="all-view-all-wrapper">
+<a href="{{ "/categories/web/" | relURL }}" class="{{ if eq .active "web" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">웹 디자인</a>
+<a href="{{ "/categories/content/" | relURL }}" class="{{ if eq .active "content" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">컨텐츠 디자인</a>
+{{ if eq .active "creative" -}}
+<a href="{{ "/categories/creative/" | relURL }}" class="all-view-all-button-active">크리에이티브 디자인</a>
+{{- else -}}
+<a href="{{ "/categories/game-ad/" | relURL }}" class="{{ if eq .active "game-ad" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">게임 광고 디자인</a>
+{{- end }}
+<a href="{{ "/categories/streaming" | relURL }}" class="{{ if eq .active "streaming" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">인터넷 방송 디자인</a>
+<a href="{{ "/categories/video/" | relURL }}" class="{{ if eq .active "video" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">영상 디자인</a>
+<a href="{{ "/categories/programming/" | relURL }}" class="{{ if eq .active "programming" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">프로그래밍</a>
+<a href="{{ "/categories/ad/" | relURL }}" class="{{ if eq .active "ad" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">광고 디자인</a>
+<a href="{{ "/categories/project/" | relURL }}" class="{{ if eq .active "project" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">프로젝트</a>
+<a href="{{ "/blog/" | relURL }}" class="{{ if eq .active "blog" }}all-view-all-button-active{{ else }}all-view-all-button{{ end }}">NFP 블로그</a>
+<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
+</div>
+<!-- 버튼 컨테이너 닫힘 -->

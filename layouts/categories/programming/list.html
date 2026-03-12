@@ -5,24 +5,7 @@
         <h2 class="board-section-title"><span>프로그래밍</span> 게시판</h2>
         <p class="board-intro">프론트엔드, 웹 퍼블리싱 등 프로그래밍 관련 작업</p>
 
-<!-- 전체작업 버튼만 별도로 구분 -->
-<div class="view-wrapper">
-<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
-</div>
-<!-- 그 아래 나머지 버튼들         -->
-<div class="all-view-all-wrapper">
-<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
-<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
-<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button">인터넷 방송 디자인</a>
-<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
-<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button-active">프로그래밍</a>
-<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고 디자인</a>
-<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">NFP 블로그</a>
-<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
-</div>
-<!-- 버튼 컨테이너 닫힘 -->
+{{ partial "categories-main-nav.html" (dict "active" "programming") }}
         
         <!-- 카테고리 필터 -->
         <div class="board-filter">
@@ -49,7 +32,7 @@
             {{ $allPosts := .Pages }}
             {{ range $allPosts }}
             <div class="board-item" data-main="programming" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <div class="board-item-img">
                         {{ $content := .Content }}
                         {{ $hasVideo := false }}

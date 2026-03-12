@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -54,7 +53,7 @@
     <meta property="og:image:height" content="1200">
     <meta property="og:image:type" content="image/png">
     <meta property="og:url" content="http://localhost:1313/studio/">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
     
@@ -74,7 +73,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "CollectionPage",
       "name": "Studios",
       "description": "",
       "url": "http:\/\/localhost:1313\/studio\/",
@@ -95,28 +94,9 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
-    
+
     
     
     
@@ -163,6 +143,7 @@
     
 
 <link rel="stylesheet" href="/css/studiopage.css">
+<link rel="stylesheet" href="/css/studio.css">
 
 
 <div class="bg-animation"></div>
@@ -198,36 +179,43 @@
 
 
 
+
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
 <a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
-
-
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
 
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
+
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
 <a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
-
-
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
@@ -235,6 +223,7 @@
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
 
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
@@ -242,19 +231,20 @@
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
 
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
         
@@ -1508,6 +1498,13 @@ document.addEventListener('DOMContentLoaded', createParticles);
 
     
     
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
+    
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <script src="/components/floating.js"></script>
@@ -1538,7 +1535,7 @@ document.addEventListener('DOMContentLoaded', createParticles);
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -1548,18 +1545,17 @@ document.addEventListener('DOMContentLoaded', createParticles);
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

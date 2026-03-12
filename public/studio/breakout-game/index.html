@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -97,29 +96,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -176,6 +161,7 @@
     </div>
 
 
+
 <div class="studio-home-section">
     <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
         <div class="home-icon">
@@ -193,36 +179,42 @@
 </div>
 
 
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
 <a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
-
-
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
 
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
+
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
 <a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
-
-
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
@@ -230,6 +222,7 @@
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
 
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
@@ -237,19 +230,20 @@
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
 
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn-active">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
     
@@ -1457,6 +1451,115 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
+
+<section class="studio-seo-section">
+<div class="container">
+  
+  <div class="studio-md-content">
+    <h1 id="벽돌깨기-게임">벽돌깨기 게임</h1>
+<p>클래식 아케이드 게임 브레이크아웃을 현대적으로 재현했습니다.</p>
+<p>마우스로 패들을 조작하여 공을 튕겨내며 화면 상단의 모든 벽돌을 파괴하는 게임입니다. 레벨이 진행될수록 벽돌 수가 증가하고, 일부 벽돌은 여러 번 맞아야 파괴됩니다. 생명이 떨어지면 게임이 종료됩니다.</p>
+<h2 id="조작-방법">조작 방법</h2>
+<ul>
+<li><strong>마우스 이동</strong>: 패들 좌우 이동</li>
+<li><strong>클릭 또는 스페이스바</strong>: 게임 시작 / 공 발사</li>
+<li><strong>P키</strong>: 일시정지</li>
+</ul>
+<h2 id="게임-규칙">게임 규칙</h2>
+<p>모든 벽돌을 파괴하면 다음 레벨로 진행됩니다. 생명은 기본 3개이며, 공이 화면 아래로 떨어질 때마다 1개씩 감소합니다. 레벨이 높아질수록 공의 속도가 빨라지고 벽돌 배치가 복잡해집니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>벽돌 색상</th>
+          <th>내구도</th>
+          <th>점수</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>초록색</td>
+          <td>1회</td>
+          <td>10점</td>
+      </tr>
+      <tr>
+          <td>파란색</td>
+          <td>2회</td>
+          <td>20점</td>
+      </tr>
+      <tr>
+          <td>빨간색</td>
+          <td>3회</td>
+          <td>30점</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="주요-기능">주요 기능</h2>
+<ul>
+<li><strong>레벨 시스템</strong>: 레벨이 올라갈수록 벽돌 수 증가, 속도 상승</li>
+<li><strong>다양한 벽돌 타입</strong>: 내구도별 다양한 색상의 벽돌</li>
+<li><strong>파티클 효과</strong>: 벽돌 파괴 시 화려한 파티클 연출</li>
+<li><strong>난이도 조절</strong>: 게임 시작 전 난이도(Easy/Normal/Hard) 선택</li>
+<li><strong>최고 기록 저장</strong>: 로컬 스토리지에 베스트 스코어 자동 저장</li>
+</ul>
+
+  </div>
+  
+  <div class="studio-related-section">
+    <h3 class="studio-related-title">관련 도구</h3>
+    <div class="studio-related-grid">
+      <a href="/studio/pong-game/" class="studio-related-item">
+        <span class="related-title">Pong 게임</span>
+        <span class="related-desc">클래식 아케이드 스타일의 탁구 게임으로 컴퓨터와 대결할 수 있습니다.</span>
+      </a>
+      <a href="/studio/rsp-game/" class="studio-related-item">
+        <span class="related-title">가위바위보 게임</span>
+        <span class="related-desc">컴퓨터와 즐기는 클래식 가위바위보 대전 게임입니다.</span>
+      </a>
+      <a href="/studio/whack-a-mole/" class="studio-related-item">
+        <span class="related-title">두더지 잡기 게임</span>
+        <span class="related-desc">제한 시간 내에 빠르게 나타나는 두더지를 잡아 점수를 획득하는 반응속도 게임입니다.</span>
+      </a>
+      <a href="/studio/snake-game/" class="studio-related-item">
+        <span class="related-title">스네이크 게임 (Snake)</span>
+        <span class="related-desc">방향키로 뱀을 조작하여 음식을 먹고 성장시키는 클래식 아케이드 게임입니다.</span>
+      </a>
+      <a href="/studio/flappy-bird/" class="studio-related-item">
+        <span class="related-title">플래피버드 게임</span>
+        <span class="related-desc">클릭하여 새를 날리며 파이프 사이를 통과하는 중독성 강한 아케이드 게임입니다.</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "벽돌깨기 게임 - Studio NFP",
+  "description": "클래식 브레이크아웃 스타일의 아케이드 게임으로 패들을 조작하여 모든 벽돌을 파괴하는 게임입니다.",
+  "url": "http:\/\/localhost:1313\/studio\/breakout-game\/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "http:\/\/localhost:1313\/"
+  },
+  "keywords": "벽돌깨기, 브레이크아웃, 아케이드게임, 패들게임, 클래식게임, 레트로게임"
+}
+</script>
+
+
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
@@ -1470,6 +1573,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
+    
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
     
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -1501,7 +1611,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -1511,18 +1621,17 @@ document.addEventListener('DOMContentLoaded', () => {
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

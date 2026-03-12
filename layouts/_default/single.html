@@ -7,24 +7,7 @@
 <h2 class="board-section-title"><span>NFP</span> 디자인</h2>
 <p class="board-intro">Needs · Fresh · Pop  · Studio <span>NFP</span></p>
 
-<!-- 전체작업 버튼만 별도로 구분 -->
-<div class="view-wrapper">
-<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
-</div>
-<!-- 그 아래 나머지 버튼들         -->
-<div class="all-view-all-wrapper">
-<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
-<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
-<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button">인터넷 방송 디자인</a>
-<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
-<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
-<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고 디자인</a>
-<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">NFP 블로그</a>
-<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
-</div>
-<!-- 버튼 컨테이너 닫힘 -->
+{{ partial "categories-main-nav.html" (dict "active" "") }}
 
         <div class="post-container">
             <!-- 게시글 헤더 -->
@@ -42,17 +25,7 @@
                     {{ if .Params.categories }}
                         <span class="post-category">
                             {{ $mainCategory := index .Params.categories 0 }}
-                            {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
-                            {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
-                            {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
-                            {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
-                            {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
-                            {{ if eq $mainCategory "streaming" }}인터넷 방송 디자인{{ end }}
-                            {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
-                            {{ if eq $mainCategory "project" }}프로젝트{{ end }}
-                            {{ if eq $mainCategory "youtube" }}유튜브{{ end }}
-                            {{ if eq $mainCategory "games" }}게임{{ end }}
-                            {{ if eq $mainCategory "blog" }}블로그{{ end }}
+                            {{ partial "cat-name.html" $mainCategory }}
                             {{ if .Params.subCategory }}
                                 · {{ .Params.subCategory }}
                             {{ end }}
@@ -180,13 +153,14 @@
                         {{ if (findRE "youtube\\.com|youtu\\.be" .Params.videoUrl) }}
                             {{ $videoId = replaceRE ".*(?:youtube\\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\\.be/)([^\"&?/ ]{11}).*" "$1" .Params.videoUrl }}
                             <!-- VideoObject 스키마 추가 -->
-                            {{ partial "video-schema.html" (dict "videoId" $videoId "videoType" "youtube" "title" .Title "date" .Date) }}           
+                            {{ partial "video-schema.html" (dict "videoId" $videoId "videoType" "youtube" "title" .Title "date" .Date "site" $.Site) }}
                             <!-- YouTube 임베드 영상 -->
                             <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 20px;">
-                                <iframe 
-                                    src="https://www.youtube.com/embed/{{ $videoId }}" 
+                                <iframe
+                                    src="https://www.youtube.com/embed/{{ $videoId }}"
+                                    title="{{ .Title }}"
                                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                                    frameborder="0" 
+                                    frameborder="0"
                                     allowfullscreen>
                                 </iframe>
                             </div>
@@ -314,13 +288,13 @@
 <div class="business-cta">
   <p class="cta-text">디자인 외주가 필요하신가요?</p>
   <div class="cta-buttons">
-    <a href="https://pf.kakao.com/_ffMtn" target="_blank" rel="noopener noreferrer" class="cta-btn primary">
+    <a href="{{ .Site.Params.kakaoURL }}" target="_blank" rel="noopener noreferrer" class="cta-btn primary">
       <i class="fas fa-comment-dots"></i> 상담하기
     </a>
-    <a href="/notice/2025-11-05-nfp-design-price-list/" class="cta-btn secondary">
+    <a href="{{ .Site.Params.priceListURL }}" class="cta-btn secondary">
       <i class="fas fa-tags"></i> 가격표 보기
     </a>
-    <a href="https://pf.kakao.com/_ffMtn" target="_blank" rel="noopener noreferrer" class="cta-btn tertiary">
+    <a href="{{ .Site.Params.kakaoURL }}" target="_blank" rel="noopener noreferrer" class="cta-btn tertiary">
       <i class="fas fa-handshake"></i> 광고·제휴 문의
     </a>
   </div>
@@ -335,17 +309,7 @@
     <div class="related-posts-header">
         <h3>
             {{ if eq .Section "categories" }}
-                {{ $currentCategory := index .Params.categories 0 }}
-                {{ if eq $currentCategory "web" }}웹 디자인
-                {{ else if eq $currentCategory "video" }}영상 디자인
-                {{ else if eq $currentCategory "creative" }}크리에이티브 디자인
-                {{ else if eq $currentCategory "programming" }}프로그래밍
-                {{ else if eq $currentCategory "content" }}컨텐츠 디자인
-                {{ else if eq $currentCategory "streaming" }}인터넷 방송 디자인
-                {{ else if eq $currentCategory "ad" }}광고 디자인
-                {{ else if eq $currentCategory "project" }}프로젝트
-                {{ else if eq $currentCategory "youtube" }}유튜브
-                {{ end }}의 관련 게시글
+                {{ with .Params.categories }}{{ partial "cat-name.html" (index . 0) }}{{ end }}의 관련 게시글
             {{ else if eq .Section "blog" }}
                 {{ .Params.subCategory }}의 관련 게시글
             {{ else if eq .Section "games" }}
@@ -563,11 +527,11 @@ const postId = decodeURIComponent(window.location.pathname)
 async function updateViews() {
     try {
         await waitForFirebase();
-        
+
         const { doc, getDoc, setDoc, updateDoc, increment } = window.firestoreUtils;
         const db = window.firebaseDB;
-        
-        
+
+
         const docRef = doc(db, "post_views", postId);
         const docSnap = await getDoc(docRef);
 

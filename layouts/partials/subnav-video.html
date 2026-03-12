@@ -1,0 +1,15 @@
+{{- /* subnav-video.html — Usage: {{ partial "subnav-video.html" (dict "active" "video-production") }} */ -}}
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/video/" | relURL }}" class="{{ if eq .active "" }}blog-btn-active{{ else }}blog-btn{{ end }}">영상 디자인 전체</a>
+<a href="{{ "/categories/video/video-production/" | relURL }}" class="{{ if eq .active "video-production" }}blog-btn-active{{ else }}blog-btn{{ end }}">영상 제작</a>
+<a href="{{ "/categories/video/video-editing/" | relURL }}" class="{{ if eq .active "video-editing" }}blog-btn-active{{ else }}blog-btn{{ end }}">영상 편집</a>
+<a href="{{ "/categories/video/motion-graphics/" | relURL }}" class="{{ if eq .active "motion-graphics" }}blog-btn-active{{ else }}blog-btn{{ end }}">모션 그래픽</a>
+</div>
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>

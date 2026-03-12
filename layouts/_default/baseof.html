@@ -11,7 +11,6 @@
 
 <!-- 🎯 CSS 비동기 로드 -->
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -41,243 +40,64 @@
 
     <!-- Google Analytics 4 - 완전 통합 버전 -->
 {{ if hugo.IsProduction }}
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG6N24RD49"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalyticsID }}"></script>
 
-<!-- GA4 고급 이벤트 -->
+<!-- GA4 이벤트 추적 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  
-  gtag('config', 'G-HG6N24RD49', {
+
+  gtag('config', '{{ .Site.Params.googleAnalyticsID }}', {
     page_title: '{{ .Title }}',
     page_location: '{{ .Permalink }}',
     send_page_view: true
   });
 
-  // NFP 디자인 사이트 특화 이벤트 추적 - 완전 통합 버전
   document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. 포트폴리오 카드 클릭 추적
-    document.addEventListener('click', function(event) {
-      if (event.target.closest('.design-item') || 
-          event.target.closest('.board-item') || 
-          event.target.closest('.highlight-card')) {
-        gtag('event', 'portfolio_view', {
-          event_category: 'engagement',
-          event_label: 'portfolio_click'
-        });
-      }
-    });
+    // 클릭 이벤트 단일 위임 처리
+    document.addEventListener('click', function(e) {
+      var t = e.target;
+      var a = t.closest('a');
 
-    // 2. 연락하기 버튼 클릭 추적
-    document.addEventListener('click', function(event) {
-      if (event.target.closest('.floating-btn') || 
-          event.target.textContent.includes('연락') || 
-          event.target.textContent.includes('문의')) {
-        gtag('event', 'contact_intent', {
-          event_category: 'lead',
-          event_label: 'contact_button'
-        });
+      if (t.closest('.design-item') || t.closest('.board-item') || t.closest('.highlight-card')) {
+        gtag('event', 'portfolio_view', { event_category: 'engagement', event_label: 'portfolio_click' });
       }
-    });
-
-    // 3. 카테고리 필터 사용 추적
-    document.addEventListener('click', function(event) {
-      if (event.target.closest('.category-tab') || 
-          event.target.closest('.category-filter')) {
-        let category = event.target.textContent.trim() || 'unknown';
-        gtag('event', 'category_filter', {
-          event_category: 'navigation',
-          event_label: category
-        });
+      if (t.closest('.floating-btn')) {
+        gtag('event', 'contact_intent', { event_category: 'lead', event_label: 'contact_button' });
       }
-    });
-
-    // 4. 외부 링크 클릭 추적
-    document.addEventListener('click', function(event) {
-      if (event.target.tagName === 'A' && 
-          event.target.hostname !== window.location.hostname) {
-        gtag('event', 'outbound_click', {
-          event_category: 'external_link',
-          event_label: event.target.href
-        });
+      if (t.closest('.category-tab') || t.closest('.category-filter')) {
+        gtag('event', 'category_filter', { event_category: 'navigation', event_label: t.textContent.trim() || 'unknown' });
       }
-    });
-
-    // 5. 스크롤 깊이 추적
-    let scrollDepths = [25, 50, 75, 100];
-    let maxScroll = 0;
-    
-    window.addEventListener('scroll', function() {
-      let scrollPercent = Math.round(
-        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-      );
-      
-      if (scrollPercent > maxScroll) {
-        maxScroll = scrollPercent;
-        
-        scrollDepths.forEach(function(depth) {
-          if (scrollPercent >= depth && !window['scroll' + depth + 'Fired']) {
-            gtag('event', 'scroll_depth', {
-              event_category: 'engagement',
-              event_label: depth + '%'
-            });
-            window['scroll' + depth + 'Fired'] = true;
-          }
-        });
-      }
-    });
-
-    // 6. 파일 다운로드 추적
-    document.addEventListener('click', function(event) {
-      if (event.target.tagName === 'A') {
-        let href = event.target.getAttribute('href');
-        if (href && (href.includes('.pdf') || href.includes('.zip') || 
-                    href.includes('.psd') || href.includes('.ai'))) {
-          gtag('event', 'file_download', {
-            event_category: 'engagement',
-            event_label: href
-          });
+      if (a && a.hostname && a.hostname !== window.location.hostname) {
+        var href = a.getAttribute('href') || '';
+        if (/\.(pdf|zip|psd|ai)$/i.test(href)) {
+          gtag('event', 'file_download', { event_category: 'engagement', event_label: href });
+        } else {
+          gtag('event', 'outbound_click', { event_category: 'external_link', event_label: a.href });
         }
       }
-    });
+    }, true);
 
-    // 7. 뉴스레터 구독 추적
-    const newsletterForm = document.getElementById('newsletter-form');
+    // 뉴스레터 구독 추적
+    var newsletterForm = document.getElementById('newsletter-form');
     if (newsletterForm) {
       newsletterForm.addEventListener('submit', function() {
-        gtag('event', 'newsletter_signup', {
-          event_category: 'lead_generation',
-          event_label: 'newsletter'
-        });
+        gtag('event', 'newsletter_signup', { event_category: 'lead_generation', event_label: 'newsletter' });
       });
     }
 
-    // 8. 페이지 체류 시간 추적 (신규)
-    let startTime = Date.now();
-    let engagementSent = false;
-    
-    // 30초, 60초, 120초 체류 시점에서 각각 이벤트 발송
-    const engagementTimeouts = [
-      setTimeout(() => {
-        gtag('event', 'page_engagement', {
-          event_category: 'engagement',
-          event_label: 'engaged_30s',
-          value: 30
-        });
-      }, 30000),
-      
-      setTimeout(() => {
-        gtag('event', 'page_engagement', {
-          event_category: 'engagement',
-          event_label: 'engaged_60s',
-          value: 60
-        });
-      }, 60000),
-      
-      setTimeout(() => {
-        gtag('event', 'page_engagement', {
-          event_category: 'engagement',
-          event_label: 'engaged_120s',
-          value: 120
-        });
-      }, 120000)
-    ];
-    
-    // 페이지 떠날 때 체류 시간 추적
-    window.addEventListener('beforeunload', function() {
-      let timeSpent = Math.round((Date.now() - startTime) / 1000);
-      if (timeSpent > 10 && !engagementSent) {
-        gtag('event', 'page_time_spent', {
-          event_category: 'engagement',
-          event_label: 'total_time',
-          value: timeSpent
-        });
-        engagementSent = true;
-      }
-      
-      // 타이머들 정리
-      engagementTimeouts.forEach(timeout => clearTimeout(timeout));
-    });
-
-    // 9. 이미지 로딩 완료 추적 (신규)
-    window.addEventListener('load', function() {
-      const portfolioImages = document.querySelectorAll('img[src*="portfolio"], img[src*="design"], img[src*="project"], .design-item img, .board-item img');
-      let loadedCount = 0;
-      let totalCount = portfolioImages.length;
-      
-      if (totalCount > 0) {
-        portfolioImages.forEach((img, index) => {
-          if (img.complete && img.naturalHeight > 0) {
-            loadedCount++;
-          } else {
-            img.addEventListener('load', function() {
-              loadedCount++;
-              if (loadedCount === totalCount) {
-                gtag('event', 'images_loaded', {
-                  event_category: 'performance',
-                  event_label: 'portfolio_images_complete',
-                  value: totalCount
-                });
-              }
-            });
-            
-            img.addEventListener('error', function() {
-              gtag('event', 'image_error', {
-                event_category: 'performance',
-                event_label: 'portfolio_image_failed'
-              });
-            });
-          }
-        });
-        
-        // 이미 로드된 이미지들이 전체라면 즉시 이벤트 발송
-        if (loadedCount === totalCount) {
-          gtag('event', 'images_loaded', {
-            event_category: 'performance',
-            event_label: 'portfolio_images_complete',
-            value: totalCount
-          });
+    // 스크롤 깊이 추적
+    var scrollFired = {};
+    window.addEventListener('scroll', function() {
+      var pct = Math.round(window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100);
+      [25, 50, 75, 100].forEach(function(d) {
+        if (pct >= d && !scrollFired[d]) {
+          scrollFired[d] = true;
+          gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: d + '%' });
         }
-      }
-    });
-
-    // 10. 검색/필터 키워드 추적 (신규)
-    let searchTimeout;
-    document.addEventListener('input', function(event) {
-      if (event.target.matches('[type="search"], .search-input, input[placeholder*="검색"], input[placeholder*="search"], #search')) {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
-          let searchTerm = event.target.value.trim();
-          if (searchTerm.length > 2) {
-            gtag('event', 'search', {
-              search_term: searchTerm,
-              event_category: 'site_search',
-              event_label: 'internal_search'
-            });
-          }
-        }, 1000);
-      }
-    });
-    
-    // 필터 선택 시 키워드도 함께 추적
-    document.addEventListener('change', function(event) {
-      if (event.target.matches('select[name*="category"], select[name*="filter"], .filter-select')) {
-        let filterValue = event.target.value;
-        let filterName = event.target.name || 'unknown_filter';
-        
-        if (filterValue && filterValue !== '' && filterValue !== 'all') {
-          gtag('event', 'filter_applied', {
-            event_category: 'navigation',
-            event_label: filterName + '_' + filterValue,
-            filter_type: filterName,
-            filter_value: filterValue
-          });
-        }
-      }
-    });
-
+      });
+    }, { passive: true });
   });
 </script>
 {{ end }}
@@ -304,21 +124,6 @@
 [ {{ .Params.subCategory }} ] {{ .Title }} - NFP 디자인 | 스튜디오 NFP
       {{- end -}}
     {{- else -}}
-      {{- $categoryKorean := "작업물" -}}
-      {{- with .Params.categories -}}
-        {{- $cat := index . 0 -}}
-        {{- if eq $cat "video" -}}{{ $categoryKorean = "영상 디자인" -}}
-        {{- else if eq $cat "creative" -}}{{ $categoryKorean = "크리에이티브 디자인" -}}
-        {{- else if eq $cat "web" -}}{{ $categoryKorean = "웹 디자인" -}}
-        {{- else if eq $cat "programming" -}}{{ $categoryKorean = "웹 퍼블리싱" -}}
-        {{- else if eq $cat "project" -}}{{ $categoryKorean = "프로젝트" -}}
-        {{- else if eq $cat "content" -}}{{ $categoryKorean = "컨텐츠 디자인" -}}
-        {{- else if eq $cat "streaming" -}}{{ $categoryKorean = "인터넷 방송 디자인" -}}
-        {{- else if eq $cat "ad" -}}{{ $categoryKorean = "광고 디자인" -}}
-
-        {{- else if eq $cat "games" -}}{{ $categoryKorean = "게임 블로그" -}}
-        {{- end -}}
-      {{- end -}}
       {{- if eq .Params.categories "games" -}}
 {{ .Title }} - Studio NFP | 스튜디오 NFP
       {{- else -}}
@@ -334,6 +139,7 @@
     {{- else if eq .Title "Programming" -}}프로그래밍 - NFP 디자인 | 스튜디오 NFP
     {{- else if eq .Title "Streaming" -}}인터넷 방송 디자인 - NFP 디자인 | 스튜디오 NFP
     {{- else if eq .Title "Project" -}}프로젝트 - NFP 디자인 | 스튜디오 NFP
+    {{- else if eq .Title "Game Ad" -}}게임 광고 디자인 - NFP 디자인 | 스튜디오 NFP
     {{- else if eq .Title "Ad" -}}광고 디자인 - NFP 디자인 | 스튜디오 NFP
     {{- else if eq .Title "Games" -}}게임 블로그 - Studio NFP | 스튜디오 NFP
     {{- else -}}{{ .Title }} 작업물 - NFP 디자인 | 스튜디오 NFP{{ end -}}
@@ -371,7 +177,7 @@
 </title>
 
 <!-- 핵심 키워드만 선별 -->
-<meta name="keywords" content="{{- if and .Params.keywords (in .Permalink "/studio/") -}}{{ delimit .Params.keywords ", " }}{{- else -}}NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너, 디자인 도구, 온라인 도구, 무료 도구{{- end -}}">
+<meta name="keywords" content="{{- if and .Params.keywords (in .Permalink "/studio/") -}}{{ delimit .Params.keywords ", " }}{{- else if and .Params.tags (eq .Kind "page") -}}{{ delimit .Params.tags ", " }}{{- else -}}NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너, 디자인 도구, 온라인 도구, 무료 도구{{- end -}}">
 
 <!-- SEO 추가 메타 태그 (기존 유지) -->
 <meta name="robots" content="index, follow">
@@ -379,14 +185,14 @@
 <meta name="author" content="{{ .Site.Params.author }}">
     
     <!-- Open Graph 태그 - 수정된 이미지 경로 -->
-    <meta property="og:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "프로젝트 작업물" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "컨텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $cat := "" }}{{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}{{ partial "cat-name.html" $cat | default "디자인 포트폴리오" }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
-    <meta property="og:image" content="{{ "img/nfp-main.png" | absURL }}">
+    <meta property="og:image" content="{{ if .Params.thumbnail }}{{ .Params.thumbnail | absURL }}{{ else }}{{ "img/nfp-main.png" | absURL }}{{ end }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
     <meta property="og:image:type" content="image/png">
     <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else if .IsPage }}article{{ else }}website{{ end }}">
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
     {{ if not .IsHome }}
@@ -401,16 +207,16 @@
     
     <!-- Twitter 태그 - 수정된 이미지 경로 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "posts" }}{{ .Title }} | {{ $categoryKorean := "디자인 포트폴리오" }}{{ with .Params.categories }}{{ $cat := index . 0 }}{{ if eq $cat "video" }}{{ $categoryKorean = "영상 디자인" }}{{ else if eq $cat "creative" }}{{ $categoryKorean = "크리에이티브 디자인" }}{{ else if eq $cat "web" }}{{ $categoryKorean = "웹 디자인" }}{{ else if eq $cat "programming" }}{{ $categoryKorean = "웹퍼블리싱" }}{{ else if eq $cat "project" }}{{ $categoryKorean = "브랜딩 프로젝트" }}{{ else if eq $cat "content" }}{{ $categoryKorean = "컨텐츠 디자인" }}{{ else if eq $cat "ad" }}{{ $categoryKorean = "광고 디자인" }}{{ end }}{{ end }}{{ $categoryKorean }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta name="twitter:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $cat := "" }}{{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}{{ partial "cat-name.html" $cat | default "디자인 포트폴리오" }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
-    <meta property="twitter:image" content="{{ "img/nfp-main.png" | absURL }}">
+    <meta property="twitter:image" content="{{ if .Params.thumbnail }}{{ .Params.thumbnail | absURL }}{{ else }}{{ "img/nfp-main.png" | absURL }}{{ end }}">
     <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
     
     <!-- 구조화된 데이터 (JSON-LD) - 수정된 이미지 경로 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "{{ if .IsHome }}Organization{{ else }}Article{{ end }}",
+      "@type": "{{ if .IsHome }}Organization{{ else if .IsPage }}Article{{ else }}CollectionPage{{ end }}",
       "name": "{{ if .IsHome }}NFP 디자인{{ else }}{{ .Title }}{{ end }}",
       "description": "{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다{{ else }}{{ .Summary | truncate 160 }}{{ end }}",
       "url": "{{ .Permalink }}",
@@ -444,31 +250,26 @@
     }
     </script>
     
-    <!-- CSS 파일들 - 모든 상대 경로 CSS 제거 후 절대 경로로 강제 로딩 -->
-    <script>
-        // 기존 CSS 링크 중 상대 경로인 것들 제거
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="{{ "/css/styles.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "/css/board.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "/css/project_board.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "/css/lightbox.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "/css/web-demo.css" | absURL }}">
     <link rel="stylesheet" href="{{ "/css/popup.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "/css/studio.css" | absURL }}">
-    <!-- <link rel="stylesheet" href="{{ "/css/todaycard.css" | absURL }}"> -->
-    <!-- <link rel="stylesheet" href="{{ "/css/studiopage.css" | absURL }}"> -->
+
+    {{/* 홈페이지: 프로젝트 그리드 + 홈 Studio NFP 섹션 + 하이라이트/메인프로젝트 카드 */}}
     {{ if .IsHome }}
         <link rel="stylesheet" href="{{ "/css/project.css" | absURL }}">
+        <link rel="stylesheet" href="{{ "/css/studio.css" | absURL }}">
+        <link rel="stylesheet" href="{{ "/css/board.css" | absURL }}">
+
+    {{/* 목록 페이지: section / taxonomy / term (studio 제외 - studiopage.css 자체 로드) */}}
+    {{ else if and (in (slice "section" "taxonomy" "term") .Kind) (ne .Section "studio") }}
+        <link rel="stylesheet" href="{{ "/css/board.css" | absURL }}">
+        <link rel="stylesheet" href="{{ "/css/project_board.css" | absURL }}">
+
+    {{/* 단일 포스트 페이지 (모든 섹션 공통) */}}
+    {{ else if eq .Kind "page" }}
+        <link rel="stylesheet" href="{{ "/css/board.css" | absURL }}">
+        <link rel="stylesheet" href="{{ "/css/project_board.css" | absURL }}">
+        <link rel="stylesheet" href="{{ "/css/lightbox.css" | absURL }}">
+        <link rel="stylesheet" href="{{ "/css/web-demo.css" | absURL }}">
     {{ end }}
     
     <!-- 파비콘 및 모바일 아이콘 설정 -->
@@ -525,6 +326,13 @@
 
 
     
+    <!-- 사이트 설정 (JS 컴포넌트에서 공유) -->
+    <script>
+        window.siteConfig = {
+            kakaoURL: "{{ .Site.Params.kakaoURL }}"
+        };
+    </script>
+
     <!-- 컴포넌트 스크립트 - 절대 경로로 수정 (기존 유지) -->
     <script src="{{ "/components/header.js" | relURL }}"></script>
     <script src="{{ "/components/footer.js" | relURL }}"></script>
@@ -544,21 +352,19 @@
     </script>
     
     <!-- 기존 스크립트 유지 -->
-    {{ if .IsHome }}
-    <script src="{{ "/js/scpript.js" | relURL }}"></script>
-    {{ else }}
+    {{ if not .IsHome }}
     <script src="{{ "/js/filter.js" | relURL }}"></script>
     {{ end }}
     
     <!-- Netlify Identity 유지 -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- Firebase + 카운터를 한 번에 처리 -->
+    <!-- Firebase 초기화 (전체 페이지에서 로드) -->
 <script type="module">
   // Firebase 초기화 (동일)
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -568,18 +374,17 @@
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   // 🎯 전역 변수로 Firebase 제공 (더 간단!)
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

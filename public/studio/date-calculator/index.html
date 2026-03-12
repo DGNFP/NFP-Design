@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -97,29 +96,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -175,6 +160,7 @@
     </div>
 
     
+
 <div class="studio-home-section">
     <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
         <div class="home-icon">
@@ -192,56 +178,71 @@
 </div>
 
 
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
-<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
-<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
+<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
+<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
-<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn-active">날짜 계산기</a>
 <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
 <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
     
@@ -581,6 +582,93 @@ function subtractFromDate() {
 </script>
 
 
+
+<section class="studio-seo-section">
+<div class="container">
+  
+  <div class="studio-md-content">
+    <h1 id="날짜-계산기">날짜 계산기</h1>
+<p>기간 계산, D-day 계산, 날짜 더하기/빼기 등 다양한 날짜 관련 계산을 한 번에 처리합니다.</p>
+<p>두 날짜 사이의 정확한 기간을 계산하거나, 특정 날까지 남은 일수를 확인하고, 특정 날짜에서 원하는 기간을 더하거나 뺄 수 있습니다. 연, 월, 일, 주 단위로 다양한 형태의 결과를 제공합니다.</p>
+<h2 id="계산-모드">계산 모드</h2>
+<table>
+  <thead>
+      <tr>
+          <th>모드</th>
+          <th>설명</th>
+          <th>활용 예시</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>기간 계산</td>
+          <td>두 날짜 사이의 일수·주·월·년 계산</td>
+          <td>계약 기간, 재직 기간</td>
+      </tr>
+      <tr>
+          <td>D-day 계산</td>
+          <td>특정 날까지 남은 일수</td>
+          <td>시험, 기념일, 이벤트</td>
+      </tr>
+      <tr>
+          <td>날짜 더하기</td>
+          <td>날짜에서 N일/주/월/년 후 계산</td>
+          <td>만료일, 납기일</td>
+      </tr>
+      <tr>
+          <td>날짜 빼기</td>
+          <td>날짜에서 N일/주/월/년 전 계산</td>
+          <td>과거 날짜 역산</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="사용-방법">사용 방법</h2>
+<ol>
+<li>상단 탭에서 원하는 계산 모드를 선택합니다.</li>
+<li>시작 날짜와 종료 날짜(또는 기준 날짜와 더할 기간)를 입력합니다.</li>
+<li>계산 결과가 즉시 표시됩니다. 일수, 주, 월, 년 단위로 모두 확인할 수 있습니다.</li>
+</ol>
+<h2 id="주요-기능">주요 기능</h2>
+<ul>
+<li><strong>기간 계산</strong>: 두 날짜 사이의 정확한 기간을 다양한 단위로 표시</li>
+<li><strong>D-day 계산</strong>: 목표 날짜까지 남은 일수 카운트다운</li>
+<li><strong>날짜 더하기/빼기</strong>: 기준 날짜에 특정 기간을 더하거나 빼서 결과 날짜 산출</li>
+<li><strong>한국어 요일 표시</strong>: 계산 결과와 함께 해당 날짜의 요일(월~일) 표시</li>
+<li><strong>오늘 날짜 자동 입력</strong>: 버튼 클릭으로 오늘 날짜를 자동으로 입력</li>
+</ul>
+
+  </div>
+
+</div>
+</section>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "날짜 계산기 - Studio NFP",
+  "description": "기간 계산, D-day 계산, 날짜 더하기\/빼기 등 다양한 날짜 관련 계산을 쉽고 빠르게 처리하는 도구입니다.",
+  "url": "http:\/\/localhost:1313\/studio\/date-calculator\/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "http:\/\/localhost:1313\/"
+  },
+  "keywords": "날짜 계산기, 기간 계산, D-day 계산, 날짜 더하기, 날짜 빼기, 달력 계산, 일수 계산"
+}
+</script>
+
+
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
@@ -594,6 +682,13 @@ function subtractFromDate() {
 
 
     
+    
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
     
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -625,7 +720,7 @@ function subtractFromDate() {
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -635,18 +730,17 @@ function subtractFromDate() {
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

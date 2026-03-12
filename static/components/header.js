@@ -1,11 +1,9 @@
 function createHeader(targetElementId = 'header-container', activeMenu = '') {
-    // 외부 CSS 로드
-    const cssHref = '/css/styles.css';
-    const existingLink = document.querySelector(`link[href="${cssHref}"]`);
-    if (!existingLink) {
+    // 외부 CSS 로드 (이미 로드된 경우 중복 삽입 방지)
+    if (!document.querySelector('link[href$="/css/styles.css"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = cssHref;
+        link.href = '/css/styles.css';
         document.head.appendChild(link);
     }
 
@@ -48,12 +46,22 @@ function createHeader(targetElementId = 'header-container', activeMenu = '') {
         });
     }
 
+    // 현재 페이지에 맞는 메뉴 항목에 active 클래스 적용
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.menu a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('/#')) return;
+        const linkPath = href.split('#')[0];
+        if (linkPath.length > 1 && currentPath.startsWith(linkPath)) {
+            link.classList.add('active');
+        }
+    });
+
     // 각 메뉴 항목에 클릭 이벤트 추가하여 페이지 이동
     const menuLinks = document.querySelectorAll('.menu a');
     menuLinks.forEach(link => {
         link.addEventListener('click', function() {
-            // 메뉴 클릭 시 'active' 클래스를 메뉴 항목에만 적용
-            menuLinks.forEach(link => link.classList.remove('active'));
+            menuLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
         });
     });

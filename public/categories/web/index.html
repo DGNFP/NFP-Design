@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -54,7 +53,7 @@
     <meta property="og:image:height" content="1200">
     <meta property="og:image:type" content="image/png">
     <meta property="og:url" content="http://localhost:1313/categories/web/">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
     
@@ -65,7 +64,7 @@
     
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Web - NFP 디자인">
+    <meta name="twitter:title" content="Web | 디자인 포트폴리오 - NFP 디자인">
     <meta name="twitter:description" content="">
     <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
     <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
@@ -74,7 +73,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "CollectionPage",
       "name": "Web",
       "description": "",
       "url": "http:\/\/localhost:1313\/categories\/web\/",
@@ -95,28 +94,14 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
+    
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+
     
     
     
@@ -185,23 +170,25 @@
 <a href="/categories/youtube/" class="all-view-all-button-youtube">YouTube</a>
 </div>
 
+
         
+
 <div class="board-filter">
-    <div class="blog-wapper">
-        <a href="/categories/web/" class="blog-btn-active">웹 디자인 전체</a>
-        <a href="/categories/web/publishing/" class="blog-btn">웹 퍼블리싱</a>
-        <a href="/categories/web/home-page-design/" class="blog-btn">홈페이지 디자인</a>
-        <a href="/categories/web/digital-banner-design/" class="blog-btn">디지털 배너 디자인</a>
-        <a href="/categories/web/detail-page-design/" class="blog-btn">상세페이지 디자인</a>
-        <a href="/categories/web/ux-ui-design/" class="blog-btn">UX/UI 디자인</a>
-    </div>
-            
+<div class="blog-wapper">
+<a href="/categories/web/" class="blog-btn-active">웹 디자인 전체</a>
+<a href="/categories/web/publishing/" class="blog-btn">웹 퍼블리싱</a>
+<a href="/categories/web/home-page-design/" class="blog-btn">홈페이지 디자인</a>
+<a href="/categories/web/digital-banner-design/" class="blog-btn">디지털 배너 디자인</a>
+<a href="/categories/web/detail-page-design/" class="blog-btn">상세페이지 디자인</a>
+<a href="/categories/web/ux-ui-design/" class="blog-btn">UX/UI 디자인</a>
+</div>
             
             <div class="board-search">
                 <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
                 <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
         </div>
+
         
         
         <div class="board-grid">
@@ -209,7 +196,7 @@
             
             
             <div class="board-item" data-main="web" data-category="디지털 배너 디자인">
-                <a href="http://localhost:1313/categories/web/2025-07-23-%EB%B0%B0%EB%84%88-%EB%94%94%EC%9E%90%EC%9D%B8-3%EC%A2%85/">
+                <a href="/categories/web/2025-07-23-%EB%B0%B0%EB%84%88-%EB%94%94%EC%9E%90%EC%9D%B8-3%EC%A2%85/">
                     <div class="board-item-img">
                         
                         
@@ -274,7 +261,7 @@
             </div>
             
             <div class="board-item" data-main="web" data-category="홈페이지 디자인">
-                <a href="http://localhost:1313/categories/web/2025-07-09-%EA%B2%9C%EB%B9%84%ED%8B%B0%EC%95%84%EC%9D%B4-gmti-%EA%B2%8C%EC%9E%84-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/">
+                <a href="/categories/web/2025-07-09-%EA%B2%9C%EB%B9%84%ED%8B%B0%EC%95%84%EC%9D%B4-gmti-%EA%B2%8C%EC%9E%84-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/">
                     <div class="board-item-img">
                         
                         
@@ -339,7 +326,7 @@
             </div>
             
             <div class="board-item" data-main="web" data-category="디지털배너 디자인">
-                <a href="http://localhost:1313/categories/web/2025-06-21-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A9%94%EC%9D%B8-%EB%B0%B0%EB%84%88-%EB%94%94%EC%9E%90%EC%9D%B8/">
+                <a href="/categories/web/2025-06-21-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A9%94%EC%9D%B8-%EB%B0%B0%EB%84%88-%EB%94%94%EC%9E%90%EC%9D%B8/">
                     <div class="board-item-img">
                         
                         
@@ -404,7 +391,7 @@
             </div>
             
             <div class="board-item" data-main="web" data-category="홈페이지 디자인">
-                <a href="http://localhost:1313/categories/web/2025-06-21-%EC%9B%B9-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/">
+                <a href="/categories/web/2025-06-21-%EC%9B%B9-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%94%94%EC%9E%90%EC%9D%B8/">
                     <div class="board-item-img">
                         
                         
@@ -491,6 +478,13 @@
 
     
     
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
+    
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <script src="/components/floating.js"></script>
@@ -521,7 +515,7 @@
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -531,18 +525,17 @@
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

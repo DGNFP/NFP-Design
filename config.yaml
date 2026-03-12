@@ -23,7 +23,10 @@ params:
   description: "고객의 Needs를 읽는 섬세한 시선, 트렌드를 이끄는 Fresh한 감각, 디테일을 살린 Pop한 디자인"
   author: "NFP Design"
   timezone: "Asia/Seoul"
-  youtube_channel_handle: "Studio-NFP"  
+  youtube_channel_handle: "Studio-NFP"
+  kakaoURL: "https://pf.kakao.com/_ffMtn"
+  priceListURL: "/notice/2025-11-05-nfp-design-price-list/"
+  googleAnalyticsID: "G-HG6N24RD49"
 
 menu: 
   main:

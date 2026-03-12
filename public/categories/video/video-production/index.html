@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -55,7 +54,7 @@
     <meta property="og:image:height" content="1200">
     <meta property="og:image:type" content="image/png">
     <meta property="og:url" content="http://localhost:1313/categories/video/video-production/">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
     
@@ -66,7 +65,7 @@
     
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="영상 제작 - NFP 디자인">
+    <meta name="twitter:title" content="영상 제작 | 디자인 포트폴리오 - NFP 디자인">
     <meta name="twitter:description" content="테스트 페이지
 이 글이 보이면 성공!">
     <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
@@ -76,7 +75,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "CollectionPage",
       "name": "영상 제작",
       "description": "\u003ch1 id=\u0022테스트-페이지\u0022\u003e테스트 페이지\u003c\/h1\u003e\n\u003cp\u003e이 글이 보이면 성공!\u003c\/p\u003e",
       "url": "http:\/\/localhost:1313\/categories\/video\/video-production\/",
@@ -97,28 +96,14 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
+    
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+
     
     
     
@@ -187,24 +172,25 @@
 <a href="/categories/youtube/" class="all-view-all-button-youtube">YouTube</a>
 </div>
 
+
         
+
 
 
 <div class="board-filter">
 <div class="blog-wapper">
 <a href="/categories/video/" class="blog-btn">영상 디자인 전체</a>
 <a href="/categories/video/video-production/" class="blog-btn-active">영상 제작</a>
-<a href="/categories/video/video-editing" class="blog-btn">영상 편집</a>
-<a href="/categories/video/motion-graphics" class="blog-btn">모션 그래픽</a>
+<a href="/categories/video/video-editing/" class="blog-btn">영상 편집</a>
+<a href="/categories/video/motion-graphics/" class="blog-btn">모션 그래픽</a>
 </div>
-
-
             
             <div class="board-search">
                 <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
                 <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
             </div>
         </div>
+
         
         
         <div class="board-grid-wide">
@@ -213,7 +199,7 @@
 
 
             <div class="board-item-wide" data-main="video" data-category="영상 제작">
-                <a href="http://localhost:1313/categories/video/2025-07-16-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91-%EC%A0%95%EA%B8%B0-%EB%B0%9C%ED%96%89%EB%AC%BC-%EC%87%BC%EC%B8%A0-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91/">
+                <a href="/categories/video/2025-07-16-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91-%EC%A0%95%EA%B8%B0-%EB%B0%9C%ED%96%89%EB%AC%BC-%EC%87%BC%EC%B8%A0-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91/">
                     <div class="board-item-img">
                         
                         
@@ -272,7 +258,7 @@
             </div>
             
             <div class="board-item-wide" data-main="video" data-category="영상 제작">
-                <a href="http://localhost:1313/categories/video/2025-07-16-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91-%ED%9A%8C%EC%82%AC-%EC%86%8C%EA%B0%9C-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8/">
+                <a href="/categories/video/2025-07-16-%EC%98%81%EC%83%81-%EC%A0%9C%EC%9E%91-%ED%9A%8C%EC%82%AC-%EC%86%8C%EA%B0%9C-%EC%98%81%EC%83%81-%EB%94%94%EC%9E%90%EC%9D%B8/">
                     <div class="board-item-img">
                         
                         
@@ -331,7 +317,7 @@
             </div>
             
             <div class="board-item-wide" data-main="video" data-category="영상 제작">
-                <a href="http://localhost:1313/categories/video/2025-06-28-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EA%B4%91%EA%B3%A0-%EC%98%81%EC%83%81/">
+                <a href="/categories/video/2025-06-28-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EA%B4%91%EA%B3%A0-%EC%98%81%EC%83%81/">
                     <div class="board-item-img">
                         
                         
@@ -412,6 +398,13 @@
 
     
     
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
+    
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <script src="/components/floating.js"></script>
@@ -442,7 +435,7 @@
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -452,18 +445,17 @@
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

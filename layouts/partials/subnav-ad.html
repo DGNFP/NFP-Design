@@ -1,0 +1,19 @@
+{{- /* subnav-ad.html — Usage: {{ partial "subnav-ad.html" (dict "active" "banner-signage") }} */ -}}
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/ad/" | relURL }}" class="{{ if eq .active "" }}blog-btn-active{{ else }}blog-btn{{ end }}">전체</a>
+<a href="{{ "/categories/ad/banner-signage/" | relURL }}" class="{{ if eq .active "banner-signage" }}blog-btn-active{{ else }}blog-btn{{ end }}">현수막 · 엑스배너</a>
+<a href="{{ "/categories/ad/logo-card/" | relURL }}" class="{{ if eq .active "logo-card" }}blog-btn-active{{ else }}blog-btn{{ end }}">로고 · 명함</a>
+<a href="{{ "/categories/ad/goods/" | relURL }}" class="{{ if eq .active "goods" }}blog-btn-active{{ else }}blog-btn{{ end }}">굿즈</a>
+<a href="{{ "/categories/ad/album-cover/" | relURL }}" class="{{ if eq .active "album-cover" }}blog-btn-active{{ else }}blog-btn{{ end }}">앨범커버 · 음반</a>
+<a href="{{ "/categories/ad/brochure-catalog/" | relURL }}" class="{{ if eq .active "brochure-catalog" }}blog-btn-active{{ else }}blog-btn{{ end }}">브로슈어 · 카탈로그</a>
+<a href="{{ "/categories/ad/menu-flyer/" | relURL }}" class="{{ if eq .active "menu-flyer" }}blog-btn-active{{ else }}blog-btn{{ end }}">메뉴판 · 전단지</a>
+<a href="{{ "/categories/ad/sticker/" | relURL }}" class="{{ if eq .active "sticker" }}blog-btn-active{{ else }}blog-btn{{ end }}">시트지</a>
+</div>
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>

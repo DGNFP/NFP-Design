@@ -8,7 +8,7 @@
             <h1 class="hero-title">안녕하세요.<br><span>NFP 디자인 </span>입니다.</h1>
             <p class="hero-subtitle"><br>고객의 <span>Needs</span>를 읽는 섬세한 시선<br>트렌드를 이끄는 <span>Fresh</span>한 감각<br>디테일을 살린 <span>Pop</span>한 디자인<br><span>NFP</span> 디자인, 디테일에서 시작해 트렌드를 완성하다.</p>
             <div class="hero-btns">
-                <a href="{{ "posts" | relURL }}" class="btn">작업 보기</a>
+                <a href="{{ "/categories/" | relURL }}" class="btn">작업 보기</a>
                 <a href="#contact" class="btn btn-outline">연락하기</a>
             </div>
         </div>
@@ -347,7 +347,7 @@
                 {{ $noticePosts := where site.RegularPages "Section" "notice" }}
                 {{ range first 1 $noticePosts.ByDate.Reverse }}
                 <div class="news-item">
-                    <a href="{{ .Permalink }}" class="news-link">
+                    <a href="{{ .RelPermalink }}" class="news-link">
                         <span class="news-title">
                             <span class="notice-badge">[공지]</span> {{ .Title }}
                         </span>
@@ -360,7 +360,7 @@
                 {{ $newsPosts := where site.RegularPages "Section" "news" }}
                 {{ range first 4 $newsPosts.ByDate.Reverse }}
                 <div class="news-item">
-                    <a href="{{ .Permalink }}" class="news-link">
+                    <a href="{{ .RelPermalink }}" class="news-link">
                         <span class="news-title">{{ .Title }}</span>
                         <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
                     </a>

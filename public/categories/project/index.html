@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -54,7 +53,7 @@
     <meta property="og:image:height" content="1200">
     <meta property="og:image:type" content="image/png">
     <meta property="og:url" content="http://localhost:1313/categories/project/">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
     
@@ -65,7 +64,7 @@
     
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Project - NFP 디자인">
+    <meta name="twitter:title" content="Project | 디자인 포트폴리오 - NFP 디자인">
     <meta name="twitter:description" content="">
     <meta property="twitter:image" content="http://localhost:1313/img/nfp-main.png">
     <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
@@ -74,7 +73,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "CollectionPage",
       "name": "Project",
       "description": "",
       "url": "http:\/\/localhost:1313\/categories\/project\/",
@@ -95,28 +94,14 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
+    
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+
     
     
     
@@ -185,6 +170,7 @@
 <a href="/categories/youtube/" class="all-view-all-button-youtube">YouTube</a>
 </div>
 
+
         
         
         <div class="board-filter">
@@ -210,7 +196,7 @@
             
             
             <div class="board-item-project-minimal" data-main="project" data-category="브랜딩">
-                <a href="http://localhost:1313/categories/project/2025-07-03-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EB%B3%91%EC%9B%90-%EB%B8%8C%EB%9E%9C%EB%94%A9/">
+                <a href="/categories/project/2025-07-03-%EB%A9%94%EB%94%94%EC%BB%AC-%ED%9E%90%EB%A7%81-%EC%9D%98%EC%9B%90-%EB%B3%91%EC%9B%90-%EB%B8%8C%EB%9E%9C%EB%94%A9/">
                     <div class="board-item-img">
                         
                         
@@ -283,7 +269,7 @@
             </div>
             
             <div class="board-item-project-minimal" data-main="project" data-category="브랜딩">
-                <a href="http://localhost:1313/categories/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/">
+                <a href="/categories/project/2025-06-30-%EB%A0%88%EB%8D%94%EC%9A%B0%EB%93%9C-%EA%B0%80%EA%B5%AC-%EB%B8%8C%EB%9E%9C%EB%94%A9/">
                     <div class="board-item-img">
                         
                         
@@ -387,6 +373,13 @@
 
     
     
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
+    
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <script src="/components/floating.js"></script>
@@ -417,7 +410,7 @@
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -427,18 +420,17 @@
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

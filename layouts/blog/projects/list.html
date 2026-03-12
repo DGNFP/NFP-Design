@@ -48,7 +48,7 @@
             {{ $allPosts := .Pages }}
             {{ range $allPosts }}
             <div class="board-item-creative" data-main="creative" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                   <!-- 이미지만 별도 영역 (카드 외부) -->
                     <div class="board-item-image-only">
                         {{ $content := .Content }}

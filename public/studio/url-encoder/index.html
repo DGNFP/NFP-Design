@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -97,29 +96,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -176,6 +161,7 @@
     </div>
 
 
+
 <div class="studio-home-section">
     <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
         <div class="home-icon">
@@ -193,56 +179,71 @@
 </div>
 
 
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
-<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
-<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
+<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
+<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
-<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
 <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn-active">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
 <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
     
@@ -594,6 +595,237 @@ function showToast(message) {
 </script>
 
 
+
+<section class="studio-seo-section">
+<div class="container">
+  
+  <div class="studio-md-content">
+    <h1 id="url-인코딩디코딩">URL 인코딩/디코딩</h1>
+<p>URL에 포함할 수 없는 특수문자를 안전한 형태로 변환하거나 인코딩된 URL을 원래 형태로 복원하는 도구입니다.</p>
+<h2 id="기능-소개">기능 소개</h2>
+<ul>
+<li><strong>실시간 변환</strong>: 입력과 동시에 즉시 인코딩/디코딩</li>
+<li><strong>양방향 변환</strong>: 인코딩과 디코딩을 동시에 지원</li>
+<li><strong>두 가지 모드</strong>: URL Component와 전체 URI 모드</li>
+<li><strong>예제 제공</strong>: 클릭 한 번으로 샘플 텍스트 입력</li>
+<li><strong>클립보드 복사</strong>: 결과를 쉽게 복사하여 활용</li>
+<li><strong>오류 처리</strong>: 잘못된 형식 입력 시 안전한 오류 처리</li>
+</ul>
+<h2 id="사용법">사용법</h2>
+<h3 id="url-인코딩">URL 인코딩</h3>
+<ol>
+<li><strong>텍스트 입력</strong>: 인코딩할 텍스트나 URL을 입력</li>
+<li><strong>모드 선택</strong>: URL Component 또는 전체 URI 선택</li>
+<li><strong>자동 변환</strong>: 입력과 동시에 결과 확인</li>
+<li><strong>결과 복사</strong>: 복사 버튼으로 클립보드에 저장</li>
+</ol>
+<h3 id="url-디코딩">URL 디코딩</h3>
+<ol>
+<li><strong>URL 입력</strong>: 디코딩할 인코딩된 URL 입력</li>
+<li><strong>모드 선택</strong>: URL Component 또는 전체 URI 선택</li>
+<li><strong>자동 변환</strong>: 입력과 동시에 결과 확인</li>
+<li><strong>결과 복사</strong>: 복사 버튼으로 클립보드에 저장</li>
+</ol>
+<h2 id="인코딩-모드">인코딩 모드</h2>
+<h3 id="url-component-권장">URL Component (권장)</h3>
+<ul>
+<li><strong>사용법</strong>: <code>encodeURIComponent()</code> / <code>decodeURIComponent()</code></li>
+<li><strong>특징</strong>: 모든 특수문자를 안전하게 인코딩</li>
+<li><strong>용도</strong>: 쿼리 파라미터, 경로 구성 요소</li>
+<li><strong>예시</strong>: <code>안녕하세요</code> → <code>%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94</code></li>
+</ul>
+<h3 id="전체-uri">전체 URI</h3>
+<ul>
+<li><strong>사용법</strong>: <code>encodeURI()</code> / <code>decodeURI()</code></li>
+<li><strong>특징</strong>: URL 구조는 유지하며 필요한 부분만 인코딩</li>
+<li><strong>용도</strong>: 완전한 URL 문자열</li>
+<li><strong>예시</strong>: <code>https://예제.com/경로</code> → <code>https://%EC%98%88%EC%A0%9C.com/%EA%B2%BD%EB%A1%9C</code></li>
+</ul>
+<h2 id="인코딩이-필요한-문자">인코딩이 필요한 문자</h2>
+<h3 id="예약된-문자-reserved-characters">예약된 문자 (Reserved Characters)</h3>
+<p>URL에서 특별한 의미를 가지므로 인코딩 필요:</p>
+<table>
+  <thead>
+      <tr>
+          <th>문자</th>
+          <th>인코딩</th>
+          <th>의미</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>:</code></td>
+          <td><code>%3A</code></td>
+          <td>스키마 구분자</td>
+      </tr>
+      <tr>
+          <td><code>/</code></td>
+          <td><code>%2F</code></td>
+          <td>경로 구분자</td>
+      </tr>
+      <tr>
+          <td><code>?</code></td>
+          <td><code>%3F</code></td>
+          <td>쿼리 시작</td>
+      </tr>
+      <tr>
+          <td><code>#</code></td>
+          <td><code>%23</code></td>
+          <td>프래그먼트</td>
+      </tr>
+      <tr>
+          <td><code>[</code> <code>]</code></td>
+          <td><code>%5B</code> <code>%5D</code></td>
+          <td>IPv6 주소</td>
+      </tr>
+      <tr>
+          <td><code>@</code></td>
+          <td><code>%40</code></td>
+          <td>사용자 정보</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="안전하지-않은-문자-unsafe-characters">안전하지 않은 문자 (Unsafe Characters)</h3>
+<p>URL에서 문제를 일으킬 수 있는 문자:</p>
+<table>
+  <thead>
+      <tr>
+          <th>문자</th>
+          <th>인코딩</th>
+          <th>설명</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>(공백)</td>
+          <td><code>%20</code></td>
+          <td>공백 문자</td>
+      </tr>
+      <tr>
+          <td><code>&quot;</code></td>
+          <td><code>%22</code></td>
+          <td>큰따옴표</td>
+      </tr>
+      <tr>
+          <td><code>&lt;</code> <code>&gt;</code></td>
+          <td><code>%3C</code> <code>%3E</code></td>
+          <td>부등호</td>
+      </tr>
+      <tr>
+          <td><code>{</code> <code>}</code></td>
+          <td><code>%7B</code> <code>%7D</code></td>
+          <td>중괄호</td>
+      </tr>
+      <tr>
+          <td><code>|</code></td>
+          <td><code>%7C</code></td>
+          <td>파이프</td>
+      </tr>
+      <tr>
+          <td><code>^</code></td>
+          <td><code>%5E</code></td>
+          <td>캐럿</td>
+      </tr>
+      <tr>
+          <td><code>`</code></td>
+          <td><code>%60</code></td>
+          <td>백틱</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="유니코드-문자">유니코드 문자</h3>
+<p>한글, 중국어, 일본어 등 비ASCII 문자:</p>
+<table>
+  <thead>
+      <tr>
+          <th>문자</th>
+          <th>인코딩 예시</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>한글</td>
+          <td><code>안녕</code> → <code>%EC%95%88%EB%85%95</code></td>
+      </tr>
+      <tr>
+          <td>중국어</td>
+          <td><code>你好</code> → <code>%E4%BD%A0%E5%A5%BD</code></td>
+      </tr>
+      <tr>
+          <td>일본어</td>
+          <td><code>こんにちは</code> → <code>%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF</code></td>
+      </tr>
+      <tr>
+          <td>이모지</td>
+          <td><code>😀</code> → <code>%F0%9F%98%80</code></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="활용-사례">활용 사례</h2>
+<h3 id="웹-개발">웹 개발</h3>
+<ul>
+<li><strong>폼 데이터</strong>: 사용자 입력 데이터를 URL에 포함</li>
+<li><strong>API 호출</strong>: REST API의 쿼리 파라미터 인코딩</li>
+<li><strong>검색 기능</strong>: 검색어를 URL 파라미터로 전달</li>
+<li><strong>파일 경로</strong>: 특수문자가 포함된 파일명 처리</li>
+</ul>
+<h3 id="seo-최적화">SEO 최적화</h3>
+<ul>
+<li><strong>다국어 URL</strong>: 한글 또는 다른 언어의 URL 슬러그</li>
+<li><strong>카테고리 이름</strong>: 공백이나 특수문자가 포함된 카테고리</li>
+<li><strong>태그 시스템</strong>: 복잡한 태그명의 URL 파라미터 처리</li>
+</ul>
+<h3 id="데이터-전송">데이터 전송</h3>
+<ul>
+<li><strong>이메일 링크</strong>: <code>mailto:</code> 링크의 제목이나 본문</li>
+<li><strong>소셜 공유</strong>: SNS 공유 링크의 텍스트 인코딩</li>
+<li><strong>QR 코드</strong>: QR 코드에 포함할 URL 데이터</li>
+</ul>
+<h2 id="사용-예시">사용 예시</h2>
+<h3 id="검색-url-생성">검색 URL 생성</h3>
+
+  </div>
+  
+  <div class="studio-related-section">
+    <h3 class="studio-related-title">관련 도구</h3>
+    <div class="studio-related-grid">
+      <a href="/studio/base64/" class="studio-related-item">
+        <span class="related-title">Base64 인코딩/디코딩</span>
+        <span class="related-desc">텍스트와 파일을 Base64 형태로 변환하거나 원본으로 복원하는 도구입니다.</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "URL 인코딩\/디코딩 - Studio NFP",
+  "description": "URL에 특수문자를 안전하게 사용하거나 인코딩된 URL을 해독하는 도구입니다.",
+  "url": "http:\/\/localhost:1313\/studio\/url-encoder\/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "http:\/\/localhost:1313\/"
+  },
+  "keywords": "URL 인코딩, URL 디코딩, 퍼센트 인코딩, URI 변환, 특수문자 인코딩, 웹 개발"
+}
+</script>
+
+
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
@@ -607,6 +839,13 @@ function showToast(message) {
 
 
     
+    
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
     
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -638,7 +877,7 @@ function showToast(message) {
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -648,18 +887,17 @@ function showToast(message) {
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

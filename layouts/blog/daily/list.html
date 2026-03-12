@@ -47,7 +47,7 @@
 {{ $blogPosts := where .Site.RegularPages ".RelPermalink" "like" "/blog/daily/*" }}
                 {{ range $blogPosts.ByDate.Reverse }}
                 <div class="board-all-item" data-main="blog" data-category="{{ .Params.subCategory }}">
-                    <a href="{{ .Permalink }}">
+                    <a href="{{ .RelPermalink }}">
                         <!-- 통합 썸네일 처리 -->
                         <div class="board-thumbnail">
                             {{ $content := .Content }}
@@ -171,7 +171,7 @@
                                 {{ end }}
                             </div>
                             {{ end }}
-                            <a href="{{ .Permalink }}" class="board-all-item-link"></a>
+                            <a href="{{ .RelPermalink }}" class="board-all-item-link"></a>
                         </div>
                     </a>
                 </div>

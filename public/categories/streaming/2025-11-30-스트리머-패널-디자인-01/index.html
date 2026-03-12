@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -41,7 +40,7 @@
 <title>[ 패널 디자인 ] 스트리머 패널 디자인-01 - NFP 디자인 | 스튜디오 NFP</title>
 
 
-<meta name="keywords" content="NFP 디자인, NFP디자인, NFP Design, Studio NFP, 스튜디오 NFP, 스튜디오NFP, 디자인 외주, 웹 퍼블리싱, 웹 디자인, 영상제작, 영상편집, 홈페이지, 로고 디자인, 포스터 디자인, 카드뉴스 디자인, 모션그래픽, 이벤트, SNS 광고, 광고 디자인, 현수막 디자인, 명함, 배너, 엑스배너, 디자인 도구, 온라인 도구, 무료 도구">
+<meta name="keywords" content="NFP 디자인, NFP Design, 스튜디오 NFP, Studio NFP">
 
 
 <meta name="robots" content="index, follow">
@@ -49,7 +48,7 @@
 <meta name="author" content="NFP Design">
     
     
-    <meta property="og:title" content="스트리머 패널 디자인-01 | 디자인 포트폴리오 - NFP 디자인">
+    <meta property="og:title" content="스트리머 패널 디자인-01 | 인터넷 방송 디자인 - NFP 디자인">
     <meta property="og:description" content="
     
     
@@ -75,7 +74,7 @@
     
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="스트리머 패널 디자인-01 - NFP 디자인">
+    <meta name="twitter:title" content="스트리머 패널 디자인-01 | 인터넷 방송 디자인 - NFP 디자인">
     <meta name="twitter:description" content="
     
     
@@ -109,29 +108,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -200,6 +185,7 @@
 </div>
 
 
+
         <div class="post-container">
             
             <div class="post-header">
@@ -210,17 +196,7 @@
                     
                         <span class="post-category">
                             
-                            
-                            
-                            
-                            
-                            
                             인터넷 방송 디자인
-                            
-                            
-                            
-                            
-                            
                             
                                 · 패널 디자인
                             
@@ -369,9 +345,7 @@
     <div class="related-posts-header">
         <h3>
             
-                
-                인터넷 방송 디자인
-                의 관련 게시글
+                인터넷 방송 디자인의 관련 게시글
             
         </h3>
     </div>
@@ -634,11 +608,11 @@ const postId = decodeURIComponent(window.location.pathname)
 async function updateViews() {
     try {
         await waitForFirebase();
-        
+
         const { doc, getDoc, setDoc, updateDoc, increment } = window.firestoreUtils;
         const db = window.firebaseDB;
-        
-        
+
+
         const docRef = doc(db, "post_views", postId);
         const docSnap = await getDoc(docRef);
 
@@ -696,6 +670,13 @@ document.addEventListener('DOMContentLoaded', updateViews);
 
     
     
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
+    
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
     <script src="/components/floating.js"></script>
@@ -726,7 +707,7 @@ document.addEventListener('DOMContentLoaded', updateViews);
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -736,18 +717,17 @@ document.addEventListener('DOMContentLoaded', updateViews);
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

@@ -5,44 +5,10 @@
         <h2 class="board-section-title"><span>광고 · 인쇄</span> 디자인</h2>
         <p class="board-intro">홍보용 배너부터 명함, 메뉴판 등 오프라인 매체 디자인</p>
         
-<!-- 전체작업 버튼만 별도로 구분 -->
-<div class="view-wrapper">
-<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
-</div>
-<!-- 그 아래 나머지 버튼들         -->
-<div class="all-view-all-wrapper">
-<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
-<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
-<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button">인터넷 방송 디자인</a>
-<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
-<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
-<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button-active">광고 디자인</a>
-<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">NFP 블로그</a>
-<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
-</div>
-<!-- 버튼 컨테이너 닫힘 -->
+{{ partial "categories-main-nav.html" (dict "active" "ad") }}
 
 <!-- 카테고리 네비게이션 -->
-<div class="board-filter">
-<div class="blog-wapper">
-<a href="{{ "/categories/ad/" | relURL }}" class="blog-btn">전체</a>
-<a href="{{ "/categories/ad/banner-signage/" | relURL }}" class="blog-btn">현수막 · 엑스배너</a>
-<a href="{{ "/categories/ad/logo-card/" | relURL }}" class="blog-btn">로고 · 명함</a>
-<a href="{{ "/categories/ad/goods/" | relURL }}" class="blog-btn">굿즈</a>
-<a href="{{ "/categories/ad/album-cover/" | relURL }}" class="blog-btn">앨범커버 · 음반</a>
-<a href="{{ "/categories/ad/brochure-catalog/" | relURL }}" class="blog-btn">브로슈어 · 카탈로그</a>
-<a href="{{ "/categories/ad/menu-flyer/" | relURL }}" class="blog-btn">메뉴판 · 전단지</a>
-<a href="{{ "/categories/ad/sticker/" | relURL }}" class="blog-btn-active">시트지</a>
-</div>
-            
-            <!-- 검색창 -->
-            <div class="board-search">
-                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
-                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
+{{ partial "subnav-ad.html" (dict "active" "sticker") }}
         
         <!-- 게시판 그리드 (3x3 정사각형 레이아웃) -->
         <div class="board-grid-ad">
@@ -51,7 +17,7 @@
 {{ $filteredPosts := where $allPosts ".Params.subCategory" "시트지 디자인" }} 
 {{ range $filteredPosts }}
             <div class="board-item-ad" data-main="ad" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <div class="board-item-img">
                         {{ $content := .Content }}
                         {{ $hasVideo := false }}

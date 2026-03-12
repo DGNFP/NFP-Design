@@ -476,6 +476,195 @@ margin-bottom: 40px;
 width: 1000px;
 }
 
+/* 네비게이션 카테고리 구분선 */
+.nav-section-label {
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+    padding: 4px 0;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-section-label:first-child {
+    margin-top: 0;
+}
+
+.nav-section-label i {
+    width: 22px;
+    height: 22px;
+    background: var(--accent-color);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+}
+
+/* ── SEO 푸터 섹션 ───────────────────────────── */
+.studio-seo-section {
+    margin-top: 60px;
+    padding: 40px 0 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* md 본문 콘텐츠 */
+.studio-md-content {
+    margin-bottom: 48px;
+}
+
+.studio-md-content h1 { display: none; } /* 상단 h1과 중복 방지 */
+
+.studio-md-content h2 {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 32px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(1, 255, 117, 0.2);
+}
+
+.studio-md-content h3 {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 20px 0 8px;
+}
+
+.studio-md-content h4 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin: 14px 0 6px;
+}
+
+.studio-md-content p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.88rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.studio-md-content ul,
+.studio-md-content ol {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.88rem;
+    padding-left: 20px;
+    margin-bottom: 12px;
+}
+
+.studio-md-content li {
+    line-height: 1.8;
+    margin-bottom: 4px;
+}
+
+.studio-md-content strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.studio-md-content code {
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.82em;
+    font-family: monospace;
+}
+
+/* 마크다운 테이블 */
+.studio-md-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 0.85rem;
+}
+
+.studio-md-content th {
+    background: rgba(1, 255, 117, 0.1);
+    color: var(--accent-color);
+    font-weight: 700;
+    text-align: left;
+    padding: 10px 14px;
+    border: 1px solid rgba(1, 255, 117, 0.2);
+}
+
+.studio-md-content td {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 1.6;
+}
+
+.studio-md-content tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* 관련 도구 섹션 */
+.studio-related-section {
+    margin-top: 40px;
+}
+
+.studio-related-title {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.studio-related-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.studio-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.studio-related-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.studio-related-item:hover {
+    border-color: var(--accent-color);
+    background: rgba(1, 255, 117, 0.05);
+}
+
+.studio-related-item .related-title {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.studio-related-item .related-desc {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
 /* 개별버튼 */
 .sub-page-btn {
 padding: 8px 16px;

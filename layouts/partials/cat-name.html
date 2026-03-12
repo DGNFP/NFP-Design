@@ -1,0 +1,19 @@
+{{- /*
+  cat-name.html — 카테고리 슬러그 → 한국어 이름 변환
+  Usage: {{ partial "cat-name.html" "web" }} → "웹 디자인"
+*/ -}}
+{{- $names := dict
+  "web"       "웹 디자인"
+  "ad"        "광고 디자인"
+  "content"   "컨텐츠 디자인"
+  "game-ad"   "게임 광고 디자인"
+  "creative"  "크리에이티브 디자인"
+  "streaming" "인터넷 방송 디자인"
+  "video"     "영상 디자인"
+  "programming" "웹 퍼블리싱"
+  "project"   "프로젝트"
+  "youtube"   "유튜브"
+  "games"     "게임 블로그"
+  "blog"      "블로그"
+-}}
+{{- index $names . | default . -}}

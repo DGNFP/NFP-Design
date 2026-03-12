@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -97,29 +96,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -176,6 +161,7 @@
     </div>
 
 
+
 <div class="studio-home-section">
     <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
         <div class="home-icon">
@@ -193,56 +179,71 @@
 </div>
 
 
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
-<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
-<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
+<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
+<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn-active">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
-<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
 <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
 <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
     
@@ -380,6 +381,119 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
+
+<section class="studio-seo-section">
+<div class="container">
+  
+  <div class="studio-md-content">
+    <h1 id="컬러-카드-뽑기">컬러 카드 뽑기</h1>
+<p>오늘은 어떤 컬러가 당신을 기다리고 있을까요? 랜덤으로 컬러 카드를 뽑아 창의적 영감을 얻어보세요.</p>
+<p>각 카드는 색상 정보와 함께 특별한 의미를 담고 있습니다. 단색 카드부터 아름다운 그라데이션 카드까지 다양한 종류의 카드가 준비되어 있습니다.</p>
+<h2 id="카드-종류">카드 종류</h2>
+<table>
+  <thead>
+      <tr>
+          <th>카드 타입</th>
+          <th>설명</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>단색 카드</td>
+          <td>하나의 색상과 색상 이름, HEX 코드 제공</td>
+      </tr>
+      <tr>
+          <td>그라데이션 카드</td>
+          <td>두 색상의 그라데이션과 CSS 코드 제공</td>
+      </tr>
+      <tr>
+          <td>컬러 팔레트 카드</td>
+          <td>5가지 색상 조합으로 구성된 팔레트</td>
+      </tr>
+      <tr>
+          <td>스페셜 카드</td>
+          <td>희귀하게 등장하는 특별한 컬러 테마 카드</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="사용-방법">사용 방법</h2>
+<ol>
+<li><strong>카드 뽑기</strong> 버튼을 클릭하거나 카드를 클릭하면 랜덤 컬러 카드가 등장합니다.</li>
+<li>카드의 색상 코드(HEX, RGB)를 클릭하면 클립보드에 복사됩니다.</li>
+<li>마음에 드는 카드는 <strong>저장</strong> 버튼으로 컬렉션에 보관할 수 있습니다.</li>
+<li>저장한 카드는 하단 컬렉션에서 언제든지 다시 확인할 수 있습니다.</li>
+</ol>
+<h2 id="주요-기능">주요 기능</h2>
+<ul>
+<li><strong>랜덤 컬러 생성</strong>: 매번 다른 색상의 카드를 랜덤으로 뽑기</li>
+<li><strong>카드 저장</strong>: 마음에 드는 카드를 컬렉션에 저장하여 나중에 재확인</li>
+<li><strong>색상 코드 복사</strong>: HEX·RGB 색상 코드 원클릭 복사</li>
+<li><strong>스페셜 카드</strong>: 낮은 확률로 등장하는 희귀 테마 카드 수집</li>
+<li><strong>CSS 코드 제공</strong>: 그라데이션 카드의 경우 바로 사용 가능한 CSS 코드 제공</li>
+</ul>
+
+  </div>
+  
+  <div class="studio-related-section">
+    <h3 class="studio-related-title">관련 도구</h3>
+    <div class="studio-related-grid">
+      <a href="/studio/gradient-2/" class="studio-related-item">
+        <span class="related-title">2색 그라데이션 팔레트</span>
+        <span class="related-desc">두 가지 컬러로 아름다운 그라데이션을 만들고 CSS 코드를 생성하는 도구입니다.</span>
+      </a>
+      <a href="/studio/gradient-3/" class="studio-related-item">
+        <span class="related-title">3색 그라데이션 팔레트</span>
+        <span class="related-desc">세 가지 컬러로 복잡하고 아름다운 그라데이션을 만들고 CSS 코드를 생성하는 도구입니다.</span>
+      </a>
+      <a href="/studio/color-palette-random/" class="studio-related-item">
+        <span class="related-title">5색 랜덤 팔레트</span>
+        <span class="related-desc">서로 관계없는 완전히 랜덤한 5색 컬러 팔레트를 생성하는 도구입니다.</span>
+      </a>
+      <a href="/studio/rgb-cmyk/" class="studio-related-item">
+        <span class="related-title">RGB ↔ CMYK 변환기</span>
+        <span class="related-desc">디지털(RGB)과 인쇄(CMYK) 색상을 상호 변환하는 도구</span>
+      </a>
+      <a href="/studio/gradient-card/" class="studio-related-item">
+        <span class="related-title">그라데이션 카드 뽑기</span>
+        <span class="related-desc">랜덤으로 그라데이션 카드를 뽑아 오늘의 색상 조합 영감을 얻어보세요. 다채로운 2색·3색  …</span>
+      </a>
+      <a href="/studio/color-palette-5/" class="studio-related-item">
+        <span class="related-title">컬러 팔레트 생성기</span>
+        <span class="related-desc">조화로운 5색 컬러 팔레트를 자동으로 생성하는 도구입니다.</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "컬러 카드 뽑기 - Studio NFP",
+  "description": "랜덤으로 컬러 카드를 뽑아 오늘의 색상 영감을 얻어보세요. 단색과 그라데이션 카드를 제공합니다.",
+  "url": "http:\/\/localhost:1313\/studio\/single-card\/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "http:\/\/localhost:1313\/"
+  },
+  "keywords": "컬러 카드, 색상 뽑기, 컬러 영감, 랜덤 색상, 그라데이션 카드, 디자인 도구"
+}
+</script>
+
+
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
@@ -393,6 +507,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     
+    
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
     
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -424,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -434,18 +555,17 @@ document.addEventListener('DOMContentLoaded', function () {
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

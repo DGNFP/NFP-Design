@@ -48,7 +48,7 @@
             {{ $allPosts := .Pages }}
             {{ range $allPosts }}
             <div class="board-item-square" data-main="content" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                    <div class="board-item-img">
                         {{ $content := .Content }}
                         {{ $hasVideo := false }}

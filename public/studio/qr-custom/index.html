@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -97,29 +96,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -176,6 +161,7 @@
     </div>
 
 
+
 <div class="studio-home-section">
     <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
         <div class="home-icon">
@@ -193,56 +179,71 @@
 </div>
 
 
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
-<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
-<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
+<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
+<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn-active">커스텀 QR코드 생성기</a>
-<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
 <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
 <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
     
@@ -1140,6 +1141,167 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+
+<section class="studio-seo-section">
+<div class="container">
+  
+  <div class="studio-md-content">
+    <h1 id="커스텀-qr-코드-생성">커스텀 QR 코드 생성</h1>
+<p>브랜드 아이덴티티에 맞춘 색상과 로고가 적용된 개성있는 커스텀 QR 코드를 생성하는 도구입니다.</p>
+<h2 id="기능-소개">기능 소개</h2>
+<ul>
+<li><strong>색상 커스터마이징</strong>: 전경색과 배경색을 브랜드 컬러에 맞게 자유 변경</li>
+<li><strong>로고 삽입</strong>: 중앙에 브랜드 로고나 아이콘 추가 (크기 조절 가능)</li>
+<li><strong>프리셋 색상</strong>: 인기 색상 조합을 원클릭으로 적용</li>
+<li><strong>실시간 미리보기</strong>: 설정 변경 시 즉시 결과 확인</li>
+</ul>
+<h2 id="사용법">사용법</h2>
+<ol>
+<li><strong>기본 설정</strong>: 변환할 내용과 QR 코드 크기를 설정하세요</li>
+<li><strong>색상 선택</strong>: 전경색(QR 코드)과 배경색을 지정하거나 프리셋을 사용하세요</li>
+<li><strong>로고 업로드</strong>: 원한다면 중앙에 들어갈 로고 이미지를 업로드하세요</li>
+<li><strong>크기 조절</strong>: 로고 크기를 10~25% 범위에서 조절하세요</li>
+<li><strong>생성 및 다운로드</strong>: QR 코드를 생성하고 PNG 파일로 저장하세요</li>
+</ol>
+<h2 id="색상-설정-가이드">색상 설정 가이드</h2>
+<h3 id="전경색-qr-코드">전경색 (QR 코드)</h3>
+<p>QR 코드 패턴의 색상입니다. 스캔이 잘되도록 배경색과 충분한 대비를 유지해야 합니다.</p>
+<h3 id="배경색">배경색</h3>
+<p>QR 코드 뒤쪽 바탕색입니다. 일반적으로 밝은 색상을 권장합니다.</p>
+<h3 id="프리셋-색상-조합">프리셋 색상 조합</h3>
+<table>
+  <thead>
+      <tr>
+          <th>프리셋</th>
+          <th>전경색</th>
+          <th>배경색</th>
+          <th>용도</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>기본</strong></td>
+          <td>검정</td>
+          <td>흰색</td>
+          <td>범용적 사용, 높은 가독성</td>
+      </tr>
+      <tr>
+          <td><strong>NFP 그린</strong></td>
+          <td>NFP 그린</td>
+          <td>검정</td>
+          <td>NFP 브랜드 스타일</td>
+      </tr>
+      <tr>
+          <td><strong>화이트/그린</strong></td>
+          <td>흰색</td>
+          <td>NFP 그린</td>
+          <td>독특한 역전 스타일</td>
+      </tr>
+      <tr>
+          <td><strong>핑크 톤</strong></td>
+          <td>핑크</td>
+          <td>라이트 그레이</td>
+          <td>부드럽고 모던한 느낌</td>
+      </tr>
+      <tr>
+          <td><strong>블루 톤</strong></td>
+          <td>블루</td>
+          <td>라이트 블루</td>
+          <td>신뢰감 있는 기업용</td>
+      </tr>
+      <tr>
+          <td><strong>오렌지 톤</strong></td>
+          <td>오렌지</td>
+          <td>크림</td>
+          <td>활기찬 에너지 표현</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="로고-삽입-가이드">로고 삽입 가이드</h2>
+<h3 id="권장-로고-사양">권장 로고 사양</h3>
+<ul>
+<li><strong>파일 형식</strong>: PNG (투명 배경 권장), JPG</li>
+<li><strong>최적 크기</strong>: 정사각형 (1:1 비율)</li>
+<li><strong>권장 크기</strong>: 15% (기본값)</li>
+<li><strong>최대 크기</strong>: 25% (가독성 한계)</li>
+</ul>
+<h3 id="로고-디자인-팁">로고 디자인 팁</h3>
+<ul>
+<li><strong>단순한 디자인</strong>: 복잡한 디테일은 작은 크기에서 잘 보이지 않음</li>
+<li><strong>높은 대비</strong>: 로고가 QR 코드와 구분되도록 명확한 색상 사용</li>
+<li><strong>투명 배경</strong>: PNG 형식의 투명 배경 로고 사용 권장</li>
+</ul>
+<h2 id="스캔-품질-최적화">스캔 품질 최적화</h2>
+<h3 id="색상-대비">색상 대비</h3>
+<ul>
+<li>전경색과 배경색 간 충분한 명도 차이 유지</li>
+<li>너무 비슷한 색상 조합 피하기</li>
+<li>고대비 색상 조합 권장 (예: 검정/흰색, 진한 파랑/흰색)</li>
+</ul>
+<h3 id="로고-크기-균형">로고 크기 균형</h3>
+<ul>
+<li><strong>10-15%</strong>: 안전한 크기, 스캔 성공률 높음</li>
+<li><strong>16-20%</strong>: 적절한 브랜딩과 스캔성 균형</li>
+<li><strong>21-25%</strong>: 강한 브랜딩, 스캔 환경에 따라 성공률 변동</li>
+</ul>
+<h3 id="테스트-권장사항">테스트 권장사항</h3>
+<ol>
+<li>생성된 QR 코드를 다양한 스마트폰으로 스캔 테스트</li>
+<li>인쇄물에서의 스캔 테스트 (명함, 포스터 등)</li>
+<li>다양한 조명 환경에서의 인식률 확인</li>
+</ol>
+<h2 id="활용-사례">활용 사례</h2>
+<ul>
+<li><strong>브랜드 마케팅</strong>: 회사 로고가 들어간 브랜딩 QR 코드</li>
+<li><strong>이벤트 홍보</strong>: 이벤트 컬러에 맞춘 테마 QR 코드</li>
+<li><strong>제품 패키징</strong>: 제품 색상과 어울리는 커스텀 QR 코드</li>
+<li><strong>소셜미디어</strong>: SNS 브랜드 가이드라인에 맞는 QR 코드</li>
+<li><strong>명함 디자인</strong>: 명함 디자인과 조화로운 개성적 QR 코드</li>
+</ul>
+<p>커스텀 QR 코드는 단순한 정보 전달을 넘어 브랜드 인지도 향상과 마케팅 효과까지 기대할 수 있는 강력한 도구입니다.</p>
+
+  </div>
+  
+  <div class="studio-related-section">
+    <h3 class="studio-related-title">관련 도구</h3>
+    <div class="studio-related-grid">
+      <a href="/studio/qr-basic/" class="studio-related-item">
+        <span class="related-title">QR 코드 생성기</span>
+        <span class="related-desc">URL, 텍스트, 연락처 정보를 간편하게 QR 코드로 변환하는 도구입니다.</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "커스텀 QR 코드 생성기 - Studio NFP",
+  "description": "색상과 로고를 자유롭게 커스터마이징할 수 있는 브랜드 맞춤형 QR 코드 생성기입니다.",
+  "url": "http:\/\/localhost:1313\/studio\/qr-custom\/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "http:\/\/localhost:1313\/"
+  },
+  "keywords": "커스텀 QR, 브랜드 QR, 로고 QR, 색상 QR, 맞춤형 QR, 디자인 QR, 개성 QR"
+}
+</script>
+
+
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
@@ -1153,6 +1315,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     
+    
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
     
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -1184,7 +1353,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -1194,18 +1363,17 @@ document.addEventListener('DOMContentLoaded', function() {
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

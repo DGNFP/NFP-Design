@@ -7,13 +7,11 @@
  * @param {string} companyName - 회사명 (기본값: 'NFP DESIGN')
  */
 function createFooter(targetElementId = 'footer-container', year = new Date().getFullYear(), companyName = 'NFP DESIGN') {
-    // 외부 CSS 로드 (절대 경로로 수정)
-    const cssHref = '/css/styles.css';
-    const existingLink = document.querySelector(`link[href="${cssHref}"]`);
-    if (!existingLink) {
+    // 외부 CSS 로드 (이미 로드된 경우 중복 삽입 방지)
+    if (!document.querySelector('link[href$="/css/styles.css"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = cssHref;
+        link.href = '/css/styles.css';
         document.head.appendChild(link);
     }
 
@@ -30,7 +28,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
             <i class="fab fa-tiktok"></i>
             </a>
 
-            <a href="http://pf.kakao.com/_ffMtn" target="_blank" class="social-link social-link-kakao">
+            <a href="${(window.siteConfig && window.siteConfig.kakaoURL) || 'https://pf.kakao.com/_ffMtn'}" target="_blank" rel="noopener noreferrer" class="social-link social-link-kakao">
             <i class="fas fa-comment"></i>
             </a>
 

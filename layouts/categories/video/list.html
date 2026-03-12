@@ -5,42 +5,11 @@
         <h2 class="board-section-title"><span>영상</span> 디자인</h2>
         <p class="board-intro">영상 제작, 영상 편집, 모션 그래픽 등 영상 관련 작업</p>
 
-<!-- 전체작업 버튼만 별도로 구분 -->
-<div class="view-wrapper">
-<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
-</div>
-<!-- 그 아래 나머지 버튼들         -->
-<div class="all-view-all-wrapper">
-<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
-<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
-<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button">인터넷 방송 디자인</a>
-<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button-active">영상 디자인</a>
-<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
-<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고 디자인</a>
-<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">NFP 블로그</a>
-<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
-</div>
-<!-- 버튼 컨테이너 닫힘 -->
+{{ partial "categories-main-nav.html" (dict "active" "video") }}
         
 
 <!-- 카테고리 네비게이션 -->
-<div class="board-filter">
-<div class="blog-wapper">
-<a href="{{ "/categories/video/" | relURL }}" class="blog-btn-active">영상 디자인 전체</a>
-<a href="{{ "/categories/video/video-production/" | relURL }}" class="blog-btn">영상 제작</a>
-<a href="{{ "/categories/video/video-editing" | relURL }}" class="blog-btn">영상 편집</a>
-<a href="{{ "/categories/video/motion-graphics" | relURL }}" class="blog-btn">모션 그래픽</a>
-</div>
-
-
-            <!-- 검색창 -->
-            <div class="board-search">
-                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
-                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
+{{ partial "subnav-video.html" (dict "active" "") }}
         
         <!-- 와이드 레이아웃 게시판 그리드 (4x3) -->
         <div class="board-grid-wide">
@@ -48,7 +17,7 @@
             {{ $allPosts := .Pages }}
             {{ range $allPosts }}
             <div class="board-item-wide" data-main="video" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <div class="board-item-img">
                         {{ $content := .Content }}
                         {{ $hasVideo := false }}

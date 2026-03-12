@@ -1,0 +1,66 @@
+{{- /*
+  studio-seo-footer.html
+  Usage: {{ partial "studio-seo-footer.html" . }}
+  - md 본문 콘텐츠 렌더링 (기능 소개, 사용법 등)
+  - 같은 카테고리 관련 도구 추천
+  - WebApplication Schema (JSON-LD)
+*/ -}}
+
+{{- $currentURL := .Permalink }}
+{{- $studioPages := where .Site.RegularPages "Section" "studio" }}
+{{- $related := where $studioPages ".Params.studio_category" .Params.studio_category }}
+{{- $related = where $related "Permalink" "ne" $currentURL }}
+
+<section class="studio-seo-section">
+<div class="container">
+
+  {{- if .Content }}
+  <!-- md 본문 콘텐츠 -->
+  <div class="studio-md-content">
+    {{ .Content }}
+  </div>
+  {{- end }}
+
+  {{- if $related }}
+  <!-- 관련 도구 -->
+  <div class="studio-related-section">
+    <h3 class="studio-related-title">관련 도구</h3>
+    <div class="studio-related-grid">
+      {{- range first 6 $related }}
+      <a href="{{ .RelPermalink }}" class="studio-related-item">
+        <span class="related-title">{{ .Title }}</span>
+        <span class="related-desc">{{ .Description | truncate 50 }}</span>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+
+</div>
+</section>
+
+<!-- WebApplication Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "{{ .Title }} - Studio NFP",
+  "description": "{{ .Description }}",
+  "url": "{{ .Permalink }}",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "{{ .Site.BaseURL }}"
+  }{{ with .Params.keywords }},
+  "keywords": "{{ delimit . ", " }}"{{ end }}
+}
+</script>

@@ -1,0 +1,18 @@
+{{- /* subnav-streaming.html — Usage: {{ partial "subnav-streaming.html" (dict "active" "thumbnail-design") }} */ -}}
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/streaming/" | relURL }}" class="{{ if eq .active "" }}blog-btn-active{{ else }}blog-btn{{ end }}">전체</a>
+<a href="{{ "/categories/streaming/thumbnail-design/" | relURL }}" class="{{ if eq .active "thumbnail-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">썸네일 디자인</a>
+<a href="{{ "/categories/streaming/logo-design/" | relURL }}" class="{{ if eq .active "logo-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">방송 로고</a>
+<a href="{{ "/categories/streaming/schedule-design/" | relURL }}" class="{{ if eq .active "schedule-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">방송 스케줄표</a>
+<a href="{{ "/categories/streaming/channel-art/" | relURL }}" class="{{ if eq .active "channel-art" }}blog-btn-active{{ else }}blog-btn{{ end }}">채널아트</a>
+<a href="{{ "/categories/streaming/panel-design/" | relURL }}" class="{{ if eq .active "panel-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">패널 디자인</a>
+<a href="{{ "/categories/streaming/oap-design/" | relURL }}" class="{{ if eq .active "oap-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">OAP 디자인 (오버레이)</a>
+</div>
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>

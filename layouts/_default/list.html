@@ -66,7 +66,7 @@
                 {{ $mainCat = index .Params.categories 0 }}
             {{ end }}
             <div class="board-all-item" data-main="{{ $mainCat }}" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <!-- 새로운 통합 썸네일 처리 (WebP 지원) -->
 <div class="board-thumbnail">
 {{ $content := .Content }}
@@ -240,16 +240,7 @@
 {{ if .Params.categories }}
     <p class="board-all-item-desc">
         {{ $mainCategory := index .Params.categories 0 }}
-        {{ if eq $mainCategory "web" }}웹 디자인{{ end }}
-        {{ if eq $mainCategory "ad" }}광고/인쇄 디자인{{ end }}
-        {{ if eq $mainCategory "content" }}컨텐츠 디자인{{ end }}
-        {{ if eq $mainCategory "creative" }}크리에이티브 디자인{{ end }}
-        {{ if eq $mainCategory "programming" }}프로그래밍{{ end }}
-        {{ if eq $mainCategory "video" }}영상 디자인{{ end }}
-        {{ if eq $mainCategory "project" }}프로젝트{{ end }}
-        {{ if eq $mainCategory "streaming" }}인터넷 방송 디자인{{ end }}
-        {{ if eq $mainCategory "blog" }}블로그{{ end }}
-        {{ if eq $mainCategory "youtube" }}유튜브{{ end }}
+        {{ partial "cat-name.html" $mainCategory }}
 <!-- 카테고리명 -> 2차카테고리 표기 로직 -->
         {{ if .Params.subCategory }}
             · {{ .Params.subCategory }}
@@ -257,7 +248,7 @@
     </p>
 {{ end }}
 <p class="board-all-item-date">{{ .Date.Format "2006.01.02" }}</p>
-<a href="{{ .Permalink }}" class="board-all-item-link"></a>
+<a href="{{ .RelPermalink }}" class="board-all-item-link"></a>
 
     <!-- ✨ 태그 시스템 추가 (일관된 스타일) -->
 {{ $mainCategory := index .Params.categories 0 }}

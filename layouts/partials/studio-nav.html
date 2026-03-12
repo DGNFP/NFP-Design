@@ -1,0 +1,91 @@
+{{- /*
+  studio-nav.html
+  Usage (서브 페이지): {{ partial "studio-nav.html" (dict "active" "color-mixer") }}
+  Usage (스튜디오 홈):  {{ partial "studio-nav.html" (dict "active" "") }}
+  active 값: 각 도구의 URL 슬러그 (예: "base64", "color-mixer", "qr-basic" 등)
+*/ -}}
+
+{{ if .active }}
+<!-- 스튜디오 홈 버튼 -->
+<div class="studio-home-section">
+    <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
+        <div class="home-icon">
+            <i class="fas fa-home"></i>
+            <div class="home-pulse"></div>
+        </div>
+        <div class="home-content">
+            <span class="home-title">스튜디오<span> NFP</span> 홈</span>
+            <span class="home-subtitle">작업을 위한 전문 도구 모음</span>
+        </div>
+        <div class="home-arrow">
+            <i class="fas fa-star"></i>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+<!-- 서브 버튼들 -->
+<div class="sub-page-btn-wrapper">
+
+<!-- 이미지 도구 -->
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
+<a href="{{ "/studio/image-compressor" | relURL }}" class="{{ if eq .active "image-compressor" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">이미지 압축기</a>
+<a href="{{ "/studio/watermark" | relURL }}" class="{{ if eq .active "watermark" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">워터마크 생성기</a>
+<a href="{{ "/studio/format-converter" | relURL }}" class="{{ if eq .active "format-converter" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">이미지 포맷 변환</a>
+<a href="{{ "/studio/multi-format-converter" | relURL }}" class="{{ if eq .active "multi-format-converter" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">다중 이미지 포맷 변환</a>
+<a href="{{ "/studio/image-resizer" | relURL }}" class="{{ if eq .active "image-resizer" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">이미지 크기 조절</a>
+<a href="{{ "/studio/image-cropper" | relURL }}" class="{{ if eq .active "image-cropper" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">이미지 자르기</a>
+<a href="{{ "/studio/image-splitter" | relURL }}" class="{{ if eq .active "image-splitter" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">이미지 분할기</a>
+<a href="{{ "/studio/image-map-generator" | relURL }}" class="{{ if eq .active "image-map-generator" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">이미지 맵 생성기</a>
+
+<!-- 컬러 / 그라데이션 -->
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
+<a href="{{ "/studio/color-mixer" | relURL }}" class="{{ if eq .active "color-mixer" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">컬러 조합기</a>
+<a href="{{ "/studio/color-palette-5" | relURL }}" class="{{ if eq .active "color-palette-5" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">컬러 팔레트 (조화)</a>
+<a href="{{ "/studio/color-palette-random" | relURL }}" class="{{ if eq .active "color-palette-random" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">컬러 팔레트 (랜덤)</a>
+<a href="{{ "/studio/single-card" | relURL }}" class="{{ if eq .active "single-card" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">단색 컬러 카드</a>
+<a href="{{ "/studio/gradient-card/" | relURL }}" class="{{ if eq .active "gradient-card" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">그라데이션 컬러 카드</a>
+<a href="{{ "/studio/color-extractor" | relURL }}" class="{{ if eq .active "color-extractor" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">이미지 컬러 추출기</a>
+<a href="{{ "/studio/rgb-cmyk" | relURL }}" class="{{ if eq .active "rgb-cmyk" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">RGB ↔ CMYK 변환기</a>
+<a href="{{ "/studio/gradient-2" | relURL }}" class="{{ if eq .active "gradient-2" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">그라데이션 2컬러</a>
+<a href="{{ "/studio/gradient-3" | relURL }}" class="{{ if eq .active "gradient-3" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">그라데이션 3컬러</a>
+
+<!-- QR / 웹 도구 -->
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="{{ "/studio/web-demo" | relURL }}" class="{{ if eq .active "web-demo" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">웹 데모 뷰어</a>
+<a href="{{ "/studio/qr-basic" | relURL }}" class="{{ if eq .active "qr-basic" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">QR코드 생성기</a>
+<a href="{{ "/studio/qr-custom" | relURL }}" class="{{ if eq .active "qr-custom" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">커스텀 QR코드 생성기</a>
+
+<!-- 텍스트 / 계산기 -->
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="{{ "/studio/text-counter" | relURL }}" class="{{ if eq .active "text-counter" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">텍스트 카운터</a>
+<a href="{{ "/studio/text-tools" | relURL }}" class="{{ if eq .active "text-tools" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">더미 텍스트 생성기</a>
+<a href="{{ "/studio/unit-converter" | relURL }}" class="{{ if eq .active "unit-converter" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">단위 변환기</a>
+<a href="{{ "/studio/font-converter" | relURL }}" class="{{ if eq .active "font-converter" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">폰트 변환기</a>
+<a href="{{ "/studio/date-calculator" | relURL }}" class="{{ if eq .active "date-calculator" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">날짜 계산기</a>
+<a href="{{ "/studio/size-calculator" | relURL }}" class="{{ if eq .active "size-calculator" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">사이즈 계산기</a>
+<a href="{{ "/studio/grid-calculator" | relURL }}" class="{{ if eq .active "grid-calculator" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">그리드 계산기</a>
+
+<!-- 문서 / 인코딩 -->
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
+<a href="{{ "/studio/base64" | relURL }}" class="{{ if eq .active "base64" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">base64 인코딩/디코딩</a>
+<a href="{{ "/studio/url-encoder" | relURL }}" class="{{ if eq .active "url-encoder" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">URL 인코딩/디코딩</a>
+<a href="{{ "/studio/pdf-compressor" | relURL }}" class="{{ if eq .active "pdf-compressor" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">PDF 압축기</a>
+<a href="{{ "/studio/pdf-splitter" | relURL }}" class="{{ if eq .active "pdf-splitter" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">PDF 분할기</a>
+<a href="{{ "/studio/pdf-merger" | relURL }}" class="{{ if eq .active "pdf-merger" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">PDF 합치기</a>
+
+<!-- 게임 -->
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
+<a href="{{ "/studio/rsp-game" | relURL }}" class="{{ if eq .active "rsp-game" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">가위바위보</a>
+<a href="{{ "/studio/whack-a-mole" | relURL }}" class="{{ if eq .active "whack-a-mole" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">두더지 잡기</a>
+<a href="{{ "/studio/pong-game" | relURL }}" class="{{ if eq .active "pong-game" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">탁구 게임</a>
+<a href="{{ "/studio/breakout-game" | relURL }}" class="{{ if eq .active "breakout-game" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">벽돌깨기</a>
+<a href="{{ "/studio/flappy-bird" | relURL }}" class="{{ if eq .active "flappy-bird" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">플래피 버드</a>
+<a href="{{ "/studio/snake-game" | relURL }}" class="{{ if eq .active "snake-game" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">스네이크 게임</a>
+<a href="{{ "/studio/lotto-generator" | relURL }}" class="{{ if eq .active "lotto-generator" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">로또 번호 생성기</a>
+<a href="{{ "/studio/enhancement-simulator" | relURL }}" class="{{ if eq .active "enhancement-simulator" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">강화 시뮬레이터</a>
+<a href="{{ "/studio/food-roulette" | relURL }}" class="{{ if eq .active "food-roulette" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">오늘 뭐먹지?</a>
+<a href="{{ "/studio/fortune" | relURL }}" class="{{ if eq .active "fortune" }}sub-page-btn-active{{ else }}sub-page-btn{{ end }}">오늘의 운세</a>
+
+</div>
+<!-- 버튼 컨테이너 닫힘 -->

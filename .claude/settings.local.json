@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/in/Desktop/nfp-design -maxdepth 1 -type f | grep -E \"\\\\.\\(json|yml|toml\\)$\")",
+      "Bash(du -sh /c/Users/in/Desktop/nfp-design/* 2>/dev/null | sort -rh | head -15)",
+      "Bash(hugo --gc --minify --baseURL https://nfpdesign.co.kr 2>&1 | tail -10)",
+      "Bash(hugo --gc --minify --baseURL https://nfpdesign.co.kr 2>&1)"
+    ]
+  }
+}

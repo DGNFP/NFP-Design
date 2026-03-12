@@ -1,0 +1,15 @@
+{{- /* subnav-game-ad.html — Usage: {{ partial "subnav-game-ad.html" (dict "active" "game-design") }} */ -}}
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/game-ad/" | relURL }}" class="{{ if eq .active "" }}blog-btn-active{{ else }}blog-btn{{ end }}">게임 광고 디자인 전체</a>
+<a href="{{ "/categories/game-ad/game-design/" | relURL }}" class="{{ if eq .active "game-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">게임 디자인</a>
+<a href="{{ "/categories/game-ad/game-image/" | relURL }}" class="{{ if eq .active "game-image" }}blog-btn-active{{ else }}blog-btn{{ end }}">게임 이미지 광고</a>
+<a href="{{ "/categories/game-ad/game-video/" | relURL }}" class="{{ if eq .active "game-video" }}blog-btn-active{{ else }}blog-btn{{ end }}">게임 영상 광고</a>
+</div>
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>

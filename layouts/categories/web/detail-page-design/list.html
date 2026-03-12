@@ -5,42 +5,10 @@
         <h2 class="board-section-title"><span>상세페이지</span> 디자인</h2>
         <p class="board-intro">상품 상세페이지, 이벤트 페이지 등 웹 상세페이지 디자인</p>
         
-<!-- 전체작업 버튼만 별도로 구분 -->
-<div class="view-wrapper">
-<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
-</div>
-<!-- 그 아래 나머지 버튼들 -->
-<div class="all-view-all-wrapper">
-<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button-active">웹 디자인</a>
-<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
-<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button">인터넷 방송 디자인</a>
-<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
-<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
-<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고 디자인</a>
-<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">NFP 블로그</a>
-<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
-</div>
-<!-- 버튼 컨테이너 닫힘 -->
+{{ partial "categories-main-nav.html" (dict "active" "web") }}
         
 <!-- 카테고리 네비게이션 -->
-<div class="board-filter">
-    <div class="blog-wapper">
-        <a href="{{ "/categories/web/" | relURL }}" class="blog-btn">웹 디자인 전체</a>
-        <a href="{{ "/categories/web/publishing/" | relURL }}" class="blog-btn">웹 퍼블리싱</a>
-        <a href="{{ "/categories/web/home-page-design/" | relURL }}" class="blog-btn">홈페이지 디자인</a>
-        <a href="{{ "/categories/web/digital-banner-design/" | relURL }}" class="blog-btn">디지털 배너 디자인</a>
-        <a href="{{ "/categories/web/detail-page-design/" | relURL }}" class="blog-btn-active">상세페이지 디자인</a>
-        <a href="{{ "/categories/web/ux-ui-design/" | relURL }}" class="blog-btn">UX/UI 디자인</a>
-    </div>
-            
-            <!-- 검색창 -->
-            <div class="board-search">
-                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
-                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
+{{ partial "subnav-web.html" (dict "active" "detail-page-design") }}
         
 <!-- 게시판 그리드 -->
 <div class="board-grid">
@@ -49,7 +17,7 @@
 {{ $filteredPosts := where $allPosts ".Params.subCategory" "상세페이지 디자인" }}
 {{ range $filteredPosts }}
             <div class="board-item" data-main="web" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <div class="board-item-img">
                         {{ $content := .Content }}
                         {{ $hasVideo := false }}

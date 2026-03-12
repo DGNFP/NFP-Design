@@ -5,43 +5,10 @@
         <h2 class="board-section-title"><span>인터넷 방송</span> 디자인</h2>
         <p class="board-intro">치지직, 아프리카(SOOP) 등 스트리밍 플랫폼 디자인</p>
         
-<!-- 전체작업 버튼만 별도로 구분 -->
-<div class="view-wrapper">
-<a href="{{ "/categories/" | relURL }}" class="all-view-all-button">전체 작업</a>
-</div>
-<!-- 그 아래 나머지 버튼들         -->
-<div class="all-view-all-wrapper">
-<a href="{{ "/categories/web/" | relURL }}" class="all-view-all-button">웹 디자인</a>
-<a href="{{ "/categories/content/" | relURL }}" class="all-view-all-button">컨텐츠 디자인</a>
-<a href="{{ "/categories/game-ad/" | relURL }}" class="all-view-all-button">게임 광고 디자인</a>
-<a href="{{ "/categories/streaming" | relURL }}" class="all-view-all-button-active">인터넷 방송 디자인</a>
-<a href="{{ "/categories/video/" | relURL }}" class="all-view-all-button">영상 디자인</a>
-<a href="{{ "/categories/programming/" | relURL }}" class="all-view-all-button">프로그래밍</a>
-<a href="{{ "/categories/ad/" | relURL }}" class="all-view-all-button">광고 디자인</a>
-<a href="{{ "/categories/project/" | relURL }}" class="all-view-all-button">프로젝트</a>
-<a href="{{ "/blog/" | relURL }}" class="all-view-all-button">NFP 블로그</a>
-<a href="{{ "/categories/youtube/" | relURL }}" class="all-view-all-button-youtube">YouTube</a>
-</div>
-<!-- 버튼 컨테이너 닫힘 -->
+{{ partial "categories-main-nav.html" (dict "active" "streaming") }}
         
 <!-- 카테고리 네비게이션 -->
-<div class="board-filter">
-<div class="blog-wapper">
-<a href="{{ "/categories/streaming/" | relURL }}" class="blog-btn">전체</a>
-<a href="{{ "/categories/streaming/thumbnail-design/" | relURL }}" class="blog-btn">썸네일 디자인</a>
-<a href="{{ "/categories/streaming/logo-design/" | relURL }}" class="blog-btn">방송 로고</a>
-<a href="{{ "/categories/streaming/schedule-design/" | relURL }}" class="blog-btn-active">방송 스케줄표</a>
-<a href="{{ "/categories/streaming/channel-art/" | relURL }}" class="blog-btn">채널아트</a>
-<a href="{{ "/categories/streaming/panel-design/" | relURL }}" class="blog-btn">패널 디자인</a>
-<a href="{{ "/categories/streaming/oap-design/" | relURL }}" class="blog-btn">OAP 디자인 (오버레이)</a>
-</div>
-            
-            <!-- 검색창 -->
-            <div class="board-search">
-                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
-                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
+{{ partial "subnav-streaming.html" (dict "active" "schedule-design") }}
         
         <!-- 게시판 그리드 -->
         <div class="board-grid">
@@ -50,7 +17,7 @@
 {{ $filteredPosts := where $allPosts ".Params.subCategory" "방송 스케줄표 디자인" }}
 {{ range $filteredPosts }}
             <div class="board-item" data-main="web" data-category="{{ .Params.subCategory }}">
-                <a href="{{ .Permalink }}">
+                <a href="{{ .RelPermalink }}">
                     <div class="board-item-img">
                         {{ $content := .Content }}
                         {{ $hasVideo := false }}

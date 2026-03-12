@@ -11,7 +11,6 @@
 
 
 <link rel="preload" href="/css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
 
@@ -97,29 +96,15 @@
     }
     </script>
     
-    
-    <script>
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('link[rel="stylesheet"]');
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('css/')) {
-                    link.remove();
-                }
-            });
-        });
-    </script>
-    
     <link rel="stylesheet" href="http://localhost:1313/css/styles.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     <link rel="stylesheet" href="http://localhost:1313/css/popup.css">
-    <link rel="stylesheet" href="http://localhost:1313/css/studio.css">
+
     
     
+        <link rel="stylesheet" href="http://localhost:1313/css/board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/project_board.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/lightbox.css">
+        <link rel="stylesheet" href="http://localhost:1313/css/web-demo.css">
     
     
     
@@ -176,6 +161,7 @@
     </div>
 
 
+
 <div class="studio-home-section">
     <div class="studio-home-btn" id="studio-home-btn" onclick="window.location.href='/studio'">
         <div class="home-icon">
@@ -193,56 +179,71 @@
 </div>
 
 
+
 <div class="sub-page-btn-wrapper">
 
-<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
-<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
-<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
-<a href="/studio/qr-basic" class="sub-page-btn-active">QR코드 생성기</a>
-<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 
+<div class="nav-section-label"><i class="fas fa-image"></i> 이미지 도구</div>
+<a href="/studio/image-compressor" class="sub-page-btn">이미지 압축기</a>
+<a href="/studio/watermark" class="sub-page-btn">워터마크 생성기</a>
 <a href="/studio/format-converter" class="sub-page-btn">이미지 포맷 변환</a>
+<a href="/studio/multi-format-converter" class="sub-page-btn">다중 이미지 포맷 변환</a>
 <a href="/studio/image-resizer" class="sub-page-btn">이미지 크기 조절</a>
 <a href="/studio/image-cropper" class="sub-page-btn">이미지 자르기</a>
 <a href="/studio/image-splitter" class="sub-page-btn">이미지 분할기</a>
 <a href="/studio/image-map-generator" class="sub-page-btn">이미지 맵 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-palette"></i> 컬러 / 그라데이션</div>
 <a href="/studio/color-mixer" class="sub-page-btn">컬러 조합기</a>
-<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 생성기 (조화)</a>
-<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 생성기 (랜덤)</a>
+<a href="/studio/color-palette-5" class="sub-page-btn">컬러 팔레트 (조화)</a>
+<a href="/studio/color-palette-random" class="sub-page-btn">컬러 팔레트 (랜덤)</a>
 <a href="/studio/single-card" class="sub-page-btn">단색 컬러 카드</a>
 <a href="/studio/gradient-card/" class="sub-page-btn">그라데이션 컬러 카드</a>
+<a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
+<a href="/studio/rgb-cmyk" class="sub-page-btn">RGB ↔ CMYK 변환기</a>
+<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러</a>
+<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러</a>
 
- <a href="/studio/color-extractor" class="sub-page-btn">이미지 컬러 추출기</a>
-<a href="/studio/gradient-2" class="sub-page-btn">그라데이션 2컬러 팔레트</a>
-<a href="/studio/gradient-3" class="sub-page-btn">그라데이션 3컬러 팔레트</a>
+
+<div class="nav-section-label"><i class="fas fa-qrcode"></i> QR / 웹 도구</div>
+<a href="/studio/web-demo" class="sub-page-btn">웹 데모 뷰어</a>
+<a href="/studio/qr-basic" class="sub-page-btn-active">QR코드 생성기</a>
 <a href="/studio/qr-custom" class="sub-page-btn">커스텀 QR코드 생성기</a>
-<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-calculator"></i> 텍스트 / 계산기</div>
+<a href="/studio/text-counter" class="sub-page-btn">텍스트 카운터</a>
+<a href="/studio/text-tools" class="sub-page-btn">더미 텍스트 생성기</a>
 <a href="/studio/unit-converter" class="sub-page-btn">단위 변환기</a>
 <a href="/studio/font-converter" class="sub-page-btn">폰트 변환기</a>
 <a href="/studio/date-calculator" class="sub-page-btn">날짜 계산기</a>
 <a href="/studio/size-calculator" class="sub-page-btn">사이즈 계산기</a>
 <a href="/studio/grid-calculator" class="sub-page-btn">그리드 계산기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-file-alt"></i> 문서 / 인코딩</div>
 <a href="/studio/base64" class="sub-page-btn">base64 인코딩/디코딩</a>
 <a href="/studio/url-encoder" class="sub-page-btn">URL 인코딩/디코딩</a>
 <a href="/studio/pdf-compressor" class="sub-page-btn">PDF 압축기</a>
 <a href="/studio/pdf-splitter" class="sub-page-btn">PDF 분할기</a>
 <a href="/studio/pdf-merger" class="sub-page-btn">PDF 합치기</a>
 
+
+<div class="nav-section-label"><i class="fas fa-gamepad"></i> 게임</div>
 <a href="/studio/rsp-game" class="sub-page-btn">가위바위보</a>
 <a href="/studio/whack-a-mole" class="sub-page-btn">두더지 잡기</a>
 <a href="/studio/pong-game" class="sub-page-btn">탁구 게임</a>
 <a href="/studio/breakout-game" class="sub-page-btn">벽돌깨기</a>
 <a href="/studio/flappy-bird" class="sub-page-btn">플래피 버드</a>
-
 <a href="/studio/snake-game" class="sub-page-btn">스네이크 게임</a>
 <a href="/studio/lotto-generator" class="sub-page-btn">로또 번호 생성기</a>
 <a href="/studio/enhancement-simulator" class="sub-page-btn">강화 시뮬레이터</a>
 <a href="/studio/food-roulette" class="sub-page-btn">오늘 뭐먹지?</a>
 <a href="/studio/fortune" class="sub-page-btn">오늘의 운세</a>
+
 </div>
+
 
 
     
@@ -745,6 +746,132 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+
+<section class="studio-seo-section">
+<div class="container">
+  
+  <div class="studio-md-content">
+    <h1 id="기본-qr-코드-생성">기본 QR 코드 생성</h1>
+<p>URL, 텍스트, 연락처 정보 등 다양한 내용을 고품질 QR 코드로 변환하는 도구입니다.</p>
+<h2 id="기능-소개">기능 소개</h2>
+<ul>
+<li><strong>다양한 입력 지원</strong>: 웹사이트 URL, 일반 텍스트, vCard 연락처 정보 변환</li>
+<li><strong>크기 선택</strong>: 200×200px부터 500×500px까지 용도별 크기 선택</li>
+<li><strong>고품질 출력</strong>: PNG 형식의 선명한 QR 코드 생성</li>
+<li><strong>즉시 다운로드</strong>: 생성된 QR 코드를 바로 파일로 저장</li>
+</ul>
+<h2 id="사용법">사용법</h2>
+<ol>
+<li><strong>내용 입력</strong>: 변환할 URL 또는 텍스트를 입력창에 작성하세요</li>
+<li><strong>크기 선택</strong>: 용도에 맞는 QR 코드 크기를 선택하세요</li>
+<li><strong>코드 생성</strong>: &lsquo;QR 코드 생성&rsquo; 버튼을 클릭하세요</li>
+<li><strong>다운로드</strong>: 생성된 QR 코드를 PNG 파일로 다운로드하세요</li>
+</ol>
+<h2 id="지원하는-입력-형식">지원하는 입력 형식</h2>
+<p><strong>웹사이트 URL</strong></p>
+<pre tabindex="0"><code>https://nfpdesign.co.kr
+https://www.example.com
+</code></pre><p><strong>일반 텍스트</strong></p>
+<pre tabindex="0"><code>안녕하세요, NFP Design입니다.
+연락처: 010-1234-5678
+</code></pre><p><strong>vCard 연락처 정보</strong></p>
+<pre tabindex="0"><code>BEGIN:VCARD
+VERSION:3.0
+FN:홍길동
+TEL:010-1234-5678
+EMAIL:hong@example.com
+ORG:NFP Design
+URL:https://nfpdesign.co.kr
+END:VCARD
+</code></pre><p><strong>WiFi 네트워크 정보</strong></p>
+<pre tabindex="0"><code>WIFI:T:WPA;S:NetworkName;P:password123;;
+</code></pre><h2 id="크기-가이드">크기 가이드</h2>
+<table>
+  <thead>
+      <tr>
+          <th>크기</th>
+          <th>용도</th>
+          <th>추천 사용처</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>200×200px</strong></td>
+          <td>소형 출력물</td>
+          <td>명함, 스티커, 작은 광고물</td>
+      </tr>
+      <tr>
+          <td><strong>300×300px</strong></td>
+          <td>표준 크기</td>
+          <td>일반적인 인쇄물, 웹사이트</td>
+      </tr>
+      <tr>
+          <td><strong>400×400px</strong></td>
+          <td>대형 출력물</td>
+          <td>포스터, 전단지, 간판</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="활용-사례">활용 사례</h2>
+<ul>
+<li><strong>비즈니스 카드</strong>: 명함에 연락처 정보 QR 코드 삽입</li>
+<li><strong>마케팅 자료</strong>: 웹사이트 링크를 QR 코드로 변환하여 오프라인 홍보</li>
+<li><strong>이벤트 관리</strong>: 행사 정보나 등록 링크를 QR 코드로 제공</li>
+<li><strong>메뉴판</strong>: 레스토랑 디지털 메뉴 링크 생성</li>
+<li><strong>WiFi 공유</strong>: 무선 네트워크 접속 정보를 간편하게 공유</li>
+</ul>
+<h2 id="기술-사양">기술 사양</h2>
+<ul>
+<li><strong>라이브러리</strong>: QRious 4.0.2 (고성능 QR 코드 생성)</li>
+<li><strong>출력 형식</strong>: PNG (투명 배경 지원)</li>
+<li><strong>오류 보정</strong>: Medium 레벨 (약 15% 손상 복구 가능)</li>
+<li><strong>문자 인코딩</strong>: UTF-8 (한글, 이모지 완벽 지원)</li>
+<li><strong>최대 용량</strong>: 약 4,296자 (숫자 기준)</li>
+</ul>
+<p>QR 코드는 1994년 일본에서 개발된 2차원 바코드로, 현재 전 세계적으로 널리 사용되는 정보 공유 표준입니다.</p>
+
+  </div>
+  
+  <div class="studio-related-section">
+    <h3 class="studio-related-title">관련 도구</h3>
+    <div class="studio-related-grid">
+      <a href="/studio/qr-custom/" class="studio-related-item">
+        <span class="related-title">커스텀 QR 코드 생성기</span>
+        <span class="related-desc">색상과 로고를 자유롭게 커스터마이징할 수 있는 브랜드 맞춤형 QR 코드 생성기입니다.</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR 코드 생성기 - Studio NFP",
+  "description": "URL, 텍스트, 연락처 정보를 간편하게 QR 코드로 변환하는 도구입니다.",
+  "url": "http:\/\/localhost:1313\/studio\/qr-basic\/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Studio NFP",
+    "url": "http:\/\/localhost:1313\/"
+  },
+  "keywords": "QR 코드, QR 생성, URL QR, 텍스트 QR, 연락처 QR, vCard QR, QR 변환"
+}
+</script>
+
+
     
     <div id="footer-container"></div>
     <div id="floating-buttons-container"></div>
@@ -758,6 +885,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     
+    
+    <script>
+        window.siteConfig = {
+            kakaoURL: "https:\/\/pf.kakao.com\/_ffMtn"
+        };
+    </script>
+
     
     <script src="/components/header.js"></script>
     <script src="/components/footer.js"></script>
@@ -789,7 +923,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js");
   const { getFirestore, doc, getDoc, setDoc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js");
-  
+
   const firebaseConfig = {
     apiKey: "AIzaSyBWRps4MNiP7X1e1PqOSP850A6oKOKoMKY",
     authDomain: "nfp-design.firebaseapp.com",
@@ -799,18 +933,17 @@ document.addEventListener('DOMContentLoaded', function() {
     appId: "1:731666960352:web:5d28f1f68864c61c796585",
     measurementId: "G-ZWL48L9Q4Z"
   };
-  
+
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  
-  
+
+
   
   window.firebaseDB = db;
   window.firestoreUtils = { doc, getDoc, setDoc, updateDoc, increment };
-  
+
 </script>
 
-   
 
 </body>
 </html>

@@ -1,0 +1,17 @@
+{{- /* subnav-content.html — Usage: {{ partial "subnav-content.html" (dict "active" "card-news-design") }} */ -}}
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/content/" | relURL }}" class="{{ if eq .active "" }}blog-btn-active{{ else }}blog-btn{{ end }}">컨텐츠 디자인 전체</a>
+<a href="{{ "/categories/content/card-news-design/" | relURL }}" class="{{ if eq .active "card-news-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">카드뉴스 디자인</a>
+<a href="{{ "/categories/content/poster-design/" | relURL }}" class="{{ if eq .active "poster-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">포스터 디자인</a>
+<a href="{{ "/categories/content/event-design/" | relURL }}" class="{{ if eq .active "event-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">이벤트 · 프로모션 디자인</a>
+<a href="{{ "/categories/content/blog-design/" | relURL }}" class="{{ if eq .active "blog-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">블로그 스킨 디자인</a>
+<a href="{{ "/categories/content/sns-design/" | relURL }}" class="{{ if eq .active "sns-design" }}blog-btn-active{{ else }}blog-btn{{ end }}">SNS 광고 디자인</a>
+</div>
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="검색어를 입력하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>

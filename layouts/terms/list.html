@@ -17,7 +17,7 @@
             {{ if $termsPosts }}
                 {{ range $termsPosts.ByDate.Reverse }}
                 <div class="news-item">
-                    <a href="{{ .Permalink }}" class="news-link">
+                    <a href="{{ .RelPermalink }}" class="news-link">
                         <span class="news-title">{{ .Title }}</span>
                         <span class="news-date">{{ .Date.Format "2006.01.02" }}</span>
                     </a>
