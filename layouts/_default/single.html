@@ -466,7 +466,7 @@ onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
 
 <!-- 카테고리 오버레이 -->
 {{ if .Params.subCategory }}
-<div class="category-overlay">{{ .Params.subCategory }}</div>
+<div class="category-overlay">{{ partial "subcat-display.html" .Params.subCategory }}</div>
 {{ end }}
 </div>
                                 

@@ -8,13 +8,13 @@
 {{ partial "categories-main-nav.html" (dict "active" "ad") }}
 
 <!-- 카테고리 네비게이션 -->
-{{ partial "subnav-ad.html" (dict "active" "menu-flyer") }}
+{{ partial "subnav-ad.html" (dict "active" "print-material") }}
         
         <!-- 게시판 그리드 (3x3 정사각형 레이아웃) -->
         <div class="board-grid-ad">
             <!-- 모든 게시물 로드 (페이지네이션 제거) -->
 {{ $allPosts := .Parent.RegularPages }}
-{{ $filteredPosts := where $allPosts ".Params.subCategory" "in" (slice "전단지 디자인" "메뉴판 디자인") }}
+{{ $filteredPosts := where $allPosts ".Params.subCategory" "in" (slice "전단지 디자인" "메뉴판 디자인" "시트지 디자인") }}
 {{ range $filteredPosts }}
             <div class="board-item-ad" data-main="ad" data-category="{{ .Params.subCategory }}">
                 <a href="{{ .RelPermalink }}">
@@ -102,7 +102,7 @@
                         
                         <!-- 오버레이 태그 추가 -->
                         {{ if .Params.subCategory }}
-                        <div class="category-overlay">{{ .Params.subCategory }}</div>
+                        <div class="category-overlay">{{ partial "subcat-display.html" .Params.subCategory }}</div>
                         {{ end }}
                     </div>
                     

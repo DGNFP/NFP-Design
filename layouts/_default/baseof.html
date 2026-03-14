@@ -14,14 +14,6 @@
 
 
 
-<!-- 🎯 이미지 preload (조건부) -->
-{{ if eq .Kind "page" }}
-  {{ if .Resources }}
-    {{ with (index (.Resources.ByType "image") 0) }}
-      <link rel="preload" as="image" href="{{ .RelPermalink | replaceRE `\.(png|jpg|jpeg)$` `.webp` }}">
-    {{ end }}
-  {{ end }}
-{{ end }}
 
 <!-- 🎯 확장 프로그램 충돌 방지 -->
 <script>
@@ -185,38 +177,38 @@
 <meta name="author" content="{{ .Site.Params.author }}">
     
     <!-- Open Graph 태그 - 수정된 이미지 경로 -->
-    <meta property="og:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $cat := "" }}{{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}{{ partial "cat-name.html" $cat | default "디자인 포트폴리오" }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $cat := "" }}{{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}{{ partial "cat-name.html" $cat | default "디자인 포트폴리오" }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ if .Params.subCategory }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}{{ else if eq .Section "games" }}{{ if .Params.subCategory }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
     <meta property="og:image" content="{{ if .Params.thumbnail }}{{ .Params.thumbnail | absURL }}{{ else }}{{ "img/nfp-main.png" | absURL }}{{ end }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
-    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:type" content="{{ if .Params.thumbnail }}{{ if or (strings.HasSuffix .Params.thumbnail ".jpg") (strings.HasSuffix .Params.thumbnail ".jpeg") }}image/jpeg{{ else if strings.HasSuffix .Params.thumbnail ".webp" }}image/webp{{ else }}image/png{{ end }}{{ else }}image/png{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:type" content="{{ if .IsHome }}website{{ else if .IsPage }}article{{ else }}website{{ end }}">
     <meta property="og:site_name" content="NFP 디자인">
     <meta property="og:locale" content="ko_KR">
-    {{ if not .IsHome }}
+    {{ if .IsPage }}
         <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
         <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
         {{ with .Params.categories }}
             {{ range . }}
-                <meta property="article:section" content="{{ . }}">
+                <meta property="article:section" content="{{ partial "cat-name.html" . }}">
             {{ end }}
         {{ end }}
     {{ end }}
     
     <!-- Twitter 태그 - 수정된 이미지 경로 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $cat := "" }}{{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}{{ partial "cat-name.html" $cat | default "디자인 포트폴리오" }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else if eq .Section "games" }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
+    <meta name="twitter:title" content="{{ if .IsHome }}웹디자인·퍼블리싱·로고·영상·홍보물·디자인 전문 - NFP 디자인 | 스튜디오 NFP{{ else if eq .Section "categories" }}{{ .Title }} | {{ $cat := "" }}{{ with .Params.categories }}{{ $cat = index . 0 }}{{ end }}{{ partial "cat-name.html" $cat | default "디자인 포트폴리오" }} - NFP 디자인{{ else if eq .Section "freeboard" }}{{ if .Params.subCategory }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}{{ else if eq .Section "games" }}{{ if .Params.subCategory }}{{ .Title }} | {{ .Params.subCategory }} - NFP 디자인{{ else }}{{ .Title }} - NFP 디자인{{ end }}{{ else }}{{ .Title }} - NFP 디자인{{ end }}">
     <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다. Needs Fresh Pop | NFP{{ else }}{{ .Summary | truncate 160 }}{{ end }}">
-    <meta property="twitter:image" content="{{ if .Params.thumbnail }}{{ .Params.thumbnail | absURL }}{{ else }}{{ "img/nfp-main.png" | absURL }}{{ end }}">
+    <meta name="twitter:image" content="{{ if .Params.thumbnail }}{{ .Params.thumbnail | absURL }}{{ else }}{{ "img/nfp-main.png" | absURL }}{{ end }}">
     <meta name="twitter:image:alt" content="NFP 디자인 - 니즈를 채우는 프레시하고 팝한 디자인">
     
     <!-- 구조화된 데이터 (JSON-LD) - 수정된 이미지 경로 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "{{ if .IsHome }}Organization{{ else if .IsPage }}Article{{ else }}CollectionPage{{ end }}",
+      "@type": "{{ if .IsHome }}Organization{{ else if and .IsPage (in .Permalink "/studio/") }}WebApplication{{ else if .IsPage }}Article{{ else }}CollectionPage{{ end }}",
       "name": "{{ if .IsHome }}NFP 디자인{{ else }}{{ .Title }}{{ end }}",
       "description": "{{ if .Description }}{{ .Description }}{{ else if .IsHome }}니즈를 채우는 프레시하고 팝한 디자인, 디테일에서 시작해서 트렌드를 완성하다{{ else }}{{ .Summary | truncate 160 }}{{ end }}",
       "url": "{{ .Permalink }}",

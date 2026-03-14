@@ -215,7 +215,7 @@
 
 <!-- 오버레이 태그 추가 (2차 카테고리만) -->
 {{ if .Params.subCategory }}
-<div class="category-overlay">{{ .Params.subCategory }}</div>
+<div class="category-overlay">{{ partial "subcat-display.html" .Params.subCategory }}</div>
 {{ end }}
 
 </div>

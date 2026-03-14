@@ -479,7 +479,7 @@ width: 1000px;
 /* 네비게이션 카테고리 구분선 */
 .nav-section-label {
     grid-column: 1 / -1;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #fff;
     letter-spacing: 0.05em;
