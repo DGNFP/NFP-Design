@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OAP 디자인 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title><link>https://nfpdesign.co.kr/categories/streaming/oap-design/</link><description>Recent content in OAP 디자인 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description><generator>Hugo</generator><language>ko</language><atom:link href="https://nfpdesign.co.kr/categories/streaming/oap-design/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OAP 디자인 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
+    <link>http://localhost:1313/categories/streaming/oap-design/</link>
+    <description>Recent content in OAP 디자인 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <atom:link href="http://localhost:1313/categories/streaming/oap-design/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>프론트엔드 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title><link>https://nfpdesign.co.kr/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link><description>Recent content in 프론트엔드 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Mon, 25 Aug 2025 13:32:00 +0900</lastBuildDate><atom:link href="https://nfpdesign.co.kr/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml"/><item><title>SEO 설정</title><link>https://nfpdesign.co.kr/categories/programming/2025-08-25-seo-%EC%84%A4%EC%A0%95/</link><pubDate>Mon, 25 Aug 2025 13:32:00 +0900</pubDate><guid>https://nfpdesign.co.kr/categories/programming/2025-08-25-seo-%EC%84%A4%EC%A0%95/</guid><description>&lt;p>사이트가 좀 더 발전했으면 좋겠습니다.&lt;/p></description></item><item><title>스플래시 화면 웹데모</title><link>https://nfpdesign.co.kr/categories/programming/2025-07-27-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EC%8A%A4%ED%94%8C%EB%9E%98%EC%8B%9C-%ED%99%94%EB%A9%B4-%EC%9B%B9%EB%8D%B0%EB%AA%A8/</link><pubDate>Mon, 28 Jul 2025 01:14:00 +0900</pubDate><guid>https://nfpdesign.co.kr/categories/programming/2025-07-27-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EC%8A%A4%ED%94%8C%EB%9E%98%EC%8B%9C-%ED%99%94%EB%A9%B4-%EC%9B%B9%EB%8D%B0%EB%AA%A8/</guid><description>&lt;p>정상적으로 구현이 잘 되면 좋겠네요.&lt;/p></description></item><item><title>NFP 디자인 어시스턴트 - 인터렉션 효과</title><link>https://nfpdesign.co.kr/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</link><pubDate>Sun, 06 Jul 2025 20:52:00 +0000</pubDate><guid>https://nfpdesign.co.kr/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</guid><description>&lt;p>버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>프론트엔드 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
+    <link>http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/</link>
+    <description>Recent content in 프론트엔드 on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 25 Aug 2025 13:32:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SEO 설정</title>
+      <link>http://localhost:1313/categories/programming/2025-08-25-seo-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Mon, 25 Aug 2025 13:32:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/programming/2025-08-25-seo-%EC%84%A4%EC%A0%95/</guid>
+      <description>&lt;p&gt;사이트가 좀 더 발전했으면 좋겠습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>스플래시 화면 웹데모</title>
+      <link>http://localhost:1313/categories/programming/2025-07-27-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EC%8A%A4%ED%94%8C%EB%9E%98%EC%8B%9C-%ED%99%94%EB%A9%B4-%EC%9B%B9%EB%8D%B0%EB%AA%A8/</link>
+      <pubDate>Mon, 28 Jul 2025 01:14:00 +0900</pubDate>
+      <guid>http://localhost:1313/categories/programming/2025-07-27-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1-%EC%8A%A4%ED%94%8C%EB%9E%98%EC%8B%9C-%ED%99%94%EB%A9%B4-%EC%9B%B9%EB%8D%B0%EB%AA%A8/</guid>
+      <description>&lt;p&gt;정상적으로 구현이 잘 되면 좋겠네요.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NFP 디자인 어시스턴트 - 인터렉션 효과</title>
+      <link>http://localhost:1313/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</link>
+      <pubDate>Sun, 06 Jul 2025 20:52:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/programming/2025-07-06-nfp-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98-%ED%9A%A8%EA%B3%BC/</guid>
+      <description>&lt;p&gt;버튼 클릭시 css 애니메이션을 통한 인터렉션 데모입니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

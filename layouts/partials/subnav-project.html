@@ -1,0 +1,15 @@
+{{- /* subnav-project.html — Usage: {{ partial "subnav-project.html" (dict "active" "branding") }} */ -}}
+<!-- 카테고리 네비게이션 -->
+<div class="board-filter">
+<div class="blog-wapper">
+<a href="{{ "/categories/project/" | relURL }}" class="{{ if eq .active "" }}blog-btn-active{{ else }}blog-btn{{ end }}">전체</a>
+<a href="{{ "/categories/project/branding/" | relURL }}" class="{{ if eq .active "branding" }}blog-btn-active{{ else }}blog-btn{{ end }}">브랜딩</a>
+<a href="{{ "/categories/project/identity/" | relURL }}" class="{{ if eq .active "identity" }}blog-btn-active{{ else }}blog-btn{{ end }}">아이덴티티 디자인</a>
+<a href="{{ "/categories/project/planning/" | relURL }}" class="{{ if eq .active "planning" }}blog-btn-active{{ else }}blog-btn{{ end }}">기획 · 디자인</a>
+</div>
+            <!-- 검색창 -->
+            <div class="board-search">
+                <input type="text" id="searchInput" placeholder="프로젝트를 검색하세요" class="form-control">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>

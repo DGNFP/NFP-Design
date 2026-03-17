@@ -32,30 +32,6 @@
     flex-wrap: wrap;
 }
 
-.food-radio-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.food-radio {
-    width: 20px;
-    height: 20px;
-    accent-color: var(--accent-color);
-}
-
-.food-radio-label {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.food-radio-label:hover {
-    color: var(--accent-color);
-}
 
 .food-roulette-section {
     background: var(--sub-bg-color);
@@ -267,18 +243,18 @@ font-size: 28px;
                 <div class="food-category-section">
                     <div class="food-category-title">음식 카테고리 선택</div>
                     <div class="food-category-options">
-                        <div class="food-radio-group">
-                            <input type="radio" id="categoryKorean" name="foodCategory" value="korean" class="food-radio" checked>
-                            <label for="categoryKorean" class="food-radio-label">한식</label>
-                        </div>
-                        <div class="food-radio-group">
-                            <input type="radio" id="categoryChinese" name="foodCategory" value="chinese" class="food-radio">
-                            <label for="categoryChinese" class="food-radio-label">중식</label>
-                        </div>
-                        <div class="food-radio-group">
-                            <input type="radio" id="categoryWestern" name="foodCategory" value="western" class="food-radio">
-                            <label for="categoryWestern" class="food-radio-label">양식</label>
-                        </div>
+                        <label class="unit-converter-radio-label">
+                            <input type="radio" name="foodCategory" value="korean" checked>
+                            한식
+                        </label>
+                        <label class="unit-converter-radio-label">
+                            <input type="radio" name="foodCategory" value="chinese">
+                            중식
+                        </label>
+                        <label class="unit-converter-radio-label">
+                            <input type="radio" name="foodCategory" value="western">
+                            양식
+                        </label>
                     </div>
                 </div>
 

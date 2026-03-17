@@ -81,7 +81,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["game-ad"]}
-      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["게임 디자인," , "게임 이미지 광고 디자인", "게임 영상 광고 디자인"], required: false}
+      - {label: "서브 카테고리", name: "subCategory", widget: "select", options: ["게임 디자인", "게임 이미지 광고 디자인", "게임 영상 광고 디자인"], required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP", "게임 광고 디자인", "게임 광고", "스토어 광고","게임 이미지 광고", "XD", "Photoshop", "Illustrator"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"
@@ -228,7 +228,7 @@ collections:
       - {label: "소제목", name: "subtitle", widget: "string", required: false}
       - {label: "발행일", name: "date", widget: "datetime"}
       - {label: "카테고리", name: "categories", widget: "hidden", default: ["project"]}
-      - {label: "프로젝트 분류", name: "subCategory", widget: "select", options: ["브랜딩", "기획 디자인", "장기 프로젝트"] , required: false} 
+      - {label: "프로젝트 분류", name: "subCategory", widget: "select", options: ["브랜딩", "아이덴티티 디자인", "기획 디자인"] , required: false}
       - {label: "태그", name: "tags", widget: "select", multiple: true, options: ["NFP 디자인", "NFP Design", "스튜디오 NFP","Studio NFP","브랜딩", "홈페이지 디자인", "디지털 배너 디자인", "상세페이지 디자인", "UX/UI 디자인", "카드뉴스 디자인", "포스터 디자인", "SNS광고 디자인", "로고 디자인", "게임 광고 디자인", "인터넷 방송 디자인", "영상 제작", "영상 편집", "모션 그래픽", "유튜브 썸네일", "프론트엔드", "웹 퍼블리싱", "모바일 앱", "게임 개발", "현수막/엑스배너 디자인", "명함 디자인", "브로슈어/카탈로그 디자인", "홍보물 디자인", "패키지 디자인"], hint: "프로젝트와 관련된 스킬이나 작업 유형을 선택하세요", required: false}
       - label: "커스텀 태그"
         name: "custom_tags"

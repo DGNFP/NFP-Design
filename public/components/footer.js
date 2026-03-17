@@ -19,6 +19,10 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
     const footerHtml = `
     <footer>
         <div class="container">
+            <div class="nfp-footer-brand">
+                <div class="nfp-footer-logo">NFP<em>.</em></div>
+                <p class="nfp-footer-desc">NFP · Needs Fresh Pop</p>
+            </div>
             <div class="social-links">
             <a href="https://www.youtube.com/@Studio-NFP" target="_blank" class="social-link social-link-youtube">
             <i class="fab fa-youtube"></i>
@@ -31,7 +35,6 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
             <a href="${(window.siteConfig && window.siteConfig.kakaoURL) || 'https://pf.kakao.com/_ffMtn'}" target="_blank" rel="noopener noreferrer" class="social-link social-link-kakao">
             <i class="fas fa-comment"></i>
             </a>
-
 
             <a href="https://www.instagram.com/studio_nfp" target="_blank" class="social-link social-link-instagram">
             <i class="fab fa-instagram"></i>
@@ -48,7 +51,7 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
         </div>
     </footer>
     `;
-    
+
     // 푸터 스타일 삽입 (카카오톡 호버 효과 포함)
     const footerStyles = `
     <style>
@@ -248,14 +251,37 @@ function createFooter(targetElementId = 'footer-container', year = new Date().ge
             .footer-credits {
                 gap: 8px;
             }
-            
+
             .copyright {
                 font-size: 13px;
             }
-            
+
             .creative-credit {
                 font-size: 11px;
             }
+        }
+
+        /* ── NFP 브랜드 섹션 ── */
+        .nfp-footer-brand {
+            margin-bottom: 24px;
+        }
+        .nfp-footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        .nfp-footer-logo em {
+            font-style: normal;
+            color: var(--accent-color);
+        }
+        .nfp-footer-desc {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: .4;
+            line-height: 1.6;
+            margin: 0;
         }
     </style>
     `;

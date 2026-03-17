@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보험설계사 김윤태 — 보험금, 제대로 받으세요</title>
+    <meta name="description" content="같은 보험도 관리를 어떻게 받느냐에 따라 보험금이 달라집니다. 무료 상담 · 무료 점검 · 무료 보험금청구 문의.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <span class="ko">보험설계사 김윤태 </span>
+            <span class="en">Insurance Advisor</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#recommend">추천 대상</a></li>
+            <li><a href="#contact">상담 신청</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">무료 상담</a>
+        <button class="burger" id="burger" aria-label="메뉴">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="m-menu" id="mMenu">
+    <button class="m-menu-close" id="mClose">Close</button>
+    <a href="#recommend" onclick="closeMMenu()">추천 대상</a>
+    <a href="#contact" onclick="closeMMenu()">상담 신청</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="top">
+    <div class="hero-content">
+        <!-- Left: Main copy -->
+        <div>
+            <div class="hero-badge reveal">보험금 관리 전문가</div>
+            <h1 class="hero-title reveal">
+                같은 보험, <span class="accent">같은 돈</span>을<br>
+                내고 있어도<br>
+                <span class="underline" id="heroUnderline">받는 보험금이 다릅니다.</span>
+            </h1>
+            <p class="hero-sub reveal">
+                같은 보험사, 같은 상품, 같은 보험료를 내고 가입해도<br>
+                <strong style="color:#fff;font-weight:700;">관리를 어떻게 받느냐에 따라</strong> 보험금이 천차만별 달라집니다.
+            </p>
+            <div class="hero-btns reveal">
+                <a href="#contact" class="btn-primary">지금 무료 상담 받기 →</a>
+                <a href="#recommend" class="btn-outline">내가 해당되는지 확인</a>
+            </div>
+        </div>
+
+        <!-- Right: 1억 Value card -->
+        <div class="hero-value reveal-right">
+            <p class="hero-value-quote">
+                저한테 단 1시간을 투자해주시면<br>여러분의 소중한 재산을 지켜드리겠습니다.
+            </p>
+            <div class="hero-value-num">1<span>억</span></div>
+            <div class="hero-value-label">상담 1회의 가치</div>
+            <div class="hero-value-divider"></div>
+            <p class="hero-value-promise">"제 상담은 1억원의 가치를 갖고 있습니다."</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── FREE SERVICES ── -->
+<section class="services">
+    <div class="services-inner">
+        <div class="svc-card reveal">
+            <div class="svc-title">무료 보험 상담</div>
+            <p class="svc-desc">내 보험이 맞는지, 보장 내용은 충분한지, 보험료는 적정한지 전문가와 1:1로 확인해드립니다.</p>
+        </div>
+        <div class="svc-card reveal">
+            <div class="svc-title">무료 보험 점검</div>
+            <p class="svc-desc">현재 가입된 모든 보험을 꼼꼼하게 분석해드립니다. 중복 보장, 불필요한 보험료, 빠진 보장을 정확히 짚어드립니다.</p>
+        </div>
+        <div class="svc-card reveal">
+            <div class="svc-title">무료 보험금 청구 문의</div>
+            <p class="svc-desc">청구 방법을 몰라 포기하셨나요? 부지급 판정을 받으셨나요? 어떤 경우든 편하게 문의해주세요.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── RECOMMEND ── -->
+<section class="recommend" id="recommend">
+    <div class="recommend-inner">
+        <div class="recommend-header reveal">
+            <div class="section-label">이런 분들께 추천드립니다</div>
+            <h2>혹시 이런 경험 있으신가요?<br><em>해당되신다면 꼭 연락주세요.</em></h2>
+        </div>
+
+        <div class="pain-grid">
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">보험료를 과하게 많이 내고 계신 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">내는 보험료 대비 보장 받을 게 없으신 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">내 보험에 어떤 게 들어가 있고, 어떤 게 필요한지 모르시는 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">보험금 청구가 어려우신 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">보험금 청구를 했는데 <strong style="color:#c0392b;">부지급</strong> 되신 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">보험금을 받긴 받았는데 <strong style="color:#c0392b;">덜 받은 느낌</strong>이 드시는 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">갱신될 때마다 보험료가 많이 오르시는 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">믿고 맡길 곳이 없으신 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">보험으로 인해 <strong style="color:#c0392b;">피해</strong>를 보신 분</p>
+            </div>
+
+            <div class="pain-item reveal">
+                <div class="pain-check">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#b87c10" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text">보험으로 피해를 보고 싶지 않으신 분</p>
+            </div>
+
+            <div class="pain-item full reveal">
+                <div class="pain-check" style="background:var(--navy);flex-shrink:0;">
+                    <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 6l3 3 5-5" stroke="#d99a2a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <p class="pain-text" style="font-weight:600;color:var(--navy);">보험에 대해 <span style="color:var(--gold);">많이 알고 계신 분</span>도 환영합니다 — 제대로 확인해드리겠습니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── QUOTE ── -->
+<section class="quote-section">
+    <div class="quote-inner">
+        <div class="quote-line reveal"></div>
+        <p class="quote-text reveal">
+            "제 상담은 <span class="highlight">1억원의 가치</span>를 갖고 있습니다.<br>
+            저한테 <span class="highlight">1시간</span>을 투자해주시면<br>
+            여러분의 재산 <span class="highlight">1억을 지켜드리겠습니다</span>"
+        </p>
+        <p class="quote-author reveal">— 보험설계사 김윤태</p>
+    </div>
+</section>
+
+<!-- ── REGION NOTICE ── -->
+<section class="region-notice">
+    <div class="region-inner">
+        <span class="region-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="36" height="36"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </span>
+        <div class="region-text reveal">
+            <h3>지역이 어디든 <strong>괜찮습니다!</strong></h3>
+            <p>전국 어디서든 비대면으로 빠르게 안내해드립니다. 편하게 연락주세요.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section class="reviews">
+    <div class="reviews-inner">
+        <div class="reviews-header reveal">
+            <div class="section-label">고객 실제 후기</div>
+            <h2>직접 경험하신 분들의<br><em>이야기입니다.</em></h2>
+        </div>
+
+        <div class="review-grid">
+            <!-- 후기 1 -->
+            <div class="review-card reveal">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"보험에 가입된 지 8년이 됐는데 한 번도 청구를 제대로 못 했어요. 윤태 팀장님 덕분에 모르고 있던 보험금 수백만 원을 한 번에 받았습니다. 진작 알았더라면 좋았을 텐데요."</p>
+                <div class="review-bottom">
+                    <div class="review-author">
+                        <div>
+                            <div class="review-name">김○○ 고객</div>
+                            <div class="review-meta">40대 · 경기도 거주</div>
+                        </div>
+                    </div>
+                    <span class="review-tag">보험금 청구</span>
+                </div>
+            </div>
+
+            <!-- 후기 2 -->
+            <div class="review-card reveal">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"매달 보험료가 70만 원 넘게 나가는데 뭘 보장 받는지도 몰랐어요. 점검 받고 나서 중복되는 거 정리하고 30만 원대로 낮췄는데 보장은 오히려 더 좋아졌습니다. 믿을 수 있는 분이에요."</p>
+                <div class="review-bottom">
+                    <div class="review-author">
+                        <div>
+                            <div class="review-name">이○○ 고객</div>
+                            <div class="review-meta">50대 · 서울 거주</div>
+                        </div>
+                    </div>
+                    <span class="review-tag">보험료 절감</span>
+                </div>
+            </div>
+
+            <!-- 후기 3 -->
+            <div class="review-card reveal">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"부지급 통보를 받고 포기하려다 연락드렸는데 재청구해서 결국 받아냈습니다. 혼자였으면 절대 못 했을 거예요. 보험사가 거절했다고 끝이 아니라는 걸 알게 됐어요."</p>
+                <div class="review-bottom">
+                    <div class="review-author">
+                        <div>
+                            <div class="review-name">박○○ 고객</div>
+                            <div class="review-meta">30대 · 인천 거주</div>
+                        </div>
+                    </div>
+                    <span class="review-tag">부지급 재청구</span>
+                </div>
+            </div>
+
+            <!-- 후기 4 -->
+            <div class="review-card reveal">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"갱신 때마다 보험료가 올라서 해지할까 고민했는데, 상담 한 번으로 구조를 이해하게 됐어요. 어떻게 유지하면 좋은지 방향을 잡아주시니 막막했던 게 해결됐습니다."</p>
+                <div class="review-bottom">
+                    <div class="review-author">
+                        <div>
+                            <div class="review-name">최○○ 고객</div>
+                            <div class="review-meta">40대 · 경기 고양 거주</div>
+                        </div>
+                    </div>
+                    <span class="review-tag">갱신 보험료</span>
+                </div>
+            </div>
+
+            <!-- 후기 5 -->
+            <div class="review-card reveal">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"다른 설계사들은 새 상품 가입만 권유했는데, 팀장님은 지금 있는 보험을 최대한 활용하는 방법을 먼저 알려주셨어요. 팔려는 분이 아니라 진짜 도와주시는 분이에요."</p>
+                <div class="review-bottom">
+                    <div class="review-author">
+                        <div>
+                            <div class="review-name">정○○ 고객</div>
+                            <div class="review-meta">30대 · 서울 거주</div>
+                        </div>
+                    </div>
+                    <span class="review-tag">보험 점검</span>
+                </div>
+            </div>
+
+            <!-- 후기 6 -->
+            <div class="review-card reveal">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"비대면으로 진행했는데도 꼼꼼하게 다 봐주셨어요. 바쁜 직장인이라 방문이 어려웠는데 카카오로 편하게 상담받고 실손 청구까지 도움받았습니다. 주변에 다 소개해드리고 있어요."</p>
+                <div class="review-bottom">
+                    <div class="review-author">
+                        <div>
+                            <div class="review-name">강○○ 고객</div>
+                            <div class="review-meta">20대 · 비대면 상담</div>
+                        </div>
+                    </div>
+                    <span class="review-tag">비대면 상담</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+    <div class="contact-inner">
+        <!-- Profile Card -->
+        <div class="profile-card reveal-left">
+            <div class="profile-avatar">
+                <img src="img/profile.png" alt="김윤태"></div>
+            <div class="profile-name">김윤태</div>
+            <div class="profile-title">팀장 · Team Leader</div>
+            <div class="profile-divider"></div>
+
+            <div class="profile-row">
+                <span class="profile-row-val">GA스타 금융서비스</span>
+            </div>
+            <div class="profile-row">
+                <span class="profile-row-val">퍼스트 지점 (First Branch)</span>
+            </div>
+            <div class="profile-row">
+                <span class="profile-row-val">팀장 (Team Leader)</span>
+            </div>
+            <div class="profile-divider"></div>
+            <div class="profile-row">
+                <span class="profile-row-label">cel</span>
+                <span class="profile-row-val"><a href="tel:01074237602">010-7423-7602</a></span>
+            </div>
+            <div class="profile-row">
+                <span class="profile-row-label">tel</span>
+                <span class="profile-row-val"><a href="tel:03199945675">031-994-5675</a></span>
+            </div>
+            <div class="profile-row">
+                <span class="profile-row-label">fax</span>
+                <span class="profile-row-val"><a href="tel:05042281903">0504-228-1903</a></span>
+            </div>
+            <div class="profile-row">
+                <span class="profile-row-label">mail</span>
+                <span class="profile-row-val" style="color:var(--gold-light);">bbanana1997</span>
+            </div>
+            <div class="profile-divider"></div>
+            <div class="profile-row">
+                <span class="profile-row-val" style="font-size:13px;line-height:1.7;">경기도 고양시 덕양구 삼원로 83, 1404호<br><span style="font-size:12px;color:rgba(255,255,255,.4);">광양프런티어벨리 6차 지식산업센터</span></span>
+            </div>
+            <div class="profile-row">
+                <span class="profile-row-val"><a href="http://www.gastar.co.kr" target="_blank" rel="noopener noreferrer">www.gastar.co.kr</a></span>
+            </div>
+        </div>
+
+        <!-- Contact area -->
+        <div class="contact-form-area reveal-right">
+            <div class="section-label">무료 상담 신청</div>
+            <h2>지금 바로<br>상담 신청하세요</h2>
+            <p class="contact-desc">
+                상담 · 점검 · 보험금 청구 문의 모두 <strong>완전 무료</strong>입니다.<br>
+                카카오 또는 전화로 편하게 연락해주시면 빠르게 안내해드리겠습니다.
+            </p>
+
+            <div class="free-tags">
+                <span class="free-tag">무료 상담</span>
+                <span class="free-tag">무료 점검</span>
+                <span class="free-tag">무료 청구 문의</span>
+            </div>
+
+            <div class="cta-btns">
+                <a href="https://open.kakao.com/o/bbanana1997" class="kakao-btn" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#3c1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="flex-shrink:0;"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    카카오 상담
+                </a>
+                <a href="tel:01074237602" class="phone-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    전화 상담
+                </a>
+            </div>
+
+            <p class="contact-note">
+                운영시간 : 평일 09:00 — 21:00 · 주말 09:00 — 18:00<br>
+                문자 또는 카카오 남겨주시면 순서대로 연락드립니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-logo">김윤태 <span>보험설계사</span></span>
+        <nav class="footer-links">
+            <a href="#top">Top</a>
+            <a href="#recommend">추천 대상</a>
+            <a href="#contact">상담 신청</a>
+        </nav>
+        <span class="footer-copy">© 2025 김윤태 보험설계사. All rights reserved.</span>
+    </div>
+</footer>
+
+<script>
+/* ── Nav scroll ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+/* ── Burger ── */
+const burger = document.getElementById('burger');
+const mMenu  = document.getElementById('mMenu');
+document.getElementById('mClose').addEventListener('click', closeMMenu);
+burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mMenu.classList.toggle('open');
+});
+function closeMMenu() {
+    burger.classList.remove('open');
+    mMenu.classList.remove('open');
+}
+
+/* ── Reveal on scroll ── */
+const revealAll = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            // underline trigger
+            const u = entry.target.querySelector('.underline');
+            if (u) u.classList.add('revealed');
+            io.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+revealAll.forEach(el => io.observe(el));
+
+/* Hero immediate reveal */
+document.querySelectorAll('.hero .reveal, .hero .reveal-left, .hero .reveal-right').forEach((el, i) => {
+    setTimeout(() => {
+        el.classList.add('revealed');
+        const u = el.querySelector('.underline');
+        if (u) setTimeout(() => u.classList.add('revealed'), 600);
+    }, 200 + i * 150);
+});
+
+/* ── Count-up ── */
+function countUp(el, to, duration) {
+    let start = 0;
+    const step = Math.ceil(duration / to) || 20;
+    const timer = setInterval(() => {
+        start = Math.min(start + 1, to);
+        el.textContent = start;
+        if (start >= to) clearInterval(timer);
+    }, step);
+}
+const countEls = document.querySelectorAll('[data-to]');
+const countIO = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const to = parseInt(entry.target.dataset.to);
+            const numEl = entry.target.closest('.stat-num').querySelector('.count-num') || entry.target;
+            countUp(numEl, to, 1000);
+            countIO.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.count-num[data-to]').forEach(el => countIO.observe(el));
+// stat section counts
+document.querySelectorAll('.stat-item').forEach(item => {
+    const num = item.querySelector('.count-num');
+    if (!num) return;
+    const to = parseInt(num.dataset.to) || 0;
+    if (!to) return;
+    const statIO = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                countUp(num, to, 1200);
+                statIO.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    statIO.observe(item);
+});
+</script>
+</body>
+</html>

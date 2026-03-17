@@ -76,28 +76,40 @@ exports.handler = async (event, context) => {
     
     // 채널아트는 화질 문제로 사용하지 않음
     
-    // 2단계: 비디오 목록 가져오기
-    const videosUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${YOUTUBE_API_KEY}`;
-    const videosResponse = await makeRequest(videosUrl);
-    
-    if (!videosResponse.ok) {
-      throw new Error(`비디오 목록 오류: ${videosResponse.status}`);
-    }
-    
-    const videosData = await videosResponse.json();
-    
+    // 2단계: 비디오 목록 전체 가져오기 (nextPageToken 순회)
+    let allVideos = [];
+    let nextPageToken = '';
+
+    do {
+      const pageParam = nextPageToken ? `&pageToken=${nextPageToken}` : '';
+      const videosUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50${pageParam}&key=${YOUTUBE_API_KEY}`;
+      const videosResponse = await makeRequest(videosUrl);
+
+      if (!videosResponse.ok) {
+        throw new Error(`비디오 목록 오류: ${videosResponse.status}`);
+      }
+
+      const videosData = await videosResponse.json();
+
+      const pageVideos = (videosData.items || []).map(item => ({
+        videoId: item.snippet.resourceId.videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails.medium.url,
+        publishedAt: item.snippet.publishedAt
+      }));
+
+      allVideos = allVideos.concat(pageVideos);
+      nextPageToken = videosData.nextPageToken || '';
+
+    } while (nextPageToken);
+
     // 필요한 데이터만 정리해서 반환
     const result = {
       channelInfo: {
         title: channel.snippet.title,
         thumbnailUrl: channel.snippet.thumbnails.default.url
       },
-      videos: videosData.items.map(item => ({
-        videoId: item.snippet.resourceId.videoId,
-        title: item.snippet.title,
-        thumbnail: item.snippet.thumbnails.medium.url,
-        publishedAt: item.snippet.publishedAt
-      }))
+      videos: allVideos
     };
     
     return {

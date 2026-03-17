@@ -1,0 +1,117 @@
+{{ define "main" }}
+<!-- 게시판 섹션 -->
+<section class="board-section">
+    <div class="container">
+        <h2 class="board-section-title"><span>프로젝트</span> NFP</h2>
+        <p class="board-intro">기획부터 완성 된 아웃풋, 모든 과정이 담긴 프로젝트 작업</p>
+
+{{ partial "categories-main-nav.html" (dict "active" "project") }}
+
+{{ partial "subnav-project.html" (dict "active" "planning") }}
+
+        <!-- 게시판 그리드 -->
+        <div class="board-grid-project-minimal">
+{{ $allPosts := .Parent.RegularPages }}
+{{ $filteredPosts := where $allPosts ".Params.subCategory" "in" (slice "기획 디자인") }}
+{{ range $filteredPosts }}
+            <div class="board-item-project-minimal" data-main="project" data-category="{{ .Params.subCategory }}">
+                <a href="{{ .RelPermalink }}">
+                    <div class="board-item-img">
+                        {{ $content := .Content }}
+                        {{ $hasVideo := false }}
+                        {{ $hasImage := false }}
+                        {{ $videoId := "" }}
+                        {{ $isVimeo := false }}
+                        {{ $firstImageSrc := "" }}
+                        {{ $firstContentType := "" }}
+
+                        {{ $youtubeMatches := findRE "youtube\\.com/watch\\?v=([a-zA-Z0-9_-]+)|youtu\\.be/([a-zA-Z0-9_-]+)|youtube\\.com/shorts/([a-zA-Z0-9_-]+)" $content 1 }}
+                        {{ $vimeoMatches := "" }}
+                        {{ $imageMatches := "" }}
+
+                        {{ if $youtubeMatches }}
+                            {{ $firstContentType = "youtube" }}
+                            {{ $fullMatch := index $youtubeMatches 0 }}
+                            {{ if findRE "/shorts/" $fullMatch 1 }}
+                                {{ $videoId = replaceRE ".*youtube\\.com/shorts/([a-zA-Z0-9_-]+).*" "$1" $fullMatch }}
+                            {{ else }}
+                                {{ $videoId = replaceRE ".*[?&]v=([a-zA-Z0-9_-]+).*|.*youtu\\.be/([a-zA-Z0-9_-]+).*" "$1$2" $fullMatch }}
+                            {{ end }}
+                            {{ $hasVideo = true }}
+                        {{ else }}
+                            {{ $vimeoMatches = findRE "vimeo\\.com/([0-9]+)" $content 1 }}
+                            {{ if $vimeoMatches }}
+                                {{ $firstContentType = "vimeo" }}
+                                {{ $fullMatch := index $vimeoMatches 0 }}
+                                {{ $videoId = replaceRE ".*vimeo\\.com/([0-9]+).*" "$1" $fullMatch }}
+                                {{ $hasVideo = true }}
+                                {{ $isVimeo = true }}
+                            {{ else }}
+                                {{ $imageMatches = findRE "<img[^>]+src=\"([^\"]+)\"" $content 1 }}
+                                {{ if $imageMatches }}
+                                    {{ $firstContentType = "image" }}
+                                    {{ $firstImageSrc = replaceRE "<img[^>]+src=\"([^\"]+)\".*" "$1" (index $imageMatches 0) }}
+                                    {{ $hasImage = true }}
+                                {{ end }}
+                            {{ end }}
+                        {{ end }}
+
+                        {{ if eq $firstContentType "youtube" }}
+                            <img src="https://img.youtube.com/vi/{{ $videoId }}/maxresdefault.jpg"
+                                 alt="{{ .Title }}"
+                                 onerror="this.src='https://img.youtube.com/vi/{{ $videoId }}/hqdefault.jpg'">
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        {{ else if eq $firstContentType "vimeo" }}
+                            <img src="https://vumbnail.com/{{ $videoId }}.jpg"
+                                 alt="{{ .Title }}"
+                                 onerror="this.src='/img/vimeo-default.jpg'">
+                            <div class="video-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        {{ else if eq $firstContentType "image" }}
+                            {{ $originalSrc := $firstImageSrc }}
+                            {{ $withoutExt := $originalSrc | replaceRE "\\.(jpg|jpeg|png|webp)$" "" }}
+                            <picture>
+                                <source srcset="{{ $withoutExt }}.webp" type="image/webp">
+                                <img src="{{ $originalSrc }}" alt="{{ .Title }}" width="360" height="202" loading="lazy">
+                            </picture>
+                        {{ end }}
+
+                        {{ if .Params.subCategory }}
+                        <div class="category-overlay">{{ partial "subcat-display.html" .Params.subCategory }}</div>
+                        {{ end }}
+                    </div>
+
+                    <div class="project-minimal-content">
+                        {{ if .Params.tags }}
+                            {{ range first 2 .Params.tags }}
+                                <span class="project-scale-badge">{{ . }}</span>
+                            {{ end }}
+                        {{ end }}
+                        {{ if .Params.custom_tags }}
+                            {{ range first 1 .Params.custom_tags }}
+                                <span class="project-scale-badge">{{ . }}</span>
+                            {{ end }}
+                        {{ end }}
+                        <h3 class="project-minimal-title">
+                            {{- if .Params.subCategory -}}
+                                <span class="category-text">[ {{ .Params.subCategory }} ]</span> {{ .Title }}
+                            {{- else -}}
+                                {{ .Title }}
+                            {{- end -}}
+                        </h3>
+                        {{ if .Params.subtitle }}
+                        <h4 class="project-minimal-subtitle">{{ .Params.subtitle }}</h4>
+                        {{ end }}
+                    </div>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+
+        <div class="pagination js-pagination"></div>
+    </div>
+</section>
+{{ end }}

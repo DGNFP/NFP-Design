@@ -1,1383 +1,320 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Studios on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title><link>https://nfpdesign.co.kr/studio/</link><description>Recent content in Studios on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description><generator>Hugo</generator><language>ko</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0900</lastBuildDate><atom:link href="https://nfpdesign.co.kr/studio/index.xml" rel="self" type="application/rss+xml"/><item><title>2색 그라데이션 팔레트</title><link>https://nfpdesign.co.kr/studio/gradient-2/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/gradient-2/</guid><description>&lt;h1 id="2색-그라데이션-팔레트">2색 그라데이션 팔레트&lt;/h1>
-&lt;p>두 가지 컬러를 선택하여 다양한 방향과 스타일의 그라데이션을 만들고 CSS 코드를 생성합니다.&lt;/p>
-&lt;p>컬러 피커나 HEX 코드로 색상을 선택하고, 8가지 방향(수평, 수직, 대각선, 원형)과 강도 조절로 원하는 그라데이션을 만들어보세요. 프리셋 조합으로 빠른 시작도 가능합니다.&lt;/p>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>컬러 피커 또는 HEX 코드로 시작 색상과 끝 색상을 선택합니다.&lt;/li>
-&lt;li>그라데이션 방향(수평·수직·대각선·원형)을 선택합니다.&lt;/li>
-&lt;li>색상 전환 강도와 중간 위치를 조절합니다.&lt;/li>
-&lt;li>실시간 미리보기로 결과를 확인하고 마음에 들면 CSS 코드를 복사합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="지원-그라데이션-방향">지원 그라데이션 방향&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>방향&lt;/th>
- &lt;th>CSS&lt;/th>
- &lt;th>용도&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>수평 (→)&lt;/td>
- &lt;td>&lt;code>to right&lt;/code>&lt;/td>
- &lt;td>배너, 헤더 배경&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>수직 (↓)&lt;/td>
- &lt;td>&lt;code>to bottom&lt;/code>&lt;/td>
- &lt;td>전체 페이지 배경&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>대각선 (↘)&lt;/td>
- &lt;td>&lt;code>135deg&lt;/code>&lt;/td>
- &lt;td>카드, 버튼 강조&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>원형&lt;/td>
- &lt;td>&lt;code>radial-gradient&lt;/code>&lt;/td>
- &lt;td>원형 배경, 하이라이트&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 색상과 방향 변경 즉시 반영&lt;/li>
-&lt;li>&lt;strong>CSS 코드 자동 생성&lt;/strong>: 복사 한 번으로 바로 사용 가능한 CSS 코드&lt;/li>
-&lt;li>&lt;strong>프리셋 팔레트&lt;/strong>: 유명 그라데이션 조합 모음으로 빠른 시작&lt;/li>
-&lt;li>&lt;strong>컬러 하모니 분석&lt;/strong>: 두 색상의 조화도 및 대비비 자동 분석&lt;/li>
-&lt;li>&lt;strong>다양한 형태 미리보기&lt;/strong>: 버튼·카드·배경 등 실제 사용 형태로 미리보기&lt;/li>
-&lt;/ul></description></item><item><title>3색 그라데이션 팔레트</title><link>https://nfpdesign.co.kr/studio/gradient-3/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/gradient-3/</guid><description>&lt;h1 id="3색-그라데이션-팔레트">3색 그라데이션 팔레트&lt;/h1>
-&lt;p>세 가지 컬러를 조합하여 복잡하고 세련된 그라데이션을 만들고 CSS 코드를 생성합니다.&lt;/p>
-&lt;p>컬러 피커나 HEX 코드로 색상을 선택하고, 중간 컬러의 위치를 조절하여 독특한 그라데이션을 만들어보세요. 다양한 컬러 조화 템플릿과 선형/원형/원추형 스타일을 지원합니다.&lt;/p>
-&lt;h2 id="2색과의-차이점">2색과의 차이점&lt;/h2>
-&lt;p>3색 그라데이션은 중간 색상이 추가되어 더 풍부하고 입체적인 색상 전환을 만들 수 있습니다. 단순한 A→B 전환이 아닌 A→B→C의 흐름으로 무지개, 일몰, 오로라 같은 복잡한 색상 표현이 가능합니다.&lt;/p>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>시작·중간·끝 세 가지 색상을 컬러 피커 또는 HEX 코드로 선택합니다.&lt;/li>
-&lt;li>슬라이더로 중간 색상의 위치(%)를 조절합니다.&lt;/li>
-&lt;li>그라데이션 스타일(선형/원형/원추형)을 선택합니다.&lt;/li>
-&lt;li>CSS 코드를 복사하거나 갤러리에 저장합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="컬러-조화-템플릿">컬러 조화 템플릿&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>템플릿&lt;/th>
- &lt;th>색상 조합&lt;/th>
- &lt;th>분위기&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>일몰&lt;/td>
- &lt;td>오렌지-핑크-보라&lt;/td>
- &lt;td>따뜻하고 낭만적&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>오로라&lt;/td>
- &lt;td>초록-청록-파랑&lt;/td>
- &lt;td>신비롭고 차가운&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>무지개&lt;/td>
- &lt;td>빨강-노랑-파랑&lt;/td>
- &lt;td>밝고 활기찬&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>모노크롬&lt;/td>
- &lt;td>흰색-회색-검정&lt;/td>
- &lt;td>세련되고 모던한&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>3색 조합&lt;/strong>: 시작·중간·끝 색상을 각각 독립적으로 설정&lt;/li>
-&lt;li>&lt;strong>위치 조절&lt;/strong>: 중간 색상의 위치를 0~100% 슬라이더로 세밀하게 조정&lt;/li>
-&lt;li>&lt;strong>컬러 하모니 템플릿&lt;/strong>: 전문가가 큐레이션한 색상 조합 즉시 적용&lt;/li>
-&lt;li>&lt;strong>실시간 분석&lt;/strong>: 색상 대비비, 명도 차이, 접근성 점수 자동 분석&lt;/li>
-&lt;li>&lt;strong>갤러리 저장&lt;/strong>: 마음에 드는 그라데이션을 갤러리에 저장하여 비교&lt;/li>
-&lt;/ul></description></item><item><title>5색 랜덤 팔레트</title><link>https://nfpdesign.co.kr/studio/color-palette-random/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/color-palette-random/</guid><description>&lt;h1 id="5색-랜덤-팔레트">5색 랜덤 팔레트&lt;/h1>
-&lt;p>서로 전혀 관계없는 완전히 랜덤한 5개의 색상을 생성하여 예측할 수 없는 창의적인 색상 조합을 제공하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>완전 랜덤 생성&lt;/strong>: 색상 이론과 무관한 순수 랜덤 색상 조합&lt;/li>
-&lt;li>&lt;strong>전체 스펙트럼 활용&lt;/strong>: 360도 색조 전체에서 자유롭게 추출&lt;/li>
-&lt;li>&lt;strong>예측 불가능성&lt;/strong>: 매번 새롭고 의외의 색상 조합 발견&lt;/li>
-&lt;li>&lt;strong>원클릭 복사&lt;/strong>: 각 색상 HEX 코드를 클릭하면 즉시 클립보드에 복사&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>팔레트 생성&lt;/strong>: &amp;lsquo;랜덤 팔레트 생성&amp;rsquo; 버튼을 클릭하세요&lt;/li>
-&lt;li>&lt;strong>색상 탐색&lt;/strong>: 생성된 5개의 예측 불가능한 색상을 확인하세요&lt;/li>
-&lt;li>&lt;strong>색상 복사&lt;/strong>: 마음에 드는 색상을 클릭하면 HEX 코드가 복사됩니다&lt;/li>
-&lt;li>&lt;strong>새로운 발견&lt;/strong>: 계속 생성하여 독특한 색상 조합을 찾아보세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="랜덤-생성-알고리즘">랜덤 생성 알고리즘&lt;/h2>
-&lt;p>&lt;strong>개별 HSL 생성&lt;/strong> → &lt;strong>독립적 색상 추출&lt;/strong> → &lt;strong>5색 조합 완성&lt;/strong>&lt;/p></description></item><item><title>Base64 인코딩/디코딩</title><link>https://nfpdesign.co.kr/studio/base64/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/base64/</guid><description>&lt;h1 id="base64-인코딩디코딩">Base64 인코딩/디코딩&lt;/h1>
-&lt;p>텍스트 데이터와 파일을 Base64 형태로 인코딩하거나 Base64 데이터를 원본으로 디코딩하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>텍스트 변환&lt;/strong>: 일반 텍스트를 Base64로 인코딩/디코딩&lt;/li>
-&lt;li>&lt;strong>파일 변환&lt;/strong>: 이미지, 문서 등 파일을 Base64로 인코딩&lt;/li>
-&lt;li>&lt;strong>파일 복원&lt;/strong>: Base64 데이터를 원본 파일로 디코딩&lt;/li>
-&lt;li>&lt;strong>실시간 변환&lt;/strong>: 입력과 동시에 즉시 변환 결과 확인&lt;/li>
-&lt;li>&lt;strong>이미지 미리보기&lt;/strong>: Base64 이미지 데이터의 실시간 미리보기&lt;/li>
-&lt;li>&lt;strong>파일 타입 감지&lt;/strong>: Base64 데이터에서 파일 타입 자동 감지&lt;/li>
-&lt;/ul>
-&lt;h2 id="base64란">Base64란?&lt;/h2>
-&lt;p>Base64는 바이너리 데이터를 64개의 ASCII 문자로 표현하는 인코딩 방식입니다.&lt;/p></description></item><item><title>PDF 분할기</title><link>https://nfpdesign.co.kr/studio/pdf-splitter/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/pdf-splitter/</guid><description>&lt;h1 id="pdf-분할">PDF 분할&lt;/h1>
-&lt;p>PDF 파일을 업로드하여 각 페이지를 개별 파일로 분할할 수 있습니다.&lt;/p>
-&lt;p>불필요한 페이지는 제거하고, 순서를 변경하여 원하는 페이지만 선택적으로 다운로드하세요. 개별 파일 또는 ZIP 파일로 일괄 다운로드가 가능합니다.&lt;/p>
-&lt;p>주요 기능: 페이지 미리보기, 드래그 앤 드롭 순서 변경, 페이지 선택/제거, 개별/ZIP 다운로드, 실시간 처리&lt;/p>
-&lt;hr></description></item><item><title>PDF 압축기</title><link>https://nfpdesign.co.kr/studio/pdf-compressor/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/pdf-compressor/</guid><description>&lt;h1 id="pdf-압축기">PDF 압축기&lt;/h1>
-&lt;p>PDF 파일의 크기를 효과적으로 줄여 저장공간을 절약하고 업로드 속도를 개선합니다.&lt;/p>
-&lt;p>브라우저에서 직접 처리되어 개인정보가 안전하며, DPI와 JPEG 품질을 조절하여 원하는 수준의 압축을 할 수 있습니다.&lt;/p>
-&lt;p>&lt;strong>주요 기능&lt;/strong>: DPI 조절(72-200), JPEG 품질 설정, 회색조 변환, 실시간 진행률 표시, 브라우저 전용 처리&lt;/p>
-&lt;p>&lt;strong>지원 형식&lt;/strong>: PDF 파일&lt;/p>
-&lt;p>&lt;strong>압축 옵션&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>DPI 설정&lt;/strong>: 72-200 범위에서 해상도 조절 (낮을수록 용량 감소)&lt;/li>
-&lt;li>&lt;strong>JPEG 품질&lt;/strong>: 0.3-0.9 범위에서 이미지 품질 조절&lt;/li>
-&lt;li>&lt;strong>회색조 변환&lt;/strong>: 컬러를 흑백으로 변환하여 추가 용량 절약&lt;/li>
-&lt;/ul>
-&lt;p>모든 처리는 브라우저에서 이루어지므로 파일이 외부로 전송되지 않아 안전합니다.&lt;/p></description></item><item><title>PDF 합치기(문서 합치기)</title><link>https://nfpdesign.co.kr/studio/pdf-merger/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/pdf-merger/</guid><description>&lt;h1 id="문서-합치기">문서 합치기&lt;/h1>
-&lt;p>PDF, Word, PowerPoint, Excel, 이미지 파일을 선택하여 하나의 PDF로 간편하게 합칩니다.&lt;/p>
-&lt;p>다양한 형식의 문서를 업로드하고, 파일 순서를 드래그로 조정하여 원하는 순서로 합쳐보세요. 최대 25MB까지의 파일을 지원합니다.&lt;/p>
-&lt;p>지원 형식: PDF, Word (DOC, DOCX), PowerPoint (PPT, PPTX), Excel (XLS, XLSX), 이미지 (JPG, PNG, TIFF)&lt;/p>
-&lt;p>주요 기능: 다양한 형식 지원, 드래그 앤 드롭 업로드, 파일 순서 조정, 실시간 진행률 표시, 즉시 다운로드&lt;/p>
-&lt;hr></description></item><item><title>Pong 게임</title><link>https://nfpdesign.co.kr/studio/pong-game/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/pong-game/</guid><description>&lt;h1 id="pong-게임">Pong 게임&lt;/h1>
-&lt;p>클래식 아케이드 게임의 원조, Pong을 컴퓨터와 즐겨보세요.&lt;/p>
-&lt;p>마우스로 패들을 조작하여 공을 튕겨내며 점수를 획득하는 클래식 탁구 게임입니다. 3단계 AI 난이도와 다양한 게임 모드로 자신만의 도전을 설정할 수 있습니다. 랠리가 지속될수록 공의 속도가 빨라집니다.&lt;/p>
-&lt;h2 id="조작-방법">조작 방법&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>마우스 상하 이동&lt;/strong>: 내 패들(왼쪽) 조작&lt;/li>
-&lt;li>&lt;strong>P키&lt;/strong>: 게임 일시정지 / 재개&lt;/li>
-&lt;li>공이 패들 중앙에 맞을수록 직선으로, 가장자리에 맞을수록 각도가 커집니다.&lt;/li>
-&lt;/ul>
-&lt;h2 id="ai-난이도">AI 난이도&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>난이도&lt;/th>
- &lt;th>AI 반응속도&lt;/th>
- &lt;th>추천 대상&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>Easy&lt;/td>
- &lt;td>느림&lt;/td>
- &lt;td>처음 플레이하는 분&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Normal&lt;/td>
- &lt;td>보통&lt;/td>
- &lt;td>일반 게이머&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Hard&lt;/td>
- &lt;td>빠름&lt;/td>
- &lt;td>고수 도전자&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="게임-규칙">게임 규칙&lt;/h2>
-&lt;ul>
-&lt;li>공이 상대방 벽을 통과하면 1점 획득&lt;/li>
-&lt;li>먼저 설정 점수(기본 7점)에 도달하면 승리&lt;/li>
-&lt;li>랠리가 5회 이상 지속되면 공의 속도가 점진적으로 증가&lt;/li>
-&lt;/ul>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>마우스 패들 조작&lt;/strong>: 직관적인 마우스 움직임으로 패들 제어&lt;/li>
-&lt;li>&lt;strong>AI 난이도 조절&lt;/strong>: 3단계 AI 난이도로 실력에 맞는 도전&lt;/li>
-&lt;li>&lt;strong>속도 증가 시스템&lt;/strong>: 랠리가 길어질수록 공 속도 상승&lt;/li>
-&lt;li>&lt;strong>실시간 통계&lt;/strong>: 현재 랠리 수, 최장 랠리 기록 실시간 표시&lt;/li>
-&lt;li>&lt;strong>최고 기록 저장&lt;/strong>: 승패 기록 및 최장 랠리 기록 로컬 저장&lt;/li>
-&lt;/ul></description></item><item><title>QR 코드 생성기</title><link>https://nfpdesign.co.kr/studio/qr-basic/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/qr-basic/</guid><description>&lt;h1 id="기본-qr-코드-생성">기본 QR 코드 생성&lt;/h1>
-&lt;p>URL, 텍스트, 연락처 정보 등 다양한 내용을 고품질 QR 코드로 변환하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>다양한 입력 지원&lt;/strong>: 웹사이트 URL, 일반 텍스트, vCard 연락처 정보 변환&lt;/li>
-&lt;li>&lt;strong>크기 선택&lt;/strong>: 200×200px부터 500×500px까지 용도별 크기 선택&lt;/li>
-&lt;li>&lt;strong>고품질 출력&lt;/strong>: PNG 형식의 선명한 QR 코드 생성&lt;/li>
-&lt;li>&lt;strong>즉시 다운로드&lt;/strong>: 생성된 QR 코드를 바로 파일로 저장&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>내용 입력&lt;/strong>: 변환할 URL 또는 텍스트를 입력창에 작성하세요&lt;/li>
-&lt;li>&lt;strong>크기 선택&lt;/strong>: 용도에 맞는 QR 코드 크기를 선택하세요&lt;/li>
-&lt;li>&lt;strong>코드 생성&lt;/strong>: &amp;lsquo;QR 코드 생성&amp;rsquo; 버튼을 클릭하세요&lt;/li>
-&lt;li>&lt;strong>다운로드&lt;/strong>: 생성된 QR 코드를 PNG 파일로 다운로드하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="지원하는-입력-형식">지원하는 입력 형식&lt;/h2>
-&lt;p>&lt;strong>웹사이트 URL&lt;/strong>&lt;/p></description></item><item><title>RGB ↔ CMYK 변환기</title><link>https://nfpdesign.co.kr/studio/rgb-cmyk/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/rgb-cmyk/</guid><description>&lt;h2 id="rgb와-cmyk란">RGB와 CMYK란?&lt;/h2>
-&lt;p>&lt;strong>RGB&lt;/strong>는 Red·Green·Blue 빛의 삼원색으로, 모니터·스마트폰·TV 등 디지털 화면에서 색상을 표현하는 방식입니다. &lt;strong>CMYK&lt;/strong>는 Cyan·Magenta·Yellow·Key(Black) 잉크의 혼합으로, 인쇄물에서 색상을 재현하는 방식입니다.&lt;/p>
-&lt;p>디자인 파일을 화면에서 볼 때와 인쇄했을 때 색상이 다르게 보이는 이유가 바로 이 두 색상 모드의 차이 때문입니다.&lt;/p>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>변환 방향 선택&lt;/strong> — RGB → CMYK 또는 CMYK → RGB 방향을 선택합니다.&lt;/li>
-&lt;li>&lt;strong>값 입력&lt;/strong> — 슬라이더 또는 숫자 입력으로 색상 값을 설정합니다. HEX 코드 직접 입력도 가능합니다.&lt;/li>
-&lt;li>&lt;strong>변환 결과 확인&lt;/strong> — 입력한 색상과 변환된 색상의 미리보기를 나란히 확인합니다.&lt;/li>
-&lt;li>&lt;strong>값 복사&lt;/strong> — 필요한 색상 코드를 클립보드에 복사하여 활용합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="색상-모드-비교">색상 모드 비교&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>항목&lt;/th>
- &lt;th>RGB&lt;/th>
- &lt;th>CMYK&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>색상 원리&lt;/td>
- &lt;td>빛의 혼합 (가산혼합)&lt;/td>
- &lt;td>잉크의 혼합 (감산혼합)&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>사용 환경&lt;/td>
- &lt;td>디지털 화면&lt;/td>
- &lt;td>인쇄물&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>값 범위&lt;/td>
- &lt;td>0 ~ 255&lt;/td>
- &lt;td>0% ~ 100%&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>색상 수&lt;/td>
- &lt;td>약 1600만 색&lt;/td>
- &lt;td>인쇄 색상 범위 내&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>양방향 변환&lt;/strong>: RGB → CMYK, CMYK → RGB 모두 지원&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 입력과 동시에 색상 변환 결과를 즉시 확인&lt;/li>
-&lt;li>&lt;strong>HEX 코드 지원&lt;/strong>: RGB와 함께 웹 HEX 코드 (#RRGGBB) 입력/출력&lt;/li>
-&lt;li>&lt;strong>색상 비교&lt;/strong>: 원본 색상과 변환된 색상을 나란히 비교하여 차이 파악&lt;/li>
-&lt;li>&lt;strong>완전 무료&lt;/strong>: 설치 없이 브라우저에서 바로 사용 가능&lt;/li>
-&lt;/ul></description></item><item><title>Studio NFP</title><link>https://nfpdesign.co.kr/studio/studio/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/studio/</guid><description>&lt;h1 id="studio-nfp">Studio NFP&lt;/h1>
-&lt;p>&lt;strong>디자인부터 개발까지, 창작 작업에 필요한 모든 도구를 한 곳에서&lt;/strong>&lt;/p>
-&lt;p>Studio NFP는 디자이너, 개발자, 크리에이터를 위한 40가지 전문 온라인 도구 모음입니다. 별도의 소프트웨어 설치 없이 웹 브라우저에서 바로 사용할 수 있습니다.&lt;/p>
-&lt;h2 id="-핵심-도구-모음">🚀 핵심 도구 모음&lt;/h2>
-&lt;p>가장 많이 사용되는 필수 도구들을 먼저 확인해보세요.&lt;/p>
-&lt;div class="sub-page-btn-wrapper">
-&lt;a href="{{ "/studio/web-demo" | relURL }}" class="sub-page-btn">웹 데모 뷰어&lt;/a>
-&lt;a href="{{ "/studio/text-counter" | relURL }}" class="sub-page-btn">텍스트 카운터&lt;/a>
-&lt;a href="{{ "/studio/image-compressor" | relURL }}" class="sub-page-btn">이미지 압축기&lt;/a>
-&lt;a href="{{ "/studio/qr-basic" | relURL }}" class="sub-page-btn">QR코드 생성기&lt;/a>
-&lt;a href="{{ "/studio/watermark" | relURL }}" class="sub-page-btn">워터마크 생성기&lt;/a>
-&lt;/div>
-&lt;h2 id="-이미지-처리-도구">🖼️ 이미지 처리 도구&lt;/h2>
-&lt;p>이미지 편집과 최적화를 위한 전문 도구들입니다.&lt;/p></description></item><item><title>URL 인코딩/디코딩</title><link>https://nfpdesign.co.kr/studio/url-encoder/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/url-encoder/</guid><description>&lt;h1 id="url-인코딩디코딩">URL 인코딩/디코딩&lt;/h1>
-&lt;p>URL에 포함할 수 없는 특수문자를 안전한 형태로 변환하거나 인코딩된 URL을 원래 형태로 복원하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>실시간 변환&lt;/strong>: 입력과 동시에 즉시 인코딩/디코딩&lt;/li>
-&lt;li>&lt;strong>양방향 변환&lt;/strong>: 인코딩과 디코딩을 동시에 지원&lt;/li>
-&lt;li>&lt;strong>두 가지 모드&lt;/strong>: URL Component와 전체 URI 모드&lt;/li>
-&lt;li>&lt;strong>예제 제공&lt;/strong>: 클릭 한 번으로 샘플 텍스트 입력&lt;/li>
-&lt;li>&lt;strong>클립보드 복사&lt;/strong>: 결과를 쉽게 복사하여 활용&lt;/li>
-&lt;li>&lt;strong>오류 처리&lt;/strong>: 잘못된 형식 입력 시 안전한 오류 처리&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;h3 id="url-인코딩">URL 인코딩&lt;/h3>
-&lt;ol>
-&lt;li>&lt;strong>텍스트 입력&lt;/strong>: 인코딩할 텍스트나 URL을 입력&lt;/li>
-&lt;li>&lt;strong>모드 선택&lt;/strong>: URL Component 또는 전체 URI 선택&lt;/li>
-&lt;li>&lt;strong>자동 변환&lt;/strong>: 입력과 동시에 결과 확인&lt;/li>
-&lt;li>&lt;strong>결과 복사&lt;/strong>: 복사 버튼으로 클립보드에 저장&lt;/li>
-&lt;/ol>
-&lt;h3 id="url-디코딩">URL 디코딩&lt;/h3>
-&lt;ol>
-&lt;li>&lt;strong>URL 입력&lt;/strong>: 디코딩할 인코딩된 URL 입력&lt;/li>
-&lt;li>&lt;strong>모드 선택&lt;/strong>: URL Component 또는 전체 URI 선택&lt;/li>
-&lt;li>&lt;strong>자동 변환&lt;/strong>: 입력과 동시에 결과 확인&lt;/li>
-&lt;li>&lt;strong>결과 복사&lt;/strong>: 복사 버튼으로 클립보드에 저장&lt;/li>
-&lt;/ol>
-&lt;h2 id="인코딩-모드">인코딩 모드&lt;/h2>
-&lt;h3 id="url-component-권장">URL Component (권장)&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>사용법&lt;/strong>: &lt;code>encodeURIComponent()&lt;/code> / &lt;code>decodeURIComponent()&lt;/code>&lt;/li>
-&lt;li>&lt;strong>특징&lt;/strong>: 모든 특수문자를 안전하게 인코딩&lt;/li>
-&lt;li>&lt;strong>용도&lt;/strong>: 쿼리 파라미터, 경로 구성 요소&lt;/li>
-&lt;li>&lt;strong>예시&lt;/strong>: &lt;code>안녕하세요&lt;/code> → &lt;code>%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h3 id="전체-uri">전체 URI&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>사용법&lt;/strong>: &lt;code>encodeURI()&lt;/code> / &lt;code>decodeURI()&lt;/code>&lt;/li>
-&lt;li>&lt;strong>특징&lt;/strong>: URL 구조는 유지하며 필요한 부분만 인코딩&lt;/li>
-&lt;li>&lt;strong>용도&lt;/strong>: 완전한 URL 문자열&lt;/li>
-&lt;li>&lt;strong>예시&lt;/strong>: &lt;code>https://예제.com/경로&lt;/code> → &lt;code>https://%EC%98%88%EC%A0%9C.com/%EA%B2%BD%EB%A1%9C&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;h2 id="인코딩이-필요한-문자">인코딩이 필요한 문자&lt;/h2>
-&lt;h3 id="예약된-문자-reserved-characters">예약된 문자 (Reserved Characters)&lt;/h3>
-&lt;p>URL에서 특별한 의미를 가지므로 인코딩 필요:&lt;/p></description></item><item><title>가위바위보 게임</title><link>https://nfpdesign.co.kr/studio/rsp-game/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/rsp-game/</guid><description>&lt;h1 id="가위바위보-게임">가위바위보 게임&lt;/h1>
-&lt;p>컴퓨터와 가위바위보 대전을 즐겨보세요.&lt;/p>
-&lt;p>실시간으로 컴퓨터와 대결하며 점수를 기록하고, 승률을 확인할 수 있습니다. 간단한 클릭만으로 바로 게임을 시작할 수 있으며, 게임 통계가 자동으로 저장됩니다.&lt;/p>
-&lt;h2 id="규칙-및-상성">규칙 및 상성&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>내 선택&lt;/th>
- &lt;th>이기는 상대&lt;/th>
- &lt;th>지는 상대&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>가위 ✂️&lt;/td>
- &lt;td>보&lt;/td>
- &lt;td>바위&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>바위 🪨&lt;/td>
- &lt;td>가위&lt;/td>
- &lt;td>보&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>보 📄&lt;/td>
- &lt;td>바위&lt;/td>
- &lt;td>가위&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="게임-모드">게임 모드&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>일반 대전&lt;/strong>: 제한 없이 계속 대전하며 승률 기록&lt;/li>
-&lt;li>&lt;strong>N판 승부&lt;/strong>: 목표 승수(3판, 5판, 10판)를 먼저 달성하면 승리&lt;/li>
-&lt;li>&lt;strong>타임어택&lt;/strong>: 제한 시간 내에 최대한 많이 이기기&lt;/li>
-&lt;/ul>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>실시간 대전&lt;/strong>: 가위·바위·보 버튼 클릭으로 즉시 대결&lt;/li>
-&lt;li>&lt;strong>점수 추적&lt;/strong>: 내 점수·컴퓨터 점수·무승부 횟수 실시간 기록&lt;/li>
-&lt;li>&lt;strong>라운드 카운터&lt;/strong>: 현재까지 진행된 총 라운드 수 표시&lt;/li>
-&lt;li>&lt;strong>승률 계산&lt;/strong>: 누적 대전에서의 승률(%)을 퍼센트로 표시&lt;/li>
-&lt;li>&lt;strong>게임 통계&lt;/strong>: 가위·바위·보 각각 몇 번 냈는지 패턴 분석&lt;/li>
-&lt;li>&lt;strong>로컬 저장&lt;/strong>: 브라우저를 닫아도 통계가 저장되어 누적 기록 유지&lt;/li>
-&lt;/ul></description></item><item><title>강화 시뮬레이터</title><link>https://nfpdesign.co.kr/studio/enhancement-simulator/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/enhancement-simulator/</guid><description>&lt;h1 id="강화-시뮬레이터">강화 시뮬레이터&lt;/h1>
-&lt;p>게임에서 흔히 볼 수 있는 아이템 강화 시스템을 실제로 체험해볼 수 있는 시뮬레이터입니다.&lt;/p>
-&lt;p>성공 확률을 직접 설정하고, 실패 시 레벨 하락이나 아이템 파괴 등의 패널티를 적용할 수 있습니다. 자동 강화 기능으로 목표 레벨까지 연속 도전하거나, 하나씩 신중하게 강화할 수 있습니다.&lt;/p>
-&lt;h2 id="강화-시스템-설정">강화 시스템 설정&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>옵션&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>성공 확률&lt;/td>
- &lt;td>강화 성공 가능성 (1~99%) 직접 설정&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>실패 패널티&lt;/td>
- &lt;td>레벨 유지 / 레벨 하락 / 아이템 파괴 선택&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>파괴 방지&lt;/td>
- &lt;td>실패 시 파괴 방지 아이템 사용 여부&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>목표 레벨&lt;/td>
- &lt;td>자동 강화 시 도달할 목표 강화 레벨&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>강화 성공 확률과 실패 패널티 조건을 설정합니다.&lt;/li>
-&lt;li>파괴 방지 아이템 사용 여부를 선택합니다.&lt;/li>
-&lt;li>&lt;strong>강화 시작&lt;/strong> 버튼으로 한 번씩 도전하거나, &lt;strong>자동 강화&lt;/strong>로 목표 레벨까지 연속 시도합니다.&lt;/li>
-&lt;li>우측 통계 패널에서 성공률, 소비 재화, 누적 시도 횟수를 실시간으로 확인합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>확률 커스텀&lt;/strong>: 강화 성공 확률을 1~99% 사이에서 직접 조절&lt;/li>
-&lt;li>&lt;strong>패널티 조정&lt;/strong>: 실패 시 레벨 하락, 파괴 등 다양한 패널티 옵션&lt;/li>
-&lt;li>&lt;strong>파괴 방지 옵션&lt;/strong>: 실패 패널티를 줄이는 보호 아이템 설정&lt;/li>
-&lt;li>&lt;strong>자동 강화&lt;/strong>: 목표 레벨을 지정하면 연속으로 도전 (중단 가능)&lt;/li>
-&lt;li>&lt;strong>강화 통계&lt;/strong>: 총 시도 횟수, 성공/실패 횟수, 성공률 실시간 추적&lt;/li>
-&lt;li>&lt;strong>강화 기록&lt;/strong>: 각 강화 시도의 결과를 타임라인 형태로 저장&lt;/li>
-&lt;/ul></description></item><item><title>그라데이션 카드 뽑기</title><link>https://nfpdesign.co.kr/studio/gradient-card/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/gradient-card/</guid><description>&lt;h1 id="그라데이션-카드-뽑기">그라데이션 카드 뽑기&lt;/h1>
-&lt;p>오늘은 어떤 색상 조합이 당신을 기다리고 있을까요?&lt;br>
-랜덤으로 &lt;strong>그라데이션 카드&lt;/strong>를 뽑아 다채로운 영감을 얻어보세요.&lt;/p>
-&lt;p>그라데이션 카드는 두 가지 이상의 색상을 조합하여 새로운 분위기와 감각을 전달합니다.&lt;br>
-각 카드에는 HEX 코드와 함께 특별한 의미가 담겨 있으며, 디자인에 바로 활용할 수 있습니다.&lt;/p>
-&lt;p>&lt;strong>주요 기능&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>랜덤 그라데이션 생성&lt;/li>
-&lt;li>HEX 색상 코드 복사&lt;/li>
-&lt;li>카드 이미지 저장&lt;/li>
-&lt;li>스페셜/다크 스페셜 카드 발견&lt;/li>
-&lt;/ul></description></item><item><title>그리드 계산기</title><link>https://nfpdesign.co.kr/studio/grid-calculator/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/grid-calculator/</guid><description>&lt;h1 id="그리드-계산기">그리드 계산기&lt;/h1>
-&lt;p>웹사이트와 앱의 레이아웃 그리드 시스템을 설계하고 시각적으로 확인할 수 있는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>그리드 입력&lt;/strong>: 최대 너비, 컬럼 수, 간격, 좌우 마진 설정&lt;/li>
-&lt;li>&lt;strong>실시간 계산&lt;/strong>: 페이지 너비와 컬럼 너비 자동 계산&lt;/li>
-&lt;li>&lt;strong>시각적 미리보기&lt;/strong>: 설계한 그리드를 실제로 시각화&lt;/li>
-&lt;li>&lt;strong>반응형 스케일링&lt;/strong>: 화면 크기에 맞게 미리보기 조정&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>최대 너비&lt;/strong>: 전체 컨테이너의 최대 너비를 입력하세요&lt;/li>
-&lt;li>&lt;strong>컬럼 수&lt;/strong>: 필요한 컬럼 개수를 설정하세요 (1-24개)&lt;/li>
-&lt;li>&lt;strong>간격&lt;/strong>: 컬럼 사이의 간격을 설정하세요&lt;/li>
-&lt;li>&lt;strong>좌우 마진&lt;/strong>: 컨테이너 양쪽의 마진을 설정하세요&lt;/li>
-&lt;li>실시간으로 계산 결과와 시각적 미리보기를 확인하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="계산-공식">계산 공식&lt;/h2>
-&lt;p>&lt;strong>사용 가능한 너비&lt;/strong> = 최대 너비 - (간격 × (컬럼 수 - 1)) - (좌우 마진 × 2)
-&lt;strong>컬럼 너비&lt;/strong> = 사용 가능한 너비 ÷ 컬럼 수&lt;/p></description></item><item><title>날짜 계산기</title><link>https://nfpdesign.co.kr/studio/date-calculator/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/date-calculator/</guid><description>&lt;h1 id="날짜-계산기">날짜 계산기&lt;/h1>
-&lt;p>기간 계산, D-day 계산, 날짜 더하기/빼기 등 다양한 날짜 관련 계산을 한 번에 처리합니다.&lt;/p>
-&lt;p>두 날짜 사이의 정확한 기간을 계산하거나, 특정 날까지 남은 일수를 확인하고, 특정 날짜에서 원하는 기간을 더하거나 뺄 수 있습니다. 연, 월, 일, 주 단위로 다양한 형태의 결과를 제공합니다.&lt;/p>
-&lt;h2 id="계산-모드">계산 모드&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>모드&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;th>활용 예시&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>기간 계산&lt;/td>
- &lt;td>두 날짜 사이의 일수·주·월·년 계산&lt;/td>
- &lt;td>계약 기간, 재직 기간&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>D-day 계산&lt;/td>
- &lt;td>특정 날까지 남은 일수&lt;/td>
- &lt;td>시험, 기념일, 이벤트&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>날짜 더하기&lt;/td>
- &lt;td>날짜에서 N일/주/월/년 후 계산&lt;/td>
- &lt;td>만료일, 납기일&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>날짜 빼기&lt;/td>
- &lt;td>날짜에서 N일/주/월/년 전 계산&lt;/td>
- &lt;td>과거 날짜 역산&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>상단 탭에서 원하는 계산 모드를 선택합니다.&lt;/li>
-&lt;li>시작 날짜와 종료 날짜(또는 기준 날짜와 더할 기간)를 입력합니다.&lt;/li>
-&lt;li>계산 결과가 즉시 표시됩니다. 일수, 주, 월, 년 단위로 모두 확인할 수 있습니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>기간 계산&lt;/strong>: 두 날짜 사이의 정확한 기간을 다양한 단위로 표시&lt;/li>
-&lt;li>&lt;strong>D-day 계산&lt;/strong>: 목표 날짜까지 남은 일수 카운트다운&lt;/li>
-&lt;li>&lt;strong>날짜 더하기/빼기&lt;/strong>: 기준 날짜에 특정 기간을 더하거나 빼서 결과 날짜 산출&lt;/li>
-&lt;li>&lt;strong>한국어 요일 표시&lt;/strong>: 계산 결과와 함께 해당 날짜의 요일(월~일) 표시&lt;/li>
-&lt;li>&lt;strong>오늘 날짜 자동 입력&lt;/strong>: 버튼 클릭으로 오늘 날짜를 자동으로 입력&lt;/li>
-&lt;/ul></description></item><item><title>다중 이미지 포맷 변환기</title><link>https://nfpdesign.co.kr/studio/multi-format-converter/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/multi-format-converter/</guid><description>&lt;h2 id="다중-이미지-포맷-변환기란">다중 이미지 포맷 변환기란?&lt;/h2>
-&lt;p>여러 이미지 파일을 한 번에 업로드하여 원하는 포맷으로 일괄 변환하는 브라우저 기반 도구입니다. 서버에 업로드하지 않고 브라우저에서 직접 처리하므로 개인정보와 파일 보안이 완벽하게 보호됩니다.&lt;/p>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>파일 선택&lt;/strong> — 변환할 이미지를 드래그앤드롭하거나 클릭하여 업로드합니다. 여러 파일을 동시에 선택할 수 있습니다.&lt;/li>
-&lt;li>&lt;strong>포맷 선택&lt;/strong> — 변환할 출력 포맷(JPG, PNG, WebP)을 선택합니다.&lt;/li>
-&lt;li>&lt;strong>품질 조절&lt;/strong> — JPG, WebP의 경우 1~100% 품질을 조절하여 파일 크기와 화질을 조정합니다.&lt;/li>
-&lt;li>&lt;strong>변환 시작&lt;/strong> — 변환 버튼을 클릭하면 모든 파일이 일괄 처리됩니다.&lt;/li>
-&lt;li>&lt;strong>다운로드&lt;/strong> — 개별 파일 다운로드 또는 ZIP으로 한꺼번에 저장합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="지원-포맷-및-특징">지원 포맷 및 특징&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>포맷&lt;/th>
- &lt;th>특징&lt;/th>
- &lt;th>추천 용도&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>JPG&lt;/td>
- &lt;td>사진에 최적, 파일 크기 작음&lt;/td>
- &lt;td>사진, SNS 업로드&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>PNG&lt;/td>
- &lt;td>투명도 지원, 무손실&lt;/td>
- &lt;td>로고, UI 요소&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>WebP&lt;/td>
- &lt;td>고압축률, 최신 브라우저 지원&lt;/td>
- &lt;td>웹 최적화, SEO&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>일괄 처리&lt;/strong>: 한 번에 수십 개의 이미지를 동시에 변환&lt;/li>
-&lt;li>&lt;strong>품질 조절&lt;/strong>: 출력 품질을 직접 조절하여 파일 크기 최적화&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 변환 전후 이미지를 비교 확인&lt;/li>
-&lt;li>&lt;strong>ZIP 다운로드&lt;/strong>: 모든 변환 결과물을 ZIP 파일로 일괄 다운로드&lt;/li>
-&lt;li>&lt;strong>완전 무료&lt;/strong>: 회원가입 없이 용량 제한 없이 사용 가능&lt;/li>
-&lt;li>&lt;strong>개인정보 보호&lt;/strong>: 파일이 서버에 전송되지 않고 브라우저에서만 처리&lt;/li>
-&lt;/ul></description></item><item><title>단위 변환기</title><link>https://nfpdesign.co.kr/studio/unit-converter/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/unit-converter/</guid><description>&lt;h1 id="단위-변환기">단위 변환기&lt;/h1>
-&lt;p>웹 디자인과 인쇄물 작업에 필요한 다양한 길이 단위를 빠르게 상호 변환하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>양방향 변환&lt;/strong>: 기준 단위 ↔ 변환 단위 실시간 상호변환&lt;/li>
-&lt;li>&lt;strong>지원 단위&lt;/strong>: px, pt, mm, cm, inch (96 DPI 기준)&lt;/li>
-&lt;li>&lt;strong>빠른 변환&lt;/strong>: 자주 사용하는 값들을 원클릭으로 변환&lt;/li>
-&lt;li>&lt;strong>정확한 계산&lt;/strong>: 소수점 3자리까지 정밀 변환&lt;/li>
-&lt;li>&lt;strong>96 DPI 기준&lt;/strong>: 표준 웹 해상도 기준 변환&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>기준 단위와 변환 단위를 각각 선택하세요&lt;/li>
-&lt;li>기준 단위 입력란에 값을 입력하면 자동 변환됩니다&lt;/li>
-&lt;li>반대로 변환 단위에 값을 입력해도 역변환이 가능합니다&lt;/li>
-&lt;li>빠른 변환 버튼으로 자주 사용하는 값들을 쉽게 확인할 수 있습니다&lt;/li>
-&lt;/ol>
-&lt;h2 id="변환-기준">변환 기준&lt;/h2>
-&lt;p>&lt;strong>96 DPI 기준 참고 값:&lt;/strong>&lt;/p></description></item><item><title>더미 텍스트 (Lorem Ipsum) 생성기</title><link>https://nfpdesign.co.kr/studio/text-tools/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/text-tools/</guid><description>&lt;h1 id="lorem-ipsum-생성기">Lorem Ipsum 생성기&lt;/h1>
-&lt;p>디자인 및 개발 작업에 필요한 더미 텍스트를 빠르게 생성하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>다양한 생성 방식&lt;/strong>: 문단, 단어, 문장 단위로 생성&lt;/li>
-&lt;li>&lt;strong>개수 조절&lt;/strong>: 1~50개까지 자유롭게 설정&lt;/li>
-&lt;li>&lt;strong>클래식 시작&lt;/strong>: &amp;ldquo;Lorem ipsum dolor sit amet&amp;hellip;&amp;ldquo;으로 시작 옵션&lt;/li>
-&lt;li>&lt;strong>실시간 통계&lt;/strong>: 생성된 텍스트의 문단/단어/글자 수 표시&lt;/li>
-&lt;li>&lt;strong>원클릭 복사&lt;/strong>: 생성된 텍스트를 한 번에 복사&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>생성 방식을 선택하세요 (문단/단어/문장)&lt;/li>
-&lt;li>원하는 개수를 입력하세요&lt;/li>
-&lt;li>필요시 클래식 시작 옵션을 선택하세요&lt;/li>
-&lt;li>&amp;ldquo;Lorem Ipsum 생성&amp;rdquo; 버튼을 클릭하세요&lt;/li>
-&lt;li>생성된 텍스트를 복사하여 사용하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="lorem-ipsum이란">Lorem Ipsum이란?&lt;/h2>
-&lt;p>Lorem Ipsum은 16세기부터 인쇄 및 타이포그래피 업계에서 사용되어 온 표준 더미 텍스트입니다. 의미 없는 라틴어로 구성되어 있어 내용에 방해받지 않고 디자인과 레이아웃에 집중할 수 있게 해줍니다.&lt;/p></description></item><item><title>두더지 잡기 게임</title><link>https://nfpdesign.co.kr/studio/whack-a-mole/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/whack-a-mole/</guid><description>&lt;h1 id="두더지-잡기-게임">두더지 잡기 게임&lt;/h1>
-&lt;p>제한 시간 내에 최대한 많은 두더지를 잡아 점수를 획득하세요.&lt;/p>
-&lt;p>9개의 구멍에서 랜덤하게 나타나는 두더지를 빠르게 클릭하여 점수를 획득하는 클래식 아케이드 게임입니다. 연속 적중 시 콤보 보너스가 적용되며, 4가지 난이도 설정으로 다양한 도전이 가능합니다.&lt;/p>
-&lt;h2 id="조작-방법">조작 방법&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>마우스 클릭&lt;/strong> 또는 &lt;strong>터치(모바일)&lt;/strong>: 구멍에서 나온 두더지를 클릭/탭&lt;/li>
-&lt;li>두더지가 구멍에서 나왔다가 사라지기 전에 빠르게 클릭해야 합니다.&lt;/li>
-&lt;li>빈 구멍을 클릭하면 미스 카운트가 증가합니다.&lt;/li>
-&lt;/ul>
-&lt;h2 id="난이도-설정">난이도 설정&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>난이도&lt;/th>
- &lt;th>두더지 등장 속도&lt;/th>
- &lt;th>머무르는 시간&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>Easy&lt;/td>
- &lt;td>느림&lt;/td>
- &lt;td>길게&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Normal&lt;/td>
- &lt;td>보통&lt;/td>
- &lt;td>보통&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Hard&lt;/td>
- &lt;td>빠름&lt;/td>
- &lt;td>짧게&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>Expert&lt;/td>
- &lt;td>매우 빠름&lt;/td>
- &lt;td>매우 짧게&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="콤보-시스템">콤보 시스템&lt;/h2>
-&lt;p>연속으로 두더지를 잡으면 콤보가 누적되어 점수 배수가 올라갑니다:&lt;/p></description></item><item><title>로또 번호 생성기 - Studio NFP</title><link>https://nfpdesign.co.kr/studio/lotto-generator/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/lotto-generator/</guid><description>&lt;h1 id="로또-번호-생성기">로또 번호 생성기&lt;/h1>
-&lt;p>1부터 45까지 숫자 중에서 6개의 번호를 자동으로 생성하는 행운의 도구입니다.&lt;/p>
-&lt;p>완전 랜덤, 균형잡힌 조합, 인기 번호 위주, 소외 번호 위주 등 다양한 생성 방식을 제공합니다. 1게임부터 10게임까지 한 번에 생성 가능하며, 보너스 번호 포함 옵션과 생성 통계 기능도 제공합니다.&lt;/p>
-&lt;h2 id="번호-생성-방식">번호 생성 방식&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>방식&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>완전 랜덤&lt;/td>
- &lt;td>1~45 중 완전히 무작위로 6개 선택&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>균형 조합&lt;/td>
- &lt;td>홀짝·고저 비율을 균형있게 고려&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>인기 번호&lt;/td>
- &lt;td>역대 많이 나온 번호 위주로 생성&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>소외 번호&lt;/td>
- &lt;td>오랫동안 안 나온 번호 위주로 생성&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>원하는 번호 생성 방식을 선택합니다.&lt;/li>
-&lt;li>생성할 게임 수(1~10게임)를 설정합니다.&lt;/li>
-&lt;li>&lt;strong>생성하기&lt;/strong> 버튼을 클릭하면 번호가 즉시 생성됩니다.&lt;/li>
-&lt;li>마음에 드는 번호 조합을 메모하거나 저장합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>다양한 생성 방식&lt;/strong>: 랜덤, 균형, 인기번호, 소외번호 등 4가지 전략&lt;/li>
-&lt;li>&lt;strong>멀티 게임 생성&lt;/strong>: 한 번에 최대 10게임 동시 생성&lt;/li>
-&lt;li>&lt;strong>보너스 번호&lt;/strong>: 보너스 번호(7번째 번호) 포함 옵션 제공&lt;/li>
-&lt;li>&lt;strong>생성 통계&lt;/strong>: 각 번호의 생성 빈도와 통계 데이터 제공&lt;/li>
-&lt;li>&lt;strong>번호 빈도 분석&lt;/strong>: 선택된 번호들의 홀짝·고저·구간 분포 분석&lt;/li>
-&lt;/ul></description></item><item><title>벽돌깨기 게임</title><link>https://nfpdesign.co.kr/studio/breakout-game/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/breakout-game/</guid><description>&lt;h1 id="벽돌깨기-게임">벽돌깨기 게임&lt;/h1>
-&lt;p>클래식 아케이드 게임 브레이크아웃을 현대적으로 재현했습니다.&lt;/p>
-&lt;p>마우스로 패들을 조작하여 공을 튕겨내며 화면 상단의 모든 벽돌을 파괴하는 게임입니다. 레벨이 진행될수록 벽돌 수가 증가하고, 일부 벽돌은 여러 번 맞아야 파괴됩니다. 생명이 떨어지면 게임이 종료됩니다.&lt;/p>
-&lt;h2 id="조작-방법">조작 방법&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>마우스 이동&lt;/strong>: 패들 좌우 이동&lt;/li>
-&lt;li>&lt;strong>클릭 또는 스페이스바&lt;/strong>: 게임 시작 / 공 발사&lt;/li>
-&lt;li>&lt;strong>P키&lt;/strong>: 일시정지&lt;/li>
-&lt;/ul>
-&lt;h2 id="게임-규칙">게임 규칙&lt;/h2>
-&lt;p>모든 벽돌을 파괴하면 다음 레벨로 진행됩니다. 생명은 기본 3개이며, 공이 화면 아래로 떨어질 때마다 1개씩 감소합니다. 레벨이 높아질수록 공의 속도가 빨라지고 벽돌 배치가 복잡해집니다.&lt;/p></description></item><item><title>사이즈 계산기</title><link>https://nfpdesign.co.kr/studio/size-calculator/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/size-calculator/</guid><description>&lt;h1 id="사이즈-계산기">사이즈 계산기&lt;/h1>
-&lt;p>비율을 기반으로 한 해상도 계산과 이미지 사이즈 변환을 쉽게 할 수 있는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;h3 id="비율-계산기">비율 계산기&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>비율 입력&lt;/strong>: 16:9, 4:3 등 원하는 비율 설정&lt;/li>
-&lt;li>&lt;strong>자동 해상도 생성&lt;/strong>: 4K/FHD/HD/SD 해상도 자동 계산&lt;/li>
-&lt;li>&lt;strong>실시간 업데이트&lt;/strong>: 비율 변경 시 즉시 결과 반영&lt;/li>
-&lt;/ul>
-&lt;h3 id="커스텀-사이즈-변환">커스텀 사이즈 변환&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>원본 크기 입력&lt;/strong>: 현재 이미지의 가로×세로 크기&lt;/li>
-&lt;li>&lt;strong>목표 비율 설정&lt;/strong>: 변환하고 싶은 비율&lt;/li>
-&lt;li>&lt;strong>두 가지 변환 방식&lt;/strong>: 잘라내기(crop)와 늘리기(fit) 결과 제공&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;h3 id="비율-계산기-1">비율 계산기&lt;/h3>
-&lt;ol>
-&lt;li>가로 비율과 세로 비율을 입력하세요&lt;/li>
-&lt;li>자동으로 4가지 해상도가 계산됩니다&lt;/li>
-&lt;li>각 해상도별 정확한 픽셀 크기를 확인하세요&lt;/li>
-&lt;/ol>
-&lt;h3 id="커스텀-사이즈-변환-1">커스텀 사이즈 변환&lt;/h3>
-&lt;ol>
-&lt;li>원본 이미지의 너비와 높이를 입력하세요&lt;/li>
-&lt;li>목표로 하는 가로:세로 비율을 입력하세요&lt;/li>
-&lt;li>잘라내기와 늘리기 방식의 결과를 확인하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="변환-방식-설명">변환 방식 설명&lt;/h2>
-&lt;p>&lt;strong>잘라내기 (Crop)&lt;/strong>: 비율을 맞추기 위해 이미지의 일부를 자르는 방식
-&lt;strong>늘리기 (Fit)&lt;/strong>: 비율을 맞추기 위해 이미지를 확대하는 방식&lt;/p></description></item><item><title>스네이크 게임 (Snake)</title><link>https://nfpdesign.co.kr/studio/snake-game/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/snake-game/</guid><description>&lt;h1 id="snake-게임">Snake 게임&lt;/h1>
-&lt;p>방향키로 뱀을 조작하여 음식을 먹고 최대한 길게 성장시키는 클래식 게임입니다.&lt;/p>
-&lt;p>뱀이 음식을 먹을 때마다 몸이 길어지며, 벽이나 자신의 몸에 부딪히면 게임이 종료됩니다. 음식을 많이 먹을수록 속도가 빨라져 더욱 도전적이 됩니다. 방향키 또는 WASD 키로 조작할 수 있습니다.&lt;/p>
-&lt;h2 id="조작-방법">조작 방법&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>방향키 (↑↓←→)&lt;/strong> 또는 &lt;strong>WASD&lt;/strong>: 뱀의 이동 방향 변경&lt;/li>
-&lt;li>&lt;strong>P키&lt;/strong> 또는 &lt;strong>스페이스바&lt;/strong>: 게임 일시정지 / 재개&lt;/li>
-&lt;li>&lt;strong>모바일&lt;/strong>: 스와이프 제스처로 방향 전환&lt;/li>
-&lt;/ul>
-&lt;h2 id="게임-규칙">게임 규칙&lt;/h2>
-&lt;p>음식(빨간 점)을 먹을 때마다 뱀의 몸이 1칸 길어지고 점수가 추가됩니다. 뱀이 벽 또는 자신의 몸에 부딪히면 게임 오버입니다. 음식을 먹을수록 이동 속도가 점차 빨라집니다.&lt;/p></description></item><item><title>오늘 뭐먹지?</title><link>https://nfpdesign.co.kr/studio/food-roulette/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/food-roulette/</guid><description>&lt;h1 id="오늘-뭐먹지">오늘 뭐먹지?&lt;/h1>
-&lt;p>점심 뭐먹지? 저녁 뭐먹지? 메뉴 선택 고민을 재미있는 룰렛으로 해결해보세요!&lt;/p>
-&lt;p>한식, 중식, 양식 카테고리별로 구성된 다양한 메뉴 중에서 룰렛이 랜덤으로 선택해드립니다. 선택 장애가 있을 때, 새로운 메뉴에 도전하고 싶을 때, 또는 단순히 재미로 사용해보세요.&lt;/p>
-&lt;h2 id="메뉴-카테고리">메뉴 카테고리&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>카테고리&lt;/th>
- &lt;th>예시 메뉴&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>한식&lt;/td>
- &lt;td>비빔밥, 된장찌개, 삼겹살, 냉면, 갈비탕&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>중식&lt;/td>
- &lt;td>짜장면, 짬뽕, 탕수육, 마라탕, 볶음밥&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>양식&lt;/td>
- &lt;td>파스타, 스테이크, 피자, 샐러드, 샌드위치&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>일식&lt;/td>
- &lt;td>초밥, 라멘, 돈가스, 우동, 회덮밥&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>분식&lt;/td>
- &lt;td>떡볶이, 순대, 김밥, 라면, 핫도그&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>원하는 음식 카테고리를 선택합니다. (전체 또는 특정 카테고리)&lt;/li>
-&lt;li>&lt;strong>돌려!&lt;/strong> 버튼을 클릭하면 룰렛이 회전합니다.&lt;/li>
-&lt;li>룰렛이 멈추면 오늘의 메뉴가 결정됩니다.&lt;/li>
-&lt;li>마음에 들지 않으면 다시 돌릴 수 있습니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>카테고리 필터&lt;/strong>: 먹고 싶은 음식 종류만 선택하여 룰렛 범위 지정&lt;/li>
-&lt;li>&lt;strong>룰렛 애니메이션&lt;/strong>: 실감나는 회전 애니메이션과 효과음&lt;/li>
-&lt;li>&lt;strong>랜덤 추천&lt;/strong>: 완전 무작위 메뉴 선택으로 공정한 결과&lt;/li>
-&lt;li>&lt;strong>다시 돌리기&lt;/strong>: 결과가 마음에 들지 않으면 즉시 재시도 가능&lt;/li>
-&lt;li>&lt;strong>오늘의 추천&lt;/strong>: 날씨·계절에 맞는 메뉴 보너스 추천&lt;/li>
-&lt;/ul></description></item><item><title>워터마크 다중 삽입</title><link>https://nfpdesign.co.kr/studio/watermark/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/watermark/</guid><description>&lt;h1 id="워터마크-다중-삽입">워터마크 다중 삽입&lt;/h1>
-&lt;p>여러 이미지에 한번에 워터마크를 삽입하는 브라우저 기반 도구입니다.&lt;/p>
-&lt;p>텍스트 또는 이미지 워터마크를 선택하고, 위치와 투명도를 조절한 후 여러 이미지를 한번에 처리할 수 있습니다. 처리된 이미지는 ZIP 파일로 다운로드됩니다. 서버에 파일이 전송되지 않아 개인정보가 완벽하게 보호됩니다.&lt;/p>
-&lt;h2 id="워터마크-타입">워터마크 타입&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>타입&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>텍스트 워터마크&lt;/td>
- &lt;td>원하는 문구를 폰트·크기·색상 설정 후 삽입&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>이미지 워터마크&lt;/td>
- &lt;td>로고나 서명 이미지를 워터마크로 사용&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>워터마크 설정&lt;/strong>: 텍스트 또는 이미지 워터마크를 선택하고 내용을 입력합니다.&lt;/li>
-&lt;li>&lt;strong>스타일 조절&lt;/strong>: 크기, 투명도(0~100%), 위치, 회전 각도를 설정합니다.&lt;/li>
-&lt;li>&lt;strong>이미지 업로드&lt;/strong>: 워터마크를 삽입할 이미지를 여러 장 업로드합니다.&lt;/li>
-&lt;li>&lt;strong>미리보기 확인&lt;/strong>: 첫 번째 이미지에서 워터마크 위치를 실시간으로 확인합니다.&lt;/li>
-&lt;li>&lt;strong>일괄 처리 및 다운로드&lt;/strong>: 처리 버튼 클릭 후 ZIP으로 다운로드합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>일괄 처리&lt;/strong>: 수십 장의 이미지에 동시에 워터마크 삽입&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 워터마크 설정 변경 즉시 미리보기 반영&lt;/li>
-&lt;li>&lt;strong>드래그 위치 조정&lt;/strong>: 미리보기에서 워터마크를 드래그하여 위치 직접 조정&lt;/li>
-&lt;li>&lt;strong>투명도 조절&lt;/strong>: 0(완전 투명)~100(완전 불투명) 사이에서 세밀하게 조절&lt;/li>
-&lt;li>&lt;strong>다양한 출력 형식&lt;/strong>: JPG, PNG, WebP 중 출력 형식 선택&lt;/li>
-&lt;li>&lt;strong>ZIP 다운로드&lt;/strong>: 처리된 모든 이미지를 하나의 ZIP 파일로 저장&lt;/li>
-&lt;/ul></description></item><item><title>웹 데모</title><link>https://nfpdesign.co.kr/studio/web-demo/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/web-demo/</guid><description>&lt;h1 id="웹-데모">웹 데모&lt;/h1>
-&lt;p>HTML과 CSS 코드를 입력하면 별도의 프로그램 설치 없이 웹 브라우저에서 바로 결과를 확인할 수 있는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: HTML/CSS 코드를 입력하면 즉시 결과 확인&lt;/li>
-&lt;li>&lt;strong>별도 설치 불필요&lt;/strong>: 웹 브라우저만 있으면 바로 사용 가능&lt;/li>
-&lt;li>&lt;strong>코드 편집기&lt;/strong>: 문법 하이라이팅과 자동 들여쓰기 지원&lt;/li>
-&lt;li>&lt;strong>반응형 테스트&lt;/strong>: 다양한 화면 크기에서 결과 확인 가능&lt;/li>
-&lt;li>&lt;strong>빠른 프로토타이핑&lt;/strong>: 아이디어를 빠르게 시각화&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>HTML 영역에 웹페이지 구조를 작성하세요&lt;/li>
-&lt;li>CSS 영역에 스타일링 코드를 입력하세요&lt;/li>
-&lt;li>미리보기 영역에서 실시간으로 결과를 확인할 수 있습니다&lt;/li>
-&lt;li>코드를 수정하면 자동으로 미리보기가 업데이트됩니다&lt;/li>
-&lt;/ol>
-&lt;h2 id="활용-예시">활용 예시&lt;/h2>
-&lt;p>&lt;strong>학습 목적&lt;/strong>: HTML/CSS 기초 학습 및 연습
-&lt;strong>프로토타이핑&lt;/strong>: 웹사이트 레이아웃 및 디자인 아이디어 테스트
-&lt;strong>디버깅&lt;/strong>: 코드 문제 해결 및 실험
-&lt;strong>교육&lt;/strong>: 웹 개발 수업이나 튜토리얼에서 활용&lt;/p></description></item><item><title>이미지 맵 생성기</title><link>https://nfpdesign.co.kr/studio/image-map-generator/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/image-map-generator/</guid><description>&lt;h1 id="이미지-맵-생성기">이미지 맵 생성기&lt;/h1>
-&lt;p>이미지에 클릭 가능한 핫스팟 영역을 만들어 각각 다른 링크로 연결할 수 있는 HTML 코드를 생성합니다.&lt;/p>
-&lt;p>사각형, 원형, 다각형 도형으로 영역을 설정하고 각 영역에 URL을 연결하여 인터랙티브한 이미지를 만들어보세요. 지도, 제품 이미지, 인포그래픽 등 다양한 용도로 활용할 수 있습니다.&lt;/p>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>이미지를 드래그앤드롭하거나 클릭하여 업로드합니다.&lt;/li>
-&lt;li>도형 도구(사각형·원형·다각형)를 선택합니다.&lt;/li>
-&lt;li>이미지 위에 드래그하여 클릭 영역을 그립니다.&lt;/li>
-&lt;li>각 영역에 연결할 URL과 대체 텍스트(alt)를 입력합니다.&lt;/li>
-&lt;li>생성된 HTML &lt;code>&amp;lt;map&amp;gt;&lt;/code> 코드를 복사하여 웹 페이지에 사용합니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="활용-사례">활용 사례&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>용도&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>인포그래픽&lt;/td>
- &lt;td>각 영역 클릭 시 관련 페이지로 이동&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>제품 이미지&lt;/td>
- &lt;td>부품별 클릭으로 상세 정보 연결&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>지도 이미지&lt;/td>
- &lt;td>지역별 클릭으로 해당 페이지 링크&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>메뉴판&lt;/td>
- &lt;td>메뉴 항목 클릭으로 상세 정보 연결&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>조직도&lt;/td>
- &lt;td>인물 사진 클릭으로 프로필 페이지 연결&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>다양한 도형 지원&lt;/strong>: 사각형(rect), 원형(circle), 다각형(poly) 영역 설정&lt;/li>
-&lt;li>&lt;strong>드래그앤드롭 업로드&lt;/strong>: 이미지를 직접 끌어다 놓아 빠르게 업로드&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 핫스팟 영역과 링크를 추가하면서 즉시 결과 확인&lt;/li>
-&lt;li>&lt;strong>HTML 코드 생성&lt;/strong>: 바로 사용 가능한 &lt;code>&amp;lt;map&amp;gt;&lt;/code> + &lt;code>&amp;lt;area&amp;gt;&lt;/code> HTML 코드 자동 생성&lt;/li>
-&lt;li>&lt;strong>영역 편집&lt;/strong>: 생성된 영역의 크기·위치·URL 수정 및 삭제 가능&lt;/li>
-&lt;/ul></description></item><item><title>이미지 분할기</title><link>https://nfpdesign.co.kr/studio/image-splitter/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/image-splitter/</guid><description>&lt;h1 id="이미지-분할">이미지 분할&lt;/h1>
-&lt;p>이미지를 업로드하여 격자로 나누거나 원하는 영역을 선택하여 분할할 수 있습니다.&lt;/p>
-&lt;p>격자 크기를 설정하여 균등하게 나누거나, 향후 업데이트에서는 수동으로 영역을 선택하여 자유롭게 분할할 수 있습니다. 분할된 각 조각을 개별 이미지 파일로 다운로드하세요.&lt;/p>
-&lt;p>지원 형식: JPG, PNG, WebP, TIFF&lt;/p>
-&lt;p>주요 기능: 격자 분할, 실시간 미리보기, 개별/ZIP 다운로드, 고해상도 유지&lt;/p>
-&lt;hr></description></item><item><title>이미지 압축기</title><link>https://nfpdesign.co.kr/studio/image-compressor/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/image-compressor/</guid><description>&lt;h1 id="이미지-압축기">이미지 압축기&lt;/h1>
-&lt;p>여러 이미지를 동시에 선택하여 효율적으로 압축하고 파일 크기를 줄이는 다중 파일 지원 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>다중 파일 지원&lt;/strong>: 여러 이미지를 한번에 선택하여 일괄 압축 처리&lt;/li>
-&lt;li>&lt;strong>실시간 진행률&lt;/strong>: 압축 과정을 시각적으로 확인할 수 있는 진행률 표시&lt;/li>
-&lt;li>&lt;strong>품질 조절&lt;/strong>: 10~100% 범위에서 압축 품질을 세밀하게 조절&lt;/li>
-&lt;li>&lt;strong>포맷 선택&lt;/strong>: 원본 포맷 유지 또는 JPEG/WebP로 변환 압축&lt;/li>
-&lt;li>&lt;strong>개별/일괄 다운로드&lt;/strong>: 각 파일 개별 다운로드 또는 모든 파일 한번에 다운로드&lt;/li>
-&lt;li>&lt;strong>압축 통계&lt;/strong>: 원본 대비 압축률과 절약된 용량을 실시간으로 확인&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>이미지 선택&lt;/strong>: 압축할 이미지들을 드래그하거나 클릭해서 다중 선택하세요&lt;/li>
-&lt;li>&lt;strong>품질 설정&lt;/strong>: 압축 품질을 10~100% 범위에서 조절하세요&lt;/li>
-&lt;li>&lt;strong>포맷 선택&lt;/strong>: 원본 포맷 유지 또는 JPEG/WebP로 변환 선택&lt;/li>
-&lt;li>&lt;strong>압축 실행&lt;/strong>: &amp;lsquo;이미지 압축하기&amp;rsquo; 버튼을 클릭하세요&lt;/li>
-&lt;li>&lt;strong>다운로드&lt;/strong>: 개별 다운로드 또는 모든 파일 한번에 다운로드&lt;/li>
-&lt;/ol>
-&lt;h2 id="압축-품질-가이드">압축 품질 가이드&lt;/h2>
-&lt;h3 id="품질별-특성">품질별 특성&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>품질 범위&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;th>용도&lt;/th>
- &lt;th>압축률&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;strong>90-100%&lt;/strong>&lt;/td>
- &lt;td>최고 품질, 낮은 압축&lt;/td>
- &lt;td>인쇄용, 아카이브&lt;/td>
- &lt;td>10-30%&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>70-89%&lt;/strong>&lt;/td>
- &lt;td>높은 품질, 적당한 압축&lt;/td>
- &lt;td>웹사이트, 포트폴리오&lt;/td>
- &lt;td>30-50%&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>50-69%&lt;/strong>&lt;/td>
- &lt;td>표준 품질, 좋은 압축&lt;/td>
- &lt;td>블로그, SNS&lt;/td>
- &lt;td>50-70%&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>10-49%&lt;/strong>&lt;/td>
- &lt;td>낮은 품질, 최대 압축&lt;/td>
- &lt;td>썸네일, 미리보기&lt;/td>
- &lt;td>70-90%&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="권장-설정">권장 설정&lt;/h3>
-&lt;p>&lt;strong>웹 사이트용&lt;/strong>&lt;/p></description></item><item><title>이미지 자르기/크롭</title><link>https://nfpdesign.co.kr/studio/image-cropper/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/image-cropper/</guid><description>&lt;h1 id="이미지-자르기크롭">이미지 자르기/크롭&lt;/h1>
-&lt;p>마우스 드래그로 간편하게 원하는 영역을 선택하여 이미지를 자를 수 있는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>인터랙티브 크롭&lt;/strong>: 마우스로 드래그하여 직관적인 영역 선택&lt;/li>
-&lt;li>&lt;strong>비율 고정 크롭&lt;/strong>: 1:1, 4:3, 16:9 등 다양한 비율 지원&lt;/li>
-&lt;li>&lt;strong>정확한 수치 입력&lt;/strong>: 픽셀 단위 정확한 크롭 영역 설정&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 크롭 영역을 실시간으로 확인&lt;/li>
-&lt;li>&lt;strong>빠른 크롭 기능&lt;/strong>: 전체 선택, 중앙 크롭 등 편의 기능&lt;/li>
-&lt;li>&lt;strong>고품질 출력&lt;/strong>: 50~100% 품질 조절 지원&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>이미지 업로드&lt;/strong>: 자를 이미지를 선택하세요&lt;/li>
-&lt;li>&lt;strong>크롭 영역 선택&lt;/strong>: 마우스로 드래그하여 영역 선택&lt;/li>
-&lt;li>&lt;strong>비율 설정&lt;/strong>: 필요시 고정 비율 선택&lt;/li>
-&lt;li>&lt;strong>세밀 조정&lt;/strong>: 핸들을 드래그하여 크기 조절&lt;/li>
-&lt;li>&lt;strong>품질 설정&lt;/strong>: 출력 품질을 50~100% 범위에서 설정&lt;/li>
-&lt;li>&lt;strong>크롭 실행&lt;/strong>: &amp;lsquo;이미지 자르기&amp;rsquo; 버튼 클릭&lt;/li>
-&lt;li>&lt;strong>결과 다운로드&lt;/strong>: 크롭된 이미지를 다운로드&lt;/li>
-&lt;/ol>
-&lt;h2 id="크롭-방법">크롭 방법&lt;/h2>
-&lt;h3 id="마우스-드래그-크롭">마우스 드래그 크롭&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>새 영역 생성&lt;/strong>: 빈 공간을 클릭하고 드래그&lt;/li>
-&lt;li>&lt;strong>영역 이동&lt;/strong>: 선택된 영역 내부를 클릭하고 드래그&lt;/li>
-&lt;li>&lt;strong>크기 조절&lt;/strong>: 모서리 핸들을 드래그하여 크기 변경&lt;/li>
-&lt;li>&lt;strong>비율 유지&lt;/strong>: 모서리 핸들 드래그 시 Shift 키로 비율 고정&lt;/li>
-&lt;/ul>
-&lt;h3 id="핸들을-이용한-정밀-조절">핸들을 이용한 정밀 조절&lt;/h3>
-&lt;p>크롭 영역 주변의 8개 핸들로 정밀한 크기 조절이 가능합니다:&lt;/p></description></item><item><title>이미지 컬러 추출기</title><link>https://nfpdesign.co.kr/studio/color-extractor/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/color-extractor/</guid><description>&lt;h1 id="이미지-컬러-추출기">이미지 컬러 추출기&lt;/h1>
-&lt;p>이미지를 분석하여 주요 컬러를 추출하고 각 색상의 비율을 보여주는 컬러 팔레트를 생성합니다.&lt;/p>
-&lt;p>이미지를 업로드하면 3~10개의 대표 색상을 자동으로 추출하고, 각 컬러의 점유율을 백분율로 표시합니다. 추출된 컬러는 HEX, RGB 코드로 복사하거나 JSON 파일로 내보낼 수 있습니다.&lt;/p>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>이미지를 드래그앤드롭하거나 클릭하여 업로드합니다.&lt;/li>
-&lt;li>추출할 색상 수(3~10개)를 선택합니다.&lt;/li>
-&lt;li>분석이 완료되면 팔레트가 생성되고 각 색상의 비율을 확인합니다.&lt;/li>
-&lt;li>HEX 또는 RGB 코드를 클릭하여 클립보드에 복사합니다.&lt;/li>
-&lt;li>전체 팔레트를 JSON 또는 CSS 변수 형태로 내보낼 수 있습니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="활용-사례">활용 사례&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>브랜드 컬러 추출&lt;/strong>: 로고나 브랜드 이미지에서 핵심 색상 파악&lt;/li>
-&lt;li>&lt;strong>디자인 인스피레이션&lt;/strong>: 마음에 드는 사진의 컬러 팔레트 분석&lt;/li>
-&lt;li>&lt;strong>웹 개발&lt;/strong>: 이미지와 어울리는 배경색·텍스트 색상 선정&lt;/li>
-&lt;li>&lt;strong>마케팅 자료&lt;/strong>: 제품 이미지 기반의 일관된 컬러 가이드 제작&lt;/li>
-&lt;/ul>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>자동 컬러 분석&lt;/strong>: K-means 알고리즘으로 대표 색상 자동 추출&lt;/li>
-&lt;li>&lt;strong>비율 표시&lt;/strong>: 각 색상이 이미지에서 차지하는 면적 백분율&lt;/li>
-&lt;li>&lt;strong>다양한 코드 지원&lt;/strong>: HEX, RGB, HSL 형식으로 색상 코드 복사&lt;/li>
-&lt;li>&lt;strong>내보내기&lt;/strong>: JSON, CSS 변수, Adobe Swatch 등 다양한 형식으로 저장&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>지원 형식&lt;/strong>: JPEG, PNG, GIF, WebP, BMP (최대 10MB)&lt;/p></description></item><item><title>이미지 크기 조절기</title><link>https://nfpdesign.co.kr/studio/image-resizer/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/image-resizer/</guid><description>&lt;h1 id="이미지-크기-조절기">이미지 크기 조절기&lt;/h1>
-&lt;p>이미지의 가로, 세로 크기를 픽셀 단위로 정확하게 조절할 수 있는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>정확한 크기 조절&lt;/strong>: 픽셀 단위로 정확한 크기 지정&lt;/li>
-&lt;li>&lt;strong>비율 유지 옵션&lt;/strong>: 원본 비율을 유지하면서 크기 조절&lt;/li>
-&lt;li>&lt;strong>빠른 크기 선택&lt;/strong>: 일반적인 해상도 사전 설정 제공&lt;/li>
-&lt;li>&lt;strong>다양한 조절 방법&lt;/strong>: 늘이기, 맞추기, 채우기 옵션&lt;/li>
-&lt;li>&lt;strong>고품질 출력&lt;/strong>: 50~100% 품질 조절 지원&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 조절 전후 비교 확인&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>이미지 업로드&lt;/strong>: 크기를 조절할 이미지를 선택하세요&lt;/li>
-&lt;li>&lt;strong>크기 설정&lt;/strong>: 빠른 선택 또는 사용자 정의 크기 입력&lt;/li>
-&lt;li>&lt;strong>조절 방법 선택&lt;/strong>: 늘이기, 맞추기, 채우기 중 선택&lt;/li>
-&lt;li>&lt;strong>품질 조절&lt;/strong>: 출력 품질을 50~100% 범위에서 설정&lt;/li>
-&lt;li>&lt;strong>크기 조절 실행&lt;/strong>: &amp;lsquo;이미지 크기 조절하기&amp;rsquo; 버튼 클릭&lt;/li>
-&lt;li>&lt;strong>결과 다운로드&lt;/strong>: 조절된 이미지를 다운로드&lt;/li>
-&lt;/ol>
-&lt;h2 id="크기-조절-방법">크기 조절 방법&lt;/h2>
-&lt;h3 id="늘이기줄이기-stretch">늘이기/줄이기 (Stretch)&lt;/h3>
-&lt;ul>
-&lt;li>원본 비율을 무시하고 지정된 크기에 강제로 맞춤&lt;/li>
-&lt;li>이미지가 늘어나거나 압축될 수 있음&lt;/li>
-&lt;li>정확한 크기가 필요한 경우 사용&lt;/li>
-&lt;/ul>
-&lt;h3 id="맞추기-fit">맞추기 (Fit)&lt;/h3>
-&lt;ul>
-&lt;li>원본 비율을 유지하며 지정된 크기 안에 맞춤&lt;/li>
-&lt;li>부족한 영역은 흰색 여백으로 채움&lt;/li>
-&lt;li>전체 이미지를 보존하면서 크기 조절&lt;/li>
-&lt;/ul>
-&lt;h3 id="채우기-fill---권장">채우기 (Fill) - 권장&lt;/h3>
-&lt;ul>
-&lt;li>원본 비율을 유지하며 지정된 크기를 완전히 채움&lt;/li>
-&lt;li>넘치는 부분은 자동으로 잘림&lt;/li>
-&lt;li>가장 자연스러운 결과 제공&lt;/li>
-&lt;/ul>
-&lt;h2 id="빠른-크기-선택">빠른 크기 선택&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>해상도&lt;/th>
- &lt;th>용도&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;strong>1920×1080&lt;/strong>&lt;/td>
- &lt;td>Full HD&lt;/td>
- &lt;td>고화질 디스플레이, 동영상 썸네일&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>1280×720&lt;/strong>&lt;/td>
- &lt;td>HD&lt;/td>
- &lt;td>웹사이트, 블로그 이미지&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>800×600&lt;/strong>&lt;/td>
- &lt;td>표준&lt;/td>
- &lt;td>이메일, 문서용 이미지&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>640×480&lt;/strong>&lt;/td>
- &lt;td>소형&lt;/td>
- &lt;td>프로필 이미지, 아이콘&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="사용자-정의-크기">사용자 정의 크기&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>최소&lt;/strong>: 1×1 픽셀&lt;/li>
-&lt;li>&lt;strong>최대&lt;/strong>: 5000×5000 픽셀&lt;/li>
-&lt;li>&lt;strong>비율 잠금&lt;/strong>: 원본 비율 유지/해제 가능&lt;/li>
-&lt;/ul>
-&lt;h2 id="품질-설정">품질 설정&lt;/h2>
-&lt;h3 id="품질별-특성">품질별 특성&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>품질 범위&lt;/th>
- &lt;th>특성&lt;/th>
- &lt;th>권장 용도&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;strong>90-100%&lt;/strong>&lt;/td>
- &lt;td>최고 품질&lt;/td>
- &lt;td>인쇄용, 아카이브&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>80-89%&lt;/strong>&lt;/td>
- &lt;td>높은 품질&lt;/td>
- &lt;td>웹사이트 메인 이미지&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>70-79%&lt;/strong>&lt;/td>
- &lt;td>표준 품질&lt;/td>
- &lt;td>일반적인 웹 사용&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>50-69%&lt;/strong>&lt;/td>
- &lt;td>압축 우선&lt;/td>
- &lt;td>빠른 로딩이 중요한 경우&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="활용-사례">활용 사례&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>웹사이트 최적화&lt;/strong>: 다양한 디바이스에 맞는 크기로 조절&lt;/li>
-&lt;li>&lt;strong>소셜미디어&lt;/strong>: 플랫폼별 최적 크기로 변환&lt;/li>
-&lt;li>&lt;strong>인쇄물 제작&lt;/strong>: 인쇄에 필요한 해상도로 조절&lt;/li>
-&lt;li>&lt;strong>이메일 첨부&lt;/strong>: 용량 제한에 맞는 크기로 축소&lt;/li>
-&lt;li>&lt;strong>썸네일 생성&lt;/strong>: 작은 미리보기 이미지 생성&lt;/li>
-&lt;/ul>
-&lt;h2 id="기술적-특징">기술적 특징&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Canvas API 활용&lt;/strong>: 고품질 이미지 처리&lt;/li>
-&lt;li>&lt;strong>비율 계산&lt;/strong>: 자동 비율 유지 기능&lt;/li>
-&lt;li>&lt;strong>메모리 최적화&lt;/strong>: 대용량 이미지 안정 처리&lt;/li>
-&lt;li>&lt;strong>실시간 처리&lt;/strong>: 브라우저에서 즉시 변환&lt;/li>
-&lt;li>&lt;strong>개인정보 보호&lt;/strong>: 서버 업로드 없이 로컬 처리&lt;/li>
-&lt;/ul>
-&lt;h2 id="지원-형식">지원 형식&lt;/h2>
-&lt;p>&lt;strong>입력 형식&lt;/strong>: JPEG, PNG, GIF, WebP, BMP, TIFF, SVG, ICO
-&lt;strong>출력 형식&lt;/strong>: JPEG, PNG (투명도에 따라 자동 선택)&lt;/p></description></item><item><title>이미지 포맷 변환기</title><link>https://nfpdesign.co.kr/studio/format-converter/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/format-converter/</guid><description>&lt;h1 id="이미지-포맷-변환기">이미지 포맷 변환기&lt;/h1>
-&lt;p>JPG, PNG, WebP 등 다양한 이미지 포맷 간 변환을 지원하는 브라우저 기반 온라인 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>다양한 포맷 지원&lt;/strong>: JPG ↔ PNG ↔ WebP 자유 변환&lt;/li>
-&lt;li>&lt;strong>드래그 앤 드롭&lt;/strong>: 간편한 이미지 업로드 방식&lt;/li>
-&lt;li>&lt;strong>품질 조절&lt;/strong>: JPG/WebP 압축 품질 10~100% 조절 가능&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 원본과 변환 결과를 동시에 확인&lt;/li>
-&lt;li>&lt;strong>파일 정보&lt;/strong>: 크기, 포맷, 용량 등 상세 정보 제공&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>이미지 선택&lt;/strong>: 변환할 이미지를 드래그하거나 클릭해서 업로드하세요&lt;/li>
-&lt;li>&lt;strong>포맷 선택&lt;/strong>: 변환하고자 하는 목적 포맷을 선택하세요&lt;/li>
-&lt;li>&lt;strong>품질 설정&lt;/strong>: JPG/WebP의 경우 원하는 압축 품질을 조절하세요&lt;/li>
-&lt;li>&lt;strong>변환 실행&lt;/strong>: &amp;lsquo;포맷 변환하기&amp;rsquo; 버튼을 클릭하세요&lt;/li>
-&lt;li>&lt;strong>다운로드&lt;/strong>: 변환된 이미지를 다운로드하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="지원-포맷">지원 포맷&lt;/h2>
-&lt;h3 id="입력-포맷">입력 포맷&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>JPG/JPEG&lt;/strong>: 표준 사진 포맷&lt;/li>
-&lt;li>&lt;strong>PNG&lt;/strong>: 투명도 지원 포맷&lt;/li>
-&lt;li>&lt;strong>WebP&lt;/strong>: Google의 차세대 이미지 포맷&lt;/li>
-&lt;li>&lt;strong>BMP&lt;/strong>: Windows 비트맵 포맷&lt;/li>
-&lt;li>&lt;strong>GIF&lt;/strong>: 애니메이션 지원 포맷 (첫 프레임만)&lt;/li>
-&lt;/ul>
-&lt;h3 id="출력-포맷">출력 포맷&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>JPG (.jpg)&lt;/strong>: 사진에 최적화, 작은 파일 크기&lt;/li>
-&lt;li>&lt;strong>PNG (.png)&lt;/strong>: 투명도 보존, 무손실 압축&lt;/li>
-&lt;li>&lt;strong>WebP (.webp)&lt;/strong>: 우수한 압축률과 품질&lt;/li>
-&lt;/ul>
-&lt;h2 id="포맷별-특징">포맷별 특징&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>포맷&lt;/th>
- &lt;th>투명도&lt;/th>
- &lt;th>압축&lt;/th>
- &lt;th>파일크기&lt;/th>
- &lt;th>용도&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;strong>JPG&lt;/strong>&lt;/td>
- &lt;td>❌&lt;/td>
- &lt;td>손실&lt;/td>
- &lt;td>작음&lt;/td>
- &lt;td>사진, 복잡한 이미지&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>PNG&lt;/strong>&lt;/td>
- &lt;td>✅&lt;/td>
- &lt;td>무손실&lt;/td>
- &lt;td>큰편&lt;/td>
- &lt;td>로고, 아이콘, 투명 이미지&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;strong>WebP&lt;/strong>&lt;/td>
- &lt;td>✅&lt;/td>
- &lt;td>손실/무손실&lt;/td>
- &lt;td>매우 작음&lt;/td>
- &lt;td>웹 최적화, 차세대 포맷&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="품질-설정-가이드">품질 설정 가이드&lt;/h2>
-&lt;h3 id="jpgwebp-품질-레벨">JPG/WebP 품질 레벨&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>90-100%&lt;/strong>: 최고 품질, 큰 파일 크기&lt;/li>
-&lt;li>&lt;strong>70-89%&lt;/strong>: 고품질, 적절한 파일 크기 (권장)&lt;/li>
-&lt;li>&lt;strong>50-69%&lt;/strong>: 표준 품질, 작은 파일 크기&lt;/li>
-&lt;li>&lt;strong>10-49%&lt;/strong>: 저품질, 매우 작은 파일 크기&lt;/li>
-&lt;/ul>
-&lt;h3 id="품질-선택-기준">품질 선택 기준&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>웹사이트&lt;/strong>: 70-85% (빠른 로딩과 품질 균형)&lt;/li>
-&lt;li>&lt;strong>인쇄물&lt;/strong>: 90-100% (최고 품질 필요)&lt;/li>
-&lt;li>&lt;strong>썸네일&lt;/strong>: 50-70% (작은 크기 우선)&lt;/li>
-&lt;li>&lt;strong>아카이브&lt;/strong>: 100% 또는 PNG (원본 보존)&lt;/li>
-&lt;/ul>
-&lt;h2 id="활용-사례">활용 사례&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>웹 최적화&lt;/strong>: PNG 로고를 WebP로 변환하여 로딩 속도 향상&lt;/li>
-&lt;li>&lt;strong>용량 절약&lt;/strong>: 대용량 PNG를 JPG로 변환하여 저장 공간 확보&lt;/li>
-&lt;li>&lt;strong>호환성 확보&lt;/strong>: WebP 이미지를 JPG/PNG로 변환하여 범용성 향상&lt;/li>
-&lt;li>&lt;strong>투명도 추가&lt;/strong>: JPG를 PNG로 변환 후 배경 제거 작업&lt;/li>
-&lt;li>&lt;strong>품질 최적화&lt;/strong>: 과도한 품질의 이미지를 적절한 수준으로 조정&lt;/li>
-&lt;/ul>
-&lt;h2 id="기술적-특징">기술적 특징&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>브라우저 기반&lt;/strong>: 서버 업로드 없이 로컬에서 처리&lt;/li>
-&lt;li>&lt;strong>개인정보 보호&lt;/strong>: 업로드된 이미지는 브라우저를 벗어나지 않음&lt;/li>
-&lt;li>&lt;strong>Canvas API&lt;/strong>: HTML5 Canvas를 활용한 이미지 처리&lt;/li>
-&lt;li>&lt;strong>실시간 처리&lt;/strong>: 즉시 변환 및 미리보기 제공&lt;/li>
-&lt;li>&lt;strong>품질 보존&lt;/strong>: 원본 이미지의 색상과 선명도 최대한 유지&lt;/li>
-&lt;/ul>
-&lt;h2 id="브라우저-호환성">브라우저 호환성&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Chrome&lt;/strong>: WebP 완벽 지원&lt;/li>
-&lt;li>&lt;strong>Firefox&lt;/strong>: WebP 지원 (버전 65+)&lt;/li>
-&lt;li>&lt;strong>Safari&lt;/strong>: WebP 지원 (버전 14+)&lt;/li>
-&lt;li>&lt;strong>Edge&lt;/strong>: WebP 완벽 지원&lt;/li>
-&lt;/ul>
-&lt;p>모든 주요 브라우저에서 JPG, PNG 변환은 완벽하게 지원됩니다.&lt;/p></description></item><item><title>커스텀 QR 코드 생성기</title><link>https://nfpdesign.co.kr/studio/qr-custom/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/qr-custom/</guid><description>&lt;h1 id="커스텀-qr-코드-생성">커스텀 QR 코드 생성&lt;/h1>
-&lt;p>브랜드 아이덴티티에 맞춘 색상과 로고가 적용된 개성있는 커스텀 QR 코드를 생성하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>색상 커스터마이징&lt;/strong>: 전경색과 배경색을 브랜드 컬러에 맞게 자유 변경&lt;/li>
-&lt;li>&lt;strong>로고 삽입&lt;/strong>: 중앙에 브랜드 로고나 아이콘 추가 (크기 조절 가능)&lt;/li>
-&lt;li>&lt;strong>프리셋 색상&lt;/strong>: 인기 색상 조합을 원클릭으로 적용&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 설정 변경 시 즉시 결과 확인&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>기본 설정&lt;/strong>: 변환할 내용과 QR 코드 크기를 설정하세요&lt;/li>
-&lt;li>&lt;strong>색상 선택&lt;/strong>: 전경색(QR 코드)과 배경색을 지정하거나 프리셋을 사용하세요&lt;/li>
-&lt;li>&lt;strong>로고 업로드&lt;/strong>: 원한다면 중앙에 들어갈 로고 이미지를 업로드하세요&lt;/li>
-&lt;li>&lt;strong>크기 조절&lt;/strong>: 로고 크기를 10~25% 범위에서 조절하세요&lt;/li>
-&lt;li>&lt;strong>생성 및 다운로드&lt;/strong>: QR 코드를 생성하고 PNG 파일로 저장하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="색상-설정-가이드">색상 설정 가이드&lt;/h2>
-&lt;h3 id="전경색-qr-코드">전경색 (QR 코드)&lt;/h3>
-&lt;p>QR 코드 패턴의 색상입니다. 스캔이 잘되도록 배경색과 충분한 대비를 유지해야 합니다.&lt;/p></description></item><item><title>컬러 조합기</title><link>https://nfpdesign.co.kr/studio/color-mixer/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/color-mixer/</guid><description>&lt;h1 id="컬러-조합기">컬러 조합기&lt;/h1>
-&lt;p>베이스 색상을 선택하면 어울리는 색조합을 자동으로 생성해주는 전문 컬러 팔레트 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;h3 id="색상-입력-방식">색상 입력 방식&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>컬러 피커&lt;/strong>: 직관적인 색상 선택&lt;/li>
-&lt;li>&lt;strong>HEX 코드 입력&lt;/strong>: 정확한 색상 값 입력&lt;/li>
-&lt;li>&lt;strong>RGB 슬라이더&lt;/strong>: 세밀한 색상 조정&lt;/li>
-&lt;/ul>
-&lt;h3 id="4가지-조합-방식">4가지 조합 방식&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>단색 조합 (Monochrome)&lt;/strong>: 같은 색상의 명도 변화&lt;/li>
-&lt;li>&lt;strong>유사 색상 (Analogous)&lt;/strong>: 색상환에서 인접한 색상들&lt;/li>
-&lt;li>&lt;strong>보색 조합 (Complementary)&lt;/strong>: 대비되는 색상 조합&lt;/li>
-&lt;li>&lt;strong>삼각 조합 (Triadic)&lt;/strong>: 균등하게 분배된 3색 기반&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>베이스 색상 선택&lt;/strong>: 컬러 피커 또는 HEX 코드 입력&lt;/li>
-&lt;li>&lt;strong>RGB 슬라이더 조정&lt;/strong>: 세밀한 색상 미세 조정&lt;/li>
-&lt;li>&lt;strong>조합 타입 선택&lt;/strong>: 원하는 색상 조합 방식 선택&lt;/li>
-&lt;li>&lt;strong>팔레트 확인&lt;/strong>: 생성된 5색 조합 확인&lt;/li>
-&lt;li>&lt;strong>색상 복사&lt;/strong>: 원하는 색상 클릭으로 HEX 코드 복사&lt;/li>
-&lt;/ol>
-&lt;h2 id="색상-이론-기반">색상 이론 기반&lt;/h2>
-&lt;p>각 조합 방식은 검증된 색상 이론을 기반으로 합니다:&lt;/p></description></item><item><title>컬러 카드 뽑기</title><link>https://nfpdesign.co.kr/studio/single-card/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/single-card/</guid><description>&lt;h1 id="컬러-카드-뽑기">컬러 카드 뽑기&lt;/h1>
-&lt;p>오늘은 어떤 컬러가 당신을 기다리고 있을까요? 랜덤으로 컬러 카드를 뽑아 창의적 영감을 얻어보세요.&lt;/p>
-&lt;p>각 카드는 색상 정보와 함께 특별한 의미를 담고 있습니다. 단색 카드부터 아름다운 그라데이션 카드까지 다양한 종류의 카드가 준비되어 있습니다.&lt;/p>
-&lt;h2 id="카드-종류">카드 종류&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>카드 타입&lt;/th>
- &lt;th>설명&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>단색 카드&lt;/td>
- &lt;td>하나의 색상과 색상 이름, HEX 코드 제공&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>그라데이션 카드&lt;/td>
- &lt;td>두 색상의 그라데이션과 CSS 코드 제공&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>컬러 팔레트 카드&lt;/td>
- &lt;td>5가지 색상 조합으로 구성된 팔레트&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>스페셜 카드&lt;/td>
- &lt;td>희귀하게 등장하는 특별한 컬러 테마 카드&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="사용-방법">사용 방법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>카드 뽑기&lt;/strong> 버튼을 클릭하거나 카드를 클릭하면 랜덤 컬러 카드가 등장합니다.&lt;/li>
-&lt;li>카드의 색상 코드(HEX, RGB)를 클릭하면 클립보드에 복사됩니다.&lt;/li>
-&lt;li>마음에 드는 카드는 &lt;strong>저장&lt;/strong> 버튼으로 컬렉션에 보관할 수 있습니다.&lt;/li>
-&lt;li>저장한 카드는 하단 컬렉션에서 언제든지 다시 확인할 수 있습니다.&lt;/li>
-&lt;/ol>
-&lt;h2 id="주요-기능">주요 기능&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>랜덤 컬러 생성&lt;/strong>: 매번 다른 색상의 카드를 랜덤으로 뽑기&lt;/li>
-&lt;li>&lt;strong>카드 저장&lt;/strong>: 마음에 드는 카드를 컬렉션에 저장하여 나중에 재확인&lt;/li>
-&lt;li>&lt;strong>색상 코드 복사&lt;/strong>: HEX·RGB 색상 코드 원클릭 복사&lt;/li>
-&lt;li>&lt;strong>스페셜 카드&lt;/strong>: 낮은 확률로 등장하는 희귀 테마 카드 수집&lt;/li>
-&lt;li>&lt;strong>CSS 코드 제공&lt;/strong>: 그라데이션 카드의 경우 바로 사용 가능한 CSS 코드 제공&lt;/li>
-&lt;/ul></description></item><item><title>컬러 팔레트 생성기</title><link>https://nfpdesign.co.kr/studio/color-palette-5/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/color-palette-5/</guid><description>&lt;h1 id="5색-조합-팔레트">5색 조합 팔레트&lt;/h1>
-&lt;p>랜덤 베이스 색상을 기반으로 조화로운 5색 컬러 팔레트를 자동 생성하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>지능형 색상 생성&lt;/strong>: 베이스 컬러를 기반으로 조화로운 5색 조합 생성&lt;/li>
-&lt;li>&lt;strong>컬러 하모니 알고리즘&lt;/strong>: HSL 색상 이론을 바탕으로 한 과학적 색상 조합&lt;/li>
-&lt;li>&lt;strong>원클릭 복사&lt;/strong>: 각 색상 코드를 클릭하면 즉시 클립보드에 복사&lt;/li>
-&lt;li>&lt;strong>HEX 코드 제공&lt;/strong>: 웹 디자인에서 바로 사용 가능한 HEX 색상 코드&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>팔레트 생성&lt;/strong>: &amp;lsquo;조합 팔레트 생성&amp;rsquo; 버튼을 클릭하세요&lt;/li>
-&lt;li>&lt;strong>색상 확인&lt;/strong>: 생성된 5개의 조화로운 색상을 확인하세요&lt;/li>
-&lt;li>&lt;strong>색상 복사&lt;/strong>: 원하는 색상을 클릭하면 HEX 코드가 복사됩니다&lt;/li>
-&lt;li>&lt;strong>재생성&lt;/strong>: 다른 조합이 필요하면 버튼을 다시 클릭하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="색상-생성-알고리즘">색상 생성 알고리즘&lt;/h2>
-&lt;p>&lt;strong>베이스 색상 생성&lt;/strong> → &lt;strong>색조 변화&lt;/strong> → &lt;strong>채도/명도 조정&lt;/strong> → &lt;strong>5색 조합 완성&lt;/strong>&lt;/p></description></item><item><title>텍스트 카운터</title><link>https://nfpdesign.co.kr/studio/text-counter/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/text-counter/</guid><description>&lt;h1 id="텍스트-카운터">텍스트 카운터&lt;/h1>
-&lt;p>실시간으로 텍스트의 다양한 정보를 분석하고 카운팅하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>글자수 카운팅&lt;/strong>: 전체 글자수와 공백 제외 글자수&lt;/li>
-&lt;li>&lt;strong>단어 및 줄 수&lt;/strong>: 단어 개수, 줄 수, 문단 수 계산&lt;/li>
-&lt;li>&lt;strong>바이트 계산&lt;/strong>: UTF-8 인코딩 기준 바이트 수&lt;/li>
-&lt;li>&lt;strong>텍스트 분석&lt;/strong>: 평균 단어 길이, 읽기 예상 시간&lt;/li>
-&lt;li>&lt;strong>편의 기능&lt;/strong>: 복사, 붙여넣기, 전체 삭제&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>텍스트 입력창에 분석할 텍스트를 입력하세요&lt;/li>
-&lt;li>실시간으로 우측에 카운팅 결과가 표시됩니다&lt;/li>
-&lt;li>필요시 복사, 붙여넣기, 삭제 버튼을 활용하세요&lt;/li>
-&lt;/ol>
-&lt;p>블로그 글 작성, 보고서 작성, SNS 글자수 제한 확인 등 다양한 용도로 활용할 수 있습니다.&lt;/p></description></item><item><title>폰트 크기 변환기</title><link>https://nfpdesign.co.kr/studio/font-converter/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/font-converter/</guid><description>&lt;h1 id="폰트-크기-변환기">폰트 크기 변환기&lt;/h1>
-&lt;p>웹과 인쇄물에서 사용하는 폰트 크기를 빠르게 변환하고 반응형 사이즈를 확인하는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>양방향 변환&lt;/strong>: px ↔ pt 실시간 상호 변환&lt;/li>
-&lt;li>&lt;strong>실시간 미리보기&lt;/strong>: 입력한 폰트 크기로 텍스트 미리보기&lt;/li>
-&lt;li>&lt;strong>반응형 사이즈&lt;/strong>: 모바일/태블릿/데스크톱별 권장 크기 자동 계산&lt;/li>
-&lt;li>&lt;strong>권장 사이즈 가이드&lt;/strong>: 본문, 제목, 캡션 등 용도별 권장 크기&lt;/li>
-&lt;li>&lt;strong>정확한 변환&lt;/strong>: 0.75 비율 기준 정밀 계산&lt;/li>
-&lt;/ul>
-&lt;h2 id="사용법">사용법&lt;/h2>
-&lt;ol>
-&lt;li>픽셀(px) 또는 포인트(pt) 입력란에 크기를 입력하세요&lt;/li>
-&lt;li>반대 단위로 자동 변환됩니다&lt;/li>
-&lt;li>미리보기에서 실제 크기를 확인하세요&lt;/li>
-&lt;li>반응형 사이즈와 권장 사이즈를 참고하세요&lt;/li>
-&lt;/ol>
-&lt;h2 id="변환-기준">변환 기준&lt;/h2>
-&lt;p>&lt;strong>변환 공식:&lt;/strong>&lt;/p></description></item><item><title>플래피버드 게임</title><link>https://nfpdesign.co.kr/studio/flappy-bird/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/flappy-bird/</guid><description>&lt;h1 id="플래피버드-게임">플래피버드 게임&lt;/h1>
-&lt;p>클릭하여 새를 조종하며 파이프 사이를 통과하는 도전적인 비행 게임입니다.&lt;/p>
-&lt;p>중력의 영향을 받는 새를 클릭(또는 스페이스바)으로 조종하여 연속으로 나타나는 파이프 사이의 좁은 공간을 통과해야 합니다. 간단한 조작법이지만 높은 집중력과 타이밍이 요구되는 중독성 강한 게임입니다.&lt;/p>
-&lt;h2 id="조작-방법">조작 방법&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>마우스 클릭&lt;/strong> 또는 &lt;strong>스페이스바&lt;/strong>: 새를 위로 날기&lt;/li>
-&lt;li>&lt;strong>터치(모바일)&lt;/strong>: 화면을 탭하여 조작 가능&lt;/li>
-&lt;li>아무것도 누르지 않으면 중력에 의해 새가 아래로 떨어집니다.&lt;/li>
-&lt;/ul>
-&lt;h2 id="게임-규칙">게임 규칙&lt;/h2>
-&lt;p>파이프 사이 간격을 통과할 때마다 1점이 추가됩니다. 파이프 또는 바닥·천장에 닿으면 게임 오버입니다. 통과한 파이프 수가 늘어날수록 파이프 이동 속도가 점점 빨라집니다.&lt;/p></description></item><item><title>오늘의 운세</title><link>https://nfpdesign.co.kr/studio/fortune/</link><pubDate>Sat, 21 Dec 2024 00:00:00 +0900</pubDate><guid>https://nfpdesign.co.kr/studio/fortune/</guid><description>&lt;h1 id="운세-컬러-카드">운세 컬러 카드&lt;/h1>
-&lt;p>오늘의 운세와 함께 특별한 색상을 받아보는 재미있는 도구입니다.&lt;/p>
-&lt;h2 id="기능-소개">기능 소개&lt;/h2>
-&lt;h3 id="주요-기능">주요 기능&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>수정구 터치&lt;/strong>: 신비로운 수정구를 터치하여 운세 확인&lt;/li>
-&lt;li>&lt;strong>일일 운세&lt;/strong>: 매일 다른 운세 메시지 제공&lt;/li>
-&lt;li>&lt;strong>컬러 매칭&lt;/strong>: 운세에 맞는 특별한 색상 추천&lt;/li>
-&lt;li>&lt;strong>행운 지수&lt;/strong>: 1~100점으로 표시되는 오늘의 운세&lt;/li>
-&lt;li>&lt;strong>개인화&lt;/strong>: 키워드와 추천 활동 제공&lt;/li>
-&lt;/ul>
-&lt;h3 id="운세-구성-요소">운세 구성 요소&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>길흉 타입&lt;/strong>: 대길, 중길, 소길, 길, 평, 소흉, 중흉, 대흉 (8단계)&lt;/li>
-&lt;li>&lt;strong>행운 지수&lt;/strong>: 시각적 게이지로 표시 (1~100점)&lt;/li>
-&lt;li>&lt;strong>오늘의 키워드&lt;/strong>: 하루를 대표하는 핵심 단어&lt;/li>
-&lt;li>&lt;strong>추천 활동&lt;/strong>: 운세에 맞는 구체적인 행동 가이드&lt;/li>
-&lt;li>&lt;strong>컬러 정보&lt;/strong>: HEX 코드와 색상명 제공&lt;/li>
-&lt;/ul>
-&lt;h2 id="색상-데이터베이스">색상 데이터베이스&lt;/h2>
-&lt;p>총 12가지 특별한 색상과 의미를 제공합니다:&lt;/p></description></item><item><title>베이스</title><link>https://nfpdesign.co.kr/studio/base/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://nfpdesign.co.kr/studio/base/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Studios on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</title>
+    <link>http://localhost:1313/studio/</link>
+    <description>Recent content in Studios on NFP 디자인 - 디테일에서 시작해 트렌드를 완성하다.</description>
+    <generator>Hugo</generator>
+    <language>ko</language>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/studio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2색 그라데이션 팔레트</title>
+      <link>http://localhost:1313/studio/gradient-2/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/gradient-2/</guid>
+      <description>&lt;h1 id=&#34;2색-그라데이션-팔레트&#34;&gt;2색 그라데이션 팔레트&lt;/h1&gt;&#xA;&lt;p&gt;두 가지 컬러를 선택하여 다양한 방향과 스타일의 그라데이션을 만들고 CSS 코드를 생성합니다.&lt;/p&gt;&#xA;&lt;p&gt;컬러 피커나 HEX 코드로 색상을 선택하고, 8가지 방향(수평, 수직, 대각선, 원형)과 강도 조절로 원하는 그라데이션을 만들어보세요. 프리셋 조합으로 빠른 시작도 가능합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;컬러 피커 또는 HEX 코드로 시작 색상과 끝 색상을 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;그라데이션 방향(수평·수직·대각선·원형)을 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;색상 전환 강도와 중간 위치를 조절합니다.&lt;/li&gt;&#xA;&lt;li&gt;실시간 미리보기로 결과를 확인하고 마음에 들면 CSS 코드를 복사합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;지원-그라데이션-방향&#34;&gt;지원 그라데이션 방향&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;방향&lt;/th&gt;&#xA;          &lt;th&gt;CSS&lt;/th&gt;&#xA;          &lt;th&gt;용도&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;수평 (→)&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;to right&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;배너, 헤더 배경&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;수직 (↓)&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;to bottom&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;전체 페이지 배경&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;대각선 (↘)&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;135deg&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;카드, 버튼 강조&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;원형&lt;/td&gt;&#xA;          &lt;td&gt;&lt;code&gt;radial-gradient&lt;/code&gt;&lt;/td&gt;&#xA;          &lt;td&gt;원형 배경, 하이라이트&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 색상과 방향 변경 즉시 반영&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CSS 코드 자동 생성&lt;/strong&gt;: 복사 한 번으로 바로 사용 가능한 CSS 코드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;프리셋 팔레트&lt;/strong&gt;: 유명 그라데이션 조합 모음으로 빠른 시작&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 하모니 분석&lt;/strong&gt;: 두 색상의 조화도 및 대비비 자동 분석&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 형태 미리보기&lt;/strong&gt;: 버튼·카드·배경 등 실제 사용 형태로 미리보기&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>3색 그라데이션 팔레트</title>
+      <link>http://localhost:1313/studio/gradient-3/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/gradient-3/</guid>
+      <description>&lt;h1 id=&#34;3색-그라데이션-팔레트&#34;&gt;3색 그라데이션 팔레트&lt;/h1&gt;&#xA;&lt;p&gt;세 가지 컬러를 조합하여 복잡하고 세련된 그라데이션을 만들고 CSS 코드를 생성합니다.&lt;/p&gt;&#xA;&lt;p&gt;컬러 피커나 HEX 코드로 색상을 선택하고, 중간 컬러의 위치를 조절하여 독특한 그라데이션을 만들어보세요. 다양한 컬러 조화 템플릿과 선형/원형/원추형 스타일을 지원합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2색과의-차이점&#34;&gt;2색과의 차이점&lt;/h2&gt;&#xA;&lt;p&gt;3색 그라데이션은 중간 색상이 추가되어 더 풍부하고 입체적인 색상 전환을 만들 수 있습니다. 단순한 A→B 전환이 아닌 A→B→C의 흐름으로 무지개, 일몰, 오로라 같은 복잡한 색상 표현이 가능합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;시작·중간·끝 세 가지 색상을 컬러 피커 또는 HEX 코드로 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;슬라이더로 중간 색상의 위치(%)를 조절합니다.&lt;/li&gt;&#xA;&lt;li&gt;그라데이션 스타일(선형/원형/원추형)을 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;CSS 코드를 복사하거나 갤러리에 저장합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;컬러-조화-템플릿&#34;&gt;컬러 조화 템플릿&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;템플릿&lt;/th&gt;&#xA;          &lt;th&gt;색상 조합&lt;/th&gt;&#xA;          &lt;th&gt;분위기&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;일몰&lt;/td&gt;&#xA;          &lt;td&gt;오렌지-핑크-보라&lt;/td&gt;&#xA;          &lt;td&gt;따뜻하고 낭만적&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;오로라&lt;/td&gt;&#xA;          &lt;td&gt;초록-청록-파랑&lt;/td&gt;&#xA;          &lt;td&gt;신비롭고 차가운&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;무지개&lt;/td&gt;&#xA;          &lt;td&gt;빨강-노랑-파랑&lt;/td&gt;&#xA;          &lt;td&gt;밝고 활기찬&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;모노크롬&lt;/td&gt;&#xA;          &lt;td&gt;흰색-회색-검정&lt;/td&gt;&#xA;          &lt;td&gt;세련되고 모던한&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;3색 조합&lt;/strong&gt;: 시작·중간·끝 색상을 각각 독립적으로 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;위치 조절&lt;/strong&gt;: 중간 색상의 위치를 0~100% 슬라이더로 세밀하게 조정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 하모니 템플릿&lt;/strong&gt;: 전문가가 큐레이션한 색상 조합 즉시 적용&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 분석&lt;/strong&gt;: 색상 대비비, 명도 차이, 접근성 점수 자동 분석&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;갤러리 저장&lt;/strong&gt;: 마음에 드는 그라데이션을 갤러리에 저장하여 비교&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>5색 랜덤 팔레트</title>
+      <link>http://localhost:1313/studio/color-palette-random/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/color-palette-random/</guid>
+      <description>&lt;h1 id=&#34;5색-랜덤-팔레트&#34;&gt;5색 랜덤 팔레트&lt;/h1&gt;&#xA;&lt;p&gt;서로 전혀 관계없는 완전히 랜덤한 5개의 색상을 생성하여 예측할 수 없는 창의적인 색상 조합을 제공하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;완전 랜덤 생성&lt;/strong&gt;: 색상 이론과 무관한 순수 랜덤 색상 조합&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;전체 스펙트럼 활용&lt;/strong&gt;: 360도 색조 전체에서 자유롭게 추출&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;예측 불가능성&lt;/strong&gt;: 매번 새롭고 의외의 색상 조합 발견&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;원클릭 복사&lt;/strong&gt;: 각 색상 HEX 코드를 클릭하면 즉시 클립보드에 복사&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;팔레트 생성&lt;/strong&gt;: &amp;lsquo;랜덤 팔레트 생성&amp;rsquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 탐색&lt;/strong&gt;: 생성된 5개의 예측 불가능한 색상을 확인하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 복사&lt;/strong&gt;: 마음에 드는 색상을 클릭하면 HEX 코드가 복사됩니다&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;새로운 발견&lt;/strong&gt;: 계속 생성하여 독특한 색상 조합을 찾아보세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;랜덤-생성-알고리즘&#34;&gt;랜덤 생성 알고리즘&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;개별 HSL 생성&lt;/strong&gt; → &lt;strong&gt;독립적 색상 추출&lt;/strong&gt; → &lt;strong&gt;5색 조합 완성&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Base64 인코딩/디코딩</title>
+      <link>http://localhost:1313/studio/base64/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/base64/</guid>
+      <description>&lt;h1 id=&#34;base64-인코딩디코딩&#34;&gt;Base64 인코딩/디코딩&lt;/h1&gt;&#xA;&lt;p&gt;텍스트 데이터와 파일을 Base64 형태로 인코딩하거나 Base64 데이터를 원본으로 디코딩하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;텍스트 변환&lt;/strong&gt;: 일반 텍스트를 Base64로 인코딩/디코딩&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;파일 변환&lt;/strong&gt;: 이미지, 문서 등 파일을 Base64로 인코딩&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;파일 복원&lt;/strong&gt;: Base64 데이터를 원본 파일로 디코딩&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 변환&lt;/strong&gt;: 입력과 동시에 즉시 변환 결과 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 미리보기&lt;/strong&gt;: Base64 이미지 데이터의 실시간 미리보기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;파일 타입 감지&lt;/strong&gt;: Base64 데이터에서 파일 타입 자동 감지&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;base64란&#34;&gt;Base64란?&lt;/h2&gt;&#xA;&lt;p&gt;Base64는 바이너리 데이터를 64개의 ASCII 문자로 표현하는 인코딩 방식입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PDF 분할기</title>
+      <link>http://localhost:1313/studio/pdf-splitter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/pdf-splitter/</guid>
+      <description>&lt;h1 id=&#34;pdf-분할&#34;&gt;PDF 분할&lt;/h1&gt;&#xA;&lt;p&gt;PDF 파일을 업로드하여 각 페이지를 개별 파일로 분할할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;불필요한 페이지는 제거하고, 순서를 변경하여 원하는 페이지만 선택적으로 다운로드하세요. 개별 파일 또는 ZIP 파일로 일괄 다운로드가 가능합니다.&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 페이지 미리보기, 드래그 앤 드롭 순서 변경, 페이지 선택/제거, 개별/ZIP 다운로드, 실시간 처리&lt;/p&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+    <item>
+      <title>PDF 압축기</title>
+      <link>http://localhost:1313/studio/pdf-compressor/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/pdf-compressor/</guid>
+      <description>&lt;h1 id=&#34;pdf-압축기&#34;&gt;PDF 압축기&lt;/h1&gt;&#xA;&lt;p&gt;PDF 파일의 크기를 효과적으로 줄여 저장공간을 절약하고 업로드 속도를 개선합니다.&lt;/p&gt;&#xA;&lt;p&gt;브라우저에서 직접 처리되어 개인정보가 안전하며, DPI와 JPEG 품질을 조절하여 원하는 수준의 압축을 할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;: DPI 조절(72-200), JPEG 품질 설정, 회색조 변환, 실시간 진행률 표시, 브라우저 전용 처리&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;지원 형식&lt;/strong&gt;: PDF 파일&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;압축 옵션&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;DPI 설정&lt;/strong&gt;: 72-200 범위에서 해상도 조절 (낮을수록 용량 감소)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;JPEG 품질&lt;/strong&gt;: 0.3-0.9 범위에서 이미지 품질 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;회색조 변환&lt;/strong&gt;: 컬러를 흑백으로 변환하여 추가 용량 절약&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;모든 처리는 브라우저에서 이루어지므로 파일이 외부로 전송되지 않아 안전합니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PDF 합치기(문서 합치기)</title>
+      <link>http://localhost:1313/studio/pdf-merger/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/pdf-merger/</guid>
+      <description>&lt;h1 id=&#34;문서-합치기&#34;&gt;문서 합치기&lt;/h1&gt;&#xA;&lt;p&gt;PDF, Word, PowerPoint, Excel, 이미지 파일을 선택하여 하나의 PDF로 간편하게 합칩니다.&lt;/p&gt;&#xA;&lt;p&gt;다양한 형식의 문서를 업로드하고, 파일 순서를 드래그로 조정하여 원하는 순서로 합쳐보세요. 최대 25MB까지의 파일을 지원합니다.&lt;/p&gt;&#xA;&lt;p&gt;지원 형식: PDF, Word (DOC, DOCX), PowerPoint (PPT, PPTX), Excel (XLS, XLSX), 이미지 (JPG, PNG, TIFF)&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 다양한 형식 지원, 드래그 앤 드롭 업로드, 파일 순서 조정, 실시간 진행률 표시, 즉시 다운로드&lt;/p&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+    <item>
+      <title>Pong 게임</title>
+      <link>http://localhost:1313/studio/pong-game/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/pong-game/</guid>
+      <description>&lt;h1 id=&#34;pong-게임&#34;&gt;Pong 게임&lt;/h1&gt;&#xA;&lt;p&gt;클래식 아케이드 게임의 원조, Pong을 컴퓨터와 즐겨보세요.&lt;/p&gt;&#xA;&lt;p&gt;마우스로 패들을 조작하여 공을 튕겨내며 점수를 획득하는 클래식 탁구 게임입니다. 3단계 AI 난이도와 다양한 게임 모드로 자신만의 도전을 설정할 수 있습니다. 랠리가 지속될수록 공의 속도가 빨라집니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;조작-방법&#34;&gt;조작 방법&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;마우스 상하 이동&lt;/strong&gt;: 내 패들(왼쪽) 조작&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;P키&lt;/strong&gt;: 게임 일시정지 / 재개&lt;/li&gt;&#xA;&lt;li&gt;공이 패들 중앙에 맞을수록 직선으로, 가장자리에 맞을수록 각도가 커집니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ai-난이도&#34;&gt;AI 난이도&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;난이도&lt;/th&gt;&#xA;          &lt;th&gt;AI 반응속도&lt;/th&gt;&#xA;          &lt;th&gt;추천 대상&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Easy&lt;/td&gt;&#xA;          &lt;td&gt;느림&lt;/td&gt;&#xA;          &lt;td&gt;처음 플레이하는 분&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Normal&lt;/td&gt;&#xA;          &lt;td&gt;보통&lt;/td&gt;&#xA;          &lt;td&gt;일반 게이머&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Hard&lt;/td&gt;&#xA;          &lt;td&gt;빠름&lt;/td&gt;&#xA;          &lt;td&gt;고수 도전자&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;게임-규칙&#34;&gt;게임 규칙&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;공이 상대방 벽을 통과하면 1점 획득&lt;/li&gt;&#xA;&lt;li&gt;먼저 설정 점수(기본 7점)에 도달하면 승리&lt;/li&gt;&#xA;&lt;li&gt;랠리가 5회 이상 지속되면 공의 속도가 점진적으로 증가&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;마우스 패들 조작&lt;/strong&gt;: 직관적인 마우스 움직임으로 패들 제어&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AI 난이도 조절&lt;/strong&gt;: 3단계 AI 난이도로 실력에 맞는 도전&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;속도 증가 시스템&lt;/strong&gt;: 랠리가 길어질수록 공 속도 상승&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 통계&lt;/strong&gt;: 현재 랠리 수, 최장 랠리 기록 실시간 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;최고 기록 저장&lt;/strong&gt;: 승패 기록 및 최장 랠리 기록 로컬 저장&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>QR 코드 생성기</title>
+      <link>http://localhost:1313/studio/qr-basic/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/qr-basic/</guid>
+      <description>&lt;h1 id=&#34;기본-qr-코드-생성&#34;&gt;기본 QR 코드 생성&lt;/h1&gt;&#xA;&lt;p&gt;URL, 텍스트, 연락처 정보 등 다양한 내용을 고품질 QR 코드로 변환하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 입력 지원&lt;/strong&gt;: 웹사이트 URL, 일반 텍스트, vCard 연락처 정보 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 선택&lt;/strong&gt;: 200×200px부터 500×500px까지 용도별 크기 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;고품질 출력&lt;/strong&gt;: PNG 형식의 선명한 QR 코드 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;즉시 다운로드&lt;/strong&gt;: 생성된 QR 코드를 바로 파일로 저장&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;내용 입력&lt;/strong&gt;: 변환할 URL 또는 텍스트를 입력창에 작성하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 선택&lt;/strong&gt;: 용도에 맞는 QR 코드 크기를 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;코드 생성&lt;/strong&gt;: &amp;lsquo;QR 코드 생성&amp;rsquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다운로드&lt;/strong&gt;: 생성된 QR 코드를 PNG 파일로 다운로드하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;지원하는-입력-형식&#34;&gt;지원하는 입력 형식&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;웹사이트 URL&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RGB ↔ CMYK 변환기</title>
+      <link>http://localhost:1313/studio/rgb-cmyk/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/rgb-cmyk/</guid>
+      <description>&lt;h2 id=&#34;rgb와-cmyk란&#34;&gt;RGB와 CMYK란?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;RGB&lt;/strong&gt;는 Red·Green·Blue 빛의 삼원색으로, 모니터·스마트폰·TV 등 디지털 화면에서 색상을 표현하는 방식입니다. &lt;strong&gt;CMYK&lt;/strong&gt;는 Cyan·Magenta·Yellow·Key(Black) 잉크의 혼합으로, 인쇄물에서 색상을 재현하는 방식입니다.&lt;/p&gt;&#xA;&lt;p&gt;디자인 파일을 화면에서 볼 때와 인쇄했을 때 색상이 다르게 보이는 이유가 바로 이 두 색상 모드의 차이 때문입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;변환 방향 선택&lt;/strong&gt; — RGB → CMYK 또는 CMYK → RGB 방향을 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;값 입력&lt;/strong&gt; — 슬라이더 또는 숫자 입력으로 색상 값을 설정합니다. HEX 코드 직접 입력도 가능합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;변환 결과 확인&lt;/strong&gt; — 입력한 색상과 변환된 색상의 미리보기를 나란히 확인합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;값 복사&lt;/strong&gt; — 필요한 색상 코드를 클립보드에 복사하여 활용합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;색상-모드-비교&#34;&gt;색상 모드 비교&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;항목&lt;/th&gt;&#xA;          &lt;th&gt;RGB&lt;/th&gt;&#xA;          &lt;th&gt;CMYK&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;색상 원리&lt;/td&gt;&#xA;          &lt;td&gt;빛의 혼합 (가산혼합)&lt;/td&gt;&#xA;          &lt;td&gt;잉크의 혼합 (감산혼합)&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;사용 환경&lt;/td&gt;&#xA;          &lt;td&gt;디지털 화면&lt;/td&gt;&#xA;          &lt;td&gt;인쇄물&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;값 범위&lt;/td&gt;&#xA;          &lt;td&gt;0 ~ 255&lt;/td&gt;&#xA;          &lt;td&gt;0% ~ 100%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;색상 수&lt;/td&gt;&#xA;          &lt;td&gt;약 1600만 색&lt;/td&gt;&#xA;          &lt;td&gt;인쇄 색상 범위 내&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: RGB → CMYK, CMYK → RGB 모두 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 입력과 동시에 색상 변환 결과를 즉시 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;HEX 코드 지원&lt;/strong&gt;: RGB와 함께 웹 HEX 코드 (#RRGGBB) 입력/출력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 비교&lt;/strong&gt;: 원본 색상과 변환된 색상을 나란히 비교하여 차이 파악&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;완전 무료&lt;/strong&gt;: 설치 없이 브라우저에서 바로 사용 가능&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Studio NFP</title>
+      <link>http://localhost:1313/studio/studio/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/studio/</guid>
+      <description>&lt;h1 id=&#34;studio-nfp&#34;&gt;Studio NFP&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;디자인부터 개발까지, 창작 작업에 필요한 모든 도구를 한 곳에서&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Studio NFP는 디자이너, 개발자, 크리에이터를 위한 40가지 전문 온라인 도구 모음입니다. 별도의 소프트웨어 설치 없이 웹 브라우저에서 바로 사용할 수 있습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-핵심-도구-모음&#34;&gt;🚀 핵심 도구 모음&lt;/h2&gt;&#xA;&lt;p&gt;가장 많이 사용되는 필수 도구들을 먼저 확인해보세요.&lt;/p&gt;&#xA;&lt;div class=&#34;sub-page-btn-wrapper&#34;&gt;&#xD;&#xA;&lt;a href=&#34;{{ &#34;/studio/web-demo&#34; | relURL }}&#34; class=&#34;sub-page-btn&#34;&gt;웹 데모 뷰어&lt;/a&gt;&#xD;&#xA;&lt;a href=&#34;{{ &#34;/studio/text-counter&#34; | relURL }}&#34; class=&#34;sub-page-btn&#34;&gt;텍스트 카운터&lt;/a&gt;&#xD;&#xA;&lt;a href=&#34;{{ &#34;/studio/image-compressor&#34; | relURL }}&#34; class=&#34;sub-page-btn&#34;&gt;이미지 압축기&lt;/a&gt;&#xD;&#xA;&lt;a href=&#34;{{ &#34;/studio/qr-basic&#34; | relURL }}&#34; class=&#34;sub-page-btn&#34;&gt;QR코드 생성기&lt;/a&gt;&#xD;&#xA;&lt;a href=&#34;{{ &#34;/studio/watermark&#34; | relURL }}&#34; class=&#34;sub-page-btn&#34;&gt;워터마크 생성기&lt;/a&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;h2 id=&#34;-이미지-처리-도구&#34;&gt;🖼️ 이미지 처리 도구&lt;/h2&gt;&#xA;&lt;p&gt;이미지 편집과 최적화를 위한 전문 도구들입니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>URL 인코딩/디코딩</title>
+      <link>http://localhost:1313/studio/url-encoder/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/url-encoder/</guid>
+      <description>&lt;h1 id=&#34;url-인코딩디코딩&#34;&gt;URL 인코딩/디코딩&lt;/h1&gt;&#xA;&lt;p&gt;URL에 포함할 수 없는 특수문자를 안전한 형태로 변환하거나 인코딩된 URL을 원래 형태로 복원하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 변환&lt;/strong&gt;: 입력과 동시에 즉시 인코딩/디코딩&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: 인코딩과 디코딩을 동시에 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;두 가지 모드&lt;/strong&gt;: URL Component와 전체 URI 모드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;예제 제공&lt;/strong&gt;: 클릭 한 번으로 샘플 텍스트 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;클립보드 복사&lt;/strong&gt;: 결과를 쉽게 복사하여 활용&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;오류 처리&lt;/strong&gt;: 잘못된 형식 입력 시 안전한 오류 처리&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;h3 id=&#34;url-인코딩&#34;&gt;URL 인코딩&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;텍스트 입력&lt;/strong&gt;: 인코딩할 텍스트나 URL을 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;모드 선택&lt;/strong&gt;: URL Component 또는 전체 URI 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;자동 변환&lt;/strong&gt;: 입력과 동시에 결과 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;결과 복사&lt;/strong&gt;: 복사 버튼으로 클립보드에 저장&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;url-디코딩&#34;&gt;URL 디코딩&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;URL 입력&lt;/strong&gt;: 디코딩할 인코딩된 URL 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;모드 선택&lt;/strong&gt;: URL Component 또는 전체 URI 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;자동 변환&lt;/strong&gt;: 입력과 동시에 결과 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;결과 복사&lt;/strong&gt;: 복사 버튼으로 클립보드에 저장&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;인코딩-모드&#34;&gt;인코딩 모드&lt;/h2&gt;&#xA;&lt;h3 id=&#34;url-component-권장&#34;&gt;URL Component (권장)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;사용법&lt;/strong&gt;: &lt;code&gt;encodeURIComponent()&lt;/code&gt; / &lt;code&gt;decodeURIComponent()&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;특징&lt;/strong&gt;: 모든 특수문자를 안전하게 인코딩&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;용도&lt;/strong&gt;: 쿼리 파라미터, 경로 구성 요소&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;예시&lt;/strong&gt;: &lt;code&gt;안녕하세요&lt;/code&gt; → &lt;code&gt;%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;전체-uri&#34;&gt;전체 URI&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;사용법&lt;/strong&gt;: &lt;code&gt;encodeURI()&lt;/code&gt; / &lt;code&gt;decodeURI()&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;특징&lt;/strong&gt;: URL 구조는 유지하며 필요한 부분만 인코딩&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;용도&lt;/strong&gt;: 완전한 URL 문자열&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;예시&lt;/strong&gt;: &lt;code&gt;https://예제.com/경로&lt;/code&gt; → &lt;code&gt;https://%EC%98%88%EC%A0%9C.com/%EA%B2%BD%EB%A1%9C&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;인코딩이-필요한-문자&#34;&gt;인코딩이 필요한 문자&lt;/h2&gt;&#xA;&lt;h3 id=&#34;예약된-문자-reserved-characters&#34;&gt;예약된 문자 (Reserved Characters)&lt;/h3&gt;&#xA;&lt;p&gt;URL에서 특별한 의미를 가지므로 인코딩 필요:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>가위바위보 게임</title>
+      <link>http://localhost:1313/studio/rsp-game/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/rsp-game/</guid>
+      <description>&lt;h1 id=&#34;가위바위보-게임&#34;&gt;가위바위보 게임&lt;/h1&gt;&#xA;&lt;p&gt;컴퓨터와 가위바위보 대전을 즐겨보세요.&lt;/p&gt;&#xA;&lt;p&gt;실시간으로 컴퓨터와 대결하며 점수를 기록하고, 승률을 확인할 수 있습니다. 간단한 클릭만으로 바로 게임을 시작할 수 있으며, 게임 통계가 자동으로 저장됩니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;규칙-및-상성&#34;&gt;규칙 및 상성&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;내 선택&lt;/th&gt;&#xA;          &lt;th&gt;이기는 상대&lt;/th&gt;&#xA;          &lt;th&gt;지는 상대&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;가위 ✂️&lt;/td&gt;&#xA;          &lt;td&gt;보&lt;/td&gt;&#xA;          &lt;td&gt;바위&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;바위 🪨&lt;/td&gt;&#xA;          &lt;td&gt;가위&lt;/td&gt;&#xA;          &lt;td&gt;보&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;보 📄&lt;/td&gt;&#xA;          &lt;td&gt;바위&lt;/td&gt;&#xA;          &lt;td&gt;가위&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;게임-모드&#34;&gt;게임 모드&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;일반 대전&lt;/strong&gt;: 제한 없이 계속 대전하며 승률 기록&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;N판 승부&lt;/strong&gt;: 목표 승수(3판, 5판, 10판)를 먼저 달성하면 승리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;타임어택&lt;/strong&gt;: 제한 시간 내에 최대한 많이 이기기&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 대전&lt;/strong&gt;: 가위·바위·보 버튼 클릭으로 즉시 대결&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;점수 추적&lt;/strong&gt;: 내 점수·컴퓨터 점수·무승부 횟수 실시간 기록&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;라운드 카운터&lt;/strong&gt;: 현재까지 진행된 총 라운드 수 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;승률 계산&lt;/strong&gt;: 누적 대전에서의 승률(%)을 퍼센트로 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;게임 통계&lt;/strong&gt;: 가위·바위·보 각각 몇 번 냈는지 패턴 분석&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;로컬 저장&lt;/strong&gt;: 브라우저를 닫아도 통계가 저장되어 누적 기록 유지&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>강화 시뮬레이터</title>
+      <link>http://localhost:1313/studio/enhancement-simulator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/enhancement-simulator/</guid>
+      <description>&lt;h1 id=&#34;강화-시뮬레이터&#34;&gt;강화 시뮬레이터&lt;/h1&gt;&#xA;&lt;p&gt;게임에서 흔히 볼 수 있는 아이템 강화 시스템을 실제로 체험해볼 수 있는 시뮬레이터입니다.&lt;/p&gt;&#xA;&lt;p&gt;성공 확률을 직접 설정하고, 실패 시 레벨 하락이나 아이템 파괴 등의 패널티를 적용할 수 있습니다. 자동 강화 기능으로 목표 레벨까지 연속 도전하거나, 하나씩 신중하게 강화할 수 있습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;강화-시스템-설정&#34;&gt;강화 시스템 설정&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;옵션&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;성공 확률&lt;/td&gt;&#xA;          &lt;td&gt;강화 성공 가능성 (1~99%) 직접 설정&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;실패 패널티&lt;/td&gt;&#xA;          &lt;td&gt;레벨 유지 / 레벨 하락 / 아이템 파괴 선택&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;파괴 방지&lt;/td&gt;&#xA;          &lt;td&gt;실패 시 파괴 방지 아이템 사용 여부&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;목표 레벨&lt;/td&gt;&#xA;          &lt;td&gt;자동 강화 시 도달할 목표 강화 레벨&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;강화 성공 확률과 실패 패널티 조건을 설정합니다.&lt;/li&gt;&#xA;&lt;li&gt;파괴 방지 아이템 사용 여부를 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;강화 시작&lt;/strong&gt; 버튼으로 한 번씩 도전하거나, &lt;strong&gt;자동 강화&lt;/strong&gt;로 목표 레벨까지 연속 시도합니다.&lt;/li&gt;&#xA;&lt;li&gt;우측 통계 패널에서 성공률, 소비 재화, 누적 시도 횟수를 실시간으로 확인합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;확률 커스텀&lt;/strong&gt;: 강화 성공 확률을 1~99% 사이에서 직접 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;패널티 조정&lt;/strong&gt;: 실패 시 레벨 하락, 파괴 등 다양한 패널티 옵션&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;파괴 방지 옵션&lt;/strong&gt;: 실패 패널티를 줄이는 보호 아이템 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;자동 강화&lt;/strong&gt;: 목표 레벨을 지정하면 연속으로 도전 (중단 가능)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;강화 통계&lt;/strong&gt;: 총 시도 횟수, 성공/실패 횟수, 성공률 실시간 추적&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;강화 기록&lt;/strong&gt;: 각 강화 시도의 결과를 타임라인 형태로 저장&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>그라데이션 카드 뽑기</title>
+      <link>http://localhost:1313/studio/gradient-card/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/gradient-card/</guid>
+      <description>&lt;h1 id=&#34;그라데이션-카드-뽑기&#34;&gt;그라데이션 카드 뽑기&lt;/h1&gt;&#xA;&lt;p&gt;오늘은 어떤 색상 조합이 당신을 기다리고 있을까요?&lt;br&gt;&#xA;랜덤으로 &lt;strong&gt;그라데이션 카드&lt;/strong&gt;를 뽑아 다채로운 영감을 얻어보세요.&lt;/p&gt;&#xA;&lt;p&gt;그라데이션 카드는 두 가지 이상의 색상을 조합하여 새로운 분위기와 감각을 전달합니다.&lt;br&gt;&#xA;각 카드에는 HEX 코드와 함께 특별한 의미가 담겨 있으며, 디자인에 바로 활용할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;주요 기능&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;랜덤 그라데이션 생성&lt;/li&gt;&#xA;&lt;li&gt;HEX 색상 코드 복사&lt;/li&gt;&#xA;&lt;li&gt;카드 이미지 저장&lt;/li&gt;&#xA;&lt;li&gt;스페셜/다크 스페셜 카드 발견&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>그리드 계산기</title>
+      <link>http://localhost:1313/studio/grid-calculator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/grid-calculator/</guid>
+      <description>&lt;h1 id=&#34;그리드-계산기&#34;&gt;그리드 계산기&lt;/h1&gt;&#xA;&lt;p&gt;웹사이트와 앱의 레이아웃 그리드 시스템을 설계하고 시각적으로 확인할 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;그리드 입력&lt;/strong&gt;: 최대 너비, 컬럼 수, 간격, 좌우 마진 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 계산&lt;/strong&gt;: 페이지 너비와 컬럼 너비 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;시각적 미리보기&lt;/strong&gt;: 설계한 그리드를 실제로 시각화&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 스케일링&lt;/strong&gt;: 화면 크기에 맞게 미리보기 조정&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;최대 너비&lt;/strong&gt;: 전체 컨테이너의 최대 너비를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬럼 수&lt;/strong&gt;: 필요한 컬럼 개수를 설정하세요 (1-24개)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;간격&lt;/strong&gt;: 컬럼 사이의 간격을 설정하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;좌우 마진&lt;/strong&gt;: 컨테이너 양쪽의 마진을 설정하세요&lt;/li&gt;&#xA;&lt;li&gt;실시간으로 계산 결과와 시각적 미리보기를 확인하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;계산-공식&#34;&gt;계산 공식&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;사용 가능한 너비&lt;/strong&gt; = 최대 너비 - (간격 × (컬럼 수 - 1)) - (좌우 마진 × 2)&#xA;&lt;strong&gt;컬럼 너비&lt;/strong&gt; = 사용 가능한 너비 ÷ 컬럼 수&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>날짜 계산기</title>
+      <link>http://localhost:1313/studio/date-calculator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/date-calculator/</guid>
+      <description>&lt;h1 id=&#34;날짜-계산기&#34;&gt;날짜 계산기&lt;/h1&gt;&#xA;&lt;p&gt;기간 계산, D-day 계산, 날짜 더하기/빼기 등 다양한 날짜 관련 계산을 한 번에 처리합니다.&lt;/p&gt;&#xA;&lt;p&gt;두 날짜 사이의 정확한 기간을 계산하거나, 특정 날까지 남은 일수를 확인하고, 특정 날짜에서 원하는 기간을 더하거나 뺄 수 있습니다. 연, 월, 일, 주 단위로 다양한 형태의 결과를 제공합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;계산-모드&#34;&gt;계산 모드&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;모드&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;          &lt;th&gt;활용 예시&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;기간 계산&lt;/td&gt;&#xA;          &lt;td&gt;두 날짜 사이의 일수·주·월·년 계산&lt;/td&gt;&#xA;          &lt;td&gt;계약 기간, 재직 기간&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;D-day 계산&lt;/td&gt;&#xA;          &lt;td&gt;특정 날까지 남은 일수&lt;/td&gt;&#xA;          &lt;td&gt;시험, 기념일, 이벤트&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;날짜 더하기&lt;/td&gt;&#xA;          &lt;td&gt;날짜에서 N일/주/월/년 후 계산&lt;/td&gt;&#xA;          &lt;td&gt;만료일, 납기일&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;날짜 빼기&lt;/td&gt;&#xA;          &lt;td&gt;날짜에서 N일/주/월/년 전 계산&lt;/td&gt;&#xA;          &lt;td&gt;과거 날짜 역산&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;상단 탭에서 원하는 계산 모드를 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;시작 날짜와 종료 날짜(또는 기준 날짜와 더할 기간)를 입력합니다.&lt;/li&gt;&#xA;&lt;li&gt;계산 결과가 즉시 표시됩니다. 일수, 주, 월, 년 단위로 모두 확인할 수 있습니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;기간 계산&lt;/strong&gt;: 두 날짜 사이의 정확한 기간을 다양한 단위로 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;D-day 계산&lt;/strong&gt;: 목표 날짜까지 남은 일수 카운트다운&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;날짜 더하기/빼기&lt;/strong&gt;: 기준 날짜에 특정 기간을 더하거나 빼서 결과 날짜 산출&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;한국어 요일 표시&lt;/strong&gt;: 계산 결과와 함께 해당 날짜의 요일(월~일) 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;오늘 날짜 자동 입력&lt;/strong&gt;: 버튼 클릭으로 오늘 날짜를 자동으로 입력&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>다중 이미지 포맷 변환기</title>
+      <link>http://localhost:1313/studio/multi-format-converter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/multi-format-converter/</guid>
+      <description>&lt;h2 id=&#34;다중-이미지-포맷-변환기란&#34;&gt;다중 이미지 포맷 변환기란?&lt;/h2&gt;&#xA;&lt;p&gt;여러 이미지 파일을 한 번에 업로드하여 원하는 포맷으로 일괄 변환하는 브라우저 기반 도구입니다. 서버에 업로드하지 않고 브라우저에서 직접 처리하므로 개인정보와 파일 보안이 완벽하게 보호됩니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;파일 선택&lt;/strong&gt; — 변환할 이미지를 드래그앤드롭하거나 클릭하여 업로드합니다. 여러 파일을 동시에 선택할 수 있습니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;포맷 선택&lt;/strong&gt; — 변환할 출력 포맷(JPG, PNG, WebP)을 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 조절&lt;/strong&gt; — JPG, WebP의 경우 1~100% 품질을 조절하여 파일 크기와 화질을 조정합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;변환 시작&lt;/strong&gt; — 변환 버튼을 클릭하면 모든 파일이 일괄 처리됩니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다운로드&lt;/strong&gt; — 개별 파일 다운로드 또는 ZIP으로 한꺼번에 저장합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;지원-포맷-및-특징&#34;&gt;지원 포맷 및 특징&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;포맷&lt;/th&gt;&#xA;          &lt;th&gt;특징&lt;/th&gt;&#xA;          &lt;th&gt;추천 용도&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;JPG&lt;/td&gt;&#xA;          &lt;td&gt;사진에 최적, 파일 크기 작음&lt;/td&gt;&#xA;          &lt;td&gt;사진, SNS 업로드&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;PNG&lt;/td&gt;&#xA;          &lt;td&gt;투명도 지원, 무손실&lt;/td&gt;&#xA;          &lt;td&gt;로고, UI 요소&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;WebP&lt;/td&gt;&#xA;          &lt;td&gt;고압축률, 최신 브라우저 지원&lt;/td&gt;&#xA;          &lt;td&gt;웹 최적화, SEO&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;일괄 처리&lt;/strong&gt;: 한 번에 수십 개의 이미지를 동시에 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 조절&lt;/strong&gt;: 출력 품질을 직접 조절하여 파일 크기 최적화&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 변환 전후 이미지를 비교 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ZIP 다운로드&lt;/strong&gt;: 모든 변환 결과물을 ZIP 파일로 일괄 다운로드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;완전 무료&lt;/strong&gt;: 회원가입 없이 용량 제한 없이 사용 가능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개인정보 보호&lt;/strong&gt;: 파일이 서버에 전송되지 않고 브라우저에서만 처리&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>단위 변환기</title>
+      <link>http://localhost:1313/studio/unit-converter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/unit-converter/</guid>
+      <description>&lt;h1 id=&#34;단위-변환기&#34;&gt;단위 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹 디자인과 인쇄물 작업에 필요한 다양한 길이 단위를 빠르게 상호 변환하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: 기준 단위 ↔ 변환 단위 실시간 상호변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;지원 단위&lt;/strong&gt;: px, pt, mm, cm, inch (96 DPI 기준)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 변환&lt;/strong&gt;: 자주 사용하는 값들을 원클릭으로 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 계산&lt;/strong&gt;: 소수점 3자리까지 정밀 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;96 DPI 기준&lt;/strong&gt;: 표준 웹 해상도 기준 변환&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;기준 단위와 변환 단위를 각각 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;기준 단위 입력란에 값을 입력하면 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;반대로 변환 단위에 값을 입력해도 역변환이 가능합니다&lt;/li&gt;&#xA;&lt;li&gt;빠른 변환 버튼으로 자주 사용하는 값들을 쉽게 확인할 수 있습니다&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;96 DPI 기준 참고 값:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>더미 텍스트 (Lorem Ipsum) 생성기</title>
+      <link>http://localhost:1313/studio/text-tools/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/text-tools/</guid>
+      <description>&lt;h1 id=&#34;lorem-ipsum-생성기&#34;&gt;Lorem Ipsum 생성기&lt;/h1&gt;&#xA;&lt;p&gt;디자인 및 개발 작업에 필요한 더미 텍스트를 빠르게 생성하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 생성 방식&lt;/strong&gt;: 문단, 단어, 문장 단위로 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개수 조절&lt;/strong&gt;: 1~50개까지 자유롭게 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;클래식 시작&lt;/strong&gt;: &amp;ldquo;Lorem ipsum dolor sit amet&amp;hellip;&amp;ldquo;으로 시작 옵션&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 통계&lt;/strong&gt;: 생성된 텍스트의 문단/단어/글자 수 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;원클릭 복사&lt;/strong&gt;: 생성된 텍스트를 한 번에 복사&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;생성 방식을 선택하세요 (문단/단어/문장)&lt;/li&gt;&#xA;&lt;li&gt;원하는 개수를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;필요시 클래식 시작 옵션을 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;Lorem Ipsum 생성&amp;rdquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;생성된 텍스트를 복사하여 사용하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;lorem-ipsum이란&#34;&gt;Lorem Ipsum이란?&lt;/h2&gt;&#xA;&lt;p&gt;Lorem Ipsum은 16세기부터 인쇄 및 타이포그래피 업계에서 사용되어 온 표준 더미 텍스트입니다. 의미 없는 라틴어로 구성되어 있어 내용에 방해받지 않고 디자인과 레이아웃에 집중할 수 있게 해줍니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>두더지 잡기 게임</title>
+      <link>http://localhost:1313/studio/whack-a-mole/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/whack-a-mole/</guid>
+      <description>&lt;h1 id=&#34;두더지-잡기-게임&#34;&gt;두더지 잡기 게임&lt;/h1&gt;&#xA;&lt;p&gt;제한 시간 내에 최대한 많은 두더지를 잡아 점수를 획득하세요.&lt;/p&gt;&#xA;&lt;p&gt;9개의 구멍에서 랜덤하게 나타나는 두더지를 빠르게 클릭하여 점수를 획득하는 클래식 아케이드 게임입니다. 연속 적중 시 콤보 보너스가 적용되며, 4가지 난이도 설정으로 다양한 도전이 가능합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;조작-방법&#34;&gt;조작 방법&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;마우스 클릭&lt;/strong&gt; 또는 &lt;strong&gt;터치(모바일)&lt;/strong&gt;: 구멍에서 나온 두더지를 클릭/탭&lt;/li&gt;&#xA;&lt;li&gt;두더지가 구멍에서 나왔다가 사라지기 전에 빠르게 클릭해야 합니다.&lt;/li&gt;&#xA;&lt;li&gt;빈 구멍을 클릭하면 미스 카운트가 증가합니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;난이도-설정&#34;&gt;난이도 설정&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;난이도&lt;/th&gt;&#xA;          &lt;th&gt;두더지 등장 속도&lt;/th&gt;&#xA;          &lt;th&gt;머무르는 시간&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Easy&lt;/td&gt;&#xA;          &lt;td&gt;느림&lt;/td&gt;&#xA;          &lt;td&gt;길게&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Normal&lt;/td&gt;&#xA;          &lt;td&gt;보통&lt;/td&gt;&#xA;          &lt;td&gt;보통&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Hard&lt;/td&gt;&#xA;          &lt;td&gt;빠름&lt;/td&gt;&#xA;          &lt;td&gt;짧게&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Expert&lt;/td&gt;&#xA;          &lt;td&gt;매우 빠름&lt;/td&gt;&#xA;          &lt;td&gt;매우 짧게&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;콤보-시스템&#34;&gt;콤보 시스템&lt;/h2&gt;&#xA;&lt;p&gt;연속으로 두더지를 잡으면 콤보가 누적되어 점수 배수가 올라갑니다:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>로또 번호 생성기 - Studio NFP</title>
+      <link>http://localhost:1313/studio/lotto-generator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/lotto-generator/</guid>
+      <description>&lt;h1 id=&#34;로또-번호-생성기&#34;&gt;로또 번호 생성기&lt;/h1&gt;&#xA;&lt;p&gt;1부터 45까지 숫자 중에서 6개의 번호를 자동으로 생성하는 행운의 도구입니다.&lt;/p&gt;&#xA;&lt;p&gt;완전 랜덤, 균형잡힌 조합, 인기 번호 위주, 소외 번호 위주 등 다양한 생성 방식을 제공합니다. 1게임부터 10게임까지 한 번에 생성 가능하며, 보너스 번호 포함 옵션과 생성 통계 기능도 제공합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;번호-생성-방식&#34;&gt;번호 생성 방식&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;방식&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;완전 랜덤&lt;/td&gt;&#xA;          &lt;td&gt;1~45 중 완전히 무작위로 6개 선택&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;균형 조합&lt;/td&gt;&#xA;          &lt;td&gt;홀짝·고저 비율을 균형있게 고려&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;인기 번호&lt;/td&gt;&#xA;          &lt;td&gt;역대 많이 나온 번호 위주로 생성&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;소외 번호&lt;/td&gt;&#xA;          &lt;td&gt;오랫동안 안 나온 번호 위주로 생성&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;원하는 번호 생성 방식을 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;생성할 게임 수(1~10게임)를 설정합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;생성하기&lt;/strong&gt; 버튼을 클릭하면 번호가 즉시 생성됩니다.&lt;/li&gt;&#xA;&lt;li&gt;마음에 드는 번호 조합을 메모하거나 저장합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 생성 방식&lt;/strong&gt;: 랜덤, 균형, 인기번호, 소외번호 등 4가지 전략&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;멀티 게임 생성&lt;/strong&gt;: 한 번에 최대 10게임 동시 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;보너스 번호&lt;/strong&gt;: 보너스 번호(7번째 번호) 포함 옵션 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;생성 통계&lt;/strong&gt;: 각 번호의 생성 빈도와 통계 데이터 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;번호 빈도 분석&lt;/strong&gt;: 선택된 번호들의 홀짝·고저·구간 분포 분석&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>벽돌깨기 게임</title>
+      <link>http://localhost:1313/studio/breakout-game/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/breakout-game/</guid>
+      <description>&lt;h1 id=&#34;벽돌깨기-게임&#34;&gt;벽돌깨기 게임&lt;/h1&gt;&#xA;&lt;p&gt;클래식 아케이드 게임 브레이크아웃을 현대적으로 재현했습니다.&lt;/p&gt;&#xA;&lt;p&gt;마우스로 패들을 조작하여 공을 튕겨내며 화면 상단의 모든 벽돌을 파괴하는 게임입니다. 레벨이 진행될수록 벽돌 수가 증가하고, 일부 벽돌은 여러 번 맞아야 파괴됩니다. 생명이 떨어지면 게임이 종료됩니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;조작-방법&#34;&gt;조작 방법&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;마우스 이동&lt;/strong&gt;: 패들 좌우 이동&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;클릭 또는 스페이스바&lt;/strong&gt;: 게임 시작 / 공 발사&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;P키&lt;/strong&gt;: 일시정지&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;게임-규칙&#34;&gt;게임 규칙&lt;/h2&gt;&#xA;&lt;p&gt;모든 벽돌을 파괴하면 다음 레벨로 진행됩니다. 생명은 기본 3개이며, 공이 화면 아래로 떨어질 때마다 1개씩 감소합니다. 레벨이 높아질수록 공의 속도가 빨라지고 벽돌 배치가 복잡해집니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>사이즈 계산기</title>
+      <link>http://localhost:1313/studio/size-calculator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/size-calculator/</guid>
+      <description>&lt;h1 id=&#34;사이즈-계산기&#34;&gt;사이즈 계산기&lt;/h1&gt;&#xA;&lt;p&gt;비율을 기반으로 한 해상도 계산과 이미지 사이즈 변환을 쉽게 할 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;h3 id=&#34;비율-계산기&#34;&gt;비율 계산기&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 입력&lt;/strong&gt;: 16:9, 4:3 등 원하는 비율 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;자동 해상도 생성&lt;/strong&gt;: 4K/FHD/HD/SD 해상도 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 업데이트&lt;/strong&gt;: 비율 변경 시 즉시 결과 반영&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;커스텀-사이즈-변환&#34;&gt;커스텀 사이즈 변환&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;원본 크기 입력&lt;/strong&gt;: 현재 이미지의 가로×세로 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;목표 비율 설정&lt;/strong&gt;: 변환하고 싶은 비율&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;두 가지 변환 방식&lt;/strong&gt;: 잘라내기(crop)와 늘리기(fit) 결과 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;h3 id=&#34;비율-계산기-1&#34;&gt;비율 계산기&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;가로 비율과 세로 비율을 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;자동으로 4가지 해상도가 계산됩니다&lt;/li&gt;&#xA;&lt;li&gt;각 해상도별 정확한 픽셀 크기를 확인하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;커스텀-사이즈-변환-1&#34;&gt;커스텀 사이즈 변환&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;원본 이미지의 너비와 높이를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;목표로 하는 가로:세로 비율을 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;잘라내기와 늘리기 방식의 결과를 확인하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-방식-설명&#34;&gt;변환 방식 설명&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;잘라내기 (Crop)&lt;/strong&gt;: 비율을 맞추기 위해 이미지의 일부를 자르는 방식&#xA;&lt;strong&gt;늘리기 (Fit)&lt;/strong&gt;: 비율을 맞추기 위해 이미지를 확대하는 방식&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>스네이크 게임 (Snake)</title>
+      <link>http://localhost:1313/studio/snake-game/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/snake-game/</guid>
+      <description>&lt;h1 id=&#34;snake-게임&#34;&gt;Snake 게임&lt;/h1&gt;&#xA;&lt;p&gt;방향키로 뱀을 조작하여 음식을 먹고 최대한 길게 성장시키는 클래식 게임입니다.&lt;/p&gt;&#xA;&lt;p&gt;뱀이 음식을 먹을 때마다 몸이 길어지며, 벽이나 자신의 몸에 부딪히면 게임이 종료됩니다. 음식을 많이 먹을수록 속도가 빨라져 더욱 도전적이 됩니다. 방향키 또는 WASD 키로 조작할 수 있습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;조작-방법&#34;&gt;조작 방법&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;방향키 (↑↓←→)&lt;/strong&gt; 또는 &lt;strong&gt;WASD&lt;/strong&gt;: 뱀의 이동 방향 변경&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;P키&lt;/strong&gt; 또는 &lt;strong&gt;스페이스바&lt;/strong&gt;: 게임 일시정지 / 재개&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;모바일&lt;/strong&gt;: 스와이프 제스처로 방향 전환&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;게임-규칙&#34;&gt;게임 규칙&lt;/h2&gt;&#xA;&lt;p&gt;음식(빨간 점)을 먹을 때마다 뱀의 몸이 1칸 길어지고 점수가 추가됩니다. 뱀이 벽 또는 자신의 몸에 부딪히면 게임 오버입니다. 음식을 먹을수록 이동 속도가 점차 빨라집니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>오늘 뭐먹지?</title>
+      <link>http://localhost:1313/studio/food-roulette/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/food-roulette/</guid>
+      <description>&lt;h1 id=&#34;오늘-뭐먹지&#34;&gt;오늘 뭐먹지?&lt;/h1&gt;&#xA;&lt;p&gt;점심 뭐먹지? 저녁 뭐먹지? 메뉴 선택 고민을 재미있는 룰렛으로 해결해보세요!&lt;/p&gt;&#xA;&lt;p&gt;한식, 중식, 양식 카테고리별로 구성된 다양한 메뉴 중에서 룰렛이 랜덤으로 선택해드립니다. 선택 장애가 있을 때, 새로운 메뉴에 도전하고 싶을 때, 또는 단순히 재미로 사용해보세요.&lt;/p&gt;&#xA;&lt;h2 id=&#34;메뉴-카테고리&#34;&gt;메뉴 카테고리&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;카테고리&lt;/th&gt;&#xA;          &lt;th&gt;예시 메뉴&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;한식&lt;/td&gt;&#xA;          &lt;td&gt;비빔밥, 된장찌개, 삼겹살, 냉면, 갈비탕&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;중식&lt;/td&gt;&#xA;          &lt;td&gt;짜장면, 짬뽕, 탕수육, 마라탕, 볶음밥&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;양식&lt;/td&gt;&#xA;          &lt;td&gt;파스타, 스테이크, 피자, 샐러드, 샌드위치&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;일식&lt;/td&gt;&#xA;          &lt;td&gt;초밥, 라멘, 돈가스, 우동, 회덮밥&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;분식&lt;/td&gt;&#xA;          &lt;td&gt;떡볶이, 순대, 김밥, 라면, 핫도그&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;원하는 음식 카테고리를 선택합니다. (전체 또는 특정 카테고리)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;돌려!&lt;/strong&gt; 버튼을 클릭하면 룰렛이 회전합니다.&lt;/li&gt;&#xA;&lt;li&gt;룰렛이 멈추면 오늘의 메뉴가 결정됩니다.&lt;/li&gt;&#xA;&lt;li&gt;마음에 들지 않으면 다시 돌릴 수 있습니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;카테고리 필터&lt;/strong&gt;: 먹고 싶은 음식 종류만 선택하여 룰렛 범위 지정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;룰렛 애니메이션&lt;/strong&gt;: 실감나는 회전 애니메이션과 효과음&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;랜덤 추천&lt;/strong&gt;: 완전 무작위 메뉴 선택으로 공정한 결과&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다시 돌리기&lt;/strong&gt;: 결과가 마음에 들지 않으면 즉시 재시도 가능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;오늘의 추천&lt;/strong&gt;: 날씨·계절에 맞는 메뉴 보너스 추천&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>워터마크 다중 삽입</title>
+      <link>http://localhost:1313/studio/watermark/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/watermark/</guid>
+      <description>&lt;h1 id=&#34;워터마크-다중-삽입&#34;&gt;워터마크 다중 삽입&lt;/h1&gt;&#xA;&lt;p&gt;여러 이미지에 한번에 워터마크를 삽입하는 브라우저 기반 도구입니다.&lt;/p&gt;&#xA;&lt;p&gt;텍스트 또는 이미지 워터마크를 선택하고, 위치와 투명도를 조절한 후 여러 이미지를 한번에 처리할 수 있습니다. 처리된 이미지는 ZIP 파일로 다운로드됩니다. 서버에 파일이 전송되지 않아 개인정보가 완벽하게 보호됩니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;워터마크-타입&#34;&gt;워터마크 타입&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;타입&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;텍스트 워터마크&lt;/td&gt;&#xA;          &lt;td&gt;원하는 문구를 폰트·크기·색상 설정 후 삽입&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;이미지 워터마크&lt;/td&gt;&#xA;          &lt;td&gt;로고나 서명 이미지를 워터마크로 사용&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;워터마크 설정&lt;/strong&gt;: 텍스트 또는 이미지 워터마크를 선택하고 내용을 입력합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;스타일 조절&lt;/strong&gt;: 크기, 투명도(0~100%), 위치, 회전 각도를 설정합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 업로드&lt;/strong&gt;: 워터마크를 삽입할 이미지를 여러 장 업로드합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;미리보기 확인&lt;/strong&gt;: 첫 번째 이미지에서 워터마크 위치를 실시간으로 확인합니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;일괄 처리 및 다운로드&lt;/strong&gt;: 처리 버튼 클릭 후 ZIP으로 다운로드합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;일괄 처리&lt;/strong&gt;: 수십 장의 이미지에 동시에 워터마크 삽입&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 워터마크 설정 변경 즉시 미리보기 반영&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;드래그 위치 조정&lt;/strong&gt;: 미리보기에서 워터마크를 드래그하여 위치 직접 조정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;투명도 조절&lt;/strong&gt;: 0(완전 투명)~100(완전 불투명) 사이에서 세밀하게 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 출력 형식&lt;/strong&gt;: JPG, PNG, WebP 중 출력 형식 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ZIP 다운로드&lt;/strong&gt;: 처리된 모든 이미지를 하나의 ZIP 파일로 저장&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>웹 데모</title>
+      <link>http://localhost:1313/studio/web-demo/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/web-demo/</guid>
+      <description>&lt;h1 id=&#34;웹-데모&#34;&gt;웹 데모&lt;/h1&gt;&#xA;&lt;p&gt;HTML과 CSS 코드를 입력하면 별도의 프로그램 설치 없이 웹 브라우저에서 바로 결과를 확인할 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: HTML/CSS 코드를 입력하면 즉시 결과 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;별도 설치 불필요&lt;/strong&gt;: 웹 브라우저만 있으면 바로 사용 가능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;코드 편집기&lt;/strong&gt;: 문법 하이라이팅과 자동 들여쓰기 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 테스트&lt;/strong&gt;: 다양한 화면 크기에서 결과 확인 가능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 프로토타이핑&lt;/strong&gt;: 아이디어를 빠르게 시각화&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;HTML 영역에 웹페이지 구조를 작성하세요&lt;/li&gt;&#xA;&lt;li&gt;CSS 영역에 스타일링 코드를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;미리보기 영역에서 실시간으로 결과를 확인할 수 있습니다&lt;/li&gt;&#xA;&lt;li&gt;코드를 수정하면 자동으로 미리보기가 업데이트됩니다&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;활용-예시&#34;&gt;활용 예시&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;학습 목적&lt;/strong&gt;: HTML/CSS 기초 학습 및 연습&#xA;&lt;strong&gt;프로토타이핑&lt;/strong&gt;: 웹사이트 레이아웃 및 디자인 아이디어 테스트&#xA;&lt;strong&gt;디버깅&lt;/strong&gt;: 코드 문제 해결 및 실험&#xA;&lt;strong&gt;교육&lt;/strong&gt;: 웹 개발 수업이나 튜토리얼에서 활용&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>이미지 맵 생성기</title>
+      <link>http://localhost:1313/studio/image-map-generator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-map-generator/</guid>
+      <description>&lt;h1 id=&#34;이미지-맵-생성기&#34;&gt;이미지 맵 생성기&lt;/h1&gt;&#xA;&lt;p&gt;이미지에 클릭 가능한 핫스팟 영역을 만들어 각각 다른 링크로 연결할 수 있는 HTML 코드를 생성합니다.&lt;/p&gt;&#xA;&lt;p&gt;사각형, 원형, 다각형 도형으로 영역을 설정하고 각 영역에 URL을 연결하여 인터랙티브한 이미지를 만들어보세요. 지도, 제품 이미지, 인포그래픽 등 다양한 용도로 활용할 수 있습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;이미지를 드래그앤드롭하거나 클릭하여 업로드합니다.&lt;/li&gt;&#xA;&lt;li&gt;도형 도구(사각형·원형·다각형)를 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;이미지 위에 드래그하여 클릭 영역을 그립니다.&lt;/li&gt;&#xA;&lt;li&gt;각 영역에 연결할 URL과 대체 텍스트(alt)를 입력합니다.&lt;/li&gt;&#xA;&lt;li&gt;생성된 HTML &lt;code&gt;&amp;lt;map&amp;gt;&lt;/code&gt; 코드를 복사하여 웹 페이지에 사용합니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;활용-사례&#34;&gt;활용 사례&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;용도&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;인포그래픽&lt;/td&gt;&#xA;          &lt;td&gt;각 영역 클릭 시 관련 페이지로 이동&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;제품 이미지&lt;/td&gt;&#xA;          &lt;td&gt;부품별 클릭으로 상세 정보 연결&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;지도 이미지&lt;/td&gt;&#xA;          &lt;td&gt;지역별 클릭으로 해당 페이지 링크&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;메뉴판&lt;/td&gt;&#xA;          &lt;td&gt;메뉴 항목 클릭으로 상세 정보 연결&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;조직도&lt;/td&gt;&#xA;          &lt;td&gt;인물 사진 클릭으로 프로필 페이지 연결&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 도형 지원&lt;/strong&gt;: 사각형(rect), 원형(circle), 다각형(poly) 영역 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;드래그앤드롭 업로드&lt;/strong&gt;: 이미지를 직접 끌어다 놓아 빠르게 업로드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 핫스팟 영역과 링크를 추가하면서 즉시 결과 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;HTML 코드 생성&lt;/strong&gt;: 바로 사용 가능한 &lt;code&gt;&amp;lt;map&amp;gt;&lt;/code&gt; + &lt;code&gt;&amp;lt;area&amp;gt;&lt;/code&gt; HTML 코드 자동 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;영역 편집&lt;/strong&gt;: 생성된 영역의 크기·위치·URL 수정 및 삭제 가능&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>이미지 분할기</title>
+      <link>http://localhost:1313/studio/image-splitter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-splitter/</guid>
+      <description>&lt;h1 id=&#34;이미지-분할&#34;&gt;이미지 분할&lt;/h1&gt;&#xA;&lt;p&gt;이미지를 업로드하여 격자로 나누거나 원하는 영역을 선택하여 분할할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;격자 크기를 설정하여 균등하게 나누거나, 향후 업데이트에서는 수동으로 영역을 선택하여 자유롭게 분할할 수 있습니다. 분할된 각 조각을 개별 이미지 파일로 다운로드하세요.&lt;/p&gt;&#xA;&lt;p&gt;지원 형식: JPG, PNG, WebP, TIFF&lt;/p&gt;&#xA;&lt;p&gt;주요 기능: 격자 분할, 실시간 미리보기, 개별/ZIP 다운로드, 고해상도 유지&lt;/p&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+    <item>
+      <title>이미지 압축기</title>
+      <link>http://localhost:1313/studio/image-compressor/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-compressor/</guid>
+      <description>&lt;h1 id=&#34;이미지-압축기&#34;&gt;이미지 압축기&lt;/h1&gt;&#xA;&lt;p&gt;여러 이미지를 동시에 선택하여 효율적으로 압축하고 파일 크기를 줄이는 다중 파일 지원 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다중 파일 지원&lt;/strong&gt;: 여러 이미지를 한번에 선택하여 일괄 압축 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 진행률&lt;/strong&gt;: 압축 과정을 시각적으로 확인할 수 있는 진행률 표시&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 조절&lt;/strong&gt;: 10~100% 범위에서 압축 품질을 세밀하게 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;포맷 선택&lt;/strong&gt;: 원본 포맷 유지 또는 JPEG/WebP로 변환 압축&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개별/일괄 다운로드&lt;/strong&gt;: 각 파일 개별 다운로드 또는 모든 파일 한번에 다운로드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;압축 통계&lt;/strong&gt;: 원본 대비 압축률과 절약된 용량을 실시간으로 확인&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 선택&lt;/strong&gt;: 압축할 이미지들을 드래그하거나 클릭해서 다중 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 설정&lt;/strong&gt;: 압축 품질을 10~100% 범위에서 조절하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;포맷 선택&lt;/strong&gt;: 원본 포맷 유지 또는 JPEG/WebP로 변환 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;압축 실행&lt;/strong&gt;: &amp;lsquo;이미지 압축하기&amp;rsquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다운로드&lt;/strong&gt;: 개별 다운로드 또는 모든 파일 한번에 다운로드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;압축-품질-가이드&#34;&gt;압축 품질 가이드&lt;/h2&gt;&#xA;&lt;h3 id=&#34;품질별-특성&#34;&gt;품질별 특성&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;품질 범위&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;          &lt;th&gt;용도&lt;/th&gt;&#xA;          &lt;th&gt;압축률&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;90-100%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;최고 품질, 낮은 압축&lt;/td&gt;&#xA;          &lt;td&gt;인쇄용, 아카이브&lt;/td&gt;&#xA;          &lt;td&gt;10-30%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;70-89%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;높은 품질, 적당한 압축&lt;/td&gt;&#xA;          &lt;td&gt;웹사이트, 포트폴리오&lt;/td&gt;&#xA;          &lt;td&gt;30-50%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;50-69%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;표준 품질, 좋은 압축&lt;/td&gt;&#xA;          &lt;td&gt;블로그, SNS&lt;/td&gt;&#xA;          &lt;td&gt;50-70%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;10-49%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;낮은 품질, 최대 압축&lt;/td&gt;&#xA;          &lt;td&gt;썸네일, 미리보기&lt;/td&gt;&#xA;          &lt;td&gt;70-90%&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;권장-설정&#34;&gt;권장 설정&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;웹 사이트용&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>이미지 자르기/크롭</title>
+      <link>http://localhost:1313/studio/image-cropper/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-cropper/</guid>
+      <description>&lt;h1 id=&#34;이미지-자르기크롭&#34;&gt;이미지 자르기/크롭&lt;/h1&gt;&#xA;&lt;p&gt;마우스 드래그로 간편하게 원하는 영역을 선택하여 이미지를 자를 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;인터랙티브 크롭&lt;/strong&gt;: 마우스로 드래그하여 직관적인 영역 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 고정 크롭&lt;/strong&gt;: 1:1, 4:3, 16:9 등 다양한 비율 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 수치 입력&lt;/strong&gt;: 픽셀 단위 정확한 크롭 영역 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 크롭 영역을 실시간으로 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 크롭 기능&lt;/strong&gt;: 전체 선택, 중앙 크롭 등 편의 기능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;고품질 출력&lt;/strong&gt;: 50~100% 품질 조절 지원&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 업로드&lt;/strong&gt;: 자를 이미지를 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크롭 영역 선택&lt;/strong&gt;: 마우스로 드래그하여 영역 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 설정&lt;/strong&gt;: 필요시 고정 비율 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;세밀 조정&lt;/strong&gt;: 핸들을 드래그하여 크기 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 설정&lt;/strong&gt;: 출력 품질을 50~100% 범위에서 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크롭 실행&lt;/strong&gt;: &amp;lsquo;이미지 자르기&amp;rsquo; 버튼 클릭&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;결과 다운로드&lt;/strong&gt;: 크롭된 이미지를 다운로드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;크롭-방법&#34;&gt;크롭 방법&lt;/h2&gt;&#xA;&lt;h3 id=&#34;마우스-드래그-크롭&#34;&gt;마우스 드래그 크롭&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;새 영역 생성&lt;/strong&gt;: 빈 공간을 클릭하고 드래그&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;영역 이동&lt;/strong&gt;: 선택된 영역 내부를 클릭하고 드래그&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 조절&lt;/strong&gt;: 모서리 핸들을 드래그하여 크기 변경&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 유지&lt;/strong&gt;: 모서리 핸들 드래그 시 Shift 키로 비율 고정&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;핸들을-이용한-정밀-조절&#34;&gt;핸들을 이용한 정밀 조절&lt;/h3&gt;&#xA;&lt;p&gt;크롭 영역 주변의 8개 핸들로 정밀한 크기 조절이 가능합니다:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>이미지 컬러 추출기</title>
+      <link>http://localhost:1313/studio/color-extractor/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/color-extractor/</guid>
+      <description>&lt;h1 id=&#34;이미지-컬러-추출기&#34;&gt;이미지 컬러 추출기&lt;/h1&gt;&#xA;&lt;p&gt;이미지를 분석하여 주요 컬러를 추출하고 각 색상의 비율을 보여주는 컬러 팔레트를 생성합니다.&lt;/p&gt;&#xA;&lt;p&gt;이미지를 업로드하면 3~10개의 대표 색상을 자동으로 추출하고, 각 컬러의 점유율을 백분율로 표시합니다. 추출된 컬러는 HEX, RGB 코드로 복사하거나 JSON 파일로 내보낼 수 있습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;이미지를 드래그앤드롭하거나 클릭하여 업로드합니다.&lt;/li&gt;&#xA;&lt;li&gt;추출할 색상 수(3~10개)를 선택합니다.&lt;/li&gt;&#xA;&lt;li&gt;분석이 완료되면 팔레트가 생성되고 각 색상의 비율을 확인합니다.&lt;/li&gt;&#xA;&lt;li&gt;HEX 또는 RGB 코드를 클릭하여 클립보드에 복사합니다.&lt;/li&gt;&#xA;&lt;li&gt;전체 팔레트를 JSON 또는 CSS 변수 형태로 내보낼 수 있습니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;활용-사례&#34;&gt;활용 사례&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;브랜드 컬러 추출&lt;/strong&gt;: 로고나 브랜드 이미지에서 핵심 색상 파악&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;디자인 인스피레이션&lt;/strong&gt;: 마음에 드는 사진의 컬러 팔레트 분석&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;웹 개발&lt;/strong&gt;: 이미지와 어울리는 배경색·텍스트 색상 선정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;마케팅 자료&lt;/strong&gt;: 제품 이미지 기반의 일관된 컬러 가이드 제작&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;자동 컬러 분석&lt;/strong&gt;: K-means 알고리즘으로 대표 색상 자동 추출&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 표시&lt;/strong&gt;: 각 색상이 이미지에서 차지하는 면적 백분율&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 코드 지원&lt;/strong&gt;: HEX, RGB, HSL 형식으로 색상 코드 복사&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;내보내기&lt;/strong&gt;: JSON, CSS 변수, Adobe Swatch 등 다양한 형식으로 저장&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;지원 형식&lt;/strong&gt;: JPEG, PNG, GIF, WebP, BMP (최대 10MB)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>이미지 크기 조절기</title>
+      <link>http://localhost:1313/studio/image-resizer/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/image-resizer/</guid>
+      <description>&lt;h1 id=&#34;이미지-크기-조절기&#34;&gt;이미지 크기 조절기&lt;/h1&gt;&#xA;&lt;p&gt;이미지의 가로, 세로 크기를 픽셀 단위로 정확하게 조절할 수 있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 크기 조절&lt;/strong&gt;: 픽셀 단위로 정확한 크기 지정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 유지 옵션&lt;/strong&gt;: 원본 비율을 유지하면서 크기 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;빠른 크기 선택&lt;/strong&gt;: 일반적인 해상도 사전 설정 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 조절 방법&lt;/strong&gt;: 늘이기, 맞추기, 채우기 옵션&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;고품질 출력&lt;/strong&gt;: 50~100% 품질 조절 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 조절 전후 비교 확인&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 업로드&lt;/strong&gt;: 크기를 조절할 이미지를 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 설정&lt;/strong&gt;: 빠른 선택 또는 사용자 정의 크기 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;조절 방법 선택&lt;/strong&gt;: 늘이기, 맞추기, 채우기 중 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 조절&lt;/strong&gt;: 출력 품질을 50~100% 범위에서 설정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 조절 실행&lt;/strong&gt;: &amp;lsquo;이미지 크기 조절하기&amp;rsquo; 버튼 클릭&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;결과 다운로드&lt;/strong&gt;: 조절된 이미지를 다운로드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;크기-조절-방법&#34;&gt;크기 조절 방법&lt;/h2&gt;&#xA;&lt;h3 id=&#34;늘이기줄이기-stretch&#34;&gt;늘이기/줄이기 (Stretch)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;원본 비율을 무시하고 지정된 크기에 강제로 맞춤&lt;/li&gt;&#xA;&lt;li&gt;이미지가 늘어나거나 압축될 수 있음&lt;/li&gt;&#xA;&lt;li&gt;정확한 크기가 필요한 경우 사용&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;맞추기-fit&#34;&gt;맞추기 (Fit)&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;원본 비율을 유지하며 지정된 크기 안에 맞춤&lt;/li&gt;&#xA;&lt;li&gt;부족한 영역은 흰색 여백으로 채움&lt;/li&gt;&#xA;&lt;li&gt;전체 이미지를 보존하면서 크기 조절&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;채우기-fill---권장&#34;&gt;채우기 (Fill) - 권장&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;원본 비율을 유지하며 지정된 크기를 완전히 채움&lt;/li&gt;&#xA;&lt;li&gt;넘치는 부분은 자동으로 잘림&lt;/li&gt;&#xA;&lt;li&gt;가장 자연스러운 결과 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;빠른-크기-선택&#34;&gt;빠른 크기 선택&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;해상도&lt;/th&gt;&#xA;          &lt;th&gt;용도&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;1920×1080&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Full HD&lt;/td&gt;&#xA;          &lt;td&gt;고화질 디스플레이, 동영상 썸네일&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;1280×720&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;HD&lt;/td&gt;&#xA;          &lt;td&gt;웹사이트, 블로그 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;800×600&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;표준&lt;/td&gt;&#xA;          &lt;td&gt;이메일, 문서용 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;640×480&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;소형&lt;/td&gt;&#xA;          &lt;td&gt;프로필 이미지, 아이콘&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;사용자-정의-크기&#34;&gt;사용자 정의 크기&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;최소&lt;/strong&gt;: 1×1 픽셀&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;최대&lt;/strong&gt;: 5000×5000 픽셀&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 잠금&lt;/strong&gt;: 원본 비율 유지/해제 가능&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;품질-설정&#34;&gt;품질 설정&lt;/h2&gt;&#xA;&lt;h3 id=&#34;품질별-특성&#34;&gt;품질별 특성&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;품질 범위&lt;/th&gt;&#xA;          &lt;th&gt;특성&lt;/th&gt;&#xA;          &lt;th&gt;권장 용도&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;90-100%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;최고 품질&lt;/td&gt;&#xA;          &lt;td&gt;인쇄용, 아카이브&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;80-89%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;높은 품질&lt;/td&gt;&#xA;          &lt;td&gt;웹사이트 메인 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;70-79%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;표준 품질&lt;/td&gt;&#xA;          &lt;td&gt;일반적인 웹 사용&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;50-69%&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;압축 우선&lt;/td&gt;&#xA;          &lt;td&gt;빠른 로딩이 중요한 경우&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;활용-사례&#34;&gt;활용 사례&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;웹사이트 최적화&lt;/strong&gt;: 다양한 디바이스에 맞는 크기로 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;소셜미디어&lt;/strong&gt;: 플랫폼별 최적 크기로 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;인쇄물 제작&lt;/strong&gt;: 인쇄에 필요한 해상도로 조절&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;이메일 첨부&lt;/strong&gt;: 용량 제한에 맞는 크기로 축소&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;썸네일 생성&lt;/strong&gt;: 작은 미리보기 이미지 생성&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;기술적-특징&#34;&gt;기술적 특징&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Canvas API 활용&lt;/strong&gt;: 고품질 이미지 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;비율 계산&lt;/strong&gt;: 자동 비율 유지 기능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;메모리 최적화&lt;/strong&gt;: 대용량 이미지 안정 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 처리&lt;/strong&gt;: 브라우저에서 즉시 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개인정보 보호&lt;/strong&gt;: 서버 업로드 없이 로컬 처리&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;지원-형식&#34;&gt;지원 형식&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;입력 형식&lt;/strong&gt;: JPEG, PNG, GIF, WebP, BMP, TIFF, SVG, ICO&#xA;&lt;strong&gt;출력 형식&lt;/strong&gt;: JPEG, PNG (투명도에 따라 자동 선택)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>이미지 포맷 변환기</title>
+      <link>http://localhost:1313/studio/format-converter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/format-converter/</guid>
+      <description>&lt;h1 id=&#34;이미지-포맷-변환기&#34;&gt;이미지 포맷 변환기&lt;/h1&gt;&#xA;&lt;p&gt;JPG, PNG, WebP 등 다양한 이미지 포맷 간 변환을 지원하는 브라우저 기반 온라인 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;다양한 포맷 지원&lt;/strong&gt;: JPG ↔ PNG ↔ WebP 자유 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;드래그 앤 드롭&lt;/strong&gt;: 간편한 이미지 업로드 방식&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 조절&lt;/strong&gt;: JPG/WebP 압축 품질 10~100% 조절 가능&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 원본과 변환 결과를 동시에 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;파일 정보&lt;/strong&gt;: 크기, 포맷, 용량 등 상세 정보 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;이미지 선택&lt;/strong&gt;: 변환할 이미지를 드래그하거나 클릭해서 업로드하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;포맷 선택&lt;/strong&gt;: 변환하고자 하는 목적 포맷을 선택하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 설정&lt;/strong&gt;: JPG/WebP의 경우 원하는 압축 품질을 조절하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;변환 실행&lt;/strong&gt;: &amp;lsquo;포맷 변환하기&amp;rsquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;다운로드&lt;/strong&gt;: 변환된 이미지를 다운로드하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;지원-포맷&#34;&gt;지원 포맷&lt;/h2&gt;&#xA;&lt;h3 id=&#34;입력-포맷&#34;&gt;입력 포맷&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;JPG/JPEG&lt;/strong&gt;: 표준 사진 포맷&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;PNG&lt;/strong&gt;: 투명도 지원 포맷&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;WebP&lt;/strong&gt;: Google의 차세대 이미지 포맷&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;BMP&lt;/strong&gt;: Windows 비트맵 포맷&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;GIF&lt;/strong&gt;: 애니메이션 지원 포맷 (첫 프레임만)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;출력-포맷&#34;&gt;출력 포맷&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;JPG (.jpg)&lt;/strong&gt;: 사진에 최적화, 작은 파일 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;PNG (.png)&lt;/strong&gt;: 투명도 보존, 무손실 압축&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;WebP (.webp)&lt;/strong&gt;: 우수한 압축률과 품질&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;포맷별-특징&#34;&gt;포맷별 특징&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;포맷&lt;/th&gt;&#xA;          &lt;th&gt;투명도&lt;/th&gt;&#xA;          &lt;th&gt;압축&lt;/th&gt;&#xA;          &lt;th&gt;파일크기&lt;/th&gt;&#xA;          &lt;th&gt;용도&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;JPG&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;❌&lt;/td&gt;&#xA;          &lt;td&gt;손실&lt;/td&gt;&#xA;          &lt;td&gt;작음&lt;/td&gt;&#xA;          &lt;td&gt;사진, 복잡한 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;PNG&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;✅&lt;/td&gt;&#xA;          &lt;td&gt;무손실&lt;/td&gt;&#xA;          &lt;td&gt;큰편&lt;/td&gt;&#xA;          &lt;td&gt;로고, 아이콘, 투명 이미지&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;WebP&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;✅&lt;/td&gt;&#xA;          &lt;td&gt;손실/무손실&lt;/td&gt;&#xA;          &lt;td&gt;매우 작음&lt;/td&gt;&#xA;          &lt;td&gt;웹 최적화, 차세대 포맷&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;품질-설정-가이드&#34;&gt;품질 설정 가이드&lt;/h2&gt;&#xA;&lt;h3 id=&#34;jpgwebp-품질-레벨&#34;&gt;JPG/WebP 품질 레벨&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;90-100%&lt;/strong&gt;: 최고 품질, 큰 파일 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;70-89%&lt;/strong&gt;: 고품질, 적절한 파일 크기 (권장)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;50-69%&lt;/strong&gt;: 표준 품질, 작은 파일 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;10-49%&lt;/strong&gt;: 저품질, 매우 작은 파일 크기&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;품질-선택-기준&#34;&gt;품질 선택 기준&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;웹사이트&lt;/strong&gt;: 70-85% (빠른 로딩과 품질 균형)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;인쇄물&lt;/strong&gt;: 90-100% (최고 품질 필요)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;썸네일&lt;/strong&gt;: 50-70% (작은 크기 우선)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;아카이브&lt;/strong&gt;: 100% 또는 PNG (원본 보존)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;활용-사례&#34;&gt;활용 사례&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;웹 최적화&lt;/strong&gt;: PNG 로고를 WebP로 변환하여 로딩 속도 향상&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;용량 절약&lt;/strong&gt;: 대용량 PNG를 JPG로 변환하여 저장 공간 확보&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;호환성 확보&lt;/strong&gt;: WebP 이미지를 JPG/PNG로 변환하여 범용성 향상&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;투명도 추가&lt;/strong&gt;: JPG를 PNG로 변환 후 배경 제거 작업&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 최적화&lt;/strong&gt;: 과도한 품질의 이미지를 적절한 수준으로 조정&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;기술적-특징&#34;&gt;기술적 특징&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;브라우저 기반&lt;/strong&gt;: 서버 업로드 없이 로컬에서 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개인정보 보호&lt;/strong&gt;: 업로드된 이미지는 브라우저를 벗어나지 않음&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Canvas API&lt;/strong&gt;: HTML5 Canvas를 활용한 이미지 처리&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 처리&lt;/strong&gt;: 즉시 변환 및 미리보기 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;품질 보존&lt;/strong&gt;: 원본 이미지의 색상과 선명도 최대한 유지&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;브라우저-호환성&#34;&gt;브라우저 호환성&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Chrome&lt;/strong&gt;: WebP 완벽 지원&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Firefox&lt;/strong&gt;: WebP 지원 (버전 65+)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Safari&lt;/strong&gt;: WebP 지원 (버전 14+)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Edge&lt;/strong&gt;: WebP 완벽 지원&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;모든 주요 브라우저에서 JPG, PNG 변환은 완벽하게 지원됩니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>커스텀 QR 코드 생성기</title>
+      <link>http://localhost:1313/studio/qr-custom/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/qr-custom/</guid>
+      <description>&lt;h1 id=&#34;커스텀-qr-코드-생성&#34;&gt;커스텀 QR 코드 생성&lt;/h1&gt;&#xA;&lt;p&gt;브랜드 아이덴티티에 맞춘 색상과 로고가 적용된 개성있는 커스텀 QR 코드를 생성하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 커스터마이징&lt;/strong&gt;: 전경색과 배경색을 브랜드 컬러에 맞게 자유 변경&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;로고 삽입&lt;/strong&gt;: 중앙에 브랜드 로고나 아이콘 추가 (크기 조절 가능)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;프리셋 색상&lt;/strong&gt;: 인기 색상 조합을 원클릭으로 적용&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 설정 변경 시 즉시 결과 확인&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;기본 설정&lt;/strong&gt;: 변환할 내용과 QR 코드 크기를 설정하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 선택&lt;/strong&gt;: 전경색(QR 코드)과 배경색을 지정하거나 프리셋을 사용하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;로고 업로드&lt;/strong&gt;: 원한다면 중앙에 들어갈 로고 이미지를 업로드하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;크기 조절&lt;/strong&gt;: 로고 크기를 10~25% 범위에서 조절하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;생성 및 다운로드&lt;/strong&gt;: QR 코드를 생성하고 PNG 파일로 저장하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;색상-설정-가이드&#34;&gt;색상 설정 가이드&lt;/h2&gt;&#xA;&lt;h3 id=&#34;전경색-qr-코드&#34;&gt;전경색 (QR 코드)&lt;/h3&gt;&#xA;&lt;p&gt;QR 코드 패턴의 색상입니다. 스캔이 잘되도록 배경색과 충분한 대비를 유지해야 합니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컬러 조합기</title>
+      <link>http://localhost:1313/studio/color-mixer/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/color-mixer/</guid>
+      <description>&lt;h1 id=&#34;컬러-조합기&#34;&gt;컬러 조합기&lt;/h1&gt;&#xA;&lt;p&gt;베이스 색상을 선택하면 어울리는 색조합을 자동으로 생성해주는 전문 컬러 팔레트 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;h3 id=&#34;색상-입력-방식&#34;&gt;색상 입력 방식&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 피커&lt;/strong&gt;: 직관적인 색상 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;HEX 코드 입력&lt;/strong&gt;: 정확한 색상 값 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;RGB 슬라이더&lt;/strong&gt;: 세밀한 색상 조정&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;4가지-조합-방식&#34;&gt;4가지 조합 방식&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;단색 조합 (Monochrome)&lt;/strong&gt;: 같은 색상의 명도 변화&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;유사 색상 (Analogous)&lt;/strong&gt;: 색상환에서 인접한 색상들&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;보색 조합 (Complementary)&lt;/strong&gt;: 대비되는 색상 조합&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;삼각 조합 (Triadic)&lt;/strong&gt;: 균등하게 분배된 3색 기반&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;베이스 색상 선택&lt;/strong&gt;: 컬러 피커 또는 HEX 코드 입력&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;RGB 슬라이더 조정&lt;/strong&gt;: 세밀한 색상 미세 조정&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;조합 타입 선택&lt;/strong&gt;: 원하는 색상 조합 방식 선택&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;팔레트 확인&lt;/strong&gt;: 생성된 5색 조합 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 복사&lt;/strong&gt;: 원하는 색상 클릭으로 HEX 코드 복사&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;색상-이론-기반&#34;&gt;색상 이론 기반&lt;/h2&gt;&#xA;&lt;p&gt;각 조합 방식은 검증된 색상 이론을 기반으로 합니다:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>컬러 카드 뽑기</title>
+      <link>http://localhost:1313/studio/single-card/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/single-card/</guid>
+      <description>&lt;h1 id=&#34;컬러-카드-뽑기&#34;&gt;컬러 카드 뽑기&lt;/h1&gt;&#xA;&lt;p&gt;오늘은 어떤 컬러가 당신을 기다리고 있을까요? 랜덤으로 컬러 카드를 뽑아 창의적 영감을 얻어보세요.&lt;/p&gt;&#xA;&lt;p&gt;각 카드는 색상 정보와 함께 특별한 의미를 담고 있습니다. 단색 카드부터 아름다운 그라데이션 카드까지 다양한 종류의 카드가 준비되어 있습니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;카드-종류&#34;&gt;카드 종류&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;카드 타입&lt;/th&gt;&#xA;          &lt;th&gt;설명&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;단색 카드&lt;/td&gt;&#xA;          &lt;td&gt;하나의 색상과 색상 이름, HEX 코드 제공&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;그라데이션 카드&lt;/td&gt;&#xA;          &lt;td&gt;두 색상의 그라데이션과 CSS 코드 제공&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;컬러 팔레트 카드&lt;/td&gt;&#xA;          &lt;td&gt;5가지 색상 조합으로 구성된 팔레트&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;스페셜 카드&lt;/td&gt;&#xA;          &lt;td&gt;희귀하게 등장하는 특별한 컬러 테마 카드&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;사용-방법&#34;&gt;사용 방법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;카드 뽑기&lt;/strong&gt; 버튼을 클릭하거나 카드를 클릭하면 랜덤 컬러 카드가 등장합니다.&lt;/li&gt;&#xA;&lt;li&gt;카드의 색상 코드(HEX, RGB)를 클릭하면 클립보드에 복사됩니다.&lt;/li&gt;&#xA;&lt;li&gt;마음에 드는 카드는 &lt;strong&gt;저장&lt;/strong&gt; 버튼으로 컬렉션에 보관할 수 있습니다.&lt;/li&gt;&#xA;&lt;li&gt;저장한 카드는 하단 컬렉션에서 언제든지 다시 확인할 수 있습니다.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;랜덤 컬러 생성&lt;/strong&gt;: 매번 다른 색상의 카드를 랜덤으로 뽑기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;카드 저장&lt;/strong&gt;: 마음에 드는 카드를 컬렉션에 저장하여 나중에 재확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 코드 복사&lt;/strong&gt;: HEX·RGB 색상 코드 원클릭 복사&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;스페셜 카드&lt;/strong&gt;: 낮은 확률로 등장하는 희귀 테마 카드 수집&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CSS 코드 제공&lt;/strong&gt;: 그라데이션 카드의 경우 바로 사용 가능한 CSS 코드 제공&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>컬러 팔레트 생성기</title>
+      <link>http://localhost:1313/studio/color-palette-5/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/color-palette-5/</guid>
+      <description>&lt;h1 id=&#34;5색-조합-팔레트&#34;&gt;5색 조합 팔레트&lt;/h1&gt;&#xA;&lt;p&gt;랜덤 베이스 색상을 기반으로 조화로운 5색 컬러 팔레트를 자동 생성하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;지능형 색상 생성&lt;/strong&gt;: 베이스 컬러를 기반으로 조화로운 5색 조합 생성&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 하모니 알고리즘&lt;/strong&gt;: HSL 색상 이론을 바탕으로 한 과학적 색상 조합&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;원클릭 복사&lt;/strong&gt;: 각 색상 코드를 클릭하면 즉시 클립보드에 복사&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;HEX 코드 제공&lt;/strong&gt;: 웹 디자인에서 바로 사용 가능한 HEX 색상 코드&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;팔레트 생성&lt;/strong&gt;: &amp;lsquo;조합 팔레트 생성&amp;rsquo; 버튼을 클릭하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 확인&lt;/strong&gt;: 생성된 5개의 조화로운 색상을 확인하세요&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;색상 복사&lt;/strong&gt;: 원하는 색상을 클릭하면 HEX 코드가 복사됩니다&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;재생성&lt;/strong&gt;: 다른 조합이 필요하면 버튼을 다시 클릭하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;색상-생성-알고리즘&#34;&gt;색상 생성 알고리즘&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;베이스 색상 생성&lt;/strong&gt; → &lt;strong&gt;색조 변화&lt;/strong&gt; → &lt;strong&gt;채도/명도 조정&lt;/strong&gt; → &lt;strong&gt;5색 조합 완성&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>텍스트 카운터</title>
+      <link>http://localhost:1313/studio/text-counter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/text-counter/</guid>
+      <description>&lt;h1 id=&#34;텍스트-카운터&#34;&gt;텍스트 카운터&lt;/h1&gt;&#xA;&lt;p&gt;실시간으로 텍스트의 다양한 정보를 분석하고 카운팅하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;글자수 카운팅&lt;/strong&gt;: 전체 글자수와 공백 제외 글자수&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;단어 및 줄 수&lt;/strong&gt;: 단어 개수, 줄 수, 문단 수 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;바이트 계산&lt;/strong&gt;: UTF-8 인코딩 기준 바이트 수&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;텍스트 분석&lt;/strong&gt;: 평균 단어 길이, 읽기 예상 시간&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;편의 기능&lt;/strong&gt;: 복사, 붙여넣기, 전체 삭제&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;텍스트 입력창에 분석할 텍스트를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;실시간으로 우측에 카운팅 결과가 표시됩니다&lt;/li&gt;&#xA;&lt;li&gt;필요시 복사, 붙여넣기, 삭제 버튼을 활용하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;블로그 글 작성, 보고서 작성, SNS 글자수 제한 확인 등 다양한 용도로 활용할 수 있습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>폰트 크기 변환기</title>
+      <link>http://localhost:1313/studio/font-converter/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/font-converter/</guid>
+      <description>&lt;h1 id=&#34;폰트-크기-변환기&#34;&gt;폰트 크기 변환기&lt;/h1&gt;&#xA;&lt;p&gt;웹과 인쇄물에서 사용하는 폰트 크기를 빠르게 변환하고 반응형 사이즈를 확인하는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;양방향 변환&lt;/strong&gt;: px ↔ pt 실시간 상호 변환&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;실시간 미리보기&lt;/strong&gt;: 입력한 폰트 크기로 텍스트 미리보기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;반응형 사이즈&lt;/strong&gt;: 모바일/태블릿/데스크톱별 권장 크기 자동 계산&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;권장 사이즈 가이드&lt;/strong&gt;: 본문, 제목, 캡션 등 용도별 권장 크기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;정확한 변환&lt;/strong&gt;: 0.75 비율 기준 정밀 계산&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;사용법&#34;&gt;사용법&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;픽셀(px) 또는 포인트(pt) 입력란에 크기를 입력하세요&lt;/li&gt;&#xA;&lt;li&gt;반대 단위로 자동 변환됩니다&lt;/li&gt;&#xA;&lt;li&gt;미리보기에서 실제 크기를 확인하세요&lt;/li&gt;&#xA;&lt;li&gt;반응형 사이즈와 권장 사이즈를 참고하세요&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;변환-기준&#34;&gt;변환 기준&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;변환 공식:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>플래피버드 게임</title>
+      <link>http://localhost:1313/studio/flappy-bird/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/flappy-bird/</guid>
+      <description>&lt;h1 id=&#34;플래피버드-게임&#34;&gt;플래피버드 게임&lt;/h1&gt;&#xA;&lt;p&gt;클릭하여 새를 조종하며 파이프 사이를 통과하는 도전적인 비행 게임입니다.&lt;/p&gt;&#xA;&lt;p&gt;중력의 영향을 받는 새를 클릭(또는 스페이스바)으로 조종하여 연속으로 나타나는 파이프 사이의 좁은 공간을 통과해야 합니다. 간단한 조작법이지만 높은 집중력과 타이밍이 요구되는 중독성 강한 게임입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;조작-방법&#34;&gt;조작 방법&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;마우스 클릭&lt;/strong&gt; 또는 &lt;strong&gt;스페이스바&lt;/strong&gt;: 새를 위로 날기&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;터치(모바일)&lt;/strong&gt;: 화면을 탭하여 조작 가능&lt;/li&gt;&#xA;&lt;li&gt;아무것도 누르지 않으면 중력에 의해 새가 아래로 떨어집니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;게임-규칙&#34;&gt;게임 규칙&lt;/h2&gt;&#xA;&lt;p&gt;파이프 사이 간격을 통과할 때마다 1점이 추가됩니다. 파이프 또는 바닥·천장에 닿으면 게임 오버입니다. 통과한 파이프 수가 늘어날수록 파이프 이동 속도가 점점 빨라집니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>오늘의 운세</title>
+      <link>http://localhost:1313/studio/fortune/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0900</pubDate>
+      <guid>http://localhost:1313/studio/fortune/</guid>
+      <description>&lt;h1 id=&#34;운세-컬러-카드&#34;&gt;운세 컬러 카드&lt;/h1&gt;&#xA;&lt;p&gt;오늘의 운세와 함께 특별한 색상을 받아보는 재미있는 도구입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;기능-소개&#34;&gt;기능 소개&lt;/h2&gt;&#xA;&lt;h3 id=&#34;주요-기능&#34;&gt;주요 기능&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;수정구 터치&lt;/strong&gt;: 신비로운 수정구를 터치하여 운세 확인&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;일일 운세&lt;/strong&gt;: 매일 다른 운세 메시지 제공&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 매칭&lt;/strong&gt;: 운세에 맞는 특별한 색상 추천&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;행운 지수&lt;/strong&gt;: 1~100점으로 표시되는 오늘의 운세&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;개인화&lt;/strong&gt;: 키워드와 추천 활동 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;운세-구성-요소&#34;&gt;운세 구성 요소&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;길흉 타입&lt;/strong&gt;: 대길, 중길, 소길, 길, 평, 소흉, 중흉, 대흉 (8단계)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;행운 지수&lt;/strong&gt;: 시각적 게이지로 표시 (1~100점)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;오늘의 키워드&lt;/strong&gt;: 하루를 대표하는 핵심 단어&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;추천 활동&lt;/strong&gt;: 운세에 맞는 구체적인 행동 가이드&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;컬러 정보&lt;/strong&gt;: HEX 코드와 색상명 제공&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;색상-데이터베이스&#34;&gt;색상 데이터베이스&lt;/h2&gt;&#xA;&lt;p&gt;총 12가지 특별한 색상과 의미를 제공합니다:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>베이스</title>
+      <link>http://localhost:1313/studio/base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/studio/base/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
