@@ -1,12 +1,12 @@
 [build]
 publish = "public"
-command = "hugo --gc --minify --baseURL https://nfpdesign.co.kr"
+command = "hugo --gc --minify --baseURL https://studio-nfp.com"
 
 [context.production.environment]
 HUGO_VERSION = "0.147.5"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
-HUGO_BASEURL = "https://nfpdesign.co.kr"
+HUGO_BASEURL = "https://studio-nfp.com"
 
 [context.split1]
 command = "hugo --gc --minify --enableGitInfo"
