@@ -1,32 +1,24 @@
 [build]
 publish = "public"
-command = "hugo --gc --minify --baseURL https://studio-nfp.com"
-
+command = "hugo --gc --minify --baseURL https://nfpdesign.netlify.app"
 [context.production.environment]
 HUGO_VERSION = "0.147.5"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
-HUGO_BASEURL = "https://studio-nfp.com"
-
+HUGO_BASEURL = "https://nfpdesign.netlify.app"
 [context.split1]
 command = "hugo --gc --minify --enableGitInfo"
-
 [context.split1.environment]
 HUGO_VERSION = "0.147.5"
 HUGO_ENV = "production"
-
 [context.deploy-preview]
 command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
-
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.147.5"
-
 [context.branch-deploy]
 command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
-
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.147.5"
-
 # 보안 헤더
 [[headers]]
   for = "/*"
@@ -42,51 +34,42 @@ HUGO_VERSION = "0.147.5"
   for = "/admin/*"
   [headers.values]
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://identity.netlify.com https://www.googletagmanager.com https://www.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' https: data: blob:; font-src 'self' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self' https://unpkg.com https://identity.netlify.com https://api.netlify.com https://www.googleapis.com https://firestore.googleapis.com https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; frame-src 'self'; frame-ancestors 'none'; object-src 'none'"
-
-# SEO를 위한 robots 헤더
+# 구사이트 검색엔진 노출 차단 (studio-nfp.com으로 완전 이전, 개인 아카이브 전용)
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Robots-Tag = "index, follow"
-
+    X-Robots-Tag = "noindex, nofollow"
 # 정적 파일 캐싱
 [[headers]]
   for = "/css/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
-
 [[headers]]
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
-
 [[headers]]
   for = "/img/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
-
 [[headers]]
   for = "/robots.txt"
   [headers.values]
     Cache-Control = "public, max-age=3600"
-
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
     Cache-Control = "public, max-age=3600"
-
 # API 함수들은 캐시 안함
 [[headers]]
   for = "/.netlify/functions/*"
   [headers.values]
     Cache-Control = "no-cache"
-
 # 폼 제출 처리
 [[redirects]]
   from = "/newsletter-success"
   to = "/?newsletter=success"
   status = 302
-
 # 404 에러 페이지 처리
 [[redirects]]
   from = "/*"
